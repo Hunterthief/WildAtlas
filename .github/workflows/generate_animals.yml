@@ -3,9 +3,7 @@ import json
 import time
 import os
 
-# make sure the data folder exists
-os.makedirs("../data", exist_ok=True)  # if running locally
-os.makedirs("data", exist_ok=True)     # if running on GitHub Actions
+os.makedirs("data", exist_ok=True)
 
 animals = [
     "Lion","Tiger","Elephant","Blue Whale","Orca","Great White Shark",
@@ -23,27 +21,19 @@ data = []
 for name in animals:
     try:
         r = requests.get(API + name).json()
-
         item = {
             "name": name,
             "description": r.get("description",""),
             "summary": r.get("extract",""),
             "image": r.get("thumbnail",{}).get("source",""),
         }
-
         data.append(item)
-
         print("Added", name)
-
-        time.sleep(1)  # be nice to Wikipedia
-
+        time.sleep(1)
     except Exception as e:
         print("Error fetching", name, e)
 
-# GitHub Actions path
-output_path = "data/animals.json"
-
-with open(output_path, "w") as f:
+with open("data/animals.json", "w") as f:
     json.dump(data, f, indent=2)
 
-print("animals.json written to", output_path)
+print("animals.json written to data/animals.json")
