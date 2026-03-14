@@ -4,15 +4,24 @@
     "description": "Large cat native to Africa and India",
     "summary": "The lion is a large cat of the genus Panthera, currently ranging only in Sub-Saharan Africa and India. It has a muscular, broad-chested body; a short, rounded head; round ears; and a dark, hairy tuft at the tip of its tail. It is sexually dimorphic; adult male lions are larger than females and have a prominent mane that which extends from the head to the shoulders and chest.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/330px-020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": "big cat",
+      "order": "species",
+      "family": "Panthera",
+      "genus": "Panthera leo",
+      "species": "Panthera leo"
+    },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": null,
+    "weight": "+1.65 Q11570",
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -20,15 +29,24 @@
     "description": "Species of large cat",
     "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": "big cat",
+      "order": "species",
+      "family": "Panthera",
+      "genus": "Panthera tigris",
+      "species": "Panthera tigris"
+    },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": null,
+    "weight": "+1.19 Q11570",
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -40,7 +58,7 @@
       "domain": null,
       "kingdom": null,
       "phylum": null,
-      "class": null,
+      "class": "mammal",
       "order": null,
       "family": null,
       "genus": null,
@@ -61,15 +79,24 @@
     "description": "Species of whale; largest animal known",
     "summary": "The blue whale is a species of baleen whale and the largest marine mammal in the rorqual family Balaenopteridae. Reaching a maximum confirmed length of 29.9–30.5 m (98–100 ft) and weighing up to 190–200 t, it is the largest animal known to have ever existed. The blue whale's long and slender body can be of various shades of greyish-blue on its upper surface and somewhat lighter underneath. Four subspecies are recognized: B. m. musculus in the North Atlantic and North Pacific, B. m. intermedia in the Southern Ocean, B. m. brevicauda in the Indian Ocean and South Pacific Ocean, and B. m. indica in the Northern Indian Ocean. There is a population in the waters off Chile that may constitute a fifth subspecies.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg/330px-Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": "Cetacea",
+      "order": "species",
+      "family": "Balaenoptera",
+      "genus": "Balaenoptera musculus",
+      "species": "Balaenoptera musculus"
+    },
     "diet": null,
-    "length": null,
+    "length": "+27.1 Q11573",
     "height": null,
     "weight": null,
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -77,7 +104,16 @@
     "description": "Largest living species of dolphin",
     "summary": "The orca, or killer whale, is a toothed whale and the largest member of the oceanic dolphin family. The only extant species in the genus Orcinus, it is recognizable by its distinct pigmentation; being mostly black on top, white on the bottom and having recognizable white eye patches. A cosmopolitan species, it inhabits a wide range of marine environments, from Arctic to Antarctic regions to tropical seas, but is more commonly documented in temperate or cooler coastal waters. Scientists have proposed dividing the global population into races, subspecies, or possibly even species.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Killerwhales_jumping.jpg/330px-Killerwhales_jumping.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": "Odontoceti",
+      "order": "species",
+      "family": "Orcinus",
+      "genus": "Orcinus orca",
+      "species": "Orcinus orca"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -85,7 +121,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -93,15 +129,24 @@
     "description": "Species of large lamniform shark",
     "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight and provides buoyancy and stores energy. The species is partially warm-blooded, an adaptation that allows them to remain active in colder waters.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": null,
+      "order": "species",
+      "family": "Carcharodon",
+      "genus": "Carcharodon carcharias",
+      "species": "Carcharodon carcharias"
+    },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": null,
+    "weight": "+2400 Q100995",
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -113,7 +158,7 @@
       "domain": null,
       "kingdom": null,
       "phylum": null,
-      "class": null,
+      "class": "Delphinidae",
       "order": null,
       "family": null,
       "genus": null,
@@ -134,7 +179,16 @@
     "description": "Soft-bodied eight-limbed order of molluscs",
     "summary": "An octopus is a soft-bodied, eight-limbed mollusc of the order Octopoda. The order consists of some 300 species and is grouped within the class Cephalopoda with squids, cuttlefish, and nautiloids. Like other cephalopods, an octopus is bilaterally symmetric with two eyes and a beaked mouth at the centre point of the eight limbs. An octopus can radically deform its shape, enabling it to squeeze through small gaps. They trail their appendages behind them as they swim backwards. The siphon is used for respiration and locomotion. Octopuses have a complex nervous system and excellent sight, and are among the most intelligent and behaviourally diverse invertebrates.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Octopus2.jpg/330px-Octopus2.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "order",
+      "phylum": null,
+      "class": null,
+      "order": "order",
+      "family": "Octopodiformes",
+      "genus": "Octopoda",
+      "species": "Octopoda"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -142,7 +196,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -150,7 +204,16 @@
     "description": "Family of aquatic flightless birds",
     "summary": "Penguins are a group of flightless semi-aquatic sea birds which live almost exclusively in the Southern Hemisphere. Only one species, the Galapagos penguin, lives at, and slightly north of, the equator. Highly adapted for life in the ocean water, penguins have countershaded dark and white plumage and flippers for swimming. Most penguins feed on krill, fish, squid and other forms of sea life which they catch with their bills and swallow whole while swimming. A penguin has a spiny tongue and powerful jaws to grip slippery prey.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "family",
+      "phylum": null,
+      "class": "seabird",
+      "order": "family",
+      "family": "Sphenisciformes",
+      "genus": "Spheniscidae",
+      "species": "Spheniscidae"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -158,7 +221,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -166,7 +229,16 @@
     "description": "Tall African hoofed mammal",
     "summary": "Giraffes are large African hoofed mammals. They are the tallest living terrestrial animals and the largest ruminants on Earth. They are classified under the family Giraffidae, along with their closest extant relative, the okapi. Traditionally, giraffes have been thought of as one species, Giraffa camelopardalis, with nine subspecies. Most recently, researchers proposed dividing them into four extant species, with seven subspecies, which can be distinguished morphologically by their fur coat patterns. Six valid extinct species of Giraffa are known from the fossil record.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Giraffe_Mikumi_National_Park.jpg/330px-Giraffe_Mikumi_National_Park.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "genus",
+      "phylum": null,
+      "class": null,
+      "order": "genus",
+      "family": "Giraffina",
+      "genus": "Giraffa",
+      "species": "Giraffa"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -174,7 +246,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -182,7 +254,16 @@
     "description": "Striped animal in the equid family",
     "summary": "Zebras are African equines with distinctive black-and-white striped coats. There are three living species: Grévy's zebra, the plains zebra, and the mountain zebra. Zebras share the genus Equus with horses and asses, the three groups being the only living members of the family Equidae. Zebra stripes come in different patterns, unique to each individual. Several theories have been proposed for the function of these patterns, with most evidence supporting them as a deterrent for biting flies. Zebras inhabit eastern and southern Africa and can be found in a variety of habitats such as savannahs, grasslands, woodlands, shrublands, and mountainous areas.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Plains_Zebra_Equus_quagga_cropped.jpg/330px-Plains_Zebra_Equus_quagga_cropped.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "subgenus",
+      "phylum": null,
+      "class": null,
+      "order": "subgenus",
+      "family": "Equus",
+      "genus": "Hippotigris",
+      "species": "Hippotigris"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -190,7 +271,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -198,7 +279,16 @@
     "description": "Family of carnivoran mammals",
     "summary": "Bears are carnivoran mammals of the family Ursidae. They are classified as caniforms, or doglike carnivorans. Although only eight species of bears are extant, they are widespread, appearing in a wide variety of habitats throughout most of the Northern Hemisphere and partially in the Southern Hemisphere. Bears are found on the continents of North America, South America, and Eurasia. Common characteristics of modern bears include large bodies with stocky legs, long snouts, small rounded ears, shaggy hair, plantigrade paws with five nonretractile claws, and short tails.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Ours_brun_parcanimalierpyrenees_1.jpg/330px-Ours_brun_parcanimalierpyrenees_1.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "family",
+      "phylum": null,
+      "class": "Carnivora",
+      "order": "family",
+      "family": "Ursoidea",
+      "genus": "Ursidae",
+      "species": "Ursidae"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -206,7 +296,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -214,7 +304,16 @@
     "description": "Species of canine",
     "summary": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America. More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo, though grey wolves, as popularly understood, include only naturally occurring wild subspecies. The wolf is the largest wild extant member of the family Canidae, and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal, to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": "Canidae",
+      "order": "species",
+      "family": "Canis",
+      "genus": "Canis lupus",
+      "species": "Canis lupus"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -222,7 +321,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -234,7 +333,7 @@
       "domain": null,
       "kingdom": null,
       "phylum": null,
-      "class": null,
+      "class": "Caninae",
       "order": null,
       "family": null,
       "genus": null,
@@ -259,7 +358,7 @@
       "domain": null,
       "kingdom": null,
       "phylum": null,
-      "class": null,
+      "class": "Diprotodontia",
       "order": null,
       "family": null,
       "genus": null,
@@ -280,15 +379,24 @@
     "description": "Arboreal herbivorous marsupial native to Australia",
     "summary": "The koala, sometimes inaccurately called the koala bear, is an arboreal herbivorous marsupial native to Australia. It is the only extant representative of the family Phascolarctidae. Its closest living relatives are the wombats. The koala is found in coastal areas of the continent's eastern and southern regions, inhabiting Queensland, New South Wales, Victoria, and South Australia. It is easily recognisable by its stout, tailless body and large head with round, fluffy ears and large, dark nose. The koala has a body length of 60–85 cm (24–33 in) and weighs 4–15 kg (8.8–33.1 lb). Its fur colour ranges from silver grey to chocolate brown. Koalas from the northern populations are typically smaller and lighter in colour than their counterparts further south. These populations are possibly separate subspecies, but not all researchers accept this.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/330px-Koala_climbing_tree.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": null,
+      "order": "species",
+      "family": "Phascolarctos",
+      "genus": "Phascolarctos cinereus",
+      "species": "Phascolarctos cinereus"
+    },
     "diet": null,
     "length": null,
     "height": null,
     "weight": null,
-    "location": null,
+    "location": "Australia",
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -296,15 +404,24 @@
     "description": "Large feline of the genus Acinonyx",
     "summary": "The cheetah is a species of large feline and the only living member of the genus Acinonyx. An iconic pursuit predator, it is the fastest land animal, capable of running at 93 to 104 km/h ; it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": "big cat",
+      "order": "species",
+      "family": "Acinonyx",
+      "genus": "Acinonyx jubatus",
+      "species": "Acinonyx jubatus"
+    },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": null,
+    "weight": "+275 Q41803",
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -312,7 +429,16 @@
     "description": "Species of cat native to Africa and Asia",
     "summary": "The leopard is one of the five extant cat species in the genus Panthera. It has a pale yellowish to dark golden fur with dark spots grouped in rosettes. Its body is slender and muscular, reaching a length of 92–183 cm (36–72 in) with a 66–102 cm (26–40 in) long tail and a shoulder height of 60–70 cm (24–28 in). Males typically weigh 30.9–72 kg (68–159 lb), and females 20.5–43 kg (45–95 lb).",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/African_leopard_male_%28cropped%29.jpg/330px-African_leopard_male_%28cropped%29.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": "big cat",
+      "order": "species",
+      "family": "Panthera",
+      "genus": "Panthera pardus",
+      "species": "Panthera pardus"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -320,7 +446,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -328,7 +454,16 @@
     "description": "Family of carnivoran mammals",
     "summary": "Hyenas or hyaenas are feliform carnivoran mammals belonging to the family Hyaenidae. With just four extant species, it is the fifth-smallest family in the order Carnivora and one of the smallest in the class Mammalia. Despite their low diversity, hyenas are unique and vital components of most African ecosystems.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hyaenidae_Diversity.jpg/330px-Hyaenidae_Diversity.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "family",
+      "phylum": null,
+      "class": null,
+      "order": "family",
+      "family": "Herpestoidea",
+      "genus": "Hyaenidae",
+      "species": "Hyaenidae"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -336,7 +471,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -344,7 +479,16 @@
     "description": "Largest species of deer",
     "summary": "The moose or elk is the world's tallest, largest and heaviest extant species of deer and the only extant species in the genus Alces. It is also the tallest, and the second-largest, land animal in North America, falling short only to the American bison in body mass. Most adult male moose have broad, palmate antlers; other members of the deer family have pointed antlers with a dendritic (\"twig-like\") configuration. Moose inhabit the circumpolar boreal forests or temperate broadleaf and mixed forests of the Northern Hemisphere, thriving in cooler, temperate areas as well as subarctic climates.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Alaska_moose.jpg/330px-Alaska_moose.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": null,
+      "order": "species",
+      "family": "Alces",
+      "genus": "Alces alces",
+      "species": "Alces alces"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -352,7 +496,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -360,7 +504,16 @@
     "description": "Species of marine mammal with tusks",
     "summary": "The walrus is a large pinniped marine mammal with discontinuous distribution about the North Pole in the Arctic Ocean and subarctic seas of the Northern Hemisphere. It is the only extant species in the family Odobenidae and genus Odobenus. This species is subdivided into two subspecies: the Atlantic walrus, which lives in the Atlantic Ocean, and the Pacific walrus, which lives in the Pacific Ocean.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Walrus_in_the_Russian_Arctic_National_Park%2C_Novaya_Zemlya_2015-2.jpg/330px-Walrus_in_the_Russian_Arctic_National_Park%2C_Novaya_Zemlya_2015-2.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": null,
+      "order": "species",
+      "family": "Odobenus",
+      "genus": "Odobenus rosmarus",
+      "species": "Odobenus rosmarus"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -368,7 +521,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -401,7 +554,16 @@
     "description": "Subfamily of aquatic mammals",
     "summary": "Sea lions are pinnipeds characterized by external ear flaps, long foreflippers, the ability to walk on all fours, short and thick hair, and a big chest and belly. Together with the fur seals, they make up the family Otariidae, eared seals. The sea lions have six extant and one extinct species in five genera. Their range extends from the subarctic to tropical waters of the global ocean in both the Northern and Southern hemispheres, with the notable exception of the northern Atlantic Ocean.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/California_sea_lion_in_La_Jolla_%2870568%29.jpg/330px-California_sea_lion_in_La_Jolla_%2870568%29.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "subfamily",
+      "phylum": null,
+      "class": "Otariidae",
+      "order": "subfamily",
+      "family": "Otariidae",
+      "genus": "Otariinae",
+      "species": "Otariinae"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -409,7 +571,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -417,7 +579,16 @@
     "description": "Fish which has a long, pointed bill",
     "summary": "The swordfish, also known as the broadbill in some countries, are large, highly migratory predatory fish characterized by a long, flat, pointed bill. They are the sole member of the family Xiphiidae. They are a popular sport fish of the billfish category. Swordfish are elongated, round-bodied, and lose all teeth and scales by adulthood. These fish are found widely in tropical and temperate parts of the Atlantic, Pacific, and Indian Oceans, and can typically be found from near the surface to a depth of 550 m (1,800 ft), and exceptionally up to depths of 2,234 m. They commonly reach 3 m (10 ft) in length, and the maximum reported is 4.55 m in length and 650 kg (1,430 lb) in weight.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Xiphias_gladius_Linnaeus%2C_1758_2599925021.jpg/330px-Xiphias_gladius_Linnaeus%2C_1758_2599925021.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": null,
+      "order": "species",
+      "family": "Xiphias",
+      "genus": "Xiphias gladius",
+      "species": "Xiphias gladius"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -425,7 +596,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -437,7 +608,7 @@
       "domain": null,
       "kingdom": null,
       "phylum": null,
-      "class": null,
+      "class": "fish",
       "order": null,
       "family": null,
       "genus": null,
@@ -458,7 +629,16 @@
     "description": "Tribe of fish",
     "summary": "A tuna is a saltwater fish that belongs to the tribe Thunnini, a subgrouping of the Scombridae (mackerel) family. The Thunnini comprise 15 species across five genera, the sizes of which vary greatly, ranging from the bullet tuna up to the Atlantic bluefin tuna, which averages 2 m (6.6 ft) and is believed to live up to 50 years.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Tuna_assortment.png/250px-Tuna_assortment.png",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "tribe",
+      "phylum": null,
+      "class": null,
+      "order": "tribe",
+      "family": "Scombrinae",
+      "genus": "Thunnini",
+      "species": "Thunnini"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -466,7 +646,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -474,7 +654,16 @@
     "description": "Monotypic subfamily of fishes",
     "summary": "Clownfish or anemonefishes are saltwater fish found in the warm and tropical waters of the Indo-Pacific. They mainly inhabit coral reefs and have a distinctive colouration typically consisting of white vertical bars on a red, orange, yellow, brown or black background. Clownfish developed a symbiotic and mutually beneficial relationship with sea anemones, on which they rely for shelter and protection from predators. In turn, clownfish protect the anemone from anemone-eating fish, as well as clean and fan them, and attract beneficial microorganisms with their waste.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Amphiprion_ocellaris_%28Clown_anemonefish%29_by_Nick_Hobgood.jpg/330px-Amphiprion_ocellaris_%28Clown_anemonefish%29_by_Nick_Hobgood.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "subfamily",
+      "phylum": null,
+      "class": "fish",
+      "order": "subfamily",
+      "family": "Pomacentridae",
+      "genus": "Amphiprioninae",
+      "species": "Amphiprioninae"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -482,7 +671,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -515,7 +704,16 @@
     "description": "Subgenus of fishes",
     "summary": "Manta rays are large rays belonging to the genus Mobula. Three species are known: M. birostris, the largest at 7 m (23 ft) in width, M. yarae, which reaches 6 m (20 ft), and M. alfredi, the smallest at 5.5 m (18 ft). All three have triangular pectoral fins, horn-shaped cephalic fins and large, forward-facing mouths. They are classified among the Myliobatiformes and are placed in the family Myliobatidae. They have one of the highest brain-to-body ratio of all fish, and can pass the mirror test.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Dharavandhoo_Thila_-_Manata_Black_Pearl.JPG/330px-Dharavandhoo_Thila_-_Manata_Black_Pearl.JPG",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "genus",
+      "phylum": null,
+      "class": null,
+      "order": "genus",
+      "family": "Mobulidae",
+      "genus": "Manta",
+      "species": "Manta"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -523,7 +721,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -531,7 +729,16 @@
     "description": "Suborder of fishes",
     "summary": "Stingrays are a group of rays, a type of cartilaginous fish. They are classified in the suborder Myliobatoidei of the order Myliobatiformes and consist of eleven families: Hexatrygonidae, Gymnuridae, Plesiobatidae, Urolophidae, Myliobatidae, Aetobatidae, Mobulidae, Rhinopteridae, Dasyatidae, Potamotrygonidae, and Urotrygonidae .\nThere are about 220 known stingray species organized into 29 genera.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/SStringray.jpg/330px-SStringray.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "suborder",
+      "phylum": null,
+      "class": null,
+      "order": "suborder",
+      "family": "Myliobatiformes",
+      "genus": "Myliobatoidei",
+      "species": "Myliobatoidei"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -539,7 +746,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -547,7 +754,16 @@
     "description": "Family of sharks",
     "summary": "The hammerhead sharks are a group of sharks that form the family Sphyrnidae, named for the unusual and distinctive form of their heads, which are flattened and laterally extended into a cephalofoil. The shark's eyes are placed one on each end of this T-shaped structure, with their small mouths directly centered and underneath. Most hammerhead species are placed in the genus Sphyrna, while the winghead shark is placed in its own genus, Eusphyra. Many different—but not necessarily mutually exclusive—functions have been postulated for the cephalofoil, including sensory reception, manoeuvering, and prey manipulation. The cephalofoil gives the shark superior binocular vision and depth perception, as well as increased surface area for electrocreceptors.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Scalloped_Hammerhead_Shark_Sphyrna_Lewini_%28226845659%29.jpeg/330px-Scalloped_Hammerhead_Shark_Sphyrna_Lewini_%28226845659%29.jpeg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "family",
+      "phylum": null,
+      "class": null,
+      "order": "family",
+      "family": "Carcharhiniformes",
+      "genus": "Sphyrnidae",
+      "species": "Sphyrnidae"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -555,7 +771,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -563,7 +779,16 @@
     "description": "Genus of fish",
     "summary": "A barracuda is a large, predatory, ray-finned, saltwater fish of the genus Sphyraena, the only genus in the family Sphyraenidae, which was named by Constantine Samuel Rafinesque in 1815. It is found in tropical and subtropical oceans worldwide ranging from the eastern border of the Atlantic Ocean to the Red Sea, on its western border the Caribbean Sea, and in tropical areas of the Pacific Ocean. Barracudas reside near the top of the water and near coral reefs and sea grasses. Barracudas are often targeted by sport-fishing enthusiasts.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Barracuda_laban.jpg/330px-Barracuda_laban.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "genus",
+      "phylum": null,
+      "class": null,
+      "order": "genus",
+      "family": "Sphyraenidae",
+      "genus": "Sphyraena",
+      "species": "Sphyraena"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -571,7 +796,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -579,7 +804,16 @@
     "description": "Family of pufferfish",
     "summary": "Tetraodontidae is a family of marine and freshwater fish in the order Tetraodontiformes. The family includes many familiar species variously called pufferfishes, puffers, balloonfishes, blowfishes, blowers, blowies, bubblefishes, globefishes, swellfishes, toadfishes, toadies, botetes, toadle, honey toads, sugar toads, and sea squabs. They are morphologically similar to the closely related porcupinefish, which have large external spines. The family name comes from Ancient Greek τετρα- (tetra-), meaning \"four\", and ὀδούς (odoús), meaning \"tooth\", referring to the four teeth of the type genus Tetraodon.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Tetraodon-hispidus.jpg/330px-Tetraodon-hispidus.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "family",
+      "phylum": null,
+      "class": null,
+      "order": "family",
+      "family": "Tetraodontiformes",
+      "genus": "Tetraodontidae",
+      "species": "Tetraodontidae"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -587,7 +821,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -595,7 +829,16 @@
     "description": "Family of fishes",
     "summary": "Moray eels, or Muraenidae, are a family of eels whose members are found worldwide. There are approximately 200 species in 16 genera which are almost exclusively marine, but several species are regularly seen in brackish water, and a few are found in fresh water.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Moray_eel.jpg/330px-Moray_eel.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "family",
+      "phylum": null,
+      "class": null,
+      "order": "family",
+      "family": "Anguilliformes",
+      "genus": "Muraenidae",
+      "species": "Muraenidae"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -603,7 +846,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -611,7 +854,16 @@
     "description": "Genus of mammals",
     "summary": "Manatees are large, fully aquatic, mostly herbivorous marine mammals sometimes known as sea cows. There are three accepted living species of Trichechidae, representing three of the four living species in the order Sirenia: the Amazonian manatee, the West Indian manatee, and the West African manatee. They measure up to 4.0 metres long, weigh as much as 590 kilograms (1,300 lb), and have paddle-like tails.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Underwater_photography_on_endangered_mammal_manatee.jpg/330px-Underwater_photography_on_endangered_mammal_manatee.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "genus",
+      "phylum": null,
+      "class": null,
+      "order": "genus",
+      "family": "Trichechidae",
+      "genus": "Trichechus",
+      "species": "Trichechus"
+    },
     "diet": null,
     "length": null,
     "height": null,
@@ -619,7 +871,7 @@
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -627,15 +879,24 @@
     "description": "Medium-sized toothed whale species",
     "summary": "The narwhal is a species of toothed whale native to the Arctic. It is the only member of the genus Monodon and one of two living representatives of the family Monodontidae. The narwhal is a stocky cetacean with a relatively blunt snout, a large melon, and a shallow ridge in place of a dorsal fin. Males of this species have a spiralled tusk that is 1.5–3.0 m (4.9–9.8 ft) long, which is a protruding left canine thought to function as a weapon, a tool for feeding, in attracting mates or sensing water salinity. Specially adapted slow-twitch muscles, along with the jointed neck vertebrae and shallow dorsal ridge allow for easy movement through the Arctic environment, where the narwhal spends extended periods at great depths. The narwhal's geographic range overlaps with that of the similarly built and closely related beluga whale, and the animals are known to interbreed.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%9D%D0%B0%D1%80%D0%B2%D0%B0%D0%BB_%D0%B2_%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B9_%D0%90%D1%80%D0%BA%D1%82%D0%B8%D0%BA%D0%B5.jpg/330px-%D0%9D%D0%B0%D1%80%D0%B2%D0%B0%D0%BB_%D0%B2_%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B9_%D0%90%D1%80%D0%BA%D1%82%D0%B8%D0%BA%D0%B5.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": null,
+      "order": "species",
+      "family": "Monodon",
+      "genus": "Monodon monoceros",
+      "species": "Monodon monoceros"
+    },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": null,
+    "weight": "+80 Q11570",
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   },
   {
@@ -643,15 +904,24 @@
     "description": "Species of whale",
     "summary": "The beluga whale, is an Arctic and sub-Arctic cetacean. It is one of two living members of the family Monodontidae, along with the narwhal, and the only member of the genus Delphinapterus. It is also known as the white whale, as it is the only cetacean to regularly occur with this colour; the sea canary, due to its high-pitched calls; and the melonhead, though that more commonly refers to the melon-headed whale, which is an oceanic dolphin.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Oceanogr%C3%A0fic_29102004.jpg/330px-Oceanogr%C3%A0fic_29102004.jpg",
-    "classification": {},
+    "classification": {
+      "domain": null,
+      "kingdom": "species",
+      "phylum": null,
+      "class": null,
+      "order": "species",
+      "family": "Delphinapterus",
+      "genus": "Delphinapterus leucas",
+      "species": "Delphinapterus leucas"
+    },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": null,
+    "weight": "+60 Q11570",
     "location": null,
     "sources": [
       "Wikipedia",
-      "Wikidata FAILED"
+      "Wikidata"
     ]
   }
 ]
