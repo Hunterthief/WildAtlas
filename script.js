@@ -2,7 +2,7 @@
 let allAnimals = [];
 let filteredAnimals = [];
 
-// DOM Elements - Wait for DOM to be ready
+// DOM Elements
 let gridElement, searchInput, backLink, animalPage, homePage;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,18 +15,33 @@ document.addEventListener('DOMContentLoaded', () => {
     animalPage = document.getElementById('animal-page');
     homePage = document.getElementById('home-page');
     
-    // Debug: Check if elements exist
-    console.log('Grid element:', gridElement);
-    console.log('Home page:', homePage);
-    console.log('Animal page:', animalPage);
+    // Debug display on page
+    const debugDiv = document.createElement('div');
+    debugDiv.id = 'debug-info';
+    debugDiv.style.cssText = 'position:fixed;bottom:10px;right:10px;background:#0f172a;color:#38bdf8;padding:15px;border-radius:10px;font-size:12px;z-index:9999;border:1px solid #334155;max-width:300px;';
+    debugDiv.innerHTML = '<strong>Debug:</strong><br>Initializing...';
+    document.body.appendChild(debugDiv);
     
-    if (!gridElement) {
-        console.error('❌ ERROR: Grid element not found!');
-        return;
+    function updateDebug(msg) {
+        const d = document.getElementById('debug-info');
+        if (d) d.innerHTML += '<br>' + msg;
+        console.log(msg);
     }
     
+    if (!gridElement) {
+        updateDebug('❌ Grid element NOT found!');
+        return;
+    }
+    updateDebug('✅ Grid element found');
+    
+    if (!homePage) {
+        updateDebug('❌ Home page element NOT found!');
+        return;
+    }
+    updateDebug('✅ Home page found');
+    
     // Initialize
-    fetchAnimals();
+    fetchAnimals(updateDebug);
     
     // Search listener
     if (searchInput) {
@@ -34,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const term = e.target.value.toLowerCase().trim();
             filterAnimals(term);
         });
+        updateDebug('✅ Search input ready');
     }
     
     // Back button listener
@@ -42,40 +58,52 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             showHomePage();
         });
+        updateDebug('✅ Back link ready');
     }
 });
 
 /**
  * Fetch animals.json
  */
-async function fetchAnimals() {
-    console.log('📡 Fetching animals.json...');
+async function fetchAnimals(updateDebug) {
+    updateDebug('📡 Fetching animals.json...');
     
     try {
-        const response = await fetch('animals.json');
+        // Add cache-busting parameter
+        const response = await fetch('animals.json?t=' + Date.now());
         
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`HTTP ${response.status}`);
         }
         
         allAnimals = await response.json();
-        console.log(`✅ Loaded ${allAnimals.length} animals`);
+        updateDebug(`✅ Loaded ${allAnimals.length} animals`);
+        
+        if (allAnimals.length === 0) {
+            updateDebug('⚠️ JSON is empty!');
+        }
         
         filteredAnimals = [...allAnimals];
-        renderGrid(filteredAnimals);
+        renderGrid(filteredAnimals, updateDebug);
+        
+        // Hide debug after 5 seconds
+        setTimeout(() => {
+            const d = document.getElementById('debug-info');
+            if (d) d.style.display = 'none';
+        }, 5000);
         
     } catch (error) {
-        console.error('❌ Error loading animals:', error);
+        console.error('❌ Error:', error);
+        updateDebug(`❌ Error: ${error.message}`);
         
         if (gridElement) {
             gridElement.innerHTML = `
-                <div class="no-results" style="grid-column: 1/-1;">
-                    <h2>⚠️ Unable to Load Data</h2>
-                    <p>Make sure you're running this on a local server (not file://)</p>
-                    <p style="margin-top: 10px; color: #f87171;">Error: ${error.message}</p>
-                    <p style="margin-top: 20px; font-size: 0.9rem;">
-                        <strong>Quick Fix:</strong> Use VS Code Live Server extension or run:<br>
-                        <code>python -m http.server 8000</code>
+                <div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                    <h2 style="color: #f87171; margin-bottom: 15px;">⚠️ Unable to Load Data</h2>
+                    <p style="color: #94a3b8; margin-bottom: 20px;">${error.message}</p>
+                    <p style="color: #64748b; font-size: 0.9rem;">
+                        Try: Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)<br>
+                        Or check if animals.json exists in the same folder as index.html
                     </p>
                 </div>
             `;
@@ -86,11 +114,11 @@ async function fetchAnimals() {
 /**
  * Render grid of animal cards
  */
-function renderGrid(animals) {
-    console.log('🎨 Rendering grid with', animals.length, 'animals');
+function renderGrid(animals, updateDebug) {
+    if (updateDebug) updateDebug('🎨 Rendering grid...');
     
     if (!gridElement) {
-        console.error('Grid element is null!');
+        if (updateDebug) updateDebug('❌ Grid is null!');
         return;
     }
     
@@ -128,7 +156,7 @@ function renderGrid(animals) {
         gridElement.appendChild(card);
     });
     
-    console.log('✅ Grid rendered successfully');
+    if (updateDebug) updateDebug(`✅ Rendered ${animals.length} cards`);
 }
 
 /**
@@ -154,13 +182,8 @@ function filterAnimals(term) {
  * Show animal detail page
  */
 function showAnimalDetail(id) {
-    console.log('📄 Showing detail for animal ID:', id);
-    
     const animal = allAnimals.find(a => a.id === id);
-    if (!animal) {
-        console.error('Animal not found:', id);
-        return;
-    }
+    if (!animal) return;
     
     if (homePage) homePage.style.display = 'none';
     if (animalPage) animalPage.style.display = 'block';
@@ -197,10 +220,11 @@ function populateAnimalPage(animal) {
     if (sciEl) sciEl.textContent = animal.scientific_name;
     if (heroEl) heroEl.src = imageUrl;
     if (summaryEl) {
-        summaryEl.querySelector('p').textContent = animal.summary;
+        const p = summaryEl.querySelector('p');
+        if (p) p.textContent = animal.summary;
     }
     
-    // Add conservation badge to header
+    // Conservation badge
     const existingBadge = document.querySelector('.animal-header .conservation-badge');
     if (existingBadge) existingBadge.remove();
     
