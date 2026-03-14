@@ -5,6 +5,11 @@ on:
     paths:
       - 'generator/**'
   workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force re-fetch all data'
+        required: false
+        default: 'false'
 
 jobs:
   generate:
@@ -15,7 +20,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          persist-credentials: false  # disable default token since we’ll use PAT
+          persist-credentials: false
 
       # 2️⃣ Set up Python
       - name: Set up Python
@@ -29,9 +34,16 @@ jobs:
           pip install requests
           pip install beautifulsoup4
 
-      # 4️⃣ Run the Python generator
+      # 4️⃣ Run the Python generator (PASS IUCN_API_KEY HERE!)
       - name: Run generator
-        run: python generator/generate_animals.py
+        env:
+          IUCN_API_KEY: ${{ secrets.IUCN_API_KEY }}  # ← This was missing!
+        run: |
+          if [ "${{ github.event.inputs.force_update }}" == "true" ]; then
+            python generator/generate_animals.py --force
+          else
+            python generator/generate_animals.py
+          fi
 
       # 5️⃣ Commit and push JSON using PAT
       - name: Commit and push JSON
