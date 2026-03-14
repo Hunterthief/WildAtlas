@@ -1,74 +1,152 @@
 [
   {
     "name": "Tiger",
+    "scientific_name": "Panthera tigris",
+    "name_meaning": "From Greek 'panther' (all beast) + Latin 'tigris' (arrow, referring to speed)",
     "description": "Species of large cat",
     "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "classification": {
-      "domain": null,
       "kingdom": null,
       "phylum": null,
       "class": null,
       "order": null,
       "family": null,
       "genus": null,
-      "species": "Entrevernes"
+      "species": "Panthera tigris"
     },
-    "diet": null,
-    "length": null,
-    "height": null,
-    "weight": null,
-    "location": null,
+    "physical": {
+      "weight": null,
+      "height": null,
+      "length": null,
+      "top_speed": null,
+      "lifespan": null,
+      "color": null,
+      "skin_type": "Fur",
+      "most_distinctive_feature": "Dark vertical stripes on orange-brown fur"
+    },
+    "ecology": {
+      "diet": "Unknown",
+      "prey": null,
+      "habitat": "",
+      "locations": "",
+      "group_behavior": null,
+      "lifestyle": null,
+      "biggest_threat": null,
+      "conservation_status": null,
+      "estimated_population_size": null
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": null
+    },
+    "fun_facts": {
+      "slogan": "The largest cat species in the world!"
+    },
     "sources": [
-      "Wikidata"
+      "Wikipedia"
     ]
   },
   {
     "name": "Asian Elephant",
+    "scientific_name": "Elephas maximus",
+    "name_meaning": "From Greek 'elephas' (ivory) + Latin 'maximus' (greatest)",
     "description": "Second-largest species of elephant",
     "summary": "The Asian elephant, also known as the Asiatic elephant, is the only living Elephas species. It is the largest living land animal in Asia and the second largest living elephantid in the world. It is characterised by its long trunk with a single finger-like process; large tusks in males; laterally folded large ears and wrinkled grey skin that is partly depigmented on the trunk, ears or neck. Adult males average 4 t in weight and females 2.7 t. It has a large and well developed neocortex of the brain, is highly intelligent and self-aware, being able to display behaviours associated with grief, learning and greeting. Three subspecies are recognised—E. m. maximus, E. m. indicus and E. m. sumatranus.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Elephas_maximus_%28Bandipur%29.jpg/330px-Elephas_maximus_%28Bandipur%29.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Asian_elephant",
     "classification": {
-      "domain": null,
-      "kingdom": null,
-      "phylum": "Chordata",
-      "class": "Chondrichthyes",
-      "order": null,
-      "family": null,
-      "genus": null,
-      "species": "shark"
-    },
-    "diet": null,
-    "length": null,
-    "height": null,
-    "weight": null,
-    "location": null,
-    "sources": [
-      "Wikidata"
-    ]
-  },
-  {
-    "name": "Bald Eagle",
-    "description": "Bird of prey species of North America",
-    "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
-    "classification": {
-      "domain": null,
       "kingdom": null,
       "phylum": null,
       "class": null,
       "order": null,
       "family": null,
       "genus": null,
-      "species": "Aarhus"
+      "species": "Elephas maximus"
     },
-    "diet": null,
-    "length": null,
-    "height": null,
-    "weight": null,
-    "location": null,
+    "physical": {
+      "weight": "4 t",
+      "height": null,
+      "length": null,
+      "top_speed": null,
+      "lifespan": null,
+      "color": null,
+      "skin_type": "Skin",
+      "most_distinctive_feature": "Long trunk with single finger-like process, large ears"
+    },
+    "ecology": {
+      "diet": "Unknown",
+      "prey": null,
+      "habitat": "",
+      "locations": "",
+      "group_behavior": null,
+      "lifestyle": null,
+      "biggest_threat": null,
+      "conservation_status": null,
+      "estimated_population_size": null
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": null
+    },
+    "fun_facts": {
+      "slogan": "The largest land animal in Asia!"
+    },
     "sources": [
-      "Wikidata"
+      "Wikipedia"
+    ]
+  },
+  {
+    "name": "Bald Eagle",
+    "scientific_name": "Haliaeetus leucocephalus",
+    "name_meaning": "From Greek 'haliaetos' (sea eagle) + 'leukokephalos' (white-headed)",
+    "description": "Bird of prey species of North America",
+    "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
+    "classification": {
+      "kingdom": null,
+      "phylum": null,
+      "class": null,
+      "order": null,
+      "family": null,
+      "genus": null,
+      "species": "Haliaeetus leucocephalus"
+    },
+    "physical": {
+      "weight": null,
+      "height": null,
+      "length": null,
+      "top_speed": null,
+      "lifespan": null,
+      "color": null,
+      "skin_type": "Fur",
+      "most_distinctive_feature": "White head and tail contrasting with dark brown body"
+    },
+    "ecology": {
+      "diet": "Unknown",
+      "prey": null,
+      "habitat": "",
+      "locations": "",
+      "group_behavior": null,
+      "lifestyle": null,
+      "biggest_threat": null,
+      "conservation_status": null,
+      "estimated_population_size": null
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": null
+    },
+    "fun_facts": {
+      "slogan": "The national bird of the United States!"
+    },
+    "sources": [
+      "Wikipedia"
     ]
   }
 ]
