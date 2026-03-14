@@ -1,0 +1,34 @@
+name: Generate Animals JSON
+
+on:
+  push:
+    paths:
+      - 'generator/**'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: pip install requests
+
+    - name: Run generator
+      run: python generator/generate_animals.py
+
+    - name: Commit and push JSON
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git add data/animals.json
+        git commit -m "Auto-generate animals.json via Action" || echo "No changes to commit"
+        git push
