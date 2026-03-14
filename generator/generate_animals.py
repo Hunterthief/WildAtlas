@@ -23,9 +23,9 @@ WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 
 # --- Static test list for development ---
 TEST_ANIMALS = [
-    {"name": "Tiger", "qid": "Q16521"},  # Panthera tigris
-    {"name": "Elephant", "qid": "Q7374"}, # Elephantidae
-    {"name": "Bald Eagle", "qid": "Q25319"}, # Haliaeetus leucocephalus
+    {"name": "Tiger", "qid": "Q132186"},          # Panthera tigris
+    {"name": "Elephant", "qid": "Q7374"},        # African elephant, Q7374 or Asian elephant Q7372
+    {"name": "Bald Eagle", "qid": "Q25319"},     # Haliaeetus leucocephalus
 ]
 
 # --- Helpers ---
