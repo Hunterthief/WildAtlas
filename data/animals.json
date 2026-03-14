@@ -18,11 +18,11 @@
       "species": "Panthera tigris"
     },
     "physical": {
-      "weight": "28132686 t",
+      "weight": null,
       "height": null,
-      "length": "45 m",
+      "length": null,
       "top_speed": null,
-      "lifespan": "000 years",
+      "lifespan": null,
       "color": null,
       "skin_type": null,
       "most_distinctive_feature": null
@@ -51,7 +51,7 @@
       "iNaturalist",
       "GBIF"
     ],
-    "last_updated": "2026-03-14T19:50:59.570801"
+    "last_updated": "2026-03-14T19:54:16.997934"
   },
   {
     "name": "Asian Elephant",
@@ -72,11 +72,11 @@
       "species": "Elephas maximus"
     },
     "physical": {
-      "weight": null,
+      "weight": "4.0 t",
       "height": null,
-      "length": "214 m",
+      "length": null,
       "top_speed": null,
-      "lifespan": "60 years",
+      "lifespan": null,
       "color": null,
       "skin_type": null,
       "most_distinctive_feature": null
@@ -105,7 +105,7 @@
       "iNaturalist",
       "GBIF"
     ],
-    "last_updated": "2026-03-14T19:51:02.663655"
+    "last_updated": "2026-03-14T19:54:20.250394"
   },
   {
     "name": "Bald Eagle",
@@ -128,9 +128,9 @@
     "physical": {
       "weight": null,
       "height": null,
-      "length": "2 ft",
+      "length": null,
       "top_speed": null,
-      "lifespan": "1 years",
+      "lifespan": null,
       "color": null,
       "skin_type": null,
       "most_distinctive_feature": null
@@ -159,6 +159,6 @@
       "iNaturalist",
       "GBIF"
     ],
-    "last_updated": "2026-03-14T19:51:05.782946"
+    "last_updated": "2026-03-14T19:54:23.576328"
   }
 ]
