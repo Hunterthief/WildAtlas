@@ -7,72 +7,28 @@ from requests.packages.urllib3.util.retry import Retry
 
 os.makedirs("data", exist_ok=True)
 
-# Headers
-headers = {
-    "User-Agent": "WildAtlasBot/1.0 (https://github.com/Hunterthief/WildAtlas)",
-    "Accept": "application/sparql-results+json"
-}
-
-# Wikidata SPARQL endpoints
-WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
-WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
-EOL_SEARCH_API = "https://eol.org/api/search/1.0.json"
-EOL_PAGES_API = "https://eol.org/api/pages/1.0/{}.json"
-
-# --- Retry session ---
+# --- Session + retries ---
 session = requests.Session()
 retry = Retry(total=5, backoff_factor=2, status_forcelist=[429,500,502,503,504])
 adapter = HTTPAdapter(max_retries=retry)
 session.mount("https://", adapter)
 
-# --- SPARQL to fetch animals ---
-SPARQL_ANIMALS = """
-SELECT ?item ?itemLabel ?wikiTitle WHERE {
-  ?item wdt:P31 wd:Q16521.        # instance of 'taxon'
-  ?item wdt:P105 ?rank.           # has taxonomic rank
-  ?item wdt:P171* wd:Q729.        # parent taxon ultimately Animalia
-  OPTIONAL {
-    ?sitelink schema:about ?item;
-              schema:isPartOf <https://en.wikipedia.org/>;
-              schema:name ?wikiTitle.
-  }
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+headers = {
+    "User-Agent": "WildAtlasBot/1.0 (https://github.com/Hunterthief/WildAtlas)",
+    "Accept": "application/sparql-results+json"
 }
-LIMIT 100
-OFFSET {offset}
-"""
+
+# --- SPARQL endpoint ---
+WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
+
+# --- Static test list for development ---
+TEST_ANIMALS = [
+    {"name": "Tiger", "qid": "Q16521"},  # Panthera tigris
+    {"name": "Elephant", "qid": "Q7374"}, # Elephantidae
+    {"name": "Bald Eagle", "qid": "Q25319"}, # Haliaeetus leucocephalus
+]
 
 # --- Helpers ---
-def fetch_eol(animal_name):
-    try:
-        search = session.get(EOL_SEARCH_API, params={"q": animal_name}, headers=headers, timeout=10).json()
-        results = search.get("results")
-        if not results:
-            return {}
-        page_id = results[0]["id"]
-        page_data = session.get(EOL_PAGES_API.format(page_id), headers=headers, timeout=10).json()
-        traits = page_data.get("traits", [])
-        data = {}
-        for trait in traits:
-            key = trait.get("trait")
-            val = trait.get("value")
-            if key and val:
-                key = key.lower()
-                if key == "diet":
-                    data["diet"] = val
-                elif key in ["length", "body length"]:
-                    data["length"] = val
-                elif key in ["height", "shoulder height"]:
-                    data["height"] = val
-                elif key in ["weight", "mass"]:
-                    data["weight"] = val
-                elif key in ["distribution", "location"]:
-                    data["location"] = val
-        return data
-    except Exception as e:
-        print(f"  EOL fetch failed for {animal_name}: {e}")
-        return {}
-
 def fetch_wikidata_animal(qid):
     query = f"""
     SELECT ?taxon ?taxonLabel ?rankLabel ?dietLabel ?mass ?massUnitLabel ?bodyLength ?bodyLengthUnitLabel ?locationLabel
@@ -90,104 +46,86 @@ def fetch_wikidata_animal(qid):
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en". }}
     }}
     """
-    return session.get(WIKIDATA_SPARQL, params={"query": query}, headers=headers, timeout=60).json()
+    for attempt in range(5):
+        try:
+            res = session.get(WIKIDATA_SPARQL, params={"query": query}, headers=headers, timeout=180).json()
+            return res
+        except requests.exceptions.ReadTimeout:
+            print(f"  Timeout on {qid}, retry {attempt+1}/5...")
+            time.sleep(5 * (attempt+1))
+    print(f"  Failed to fetch {qid} after retries")
+    return {}
+
+def fetch_wikipedia(animal_name):
+    WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
+    try:
+        r = session.get(WIKI_API + animal_name.replace(" ", "_"), headers=headers, timeout=10)
+        if r.status_code == 200:
+            return r.json()
+    except Exception as e:
+        print(f"  Wikipedia error: {e}")
+    return {}
 
 # --- Main ---
 output = []
-offset = 0
-batch_size = 100
 
-while True:
-    print(f"Fetching animals batch offset {offset}...")
-    res = session.get(WIKIDATA_SPARQL, params={"query": SPARQL_ANIMALS.format(offset=offset)}, headers=headers, timeout=60).json()
-    bindings = res.get("results", {}).get("bindings", [])
-    if not bindings:
-        break
-    print(f"Found {len(bindings)} animals in this batch")
+for a in TEST_ANIMALS:
+    name = a["name"]
+    qid = a["qid"]
+    print(f"\n--- Processing {name} ({qid}) ---")
 
-    for b in bindings:
-        animal = b.get("itemLabel", {}).get("value")
-        wiki_title = b.get("wikiTitle", {}).get("value", animal.replace(" ", "_"))
-        qid = b.get("item", {}).get("value", "").split("/")[-1]
-        print(f"\n--- Processing {animal} ---")
-        sources = []
+    # Wikipedia
+    wiki_data = fetch_wikipedia(name)
+    summary = wiki_data.get("extract", "")
+    description = wiki_data.get("description", "")
+    image = wiki_data.get("thumbnail", {}).get("source", "")
 
-        # Wikipedia
-        wiki_data = {}
-        try:
-            r = session.get(WIKI_API + wiki_title, headers=headers, timeout=10)
-            if r.status_code == 200:
-                wiki_data = r.json()
-                sources.append("Wikipedia")
-            else:
-                sources.append("Wikipedia FAILED")
-        except Exception as e:
-            print(f"  Wikipedia error: {e}")
-            sources.append("Wikipedia FAILED")
+    # Wikidata
+    classification = {k: None for k in ["domain","kingdom","phylum","class","order","family","genus","species"]}
+    diet = length = height = weight = location = None
+    data = fetch_wikidata_animal(qid)
+    bindings = data.get("results", {}).get("bindings", [])
+    sources = []
 
-        summary = wiki_data.get("extract", "")
-        description = wiki_data.get("description", "")
-        image = wiki_data.get("thumbnail", {}).get("source", "")
+    if bindings:
+        sources.append("Wikidata")
+        for w in bindings:
+            rank = w.get("rankLabel", {}).get("value")
+            label = w.get("taxonLabel", {}).get("value")
+            rank_map = {
+                "species":"species","genus":"genus","family":"family","order":"order",
+                "class":"class","phylum":"phylum","kingdom":"kingdom","domain":"domain"
+            }
+            if rank in rank_map:
+                classification[rank_map[rank]] = label
+            diet = w.get("dietLabel", {}).get("value") or diet
+            if w.get("mass") and w.get("massUnitLabel"):
+                weight = f'{w["mass"]["value"]} {w["massUnitLabel"]["value"]}'
+            if w.get("bodyLength") and w.get("bodyLengthUnitLabel"):
+                length = f'{w["bodyLength"]["value"]} {w["bodyLengthUnitLabel"]["value"]}'
+            loc = w.get("locationLabel", {}).get("value")
+            location = loc or location
+    else:
+        sources.append("Wikidata EMPTY")
 
-        # Wikidata
-        classification = {k: None for k in ["domain","kingdom","phylum","class","order","family","genus","species"]}
-        diet = length = height = weight = location = None
-        try:
-            data = fetch_wikidata_animal(qid)
-            wikibind = data.get("results", {}).get("bindings", [])
-            if wikibind:
-                sources.append("Wikidata")
-                for w in wikibind:
-                    rank = w.get("rankLabel", {}).get("value")
-                    label = w.get("taxonLabel", {}).get("value")
-                    rank_map = {
-                        "species":"species","genus":"genus","family":"family","order":"order",
-                        "class":"class","phylum":"phylum","kingdom":"kingdom","domain":"domain"
-                    }
-                    if rank in rank_map:
-                        classification[rank_map[rank]] = label
-                    diet = w.get("dietLabel", {}).get("value") or diet
-                    if w.get("mass") and w.get("massUnitLabel"):
-                        weight = f'{w["mass"]["value"]} {w["massUnitLabel"]["value"]}'
-                    if w.get("bodyLength") and w.get("bodyLengthUnitLabel"):
-                        length = f'{w["bodyLength"]["value"]} {w["bodyLengthUnitLabel"]["value"]}'
-                    loc = w.get("locationLabel", {}).get("value")
-                    location = loc or location
-            else:
-                sources.append("Wikidata EMPTY")
-        except Exception as e:
-            print(f"  Wikidata SPARQL failed: {e}")
-            sources.append("Wikidata FAILED")
-
-        # EOL fallback
-        eol_data = fetch_eol(animal)
-        for field in ["diet","length","height","weight","location"]:
-            if not locals()[field] and eol_data.get(field):
-                locals()[field] = eol_data[field]
-                if "EOL" not in sources:
-                    sources.append("EOL")
-
-        output.append({
-            "name": animal,
-            "description": description,
-            "summary": summary,
-            "image": image,
-            "classification": classification,
-            "diet": diet,
-            "length": length,
-            "height": height,
-            "weight": weight,
-            "location": location,
-            "sources": sources
-        })
-
-        print(f"  {animal} processed")
-        time.sleep(1)
-
-    offset += batch_size
+    output.append({
+        "name": name,
+        "description": description,
+        "summary": summary,
+        "image": image,
+        "classification": classification,
+        "diet": diet,
+        "length": length,
+        "height": height,
+        "weight": weight,
+        "location": location,
+        "sources": sources
+    })
+    print(f"  {name} processed")
+    time.sleep(1)
 
 # Write JSON
-with open("data/animals.json", "w", encoding="utf-8") as f:
+with open("data/animals_test.json", "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2, ensure_ascii=False)
 
-print(f"\nDone. Generated animals.json with {len(output)} animals.")
+print(f"\nDone. Generated animals_test.json with {len(output)} animals.")
