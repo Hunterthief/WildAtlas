@@ -1,0 +1,175 @@
+{
+  "feline": {
+    "keywords": ["cat", "tiger", "lion", "leopard", "cheetah", "panther", "jaguar", "lynx", "puma", "cougar", "bobcat", "ocelot", "caracal", "serval"],
+    "class": "Mammalia",
+    "order": "Carnivora"
+  },
+  "canine": {
+    "keywords": ["dog", "wolf", "fox", "jackal", "coyote", "dhole", "dingo"],
+    "class": "Mammalia",
+    "order": "Carnivora"
+  },
+  "bear": {
+    "keywords": ["bear", "panda", "polar bear", "grizzly", "koala"],
+    "class": "Mammalia",
+    "order": "Carnivora"
+  },
+  "elephant": {
+    "keywords": ["elephant", "mammoth"],
+    "class": "Mammalia",
+    "order": "Proboscidea"
+  },
+  "primate": {
+    "keywords": ["monkey", "ape", "gorilla", "chimpanzee", "orangutan", "lemur", "baboon", "gibbon", "macaque"],
+    "class": "Mammalia",
+    "order": "Primates"
+  },
+  "rodent": {
+    "keywords": ["mouse", "rat", "squirrel", "beaver", "hamster", "guinea pig", "porcupine", "capybara"],
+    "class": "Mammalia",
+    "order": "Rodentia"
+  },
+  "bat": {
+    "keywords": ["bat"],
+    "class": "Mammalia",
+    "order": "Chiroptera"
+  },
+  "whale": {
+    "keywords": ["whale", "orca", "killer whale", "porpoise", "dolphin"],
+    "class": "Mammalia",
+    "order": "Cetacea"
+  },
+  "deer": {
+    "keywords": ["deer", "elk", "moose", "reindeer", "antelope", "gazelle", "caribou"],
+    "class": "Mammalia",
+    "order": "Artiodactyla"
+  },
+  "bovine": {
+    "keywords": ["cow", "bull", "bison", "buffalo", "ox", "yak"],
+    "class": "Mammalia",
+    "order": "Artiodactyla"
+  },
+  "equine": {
+    "keywords": ["horse", "zebra", "donkey", "mule", "pony"],
+    "class": "Mammalia",
+    "order": "Perissodactyla"
+  },
+  "rabbit": {
+    "keywords": ["rabbit", "hare"],
+    "class": "Mammalia",
+    "order": "Lagomorpha"
+  },
+  "bird": {
+    "keywords": ["bird"],
+    "class": "Aves"
+  },
+  "raptor": {
+    "keywords": ["eagle", "hawk", "falcon", "vulture", "kite", "osprey", "caracara"],
+    "class": "Aves",
+    "order": "Accipitriformes"
+  },
+  "owl": {
+    "keywords": ["owl"],
+    "class": "Aves",
+    "order": "Strigiformes"
+  },
+  "duck": {
+    "keywords": ["duck", "mallard", "teal"],
+    "class": "Aves"
+  },
+  "goose": {
+    "keywords": ["goose", "gander"],
+    "class": "Aves"
+  },
+  "swan": {
+    "keywords": ["swan"],
+    "class": "Aves"
+  },
+  "chicken": {
+    "keywords": ["chicken", "rooster", "hen", "turkey", "quail", "pheasant"],
+    "class": "Aves"
+  },
+  "penguin": {
+    "keywords": ["penguin"],
+    "class": "Aves",
+    "order": "Sphenisciformes"
+  },
+  "fish": {
+    "keywords": ["fish"],
+    "class": "Actinopterygii"
+  },
+  "shark": {
+    "keywords": ["shark", "great white", "hammerhead", "whale shark"],
+    "class": "Chondrichthyes"
+  },
+  "ray": {
+    "keywords": ["ray", "stingray", "manta"],
+    "class": "Chondrichthyes"
+  },
+  "salmon": {
+    "keywords": ["salmon", "trout", "char"],
+    "class": "Actinopterygii"
+  },
+  "frog": {
+    "keywords": ["frog", "toad"],
+    "class": "Amphibia",
+    "order": "Anura"
+  },
+  "salamander": {
+    "keywords": ["salamander", "newt", "axolotl"],
+    "class": "Amphibia",
+    "order": "Urodela"
+  },
+  "snake": {
+    "keywords": ["snake", "serpent", "python", "cobra", "viper", "boa", "mamba", "rattlesnake"],
+    "class": "Reptilia",
+    "order": "Squamata"
+  },
+  "lizard": {
+    "keywords": ["lizard", "gecko", "iguana", "chameleon", "komodo", "skink"],
+    "class": "Reptilia",
+    "order": "Squamata"
+  },
+  "turtle": {
+    "keywords": ["turtle", "tortoise", "terrapin", "sea turtle"],
+    "class": "Reptilia",
+    "order": "Testudines"
+  },
+  "crocodile": {
+    "keywords": ["crocodile", "alligator", "caiman", "gharial"],
+    "class": "Reptilia",
+    "order": "Crocodilia"
+  },
+  "insect": {
+    "keywords": ["insect", "beetle", "fly", "mosquito", "wasp", "hornet", "dragonfly", "grasshopper", "cricket"],
+    "class": "Insecta"
+  },
+  "butterfly": {
+    "keywords": ["butterfly", "moth"],
+    "class": "Insecta",
+    "order": "Lepidoptera"
+  },
+  "bee": {
+    "keywords": ["bee", "bumblebee", "wasp", "hornet"],
+    "class": "Insecta",
+    "order": "Hymenoptera"
+  },
+  "ant": {
+    "keywords": ["ant", "termite"],
+    "class": "Insecta",
+    "order": "Hymenoptera"
+  },
+  "spider": {
+    "keywords": ["spider", "scorpion", "tarantula", "arachnid"],
+    "class": "Arachnida"
+  },
+  "crab": {
+    "keywords": ["crab", "lobster", "shrimp", "crayfish", "prawn"],
+    "class": "Crustacea"
+  },
+  "default": {
+    "keywords": [],
+    "class": null,
+    "order": null
+  }
+}
