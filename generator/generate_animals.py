@@ -21,8 +21,10 @@ data = []
 
 for name in animals:
     try:
-        url_name = name.replace(" ", "_")  # fix multi-word names
+        # Replace spaces with underscores for Wikipedia API
+        url_name = name.replace(" ", "_")
         r = requests.get(API + url_name)
+        
         if r.status_code != 200:
             print("Skipped:", name, "Status:", r.status_code)
             continue
@@ -47,6 +49,7 @@ for name in animals:
     except Exception as e:
         print("Error fetching", name, e)
 
+# Write to data folder
 with open("data/animals.json", "w") as f:
     json.dump(data, f, indent=2)
 
