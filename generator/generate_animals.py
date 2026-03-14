@@ -34,7 +34,10 @@ def fetch_wikipedia_full(name):
                                               "prop": "text", "format": "json"}, headers=headers, timeout=15)
         if r.status_code == 200:
             text = r.json().get("parse", {}).get("text", {}).get("*", "")
-            return re.sub(r'<[^>]+>', ' ', text)
+            # Strip all HTML tags
+            text = re.sub(r'<[^>]+>', ' ', text)
+            text = re.sub(r'\s+', ' ', text).strip()
+            return text
     except: pass
     return ""
 
@@ -42,56 +45,110 @@ def extract_stats(text):
     stats = {"weight": None, "length": None, "height": None, "lifespan": None, "top_speed": None}
     if not text: return stats
     
-    # Weight with range support
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?)', text, re.I)
-    if m:
-        v1, v2, u = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.')), m.group(3).lower()
-        if u in ['kg'] and 1 < v1 < v2 < 500: stats["weight"] = f"{v1}–{v2} {u}"
-        elif u in ['t','tonne','tonnes'] and 0.1 < v1 < v2 < 10: stats["weight"] = f"{v1}–{v2} t"
-        elif u in ['lb','lbs','pounds'] and 2 < v1 < v2 < 1100: stats["weight"] = f"{v1}–{v2} {u}"
-    else:
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?)', text, re.I)
+    # Weight - MUST have context words nearby
+    weight_contexts = ['weigh', 'weight', 'mass', 'male', 'female', 'adult', 'average']
+    for ctx in weight_contexts:
+        if ctx in text.lower():
+            # Look for range pattern: 200–260 kg or 200-260 kg
+            m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?)', text, re.I)
+            if m:
+                try:
+                    v1, v2 = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.'))
+                    u = m.group(3).lower()
+                    if u in ['kg'] and 50 < v1 < v2 < 500:
+                        stats["weight"] = f"{v1}–{v2} {u}"
+                        break
+                    elif u in ['t','tonne','tonnes'] and 0.5 < v1 < v2 < 10:
+                        stats["weight"] = f"{v1}–{v2} t"
+                        break
+                    elif u in ['lb','lbs','pounds'] and 100 < v1 < v2 < 1100:
+                        stats["weight"] = f"{v1}–{v2} {u}"
+                        break
+                except: pass
+            
+            # Single value pattern: 300 kg
+            if not stats["weight"]:
+                m = re.search(r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?)', text, re.I)
+                if m:
+                    try:
+                        v, u = float(m.group(1).replace(',','.')), m.group(2).lower()
+                        if u in ['kg'] and 50 < v < 500:
+                            stats["weight"] = f"{v} {u}"
+                        elif u in ['t','tonne','tonnes'] and 0.5 < v < 10:
+                            stats["weight"] = f"{v} t"
+                        elif u in ['lb','lbs','pounds'] and 100 < v < 1100:
+                            stats["weight"] = f"{v} {u}"
+                    except: pass
+            break
+    
+    # Length - MUST have context words nearby
+    length_contexts = ['length', 'long', 'body', 'tail']
+    for ctx in length_contexts:
+        if ctx in text.lower():
+            m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
+            if m:
+                try:
+                    v1, v2 = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.'))
+                    u = m.group(3).lower()
+                    if u in ['m','metre','metres','meter','meters'] and 0.5 < v1 < v2 < 10:
+                        stats["length"] = f"{v1}–{v2} {u}"
+                        break
+                    elif u in ['cm'] and 50 < v1 < v2 < 500:
+                        stats["length"] = f"{v1}–{v2} cm"
+                        break
+                    elif u in ['ft','feet'] and 2 < v1 < v2 < 30:
+                        stats["length"] = f"{v1}–{v2} ft"
+                        break
+                except: pass
+            
+            if not stats["length"]:
+                m = re.search(r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
+                if m:
+                    try:
+                        v, u = float(m.group(1).replace(',','.')), m.group(2).lower()
+                        if u in ['m','metre','metres','meter','meters'] and 0.5 < v < 10:
+                            stats["length"] = f"{v} {u}"
+                        elif u in ['cm'] and 50 < v < 500:
+                            stats["length"] = f"{v} cm"
+                        elif u in ['ft','feet'] and 2 < v < 30:
+                            stats["length"] = f"{v} ft"
+                    except: pass
+            break
+    
+    # Height - MUST have shoulder/stands context
+    if 'shoulder' in text.lower() or 'stands' in text.lower():
+        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
         if m:
-            v, u = float(m.group(1).replace(',','.')), m.group(2).lower()
-            if u in ['kg'] and 1 < v < 500: stats["weight"] = f"{v} {u}"
-            elif u in ['t','tonne','tonnes'] and 0.1 < v < 10: stats["weight"] = f"{v} t"
-            elif u in ['lb','lbs','pounds'] and 2 < v < 1100: stats["weight"] = f"{v} {u}"
+            try:
+                v1, v2 = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.'))
+                u = m.group(3).lower()
+                if u in ['m','metre','metres','meter','meters'] and 0.3 < v1 < v2 < 5:
+                    stats["height"] = f"{v1}–{v2} {u}"
+            except: pass
     
-    # Length with range support
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
-    if m:
-        v1, v2, u = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.')), m.group(3).lower()
-        if u in ['m','metre','metres','meter','meters'] and 0.3 < v1 < v2 < 10: stats["length"] = f"{v1}–{v2} {u}"
-        elif u in ['cm'] and 10 < v1 < v2 < 500: stats["length"] = f"{v1}–{v2} cm"
-        elif u in ['ft','feet'] and 1 < v1 < v2 < 30: stats["length"] = f"{v1}–{v2} ft"
-    else:
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
+    # Lifespan - MUST have year context
+    if 'year' in text.lower() or 'lifespan' in text.lower() or 'live' in text.lower():
+        m = re.search(r'(\d+(?:-\d+)?)\s*(years?|yrs?)', text, re.I)
         if m:
-            v, u = float(m.group(1).replace(',','.')), m.group(2).lower()
-            if u in ['m','metre','metres','meter','meters'] and 0.3 < v < 10: stats["length"] = f"{v} {u}"
-            elif u in ['cm'] and 10 < v < 500: stats["length"] = f"{v} cm"
-            elif u in ['ft','feet'] and 1 < v < 30: stats["length"] = f"{v} ft"
+            try:
+                v = m.group(1)
+                if '-' in v:
+                    p = v.split('-')
+                    if 2 < int(p[0]) < int(p[1]) < 100:
+                        stats["lifespan"] = f"{v} years"
+                elif 2 < int(v) < 100:
+                    stats["lifespan"] = f"{v} years"
+            except: pass
     
-    # Height
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
-    if m and 'shoulder' in text.lower() or 'stands' in text.lower():
-        v1, v2, u = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.')), m.group(3).lower()
-        if u in ['m','metre','metres','meter','meters'] and 0.3 < v1 < v2 < 5: stats["height"] = f"{v1}–{v2} {u}"
-    
-    # Lifespan
-    m = re.search(r'(\d+(?:-\d+)?)\s*(years?|yrs?)', text, re.I)
-    if m:
-        v = m.group(1)
-        if '-' in v:
-            p = v.split('-')
-            if 1 < int(p[0]) < 100 and 1 < int(p[1]) < 100: stats["lifespan"] = f"{v} years"
-        elif 1 < int(v) < 100: stats["lifespan"] = f"{v} years"
-    
-    # Speed
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)', text, re.I)
-    if m:
-        v = float(m.group(1).replace(',','.'))
-        if 10 < v < 150: stats["top_speed"] = f"{v} {m.group(2).lower()}"
+    # Speed - MUST have speed context
+    if 'speed' in text.lower() or 'run' in text.lower() or 'fast' in text.lower():
+        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)', text, re.I)
+        if m:
+            try:
+                v = float(m.group(1).replace(',','.'))
+                if 20 < v < 150:
+                    stats["top_speed"] = f"{v} {m.group(2).lower()}"
+            except: pass
     
     return stats
 
@@ -209,11 +266,15 @@ def generate(animals, force=False):
                 
                 full = fetch_wikipedia_full(name)
                 all_text = wiki["summary"] + " " + full
-                stats = extract_stats(all_text)
-                for k, v in stats.items():
-                    if v:
-                        data["physical"][k] = v
-                        print(f"    ✓ {k}: {v}")
+                
+                try:
+                    stats = extract_stats(all_text)
+                    for k, v in stats.items():
+                        if v:
+                            data["physical"][k] = v
+                            print(f"    ✓ {k}: {v}")
+                except Exception as e:
+                    print(f"    ⚠ Stats extraction error: {e}")
                 
                 diet = extract_diet(wiki["summary"])
                 if diet:
