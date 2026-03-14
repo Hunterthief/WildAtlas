@@ -29,8 +29,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, grassland, mangrove, jungle",
-      "locations": "Asia, Africa, Europe, North America, South America",
+      "habitat": "forest, tropical forest, temperate forest, mountain",
+      "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -49,7 +49,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:18:40.158721"
+    "last_updated": "2026-03-14T21:22:34.603741"
   },
   {
     "id": "Q7372",
@@ -69,9 +69,9 @@
       "genus": "Loxodonta",
       "species": "Loxodonta africana"
     },
-    "animal_type": "elephant",
-    "young_name": "calf",
-    "group_name": "herd",
+    "animal_type": "ant",
+    "young_name": "larva",
+    "group_name": "colony",
     "physical": {
       "weight": null,
       "length": null,
@@ -81,8 +81,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, pond, sea, lake",
-      "locations": "Asia, Africa, Europe, India, China",
+      "habitat": "forest, woodland",
+      "locations": "Asia, India, China, Indonesia, Sumatra",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
@@ -95,13 +95,13 @@
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "calf"
+      "name_of_young": "larva"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:18:42.371965"
+    "last_updated": "2026-03-14T21:22:36.637924"
   },
   {
     "id": "Q213537",
@@ -121,9 +121,9 @@
       "genus": "Canis",
       "species": "Canis familiaris"
     },
-    "animal_type": "canine",
+    "animal_type": "ray",
     "young_name": "pup",
-    "group_name": "pack",
+    "group_name": "fever",
     "physical": {
       "weight": null,
       "length": null,
@@ -133,8 +133,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, grassland, jungle, river",
-      "locations": "Asia, Africa, Europe, North America, South America",
+      "habitat": "forest, mountain, wetland, desert",
+      "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Human-wildlife conflict, Overfishing",
@@ -153,7 +153,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:18:44.869260"
+    "last_updated": "2026-03-14T21:22:38.782090"
   },
   {
     "id": "Q25319",
@@ -173,9 +173,9 @@
       "genus": "Haliaeetus",
       "species": "Haliaeetus leucocephalus"
     },
-    "animal_type": "bird",
-    "young_name": "chick",
-    "group_name": "flock",
+    "animal_type": "raptor",
+    "young_name": "eaglet",
+    "group_name": "kettle",
     "physical": {
       "weight": null,
       "length": null,
@@ -185,8 +185,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, mangrove, river, pond",
-      "locations": "Asia, Africa, North America, India, Indonesia",
+      "habitat": "forest, cliff, mountain, coastal",
+      "locations": "Asia, India, Indonesia, Philippines, Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Human-wildlife conflict, Pollution",
@@ -199,13 +199,13 @@
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "chick"
+      "name_of_young": "eaglet"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:18:47.203567"
+    "last_updated": "2026-03-14T21:22:40.886929"
   },
   {
     "id": "Q43306",
@@ -225,9 +225,9 @@
       "genus": "Aptenodytes",
       "species": "Aptenodytes forsteri"
     },
-    "animal_type": "bird",
+    "animal_type": "penguin",
     "young_name": "chick",
-    "group_name": "flock",
+    "group_name": "colony",
     "physical": {
       "weight": null,
       "length": null,
@@ -237,8 +237,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "sea, bog, nest, marsh",
-      "locations": "Asia, Africa, North America, Australia, Antarctica",
+      "habitat": "ocean, island, ice",
+      "locations": "Antarctica, Southern Ocean, Chile, Australia, New Zealand",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Climate change, Overfishing",
@@ -257,7 +257,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:18:49.664410"
+    "last_updated": "2026-03-14T21:22:42.985102"
   },
   {
     "id": "Q47164",
@@ -289,8 +289,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "pond, sea, nest, marsh",
-      "locations": "Asia, Africa, Europe, North America, South America",
+      "habitat": "ocean, open ocean, sea, coastal",
+      "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Climate change, Pollution, Overfishing",
@@ -309,7 +309,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:18:52.823693"
+    "last_updated": "2026-03-14T21:22:44.796141"
   },
   {
     "id": "Q39709",
@@ -329,9 +329,9 @@
       "genus": "Salmo",
       "species": "Salmo salar"
     },
-    "animal_type": "fish",
+    "animal_type": "salmon",
     "young_name": "fry",
-    "group_name": "school",
+    "group_name": "run",
     "physical": {
       "weight": null,
       "length": null,
@@ -341,8 +341,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, pond, sea, lake",
-      "locations": "Europe, North America, Australia, Russia, United States",
+      "habitat": "ocean, lake, river, stream",
+      "locations": "North America, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
@@ -361,7 +361,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:18:55.358631"
+    "last_updated": "2026-03-14T21:22:46.902553"
   },
   {
     "id": "Q7785",
@@ -393,8 +393,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, pond, sea, wetland",
-      "locations": "Asia, Africa, South America, Australia, India",
+      "habitat": "wetland, coastal, ocean, sea",
+      "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
@@ -413,7 +413,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:18:57.634389"
+    "last_updated": "2026-03-14T21:22:49.015585"
   },
   {
     "id": "Q189609",
@@ -445,8 +445,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, river, sea, bog",
-      "locations": "Asia, Europe, Australia, India, China",
+      "habitat": "forest, agricultural",
+      "locations": "Asia, Australia, Europe",
       "group_behavior": "Social",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -465,7 +465,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:18:59.907089"
+    "last_updated": "2026-03-14T21:22:50.983586"
   },
   {
     "id": "Q270238",
@@ -485,9 +485,9 @@
       "genus": "Lithobates",
       "species": "Lithobates catesbeianus"
     },
-    "animal_type": "bovine",
-    "young_name": "calf",
-    "group_name": "herd",
+    "animal_type": "frog",
+    "young_name": "tadpole",
+    "group_name": "army",
     "physical": {
       "weight": null,
       "length": null,
@@ -497,11 +497,11 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, pond, sea, lake",
-      "locations": "Asia, Europe, North America, South America, China",
+      "habitat": "pond, lake, river",
+      "locations": "North America, South America, Europe, Asia",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
-      "biggest_threat": "Human-wildlife conflict, Invasive species, Disease",
+      "biggest_threat": "Human-wildlife conflict",
       "distinctive_features": [
         "Distinctive mane",
         "Prominent horns",
@@ -511,13 +511,13 @@
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "calf"
+      "name_of_young": "tadpole"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:19:02.345046"
+    "last_updated": "2026-03-14T21:22:53.054104"
   },
   {
     "id": "Q165980",
@@ -537,8 +537,8 @@
       "genus": "Danaus",
       "species": "Danaus plexippus"
     },
-    "animal_type": "insect",
-    "young_name": "larva",
+    "animal_type": "butterfly",
+    "young_name": "caterpillar",
     "group_name": "swarm",
     "physical": {
       "weight": null,
@@ -549,8 +549,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, river, pond, sea",
-      "locations": "Asia, Africa, Europe, North America, South America",
+      "habitat": "forest, tropical, mountain, meadow",
+      "locations": "North America, South America, Europe, Asia, Africa",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
@@ -563,13 +563,13 @@
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "larva"
+      "name_of_young": "caterpillar"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:19:05.209663"
+    "last_updated": "2026-03-14T21:22:55.317415"
   },
   {
     "id": "Q7316",
@@ -601,8 +601,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, grassland, pond, sea",
-      "locations": "Asia, Africa, Europe, North America, South America",
+      "habitat": "forest, grassland, agricultural, urban",
+      "locations": "North America, Europe, Asia, Africa, South America",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Pollution, Overfishing",
@@ -621,6 +621,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T21:19:08.546916"
+    "last_updated": "2026-03-14T21:22:57.490835"
   }
 ]
