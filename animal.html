@@ -1,41 +1,103 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>WildAtlas</title>
+<title>WildAtlas Animal</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<a class="back" href="index.html">← Back</a>
+<a class="back" href="index.html">← Back to WildAtlas</a>
 
-<div id="animal"></div>
+<div id="animal-container" class="animal-page"></div>
 
 <script>
-
-const params = new URLSearchParams(location.search)
-const name = params.get("name")
+const params = new URLSearchParams(location.search);
+const name = params.get("name");
 
 fetch("data/animals.json")
-.then(r=>r.json())
-.then(data=>{
+  .then(r => r.json())
+  .then(data => {
+    const a = data.find(x => x.name === name);
+    if (!a) {
+      document.getElementById("animal-container").innerHTML = "<p>Animal not found.</p>";
+      return;
+    }
 
-const a = data.find(x=>x.name === name)
+    // Build HTML
+    let html = `
+      <div class="animal-header">
+        <h1>${a.name}</h1>
+        ${a.image ? `<img class="animal-hero" src="${a.image}" alt="${a.name}">` : ""}
+      </div>
 
-document.getElementById("animal").innerHTML = `
+      <div class="animal-summary">
+        <p>${a.summary || a.description}</p>
+      </div>
+    `;
 
-<h1>${a.name}</h1>
+    // Scientific Classification
+    if (a.classification) {
+      html += `
+      <section class="animal-section">
+        <h2>Scientific Classification</h2>
+        <table class="classification-table">
+      `;
+      for (let key in a.classification) {
+        if (a.classification[key]) {
+          html += `
+            <tr>
+              <th>${key.charAt(0).toUpperCase() + key.slice(1)}</th>
+              <td>${a.classification[key]}</td>
+            </tr>
+          `;
+        }
+      }
+      html += `</table></section>`;
+    }
 
-<img class="hero" src="${a.image}">
+    // Diet
+    if (a.diet) {
+      html += `
+      <section class="animal-section">
+        <h2>Diet</h2>
+        <p>${a.diet}</p>
+      </section>`;
+    }
 
-<p class="desc">${a.summary}</p>
+    // Size Information
+    html += `<section class="animal-section"><h2>Size & Weight</h2><table class="size-table">`;
+    if (a.length) {
+      html += `<tr><th>Length</th><td>${a.length}</td></tr>`;
+    }
+    if (a.height) {
+      html += `<tr><th>Height</th><td>${a.height}</td></tr>`;
+    }
+    if (a.weight) {
+      html += `<tr><th>Weight</th><td>${a.weight}</td></tr>`;
+    }
+    html += `</table></section>`;
 
-`
+    // Location
+    if (a.location) {
+      html += `
+      <section class="animal-section">
+        <h2>Location</h2>
+        <p>${a.location}</p>
+      </section>`;
+    }
 
-})
+    // Sources
+    if (a.sources) {
+      html += `
+      <section class="animal-section">
+        <h2>Data Sources</h2>
+        <p>${a.sources.join(", ")}</p>
+      </section>`;
+    }
 
+    document.getElementById("animal-container").innerHTML = html;
+  });
 </script>
 
 </body>
