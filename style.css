@@ -1,161 +1,473 @@
-body{
-margin:0;
-font-family:system-ui;
-background:#0f172a;
-color:white;
+/* ========== Global Styles ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.topbar{
-background:#020617;
-padding:25px;
-text-align:center;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #f1f5f9;
+  min-height: 100vh;
+  line-height: 1.6;
 }
 
-.topbar input{
-margin-top:10px;
-padding:12px;
-width:300px;
-border-radius:6px;
-border:none;
+/* ========== Top Bar / Header ========== */
+.topbar {
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 30px 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #334155;
 }
 
-#grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,240px);
-gap:30px;
-padding:40px;
-justify-content:center;
+.topbar h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
 }
 
-.card{
-background:#1e293b;
-border-radius:12px;
-overflow:hidden;
-cursor:pointer;
-transition:0.2s;
+.topbar .tagline {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
 
-.card:hover{
-transform:scale(1.05);
+.topbar input {
+  margin-top: 10px;
+  padding: 14px 20px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 50px;
+  border: 2px solid #334155;
+  background: #1e293b;
+  color: #f1f5f9;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.card img{
-width:100%;
-height:160px;
-object-fit:cover;
+.topbar input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+  background: #0f172a;
 }
 
-.card h3{
-margin:10px;
+.topbar input::placeholder {
+  color: #64748b;
 }
 
-.card p{
-margin:10px;
-font-size:14px;
-color:#cbd5f5;
-}
-
-.hero{
-width:500px;
-border-radius:10px;
-}
-
-.desc{
-max-width:700px;
-margin-top:20px;
-}
-
-.back{
-display:block;
-margin:20px;
-}
-
-.inspiration{
-max-width:800px;
-margin:80px auto;
-background:#1e293b;
-padding:30px;
-border-radius:12px;
-text-align:center;
-}
-/* ========== Animal Detail Page Styles ========== */
-
-.animal-page {
-  max-width: 850px;
+/* ========== Hero Section ========== */
+.hero-section {
+  max-width: 800px;
   margin: 40px auto;
   padding: 0 20px;
-  font-family: Arial, sans-serif;
-  color: white;
+  text-align: center;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+
+.hero-section a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero-section a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Animal Grid ========== */
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #334155;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: #38bdf8;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card .scientific-name {
+  font-style: italic;
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+.card .conservation-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card .conservation-badge.critically-endangered {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid #ef4444;
+}
+
+.card .conservation-badge.endangered {
+  background: rgba(249, 115, 22, 0.2);
+  color: #fb923c;
+  border: 1px solid #f97316;
+}
+
+.card .conservation-badge.vulnerable {
+  background: rgba(234, 179, 8, 0.2);
+  color: #facc15;
+  border: 1px solid #eab308;
+}
+
+.card .conservation-badge.least-concern {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid #22c55e;
+}
+
+/* ========== Animal Detail Page ========== */
+.animal-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: rgba(56, 189, 248, 0.1);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.back-link:hover {
+  background: rgba(56, 189, 248, 0.2);
+  transform: translateX(-5px);
 }
 
 .animal-header {
   text-align: center;
+  margin-bottom: 40px;
+}
+
+.animal-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animal-header .scientific-name {
+  font-style: italic;
+  color: #94a3b8;
+  font-size: 1.3rem;
 }
 
 .animal-hero {
   width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
-  border-radius: 12px;
+  max-width: 700px;
+  margin: 30px auto;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .animal-summary {
-  margin-top: 25px;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #e0e0e0;
+  background: rgba(30, 41, 59, 0.5);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px 0;
+  border: 1px solid #334155;
 }
 
-.animal-section {
-  margin-top: 35px;
-  padding-top: 20px;
-  border-top: 1px solid #333;
+.animal-summary p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e2e8f0;
 }
 
-.animal-section h2 {
-  font-size: 22px;
-  color: #a3c4f3;
-  margin-bottom: 12px;
+/* ========== Info Sections ========== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 40px 0;
 }
 
-.classification-table,
-.size-table {
+.info-card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #334155;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-3px);
+}
+
+.info-card h2 {
+  font-size: 1.2rem;
+  color: #38bdf8;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-card h2::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: #38bdf8;
+  border-radius: 2px;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-card li {
+  padding: 8px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-card li:last-child {
+  border-bottom: none;
+}
+
+.info-card .label {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.info-card .value {
+  color: #f1f5f9;
+  text-align: right;
+}
+
+/* ========== Classification Table ========== */
+.classification-section {
+  margin: 40px 0;
+}
+
+.classification-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #334155;
 }
 
 .classification-table th,
-.classification-table td,
-.size-table th,
-.size-table td {
-  border: 1px solid #444;
-  padding: 10px;
+.classification-table td {
+  padding: 15px 20px;
   text-align: left;
+  border-bottom: 1px solid #334155;
 }
 
-.classification-table th,
-.size-table th {
-  background: #1f3057;
-  color: #fff;
-  width: 25%;
-}
-
-.classification-table td,
-.size-table td {
-  background: #0f203c;
-  color: #dfe4ea;
-}
-
-.back {
-  display: block;
-  margin: 20px auto;
-  max-width: 950px;
-  font-size: 16px;
-  text-decoration: none;
+.classification-table th {
+  background: rgba(56, 189, 248, 0.1);
   color: #38bdf8;
+  font-weight: 600;
+  width: 30%;
 }
 
-.inspiration a{
-color:#38bdf8;
+.classification-table td {
+  color: #e2e8f0;
+}
+
+.classification-table tr:last-child th,
+.classification-table tr:last-child td {
+  border-bottom: none;
+}
+
+.classification-table tr:hover {
+  background: rgba(56, 189, 248, 0.05);
+}
+
+/* ========== Distinctive Features ========== */
+.features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.feature-tag {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* ========== Inspiration Section ========== */
+.inspiration {
+  max-width: 800px;
+  margin: 80px auto;
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  padding: 40px;
+  border-radius: 24px;
+  text-align: center;
+  border: 1px solid #334155;
+}
+
+.inspiration h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #f1f5f9;
+}
+
+.inspiration p {
+  color: #94a3b8;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.inspiration a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 30px;
+  background: rgba(56, 189, 248, 0.1);
+  border-radius: 50px;
+  border: 2px solid #38bdf8;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.inspiration a:hover {
+  background: rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  .topbar h1 {
+    font-size: 2rem;
+  }
+  
+  #grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .animal-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .classification-table th,
+  .classification-table td {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ========== Loading State ========== */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
+  font-size: 1.2rem;
+}
+
+/* ========== No Results State ========== */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
+}
+
+.no-results h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #64748b;
 }
