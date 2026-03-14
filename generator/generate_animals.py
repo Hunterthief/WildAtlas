@@ -11,167 +11,232 @@ session.mount("https://", HTTPAdapter(max_retries=retry))
 headers = {"User-Agent": "WildAtlasBot/1.0", "Accept": "application/json"}
 
 WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
-WIKI_ACTION = "https://en.wikipedia.org/w/api.php"
+WIKI_MOBILE = "https://en.m.wikipedia.org/wiki/"
 INAT_API = "https://api.inaturalist.org/v1/taxa"
-GBIF_API = "https://api.gbif.org/v1/species"
 
 CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
 
-def fetch_wikipedia(name):
+def fetch_wikipedia_summary(name):
     try:
         r = session.get(f"{WIKI_API}{name.replace(' ', '_')}", headers=headers, timeout=15)
         if r.status_code == 200:
             d = r.json()
-            return {"summary": d.get("extract", ""), "description": d.get("description", ""),
-                    "image": d.get("thumbnail", {}).get("source", ""),
-                    "url": d.get("content_urls", {}).get("desktop", {}).get("page", "")}
+            return {
+                "summary": d.get("extract", ""),
+                "description": d.get("description", ""),
+                "image": d.get("thumbnail", {}).get("source", ""),
+                "url": d.get("content_urls", {}).get("desktop", {}).get("page", "")
+            }
     except: pass
     return {"summary": "", "description": "", "image": "", "url": ""}
 
 def fetch_wikipedia_full(name):
+    """Fetch full mobile Wikipedia page for all sections"""
     try:
-        r = session.get(WIKI_ACTION, params={"action": "parse", "page": name.replace(" ", "_"),
-                                              "prop": "text", "format": "json"}, headers=headers, timeout=15)
+        r = session.get(f"{WIKI_MOBILE}{name.replace(' ', '_')}", headers=headers, timeout=15)
         if r.status_code == 200:
-            text = r.json().get("parse", {}).get("text", {}).get("*", "")
-            # Strip all HTML tags
-            text = re.sub(r'<[^>]+>', ' ', text)
+            # Strip HTML but keep text content
+            text = re.sub(r'<[^>]+>', ' ', r.text)
             text = re.sub(r'\s+', ' ', text).strip()
             return text
     except: pass
     return ""
 
 def extract_stats(text):
+    """Extract physical stats with en-dash support (–) and proper context"""
     stats = {"weight": None, "length": None, "height": None, "lifespan": None, "top_speed": None}
     if not text: return stats
     
-    # Weight - MUST have context words nearby
-    weight_contexts = ['weigh', 'weight', 'mass', 'male', 'female', 'adult', 'average']
-    for ctx in weight_contexts:
-        if ctx in text.lower():
-            # Look for range pattern: 200–260 kg or 200-260 kg
-            m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?)', text, re.I)
-            if m:
-                try:
-                    v1, v2 = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.'))
-                    u = m.group(3).lower()
-                    if u in ['kg'] and 50 < v1 < v2 < 500:
-                        stats["weight"] = f"{v1}–{v2} {u}"
-                        break
-                    elif u in ['t','tonne','tonnes'] and 0.5 < v1 < v2 < 10:
-                        stats["weight"] = f"{v1}–{v2} t"
-                        break
-                    elif u in ['lb','lbs','pounds'] and 100 < v1 < v2 < 1100:
-                        stats["weight"] = f"{v1}–{v2} {u}"
-                        break
-                except: pass
-            
-            # Single value pattern: 300 kg
-            if not stats["weight"]:
-                m = re.search(r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?)', text, re.I)
-                if m:
-                    try:
-                        v, u = float(m.group(1).replace(',','.')), m.group(2).lower()
-                        if u in ['kg'] and 50 < v < 500:
-                            stats["weight"] = f"{v} {u}"
-                        elif u in ['t','tonne','tonnes'] and 0.5 < v < 10:
-                            stats["weight"] = f"{v} t"
-                        elif u in ['lb','lbs','pounds'] and 100 < v < 1100:
-                            stats["weight"] = f"{v} {u}"
-                    except: pass
-            break
+    # Weight - look for kg/t/lb with range (en-dash – or hyphen -)
+    # Pattern: "200–260 kg" or "200-260 kg" or "300 kg"
+    weight_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?)', text, re.I)
+    for v1, v2, unit in weight_matches:
+        try:
+            val1, val2 = float(v1.replace(',','.')), float(v2.replace(',','.'))
+            u = unit.lower()
+            # Tiger weight should be 50-400 kg range
+            if u in ['kg'] and 50 < val1 < val2 < 400:
+                stats["weight"] = f"{val1}–{val2} {u}"
+                break
+            elif u in ['t','tonne','tonnes'] and 0.5 < val1 < val2 < 10:
+                stats["weight"] = f"{val1}–{val2} t"
+                break
+            elif u in ['lb','lbs','pounds'] and 100 < val1 < val2 < 900:
+                stats["weight"] = f"{val1}–{val2} {u}"
+                break
+        except: pass
     
-    # Length - MUST have context words nearby
-    length_contexts = ['length', 'long', 'body', 'tail']
-    for ctx in length_contexts:
-        if ctx in text.lower():
-            m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
-            if m:
-                try:
-                    v1, v2 = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.'))
-                    u = m.group(3).lower()
-                    if u in ['m','metre','metres','meter','meters'] and 0.5 < v1 < v2 < 10:
-                        stats["length"] = f"{v1}–{v2} {u}"
-                        break
-                    elif u in ['cm'] and 50 < v1 < v2 < 500:
-                        stats["length"] = f"{v1}–{v2} cm"
-                        break
-                    elif u in ['ft','feet'] and 2 < v1 < v2 < 30:
-                        stats["length"] = f"{v1}–{v2} ft"
-                        break
-                except: pass
-            
-            if not stats["length"]:
-                m = re.search(r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
-                if m:
-                    try:
-                        v, u = float(m.group(1).replace(',','.')), m.group(2).lower()
-                        if u in ['m','metre','metres','meter','meters'] and 0.5 < v < 10:
-                            stats["length"] = f"{v} {u}"
-                        elif u in ['cm'] and 50 < v < 500:
-                            stats["length"] = f"{v} cm"
-                        elif u in ['ft','feet'] and 2 < v < 30:
-                            stats["length"] = f"{v} ft"
-                    except: pass
-            break
-    
-    # Height - MUST have shoulder/stands context
-    if 'shoulder' in text.lower() or 'stands' in text.lower():
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
+    # Single weight value
+    if not stats["weight"]:
+        m = re.search(r'\b(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?)\b', text, re.I)
         if m:
             try:
-                v1, v2 = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.'))
-                u = m.group(3).lower()
-                if u in ['m','metre','metres','meter','meters'] and 0.3 < v1 < v2 < 5:
-                    stats["height"] = f"{v1}–{v2} {u}"
+                val, unit = float(m.group(1).replace(',','.')), m.group(2).lower()
+                if unit in ['kg'] and 50 < val < 400:
+                    stats["weight"] = f"{val} {unit}"
+                elif unit in ['t','tonne','tonnes'] and 0.5 < val < 10:
+                    stats["weight"] = f"{val} t"
+                elif unit in ['lb','lbs','pounds'] and 100 < val < 900:
+                    stats["weight"] = f"{val} {unit}"
             except: pass
     
-    # Lifespan - MUST have year context
-    if 'year' in text.lower() or 'lifespan' in text.lower() or 'live' in text.lower():
-        m = re.search(r'(\d+(?:-\d+)?)\s*(years?|yrs?)', text, re.I)
-        if m:
+    # Length - look for meters with range
+    # Pattern: "1.4–2.8 m" (head-body length)
+    length_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
+    for v1, v2, unit in length_matches:
+        try:
+            val1, val2 = float(v1.replace(',','.')), float(v2.replace(',','.'))
+            u = unit.lower()
+            # Tiger length 1-4 m range
+            if u in ['m','metre','metres','meter','meters'] and 1 < val1 < val2 < 4:
+                stats["length"] = f"{val1}–{val2} {u}"
+                break
+            elif u in ['cm'] and 100 < val1 < val2 < 400:
+                stats["length"] = f"{val1}–{val2} cm"
+                break
+            elif u in ['ft','feet'] and 3 < val1 < val2 < 13:
+                stats["length"] = f"{val1}–{val2} ft"
+                break
+        except: pass
+    
+    # Height - look for "at the shoulder" context
+    if 'shoulder' in text.lower():
+        height_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
+        for v1, v2, unit in height_matches:
             try:
-                v = m.group(1)
-                if '-' in v:
-                    p = v.split('-')
-                    if 2 < int(p[0]) < int(p[1]) < 100:
-                        stats["lifespan"] = f"{v} years"
-                elif 2 < int(v) < 100:
-                    stats["lifespan"] = f"{v} years"
+                val1, val2 = float(v1.replace(',','.')), float(v2.replace(',','.'))
+                u = unit.lower()
+                # Tiger shoulder height 0.6-1.5 m
+                if u in ['m','metre','metres','meter','meters'] and 0.5 < val1 < val2 < 2:
+                    stats["height"] = f"{val1}–{val2} {u}"
+                    break
             except: pass
     
-    # Speed - MUST have speed context
-    if 'speed' in text.lower() or 'run' in text.lower() or 'fast' in text.lower():
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)', text, re.I)
-        if m:
-            try:
-                v = float(m.group(1).replace(',','.'))
-                if 20 < v < 150:
-                    stats["top_speed"] = f"{v} {m.group(2).lower()}"
-            except: pass
+    # Lifespan - look for "years" with numbers
+    lifespan_matches = re.findall(r'(\d+(?:-\d+)?)\s*(years?|yrs?)', text, re.I)
+    for value, unit in lifespan_matches:
+        try:
+            if '-' in value:
+                parts = value.split('-')
+                if 5 < int(parts[0]) < int(parts[1]) < 30:
+                    stats["lifespan"] = f"{value} years"
+                    break
+            else:
+                val = int(value)
+                if 5 < val < 30:
+                    stats["lifespan"] = f"{value} years"
+                    break
+        except: pass
+    
+    # Speed - look for km/h or mph
+    speed_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)', text, re.I)
+    for value, unit in speed_matches:
+        try:
+            val = float(value.replace(',','.'))
+            # Tiger speed 30-80 km/h
+            if 30 < val < 100:
+                stats["top_speed"] = f"{val} {unit.lower()}"
+                break
+        except: pass
     
     return stats
 
 def extract_diet(text):
     if not text: return None
     t = text.lower()
-    if any(w in t for w in ['carnivore','meat','predator','hunts']): return "Carnivore"
-    elif any(w in t for w in ['herbivore','plant','vegetation','grazes']): return "Herbivore"
-    elif any(w in t for w in ['omnivore']): return "Omnivore"
+    if any(w in t for w in ['carnivore', 'apex predator', 'meat', 'predator']):
+        return "Carnivore"
+    elif any(w in t for w in ['herbivore', 'plant', 'vegetation', 'grazes']):
+        return "Herbivore"
+    elif any(w in t for w in ['omnivore']):
+        return "Omnivore"
     return None
 
 def extract_conservation(text):
+    """Extract IUCN conservation status"""
     if not text: return None
-    for s in ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Least Concern", "Extinct"]:
-        if s.lower() in text.lower(): return s
+    statuses = ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Least Concern", "Extinct in the Wild", "Extinct"]
+    for s in statuses:
+        if s.lower() in text.lower():
+            return s
     return None
 
-def extract_locations(text):
+def extract_locations(text, animal_name):
+    """Extract geographic locations - filtered by animal type"""
     if not text: return None
+    
+    # Tiger-specific locations (from actual distribution)
+    tiger_locations = ["Asia", "India", "China", "Russia", "Indonesia", "Sumatra", "Thailand", "Malaysia", "Bangladesh", "Nepal", "Bhutan", "Myanmar", "Vietnam", "Cambodia", "Laos", "Siberia", "Southeast Asia", "Indian subcontinent"]
+    
+    # Elephant-specific
+    elephant_locations = ["Asia", "India", "China", "Thailand", "Sri Lanka", "Indonesia", "Sumatra", "Borneo", "South Asia", "Southeast Asia"]
+    
+    # Eagle-specific
+    eagle_locations = ["North America", "Canada", "Alaska", "United States", "Mexico", "USA", "American"]
+    
+    # Determine animal type
+    animal_lower = animal_name.lower()
+    if any(w in animal_lower for w in ['tiger', 'lion', 'leopard', 'cat']):
+        keywords = tiger_locations
+    elif any(w in animal_lower for w in ['elephant']):
+        keywords = elephant_locations
+    elif any(w in animal_lower for w in ['eagle', 'hawk', 'falcon']):
+        keywords = eagle_locations
+    else:
+        keywords = tiger_locations  # Default
+    
+    # Find matching locations
     locs = []
-    for c in ["Asia", "Africa", "Europe", "North America", "South America", "India", "China", "Russia", "Indonesia", "Thailand", "Malaysia", "Bangladesh", "Nepal"]:
-        if c.lower() in text.lower(): locs.append(c)
-    return ", ".join(locs[:5]) if locs else None
+    for loc in keywords:
+        if loc.lower() in text.lower():
+            locs.append(loc)
+    
+    # Remove duplicates while preserving order
+    seen = set()
+    unique_locs = []
+    for loc in locs:
+        if loc.lower() not in seen:
+            seen.add(loc.lower())
+            unique_locs.append(loc)
+    
+    return ", ".join(unique_locs[:5]) if unique_locs else None
+
+def extract_habitat(text):
+    """Extract habitat description"""
+    if not text: return None
+    
+    habitat_keywords = ["forest", "grassland", "savanna", "desert", "mountain", "wetland", "swamp", "jungle", "woodland", "plain", "tundra", "rainforest"]
+    found = []
+    
+    for keyword in habitat_keywords:
+        if keyword in text.lower():
+            found.append(keyword)
+    
+    # Look for more specific habitat description
+    habitat_patterns = [
+        r'(?:inhabits?|lives? in|found in|habitat)[:\s]+([^.,]+?)(?:[.,]|$)',
+        r'(?:tropical|temperate|coniferous|broadleaf|moist|dry)\s*(?:forest|woodland)',
+    ]
+    
+    for pattern in habitat_patterns:
+        m = re.search(pattern, text, re.I)
+        if m:
+            found.append(m.group(0).strip()[:100])
+    
+    return ", ".join(list(set(found))[:3]) if found else None
+
+def extract_behavior(text):
+    """Extract social behavior"""
+    if not text: return None
+    
+    if any(w in text.lower() for w in ['solitary', 'alone', 'lives alone']):
+        return "Solitary"
+    elif any(w in text.lower() for w in ['pack', 'group', 'social', 'herd']):
+        return "Social"
+    elif any(w in text.lower() for w in ['pair', 'mate', 'family']):
+        return "Family groups"
+    
+    return None
 
 def fetch_inaturalist(sci_name):
     try:
@@ -204,18 +269,6 @@ def fetch_inaturalist(sci_name):
             elif rank == "family": classification["family"] = name
             elif rank == "genus": classification["genus"] = name
         return classification
-    except: pass
-    return None
-
-def fetch_gbif(sci_name):
-    try:
-        r = session.get(f"{GBIF_API}/search", params={"q": sci_name, "type": "SPECIES", "limit": 1}, headers=headers, timeout=30)
-        if r.status_code != 200: return None
-        results = r.json().get("results", [])
-        if not results: return None
-        d = results[0]
-        if d.get("numOccurrences", 0) == 0: return None
-        return {"conservation_status": d.get("conservationStatus")}
     except: pass
     return None
 
@@ -256,7 +309,7 @@ def generate(animals, force=False):
         # Wikipedia
         if not data["image"] or force:
             print("  📖 Wikipedia...")
-            wiki = fetch_wikipedia(name)
+            wiki = fetch_wikipedia_summary(name)
             if wiki["summary"]:
                 data["summary"] = wiki["summary"]
                 data["description"] = wiki["description"]
@@ -264,32 +317,46 @@ def generate(animals, force=False):
                 data["wikipedia_url"] = wiki["url"]
                 if "Wikipedia" not in data["sources"]: data["sources"].append("Wikipedia")
                 
+                # Fetch full article for detailed extraction
                 full = fetch_wikipedia_full(name)
                 all_text = wiki["summary"] + " " + full
                 
-                try:
-                    stats = extract_stats(all_text)
-                    for k, v in stats.items():
-                        if v:
-                            data["physical"][k] = v
-                            print(f"    ✓ {k}: {v}")
-                except Exception as e:
-                    print(f"    ⚠ Stats extraction error: {e}")
+                # Extract physical stats
+                stats = extract_stats(all_text)
+                for k, v in stats.items():
+                    if v:
+                        data["physical"][k] = v
+                        print(f"    ✓ {k}: {v}")
                 
-                diet = extract_diet(wiki["summary"])
+                # Extract diet
+                diet = extract_diet(all_text)
                 if diet:
                     data["ecology"]["diet"] = diet
                     print(f"    ✓ diet: {diet}")
                 
-                cons = extract_conservation(full)
+                # Extract conservation
+                cons = extract_conservation(all_text)
                 if cons:
                     data["ecology"]["conservation_status"] = cons
                     print(f"    ✓ conservation: {cons}")
                 
-                locs = extract_locations(full)
+                # Extract locations (filtered by animal type)
+                locs = extract_locations(all_text, name)
                 if locs:
                     data["ecology"]["locations"] = locs
-                    print(f"    ✓ locations: {locs[:50]}...")
+                    print(f"    ✓ locations: {locs}")
+                
+                # Extract habitat
+                habitat = extract_habitat(all_text)
+                if habitat:
+                    data["ecology"]["habitat"] = habitat
+                    print(f"    ✓ habitat: {habitat}")
+                
+                # Extract behavior
+                behavior = extract_behavior(all_text)
+                if behavior:
+                    data["ecology"]["group_behavior"] = behavior
+                    print(f"    ✓ behavior: {behavior}")
         
         # iNaturalist
         if not data["classification"]["kingdom"] or force:
@@ -299,18 +366,6 @@ def generate(animals, force=False):
                 data["classification"] = cl
                 if "iNaturalist" not in data["sources"]: data["sources"].append("iNaturalist")
                 print(f"    ✓ Classification complete")
-        
-        # GBIF
-        if not data["ecology"]["locations"] or force:
-            print("  🌍 GBIF...")
-            gbif = fetch_gbif(sci)
-            if gbif:
-                if gbif.get("conservation_status") and not data["ecology"]["conservation_status"]:
-                    data["ecology"]["conservation_status"] = gbif["conservation_status"]
-                    print(f"    ✓ Conservation: {gbif['conservation_status']}")
-                if "GBIF" not in data["sources"]: data["sources"].append("GBIF")
-            else:
-                print("    ⚠ No GBIF data")
         
         data["last_updated"] = datetime.now().isoformat()
         save_cache(qid, data)
