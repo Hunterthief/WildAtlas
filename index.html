@@ -4,157 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WildAtlas | Discover the Animal Kingdom</title>
-    <meta name="description" content="Explore beautiful facts about animals from around the world. Inspired by Facts.app.">
+    <meta name="description" content="Explore beautiful facts about animals from around the world.">
     
-    <!-- Google Fonts for a premium feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-
-    <!-- Link to your CSS -->
+    
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Inline override for font families to ensure they load even if CSS file is cached oddly */
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        .scientific-name, em {
-            font-family: 'Playfair Display', serif;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- ======================= HOME VIEW ======================= -->
+    <!-- HOME PAGE -->
     <div id="home-page">
-        
-        <!-- Sticky Header / Search -->
         <header class="topbar">
             <h1>WildAtlas</h1>
             <p class="tagline">Discover the living world, one fact at a time.</p>
-            
             <div class="search-container">
                 <input type="text" id="search-input" placeholder="Search animals (e.g., Tiger, Ocean, Mammal)...">
             </div>
         </header>
 
-        <!-- Main Grid Container -->
         <main id="grid">
-            <!-- Loading State (Visible initially) -->
             <div class="loading">
-                <p>Exploring the wild...</p>
+                <p>Loading animals...</p>
             </div>
-            <!-- Cards will be injected here by script.js -->
         </main>
 
-        <!-- Inspiration Footer -->
         <section class="inspiration">
             <h2>Inspired by Simplicity</h2>
-            <p>Just like <strong>Facts.app</strong> makes complex topics beautiful, WildAtlas curates the wonders of the animal kingdom into clean, digestible cards.</p>
+            <p>Just like <strong>Facts.app</strong> makes complex topics beautiful, WildAtlas curates the wonders of the animal kingdom.</p>
             <a href="https://www.facts.app/" target="_blank" rel="noopener noreferrer">Visit Facts.app</a>
         </section>
 
         <footer style="text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem;">
-            <p>&copy; 2026 WildAtlas Project. Data sourced from Wikipedia & iNaturalist.</p>
+            <p>&copy; 2026 WildAtlas Project</p>
         </footer>
     </div>
 
-    <!-- ======================= DETAIL VIEW (Hidden by default) ======================= -->
+    <!-- ANIMAL DETAIL PAGE -->
     <div id="animal-page" class="animal-page" style="display: none;">
-        
-        <!-- Navigation -->
         <nav style="padding: 20px; max-width: 1200px; margin: 0 auto;">
-            <a href="#" id="back-link" class="back-link">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                Back to Animals
-            </a>
+            <a href="#" id="back-link" class="back-link">← Back to Animals</a>
         </nav>
 
-        <!-- Dynamic Content Container -->
         <article>
-            <!-- Header Section -->
             <header class="animal-header">
-                <h1 id="detail-title">Loading...</h1>
+                <h1 id="detail-title">Animal Name</h1>
                 <p class="scientific-name" id="detail-scientific">Scientific Name</p>
-                <!-- Conservation badge inserted dynamically by JS -->
             </header>
 
-            <!-- Hero Image -->
-            <img id="animal-hero" class="animal-hero" src="" alt="Animal Hero Image">
+            <img id="animal-hero" class="animal-hero" src="" alt="Animal Image">
 
-            <!-- Summary Text -->
             <div class="animal-summary" id="animal-summary">
-                <p>Loading summary...</p>
+                <p>Summary text here...</p>
             </div>
 
-            <!-- Info Grid Layout -->
             <div class="info-grid">
-                
-                <!-- 1. Classification Table -->
                 <div class="info-card classification-section" style="grid-column: 1 / -1;">
-                    <h2>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        Taxonomy
-                    </h2>
+                    <h2>Taxonomy</h2>
                     <table class="classification-table" id="classification-table">
-                        <tbody>
-                            <!-- Rows injected by JS -->
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
 
-                <!-- 2. Physical Stats -->
                 <div class="info-card" id="physical-stats">
-                    <h2>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                        Physical Attributes
-                    </h2>
-                    <ul>
-                        <!-- Items injected by JS -->
-                    </ul>
+                    <h2>Physical Attributes</h2>
+                    <ul></ul>
                 </div>
 
-                <!-- 3. Ecology & Behavior -->
                 <div class="info-card" id="ecology-stats">
-                    <h2>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        Ecology & Habitat
-                    </h2>
-                    <ul>
-                        <!-- Items injected by JS -->
-                    </ul>
+                    <h2>Ecology & Habitat</h2>
+                    <ul></ul>
                     <div style="margin-top: 20px;">
                         <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 10px;">Distinctive Features:</p>
-                        <div id="features-list" class="features-list">
-                            <!-- Tags injected by JS -->
-                        </div>
+                        <div id="features-list" class="features-list"></div>
                     </div>
                 </div>
 
-                <!-- 4. Reproduction -->
                 <div class="info-card" id="reproduction-stats">
-                    <h2>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                        Reproduction
-                    </h2>
-                    <ul>
-                        <!-- Items injected by JS -->
-                    </ul>
+                    <h2>Reproduction</h2>
+                    <ul></ul>
                 </div>
-
             </div>
 
-            <!-- Sources -->
             <div style="margin-top: 40px; padding: 20px; background: rgba(30, 41, 59, 0.3); border-radius: 12px; border: 1px solid #334155;">
                 <h4 style="color: #64748b; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Data Sources</h4>
                 <p id="data-sources" style="color: #cbd5e1; font-size: 0.95rem;"></p>
             </div>
-
         </article>
     </div>
 
-    <!-- Link to your JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
