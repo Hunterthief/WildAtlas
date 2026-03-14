@@ -1,6 +1,6 @@
 /* ============================================
    WildAtlas - Main Stylesheet
-   Works for index.html AND animal.html
+   Facts.app Inspired Layout
    ============================================ */
 
 /* ========== Global Reset ========== */
@@ -12,16 +12,18 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: #0f172a;
     color: #f1f5f9;
     min-height: 100vh;
-    line-height: 1.6;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
     color: #38bdf8;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 a:hover {
@@ -32,15 +34,13 @@ a:hover {
    INDEX.HTML STYLES
    ============================================ */
 
-/* ========== Top Bar / Header ========== */
 .topbar {
-    background: rgba(2, 6, 23, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(2, 6, 23, 0.98);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid #334155;
-    padding: 30px 20px;
+    border-bottom: 1px solid #1e293b;
+    padding: 40px 20px;
 }
 
 .topbar-content {
@@ -49,11 +49,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-}
-
-.logo-section {
-    text-align: center;
+    gap: 24px;
 }
 
 .logo-section h1 {
@@ -74,46 +70,43 @@ a:hover {
 
 .search-section {
     width: 100%;
-    max-width: 500px;
+    max-width: 480px;
 }
 
 #search-input {
     width: 100%;
-    padding: 14px 24px;
-    border-radius: 50px;
-    border: 2px solid #334155;
-    background: rgba(30, 41, 59, 0.8);
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    background: #1e293b;
     color: #f1f5f9;
     font-size: 1rem;
     font-family: inherit;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 #search-input:focus {
     outline: none;
     border-color: #38bdf8;
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
-    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
 }
 
 #search-input::placeholder {
     color: #64748b;
 }
 
-/* ========== Animal Grid ========== */
 #grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
     padding: 40px 20px;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-/* ========== Animal Card ========== */
 .card {
-    background: linear-gradient(145deg, #1e293b, #0f172a);
-    border-radius: 20px;
+    background: #1e293b;
+    border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -121,20 +114,15 @@ a:hover {
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     border-color: #38bdf8;
 }
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.card:hover img {
-    transform: scale(1.05);
 }
 
 .card-content {
@@ -142,10 +130,10 @@ a:hover {
 }
 
 .card-content h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #f1f5f9;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .card-content .scientific-name {
@@ -153,7 +141,7 @@ a:hover {
     font-style: italic;
     color: #64748b;
     font-size: 0.9rem;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .card-content p {
@@ -164,45 +152,39 @@ a:hover {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 12px;
 }
 
-/* ========== Conservation Badge ========== */
 .conservation-badge {
     display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
+    padding: 4px 10px;
+    border-radius: 6px;
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin-top: 12px;
 }
 
 .conservation-badge.status-critical {
-    background: rgba(239, 68, 68, 0.2);
+    background: rgba(239, 68, 68, 0.15);
     color: #f87171;
-    border: 1px solid #ef4444;
 }
 
 .conservation-badge.status-endangered {
-    background: rgba(249, 115, 22, 0.2);
+    background: rgba(249, 115, 22, 0.15);
     color: #fb923c;
-    border: 1px solid #f97316;
 }
 
 .conservation-badge.status-vulnerable {
-    background: rgba(234, 179, 8, 0.2);
+    background: rgba(234, 179, 8, 0.15);
     color: #facc15;
-    border: 1px solid #eab308;
 }
 
 .conservation-badge.status-least-concern {
-    background: rgba(34, 197, 94, 0.2);
+    background: rgba(34, 197, 94, 0.15);
     color: #4ade80;
-    border: 1px solid #22c55e;
 }
 
-/* ========== Loading State ========== */
 .loading {
     grid-column: 1 / -1;
     display: flex;
@@ -214,94 +196,65 @@ a:hover {
 }
 
 .loading-spinner {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border: 3px solid #334155;
     border-top-color: #38bdf8;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+    to { transform: rotate(360deg); }
 }
 
-/* ========== Inspiration Section ========== */
 .inspiration {
     max-width: 800px;
     margin: 60px auto;
-    background: linear-gradient(145deg, #1e293b, #0f172a);
+    background: #1e293b;
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 16px;
     text-align: center;
     border: 1px solid #334155;
 }
 
 .inspiration h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
     color: #f1f5f9;
 }
 
 .inspiration p {
     color: #94a3b8;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
-/* ========== Footer ========== */
 .site-footer {
     text-align: center;
     padding: 40px 20px;
     color: #64748b;
     font-size: 0.9rem;
-    border-top: 1px solid #334155;
-    margin-top: 40px;
-}
-
-/* ========== No Results / Error ========== */
-.no-results, .error-message {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.no-results h2, .error-message h2 {
-    margin-bottom: 10px;
-}
-
-.no-results h2 {
-    color: #64748b;
-}
-
-.error-message h2 {
-    color: #f87171;
-}
-
-.no-results p, .error-message p {
-    color: #475569;
+    border-top: 1px solid #1e293b;
 }
 
 /* ============================================
-   ANIMAL.HTML STYLES (Detail Page)
+   ANIMAL.HTML STYLES (Facts.app Layout)
    ============================================ */
 
-/* ========== Detail Navigation ========== */
+/* Navigation */
 .detail-nav {
-    background: rgba(2, 6, 23, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(2, 6, 23, 0.98);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid #334155;
+    border-bottom: 1px solid #1e293b;
 }
 
 .nav-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 20px;
+    padding: 16px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -314,67 +267,85 @@ a:hover {
     color: #94a3b8;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
 .back-button:hover {
     color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
 }
 
-.detail-nav .logo {
-    font-size: 1.3rem;
+.nav-logo {
+    font-size: 1.2rem;
     font-weight: 700;
     color: #38bdf8;
     letter-spacing: -0.5px;
 }
 
-/* ========== Animal Detail Main ========== */
+.nav-spacer {
+    width: 80px;
+}
+
+/* Animal Detail Main */
 .animal-detail {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-/* ========== Hero Section ========== */
+/* Hero Section */
 .hero-section {
     margin-bottom: 40px;
 }
 
-.hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
+.hero-image-wrapper {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    background: #1e293b;
 }
 
-.animal-identity h1 {
+.hero-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-info {
+    max-width: 900px;
+}
+
+.animal-title h1 {
     font-size: 3rem;
     font-weight: 700;
-    background: linear-gradient(90deg, #f1f5f9, #cbd5e1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 8px;
+    color: #f1f5f9;
     letter-spacing: -1px;
+    margin-bottom: 8px;
+    line-height: 1.2;
 }
 
 .scientific-name {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #64748b;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .badges {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    margin-bottom: 24px;
 }
 
 .status-badge {
     padding: 6px 14px;
-    border-radius: 20px;
+    border-radius: 8px;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -382,203 +353,146 @@ a:hover {
 }
 
 .status-badge.status-critical {
-    background: rgba(239, 68, 68, 0.2);
+    background: rgba(239, 68, 68, 0.15);
     color: #f87171;
-    border: 1px solid #ef4444;
 }
 
 .status-badge.status-endangered {
-    background: rgba(249, 115, 22, 0.2);
+    background: rgba(249, 115, 22, 0.15);
     color: #fb923c;
-    border: 1px solid #f97316;
 }
 
 .status-badge.status-vulnerable {
-    background: rgba(234, 179, 8, 0.2);
+    background: rgba(234, 179, 8, 0.15);
     color: #facc15;
-    border: 1px solid #eab308;
 }
 
 .status-badge.status-least-concern {
-    background: rgba(34, 197, 94, 0.2);
+    background: rgba(34, 197, 94, 0.15);
     color: #4ade80;
-    border: 1px solid #22c55e;
 }
 
-.hero-image-container {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.hero-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
-}
-
-.image-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 60%, rgba(15, 23, 42, 0.8));
-    pointer-events: none;
-}
-
-/* ========== Content Sections ========== */
-.content-section {
-    margin-bottom: 40px;
-}
-
-.summary-card {
-    background: linear-gradient(145deg, #1e293b, #0f172a);
-    border-radius: 16px;
-    padding: 30px;
-    display: flex;
-    gap: 20px;
-    border: 1px solid #334155;
-}
-
-.card-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(56, 189, 248, 0.1);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #38bdf8;
-    flex-shrink: 0;
-}
-
-.card-content h2 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #f1f5f9;
-    margin-bottom: 10px;
-}
-
-.card-content p {
+.hero-description {
+    font-size: 1.15rem;
     color: #cbd5e1;
     line-height: 1.8;
 }
 
-/* ========== Info Grid ========== */
-.info-grid-section {
+/* Stats Bar (Facts.app Style) */
+.stats-bar {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #334155;
+    border-radius: 12px;
+    overflow: hidden;
     margin-bottom: 40px;
 }
 
-.info-card {
-    background: linear-gradient(145deg, #1e293b, #0f172a);
-    border-radius: 16px;
-    border: 1px solid #334155;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+.stat-item {
+    background: #1e293b;
+    padding: 20px 16px;
+    text-align: center;
 }
 
-.info-card:hover {
-    transform: translateY(-3px);
-    border-color: #38bdf8;
+.stat-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
 }
 
-.card-header {
-    padding: 20px;
-    border-bottom: 1px solid #334155;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.card-header h3 {
-    font-size: 1.1rem;
+.stat-value {
+    display: block;
+    font-size: 1rem;
     font-weight: 600;
     color: #f1f5f9;
 }
 
-.card-body {
-    padding: 20px;
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    margin-bottom: 60px;
 }
 
-/* ========== Info Table ========== */
-.info-table {
-    width: 100%;
-    border-collapse: collapse;
+/* Main Content */
+.content-main {
+    min-width: 0;
 }
 
-.info-table tr {
+.info-section {
+    background: #1e293b;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 24px;
+    border: 1px solid #334155;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #334155;
 }
 
-.info-table tr:last-child {
-    border-bottom: none;
+.section-content {
+    color: #cbd5e1;
+    line-height: 1.8;
 }
 
-.info-table th {
-    text-align: left;
-    padding: 12px 0;
-    color: #64748b;
-    font-weight: 500;
-    font-size: 0.9rem;
-    width: 40%;
+.section-content p {
+    margin-bottom: 16px;
 }
 
-.info-table td {
-    padding: 12px 0;
-    color: #e2e8f0;
-    font-size: 0.95rem;
+.section-content p:last-child {
+    margin-bottom: 0;
 }
 
-/* ========== Info List ========== */
-.info-list {
-    list-style: none;
+/* Info Grid */
+.info-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
-.info-list li {
+.info-item {
     display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #334155;
-    font-size: 0.9rem;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.info-list li:last-child {
-    border-bottom: none;
-}
-
-.info-list .label {
-    color: #64748b;
-    font-weight: 500;
-}
-
-.info-list .value {
-    color: #e2e8f0;
-    text-align: right;
-}
-
-.info-list .no-data {
-    color: #64748b;
-    font-style: italic;
-    justify-content: center;
-}
-
-/* ========== Feature Tags ========== */
-.features-section {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #334155;
-}
-
-.features-label {
-    display: block;
+.info-label {
     font-size: 0.8rem;
     color: #64748b;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 12px;
+}
+
+.info-value {
+    font-size: 1rem;
+    color: #f1f5f9;
+    font-weight: 500;
+}
+
+/* Features Box */
+.features-box {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #334155;
+}
+
+.features-box h3 {
+    font-size: 0.9rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
 }
 
 .feature-tags {
@@ -588,52 +502,103 @@ a:hover {
 }
 
 .feature-tag {
-    background: rgba(56, 189, 248, 0.15);
+    background: rgba(56, 189, 248, 0.1);
     color: #38bdf8;
     padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-/* ========== Conservation Card ========== */
-.conservation-card .conservation-status {
+/* Sidebar */
+.content-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-card {
+    background: #1e293b;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #334155;
+}
+
+.sidebar-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #334155;
+}
+
+/* Taxonomy Table */
+.taxonomy-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.taxonomy-table tr {
+    border-bottom: 1px solid #334155;
+}
+
+.taxonomy-table tr:last-child {
+    border-bottom: none;
+}
+
+.taxonomy-table th {
+    text-align: left;
+    padding: 10px 0;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.85rem;
+    width: 40%;
+}
+
+.taxonomy-table td {
+    padding: 10px 0;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+/* Conservation Box */
+.conservation-box {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 15px;
+    gap: 12px;
+    padding: 16px;
     border-radius: 12px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     font-weight: 600;
 }
 
-.conservation-status.status-critical {
-    background: rgba(239, 68, 68, 0.15);
+.conservation-box.status-critical {
+    background: rgba(239, 68, 68, 0.1);
     color: #f87171;
 }
 
-.conservation-status.status-endangered {
-    background: rgba(249, 115, 22, 0.15);
+.conservation-box.status-endangered {
+    background: rgba(249, 115, 22, 0.1);
     color: #fb923c;
 }
 
-.conservation-status.status-vulnerable {
-    background: rgba(234, 179, 8, 0.15);
+.conservation-box.status-vulnerable {
+    background: rgba(234, 179, 8, 0.1);
     color: #facc15;
 }
 
-.conservation-status.status-least-concern {
-    background: rgba(34, 197, 94, 0.15);
+.conservation-box.status-least-concern {
+    background: rgba(34, 197, 94, 0.1);
     color: #4ade80;
 }
 
-.threats-section {
-    padding-top: 15px;
+.threats-box {
+    padding-top: 16px;
     border-top: 1px solid #334155;
 }
 
-.threats-label {
-    display: block;
+.threats-box h4 {
     font-size: 0.8rem;
     color: #64748b;
     text-transform: uppercase;
@@ -641,116 +606,157 @@ a:hover {
     margin-bottom: 8px;
 }
 
-.threats-section p {
+.threats-box p {
     color: #cbd5e1;
     font-size: 0.9rem;
     line-height: 1.6;
 }
 
-/* ========== Sources Section ========== */
-.sources-section {
-    background: rgba(30, 41, 59, 0.5);
-    padding: 25px;
-    border-radius: 16px;
-    border: 1px solid #334155;
-    margin-bottom: 40px;
+/* Quick Facts */
+.quick-facts {
+    list-style: none;
 }
 
-.sources-section h4 {
-    font-size: 0.85rem;
+.quick-facts li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #334155;
+    font-size: 0.9rem;
+}
+
+.quick-facts li:last-child {
+    border-bottom: none;
+}
+
+.fact-label {
     color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
 }
 
-.sources-section p {
+.fact-value {
     color: #cbd5e1;
-    font-size: 0.95rem;
+    text-align: right;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN (Both Pages)
-   ============================================ */
+/* Sources */
+.sources-text {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* FAQ Section */
+.faq-section {
+    background: #1e293b;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 60px;
+    border: 1px solid #334155;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.faq-item {
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+.faq-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.faq-item h3 .faq-animal-name {
+    color: #38bdf8;
+    font-style: italic;
+}
+
+.faq-item p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .content-sidebar {
+        order: -1;
+    }
+}
 
 @media (max-width: 768px) {
-    .topbar {
-        padding: 20px 15px;
-    }
-    
-    .logo-section h1 {
-        font-size: 2rem;
-    }
-    
-    #grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-        padding: 20px 15px;
-    }
-    
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    
-    .animal-identity h1 {
-        font-size: 2.2rem;
-    }
-    
-    .hero-image {
-        height: 300px;
-    }
-    
-    .summary-card {
-        flex-direction: column;
-        padding: 20px;
-    }
-    
-    .info-grid-section {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-content {
-        padding: 12px 15px;
-    }
-    
-    .detail-nav .logo {
-        font-size: 1.1rem;
+    .nav-spacer {
+        display: none;
     }
     
     .back-button span {
         display: none;
     }
     
-    .inspiration {
-        margin: 40px 15px;
+    .animal-title h1 {
+        font-size: 2.2rem;
+    }
+    
+    .scientific-name {
+        font-size: 1.2rem;
+    }
+    
+    .hero-image {
+        height: 300px;
+    }
+    
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .info-grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .inspiration, .faq-section {
         padding: 30px 20px;
     }
 }
 
 @media (max-width: 480px) {
     .logo-section h1 {
-        font-size: 1.7rem;
-    }
-    
-    .tagline {
-        font-size: 0.9rem;
-    }
-    
-    #search-input {
-        padding: 12px 18px;
-        font-size: 0.95rem;
-    }
-    
-    #grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .animal-identity h1 {
         font-size: 1.8rem;
     }
     
-    .scientific-name {
-        font-size: 1.1rem;
+    .stats-bar {
+        grid-template-columns: 1fr;
+    }
+    
+    .animal-title h1 {
+        font-size: 1.8rem;
     }
 }
+
+/* No Results / Error */
+.no-results, .error-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-results h2 { color: #64748b; margin-bottom: 10px; }
+.error-message h2 { color: #f87171; margin-bottom: 10px; }
+.no-results p, .error-message p { color: #475569; }
