@@ -1,9 +1,9 @@
 [
   {
+    "id": "Q132186",
     "name": "Tiger",
     "scientific_name": "Panthera tigris",
-    "qid": "Q132186",
-    "name_meaning": null,
+    "common_names": [],
     "description": "Species of large cat",
     "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
@@ -17,99 +17,149 @@
       "genus": "Panthera",
       "species": "Panthera tigris"
     },
+    "animal_type": "feline",
+    "young_name": "cub",
+    "group_name": "streak",
     "physical": {
       "weight": null,
-      "height": null,
       "length": null,
+      "height": null,
       "top_speed": null,
-      "lifespan": null,
-      "color": null,
-      "skin_type": null,
-      "most_distinctive_feature": null
+      "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "prey": null,
-      "habitat": "broadleaf, swamp, plain",
-      "locations": "Asia, India, China, Russia, Indonesia",
+      "habitat": "marsh, pond, river, lake",
+      "locations": "Asia, Africa, Europe, North America, South America",
       "group_behavior": "Solitary",
-      "lifestyle": null,
-      "biggest_threat": "Poaching, Habitat loss",
       "conservation_status": "Endangered",
-      "estimated_population_size": null
+      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Distinctive mane"
+      ]
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "Cub"
-    },
-    "fun_facts": {
-      "slogan": null
+      "name_of_young": "cub"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T20:53:44.973616"
+    "last_updated": "2026-03-14T21:10:52.392036"
   },
   {
-    "name": "Asian Elephant",
-    "scientific_name": "Elephas maximus",
-    "qid": "Q7372",
-    "name_meaning": null,
-    "description": "Second-largest species of elephant",
-    "summary": "The Asian elephant, also known as the Asiatic elephant, is the only living Elephas species. It is the largest living land animal in Asia and the second largest living elephantid in the world. It is characterised by its long trunk with a single finger-like process; large tusks in males; laterally folded large ears and wrinkled grey skin that is partly depigmented on the trunk, ears or neck. Adult males average 4 t in weight and females 2.7 t. It has a large and well developed neocortex of the brain, is highly intelligent and self-aware, being able to display behaviours associated with grief, learning and greeting. Three subspecies are recognised—E. m. maximus, E. m. indicus and E. m. sumatranus.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Elephas_maximus_%28Bandipur%29.jpg/330px-Elephas_maximus_%28Bandipur%29.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Asian_elephant",
+    "id": "Q7372",
+    "name": "African Elephant",
+    "scientific_name": "Loxodonta africana",
+    "common_names": [],
+    "description": "Genus comprising two living elephant species",
+    "summary": "African elephants are members of the genus Loxodonta comprising two living elephant species, the African bush elephant and the smaller African forest elephant. Both are social herbivores with grey skin. However, they differ in the size and colour of their tusks as well as the shape and size of their ears and skulls.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
       "class": "Mammalia",
       "order": "Proboscidea",
       "family": "Elephantidae",
-      "genus": "Elephas",
-      "species": "Elephas maximus"
+      "genus": "Loxodonta",
+      "species": "Loxodonta africana"
     },
+    "animal_type": "elephant",
+    "young_name": "calf",
+    "group_name": "herd",
     "physical": {
       "weight": null,
-      "height": null,
       "length": null,
+      "height": null,
       "top_speed": null,
-      "lifespan": null,
-      "color": null,
-      "skin_type": null,
-      "most_distinctive_feature": null
+      "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "prey": null,
-      "habitat": "jungle, savanna, desert",
-      "locations": "Asia, India, China, Thailand, Sri Lanka",
+      "habitat": "savanna, pond, lake, woodland",
+      "locations": "Asia, Africa, Europe, India, China",
       "group_behavior": "Solitary",
-      "lifestyle": null,
-      "biggest_threat": "Poaching, Habitat loss",
-      "conservation_status": "Endangered",
-      "estimated_population_size": null
+      "conservation_status": "Critically Endangered",
+      "biggest_threat": "Poaching, Habitat loss, Climate change",
+      "distinctive_features": [
+        "Distinctive mane",
+        "Long trunk",
+        "Large tusks"
+      ]
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "Calf"
-    },
-    "fun_facts": {
-      "slogan": null
+      "name_of_young": "calf"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T20:53:46.877224"
+    "last_updated": "2026-03-14T21:10:54.667128"
   },
   {
+    "id": "Q213537",
+    "name": "Gray Wolf",
+    "scientific_name": "Canis lupus",
+    "common_names": [],
+    "description": "Species of canine",
+    "summary": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America. More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo, though grey wolves, as popularly understood, include only naturally occurring wild subspecies. The wolf is the largest wild extant member of the family Canidae, and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal, to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Canidae",
+      "genus": "Canis",
+      "species": "Canis familiaris"
+    },
+    "animal_type": "canine",
+    "young_name": "pup",
+    "group_name": "pack",
+    "physical": {
+      "weight": null,
+      "length": null,
+      "height": null,
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "marsh, savanna, river, lake",
+      "locations": "Asia, Africa, Europe, North America, South America",
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Habitat loss, Human-wildlife conflict, Overfishing",
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Distinctive mane"
+      ]
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": "pup"
+    },
+    "sources": [
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-14T21:10:57.321033"
+  },
+  {
+    "id": "Q25319",
     "name": "Bald Eagle",
     "scientific_name": "Haliaeetus leucocephalus",
-    "qid": "Q25319",
-    "name_meaning": null,
+    "common_names": [],
     "description": "Bird of prey species of North America",
     "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
@@ -123,39 +173,454 @@
       "genus": "Haliaeetus",
       "species": "Haliaeetus leucocephalus"
     },
+    "animal_type": "bird",
+    "young_name": "chick",
+    "group_name": "flock",
     "physical": {
       "weight": null,
-      "height": null,
       "length": null,
+      "height": null,
       "top_speed": null,
-      "lifespan": null,
-      "color": null,
-      "skin_type": null,
-      "most_distinctive_feature": null
+      "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "prey": null,
-      "habitat": "swamp, plain, tundra",
-      "locations": "North America, Canada, Alaska, United States, Mexico",
+      "habitat": "marsh, ocean, savanna, pond",
+      "locations": "Asia, Africa, North America, India, Indonesia",
       "group_behavior": "Solitary",
-      "lifestyle": null,
-      "biggest_threat": "Poaching, Human-wildlife conflict",
       "conservation_status": "Endangered",
-      "estimated_population_size": null
+      "biggest_threat": "Poaching, Human-wildlife conflict, Pollution",
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Distinctive mane"
+      ]
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "Cub"
-    },
-    "fun_facts": {
-      "slogan": null
+      "name_of_young": "chick"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T20:53:48.970484"
+    "last_updated": "2026-03-14T21:10:59.916337"
+  },
+  {
+    "id": "Q43306",
+    "name": "Emperor Penguin",
+    "scientific_name": "Aptenodytes forsteri",
+    "common_names": [],
+    "description": "Large flightless seabird endemic to Antarctica",
+    "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Sphenisciformes",
+      "family": "Spheniscidae",
+      "genus": "Aptenodytes",
+      "species": "Aptenodytes forsteri"
+    },
+    "animal_type": "bird",
+    "young_name": "chick",
+    "group_name": "flock",
+    "physical": {
+      "weight": null,
+      "length": null,
+      "height": null,
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "marsh, ocean, nest, plain",
+      "locations": "Asia, Africa, North America, Australia, Antarctica",
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Habitat loss, Climate change, Overfishing",
+      "distinctive_features": [
+        "Spotted coat",
+        "Distinctive mane",
+        "Distinctive wings"
+      ]
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": "chick"
+    },
+    "sources": [
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-14T21:11:02.285448"
+  },
+  {
+    "id": "Q47164",
+    "name": "Great White Shark",
+    "scientific_name": "Carcharodon carcharias",
+    "common_names": [],
+    "description": "Species of large lamniform shark",
+    "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight and provides buoyancy and stores energy. The species is partially warm-blooded, an adaptation that allows them to remain active in colder waters.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Chondrichthyes",
+      "order": "Lamniformes",
+      "family": "Lamnidae",
+      "genus": "Carcharodon",
+      "species": "Carcharodon carcharias"
+    },
+    "animal_type": "shark",
+    "young_name": "pup",
+    "group_name": "shiver",
+    "physical": {
+      "weight": null,
+      "length": null,
+      "height": null,
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "marsh, ocean, pond, nest",
+      "locations": "Asia, Africa, Europe, North America, South America",
+      "group_behavior": "Solitary",
+      "conservation_status": "Critically Endangered",
+      "biggest_threat": "Climate change, Pollution, Overfishing",
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Distinctive mane"
+      ]
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": "pup"
+    },
+    "sources": [
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-14T21:11:04.851398"
+  },
+  {
+    "id": "Q39709",
+    "name": "Atlantic Salmon",
+    "scientific_name": "Salmo salar",
+    "common_names": [],
+    "description": "Species of fish",
+    "summary": "The Atlantic salmon is a species of ray-finned fish in the family Salmonidae. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon, growing up to 1 m (3.3 ft) in length. Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous, hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Actinopterygii",
+      "order": "Salmoniformes",
+      "family": "Salmonidae",
+      "genus": "Salmo",
+      "species": "Salmo salar"
+    },
+    "animal_type": "fish",
+    "young_name": "fry",
+    "group_name": "school",
+    "physical": {
+      "weight": null,
+      "length": null,
+      "height": null,
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "ocean, pond, river, lake",
+      "locations": "Europe, North America, Australia, Russia, United States",
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Poaching, Habitat loss, Climate change",
+      "distinctive_features": [
+        "Spotted coat",
+        "Distinctive mane",
+        "Distinctive wings"
+      ]
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": "fry"
+    },
+    "sources": [
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-14T21:11:07.614220"
+  },
+  {
+    "id": "Q7785",
+    "name": "Green Sea Turtle",
+    "scientific_name": "Chelonia mydas",
+    "common_names": [],
+    "description": "Species of large sea reptile",
+    "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Testudines",
+      "family": "Cheloniidae",
+      "genus": "Chelonia",
+      "species": "Chelonia mydas"
+    },
+    "animal_type": "turtle",
+    "young_name": "hatchling",
+    "group_name": "bale",
+    "physical": {
+      "weight": null,
+      "length": null,
+      "height": null,
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "marsh, ocean, pond, river",
+      "locations": "Asia, Africa, South America, Australia, India",
+      "group_behavior": "Solitary",
+      "conservation_status": "Critically Endangered",
+      "biggest_threat": "Poaching, Habitat loss, Climate change",
+      "distinctive_features": [
+        "Spotted coat",
+        "Distinctive mane",
+        "Prominent horns"
+      ]
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": "hatchling"
+    },
+    "sources": [
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-14T21:11:10.017025"
+  },
+  {
+    "id": "Q189609",
+    "name": "King Cobra",
+    "scientific_name": "Ophiophagus hannah",
+    "common_names": [],
+    "description": "Group of venomous snakes from Asia",
+    "summary": "The king cobra is a species complex of snakes endemic to Asia. With an average length of 3.18 to 4 m and a record length of 5.85 m (19.2 ft), it is the world's longest venomous snake and among the heaviest. Under the genus Ophiophagus, it is not phylogenetically a true cobra despite its common name and some resemblance. Spanning from the Indian subcontinent through Southeastern Asia to Southern China, the king cobra is widely distributed albeit not commonly seen.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Squamata",
+      "family": "Elapidae",
+      "genus": "Ophiophagus",
+      "species": "Ophiophagus hannah"
+    },
+    "animal_type": "snake",
+    "young_name": "hatchling",
+    "group_name": "den",
+    "physical": {
+      "weight": null,
+      "length": "3.18–4.0 m",
+      "height": "3.18–4.0 m",
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "marsh, river, rainforest, nest",
+      "locations": "Asia, Europe, Australia, India, China",
+      "group_behavior": "Social",
+      "conservation_status": "Vulnerable",
+      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Distinctive mane"
+      ]
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": "hatchling"
+    },
+    "sources": [
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-14T21:11:12.346551"
+  },
+  {
+    "id": "Q270238",
+    "name": "American Bullfrog",
+    "scientific_name": "Lithobates catesbeianus",
+    "common_names": [],
+    "description": "Species of amphibian",
+    "summary": "The American bullfrog, often simply known as the bullfrog in Canada and the United States, is a large true frog native to eastern North America. It typically inhabits large permanent water bodies such as swamps, ponds, and lakes. Bullfrogs can also be found in manmade habitats such as pools, koi ponds, canals, ditches and culverts. The bullfrog gets its name from the sound the male makes during the breeding season, which sounds similar to a bull bellowing. They are generalist carnivores, consuming a wide variety of prey. In turn, they are eaten by predators such as alligators, snakes, and birds.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Ranidae",
+      "genus": "Lithobates",
+      "species": "Lithobates catesbeianus"
+    },
+    "animal_type": "bovine",
+    "young_name": "calf",
+    "group_name": "herd",
+    "physical": {
+      "weight": null,
+      "length": null,
+      "height": null,
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "pond, river, lake, plain",
+      "locations": "Asia, Europe, North America, South America, China",
+      "group_behavior": "Solitary",
+      "conservation_status": "Vulnerable",
+      "biggest_threat": "Human-wildlife conflict, Invasive species, Disease",
+      "distinctive_features": [
+        "Distinctive mane",
+        "Prominent horns",
+        "Distinctive wings"
+      ]
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": "calf"
+    },
+    "sources": [
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-14T21:11:14.729699"
+  },
+  {
+    "id": "Q165980",
+    "name": "Monarch Butterfly",
+    "scientific_name": "Danaus plexippus",
+    "common_names": [],
+    "description": "Milkweed butterfly in the family Nymphalidae",
+    "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Lepidoptera",
+      "family": "Nymphalidae",
+      "genus": "Danaus",
+      "species": "Danaus plexippus"
+    },
+    "animal_type": "insect",
+    "young_name": "larva",
+    "group_name": "swarm",
+    "physical": {
+      "weight": null,
+      "length": "8.9–10.2 cm",
+      "height": null,
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "ocean, pond, river, wetland",
+      "locations": "Asia, Africa, Europe, North America, South America",
+      "group_behavior": "Social",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Poaching, Habitat loss, Climate change",
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Distinctive mane"
+      ]
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": "larva"
+    },
+    "sources": [
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-14T21:11:17.479453"
+  },
+  {
+    "id": "Q7316",
+    "name": "Honey Bee",
+    "scientific_name": "Apis mellifera",
+    "common_names": [],
+    "description": "Colonial flying insect",
+    "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hymenoptera",
+      "family": "Apidae",
+      "genus": "Apis",
+      "species": "Apis mellifera"
+    },
+    "animal_type": "bee",
+    "young_name": "larva",
+    "group_name": "colony",
+    "physical": {
+      "weight": null,
+      "length": null,
+      "height": null,
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "pond, desert, mountain, nest",
+      "locations": "Asia, Africa, Europe, North America, South America",
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Habitat loss, Pollution, Overfishing",
+      "distinctive_features": [
+        "Distinctive mane",
+        "Prominent horns",
+        "Distinctive wings"
+      ]
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": "larva"
+    },
+    "sources": [
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-14T21:11:21.090943"
   }
 ]
