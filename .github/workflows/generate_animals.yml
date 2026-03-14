@@ -1,39 +1,34 @@
-import requests
-import json
-import time
-import os
+name: Generate Animals JSON
 
-os.makedirs("data", exist_ok=True)
+on:
+  push:
+    paths:
+      - 'generator/**'
+  workflow_dispatch:
 
-animals = [
-    "Lion","Tiger","Elephant","Blue Whale","Orca","Great White Shark",
-    "Dolphin","Octopus","Penguin","Giraffe","Zebra","Bear","Wolf","Fox",
-    "Kangaroo","Koala","Cheetah","Leopard","Hyena","Moose","Walrus",
-    "Seal","Sea Lion","Swordfish","Salmon","Tuna","Clownfish",
-    "Angelfish","Manta Ray","Stingray","Hammerhead Shark","Barracuda",
-    "Pufferfish","Moray Eel","Manatee","Narwhal","Beluga Whale"
-]
+jobs:
+  generate:
+    runs-on: ubuntu-latest
 
-API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-data = []
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-for name in animals:
-    try:
-        r = requests.get(API + name).json()
-        item = {
-            "name": name,
-            "description": r.get("description",""),
-            "summary": r.get("extract",""),
-            "image": r.get("thumbnail",{}).get("source",""),
-        }
-        data.append(item)
-        print("Added", name)
-        time.sleep(1)
-    except Exception as e:
-        print("Error fetching", name, e)
+      - name: Install dependencies
+        run: pip install requests
 
-with open("data/animals.json", "w") as f:
-    json.dump(data, f, indent=2)
+      - name: Run generator
+        run: python generator/generate_animals.py
 
-print("animals.json written to data/animals.json")
+      - name: Commit and push JSON
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/animals.json
+          git commit -m "Auto-generate animals.json via Action" || echo "No changes to commit"
+          git push
