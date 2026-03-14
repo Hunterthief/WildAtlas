@@ -1,10 +1,13 @@
 # generator/generate_animals.py
 import requests, json, time, os, re
 from datetime import datetime
+from pathlib import Path
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
+# Setup
 os.makedirs("data", exist_ok=True)
+CONFIG_DIR = Path(__file__).parent / "config"
 session = requests.Session()
 retry = Retry(total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504])
 session.mount("https://", HTTPAdapter(max_retries=retry))
@@ -17,98 +20,44 @@ INAT_API = "https://api.inaturalist.org/v1/taxa"
 CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
 
 # ============================================================================
-# ANIMAL TYPE DETECTION & DYNAMIC NAMING (Works for ALL animal types)
+# LOAD CONFIG FILES
 # ============================================================================
 
-YOUNG_NAMES = {
-    # Mammals
-    "feline": "cub", "canine": "pup", "bear": "cub", "elephant": "calf",
-    "deer": "fawn", "bovine": "calf", "equine": "foal", "primate": "infant",
-    "rodent": "pup", "bat": "pup", "whale": "calf", "dolphin": "calf",
-    "seal": "pup", "rabbit": "kit", "hare": "leveret", "mammal": "young",
-    # Birds
-    "bird": "chick", "raptor": "eaglet", "owl": "owlet", "duck": "duckling",
-    "goose": "gosling", "swan": "cygnet", "chicken": "chick", "penguin": "chick",
-    # Fish
-    "fish": "fry", "shark": "pup", "ray": "pup", "salmon": "fry", "trout": "fry",
-    # Amphibians
-    "frog": "tadpole", "toad": "tadpole", "salamander": "larva", "newt": "larva",
-    # Reptiles
-    "snake": "hatchling", "lizard": "hatchling", "turtle": "hatchling",
-    "tortoise": "hatchling", "crocodile": "hatchling", "alligator": "hatchling",
-    # Insects & Arthropods
-    "insect": "larva", "butterfly": "caterpillar", "moth": "caterpillar",
-    "bee": "larva", "ant": "larva", "spider": "spiderling", "crab": "zoea",
-    "lobster": "larva", "shrimp": "larva", "default": "young"
-}
+def load_config(filename):
+    """Load configuration from JSON file"""
+    config_path = CONFIG_DIR / filename
+    if config_path.exists():
+        with open(config_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
 
-GROUP_NAMES = {
-    # Mammals
-    "feline": "streak", "lion": "pride", "canine": "pack", "wolf": "pack",
-    "elephant": "herd", "deer": "herd", "bovine": "herd", "equine": "herd",
-    "primate": "troop", "bat": "colony", "whale": "pod", "dolphin": "pod",
-    "seal": "colony", "rabbit": "colony", "mammal": "population",
-    # Birds
-    "bird": "flock", "raptor": "kettle", "owl": "parliament", "duck": "flock",
-    "goose": "gaggle", "swan": "bevy", "chicken": "flock", "penguin": "colony",
-    # Fish
-    "fish": "school", "shark": "shiver", "ray": "fever", "salmon": "run",
-    # Amphibians
-    "frog": "army", "toad": "knot", "salamander": "population",
-    # Reptiles
-    "snake": "den", "lizard": "population", "turtle": "bale", "crocodile": "bask",
-    # Insects & Arthropods
-    "insect": "swarm", "butterfly": "swarm", "bee": "colony", "ant": "colony",
-    "spider": "cluster", "crab": "consortium", "lobster": "swarm", "default": "population"
-}
+# Load all configs
+ANIMAL_TYPES = load_config("animal_types.json")
+YOUNG_NAMES = load_config("young_names.json")
+GROUP_NAMES = load_config("group_names.json")
+LOCATIONS = load_config("locations.json")
+HABITATS = load_config("habitats.json")
+FEATURES = load_config("features.json")
+DIETS = load_config("diets.json")
 
-ANIMAL_TYPE_KEYWORDS = {
-    "feline": ["cat", "tiger", "lion", "leopard", "cheetah", "panther", "jaguar", "lynx", "puma"],
-    "canine": ["dog", "wolf", "fox", "jackal", "coyote"],
-    "bear": ["bear", "panda", "polar bear"],
-    "elephant": ["elephant"],
-    "primate": ["monkey", "ape", "gorilla", "chimpanzee", "orangutan", "lemur"],
-    "rodent": ["mouse", "rat", "squirrel", "beaver", "hamster", "guinea pig"],
-    "bat": ["bat"],
-    "whale": ["whale", "orca", "porpoise"],
-    "dolphin": ["dolphin"],
-    "seal": ["seal", "walrus", "sea lion"],
-    "deer": ["deer", "elk", "moose", "reindeer", "antelope"],
-    "bovine": ["cow", "bull", "bison", "buffalo", "ox"],
-    "equine": ["horse", "zebra", "donkey", "mule"],
-    "rabbit": ["rabbit", "hare"],
-    "bird": ["bird", "eagle", "hawk", "falcon", "owl", "duck", "goose", "swan", 
-             "chicken", "rooster", "turkey", "penguin", "parrot", "raven", "crow"],
-    "raptor": ["eagle", "hawk", "falcon", "vulture", "kite"],
-    "owl": ["owl"],
-    "duck": ["duck", "mallard"],
-    "goose": ["goose"],
-    "swan": ["swan"],
-    "chicken": ["chicken", "rooster", "hen"],
-    "penguin": ["penguin"],
-    "fish": ["fish", "salmon", "trout", "tuna", "cod", "bass", "carp", "goldfish"],
-    "shark": ["shark"],
-    "ray": ["ray", "stingray", "manta"],
-    "frog": ["frog", "toad"],
-    "salamander": ["salamander", "newt"],
-    "snake": ["snake", "serpent", "python", "cobra", "viper"],
-    "lizard": ["lizard", "gecko", "iguana", "chameleon"],
-    "turtle": ["turtle", "tortoise", "terrapin"],
-    "crocodile": ["crocodile", "alligator", "caiman", "gharial"],
-    "insect": ["insect", "beetle", "fly", "mosquito", "wasp", "hornet"],
-    "butterfly": ["butterfly", "moth"],
-    "bee": ["bee", "bumblebee"],
-    "ant": ["ant", "termite"],
-    "spider": ["spider", "scorpion", "tarantula"],
-    "crab": ["crab", "lobster", "shrimp", "crayfish"]
-}
+# ============================================================================
+# ANIMAL TYPE DETECTION
+# ============================================================================
 
 def detect_animal_type(name, classification=None):
     """Detect animal type from name and classification"""
     name_lower = name.lower()
     
-    # Check name keywords first
-    for animal_type, keywords in ANIMAL_TYPE_KEYWORDS.items():
+    # Check name keywords first (most specific matches first)
+    priority_types = ["raptor", "owl", "duck", "goose", "swan", "chicken", "penguin", 
+                      "shark", "ray", "salmon", "frog", "salamander", "snake", "lizard", 
+                      "turtle", "crocodile", "butterfly", "bee", "ant", "spider", "crab",
+                      "feline", "canine", "bear", "elephant", "primate", "rodent", 
+                      "bat", "whale", "deer", "bovine", "equine", "rabbit"]
+    
+    for animal_type in priority_types:
+        config = ANIMAL_TYPES.get(animal_type, {})
+        keywords = config.get("keywords", [])
         for keyword in keywords:
             if keyword in name_lower:
                 return animal_type
@@ -122,12 +71,10 @@ def detect_animal_type(name, classification=None):
             if "carnivora" in order_name:
                 if any(w in name_lower for w in ["cat", "feline"]): return "feline"
                 if any(w in name_lower for w in ["dog", "canine", "wolf"]): return "canine"
-                return "carnivore"
+                return "feline"
             elif "proboscidea" in order_name: return "elephant"
             elif "primates" in order_name: return "primate"
-            elif "cetacea" in order_name:
-                if "whale" in name_lower: return "whale"
-                return "dolphin"
+            elif "cetacea" in order_name: return "whale"
             elif "artiodactyla" in order_name:
                 if any(w in name_lower for w in ["deer", "elk", "moose"]): return "deer"
                 if any(w in name_lower for w in ["cow", "bison", "buffalo"]): return "bovine"
@@ -146,8 +93,9 @@ def detect_animal_type(name, classification=None):
             if "penguin" in name_lower: return "penguin"
             return "bird"
         elif "actinopterygii" in class_name or "chondrichthyes" in class_name:
-            if any(w in name_lower for w in ["shark", "ray"]): 
-                return "shark" if "shark" in name_lower else "ray"
+            if any(w in name_lower for w in ["shark"]): return "shark"
+            if any(w in name_lower for w in ["ray", "stingray", "manta"]): return "ray"
+            if any(w in name_lower for w in ["salmon", "trout"]): return "salmon"
             return "fish"
         elif "amphibia" in class_name:
             if any(w in name_lower for w in ["frog", "toad"]): return "frog"
@@ -162,22 +110,22 @@ def detect_animal_type(name, classification=None):
             if any(w in name_lower for w in ["butterfly", "moth"]): return "butterfly"
             if any(w in name_lower for w in ["bee", "wasp"]): return "bee"
             if "ant" in name_lower: return "ant"
-            if any(w in name_lower for w in ["spider", "scorpion"]): return "spider"
             return "insect"
         elif "arachnida" in class_name:
             return "spider"
         elif "crustacea" in class_name:
-            if "crab" in name_lower: return "crab"
-            if "lobster" in name_lower: return "lobster"
             return "crab"
     
     return "default"
 
 def get_young_name(animal_type):
-    return YOUNG_NAMES.get(animal_type, YOUNG_NAMES["default"])
+    return YOUNG_NAMES.get(animal_type, YOUNG_NAMES.get("default", "young"))
 
 def get_group_name(animal_type):
-    return GROUP_NAMES.get(animal_type, GROUP_NAMES["default"])
+    return GROUP_NAMES.get(animal_type, GROUP_NAMES.get("default", "population"))
+
+def get_default_diet(animal_type):
+    return DIETS.get(animal_type, DIETS.get("default", "Unknown"))
 
 # ============================================================================
 # WIKIPEDIA FETCHING
@@ -209,20 +157,19 @@ def fetch_wikipedia_full(name):
     return ""
 
 # ============================================================================
-# DATA EXTRACTION (GENERALIZED FOR ALL ANIMAL TYPES)
+# DATA EXTRACTION
 # ============================================================================
 
 def extract_stats(text, animal_type):
-    """Extract physical stats - works for all animal types"""
+    """Extract physical stats"""
     stats = {"weight": None, "length": None, "height": None, "lifespan": None, "top_speed": None}
     if not text: return stats
     
-    # Weight patterns (supports g, kg, t, lb for insects to whales)
+    # Weight
     weight_patterns = [
-        r'weighs?\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|g|grams?|mg|milligrams?)',
-        r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|g|grams?|mg)',
+        r'weighs?\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|g|grams?)',
+        r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|g|grams?)',
         r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|g|grams?)\s*weight',
-        r'mass\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|g)',
     ]
     for pattern in weight_patterns:
         m = re.search(pattern, text, re.I)
@@ -241,23 +188,9 @@ def extract_stats(text, animal_type):
                     elif u in ['lb','lbs','pounds'] and 0.01 < v1 < 22000:
                         stats["weight"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
                         break
-                    elif u in ['g','gram','grams'] and 0.01 < v1 < 1000000:
-                        stats["weight"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
-                        break
-                    elif u in ['mg','milligram','milligrams'] and 1 < v1 < 10000000:
-                        stats["weight"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
-                        break
-                elif len(groups) == 2:
-                    v, u = float(groups[0].replace(',','.')), groups[1].lower()
-                    if u in ['kg'] and 0.001 < v < 10000:
-                        stats["weight"] = f"{v} {u}"
-                        break
-                    elif u in ['t','tonne','tonnes'] and 0.001 < v < 100:
-                        stats["weight"] = f"{v} t"
-                        break
             except: pass
     
-    # Length patterns (body length, wingspan, etc.)
+    # Length
     length_patterns = [
         r'(?:length|long|wingspan)\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|mm\b|ft\b|in\b)',
         r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|mm\b|ft\b|in\b)\s*(?:long|length)',
@@ -275,18 +208,9 @@ def extract_stats(text, animal_type):
                 elif u in ['cm','centimetre','centimetres'] and 0.1 < v1 < 10000:
                     stats["length"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
                     break
-                elif u in ['mm','millimetre','millimetres'] and 1 < v1 < 100000:
-                    stats["length"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
-                    break
-                elif u in ['ft','feet','foot'] and 0.01 < v1 < 300:
-                    stats["length"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
-                    break
-                elif u in ['in','inch','inches'] and 0.1 < v1 < 3600:
-                    stats["length"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
-                    break
             except: pass
     
-    # Height (for standing animals)
+    # Height
     if any(w in text.lower() for w in ['shoulder', 'stands', 'tall', 'height']):
         m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
         if m:
@@ -301,7 +225,6 @@ def extract_stats(text, animal_type):
     lifespan_patterns = [
         r'live\s*(\d+(?:-\d+)?)\s*(years?|yrs?|months?|weeks?|days?)',
         r'(\d+(?:-\d+)?)\s*(years?|yrs?|months?|weeks?|days?)\s*(?:lifespan|life|wild|captivity)',
-        r'lifespan\s*(?:of)?\s*(\d+(?:-\d+)?)\s*(years?|yrs?|months?|weeks?|days?)',
     ]
     for pattern in lifespan_patterns:
         m = re.search(pattern, text, re.I)
@@ -318,9 +241,6 @@ def extract_stats(text, animal_type):
                     elif 0 < int(v) < 200:
                         stats["lifespan"] = f"{v} years"
                         break
-                elif 'month' in unit:
-                    stats["lifespan"] = f"{v} months"
-                    break
             except: pass
     
     # Speed
@@ -336,27 +256,26 @@ def extract_stats(text, animal_type):
     return stats
 
 def extract_diet(text, animal_type):
-    if not text: return None
+    """Extract diet with type-specific defaults"""
+    if not text: 
+        return get_default_diet(animal_type)
+    
     t = text.lower()
     
+    # Check for specific diet terms
     if any(w in t for w in ['carnivore', 'carnivorous', 'meat-eater', 'predator', 'preys on', 'hunts']):
         return "Carnivore"
     elif any(w in t for w in ['herbivore', 'herbivorous', 'plant-eater', 'grazes', 'browses', 'foliage', 'vegetation']):
         return "Herbivore"
     elif any(w in t for w in ['omnivore', 'omnivorous', 'both plants and animals', 'varied diet']):
         return "Omnivore"
-    elif any(w in t for w in ['insectivore', 'insectivorous', 'eats insects', 'insects']):
+    elif any(w in t for w in ['insectivore', 'insectivorous', 'eats insects']):
         return "Insectivore"
-    elif any(w in t for w in ['piscivore', 'piscivorous', 'eats fish', 'fish']):
+    elif any(w in t for w in ['piscivore', 'piscivorous', 'eats fish']):
         return "Piscivore"
-    elif any(w in t for w in ['filter feeder', 'filter-feeder', 'plankton']):
-        return "Filter feeder"
-    elif any(w in t for w in ['detritivore', 'detritus', 'decomposer']):
-        return "Detritivore"
-    elif any(w in t for w in ['parasite', 'parasitic']):
-        return "Parasitic"
     
-    return None
+    # Fall back to type-specific default
+    return get_default_diet(animal_type)
 
 def extract_conservation(text):
     if not text: return None
@@ -368,43 +287,96 @@ def extract_conservation(text):
     return None
 
 def extract_locations(text, animal_type):
+    """Extract locations using animal-specific keywords"""
     if not text: return None
     
-    location_keywords = [
-        "Asia", "Africa", "Europe", "North America", "South America", "Australia", "Antarctica",
-        "India", "China", "Russia", "Indonesia", "Thailand", "Malaysia", "Bangladesh", "Nepal",
-        "United States", "Canada", "Mexico", "Brazil", "Argentina", "Japan", "Philippines",
-        "Pacific", "Atlantic", "Indian Ocean", "Arctic", "Southern Ocean"
-    ]
+    # Get animal-specific locations
+    animal_locations = LOCATIONS.get("animal_specific", {}).get(animal_type, [])
+    if not animal_locations:
+        # Fall back to all regions
+        animal_locations = []
+        for region_locs in LOCATIONS.get("regions", {}).values():
+            animal_locations.extend(region_locs)
     
+    # Find matching locations
     locs = []
-    for loc in location_keywords:
-        if loc.lower() in text.lower():
+    text_lower = text.lower()
+    for loc in animal_locations:
+        if loc.lower() in text_lower:
             locs.append(loc)
     
-    return ", ".join(locs[:5]) if locs else None
+    # Remove duplicates while preserving order
+    seen = set()
+    unique_locs = []
+    for loc in locs:
+        if loc.lower() not in seen:
+            seen.add(loc.lower())
+            unique_locs.append(loc)
+    
+    return ", ".join(unique_locs[:5]) if unique_locs else None
 
 def extract_habitat(text, animal_type):
+    """Extract habitat using animal-specific keywords"""
     if not text: return None
     
-    habitat_keywords = [
-        "forest", "grassland", "savanna", "desert", "mountain", "wetland", "swamp", "jungle",
-        "woodland", "plain", "tundra", "rainforest", "ocean", "sea", "river", "lake", "pond",
-        "coral reef", "kelp forest", "mangrove", "marsh", "bog", "cave", "burrow", "nest"
-    ]
-    
+    habitat_keywords = HABITATS.get(animal_type, HABITATS.get("default", []))
     found = []
+    
     for keyword in habitat_keywords:
         if keyword in text.lower():
             found.append(keyword)
     
     return ", ".join(list(set(found))[:4]) if found else None
 
+def extract_features(text, animal_type):
+    """Extract distinctive features based on animal type"""
+    if not text: return None
+    
+    type_features = FEATURES.get(animal_type, {})
+    positive = type_features.get("positive", [])
+    negative = type_features.get("negative", [])
+    
+    features = []
+    text_lower = text.lower()
+    
+    # Check positive features
+    for feature in positive:
+        if feature in text_lower:
+            features.append(feature.capitalize())
+    
+    # Check for common features in text
+    common_features = {
+        "striped": "Striped coat",
+        "stripe": "Striped coat",
+        "spotted": "Spotted coat",
+        "spot": "Spotted coat",
+        "mane": "Distinctive mane",
+        "trunk": "Long trunk",
+        "tusk": "Large tusks",
+        "horn": "Prominent horns",
+        "antler": "Large antlers",
+        "wing": "Distinctive wings",
+        "tail": "Long tail",
+        "fin": "Distinctive fins",
+        "shell": "Protective shell",
+        "venom": "Venomous",
+        "color": "Vibrant coloration"
+    }
+    
+    for keyword, feature in common_features.items():
+        if keyword in text_lower and feature not in features:
+            # Don't add features that don't match animal type
+            if feature not in [f.capitalize() for f in negative]:
+                features.append(feature)
+    
+    return features[:3] if features else None
+
 def extract_behavior(text, animal_type):
+    """Extract social behavior"""
     if not text: return None
     t = text.lower()
     
-    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary', 'solitary life']):
+    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary']):
         return "Solitary"
     elif any(w in t for w in ['pack', 'group', 'social', 'herd', 'flock', 'school', 'swarm', 'colony']):
         return "Social"
@@ -447,51 +419,10 @@ def extract_threats(text):
         threats.append('Pollution')
     if any(w in t for w in ['overfishing', 'bycatch', 'fishing']):
         threats.append('Overfishing')
-    if any(w in t for w in ['invasive species', 'introduced species']):
-        threats.append('Invasive species')
-    if any(w in t for w in ['disease', 'pathogen', 'virus', 'fungus']):
-        threats.append('Disease')
     return ', '.join(threats[:3]) if threats else None
 
-def extract_distinctive_features(text, animal_type):
-    """Extract distinctive features from text"""
-    features = []
-    t = text.lower()
-    
-    # Common distinctive features
-    if any(w in t for w in ['stripe', 'striped', 'stripes']):
-        features.append('Striped coat')
-    if any(w in t for w in ['spot', 'spotted', 'spots']):
-        features.append('Spotted coat')
-    if any(w in t for w in ['mane']):
-        features.append('Distinctive mane')
-    if any(w in t for w in ['trunk']):
-        features.append('Long trunk')
-    if any(w in t for w in ['tusk', 'tusks']):
-        features.append('Large tusks')
-    if any(w in t for w in ['horn', 'horns']):
-        features.append('Prominent horns')
-    if any(w in t for w in ['antler', 'antlers']):
-        features.append('Large antlers')
-    if any(w in t for w in ['wing', 'wings']):
-        features.append('Distinctive wings')
-    if any(w in t for w in ['tail']):
-        features.append('Long tail')
-    if any(w in t for w in ['fin', 'fins']):
-        features.append('Distinctive fins')
-    if any(w in t for w in ['shell']):
-        features.append('Protective shell')
-    if any(w in t for w in ['venom', 'venomous', 'poison']):
-        features.append('Venomous')
-    if any(w in t for w in ['glow', 'bioluminescent']):
-        features.append('Bioluminescent')
-    if any(w in t for w in ['color', 'colour', 'bright', 'vibrant']):
-        features.append('Vibrant coloration')
-    
-    return features[:3] if features else None
-
 # ============================================================================
-# INATURALIST TAXONOMY
+# INATURALIST
 # ============================================================================
 
 def fetch_inaturalist(sci_name):
@@ -526,7 +457,7 @@ def fetch_inaturalist(sci_name):
     return None
 
 # ============================================================================
-# CACHE MANAGEMENT
+# CACHE
 # ============================================================================
 
 def load_cache(qid):
@@ -542,7 +473,7 @@ def save_cache(qid, data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 # ============================================================================
-# MAIN GENERATOR (facts.app STYLE OUTPUT)
+# MAIN
 # ============================================================================
 
 def generate(animals, force=False):
@@ -559,57 +490,18 @@ def generate(animals, force=False):
             data = cached
             data["sources"] = list(set(data.get("sources", [])))
         else:
-            # facts.app style structure
             data = {
-                "id": qid,
-                "name": name,
-                "scientific_name": sci,
-                "common_names": [],
-                "description": None,
-                "summary": None,
-                "image": None,
-                "wikipedia_url": None,
-                
-                # Scientific Classification (like facts.app)
+                "id": qid, "name": name, "scientific_name": sci, "common_names": [],
+                "description": None, "summary": None, "image": None, "wikipedia_url": None,
                 "classification": {f: None for f in CLASSIFICATION_FIELDS},
-                
-                # Animal Type Info
-                "animal_type": None,
-                "young_name": None,
-                "group_name": None,
-                
-                # Physical Stats (like facts.app)
-                "physical": {
-                    "weight": None,
-                    "length": None,
-                    "height": None,
-                    "top_speed": None,
-                    "lifespan": None
-                },
-                
-                # Ecology (like facts.app)
-                "ecology": {
-                    "diet": None,
-                    "habitat": None,
-                    "locations": None,
-                    "group_behavior": None,
-                    "conservation_status": None,
-                    "biggest_threat": None,
-                    "distinctive_features": None
-                },
-                
-                # Reproduction (like facts.app)
-                "reproduction": {
-                    "gestation_period": None,
-                    "average_litter_size": None,
-                    "name_of_young": None
-                },
-                
-                "sources": [],
-                "last_updated": None
+                "animal_type": None, "young_name": None, "group_name": None,
+                "physical": {"weight": None, "length": None, "height": None, "top_speed": None, "lifespan": None},
+                "ecology": {"diet": None, "habitat": None, "locations": None, "group_behavior": None,
+                           "conservation_status": None, "biggest_threat": None, "distinctive_features": None},
+                "reproduction": {"gestation_period": None, "average_litter_size": None, "name_of_young": None},
+                "sources": [], "last_updated": None
             }
         
-        # Wikipedia
         if not data["image"] or force:
             print("  📖 Wikipedia...")
             wiki = fetch_wikipedia_summary(name)
@@ -623,14 +515,12 @@ def generate(animals, force=False):
                 full = fetch_wikipedia_full(name)
                 all_text = wiki["summary"] + " " + full
                 
-                # Detect animal type
                 animal_type = detect_animal_type(name, data["classification"])
                 data["animal_type"] = animal_type
                 data["young_name"] = get_young_name(animal_type)
                 data["group_name"] = get_group_name(animal_type)
                 print(f"    ✓ Type: {animal_type}")
                 
-                # Extract all data
                 stats = extract_stats(all_text, animal_type)
                 for k, v in stats.items():
                     if v:
@@ -657,15 +547,15 @@ def generate(animals, force=False):
                     data["ecology"]["habitat"] = habitat
                     print(f"    ✓ habitat: {habitat}")
                 
+                features = extract_features(all_text, animal_type)
+                if features:
+                    data["ecology"]["distinctive_features"] = features
+                    print(f"    ✓ features: {features}")
+                
                 behavior = extract_behavior(all_text, animal_type)
                 if behavior:
                     data["ecology"]["group_behavior"] = behavior
                     print(f"    ✓ behavior: {behavior}")
-                
-                features = extract_distinctive_features(all_text, animal_type)
-                if features:
-                    data["ecology"]["distinctive_features"] = features
-                    print(f"    ✓ features: {features}")
                 
                 repro = extract_reproduction(all_text, animal_type)
                 for k, v in repro.items():
@@ -679,7 +569,6 @@ def generate(animals, force=False):
                     data["ecology"]["biggest_threat"] = threats
                     print(f"    ✓ threats: {threats}")
         
-        # iNaturalist
         if not data["classification"]["kingdom"] or force:
             print("  🔬 iNaturalist...")
             cl = fetch_inaturalist(sci)
@@ -687,7 +576,7 @@ def generate(animals, force=False):
                 data["classification"] = cl
                 if "iNaturalist" not in data["sources"]: data["sources"].append("iNaturalist")
                 
-                # Re-detect animal type with classification
+                # Re-detect with classification
                 animal_type = detect_animal_type(name, cl)
                 data["animal_type"] = animal_type
                 data["young_name"] = get_young_name(animal_type)
@@ -705,27 +594,17 @@ def generate(animals, force=False):
     print(f"\n✅ Done! {len(output)} animals")
     return output
 
-# ============================================================================
-# TEST DATA (MIXED ANIMAL TYPES)
-# ============================================================================
-
 TEST_ANIMALS = [
-    # Mammals
     {"name": "Tiger", "scientific_name": "Panthera tigris", "qid": "Q132186"},
     {"name": "African Elephant", "scientific_name": "Loxodonta africana", "qid": "Q7372"},
     {"name": "Gray Wolf", "scientific_name": "Canis lupus", "qid": "Q213537"},
-    # Birds
     {"name": "Bald Eagle", "scientific_name": "Haliaeetus leucocephalus", "qid": "Q25319"},
     {"name": "Emperor Penguin", "scientific_name": "Aptenodytes forsteri", "qid": "Q43306"},
-    # Fish
     {"name": "Great White Shark", "scientific_name": "Carcharodon carcharias", "qid": "Q47164"},
     {"name": "Atlantic Salmon", "scientific_name": "Salmo salar", "qid": "Q39709"},
-    # Reptiles
     {"name": "Green Sea Turtle", "scientific_name": "Chelonia mydas", "qid": "Q7785"},
     {"name": "King Cobra", "scientific_name": "Ophiophagus hannah", "qid": "Q189609"},
-    # Amphibians
     {"name": "American Bullfrog", "scientific_name": "Lithobates catesbeianus", "qid": "Q270238"},
-    # Insects
     {"name": "Monarch Butterfly", "scientific_name": "Danaus plexippus", "qid": "Q165980"},
     {"name": "Honey Bee", "scientific_name": "Apis mellifera", "qid": "Q7316"},
 ]
