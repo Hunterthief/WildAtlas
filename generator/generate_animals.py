@@ -125,7 +125,7 @@ for a in TEST_ANIMALS:
     time.sleep(1)
 
 # Write JSON
-with open("data/animals_test.json", "w", encoding="utf-8") as f:
+with open("data/animals.json", "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2, ensure_ascii=False)
 
-print(f"\nDone. Generated animals_test.json with {len(output)} animals.")
+print(f"\nDone. Generated animals.json with {len(output)} animals.")
