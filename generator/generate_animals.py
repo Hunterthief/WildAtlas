@@ -1,11 +1,13 @@
+# generator/generate_animals.py
 import requests
 import json
 import time
 import os
 
-# Make sure data folder exists
+# Ensure the data folder exists
 os.makedirs("data", exist_ok=True)
 
+# List of animals (can expand later)
 animals = [
     "Lion","Tiger","Elephant","Blue Whale","Orca","Great White Shark",
     "Dolphin","Octopus","Penguin","Giraffe","Zebra","Bear","Wolf","Fox",
@@ -21,19 +23,20 @@ data = []
 
 for name in animals:
     try:
-        # Replace spaces with underscores for Wikipedia API
+        # Replace spaces with underscores for API
         url_name = name.replace(" ", "_")
-        r = requests.get(API + url_name)
-        
-        if r.status_code != 200:
-            print("Skipped:", name, "Status:", r.status_code)
+        response = requests.get(API + url_name, timeout=10)
+        print(f"Fetching {name} -> {API + url_name} (status {response.status_code})")
+
+        if response.status_code != 200:
+            print(f"Skipped {name} due to status {response.status_code}")
             continue
 
-        j = r.json()
+        j = response.json()
 
-        # Only add if extract exists
+        # Skip if no extract available
         if "extract" not in j:
-            print("Skipped (no extract):", name)
+            print(f"Skipped {name} (no extract)")
             continue
 
         data.append({
@@ -43,14 +46,15 @@ for name in animals:
             "image": j.get("thumbnail", {}).get("source", "")
         })
 
-        print("Added", name)
-        time.sleep(1)  # be polite to Wikipedia
+        print(f"Added {name}")
+        time.sleep(1)  # polite to Wikipedia
 
     except Exception as e:
-        print("Error fetching", name, e)
+        print(f"Error fetching {name}: {e}")
 
-# Write to data folder
-with open("data/animals.json", "w") as f:
-    json.dump(data, f, indent=2)
+# Write to repo root data folder
+output_path = os.path.join("data", "animals.json")
+with open(output_path, "w", encoding="utf-8") as f:
+    json.dump(data, f, indent=2, ensure_ascii=False)
 
-print("animals.json written to data/animals.json. Total:", len(data))
+print(f"animals.json written to {output_path}. Total animals fetched: {len(data)}")
