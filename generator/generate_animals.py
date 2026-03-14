@@ -48,11 +48,10 @@ def detect_animal_type(name, classification=None):
     """Detect animal type from name and classification"""
     name_lower = name.lower()
     
-    # Check name keywords first - prioritize longer/more specific matches first
-    # Order matters: check more specific types before generic ones
+    # Check name keywords first (most specific matches first)
     priority_types = ["raptor", "owl", "duck", "goose", "swan", "chicken", "penguin", 
                       "shark", "ray", "salmon", "frog", "salamander", "snake", "lizard", 
-                      "turtle", "crocodile", "butterfly", "bee", "spider", "crab",
+                      "turtle", "crocodile", "butterfly", "bee", "ant", "spider", "crab",
                       "feline", "canine", "bear", "elephant", "primate", "rodent", 
                       "bat", "whale", "deer", "bovine", "equine", "rabbit"]
     
@@ -60,10 +59,7 @@ def detect_animal_type(name, classification=None):
         config = ANIMAL_TYPES.get(animal_type, {})
         keywords = config.get("keywords", [])
         for keyword in keywords:
-            # Use word boundary matching to avoid partial matches like "ant" in "elephant"
-            # But also allow substring matches for compound words like "bullfrog" -> "frog"
-            if re.search(r'\b' + re.escape(keyword) + r'\b', name_lower) or \
-               (keyword in name_lower and len(keyword) > 3):
+            if keyword in name_lower:
                 return animal_type
     
     # Check classification if available
@@ -260,85 +256,23 @@ def extract_stats(text, animal_type):
     return stats
 
 def extract_diet(text, animal_type):
-    """Extract diet by analyzing text content with improved detection"""
+    """Extract diet with type-specific defaults"""
     if not text: 
         return get_default_diet(animal_type)
     
     t = text.lower()
     
-    # Check for explicit diet terms first (most reliable)
-    if any(w in t for w in ['carnivore', 'carnivorous', 'meat-eater', 'meat eater']):
+    # Check for specific diet terms
+    if any(w in t for w in ['carnivore', 'carnivorous', 'meat-eater', 'predator', 'preys on', 'hunts']):
         return "Carnivore"
-    elif any(w in t for w in ['herbivore', 'herbivorous', 'plant-eater', 'plant eater']):
+    elif any(w in t for w in ['herbivore', 'herbivorous', 'plant-eater', 'grazes', 'browses', 'foliage', 'vegetation']):
         return "Herbivore"
     elif any(w in t for w in ['omnivore', 'omnivorous', 'both plants and animals', 'varied diet']):
         return "Omnivore"
-    elif any(w in t for w in ['insectivore', 'insectivorous', 'eats insects', 'feeding on insects']):
+    elif any(w in t for w in ['insectivore', 'insectivorous', 'eats insects']):
         return "Insectivore"
-    elif any(w in t for w in ['piscivore', 'piscivorous', 'eats fish', 'feeding on fish', 'fish-eater']):
+    elif any(w in t for w in ['piscivore', 'piscivorous', 'eats fish']):
         return "Piscivore"
-    
-    # Check for predator/prey language (indicates carnivore)
-    predator_patterns = [
-        r'preys?\s+on',
-        r'hunts?\s+(?:for\s+)?(?:other\s+)?animals',
-        r'apex\s+predator',
-        r'top\s+predator',
-        r'predatory',
-        r'feeds?\s+on\s+(?:other\s+)?animals',
-        r'eats\s+(?:other\s+)?animals',
-        r'carnivor[ous]+',
-    ]
-    for pattern in predator_patterns:
-        if re.search(pattern, t):
-            return "Carnivore"
-    
-    # Check for herbivore indicators
-    herbivore_patterns = [
-        r'grazes?\s+on',
-        r'browses?\s+on',
-        r'feeds?\s+on\s+(?:plants|vegetation|foliage|grass|leaves)',
-        r'eats\s+(?:plants|vegetation|foliage|grass|leaves)',
-        r'plant[- ]?based\s+diet',
-        r'foliage',
-        r'vegetation',
-    ]
-    for pattern in herbivore_patterns:
-        if re.search(pattern, t):
-            return "Herbivore"
-    
-    # Check for omnivore indicators
-    omnivore_patterns = [
-        r'eats\s+both\s+(?:plants\s+and\s+animals|animals\s+and\s+plants)',
-        r'feeds?\s+on\s+a\s+wide\s+variety',
-        r'opportunistic\s+feeder',
-        r'generalist\s+(?:feeder|diet)',
-    ]
-    for pattern in omnivore_patterns:
-        if re.search(pattern, t):
-            return "Omnivore"
-    
-    # Check for insectivore indicators
-    insectivore_patterns = [
-        r'feeds?\s+on\s+insects',
-        r'eats\s+insects',
-        r'insect[- ]?eating',
-        r'primarily\s+insects',
-    ]
-    for pattern in insectivore_patterns:
-        if re.search(pattern, t):
-            return "Insectivore"
-    
-    # Check for piscivore indicators
-    piscivore_patterns = [
-        r'feeds?\s+on\s+fish',
-        r'eats\s+fish',
-        r'fish[- ]?eating',
-        r'primarily\s+fish',
-    ]
-    for pattern in piscivore_patterns:
-        if re.search(pattern, t):
-            return "Piscivore"
     
     # Fall back to type-specific default
     return get_default_diet(animal_type)
