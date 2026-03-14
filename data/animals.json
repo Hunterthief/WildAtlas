@@ -10,14 +10,14 @@
       "phylum": "species",
       "class": "big cat",
       "order": "species",
-      "family": "599.757",
+      "family": "Panthera",
       "genus": "Panthera leo",
       "species": "Panthera leo"
     },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": "+1.65 kilogram",
+    "weight": "1.65 kilogram",
     "location": null,
     "sources": [
       "Wikipedia",
@@ -35,14 +35,14 @@
       "phylum": "species",
       "class": "big cat",
       "order": "species",
-      "family": "599.756",
+      "family": "Panthera",
       "genus": "Panthera tigris",
       "species": "Panthera tigris"
     },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": "+1.19 kilogram",
+    "weight": "1.19 kilogram",
     "location": null,
     "sources": [
       "Wikipedia",
@@ -66,7 +66,7 @@
     },
     "diet": null,
     "length": null,
-    "height": "+4 metre",
+    "height": "4 metre",
     "weight": null,
     "location": null,
     "sources": [
@@ -85,12 +85,12 @@
       "phylum": "species",
       "class": "Cetacea",
       "order": "species",
-      "family": "599.5248",
+      "family": "Balaenoptera",
       "genus": "Balaenoptera musculus",
       "species": "Balaenoptera musculus"
     },
     "diet": null,
-    "length": "+27.1 metre",
+    "length": "27.1 metre",
     "height": null,
     "weight": null,
     "location": null,
@@ -110,7 +110,7 @@
       "phylum": "species",
       "class": "Odontoceti",
       "order": "species",
-      "family": null,
+      "family": "Orcinus",
       "genus": "Orcinus orca",
       "species": "Orcinus orca"
     },
@@ -135,14 +135,14 @@
       "phylum": "species",
       "class": null,
       "order": "species",
-      "family": null,
+      "family": "Carcharodon",
       "genus": "Carcharodon carcharias",
       "species": "Carcharodon carcharias"
     },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": "+2400 pound",
+    "weight": "2400 pound",
     "location": null,
     "sources": [
       "Wikipedia",
@@ -160,7 +160,7 @@
       "phylum": null,
       "class": "Delphinidae",
       "order": null,
-      "family": "599.53",
+      "family": null,
       "genus": null,
       "species": null
     },
@@ -185,7 +185,7 @@
       "phylum": "order",
       "class": null,
       "order": "order",
-      "family": "564.56",
+      "family": "Octopodiformes",
       "genus": "Octopoda",
       "species": "Octopoda"
     },
@@ -210,7 +210,7 @@
       "phylum": "family",
       "class": "seabird",
       "order": "family",
-      "family": null,
+      "family": "Sphenisciformes",
       "genus": "Spheniscidae",
       "species": "Spheniscidae"
     },
@@ -235,7 +235,7 @@
       "phylum": "genus",
       "class": null,
       "order": "genus",
-      "family": null,
+      "family": "Giraffina",
       "genus": "Giraffa",
       "species": "Giraffa"
     },
@@ -260,7 +260,7 @@
       "phylum": "subgenus",
       "class": null,
       "order": "subgenus",
-      "family": "599.6657",
+      "family": "Equus",
       "genus": "Hippotigris",
       "species": "Hippotigris"
     },
@@ -285,7 +285,7 @@
       "phylum": "family",
       "class": "Carnivora",
       "order": "family",
-      "family": "599.78",
+      "family": "Ursoidea",
       "genus": "Ursidae",
       "species": "Ursidae"
     },
@@ -310,7 +310,7 @@
       "phylum": "species",
       "class": "Canidae",
       "order": "species",
-      "family": "599.773",
+      "family": "Canis",
       "genus": "Canis lupus",
       "species": "Canis lupus"
     },
@@ -335,7 +335,7 @@
       "phylum": null,
       "class": "Caninae",
       "order": null,
-      "family": "599.775",
+      "family": null,
       "genus": null,
       "species": null
     },
@@ -385,7 +385,7 @@
       "phylum": "species",
       "class": null,
       "order": "species",
-      "family": null,
+      "family": "Phascolarctos",
       "genus": "Phascolarctos cinereus",
       "species": "Phascolarctos cinereus"
     },
@@ -410,14 +410,14 @@
       "phylum": "species",
       "class": "big cat",
       "order": "species",
-      "family": null,
+      "family": "Acinonyx",
       "genus": "Acinonyx jubatus",
       "species": "Acinonyx jubatus"
     },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": "+275 gram",
+    "weight": "275 gram",
     "location": null,
     "sources": [
       "Wikipedia",
@@ -435,7 +435,7 @@
       "phylum": "species",
       "class": "big cat",
       "order": "species",
-      "family": "599.7554",
+      "family": "Panthera",
       "genus": "Panthera pardus",
       "species": "Panthera pardus"
     },
@@ -460,7 +460,7 @@
       "phylum": "family",
       "class": null,
       "order": "family",
-      "family": "599.743",
+      "family": "Herpestoidea",
       "genus": "Hyaenidae",
       "species": "Hyaenidae"
     },
@@ -485,7 +485,7 @@
       "phylum": "species",
       "class": null,
       "order": "species",
-      "family": "599.657",
+      "family": "Alces",
       "genus": "Alces alces",
       "species": "Alces alces"
     },
@@ -510,7 +510,7 @@
       "phylum": "species",
       "class": null,
       "order": "species",
-      "family": null,
+      "family": "Odobenus",
       "genus": "Odobenus rosmarus",
       "species": "Odobenus rosmarus"
     },
@@ -560,7 +560,7 @@
       "phylum": "subfamily",
       "class": "Otariidae",
       "order": "subfamily",
-      "family": null,
+      "family": "Otariidae",
       "genus": "Otariinae",
       "species": "Otariinae"
     },
@@ -585,7 +585,7 @@
       "phylum": "species",
       "class": null,
       "order": "species",
-      "family": "597.78",
+      "family": "Xiphias",
       "genus": "Xiphias gladius",
       "species": "Xiphias gladius"
     },
@@ -610,7 +610,7 @@
       "phylum": null,
       "class": "fish",
       "order": null,
-      "family": "597.56",
+      "family": null,
       "genus": null,
       "species": null
     },
@@ -635,7 +635,7 @@
       "phylum": "tribe",
       "class": null,
       "order": "tribe",
-      "family": null,
+      "family": "Scombrinae",
       "genus": "Thunnini",
       "species": "Thunnini"
     },
@@ -660,7 +660,7 @@
       "phylum": "subfamily",
       "class": "fish",
       "order": "subfamily",
-      "family": null,
+      "family": "Pomacentridae",
       "genus": "Amphiprioninae",
       "species": "Amphiprioninae"
     },
@@ -710,7 +710,7 @@
       "phylum": "genus",
       "class": null,
       "order": "genus",
-      "family": null,
+      "family": "Mobulidae",
       "genus": "Manta",
       "species": "Manta"
     },
@@ -735,7 +735,7 @@
       "phylum": "suborder",
       "class": null,
       "order": "suborder",
-      "family": null,
+      "family": "Myliobatiformes",
       "genus": "Myliobatoidei",
       "species": "Myliobatoidei"
     },
@@ -760,7 +760,7 @@
       "phylum": "family",
       "class": null,
       "order": "family",
-      "family": null,
+      "family": "Carcharhiniformes",
       "genus": "Sphyrnidae",
       "species": "Sphyrnidae"
     },
@@ -785,7 +785,7 @@
       "phylum": "genus",
       "class": null,
       "order": "genus",
-      "family": null,
+      "family": "Sphyraenidae",
       "genus": "Sphyraena",
       "species": "Sphyraena"
     },
@@ -810,7 +810,7 @@
       "phylum": "family",
       "class": null,
       "order": "family",
-      "family": null,
+      "family": "Tetraodontiformes",
       "genus": "Tetraodontidae",
       "species": "Tetraodontidae"
     },
@@ -835,7 +835,7 @@
       "phylum": "family",
       "class": null,
       "order": "family",
-      "family": null,
+      "family": "Anguilliformes",
       "genus": "Muraenidae",
       "species": "Muraenidae"
     },
@@ -860,7 +860,7 @@
       "phylum": "genus",
       "class": null,
       "order": "genus",
-      "family": null,
+      "family": "Trichechidae",
       "genus": "Trichechus",
       "species": "Trichechus"
     },
@@ -885,14 +885,14 @@
       "phylum": "species",
       "class": null,
       "order": "species",
-      "family": "599.543",
+      "family": "Monodon",
       "genus": "Monodon monoceros",
       "species": "Monodon monoceros"
     },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": "+80 kilogram",
+    "weight": "80 kilogram",
     "location": null,
     "sources": [
       "Wikipedia",
@@ -910,14 +910,14 @@
       "phylum": "species",
       "class": null,
       "order": "species",
-      "family": null,
+      "family": "Delphinapterus",
       "genus": "Delphinapterus leucas",
       "species": "Delphinapterus leucas"
     },
     "diet": null,
     "length": null,
     "height": null,
-    "weight": "+60 kilogram",
+    "weight": "60 kilogram",
     "location": null,
     "sources": [
       "Wikipedia",
