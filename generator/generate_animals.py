@@ -28,7 +28,6 @@ GBIF_API = "https://api.gbif.org/v1/species"
 CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
 
 def fetch_wikipedia_summary(animal_name):
-    """Fetch summary, description, and image from Wikipedia"""
     try:
         safe_name = animal_name.replace(" ", "_")
         r = session.get(f"{WIKI_API}{safe_name}", headers=headers, timeout=15)
@@ -46,7 +45,6 @@ def fetch_wikipedia_summary(animal_name):
     return {"summary": "", "description": "", "image": "", "url": "", "title": ""}
 
 def fetch_wikipedia_section(animal_name, section="Characteristics"):
-    """Fetch specific section from Wikipedia using Action API"""
     try:
         safe_name = animal_name.replace(" ", "_")
         params = {
@@ -60,7 +58,6 @@ def fetch_wikipedia_section(animal_name, section="Characteristics"):
         if r.status_code == 200:
             data = r.json()
             text = data.get("parse", {}).get("text", {}).get("*", "")
-            # Strip HTML tags
             text = re.sub(r'<[^>]+>', ' ', text)
             text = re.sub(r'\s+', ' ', text).strip()
             return text
@@ -69,50 +66,43 @@ def fetch_wikipedia_section(animal_name, section="Characteristics"):
     return ""
 
 def extract_physical_stats(text):
-    """Extract physical statistics with strict validation"""
     stats = {"weight": None, "length": None, "height": None, "lifespan": None, "top_speed": None}
     if not text:
         return stats
     
-    # Weight - strict context + sanity check
+    # Weight
     weight_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)', text, re.IGNORECASE)
     for value, unit in weight_matches:
         try:
             val = float(value.replace(',', '.'))
             unit_clean = unit.lower().strip()
-            if unit_clean in ['t', 'tonne', 'tonnes']:
-                if 0.1 < val < 10:  # Elephant range
-                    stats["weight"] = f"{val} {unit_clean}"
-                    break
-            elif unit_clean in ['kg', 'kilogram', 'kilograms']:
-                if 1 < val < 500:  # Most animals
-                    stats["weight"] = f"{val} {unit_clean}"
-                    break
-            elif unit_clean in ['lb', 'lbs', 'pound', 'pounds']:
-                if 2 < val < 1100:
-                    stats["weight"] = f"{val} {unit_clean}"
-                    break
+            if unit_clean in ['t', 'tonne', 'tonnes'] and 0.1 < val < 10:
+                stats["weight"] = f"{val} {unit_clean}"
+                break
+            elif unit_clean in ['kg', 'kilogram', 'kilograms'] and 1 < val < 500:
+                stats["weight"] = f"{val} {unit_clean}"
+                break
+            elif unit_clean in ['lb', 'lbs', 'pound', 'pounds'] and 2 < val < 1100:
+                stats["weight"] = f"{val} {unit_clean}"
+                break
         except:
             continue
     
-    # Length - strict context + sanity check
+    # Length
     length_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)', text, re.IGNORECASE)
     for value, unit in length_matches:
         try:
             val = float(value.replace(',', '.'))
             unit_clean = unit.lower().strip()
-            if unit_clean in ['m', 'metre', 'metres', 'meter', 'meters']:
-                if 0.3 < val < 10:  # Most animals
-                    stats["length"] = f"{val} {unit_clean}"
-                    break
-            elif unit_clean in ['cm', 'centimetre', 'centimetres']:
-                if 10 < val < 500:
-                    stats["length"] = f"{val} {unit_clean}"
-                    break
-            elif unit_clean in ['ft', 'feet', 'foot']:
-                if 1 < val < 30:
-                    stats["length"] = f"{val} {unit_clean}"
-                    break
+            if unit_clean in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.3 < val < 10:
+                stats["length"] = f"{val} {unit_clean}"
+                break
+            elif unit_clean in ['cm', 'centimetre', 'centimetres'] and 10 < val < 500:
+                stats["length"] = f"{val} {unit_clean}"
+                break
+            elif unit_clean in ['ft', 'feet', 'foot'] and 1 < val < 30:
+                stats["length"] = f"{val} {unit_clean}"
+                break
         except:
             continue
     
@@ -147,7 +137,6 @@ def extract_physical_stats(text):
     return stats
 
 def extract_diet(text):
-    """Extract diet type from text"""
     if not text:
         return None
     text_lower = text.lower()
@@ -160,7 +149,6 @@ def extract_diet(text):
     return None
 
 def fetch_inaturalist_taxonomy(scientific_name):
-    """Fetch full taxonomy from iNaturalist API"""
     try:
         print(f"    iNaturalist: Searching for '{scientific_name}'...")
         params = {"q": scientific_name, "per_page": 1, "rank": "species"}
@@ -221,7 +209,6 @@ def fetch_inaturalist_taxonomy(scientific_name):
     return None
 
 def fetch_gbif_distribution(scientific_name):
-    """Fetch distribution/habitat/conservation from GBIF"""
     try:
         print(f"    GBIF: Searching for '{scientific_name}'...")
         params = {"q": scientific_name, "type": "SPECIES", "limit": 1}
@@ -247,7 +234,6 @@ def fetch_gbif_distribution(scientific_name):
         
         locations = []
         
-        # Try occurrences with country facet
         if species_key:
             time.sleep(0.5)
             try:
@@ -255,7 +241,7 @@ def fetch_gbif_distribution(scientific_name):
                     "https://api.gbif.org/v1/occurrence/search",
                     params={
                         "taxonKey": species_key,
-                        "limit": 0,  # We just want facets
+                        "limit": 0,
                         "facet": "country",
                         "facetLimit": 10
                     },
@@ -274,7 +260,6 @@ def fetch_gbif_distribution(scientific_name):
             except Exception as e:
                 print(f"    GBIF facet error: {e}")
         
-        # Fallback: Try simple occurrence search
         if not locations and species_key:
             time.sleep(0.5)
             try:
@@ -364,7 +349,7 @@ def generate_animal_data(animals_list, force_update=False):
                 "last_updated": None
             }
         
-        # 1. Wikipedia (Summary + Characteristics section)
+        # 1. Wikipedia
         if not animal_data["image"] or force_update:
             print("  📖 Fetching from Wikipedia...")
             wiki_data = fetch_wikipedia_summary(name)
@@ -378,7 +363,6 @@ def generate_animal_data(animals_list, force_update=False):
                 if "Wikipedia" not in animal_data["sources"]:
                     animal_data["sources"].append("Wikipedia")
                 
-                # Fetch Characteristics section for physical stats
                 print("     Fetching Characteristics section...")
                 chars_text = fetch_wikipedia_section(name, "Characteristics")
                 all_text = wiki_data["summary"] + " " + chars_text
@@ -406,12 +390,12 @@ def generate_animal_data(animals_list, force_update=False):
                 if "iNaturalist" not in animal_data["sources"]:
                     animal_data["sources"].append("iNaturalist")
         
-        # 3. GBIF
+        # 3. GBIF - FIXED SYNTAX
         if not animal_data["ecology"]["locations"] or force_update:
             print("  🌍 Fetching distribution from GBIF...")
             gbif_data = fetch_gbif_distribution(sci_name)
             
-            if gbif_
+            if gbif_data:
                 if gbif_data.get("locations"):
                     animal_data["ecology"]["locations"] = gbif_data["locations"]
                 if gbif_data.get("habitat"):
