@@ -8,36 +8,34 @@ animals = [
 "Kangaroo","Koala","Cheetah","Leopard","Hyena","Moose","Walrus",
 "Seal","Sea Lion","Swordfish","Salmon","Tuna","Clownfish",
 "Angelfish","Manta Ray","Stingray","Hammerhead Shark","Barracuda",
-"Pufferfish","Moray Eel","Manatee","Narwhal","Beluga Whale",
-"Sea Turtle","Komodo Dragon","Cobra","Python","Falcon","Eagle",
-"Owl","Flamingo","Peacock","Raven","Crow"
+"Pufferfish","Moray Eel","Manatee","Narwhal","Beluga Whale"
 ]
 
-API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
+API="https://en.wikipedia.org/api/rest_v1/page/summary/"
 
-data = []
+data=[]
 
 for name in animals:
 
     try:
-        r = requests.get(API + name).json()
 
-        item = {
-            "name": name,
-            "description": r.get("description",""),
-            "summary": r.get("extract",""),
-            "image": r.get("thumbnail",{}).get("source",""),
-        }
+        r=requests.get(API+name).json()
 
-        data.append(item)
+        data.append({
 
-        print("Added", name)
+            "name":name,
+            "description":r.get("description",""),
+            "summary":r.get("extract",""),
+            "image":r.get("thumbnail",{}).get("source","")
+
+        })
+
+        print("Added",name)
 
         time.sleep(1)
 
     except:
         pass
-
 
 with open("../data/animals.json","w") as f:
     json.dump(data,f,indent=2)
