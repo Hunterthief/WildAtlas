@@ -25,7 +25,9 @@ jobs:
 
       # 3️⃣ Install dependencies
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          pip install requests
+          pip install beautifulsoup4
 
       # 4️⃣ Run the Python generator
       - name: Run generator
