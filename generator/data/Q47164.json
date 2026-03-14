@@ -1,0 +1,52 @@
+{
+  "id": "Q47164",
+  "name": "Great White Shark",
+  "scientific_name": "Carcharodon carcharias",
+  "common_names": [],
+  "description": "Species of large lamniform shark",
+  "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight and provides buoyancy and stores energy. The species is partially warm-blooded, an adaptation that allows them to remain active in colder waters.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Chondrichthyes",
+    "order": "Lamniformes",
+    "family": "Lamnidae",
+    "genus": "Carcharodon",
+    "species": "Carcharodon carcharias"
+  },
+  "animal_type": "shark",
+  "young_name": "pup",
+  "group_name": "shiver",
+  "physical": {
+    "weight": null,
+    "length": null,
+    "height": null,
+    "top_speed": null,
+    "lifespan": null
+  },
+  "ecology": {
+    "diet": "Carnivore",
+    "habitat": "ocean, coastal, open ocean, sea",
+    "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
+    "group_behavior": "Solitary",
+    "conservation_status": "Critically Endangered",
+    "biggest_threat": "Climate change, Pollution, Overfishing",
+    "distinctive_features": [
+      "White Underside",
+      "Fins",
+      "Long tail"
+    ]
+  },
+  "reproduction": {
+    "gestation_period": null,
+    "average_litter_size": null,
+    "name_of_young": "pup"
+  },
+  "sources": [
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-14T22:21:28.709246"
+}

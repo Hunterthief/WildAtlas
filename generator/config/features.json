@@ -1,0 +1,74 @@
+{
+  "feline": {
+    "positive": ["striped", "spotted", "powerful build", "retractable claws", "sharp teeth", "long tail"],
+    "negative": ["mane", "trunk", "tusks", "horns", "antlers", "shell", "wings"]
+  },
+  "elephant": {
+    "positive": ["trunk", "tusks", "large ears", "grey skin", "wrinkled skin"],
+    "negative": ["striped", "spotted", "mane", "horns", "antlers", "wings", "shell"]
+  },
+  "canine": {
+    "positive": ["pack hunting", "keen sense of smell", "sharp teeth", "thick fur"],
+    "negative": ["striped", "spotted", "mane", "trunk", "tusks", "horns", "shell", "wings"]
+  },
+  "raptor": {
+    "positive": ["sharp talons", "hooked beak", "keen eyesight", "powerful wings"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "shell"]
+  },
+  "penguin": {
+    "positive": ["black and white plumage", "flightless", "webbed feet", "yellow ear patches"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers"]
+  },
+  "shark": {
+    "positive": ["sharp teeth", "greyish upperside", "white underside", "powerful tail", "fins"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "shell", "wings"]
+  },
+  "salmon": {
+    "positive": ["silvery scales", "streamlined body", "anadromous"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "shell"]
+  },
+  "turtle": {
+    "positive": ["protective shell", "carapace", "flippers", "green fat"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "wings"]
+  },
+  "snake": {
+    "positive": ["venomous", "hood", "long body", "scales", "forked tongue"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "wings", "shell"]
+  },
+  "frog": {
+    "positive": ["smooth skin", "webbed feet", "large eyes", "vocal sac"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "wings", "shell"]
+  },
+  "butterfly": {
+    "positive": ["colorful wings", "patterned wings", "antennae", "proboscis"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "shell"]
+  },
+  "bee": {
+    "positive": ["striped abdomen", "wings", "pollen baskets", "stinger", "eusocial"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "shell"]
+  },
+  "bird": {
+    "positive": ["feathers", "wings", "beak", "talons"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "shell"]
+  },
+  "fish": {
+    "positive": ["scales", "fins", "gills", "streamlined body"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "wings", "shell"]
+  },
+  "reptile": {
+    "positive": ["scales", "cold-blooded", "lays eggs"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "wings", "fur"]
+  },
+  "amphibian": {
+    "positive": ["moist skin", "metamorphosis", "webbed feet"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "wings", "shell", "scales"]
+  },
+  "insect": {
+    "positive": ["six legs", "antennae", "wings", "exoskeleton"],
+    "negative": ["striped coat", "spotted coat", "mane", "trunk", "tusks", "horns", "antlers", "shell", "fur"]
+  },
+  "default": {
+    "positive": [],
+    "negative": []
+  }
+}

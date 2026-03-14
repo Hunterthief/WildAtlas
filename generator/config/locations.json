@@ -13,7 +13,9 @@
   },
   "animal_specific": {
     "feline": ["Asia", "India", "China", "Russia", "Indonesia", "Thailand", "Malaysia", "Bangladesh", "Nepal", "Sumatra", "Siberia", "Southeast Asia", "Africa", "Kenya", "Tanzania"],
-    "elephant": ["Asia", "India", "China", "Thailand", "Sri Lanka", "Indonesia", "Sumatra", "Borneo", "Africa", "Kenya", "Tanzania", "Botswana", "Zimbabwe"],
+    "elephant": ["Africa", "Kenya", "Tanzania", "Botswana", "Zimbabwe", "Namibia", "South Africa", "Asia", "India", "Thailand", "Sri Lanka", "Indonesia", "Sumatra", "Borneo"],
+    "canine": ["North America", "Canada", "Alaska", "United States", "Europe", "Asia", "Russia", "Scandinavia", "Northern Hemisphere"],
+    "raptor": ["North America", "Canada", "Alaska", "United States", "Europe", "Asia", "Africa", "Worldwide"],
     "bird": ["North America", "Canada", "Alaska", "United States", "Mexico", "Europe", "Asia", "Africa", "Australia", "South America", "Antarctica"],
     "penguin": ["Antarctica", "Southern Ocean", "South America", "Argentina", "Chile", "South Africa", "Australia", "New Zealand"],
     "fish": ["Atlantic", "Pacific", "Indian Ocean", "Arctic Ocean", "Southern Ocean", "North America", "Europe", "Asia"],
