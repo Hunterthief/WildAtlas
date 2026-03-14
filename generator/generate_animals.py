@@ -1,3 +1,4 @@
+# generator/generate_animals.py
 import requests
 import json
 import time
@@ -15,247 +16,336 @@ session.mount("https://", adapter)
 
 headers = {
     "User-Agent": "WildAtlasBot/1.0 (https://github.com/Hunterthief/WildAtlas)",
-    "Accept": "application/sparql-results+json"
+    "Accept": "application/json"
 }
 
-WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
-WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
+# --- API Keys from Environment (GitHub Secrets) ---
+IUCN_API_KEY = os.getenv("IUCN_API_KEY", "")
 
-# --- Test species with real QIDs ---
+# --- Free APIs (No Key Required) ---
+WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
+INAT_API = "https://api.inaturalist.org/v1/taxa"
+GBIF_API = "https://api.gbif.org/v1/species"
+
+# --- Test animals ---
 TEST_ANIMALS = [
-    {"name": "Tiger", "qid": "Q132186"},          # Panthera tigris
-    {"name": "Asian Elephant", "qid": "Q7372"},   # Elephas maximus
-    {"name": "Bald Eagle", "qid": "Q25319"},      # Haliaeetus leucocephalus
+    {"name": "Tiger", "scientific_name": "Panthera tigris"},
+    {"name": "Asian Elephant", "scientific_name": "Elephas maximus"},
+    {"name": "Bald Eagle", "scientific_name": "Haliaeetus leucocephalus"},
 ]
 
-# --- Map ranks to classification fields ---
-RANKS_MAP = {
-    "domain": "domain",
-    "kingdom": "kingdom",
-    "phylum": "phylum",
-    "class": "class",
-    "order": "order",
-    "family": "family",
-    "genus": "genus",
-    "species": "species"
+# --- Etymology Database ---
+ETYMOLOGY = {
+    "Panthera tigris": "From Greek 'panther' (all beast) + Latin 'tigris' (arrow, referring to speed)",
+    "Elephas maximus": "From Greek 'elephas' (ivory) + Latin 'maximus' (greatest)",
+    "Haliaeetus leucocephalus": "From Greek 'haliaetos' (sea eagle) + 'leukokephalos' (white-headed)",
 }
 
-# Rank order for sorting hierarchy
-RANK_ORDER = ["domain", "kingdom", "phylum", "class", "order", "family", "genus", "species"]
-
-def fetch_wikidata_traits(qid):
-    """Fetch direct traits: diet, mass, length, location."""
-    # Note: Diet is often not on the species item directly. We might need to look up the chain later, 
-    # but for now we try the species item.
-    query = f"""
-    SELECT ?dietLabel ?mass ?massUnitLabel ?length ?lengthUnitLabel ?locationLabel
-    WHERE {{
-      BIND(wd:{qid} AS ?item)
-      
-      OPTIONAL {{ ?item wdt:P768 ?diet . }}
-      
-      OPTIONAL {{ 
-        ?item p:P2067 ?massStmt .
-        ?massStmt ps:P2067 ?mass .
-        OPTIONAL {{ ?massStmt pq:P5104 ?massUnit . }}
-      }}
-      
-      OPTIONAL {{ 
-        ?item p:P2043 ?lenStmt .
-        ?lenStmt ps:P2043 ?length .
-        OPTIONAL {{ ?lenStmt pq:P5104 ?lengthUnit . }}
-      }}
-
-      OPTIONAL {{ ?item wdt:P183 ?location . }}
-
-      SERVICE wikibase:label {{ 
-        bd:serviceParam wikibase:language "en". 
-        ?diet rdfs:label ?dietLabel .
-        ?location rdfs:label ?locationLabel .
-        ?massUnit rdfs:label ?massUnitLabel .
-        ?lengthUnit rdfs:label ?lengthUnitLabel .
-      }}
-    }}
-    LIMIT 1
-    """
-    try:
-        res = session.get(WIKIDATA_SPARQL, params={"query": query}, headers=headers, timeout=60)
-        if res.status_code == 200:
-            return res.json().get("results", {}).get("bindings", [])
-    except Exception as e:
-        print(f"  Error fetching traits: {e}")
-    return []
-
-def fetch_classification_chain(qid):
-    """
-    Walk up the P171 (parent taxon) chain step-by-step to ensure correct rank assignment.
-    This avoids the flat-list explosion of recursive queries.
-    """
-    classification = {k: None for k in RANKS_MAP.values()}
-    
-    current_qid = qid
-    visited = set()
-    
-    # First, get the species name itself explicitly
-    query_species = f"""
-    SELECT ?label WHERE {{ wd:{qid} rdfs:label ?label FILTER(LANG(?label) = "en") }} LIMIT 1
-    """
-    try:
-        res = session.get(WIKIDATA_SPARQL, params={"query": query_species}, headers=headers, timeout=30)
-        if res.status_code == 200:
-            bindings = res.json().get("results", {}).get("bindings", [])
-            if bindings:
-                classification["species"] = bindings[0]["label"]["value"]
-    except: pass
-
-    # Iterate up the chain
-    for _ in range(10): # Max depth safety break
-        if current_qid in visited: break
-        visited.add(current_qid)
-
-        # Query parent and its rank
-        query_parent = f"""
-        SELECT ?parent ?parentLabel ?rankLabel WHERE {{
-          wd:{current_qid} wdt:P171 ?parent .
-          ?parent wdt:P105 ?rank .
-          SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en". }}
-        }} LIMIT 1
-        """
-        try:
-            res = session.get(WIKIDATA_SPARQL, params={"query": query_parent}, headers=headers, timeout=30)
-            if res.status_code != 200: break
-            
-            bindings = res.json().get("results", {}).get("bindings", [])
-            if not bindings: break
-            
-            b = bindings[0]
-            parent_qid = b["parent"]["value"].split("/")[-1]
-            rank_label = b.get("rankLabel", {}).get("value", "").lower()
-            parent_label = b.get("parentLabel", {}).get("value")
-            
-            # Map rank to our fields
-            if rank_label in RANKS_MAP:
-                field = RANKS_MAP[rank_label]
-                classification[field] = parent_label
-            
-            # Special handling for "taxon" or generic ranks if specific ones are missing
-            # But mostly we rely on standard Linnaean ranks
-            
-            current_qid = parent_qid
-            
-            # Stop if we hit root or common high-level nodes that might loop or aren't useful
-            if current_qid == "Q10000": # Break at something generic if needed, though Q7372 chain is safe
-                break
-                
-        except Exception as e:
-            print(f"  Error in chain: {e}")
-            break
-        
-        time.sleep(0.2) # Be nice to the API
-
-    return classification
-
 def fetch_wikipedia(animal_name):
+    """Fetch summary, description, and image from Wikipedia"""
     try:
-        # Clean name for URL
         safe_name = animal_name.replace(" ", "_")
         r = session.get(f"{WIKI_API}{safe_name}", headers=headers, timeout=10)
         if r.status_code == 200:
-            return r.json()
+            data = r.json()
+            return {
+                "summary": data.get("extract", ""),
+                "description": data.get("description", ""),
+                "image": data.get("thumbnail", {}).get("source", ""),
+                "url": data.get("content_urls", {}).get("desktop", {}).get("page", "")
+            }
     except Exception as e:
         print(f"  Wikipedia error: {e}")
-    return {}
+    return {"summary": "", "description": "", "image": "", "url": ""}
 
-def format_unit(value, unit_label):
-    if not value: return None
-    # Clean up unit labels (often come with quotes or extra text from Wikidata)
-    unit = unit_label if unit_label else ""
-    if '"' in unit: unit = unit.replace('"', ' inches').replace('""', '') # rough fix
-    return f"{value} {unit}".strip()
+def fetch_inaturalist_taxonomy(scientific_name):
+    """
+    Fetch full taxonomy from iNaturalist (FREE, no key needed) [[1], [2]
+    Returns classification dict
+    """
+    try:
+        res = session.get(
+            INAT_API,
+            params={"q": scientific_name, "per_page": 1},
+            headers=headers,
+            timeout=30
+        )
+        if res.status_code == 200:
+            data = res.json()
+            results = data.get("results", [])
+            if results:
+                taxon = results[0]
+                classification = {
+                    "kingdom": None,
+                    "phylum": None,
+                    "class": None,
+                    "order": None,
+                    "family": None,
+                    "genus": None,
+                    "species": scientific_name
+                }
+                
+                # Parse ancestry (iNaturalist returns full taxonomic tree)
+                ancestry = taxon.get("ancestry", [])
+                for ancestor in ancestry:
+                    rank = ancestor.get("rank", "").lower()
+                    name = ancestor.get("name")
+                    if rank == "kingdom":
+                        classification["kingdom"] = name
+                    elif rank == "phylum":
+                        classification["phylum"] = name
+                    elif rank == "class":
+                        classification["class"] = name
+                    elif rank == "order":
+                        classification["order"] = name
+                    elif rank == "family":
+                        classification["family"] = name
+                    elif rank == "genus":
+                        classification["genus"] = name
+                
+                return classification
+    except Exception as e:
+        print(f"  iNaturalist error: {e}")
+    return None
+
+def fetch_gbif_species(scientific_name):
+    """
+    Fetch species data from GBIF (FREE, no key needed) [[3], [4]
+    Returns: conservation status, distribution, physical info
+    """
+    try:
+        # Search for species
+        res = session.get(
+            f"{GBIF_API}/search",
+            params={"q": scientific_name, "type": "SPECIES"},
+            headers=headers,
+            timeout=30
+        )
+        if res.status_code == 200:
+            data = res.json()
+            results = data.get("results", [])
+            if results:
+                species = results[0]
+                return {
+                    "conservation_status": species.get("conservationStatus", "Not Evaluated"),
+                    "distribution": species.get("distribution", []),
+                    "habitat": species.get("habitat", ""),
+                }
+    except Exception as e:
+        print(f"  GBIF error: {e}")
+    return None
+
+def fetch_iucn_conservation(scientific_name):
+    """
+    Fetch conservation status from IUCN Red List (requires API key) [[5], [6]
+    """
+    if not IUCN_API_KEY:
+        print("  ⚠ IUCN_API_KEY not set in environment")
+        return "Not Evaluated"
+    
+    try:
+        # IUCN API v3 endpoint
+        url = f"https://apiv3.iucnredlist.org/api/v3/taxonomicname/{scientific_name.replace(' ', '%20')}"
+        res = session.get(
+            url,
+            params={"key": IUCN_API_KEY},
+            timeout=30
+        )
+        if res.status_code == 200:
+            data = res.json()
+            result = data.get("result", [])
+            if result:
+                return result[0].get("category", "Not Evaluated")
+    except Exception as e:
+        print(f"  IUCN error: {e}")
+    return "Not Evaluated"
+
+def extract_physical_stats_from_wikipedia(summary):
+    """
+    Extract physical stats from Wikipedia summary using simple patterns
+    (Weight, length, lifespan often mentioned in first paragraph)
+    """
+    import re
+    
+    stats = {
+        "weight": None,
+        "length": None,
+        "height": None,
+        "lifespan": None,
+        "top_speed": None
+    }
+    
+    # Weight patterns (e.g., "4 t", "300 kg", "660 lbs")
+    weight_match = re.search(r'(\d+(?:\.\d+)?)\s*(t|kg|lb|lbs|tonnes?|tons?)', summary, re.IGNORECASE)
+    if weight_match:
+        stats["weight"] = f"{weight_match.group(1)} {weight_match.group(2)}"
+    
+    # Length patterns (e.g., "2.8 m", "10 ft")
+    length_match = re.search(r'(\d+(?:\.\d+)?)\s*(m|cm|mm|ft|feet|inches?)', summary, re.IGNORECASE)
+    if length_match and not stats["weight"]:  # Avoid duplicate matches
+        stats["length"] = f"{length_match.group(1)} {length_match.group(2)}"
+    
+    # Lifespan patterns (e.g., "10-15 years", "20 year")
+    lifespan_match = re.search(r'(\d+(?:-\d+)?)\s*(years?|yrs?)', summary, re.IGNORECASE)
+    if lifespan_match:
+        stats["lifespan"] = f"{lifespan_match.group(1)} years"
+    
+    return stats
+
+def get_diet_from_wikipedia(summary):
+    """Extract diet type from Wikipedia summary"""
+    summary_lower = summary.lower()
+    if "carnivore" in summary_lower or "meat" in summary_lower or "predator" in summary_lower:
+        return "Carnivore"
+    elif "herbivore" in summary_lower or "plant" in summary_lower or "vegetation" in summary_lower:
+        return "Herbivore"
+    elif "omnivore" in summary_lower:
+        return "Omnivore"
+    return "Unknown"
 
 # --- Main ---
 output = []
 
 for a in TEST_ANIMALS:
     name = a["name"]
-    qid = a["qid"]
-    print(f"\n--- Processing {name} ({qid}) ---")
+    sci_name = a["scientific_name"]
+    print(f"\n{'='*60}")
+    print(f"🦁 Processing: {name} ({sci_name})")
+    print(f"{'='*60}")
 
-    # 1. Wikipedia Fallback (Images/Summary)
-    wiki_data = fetch_wikipedia(name)
-    summary = wiki_data.get("extract", "")
-    description = wiki_data.get("description", "")
-    image = wiki_data.get("thumbnail", {}).get("source", "")
-
-    # 2. Check Cache
-    cache_file = f"data/{qid}.json"
-    if os.path.exists(cache_file):
-        print("  Using cached data...")
-        with open(cache_file, "r", encoding="utf-8") as f:
-            cached = json.load(f)
-            traits_bindings = cached.get("traits", [])
-            classification = cached.get("classification", {})
-    else:
-        # 3. Fetch Live Data
-        traits_bindings = fetch_wikidata_traits(qid)
-        classification = fetch_classification_chain(qid)
-        
-        # Save Cache
-        with open(cache_file, "w", encoding="utf-8") as f:
-            json.dump({"traits": traits_bindings, "classification": classification}, f, indent=2)
-
-    # 4. Parse Traits
-    diet = length = weight = location = None
-    sources = []
-
-    if traits_bindings:
-        sources.append("Wikidata")
-        row = traits_bindings[0]
-        
-        # Diet
-        diet = row.get("dietLabel", {}).get("value")
-        
-        # Mass
-        mass_val = row.get("mass", {}).get("value")
-        mass_unit = row.get("massUnitLabel", {}).get("value")
-        if mass_val:
-            # Simple cleanup for common units if Wikidata label is messy
-            if not mass_unit or mass_unit == "kilogram": mass_unit = "kg"
-            elif mass_unit == "gram": mass_unit = "g"
-            weight = f"{mass_val} {mass_unit}"
-
-        # Length
-        len_val = row.get("length", {}).get("value")
-        len_unit = row.get("lengthUnitLabel", {}).get("value")
-        if len_val:
-            if not len_unit or len_unit == "metre": len_unit = "m"
-            elif len_unit == "centimetre": len_unit = "cm"
-            length = f"{len_val} {len_unit}"
-
-        # Location
-        location = row.get("locationLabel", {}).get("value")
-
-    # Fallback for diet if not found on species (common issue)
-    # In a full app, we'd search the classification chain for P768, but skipping for brevity
-    
-    output.append({
+    # Initialize data structure (facts.app style)
+    animal_data = {
         "name": name,
-        "description": description,
-        "summary": summary,
-        "image": image,
-        "classification": classification,
-        "diet": diet,
-        "length": length,
-        "height": None, # Height is rarely distinct from length in Wikidata for animals
-        "weight": weight,
-        "location": location,
-        "sources": sources
-    })
-    print(f"  ✓ {name} processed")
-    time.sleep(1)
+        "scientific_name": sci_name,
+        "name_meaning": ETYMOLOGY.get(sci_name, f"Scientific name: {sci_name}"),
+        "description": "",
+        "summary": "",
+        "image": "",
+        "wikipedia_url": "",
+        
+        # Scientific Classification
+        "classification": {
+            "kingdom": None,
+            "phylum": None,
+            "class": None,
+            "order": None,
+            "family": None,
+            "genus": None,
+            "species": sci_name
+        },
+        
+        # Physical Characteristics
+        "physical": {
+            "weight": None,
+            "height": None,
+            "length": None,
+            "top_speed": None,
+            "lifespan": None,
+            "color": None,
+            "skin_type": None,
+            "most_distinctive_feature": None
+        },
+        
+        # Ecology & Behavior
+        "ecology": {
+            "diet": None,
+            "prey": None,
+            "habitat": None,
+            "locations": None,
+            "group_behavior": None,
+            "lifestyle": None,
+            "biggest_threat": None,
+            "conservation_status": None,
+            "estimated_population_size": None
+        },
+        
+        # Reproduction
+        "reproduction": {
+            "gestation_period": None,
+            "average_litter_size": None,
+            "name_of_young": None
+        },
+        
+        # Fun Facts
+        "fun_facts": {
+            "slogan": None
+        },
+        
+        "sources": []
+    }
+
+    # 1. Wikipedia (Images, Summary, Description)
+    print("  📖 Fetching from Wikipedia...")
+    wiki_data = fetch_wikipedia(name)
+    animal_data["summary"] = wiki_data["summary"]
+    animal_data["description"] = wiki_data["description"]
+    animal_data["image"] = wiki_data["image"]
+    animal_data["wikipedia_url"] = wiki_data["url"]
+    if wiki_data["summary"]:
+        animal_data["sources"].append("Wikipedia")
+        print("     ✓ Summary & Image")
+        
+        # Extract physical stats from summary
+        physical_stats = extract_physical_stats_from_wikipedia(wiki_data["summary"])
+        for key, value in physical_stats.items():
+            if value and key in animal_data["physical"]:
+                animal_data["physical"][key] = value
+        
+        # Extract diet
+        animal_data["ecology"]["diet"] = get_diet_from_wikipedia(wiki_data["summary"])
+
+    # 2. iNaturalist (Taxonomy/Classification) - FREE [[1], [2]
+    print("  🔬 Fetching taxonomy from iNaturalist...")
+    inat_class = fetch_inaturalist_taxonomy(sci_name)
+    if inat_class:
+        animal_data["classification"] = inat_class
+        animal_data["sources"].append("iNaturalist")
+        print("     ✓ Classification complete")
+
+    # 3. GBIF (Distribution, Habitat) - FREE [[3], [4]
+    print("  🌍 Fetching distribution from GBIF...")
+    gbif_data = fetch_gbif_species(sci_name)
+    if gbif_data:
+        animal_data["ecology"]["habitat"] = gbif_data.get("habitat")
+        animal_data["ecology"]["locations"] = ", ".join(gbif_data.get("distribution", [])[:5])
+        if gbif_data.get("conservation_status") != "Not Evaluated":
+            animal_data["ecology"]["conservation_status"] = gbif_data["conservation_status"]
+        print("     ✓ Distribution data")
+
+    # 4. IUCN (Conservation Status) - Requires API Key [[5], [6]
+    print("  🛡️  Fetching conservation status from IUCN...")
+    iucn_status = fetch_iucn_conservation(sci_name)
+    if iucn_status != "Not Evaluated":
+        animal_data["ecology"]["conservation_status"] = iucn_status
+        print(f"     ✓ Conservation: {iucn_status}")
+    else:
+        print("     ⚠ IUCN status unavailable")
+
+    # 5. Add distinctive features (manual curation for now)
+    distinctive_features = {
+        "Tiger": "Dark vertical stripes on orange-brown fur",
+        "Asian Elephant": "Long trunk with single finger-like process, large ears",
+        "Bald Eagle": "White head and tail contrasting with dark brown body",
+    }
+    animal_data["physical"]["most_distinctive_feature"] = distinctive_features.get(name)
+    animal_data["physical"]["skin_type"] = "Fur" if "Elephant" not in name else "Skin"
+
+    # 6. Add fun slogan
+    slogans = {
+        "Tiger": "The largest cat species in the world!",
+        "Asian Elephant": "The largest land animal in Asia!",
+        "Bald Eagle": "The national bird of the United States!",
+    }
+    animal_data["fun_facts"]["slogan"] = slogans.get(name)
+
+    output.append(animal_data)
+    print(f"  ✅ {name} complete!")
+    time.sleep(1)  # Rate limiting
 
 # Write JSON
 with open("data/animals.json", "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2, ensure_ascii=False)
 
-print(f"\nDone. Generated animals.json with {len(output)} animals.")
+print(f"\n{'='*60}")
+print(f"✅ Done! Generated data/animals.json with {len(output)} animals")
+print(f"{'='*60}")
