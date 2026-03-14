@@ -20,8 +20,7 @@ headers = {
     "Accept": "application/json"
 }
 
-IUCN_API_KEY = os.getenv("IUCN_API_KEY", "")
-
+# --- NO TRAILING SPACES IN URLs ---
 WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 INAT_API = "https://api.inaturalist.org/v1/taxa"
 GBIF_API = "https://api.gbif.org/v1/species"
@@ -29,6 +28,7 @@ GBIF_API = "https://api.gbif.org/v1/species"
 CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
 
 def fetch_wikipedia(animal_name):
+    """Fetch summary, description, and image from Wikipedia"""
     try:
         safe_name = animal_name.replace(" ", "_")
         r = session.get(f"{WIKI_API}{safe_name}", headers=headers, timeout=15)
@@ -45,40 +45,85 @@ def fetch_wikipedia(animal_name):
         print(f"    Wikipedia error: {e}")
     return {"summary": "", "description": "", "image": "", "url": "", "title": ""}
 
+def fetch_wikipedia_full_text(animal_name):
+    """Fetch full Wikipedia article for physical stats extraction"""
+    try:
+        safe_name = animal_name.replace(" ", "_")
+        # Use mobile version for easier parsing
+        r = session.get(f"https://en.m.wikipedia.org/wiki/{safe_name}", headers=headers, timeout=15)
+        if r.status_code == 200:
+            return r.text
+    except Exception as e:
+        print(f"    Wikipedia full text error: {e}")
+    return ""
+
 def extract_physical_stats(text):
+    """Extract physical statistics from text"""
     stats = {"weight": None, "length": None, "height": None, "lifespan": None, "top_speed": None}
     if not text:
         return stats
     
-    weight_match = re.search(r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)', text, re.IGNORECASE)
-    if weight_match:
-        value = weight_match.group(1).replace(',', '.')
-        unit = weight_match.group(2).lower()
-        if unit in ['t', 'tonne', 'tonnes']: unit = 't'
-        elif unit in ['kg', 'kilogram', 'kilograms']: unit = 'kg'
-        elif unit in ['lb', 'lbs', 'pound', 'pounds']: unit = 'lbs'
-        stats["weight"] = f"{value} {unit}"
+    # Weight - more flexible patterns
+    weight_patterns = [
+        r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)',
+        r'weighs?\s*(?:up to|around|about)?\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|lbs?)',
+        r'mass\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?)',
+    ]
+    for pattern in weight_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            value = match.group(1).replace(',', '.')
+            unit = match.group(2).lower()
+            if unit in ['t', 'tonne', 'tonnes']: unit = 't'
+            elif unit in ['kg', 'kilogram', 'kilograms']: unit = 'kg'
+            elif unit in ['lb', 'lbs', 'pound', 'pounds']: unit = 'lbs'
+            stats["weight"] = f"{value} {unit}"
+            break
     
-    length_match = re.search(r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)', text, re.IGNORECASE)
-    if length_match:
-        value = length_match.group(1).replace(',', '.')
-        unit = length_match.group(2).lower()
-        if unit in ['m', 'metre', 'metres', 'meter', 'meters']: unit = 'm'
-        elif unit in ['cm', 'centimetre', 'centimetres']: unit = 'cm'
-        elif unit in ['ft', 'feet', 'foot']: unit = 'ft'
-        stats["length"] = f"{value} {unit}"
+    # Length
+    length_patterns = [
+        r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)',
+        r'length\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(m|cm|ft)',
+        r'long\b.*?(\d+(?:[.,]\d+)?)\s*(m|ft|cm)',
+    ]
+    for pattern in length_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            value = match.group(1).replace(',', '.')
+            unit = match.group(2).lower()
+            if unit in ['m', 'metre', 'metres', 'meter', 'meters']: unit = 'm'
+            elif unit in ['cm', 'centimetre', 'centimetres']: unit = 'cm'
+            elif unit in ['ft', 'feet', 'foot']: unit = 'ft'
+            stats["length"] = f"{value} {unit}"
+            break
     
-    lifespan_match = re.search(r'(\d+(?:-\d+)?)\s*(years?|yrs?)', text, re.IGNORECASE)
-    if lifespan_match:
-        stats["lifespan"] = f"{lifespan_match.group(1)} years"
+    # Lifespan
+    lifespan_patterns = [
+        r'(\d+(?:-\d+)?)\s*(years?|yrs?)',
+        r'lifespan\s*(?:of)?\s*(\d+(?:-\d+)?)\s*(years?)',
+        r'live\s*(?:for)?\s*(\d+(?:-\d+)?)\s*(years?)',
+    ]
+    for pattern in lifespan_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            stats["lifespan"] = f"{match.group(1)} years"
+            break
     
-    speed_match = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)', text, re.IGNORECASE)
-    if speed_match:
-        stats["top_speed"] = f"{speed_match.group(1)} {speed_match.group(2).lower()}"
+    # Speed
+    speed_patterns = [
+        r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)',
+        r'speed\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(km/h|mph)',
+    ]
+    for pattern in speed_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            stats["top_speed"] = f"{match.group(1)} {match.group(2).lower()}"
+            break
     
     return stats
 
 def extract_diet(text):
+    """Extract diet type from text"""
     if not text:
         return None
     text_lower = text.lower()
@@ -91,12 +136,14 @@ def extract_diet(text):
     return None
 
 def fetch_inaturalist_taxonomy(scientific_name):
+    """Fetch full taxonomy from iNaturalist API"""
     try:
         print(f"    iNaturalist: Searching for '{scientific_name}'...")
         params = {"q": scientific_name, "per_page": 1, "rank": "species"}
         res = session.get(INAT_API, params=params, headers=headers, timeout=30)
         
         if res.status_code != 200:
+            print(f"    iNaturalist error: {res.status_code}")
             return None
         
         data = res.json()
@@ -110,10 +157,11 @@ def fetch_inaturalist_taxonomy(scientific_name):
                 results = data.get("results", [])
         
         if not results:
+            print(f"    iNaturalist: No results")
             return None
         
         taxon = results[0]
-        print(f"    iNaturalist: Found '{taxon.get('name')}' (rank: {taxon.get('rank')})")
+        print(f"    iNaturalist: Found '{taxon.get('name')}'")
         time.sleep(0.5)
         
         ancestor_ids = taxon.get("ancestor_ids", [])
@@ -151,44 +199,55 @@ def fetch_inaturalist_taxonomy(scientific_name):
 def fetch_gbif_distribution(scientific_name):
     """Fetch distribution/habitat/conservation from GBIF"""
     try:
+        print(f"    GBIF: Searching for '{scientific_name}'...")
         params = {"q": scientific_name, "type": "SPECIES", "limit": 1}
         res = session.get(f"{GBIF_API}/search", params=params, headers=headers, timeout=30)
         
         if res.status_code != 200:
+            print(f"    GBIF search error: {res.status_code}")
             return None
         
         data = res.json()
         results = data.get("results", [])
         
         if not results:
+            print(f"    GBIF: No results found")
             return None
         
         species_data = results[0]
         species_key = species_data.get("key")
+        print(f"    GBIF: Found species key {species_key}")
         
         # Extract conservation status from GBIF
         conservation_status = species_data.get("conservationStatus")
-        
-        time.sleep(0.5)
+        habitat = species_data.get("habitat")
         
         locations = []
         if species_key:
+            time.sleep(0.5)
             dist_res = session.get(f"{GBIF_API}/{species_key}/distribution", headers=headers, timeout=30)
             if dist_res.status_code == 200:
                 dist_data = dist_res.json()
                 dist_results = dist_data.get("results", [])
+                print(f"    GBIF: Found {len(dist_results)} distribution records")
                 for item in dist_results[:10]:
                     loc = item.get("locality") or item.get("country")
                     if loc:
                         locations.append(loc)
+            else:
+                print(f"    GBIF distribution error: {dist_res.status_code}")
         
-        return {
+        result = {
             "locations": ", ".join(locations[:5]) if locations else None,
-            "habitat": species_data.get("habitat"),
+            "habitat": habitat,
             "conservation_status": conservation_status
         }
+        print(f"    GBIF: Locations: {result['locations'][:50] if result['locations'] else 'None'}...")
+        return result
     except Exception as e:
         print(f"    GBIF error: {e}")
+        import traceback
+        traceback.print_exc()
     return None
 
 def load_cached_data(qid):
@@ -245,7 +304,7 @@ def generate_animal_data(animals_list, force_update=False):
                 "last_updated": None
             }
         
-        # 1. Wikipedia
+        # 1. Wikipedia (Summary + Full Text for Stats)
         if not animal_data["image"] or force_update:
             print("  📖 Fetching from Wikipedia...")
             wiki_data = fetch_wikipedia(name)
@@ -259,8 +318,11 @@ def generate_animal_data(animals_list, force_update=False):
                 if "Wikipedia" not in animal_data["sources"]:
                     animal_data["sources"].append("Wikipedia")
                 
-                print("     Extracting physical stats from summary...")
-                stats = extract_physical_stats(wiki_data["summary"])
+                # Fetch full text for better stats extraction
+                print("     Fetching full article for physical stats...")
+                full_text = fetch_wikipedia_full_text(name)
+                stats = extract_physical_stats(full_text if full_text else wiki_data["summary"])
+                
                 for stat_name, stat_value in stats.items():
                     if stat_value:
                         animal_data["physical"][stat_name] = stat_value
@@ -283,7 +345,7 @@ def generate_animal_data(animals_list, force_update=False):
                 if "iNaturalist" not in animal_data["sources"]:
                     animal_data["sources"].append("iNaturalist")
         
-        # 3. GBIF (includes conservation status)
+        # 3. GBIF
         if not animal_data["ecology"]["locations"] or force_update:
             print("  🌍 Fetching distribution from GBIF...")
             gbif_data = fetch_gbif_distribution(sci_name)
@@ -291,7 +353,6 @@ def generate_animal_data(animals_list, force_update=False):
             if gbif_data:
                 if gbif_data.get("locations"):
                     animal_data["ecology"]["locations"] = gbif_data["locations"]
-                    print(f"     ✓ Locations: {gbif_data['locations'][:50]}...")
                 if gbif_data.get("habitat"):
                     animal_data["ecology"]["habitat"] = gbif_data["habitat"]
                 if gbif_data.get("conservation_status"):
