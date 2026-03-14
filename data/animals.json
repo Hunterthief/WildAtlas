@@ -22,7 +22,7 @@
       "height": null,
       "length": null,
       "top_speed": null,
-      "lifespan": "10 years",
+      "lifespan": null,
       "color": null,
       "skin_type": null,
       "most_distinctive_feature": null
@@ -30,18 +30,18 @@
     "ecology": {
       "diet": "Carnivore",
       "prey": null,
-      "habitat": "mountain, swamp, plain",
+      "habitat": "broadleaf, swamp, plain",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "lifestyle": null,
-      "biggest_threat": null,
+      "biggest_threat": "Poaching, Habitat loss",
       "conservation_status": "Endangered",
       "estimated_population_size": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": null
+      "name_of_young": "Cub"
     },
     "fun_facts": {
       "slogan": null
@@ -50,7 +50,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T20:45:14.257145"
+    "last_updated": "2026-03-14T20:53:44.973616"
   },
   {
     "name": "Asian Elephant",
@@ -71,11 +71,11 @@
       "species": "Elephas maximus"
     },
     "physical": {
-      "weight": "4.0 t",
+      "weight": null,
       "height": null,
       "length": null,
       "top_speed": null,
-      "lifespan": "20 years",
+      "lifespan": null,
       "color": null,
       "skin_type": null,
       "most_distinctive_feature": null
@@ -83,18 +83,18 @@
     "ecology": {
       "diet": "Carnivore",
       "prey": null,
-      "habitat": "savanna, forest, jungle",
+      "habitat": "jungle, savanna, desert",
       "locations": "Asia, India, China, Thailand, Sri Lanka",
       "group_behavior": "Solitary",
       "lifestyle": null,
-      "biggest_threat": null,
+      "biggest_threat": "Poaching, Habitat loss",
       "conservation_status": "Endangered",
       "estimated_population_size": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": null
+      "name_of_young": "Calf"
     },
     "fun_facts": {
       "slogan": null
@@ -103,7 +103,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T20:45:16.492767"
+    "last_updated": "2026-03-14T20:53:46.877224"
   },
   {
     "name": "Bald Eagle",
@@ -128,7 +128,7 @@
       "height": null,
       "length": null,
       "top_speed": null,
-      "lifespan": "20 years",
+      "lifespan": null,
       "color": null,
       "skin_type": null,
       "most_distinctive_feature": null
@@ -136,18 +136,18 @@
     "ecology": {
       "diet": "Carnivore",
       "prey": null,
-      "habitat": "mountain, swamp, savanna",
+      "habitat": "swamp, plain, tundra",
       "locations": "North America, Canada, Alaska, United States, Mexico",
       "group_behavior": "Solitary",
       "lifestyle": null,
-      "biggest_threat": null,
+      "biggest_threat": "Poaching, Human-wildlife conflict",
       "conservation_status": "Endangered",
       "estimated_population_size": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": null
+      "name_of_young": "Cub"
     },
     "fun_facts": {
       "slogan": null
@@ -156,6 +156,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T20:45:18.961675"
+    "last_updated": "2026-03-14T20:53:48.970484"
   }
 ]
