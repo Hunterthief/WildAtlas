@@ -1,18 +1,13 @@
 // ============================================
 // WildAtlas - Main JavaScript File
-// Inspired by Facts.app
+// Facts.app Inspired
 // ============================================
 
-// Global state
 let allAnimals = [];
 
-// ============================================
-// Initialize on DOM Load
-// ============================================
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🦁 WildAtlas initializing...');
     
-    // Detect which page we're on
     const isHomePage = document.getElementById('grid') !== null;
     const isDetailPage = document.getElementById('animal-name') !== null;
     
@@ -22,19 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (isDetailPage) {
         console.log('📍 Detail page detected');
         initDetailPage();
-    } else {
-        console.log('⚠️ Unknown page type');
     }
 });
 
 // ============================================
-// Home Page Functions (index.html)
+// Home Page Functions
 // ============================================
 function initHomePage() {
     const grid = document.getElementById('grid');
     const searchInput = document.getElementById('search-input');
     
-    // Fetch animal data
     fetchAnimals()
         .then(animals => {
             allAnimals = animals;
@@ -45,18 +37,14 @@ function initHomePage() {
             console.error('❌ Error loading animals:', error);
             if (grid) {
                 grid.innerHTML = `
-                    <div class="error-message" style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
-                        <h2 style="color: #f87171; margin-bottom: 15px;">⚠️ Unable to Load Data</h2>
-                        <p style="color: #94a3b8;">${error.message}</p>
-                        <p style="color: #64748b; font-size: 0.9rem; margin-top: 20px;">
-                            Try refreshing the page (Ctrl+Shift+R or Cmd+Shift+R)
-                        </p>
+                    <div class="error-message" style="grid-column: 1/-1;">
+                        <h2>⚠️ Unable to Load Data</h2>
+                        <p>${error.message}</p>
                     </div>
                 `;
             }
         });
     
-    // Search functionality
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
@@ -65,22 +53,14 @@ function initHomePage() {
     }
 }
 
-/**
- * Fetch animals from JSON file
- */
 async function fetchAnimals() {
     const response = await fetch('data/animals.json?t=' + Date.now());
-    
     if (!response.ok) {
         throw new Error(`HTTP ${response.status}: Failed to load animals.json`);
     }
-    
     return await response.json();
 }
 
-/**
- * Render animal cards on home page
- */
 function renderGrid(animals) {
     const grid = document.getElementById('grid');
     if (!grid) return;
@@ -89,9 +69,9 @@ function renderGrid(animals) {
     
     if (animals.length === 0) {
         grid.innerHTML = `
-            <div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
-                <h2 style="color: #64748b; margin-bottom: 10px;">No animals found</h2>
-                <p style="color: #475569;">Try searching for something else.</p>
+            <div class="no-results" style="grid-column: 1/-1;">
+                <h2>No animals found</h2>
+                <p>Try searching for something else.</p>
             </div>
         `;
         return;
@@ -103,7 +83,7 @@ function renderGrid(animals) {
         
         const statusClass = getConservationClass(animal.ecology?.conservation_status);
         const statusLabel = animal.ecology?.conservation_status || '';
-        const imageUrl = animal.image ? animal.image.trim() : 'https://via.placeholder.com/330x200?text=No+Image';
+        const imageUrl = animal.image ? animal.image.trim() : 'https://via.placeholder.com/330x220?text=No+Image';
         const summary = animal.summary || animal.description || 'No description available.';
         
         card.innerHTML = `
@@ -124,9 +104,6 @@ function renderGrid(animals) {
     });
 }
 
-/**
- * Filter animals by search query
- */
 function filterAnimals(query) {
     if (!query) {
         renderGrid(allAnimals);
@@ -139,7 +116,6 @@ function filterAnimals(query) {
         const typeMatch = animal.animal_type?.toLowerCase().includes(query);
         const habitatMatch = animal.ecology?.habitat?.toLowerCase().includes(query);
         const locationMatch = animal.ecology?.locations?.toLowerCase().includes(query);
-        
         return nameMatch || scientificMatch || typeMatch || habitatMatch || locationMatch;
     });
     
@@ -147,14 +123,13 @@ function filterAnimals(query) {
 }
 
 // ============================================
-// Detail Page Functions (animal.html)
+// Detail Page Functions
 // ============================================
 function initDetailPage() {
     const params = new URLSearchParams(window.location.search);
     const animalName = params.get('name');
     
     if (!animalName) {
-        console.warn('⚠️ No animal name in URL, redirecting to home');
         window.location.href = 'index.html';
         return;
     }
@@ -168,10 +143,7 @@ function initDetailPage() {
             );
             
             if (!animal) {
-                console.error('❌ Animal not found:', animalName);
                 document.getElementById('animal-name').textContent = 'Animal Not Found';
-                document.getElementById('animal-summary').textContent = 
-                    'The animal you are looking for could not be found. Please go back and try again.';
                 return;
             }
             
@@ -179,15 +151,11 @@ function initDetailPage() {
             populateDetailPage(animal);
         })
         .catch(error => {
-            console.error('❌ Error loading animal data:', error);
-            document.getElementById('animal-summary').textContent = 
-                'Error loading data. Please try refreshing the page.';
+            console.error('❌ Error loading animal ', error);
+            document.getElementById('animal-summary').textContent = 'Error loading data.';
         });
 }
 
-/**
- * Populate detail page with animal data
- */
 function populateDetailPage(animal) {
     // Basic Info
     document.getElementById('animal-name').textContent = animal.name;
@@ -195,152 +163,114 @@ function populateDetailPage(animal) {
     document.getElementById('animal-image').src = animal.image ? animal.image.trim() : '';
     document.getElementById('animal-image').alt = animal.name;
     document.getElementById('animal-summary').textContent = animal.summary || animal.description || 'No description available.';
+    document.getElementById('about-text').textContent = animal.summary || animal.description || 'No description available.';
     
-    // Conservation Badge
+    // Update FAQ animal names
+    document.querySelectorAll('.faq-animal-name').forEach(el => {
+        el.textContent = animal.name.toLowerCase();
+    });
+    
+    // Badge
     const badgesContainer = document.getElementById('animal-badges');
     if (badgesContainer && animal.ecology?.conservation_status) {
         const statusClass = getConservationClass(animal.ecology.conservation_status);
-        badgesContainer.innerHTML = `
-            <span class="status-badge ${statusClass}">${animal.ecology.conservation_status}</span>
-        `;
+        badgesContainer.innerHTML = `<span class="status-badge ${statusClass}">${animal.ecology.conservation_status}</span>`;
     }
     
-    // Taxonomy Table
+    // Stats Bar
+    const eco = animal.ecology || {};
+    setTextContent('stat-diet', eco.diet);
+    setTextContent('stat-habitat', truncateText(eco.habitat, 20));
+    setTextContent('stat-conservation', animal.ecology?.conservation_status || 'Unknown');
+    setTextContent('stat-group', animal.group_name || 'Unknown');
+    
+    // Physical
+    const phys = animal.physical || {};
+    setTextContent('phys-weight', phys.weight);
+    setTextContent('phys-length', phys.length);
+    setTextContent('phys-height', phys.height);
+    setTextContent('phys-speed', phys.top_speed);
+    setTextContent('phys-lifespan', phys.lifespan);
+    
+    // Ecology
+    setTextContent('eco-diet', eco.diet);
+    setTextContent('eco-habitat', eco.habitat);
+    setTextContent('eco-locations', eco.locations);
+    setTextContent('eco-behavior', eco.group_behavior);
+    
+    // Features
+    const featureTags = document.getElementById('feature-tags');
+    if (featureTags && eco.distinctive_features?.length > 0) {
+        featureTags.innerHTML = eco.distinctive_features.map(f => 
+            `<span class="feature-tag">${f}</span>`
+        ).join('');
+    } else if (featureTags) {
+        featureTags.innerHTML = '<span style="color:#64748b">No data</span>';
+    }
+    
+    // Reproduction
+    const repro = animal.reproduction || {};
+    setTextContent('repro-young', repro.name_of_young || animal.young_name);
+    setTextContent('repro-group', animal.group_name);
+    setTextContent('repro-gestation', repro.gestation_period);
+    setTextContent('repro-litter', repro.average_litter_size);
+    
+    // Taxonomy
     const taxonomyTable = document.getElementById('taxonomy-table');
     if (taxonomyTable && animal.classification) {
         const order = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
         taxonomyTable.innerHTML = order.map(key => {
             if (animal.classification[key]) {
-                return `
-                    <tr>
-                        <th>${capitalizeFirst(key)}</th>
-                        <td>${animal.classification[key]}</td>
-                    </tr>
-                `;
+                return `<tr><th>${capitalizeFirst(key)}</th><td>${animal.classification[key]}</td></tr>`;
             }
             return '';
         }).join('');
     }
     
-    // Physical Stats
-    const physicalList = document.getElementById('physical-list');
-    if (physicalList) {
-        const phys = animal.physical || {};
-        physicalList.innerHTML = buildInfoList([
-            ['Weight', phys.weight],
-            ['Length', phys.length],
-            ['Height', phys.height],
-            ['Top Speed', phys.top_speed],
-            ['Lifespan', phys.lifespan]
-        ]);
-        
-        if (physicalList.innerHTML === '') {
-            physicalList.innerHTML = '<li class="no-data">No physical data available</li>';
-        }
-    }
-    
-    // Ecology
-    const ecologyList = document.getElementById('ecology-list');
-    if (ecologyList) {
-        const eco = animal.ecology || {};
-        ecologyList.innerHTML = buildInfoList([
-            ['Diet', eco.diet],
-            ['Habitat', eco.habitat],
-            ['Locations', eco.locations],
-            ['Behavior', eco.group_behavior]
-        ]);
-        
-        if (ecologyList.innerHTML === '') {
-            ecologyList.innerHTML = '<li class="no-data">No ecology data available</li>';
-        }
-    }
-    
-    // Feature Tags
-    const featureTags = document.getElementById('feature-tags');
-    if (featureTags) {
-        const eco = animal.ecology || {};
-        if (eco.distinctive_features && eco.distinctive_features.length > 0) {
-            featureTags.innerHTML = eco.distinctive_features
-                .map(f => `<span class="feature-tag">${f}</span>`)
-                .join('');
-        } else {
-            featureTags.innerHTML = '<span class="no-data">No distinctive features listed</span>';
-        }
-    }
-    
-    // Conservation Status Card
-    const conservationStatus = document.getElementById('conservation-status');
-    const threatsEl = document.getElementById('conservation-threats');
-    if (conservationStatus && animal.ecology?.conservation_status) {
+    // Conservation Sidebar
+    const conservationBox = document.getElementById('conservation-box');
+    const conservationText = document.getElementById('conservation-text');
+    if (conservationBox && animal.ecology?.conservation_status) {
         const statusClass = getConservationClass(animal.ecology.conservation_status);
-        conservationStatus.className = `conservation-status ${statusClass}`;
-        const statusText = conservationStatus.querySelector('.status-text');
-        if (statusText) {
-            statusText.textContent = animal.ecology.conservation_status;
-        }
+        conservationBox.className = `conservation-box ${statusClass}`;
+        if (conservationText) conservationText.textContent = animal.ecology.conservation_status;
     }
-    if (threatsEl && animal.ecology?.biggest_threat) {
-        threatsEl.textContent = animal.ecology.biggest_threat;
-    }
-    
-    // Reproduction
-    const reproList = document.getElementById('reproduction-list');
-    if (reproList) {
-        const repro = animal.reproduction || {};
-        reproList.innerHTML = buildInfoList([
-            ['Young Name', repro.name_of_young || animal.young_name],
-            ['Group Name', animal.group_name],
-            ['Gestation', repro.gestation_period],
-            ['Litter Size', repro.average_litter_size]
-        ]);
-        
-        if (reproList.innerHTML === '') {
-            reproList.innerHTML = '<li class="no-data">No reproduction data available</li>';
-        }
-    }
+    setTextContent('conservation-threats', animal.ecology?.biggest_threat);
     
     // Quick Facts
-    const quickFactsList = document.getElementById('quick-facts-list');
-    if (quickFactsList) {
-        quickFactsList.innerHTML = buildInfoList([
-            ['Animal Type', animal.animal_type],
-            ['Diet', animal.ecology?.diet]
-        ]);
-        
-        if (quickFactsList.innerHTML === '') {
-            quickFactsList.innerHTML = '<li class="no-data">No quick facts available</li>';
-        }
-    }
+    setTextContent('fact-type', animal.animal_type);
+    setTextContent('fact-kingdom', animal.classification?.kingdom);
+    setTextContent('fact-class', animal.classification?.class);
     
-    // Data Sources
-    const sourcesEl = document.getElementById('data-sources');
-    if (sourcesEl) {
-        sourcesEl.textContent = animal.sources?.join(', ') || 'Wikipedia, iNaturalist';
-    }
+    // Sources
+    setTextContent('data-sources', animal.sources?.join(', '));
+    
+    // FAQ
+    setTextContent('faq-diet', eco.diet || 'Unknown');
+    setTextContent('faq-habitat', `${eco.habitat || 'Unknown'} - ${eco.locations || 'Unknown'}`);
+    setTextContent('faq-conservation', animal.ecology?.conservation_status || 'Unknown');
+    
+    const featuresText = eco.distinctive_features?.join(', ') || 'No data';
+    setTextContent('faq-features', featuresText);
 }
 
 // ============================================
 // Helper Functions
 // ============================================
+function setTextContent(id, text) {
+    const el = document.getElementById(id);
+    if (el) {
+        el.textContent = text || '-';
+    }
+}
 
-/**
- * Build HTML list from array of [label, value] pairs
- */
 function buildInfoList(items) {
     return items
         .filter(([_, value]) => value && value !== 'null' && value !== 'undefined')
-        .map(([label, value]) => `
-            <li>
-                <span class="label">${label}</span>
-                <span class="value">${value}</span>
-            </li>
-        `)
+        .map(([label, value]) => `<li><span class="label">${label}</span><span class="value">${value}</span></li>`)
         .join('');
 }
 
-/**
- * Get CSS class for conservation status
- */
 function getConservationClass(status) {
     if (!status) return '';
     const s = status.toLowerCase();
@@ -351,30 +281,15 @@ function getConservationClass(status) {
     return 'status-vulnerable';
 }
 
-/**
- * Truncate text to specified length
- */
 function truncateText(str, length) {
     if (!str) return '';
     if (str.length <= length) return str;
     return str.slice(0, length) + '...';
 }
 
-/**
- * Capitalize first letter of string
- */
 function capitalizeFirst(str) {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// ============================================
-// Console Branding
-// ============================================
-console.log(`
-╔═══════════════════════════════════════╗
-║           🦁 WildAtlas 🌍             ║
-║   Discover the Animal Kingdom         ║
-║   Inspired by Facts.app               ║
-╚═══════════════════════════════════════╝
-`);
+console.log('🌍 WildAtlas - Discover the Animal Kingdom');
