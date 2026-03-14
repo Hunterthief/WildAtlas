@@ -29,15 +29,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "grassland, jungle, tropical forest, mangrove",
+      "habitat": "tropical forest, mangrove, jungle, forest",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
       "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Distinctive mane"
+        "Striped",
+        "Spotted",
+        "Long Tail"
       ]
     },
     "reproduction": {
@@ -49,7 +49,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:22.925931"
+    "last_updated": "2026-03-14T22:31:39.297524"
   },
   {
     "id": "Q7372",
@@ -101,7 +101,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:25.073672"
+    "last_updated": "2026-03-14T22:31:41.477458"
   },
   {
     "id": "Q213537",
@@ -133,7 +133,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "grassland, desert, mountain, forest",
+      "habitat": "forest, wetland, grassland, mountain",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -153,7 +153,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:27.694832"
+    "last_updated": "2026-03-14T22:31:44.094901"
   },
   {
     "id": "Q25319",
@@ -185,15 +185,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "cliff, mountain, coastal, forest",
-      "locations": "Asia, India, Indonesia, Philippines, Africa",
+      "habitat": "coastal, mountain, forest, cliff",
+      "locations": "North America, Canada, Alaska, United States, Asia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Human-wildlife conflict, Pollution",
       "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Distinctive mane"
+        "Distinctive wings",
+        "Long tail",
+        "Distinctive fins"
       ]
     },
     "reproduction": {
@@ -205,7 +205,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:29.645601"
+    "last_updated": "2026-03-14T22:31:46.376192"
   },
   {
     "id": "Q43306",
@@ -237,14 +237,14 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ocean, ice, island",
+      "habitat": "island, ocean, ice",
       "locations": "Antarctica, Southern Ocean, Chile, Australia, New Zealand",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Climate change, Overfishing",
       "distinctive_features": [
-        "Spotted coat",
-        "Distinctive mane",
+        "Flightless",
+        "Yellow Ear Patches",
         "Distinctive wings"
       ]
     },
@@ -257,7 +257,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:31.967388"
+    "last_updated": "2026-03-14T22:31:48.680238"
   },
   {
     "id": "Q47164",
@@ -289,15 +289,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ocean, coastal, sea, open ocean",
+      "habitat": "sea, ocean, coastal, open ocean",
       "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Climate change, Pollution, Overfishing",
       "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Distinctive mane"
+        "White Underside",
+        "Fins",
+        "Long tail"
       ]
     },
     "reproduction": {
@@ -309,7 +309,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:34.226462"
+    "last_updated": "2026-03-14T22:31:51.174689"
   },
   {
     "id": "Q39709",
@@ -341,15 +341,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ocean, river, stream, lake",
+      "habitat": "river, stream, ocean, lake",
       "locations": "North America, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
       "distinctive_features": [
-        "Spotted coat",
-        "Distinctive mane",
-        "Distinctive wings"
+        "Anadromous",
+        "Distinctive wings",
+        "Long tail"
       ]
     },
     "reproduction": {
@@ -361,7 +361,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:36.420968"
+    "last_updated": "2026-03-14T22:31:53.435855"
   },
   {
     "id": "Q7785",
@@ -393,15 +393,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coastal, ocean, river, coral reef",
+      "habitat": "coral reef, sea, coastal, wetland",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
       "distinctive_features": [
-        "Spotted coat",
-        "Distinctive mane",
-        "Prominent horns"
+        "Carapace",
+        "Flippers",
+        "Green Fat"
       ]
     },
     "reproduction": {
@@ -413,7 +413,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:38.659169"
+    "last_updated": "2026-03-14T22:31:55.714721"
   },
   {
     "id": "Q189609",
@@ -447,13 +447,13 @@
       "diet": "Carnivore",
       "habitat": "agricultural, forest",
       "locations": "Asia, Australia, Europe",
-      "group_behavior": "Social",
+      "group_behavior": "Family groups",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
       "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Distinctive mane"
+        "Venomous",
+        "Hood",
+        "Scales"
       ]
     },
     "reproduction": {
@@ -465,7 +465,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:40.750110"
+    "last_updated": "2026-03-14T22:31:57.884213"
   },
   {
     "id": "Q270238",
@@ -503,9 +503,9 @@
       "conservation_status": "Vulnerable",
       "biggest_threat": "Human-wildlife conflict",
       "distinctive_features": [
-        "Distinctive mane",
-        "Prominent horns",
-        "Distinctive wings"
+        "Long tail",
+        "Distinctive fins",
+        "Venomous"
       ]
     },
     "reproduction": {
@@ -517,7 +517,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:42.996390"
+    "last_updated": "2026-03-14T22:32:00.224381"
   },
   {
     "id": "Q165980",
@@ -549,15 +549,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "garden, tropical, mountain, meadow",
+      "habitat": "tropical, garden, forest, mountain",
       "locations": "North America, South America, Europe, Asia, Africa",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
       "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Distinctive mane"
+        "Proboscis",
+        "Distinctive wings",
+        "Long tail"
       ]
     },
     "reproduction": {
@@ -569,7 +569,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:45.471593"
+    "last_updated": "2026-03-14T22:32:02.672017"
   },
   {
     "id": "Q7316",
@@ -601,15 +601,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "agricultural, grassland, urban, forest",
+      "habitat": "agricultural, grassland, forest, urban",
       "locations": "North America, Europe, Asia, Africa, South America",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Pollution, Overfishing",
       "distinctive_features": [
-        "Distinctive mane",
-        "Prominent horns",
-        "Distinctive wings"
+        "Wings",
+        "Pollen Baskets",
+        "Stinger"
       ]
     },
     "reproduction": {
@@ -621,6 +621,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:02:48.258842"
+    "last_updated": "2026-03-14T22:32:05.448884"
   }
 ]
