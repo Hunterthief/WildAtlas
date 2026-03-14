@@ -22,17 +22,17 @@
       "height": null,
       "length": null,
       "top_speed": null,
-      "lifespan": null,
+      "lifespan": "10 years",
       "color": null,
       "skin_type": null,
       "most_distinctive_feature": null
     },
     "ecology": {
-      "diet": null,
+      "diet": "Carnivore",
       "prey": null,
-      "habitat": null,
-      "locations": "Asia, Africa, Europe, North America, South America",
-      "group_behavior": null,
+      "habitat": "mountain, swamp, plain",
+      "locations": "Asia, India, China, Russia, Indonesia",
+      "group_behavior": "Solitary",
       "lifestyle": null,
       "biggest_threat": null,
       "conservation_status": "Endangered",
@@ -50,7 +50,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T20:38:43.581259"
+    "last_updated": "2026-03-14T20:45:14.257145"
   },
   {
     "name": "Asian Elephant",
@@ -75,20 +75,20 @@
       "height": null,
       "length": null,
       "top_speed": null,
-      "lifespan": null,
+      "lifespan": "20 years",
       "color": null,
       "skin_type": null,
       "most_distinctive_feature": null
     },
     "ecology": {
-      "diet": null,
+      "diet": "Carnivore",
       "prey": null,
-      "habitat": null,
-      "locations": "Asia",
-      "group_behavior": null,
+      "habitat": "savanna, forest, jungle",
+      "locations": "Asia, India, China, Thailand, Sri Lanka",
+      "group_behavior": "Solitary",
       "lifestyle": null,
       "biggest_threat": null,
-      "conservation_status": null,
+      "conservation_status": "Endangered",
       "estimated_population_size": null
     },
     "reproduction": {
@@ -103,7 +103,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T20:38:45.604510"
+    "last_updated": "2026-03-14T20:45:16.492767"
   },
   {
     "name": "Bald Eagle",
@@ -128,20 +128,20 @@
       "height": null,
       "length": null,
       "top_speed": null,
-      "lifespan": null,
+      "lifespan": "20 years",
       "color": null,
       "skin_type": null,
       "most_distinctive_feature": null
     },
     "ecology": {
-      "diet": null,
+      "diet": "Carnivore",
       "prey": null,
-      "habitat": null,
-      "locations": null,
-      "group_behavior": null,
+      "habitat": "mountain, swamp, savanna",
+      "locations": "North America, Canada, Alaska, United States, Mexico",
+      "group_behavior": "Solitary",
       "lifestyle": null,
       "biggest_threat": null,
-      "conservation_status": null,
+      "conservation_status": "Endangered",
       "estimated_population_size": null
     },
     "reproduction": {
@@ -156,6 +156,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T20:38:48.235246"
+    "last_updated": "2026-03-14T20:45:18.961675"
   }
 ]
