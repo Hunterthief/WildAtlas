@@ -24,11 +24,11 @@ headers = {
 # --- API Keys from GitHub Secrets ---
 IUCN_API_KEY = os.getenv("IUCN_API_KEY", "")
 
-# --- APIs (NO trailing spaces!) ---
+# --- APIs ---
 WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 INAT_API = "https://api.inaturalist.org/v1/taxa"
 GBIF_API = "https://api.gbif.org/v1/species"
-IUCN_API = "https://apiv3.iucnredlist.org/api/v3"
+IUCN_API_V4 = "https://api.iucnredlist.org/api/v4"  # ← Updated to v4!
 
 # --- Classification fields ---
 CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
@@ -64,7 +64,7 @@ def extract_physical_stats(text):
     if not text:
         return stats
     
-    # Weight - look for numbers with kg, t, lbs
+    # Weight
     weight_match = re.search(r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)', text, re.IGNORECASE)
     if weight_match:
         value = weight_match.group(1).replace(',', '.')
@@ -77,7 +77,7 @@ def extract_physical_stats(text):
             unit = 'lbs'
         stats["weight"] = f"{value} {unit}"
     
-    # Length - look for meters, feet, cm
+    # Length
     length_match = re.search(r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)', text, re.IGNORECASE)
     if length_match:
         value = length_match.group(1).replace(',', '.')
@@ -90,12 +90,12 @@ def extract_physical_stats(text):
             unit = 'ft'
         stats["length"] = f"{value} {unit}"
     
-    # Lifespan - look for years
+    # Lifespan
     lifespan_match = re.search(r'(\d+(?:-\d+)?)\s*(years?|yrs?)', text, re.IGNORECASE)
     if lifespan_match:
         stats["lifespan"] = f"{lifespan_match.group(1)} years"
     
-    # Speed - look for km/h or mph
+    # Speed
     speed_match = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)', text, re.IGNORECASE)
     if speed_match:
         stats["top_speed"] = f"{speed_match.group(1)} {speed_match.group(2).lower()}"
@@ -119,14 +119,10 @@ def extract_diet(text):
     return None
 
 def fetch_inaturalist_taxonomy(scientific_name):
-    """
-    Fetch full taxonomy from iNaturalist API
-    Uses ancestor_ids approach (this was working in your original)
-    """
+    """Fetch full taxonomy from iNaturalist API"""
     try:
         print(f"    iNaturalist: Searching for '{scientific_name}'...")
         
-        # Step 1: Find the species
         params = {"q": scientific_name, "per_page": 1, "rank": "species"}
         res = session.get(INAT_API, params=params, headers=headers, timeout=30)
         
@@ -138,8 +134,6 @@ def fetch_inaturalist_taxonomy(scientific_name):
         results = data.get("results", [])
         
         if not results:
-            # Try without rank filter
-            print(f"    iNaturalist: No species found, trying without rank filter...")
             params = {"q": scientific_name, "per_page": 1}
             res = session.get(INAT_API, params=params, headers=headers, timeout=30)
             if res.status_code == 200:
@@ -153,17 +147,14 @@ def fetch_inaturalist_taxonomy(scientific_name):
         taxon = results[0]
         print(f"    iNaturalist: Found '{taxon.get('name')}' (rank: {taxon.get('rank')})")
         
-        time.sleep(0.5)  # Rate limiting
+        time.sleep(0.5)
         
-        # Step 2: Fetch all ancestors using ancestor_ids
         ancestor_ids = taxon.get("ancestor_ids", [])
-        print(f"    iNaturalist: Found {len(ancestor_ids)} ancestor IDs: {ancestor_ids}")
+        print(f"    iNaturalist: Found {len(ancestor_ids)} ancestor IDs")
         
         if not ancestor_ids:
-            print(f"    iNaturalist: No ancestor IDs available")
             return None
         
-        # Fetch ancestor details (comma-separated IDs)
         anc_res = session.get(
             f"{INAT_API}/{','.join(map(str, ancestor_ids))}",
             headers=headers,
@@ -171,14 +162,11 @@ def fetch_inaturalist_taxonomy(scientific_name):
         )
         
         if anc_res.status_code != 200:
-            print(f"    iNaturalist ancestor fetch error: {anc_res.status_code}")
             return None
         
         anc_data = anc_res.json()
         ancestors = anc_data.get("results", [])
-        print(f"    iNaturalist: Retrieved {len(ancestors)} ancestor details")
         
-        # Build classification
         classification = {field: None for field in CLASSIFICATION_FIELDS}
         classification["species"] = taxon.get("name", scientific_name)
         
@@ -200,7 +188,6 @@ def fetch_inaturalist_taxonomy(scientific_name):
             elif rank == "genus":
                 classification["genus"] = name
         
-        # Show what we got
         filled = sum(1 for v in classification.values() if v)
         print(f"    iNaturalist: Classification complete ({filled}/7 fields)")
         
@@ -208,8 +195,6 @@ def fetch_inaturalist_taxonomy(scientific_name):
     
     except Exception as e:
         print(f"    iNaturalist error: {e}")
-        import traceback
-        traceback.print_exc()
     return None
 
 def fetch_gbif_distribution(scientific_name):
@@ -233,7 +218,6 @@ def fetch_gbif_distribution(scientific_name):
         
         time.sleep(0.5)
         
-        # Get distribution data
         dist_res = session.get(
             f"{GBIF_API}/{species_key}/distribution",
             headers=headers,
@@ -259,30 +243,69 @@ def fetch_gbif_distribution(scientific_name):
     return None
 
 def fetch_iucn_conservation(scientific_name):
-    """Fetch conservation status from IUCN Red List API v3"""
+    """
+    Fetch conservation status from IUCN Red List API v4
+    Uses Bearer token authentication (not query param like v3)
+    """
     if not IUCN_API_KEY:
         print("    ⚠ IUCN_API_KEY not set in environment")
         return None
     
     try:
-        url = f"{IUCN_API}/taxonomicname/{scientific_name.replace(' ', '%20')}"
-        res = session.get(url, params={"key": IUCN_API_KEY}, timeout=30)
+        # Parse scientific name into genus and species
+        name_parts = scientific_name.split(" ")
+        if len(name_parts) >= 2:
+            genus = name_parts[0]
+            species = name_parts[1]
+        else:
+            genus = scientific_name
+            species = ""
         
-        if res.status_code != 200:
-            print(f"    IUCN API error: {res.status_code}")
+        # API v4 endpoint with Bearer token auth
+        url = f"{IUCN_API_V4}/taxa/scientific_name/{genus}/{species}"
+        
+        iucn_headers = {
+            "Authorization": f"Bearer {IUCN_API_KEY}",
+            "Accept": "application/json"
+        }
+        
+        print(f"    IUCN: Fetching from {url}")
+        res = session.get(url, headers=iucn_headers, timeout=30)
+        
+        print(f"    IUCN: Response status: {res.status_code}")
+        
+        if res.status_code == 403:
+            print("    IUCN: 403 Forbidden - Check API key validity")
+            return None
+        elif res.status_code == 404:
+            print("    IUCN: Species not found in Red List")
+            return None
+        elif res.status_code != 200:
+            print(f"    IUCN: API error: {res.status_code} - {res.text[:200]}")
             return None
         
         data = res.json()
-        result = data.get("result", [])
         
-        if result:
-            return {
-                "conservation_status": result[0].get("category"),
-                "population_trend": result[0].get("population_trend")
-            }
+        # API v4 returns assessments array
+        assessments = data.get("assessments", [])
+        
+        if not assessments:
+            print("    IUCN: No assessments found")
+            return None
+        
+        # Get the latest assessment
+        latest = assessments[0]
+        
+        return {
+            "conservation_status": latest.get("category"),
+            "population_trend": latest.get("population_trend"),
+            "assessment_date": latest.get("assessment_date")
+        }
     
     except Exception as e:
         print(f"    IUCN error: {e}")
+        import traceback
+        traceback.print_exc()
     return None
 
 def load_cached_data(qid):
@@ -370,7 +393,7 @@ def generate_animal_data(animals_list, force_update=False):
                 "last_updated": None
             }
         
-        # 1. Wikipedia (Images, Summary, Description)
+        # 1. Wikipedia
         if not animal_data["image"] or force_update:
             print("  📖 Fetching from Wikipedia...")
             wiki_data = fetch_wikipedia(name)
@@ -384,7 +407,6 @@ def generate_animal_data(animals_list, force_update=False):
                 if "Wikipedia" not in animal_data["sources"]:
                     animal_data["sources"].append("Wikipedia")
                 
-                # Extract physical stats from summary
                 print("     Extracting physical stats from summary...")
                 stats = extract_physical_stats(wiki_data["summary"])
                 for stat_name, stat_value in stats.items():
@@ -392,7 +414,6 @@ def generate_animal_data(animals_list, force_update=False):
                         animal_data["physical"][stat_name] = stat_value
                         print(f"       ✓ {stat_name}: {stat_value}")
                 
-                # Extract diet
                 diet = extract_diet(wiki_data["summary"])
                 if diet:
                     animal_data["ecology"]["diet"] = diet
@@ -419,7 +440,7 @@ def generate_animal_data(animals_list, force_update=False):
             print("  🌍 Fetching distribution from GBIF...")
             gbif_data = fetch_gbif_distribution(sci_name)
             
-            if gbif_data:
+            if gbif_
                 if gbif_data.get("locations"):
                     animal_data["ecology"]["locations"] = gbif_data["locations"]
                     print(f"     ✓ Locations: {gbif_data['locations'][:50]}...")
@@ -431,15 +452,18 @@ def generate_animal_data(animals_list, force_update=False):
             else:
                 print("     ⚠ GBIF data unavailable")
         
-        # 4. IUCN (Conservation Status)
+        # 4. IUCN (Conservation Status) - API v4
         if not animal_data["ecology"]["conservation_status"] or force_update:
-            print("  🛡️  Fetching conservation status from IUCN...")
+            print("  🛡️  Fetching conservation status from IUCN (API v4)...")
             iucn_data = fetch_iucn_conservation(sci_name)
             
             if iucn_data:
                 if iucn_data.get("conservation_status"):
                     animal_data["ecology"]["conservation_status"] = iucn_data["conservation_status"]
                     print(f"     ✓ Conservation: {iucn_data['conservation_status']}")
+                if iucn_data.get("population_trend"):
+                    animal_data["ecology"]["estimated_population_size"] = iucn_data["population_trend"]
+                    print(f"     ✓ Population trend: {iucn_data['population_trend']}")
                 
                 if "IUCN" not in animal_data["sources"]:
                     animal_data["sources"].append("IUCN")
