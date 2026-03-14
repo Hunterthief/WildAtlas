@@ -3,7 +3,6 @@ import requests
 import json
 import time
 import os
-from bs4 import BeautifulSoup
 
 os.makedirs("data", exist_ok=True)
 
@@ -27,20 +26,20 @@ headers = {
 
 output = []
 
+# Helper functions
 def get_wikidata_claim(claims, pid):
     vals = claims.get(pid)
     if not vals:
-        return ""
+        return None
     dat = vals[0].get("mainsnak", {}).get("datavalue", {})
     if dat.get("value", {}).get("id"):
         qid = dat["value"]["id"]
         try:
             lab_resp = requests.get(f"{WIKIDATA_API}{qid}.json", headers=headers, timeout=10).json()
             return lab_resp["entities"][qid]["labels"]["en"]["value"]
-        except Exception as e:
-            print(f"  Wikidata sub-request failed for {pid}: {e}")
-            return ""
-    return dat.get("value", "")
+        except:
+            return None
+    return dat.get("value", None)
 
 def get_wikidata_numeric(claims, pid):
     vals = claims.get(pid)
@@ -49,25 +48,35 @@ def get_wikidata_numeric(claims, pid):
         num = m.get("amount")
         unit = m.get("unit", "")
         if num:
-            return f"{num} {unit.split('/')[-1]}"
-    return ""
+            return f"{num} {unit.split('/')[-1]}" if unit else str(num)
+    return None
 
-def fetch_eol_data(animal_name):
+def fetch_eol(animal_name):
+    """Fetch diet, size, location from EOL"""
     try:
         search = requests.get(EOL_SEARCH_API, params={"q": animal_name}, headers=headers, timeout=10).json()
         results = search.get("results")
         if not results:
-            print(f"  EOL search: no results for {animal_name}")
             return {}
         page_id = results[0]["id"]
         page_data = requests.get(EOL_PAGES_API.format(page_id), headers=headers, timeout=10).json()
+        traits = page_data.get("traits", [])
         data = {}
-        for trait in page_data.get("traits", []):
-            trait_name = trait.get("trait")
-            value = trait.get("value")
-            if trait_name and value:
-                data[trait_name.lower()] = value
-        print(f"  EOL fetched for {animal_name}")
+        for trait in traits:
+            key = trait.get("trait")
+            val = trait.get("value")
+            if key and val:
+                key = key.lower()
+                if key == "diet":
+                    data["diet"] = val
+                elif key in ["length", "body length"]:
+                    data["length"] = val
+                elif key in ["height", "shoulder height"]:
+                    data["height"] = val
+                elif key in ["weight", "mass"]:
+                    data["weight"] = val
+                elif key in ["distribution", "location"]:
+                    data["location"] = val
         return data
     except Exception as e:
         print(f"  EOL fetch failed for {animal_name}: {e}")
@@ -75,33 +84,42 @@ def fetch_eol_data(animal_name):
 
 for name in animals:
     print(f"\n--- Processing {name} ---")
+    sources = []
+
+    # Wikipedia
+    wiki_data = {}
     try:
-        # Wikipedia summary
         title = name.replace(" ", "_")
-        wiki_resp = requests.get(WIKI_API + title, headers=headers, timeout=10)
-        print(f"  Wikipedia status: {wiki_resp.status_code}")
-        if wiki_resp.status_code != 200:
-            print(f"  Wikipedia failed for {name}")
-            wiki_json = {}
+        r = requests.get(WIKI_API + title, headers=headers, timeout=10)
+        print(f"  Wikipedia status: {r.status_code}")
+        if r.status_code == 200:
+            wiki_data = r.json()
+            sources.append("Wikipedia")
         else:
-            wiki_json = wiki_resp.json()
+            sources.append("Wikipedia FAILED")
+            print(f"  Wikipedia failed for {name}")
+    except Exception as e:
+        sources.append("Wikipedia FAILED")
+        print(f"  Wikipedia error: {e}")
 
-        summary = wiki_json.get("extract", "")
-        description = wiki_json.get("description", "")
-        image = wiki_json.get("thumbnail", {}).get("source", "")
+    summary = wiki_data.get("extract", "")
+    description = wiki_data.get("description", "")
+    image = wiki_data.get("thumbnail", {}).get("source", "")
 
-        # Wikidata
-        wikibase = wiki_json.get("wikibase_item")
-        classification = {}
-        diet = ""
-        length = ""
-        height = ""
-        weight = ""
-        location = ""
-        if wikibase:
-            try:
-                wd_resp = requests.get(f"{WIKIDATA_API}{wikibase}.json", headers=headers, timeout=10).json()
-                claims = wd_resp.get("entities", {}).get(wikibase, {}).get("claims", {})
+    # Wikidata
+    classification = {}
+    diet = None
+    length = None
+    height = None
+    weight = None
+    location = None
+
+    wikibase = wiki_data.get("wikibase_item")
+    if wikibase and isinstance(wikibase, str):
+        try:
+            wd_resp = requests.get(f"{WIKIDATA_API}{wikibase}.json", headers=headers, timeout=10).json()
+            claims = wd_resp.get("entities", {}).get(wikibase, {}).get("claims", {})
+            if claims:
                 classification = {
                     "domain": get_wikidata_claim(claims, "P229"),
                     "kingdom": get_wikidata_claim(claims, "P1047"),
@@ -112,48 +130,49 @@ for name in animals:
                     "genus": get_wikidata_claim(claims, "P2292"),
                     "species": get_wikidata_claim(claims, "P225")
                 }
-                diet = get_wikidata_claim(claims, "P768")
-                length = get_wikidata_numeric(claims, "P2043")
-                height = get_wikidata_numeric(claims, "P2048")
-                weight = get_wikidata_numeric(claims, "P2067")
-                location = get_wikidata_claim(claims, "P183")
+                diet = get_wikidata_claim(claims, "P768") or diet
+                length = get_wikidata_numeric(claims, "P2043") or length
+                height = get_wikidata_numeric(claims, "P2048") or height
+                weight = get_wikidata_numeric(claims, "P2067") or weight
+                location = get_wikidata_claim(claims, "P183") or location
+                sources.append("Wikidata")
                 print(f"  Wikidata fetched for {name}")
-            except Exception as e:
-                print(f"  Wikidata failed for {name}: {e}")
+            else:
+                sources.append("Wikidata EMPTY")
+                print(f"  Wikidata claims empty for {name}")
+        except Exception as e:
+            sources.append("Wikidata FAILED")
+            print(f"  Wikidata failed for {name}: {e}")
+    else:
+        sources.append("Wikidata MISSING")
+        print(f"  Wikidata item missing or invalid for {name}")
 
-        # EOL fallback
-        eol_data = fetch_eol_data(name)
-        diet = diet or eol_data.get("diet")
-        length = length or eol_data.get("length")
-        height = height or eol_data.get("height")
-        weight = weight or eol_data.get("weight")
-        location = location or eol_data.get("distribution")
+    # EOL fallback
+    eol_data = fetch_eol(name)
+    for field in ["diet", "length", "height", "weight", "location"]:
+        if not locals()[field] and eol_data.get(field):
+            locals()[field] = eol_data[field]
+            if "EOL" not in sources:
+                sources.append("EOL")
 
-        output.append({
-            "name": name,
-            "description": description,
-            "summary": summary,
-            "image": image,
-            "classification": classification,
-            "diet": diet,
-            "length": length,
-            "height": height,
-            "weight": weight,
-            "location": location,
-            "sources": [
-                "Wikipedia" if wiki_json else "Wikipedia FAILED",
-                "Wikidata" if wikibase else "Wikidata FAILED",
-                "EOL" if eol_data else "EOL FAILED"
-            ]
-        })
+    output.append({
+        "name": name,
+        "description": description,
+        "summary": summary,
+        "image": image,
+        "classification": classification,
+        "diet": diet,
+        "length": length,
+        "height": height,
+        "weight": weight,
+        "location": location,
+        "sources": sources
+    })
 
-        print(f"  {name} added successfully")
-        time.sleep(1)
+    print(f"  {name} added successfully")
+    time.sleep(1)
 
-    except Exception as e:
-        print(f"  Error processing {name}: {e}")
-
-# Save JSON
+# Write JSON
 with open(os.path.join("data", "animals.json"), "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2, ensure_ascii=False)
 
