@@ -4,95 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WildAtlas | Discover the Animal Kingdom</title>
-    <meta name="description" content="Explore beautiful facts about animals from around the world.">
+    <meta name="description" content="Explore beautiful facts about animals from around the world. Inspired by Facts.app.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HOME PAGE -->
-    <div id="home-page">
-        <header class="topbar">
-            <h1>WildAtlas</h1>
-            <p class="tagline">Discover the living world, one fact at a time.</p>
-            <div class="search-container">
+    <!-- Header / Search Bar -->
+    <header class="topbar">
+        <div class="topbar-content">
+            <div class="logo-section">
+                <h1>WildAtlas</h1>
+                <p class="tagline">Discover the living world, one fact at a time.</p>
+            </div>
+            <div class="search-section">
                 <input type="text" id="search-input" placeholder="Search animals (e.g., Tiger, Ocean, Mammal)...">
             </div>
-        </header>
+        </div>
+    </header>
 
-        <main id="grid">
-            <div class="loading">
-                <p>Loading animals...</p>
-            </div>
-        </main>
+    <!-- Main Animal Grid -->
+    <main id="grid">
+        <!-- Loading State -->
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>Exploring the wild...</p>
+        </div>
+        <!-- Cards will be injected here by script.js -->
+    </main>
 
-        <section class="inspiration">
-            <h2>Inspired by Simplicity</h2>
-            <p>Just like <strong>Facts.app</strong> makes complex topics beautiful, WildAtlas curates the wonders of the animal kingdom.</p>
-            <a href="https://www.facts.app/" target="_blank" rel="noopener noreferrer">Visit Facts.app</a>
-        </section>
+    <!-- Inspiration Section -->
+    <section class="inspiration">
+        <h2>Inspired by Facts.app</h2>
+        <p>Just like <a href="https://www.facts.app/" target="_blank" rel="noopener noreferrer">Facts.app</a> makes prehistoric creatures accessible, WildAtlas celebrates the amazing animals living on Earth today.</p>
+    </section>
 
-        <footer style="text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem;">
-            <p>&copy; 2026 WildAtlas Project</p>
-        </footer>
-    </div>
-
-    <!-- ANIMAL DETAIL PAGE -->
-    <div id="animal-page" class="animal-page" style="display: none;">
-        <nav style="padding: 20px; max-width: 1200px; margin: 0 auto;">
-            <a href="#" id="back-link" class="back-link">← Back to Animals</a>
-        </nav>
-
-        <article>
-            <header class="animal-header">
-                <h1 id="detail-title">Animal Name</h1>
-                <p class="scientific-name" id="detail-scientific">Scientific Name</p>
-            </header>
-
-            <img id="animal-hero" class="animal-hero" src="" alt="Animal Image">
-
-            <div class="animal-summary" id="animal-summary">
-                <p>Summary text here...</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card classification-section" style="grid-column: 1 / -1;">
-                    <h2>Taxonomy</h2>
-                    <table class="classification-table" id="classification-table">
-                        <tbody></tbody>
-                    </table>
-                </div>
-
-                <div class="info-card" id="physical-stats">
-                    <h2>Physical Attributes</h2>
-                    <ul></ul>
-                </div>
-
-                <div class="info-card" id="ecology-stats">
-                    <h2>Ecology & Habitat</h2>
-                    <ul></ul>
-                    <div style="margin-top: 20px;">
-                        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 10px;">Distinctive Features:</p>
-                        <div id="features-list" class="features-list"></div>
-                    </div>
-                </div>
-
-                <div class="info-card" id="reproduction-stats">
-                    <h2>Reproduction</h2>
-                    <ul></ul>
-                </div>
-            </div>
-
-            <div style="margin-top: 40px; padding: 20px; background: rgba(30, 41, 59, 0.3); border-radius: 12px; border: 1px solid #334155;">
-                <h4 style="color: #64748b; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Data Sources</h4>
-                <p id="data-sources" style="color: #cbd5e1; font-size: 0.95rem;"></p>
-            </div>
-        </article>
-    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 WildAtlas Project. Data sourced from Wikipedia & iNaturalist.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
