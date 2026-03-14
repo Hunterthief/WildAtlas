@@ -78,6 +78,83 @@ padding:30px;
 border-radius:12px;
 text-align:center;
 }
+/* ========== Animal Detail Page Styles ========== */
+
+.animal-page {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.animal-header {
+  text-align: center;
+}
+
+.animal-hero {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  border-radius: 12px;
+}
+
+.animal-summary {
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.animal-section {
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.animal-section h2 {
+  font-size: 22px;
+  color: #a3c4f3;
+  margin-bottom: 12px;
+}
+
+.classification-table,
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.classification-table th,
+.classification-table td,
+.size-table th,
+.size-table td {
+  border: 1px solid #444;
+  padding: 10px;
+  text-align: left;
+}
+
+.classification-table th,
+.size-table th {
+  background: #1f3057;
+  color: #fff;
+  width: 25%;
+}
+
+.classification-table td,
+.size-table td {
+  background: #0f203c;
+  color: #dfe4ea;
+}
+
+.back {
+  display: block;
+  margin: 20px auto;
+  max-width: 950px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #38bdf8;
+}
 
 .inspiration a{
 color:#38bdf8;
