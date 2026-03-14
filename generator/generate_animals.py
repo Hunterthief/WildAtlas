@@ -9,7 +9,7 @@ os.makedirs("data", exist_ok=True)
 
 # --- Session + retries ---
 session = requests.Session()
-retry = Retry(total=5, backoff_factor=2, status_forcelist=[429,500,502,503,504])
+retry = Retry(total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504])
 adapter = HTTPAdapter(max_retries=retry)
 session.mount("https://", adapter)
 
@@ -28,45 +28,6 @@ TEST_ANIMALS = [
     {"name": "Bald Eagle", "qid": "Q25319"},      # Haliaeetus leucocephalus
 ]
 
-# --- Helpers ---
-def fetch_wikidata_animal(qid):
-    query = f"""
-    SELECT ?taxon ?taxonLabel ?rankLabel ?dietLabel ?mass ?massUnitLabel ?bodyLength ?bodyLengthUnitLabel ?locationLabel ?parent ?parentLabel ?parentRankLabel
-    WHERE {{
-      BIND(wd:{qid} AS ?taxon)
-      OPTIONAL {{ ?taxon wdt:P105 ?rank . }}
-      OPTIONAL {{ ?taxon wdt:P768 ?diet . }}
-      OPTIONAL {{ ?taxon p:P2067 ?massStmt .
-                 ?massStmt ps:P2067 ?mass .
-                 ?massStmt pq:P5104 ?massUnitLabel . }}
-      OPTIONAL {{ ?taxon p:P2043 ?lenStmt .
-                 ?lenStmt ps:P2043 ?bodyLength .
-                 ?lenStmt pq:P5104 ?bodyLengthUnitLabel . }}
-      OPTIONAL {{ ?taxon wdt:P183 ?locationLabel . }}
-      OPTIONAL {{ ?taxon wdt:P171* ?parent .
-                 ?parent wdt:P105 ?parentRank . }}
-      SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en". }}
-    }}
-    """
-    for attempt in range(5):
-        try:
-            res = session.get(WIKIDATA_SPARQL, params={"query": query}, headers=headers, timeout=180).json()
-            return res
-        except requests.exceptions.ReadTimeout:
-            print(f"  Timeout on {qid}, retry {attempt+1}/5...")
-            time.sleep(5 * (attempt+1))
-    print(f"  Failed to fetch {qid} after retries")
-    return {}
-
-def fetch_wikipedia(animal_name):
-    try:
-        r = session.get(WIKI_API + animal_name.replace(" ", "_"), headers=headers, timeout=10)
-        if r.status_code == 200:
-            return r.json()
-    except Exception as e:
-        print(f"  Wikipedia error: {e}")
-    return {}
-
 # --- Map ranks to classification fields ---
 RANKS_MAP = {
     "domain": "domain",
@@ -78,6 +39,66 @@ RANKS_MAP = {
     "genus": "genus",
     "species": "species"
 }
+
+# --- Fetch main animal traits (species level only) ---
+def fetch_wikidata_animal(qid):
+    query_main = f"""
+    SELECT ?taxon ?taxonLabel ?rankLabel ?dietLabel ?mass ?massUnitLabel ?bodyLength ?bodyLengthUnitLabel ?locationLabel
+    WHERE {{
+      BIND(wd:{qid} AS ?taxon)
+      OPTIONAL {{ ?taxon wdt:P105 ?rank . }}
+      OPTIONAL {{ ?taxon wdt:P768 ?diet . }}
+      OPTIONAL {{ ?taxon p:P2067 ?massStmt .
+                 ?massStmt ps:P2067 ?mass .
+                 ?massStmt pq:P5104 ?massUnitLabel . }}
+      OPTIONAL {{ ?taxon p:P2043 ?lenStmt .
+                 ?lenStmt ps:P2043 ?bodyLength .
+                 ?lenStmt pq:P5104 ?bodyLengthUnitLabel . }}
+      OPTIONAL {{ ?taxon wdt:P183 ?locationLabel . }}
+      SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en". }}
+    }}
+    """
+    for attempt in range(5):
+        try:
+            res = session.get(WIKIDATA_SPARQL, params={"query": query_main}, headers=headers, timeout=120)
+            if res.status_code == 200:
+                return res.json()
+            elif res.status_code == 504:
+                print(f"  504 received, retry {attempt+1}/5...")
+        except requests.exceptions.RequestException as e:
+            print(f"  Request error {e}, retry {attempt+1}/5")
+        time.sleep(5 * (attempt+1))
+    print(f"  Failed to fetch {qid} after retries")
+    return {}
+
+# --- Fetch full parent classification separately ---
+def fetch_parent_classification(qid):
+    query_parent = f"""
+    SELECT ?parent ?parentLabel ?parentRankLabel
+    WHERE {{
+      wd:{qid} wdt:P171* ?parent .
+      ?parent wdt:P105 ?parentRank .
+      SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en". }}
+    }}
+    """
+    for attempt in range(5):
+        try:
+            res = session.get(WIKIDATA_SPARQL, params={"query": query_parent}, headers=headers, timeout=120)
+            if res.status_code == 200:
+                return res.json().get("results", {}).get("bindings", [])
+        except requests.exceptions.RequestException:
+            time.sleep(5 * (attempt+1))
+    return []
+
+# --- Wikipedia fallback ---
+def fetch_wikipedia(animal_name):
+    try:
+        r = session.get(WIKI_API + animal_name.replace(" ", "_"), headers=headers, timeout=10)
+        if r.status_code == 200:
+            return r.json()
+    except Exception as e:
+        print(f"  Wikipedia error: {e}")
+    return {}
 
 # --- Main ---
 output = []
@@ -93,9 +114,19 @@ for a in TEST_ANIMALS:
     description = wiki_data.get("description", "")
     image = wiki_data.get("thumbnail", {}).get("source", "")
 
-    # Wikidata fetch
-    data = fetch_wikidata_animal(qid)
-    bindings = data.get("results", {}).get("bindings", [])
+    # Check cache
+    cache_file = f"data/{qid}.json"
+    if os.path.exists(cache_file):
+        data = json.load(open(cache_file, encoding="utf-8"))
+        bindings = data.get("results", {}).get("bindings", [])
+        parent_bindings = data.get("parent_bindings", [])
+    else:
+        data = fetch_wikidata_animal(qid)
+        bindings = data.get("results", {}).get("bindings", [])
+        parent_bindings = fetch_parent_classification(qid)
+        # Save cache
+        with open(cache_file, "w", encoding="utf-8") as f:
+            json.dump({"results": bindings, "parent_bindings": parent_bindings}, f, ensure_ascii=False, indent=2)
 
     classification = {k: None for k in RANKS_MAP.values()}
     diet = length = height = weight = location = None
@@ -104,13 +135,6 @@ for a in TEST_ANIMALS:
     if bindings:
         sources.append("Wikidata")
         for w in bindings:
-            # Fill classification using rank + parentRank
-            for rank_key, label_key in [("rankLabel", "taxonLabel"), ("parentRankLabel", "parentLabel")]:
-                rank = w.get(rank_key, {}).get("value")
-                label = w.get(label_key, {}).get("value")
-                if rank in RANKS_MAP:
-                    classification[RANKS_MAP[rank]] = label
-
             # Traits
             diet = w.get("dietLabel", {}).get("value") or diet
             if w.get("mass") and w.get("massUnitLabel"):
@@ -119,8 +143,16 @@ for a in TEST_ANIMALS:
                 length = f'{w["bodyLength"]["value"]} {w["bodyLengthUnitLabel"]["value"]}'
             loc = w.get("locationLabel", {}).get("value")
             location = loc or location
-    else:
-        sources.append("Wikidata EMPTY")
+
+    # Parent hierarchy
+    for p in parent_bindings:
+        rank = p.get("parentRankLabel", {}).get("value")
+        label = p.get("parentLabel", {}).get("value")
+        if rank in RANKS_MAP:
+            classification[RANKS_MAP[rank]] = label
+    # Include species label
+    if bindings and bindings[0].get("taxonLabel", {}).get("value"):
+        classification["species"] = bindings[0]["taxonLabel"]["value"]
 
     output.append({
         "name": name,
