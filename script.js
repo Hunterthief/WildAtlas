@@ -23,9 +23,11 @@ const card=document.createElement("div")
 card.className="card"
 
 card.innerHTML=`
+
 <img loading="lazy" src="${a.image}">
 <h3>${a.name}</h3>
 <p>${a.description || ""}</p>
+
 `
 
 card.onclick=()=>{
@@ -47,7 +49,9 @@ search.addEventListener("input",e=>{
 const q=e.target.value.toLowerCase()
 
 render(
+
 animals.filter(a=>a.name.toLowerCase().includes(q))
+
 )
 
 })
