@@ -44,72 +44,123 @@ def fetch_wikipedia_summary(animal_name):
         print(f"    Wikipedia error: {e}")
     return {"summary": "", "description": "", "image": "", "url": "", "title": ""}
 
-def fetch_wikipedia_section(animal_name, section="Characteristics"):
+def fetch_wikipedia_all_sections(animal_name):
+    """Fetch full article content to search all sections"""
     try:
         safe_name = animal_name.replace(" ", "_")
         params = {
             "action": "parse",
             "page": safe_name,
-            "prop": "text",
-            "section": section,
+            "prop": "text|sections",
             "format": "json"
         }
         r = session.get(WIKI_ACTION_API, params=params, headers=headers, timeout=15)
         if r.status_code == 200:
             data = r.json()
-            text = data.get("parse", {}).get("text", {}).get("*", "")
-            text = re.sub(r'<[^>]+>', ' ', text)
+            parse_data = data.get("parse", {})
+            sections = parse_data.get("sections", [])
+            full_text = parse_data.get("text", {}).get("*", "")
+            
+            # Strip HTML tags
+            text = re.sub(r'<[^>]+>', ' ', full_text)
             text = re.sub(r'\s+', ' ', text).strip()
-            return text
+            
+            return text, sections
     except Exception as e:
-        print(f"    Wikipedia section error: {e}")
-    return ""
+        print(f"    Wikipedia sections error: {e}")
+    return "", []
 
 def extract_physical_stats(text):
+    """Extract physical statistics with range support (e.g., 1.4–2.8 m)"""
     stats = {"weight": None, "length": None, "height": None, "lifespan": None, "top_speed": None}
     if not text:
         return stats
     
-    # Weight
-    weight_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)', text, re.IGNORECASE)
-    for value, unit in weight_matches:
-        try:
-            val = float(value.replace(',', '.'))
-            unit_clean = unit.lower().strip()
-            if unit_clean in ['t', 'tonne', 'tonnes'] and 0.1 < val < 10:
-                stats["weight"] = f"{val} {unit_clean}"
-                break
-            elif unit_clean in ['kg', 'kilogram', 'kilograms'] and 1 < val < 500:
-                stats["weight"] = f"{val} {unit_clean}"
-                break
-            elif unit_clean in ['lb', 'lbs', 'pound', 'pounds'] and 2 < val < 1100:
-                stats["weight"] = f"{val} {unit_clean}"
-                break
-        except:
-            continue
+    # Weight - support ranges like "200–260 kg" or "200-260 kg"
+    weight_patterns = [
+        r'weigh\s*(?:of|up to)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)',
+        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)\s*(?:weight|weigh|mass)',
+        r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)\s*(?:weight|weigh|mass)',
+    ]
+    for pattern in weight_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            groups = match.groups()
+            if len(groups) == 3:
+                # Single value: 300 kg
+                val = float(groups[0].replace(',', '.'))
+                unit = groups[1].lower().strip()
+                if unit in ['t', 'tonne', 'tonnes'] and 0.1 < val < 10:
+                    stats["weight"] = f"{val} {unit}"
+                    break
+                elif unit in ['kg', 'kilogram', 'kilograms'] and 1 < val < 500:
+                    stats["weight"] = f"{val} {unit}"
+                    break
+                elif unit in ['lb', 'lbs', 'pound', 'pounds'] and 2 < val < 1100:
+                    stats["weight"] = f"{val} {unit}"
+                    break
+            elif len(groups) == 4:
+                # Range: 200–260 kg
+                val1 = float(groups[0].replace(',', '.'))
+                val2 = float(groups[1].replace(',', '.'))
+                unit = groups[2].lower().strip()
+                if unit in ['kg', 'kilogram', 'kilograms'] and 1 < val1 < val2 < 500:
+                    stats["weight"] = f"{val1}–{val2} {unit}"
+                    break
+                elif unit in ['lb', 'lbs', 'pound', 'pounds'] and 2 < val1 < val2 < 1100:
+                    stats["weight"] = f"{val1}–{val2} {unit}"
+                    break
     
-    # Length
-    length_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)', text, re.IGNORECASE)
-    for value, unit in length_matches:
-        try:
-            val = float(value.replace(',', '.'))
-            unit_clean = unit.lower().strip()
-            if unit_clean in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.3 < val < 10:
-                stats["length"] = f"{val} {unit_clean}"
-                break
-            elif unit_clean in ['cm', 'centimetre', 'centimetres'] and 10 < val < 500:
-                stats["length"] = f"{val} {unit_clean}"
-                break
-            elif unit_clean in ['ft', 'feet', 'foot'] and 1 < val < 30:
-                stats["length"] = f"{val} {unit_clean}"
-                break
-        except:
-            continue
+    # Length - support ranges like "1.4–2.8 m"
+    length_patterns = [
+        r'length\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)',
+        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)\s*(?:long|length)',
+        r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)\s*(?:long|length)',
+    ]
+    for pattern in length_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            groups = match.groups()
+            if len(groups) == 3:
+                val = float(groups[0].replace(',', '.'))
+                unit = groups[1].lower().strip()
+                if unit in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.3 < val < 10:
+                    stats["length"] = f"{val} {unit}"
+                    break
+            elif len(groups) == 4:
+                val1 = float(groups[0].replace(',', '.'))
+                val2 = float(groups[1].replace(',', '.'))
+                unit = groups[2].lower().strip()
+                if unit in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.3 < val1 < val2 < 10:
+                    stats["length"] = f"{val1}–{val2} {unit}"
+                    break
+    
+    # Height - support ranges like "0.8–1.1 m"
+    height_patterns = [
+        r'(?:stands?|height)\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)',
+        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)\s*(?:tall|height|shoulder)',
+    ]
+    for pattern in height_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            groups = match.groups()
+            if len(groups) == 4:
+                val1 = float(groups[0].replace(',', '.'))
+                val2 = float(groups[1].replace(',', '.'))
+                unit = groups[2].lower().strip()
+                if unit in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.3 < val1 < val2 < 5:
+                    stats["height"] = f"{val1}–{val2} {unit}"
+                    break
     
     # Lifespan
-    lifespan_matches = re.findall(r'(\d+(?:-\d+)?)\s*(years?|yrs?)', text, re.IGNORECASE)
-    for value, unit in lifespan_matches:
-        try:
+    lifespan_patterns = [
+        r'(?:lifespan|longevity|live)\s*(?:of|up to|to)?\s*(\d+(?:-\d+)?)\s*(years?|yrs?)',
+        r'(\d+(?:-\d+)?)\s*(years?|yrs?)\s*(?:lifespan|longevity|life)',
+    ]
+    for pattern in lifespan_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            value = match.group(1)
             if '-' in value:
                 parts = value.split('-')
                 if 1 < int(parts[0]) < 100 and 1 < int(parts[1]) < 100:
@@ -120,19 +171,19 @@ def extract_physical_stats(text):
                 if 1 < val < 100:
                     stats["lifespan"] = f"{value} years"
                     break
-        except:
-            continue
     
     # Speed
-    speed_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)', text, re.IGNORECASE)
-    for value, unit in speed_matches:
-        try:
-            val = float(value.replace(',', '.'))
+    speed_patterns = [
+        r'(?:speed|run|fast)\s*(?:of|up to)?\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)',
+        r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)\s*(?:speed|top)',
+    ]
+    for pattern in speed_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            val = float(match.group(1).replace(',', '.'))
             if 10 < val < 150:
-                stats["top_speed"] = f"{val} {unit.lower()}"
+                stats["top_speed"] = f"{val} {match.group(2).lower()}"
                 break
-        except:
-            continue
     
     return stats
 
@@ -147,6 +198,47 @@ def extract_diet(text):
     elif any(word in text_lower for word in ['omnivore', 'both plants and animals']):
         return "Omnivore"
     return None
+
+def extract_conservation_status(text):
+    """Extract conservation status from Wikipedia text"""
+    if not text:
+        return None
+    
+    status_keywords = [
+        "Endangered", "Critically Endangered", "Vulnerable", 
+        "Near Threatened", "Least Concern", "Data Deficient",
+        "Extinct in the Wild", "Extinct"
+    ]
+    
+    for status in status_keywords:
+        if status.lower() in text.lower():
+            return status
+    
+    return None
+
+def extract_locations(text):
+    """Extract geographic locations from text"""
+    locations = []
+    
+    # Common region keywords for animals
+    region_patterns = [
+        r'(?:native to|found in|distributed across|ranges from)\s*([^.,]+?)(?:[.,]|$)',
+        r'(?:Asia|Africa|Europe|North America|South America|Australia|India|China|Russia|Indonesia)',
+    ]
+    
+    # Look for continent/country names
+    continents = ["Asia", "Africa", "Europe", "North America", "South America", "Australia", "Antarctica"]
+    countries = ["India", "China", "Russia", "Indonesia", "Thailand", "Malaysia", "Bangladesh", "Nepal", "Bhutan"]
+    
+    for continent in continents:
+        if continent.lower() in text.lower():
+            locations.append(continent)
+    
+    for country in countries:
+        if country.lower() in text.lower():
+            locations.append(country)
+    
+    return ", ".join(locations[:5]) if locations else None
 
 def fetch_inaturalist_taxonomy(scientific_name):
     try:
@@ -209,6 +301,7 @@ def fetch_inaturalist_taxonomy(scientific_name):
     return None
 
 def fetch_gbif_distribution(scientific_name):
+    """Fetch distribution from GBIF - but expect limited data"""
     try:
         print(f"    GBIF: Searching for '{scientific_name}'...")
         params = {"q": scientific_name, "type": "SPECIES", "limit": 1}
@@ -229,70 +322,21 @@ def fetch_gbif_distribution(scientific_name):
         species_key = species_data.get("key")
         print(f"    GBIF: Found species key {species_key}")
         
+        # Check if GBIF has occurrence data
+        num_occurrences = species_data.get("numOccurrences", 0)
+        if num_occurrences == 0:
+            print(f"    GBIF: No occurrence data available")
+            return None
+        
         conservation_status = species_data.get("conservationStatus")
-        habitat = species_data.get("habitat")
         
-        locations = []
-        
-        if species_key:
-            time.sleep(0.5)
-            try:
-                occ_res = session.get(
-                    "https://api.gbif.org/v1/occurrence/search",
-                    params={
-                        "taxonKey": species_key,
-                        "limit": 0,
-                        "facet": "country",
-                        "facetLimit": 10
-                    },
-                    headers=headers,
-                    timeout=30
-                )
-                if occ_res.status_code == 200:
-                    occ_data = occ_res.json()
-                    facets = occ_data.get("facets", [])
-                    for facet in facets:
-                        if facet.get("field") == "country":
-                            counts = facet.get("counts", [])
-                            locations = [c.get("name") for c in counts[:5] if c.get("name")]
-                            print(f"    GBIF: Found {len(locations)} countries from facets")
-                            break
-            except Exception as e:
-                print(f"    GBIF facet error: {e}")
-        
-        if not locations and species_key:
-            time.sleep(0.5)
-            try:
-                occ_res = session.get(
-                    "https://api.gbif.org/v1/occurrence/search",
-                    params={"taxonKey": species_key, "limit": 50},
-                    headers=headers,
-                    timeout=30
-                )
-                if occ_res.status_code == 200:
-                    occ_data = occ_res.json()
-                    occ_results = occ_data.get("results", [])
-                    countries = set()
-                    for item in occ_results:
-                        country = item.get("country")
-                        if country:
-                            countries.add(country)
-                    locations = list(countries)[:5]
-                    print(f"    GBIF: Extracted {len(locations)} countries from occurrences")
-            except Exception as e:
-                print(f"    GBIF occurrences error: {e}")
-        
-        result = {
-            "locations": ", ".join(locations[:5]) if locations else None,
-            "habitat": habitat,
+        return {
+            "locations": None,  # GBIF has no location data for most species
+            "habitat": None,
             "conservation_status": conservation_status
         }
-        print(f"    GBIF: Locations: {result['locations'][:50] if result['locations'] else 'None'}...")
-        return result
     except Exception as e:
         print(f"    GBIF error: {e}")
-        import traceback
-        traceback.print_exc()
     return None
 
 def load_cached_data(qid):
@@ -349,7 +393,7 @@ def generate_animal_data(animals_list, force_update=False):
                 "last_updated": None
             }
         
-        # 1. Wikipedia
+        # 1. Wikipedia (Summary + Full Article for Stats)
         if not animal_data["image"] or force_update:
             print("  📖 Fetching from Wikipedia...")
             wiki_data = fetch_wikipedia_summary(name)
@@ -363,24 +407,38 @@ def generate_animal_data(animals_list, force_update=False):
                 if "Wikipedia" not in animal_data["sources"]:
                     animal_data["sources"].append("Wikipedia")
                 
-                print("     Fetching Characteristics section...")
-                chars_text = fetch_wikipedia_section(name, "Characteristics")
-                all_text = wiki_data["summary"] + " " + chars_text
+                # Fetch full article for physical stats (all sections)
+                print("     Fetching full article for physical stats...")
+                full_text, sections = fetch_wikipedia_all_sections(name)
                 
-                stats = extract_physical_stats(all_text)
+                # Extract physical stats from full article
+                stats = extract_physical_stats(full_text)
                 for stat_name, stat_value in stats.items():
                     if stat_value:
                         animal_data["physical"][stat_name] = stat_value
                         print(f"       ✓ {stat_name}: {stat_value}")
                 
+                # Extract diet from summary
                 diet = extract_diet(wiki_data["summary"])
                 if diet:
                     animal_data["ecology"]["diet"] = diet
                     print(f"       ✓ diet: {diet}")
                 
+                # Extract conservation status from full text
+                conservation = extract_conservation_status(full_text)
+                if conservation:
+                    animal_data["ecology"]["conservation_status"] = conservation
+                    print(f"       ✓ conservation: {conservation}")
+                
+                # Extract locations from full text
+                locations = extract_locations(full_text)
+                if locations:
+                    animal_data["ecology"]["locations"] = locations
+                    print(f"       ✓ locations: {locations[:50]}...")
+                
                 print("     ✓ Summary and stats extracted")
         
-        # 2. iNaturalist
+        # 2. iNaturalist (Taxonomy)
         if not animal_data["classification"]["kingdom"] or force_update:
             print("  🔬 Fetching taxonomy from iNaturalist...")
             inat_class = fetch_inaturalist_taxonomy(sci_name)
@@ -390,24 +448,22 @@ def generate_animal_data(animals_list, force_update=False):
                 if "iNaturalist" not in animal_data["sources"]:
                     animal_data["sources"].append("iNaturalist")
         
-        # 3. GBIF - FIXED SYNTAX
+        # 3. GBIF (Skip if no data - most species have 0 occurrences)
         if not animal_data["ecology"]["locations"] or force_update:
             print("  🌍 Fetching distribution from GBIF...")
             gbif_data = fetch_gbif_distribution(sci_name)
             
-            if gbif_data:
-                if gbif_data.get("locations"):
+            if gbif_
+                if gbif_data.get("locations") and not animal_data["ecology"]["locations"]:
                     animal_data["ecology"]["locations"] = gbif_data["locations"]
-                if gbif_data.get("habitat"):
-                    animal_data["ecology"]["habitat"] = gbif_data["habitat"]
-                if gbif_data.get("conservation_status"):
+                if gbif_data.get("conservation_status") and not animal_data["ecology"]["conservation_status"]:
                     animal_data["ecology"]["conservation_status"] = gbif_data["conservation_status"]
                     print(f"     ✓ Conservation: {gbif_data['conservation_status']}")
                 
                 if "GBIF" not in animal_data["sources"]:
                     animal_data["sources"].append("GBIF")
             else:
-                print("     ⚠ GBIF data unavailable")
+                print("     ⚠ GBIF has no occurrence data (using Wikipedia instead)")
         
         animal_data["last_updated"] = datetime.now().isoformat()
         save_cached_data(qid, animal_data)
