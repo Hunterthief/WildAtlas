@@ -1,0 +1,31 @@
+{
+  "continents": [
+    "Asia", "Africa", "Europe", "North America", "South America", "Australia", "Antarctica"
+  ],
+  "regions": {
+    "asia": ["Asia", "India", "China", "Russia", "Indonesia", "Thailand", "Malaysia", "Bangladesh", "Nepal", "Sumatra", "Siberia", "Southeast Asia", "Indian subcontinent", "Japan", "Philippines", "Vietnam", "Cambodia", "Laos", "Myanmar", "Korea"],
+    "africa": ["Africa", "Kenya", "Tanzania", "South Africa", "Botswana", "Zimbabwe", "Namibia", "Zambia", "Uganda", "Rwanda", "Ethiopia", "Somalia", "Sudan", "Egypt", "Morocco", "Nigeria", "Ghana", "Congo", "Madagascar"],
+    "europe": ["Europe", "Russia", "United Kingdom", "France", "Germany", "Spain", "Italy", "Scandinavia", "Norway", "Sweden", "Finland", "Poland", "Ukraine", "Greece", "Portugal"],
+    "north_america": ["North America", "United States", "Canada", "Mexico", "Alaska", "Caribbean", "Greenland"],
+    "south_america": ["South America", "Brazil", "Argentina", "Chile", "Peru", "Colombia", "Venezuela", "Ecuador", "Bolivia", "Uruguay", "Paraguay", "Amazon", "Andes"],
+    "oceania": ["Australia", "New Zealand", "Pacific", "Oceania", "Papua New Guinea", "Fiji", "Tasmania"],
+    "polar": ["Arctic", "Antarctic", "Antarctica", "Southern Ocean", "Arctic Ocean"]
+  },
+  "animal_specific": {
+    "feline": ["Asia", "India", "China", "Russia", "Indonesia", "Thailand", "Malaysia", "Bangladesh", "Nepal", "Sumatra", "Siberia", "Southeast Asia", "Africa", "Kenya", "Tanzania"],
+    "elephant": ["Asia", "India", "China", "Thailand", "Sri Lanka", "Indonesia", "Sumatra", "Borneo", "Africa", "Kenya", "Tanzania", "Botswana", "Zimbabwe"],
+    "bird": ["North America", "Canada", "Alaska", "United States", "Mexico", "Europe", "Asia", "Africa", "Australia", "South America", "Antarctica"],
+    "penguin": ["Antarctica", "Southern Ocean", "South America", "Argentina", "Chile", "South Africa", "Australia", "New Zealand"],
+    "fish": ["Atlantic", "Pacific", "Indian Ocean", "Arctic Ocean", "Southern Ocean", "North America", "Europe", "Asia"],
+    "shark": ["Atlantic", "Pacific", "Indian Ocean", "Caribbean", "Mediterranean", "Australia", "South Africa", "California", "Florida"],
+    "salmon": ["North America", "Canada", "Alaska", "United States", "Europe", "Russia", "Atlantic", "Pacific"],
+    "frog": ["North America", "South America", "Europe", "Asia", "Africa", "Australia", "Amazon", "tropical regions"],
+    "snake": ["Asia", "Africa", "North America", "South America", "Australia", "Europe", "tropical regions", "temperate regions"],
+    "turtle": ["Atlantic", "Pacific", "Indian Ocean", "Caribbean", "Mediterranean", "Australia", "Asia", "Americas"],
+    "crocodile": ["Africa", "Asia", "Australia", "North America", "South America", "India", "Southeast Asia"],
+    "insect": ["Worldwide", "tropical regions", "temperate regions", "North America", "Europe", "Asia", "Africa", "South America", "Australia"],
+    "butterfly": ["North America", "South America", "Europe", "Asia", "Africa", "Australia", "tropical regions", "temperate regions"],
+    "bee": ["Worldwide", "North America", "Europe", "Asia", "Africa", "South America", "Australia"],
+    "spider": ["Worldwide", "North America", "Europe", "Asia", "Africa", "South America", "Australia", "tropical regions"]
+  }
+}
