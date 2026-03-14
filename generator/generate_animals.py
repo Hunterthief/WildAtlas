@@ -14,32 +14,26 @@ animals = [
     "Pufferfish","Moray Eel","Manatee","Narwhal","Beluga Whale"
 ]
 
-# APIs
 WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 WIKIDATA_API = "https://www.wikidata.org/wiki/Special:EntityData/"
 EOL_SEARCH_API = "https://eol.org/api/search/1.0.json"
 EOL_PAGES_API = "https://eol.org/api/pages/1.0/{}.json"
 
-# headers to avoid 403
-headers = {
-    "User-Agent": "WildAtlasBot/1.0 (https://github.com/Hunterthief/WildAtlas)"
-}
+headers = {"User-Agent": "WildAtlasBot/1.0 (https://github.com/Hunterthief/WildAtlas)"}
 
 output = []
 
-# ---------- Helpers ----------
+# --- Helpers ---
 def fetch_wikidata_label(qid):
-    """Get English label for a Wikidata QID"""
     try:
         r = requests.get(f"{WIKIDATA_API}{qid}.json", headers=headers, timeout=10)
         r.raise_for_status()
-        data = r.json()
-        return data["entities"][qid]["labels"]["en"]["value"]
-    except:
+        return r.json()["entities"][qid]["labels"]["en"]["value"]
+    except Exception as e:
+        print(f"  Wikidata label fetch failed for {qid}: {e}")
         return None
 
 def get_claim_value(claims, pid):
-    """Return readable value from Wikidata claim"""
     vals = claims.get(pid)
     if not vals:
         return None
@@ -47,20 +41,17 @@ def get_claim_value(claims, pid):
     datavalue = snak.get("datavalue", {})
     val = datavalue.get("value")
     if isinstance(val, dict) and val.get("id"):
-        # It's a QID, fetch label
         label = fetch_wikidata_label(val["id"])
         return label
     elif isinstance(val, (str, int, float)):
         return val
     elif isinstance(val, dict) and "amount" in val:
-        # numeric value
-        amount = val["amount"]
+        amount = val["amount"].lstrip("+")
         unit_url = val.get("unit")
         unit = None
         if unit_url and unit_url.startswith("http://www.wikidata.org/entity/"):
             unit_qid = unit_url.split("/")[-1]
-            unit_label = fetch_wikidata_label(unit_qid)
-            unit = unit_label
+            unit = fetch_wikidata_label(unit_qid)
         return f"{amount} {unit}" if unit else amount
     return None
 
@@ -95,7 +86,27 @@ def fetch_eol(animal_name):
         print(f"  EOL fetch failed for {animal_name}: {e}")
         return {}
 
-# ---------- Main ----------
+# Correct Wikidata properties for taxonomy
+TAXONOMY_PROPS = {
+    "domain": "P158",    # biological domain
+    "kingdom": "P75",    # kingdom (verify if missing)
+    "phylum": "P105",
+    "class": "P279",
+    "order": "P105",
+    "family": "P171",
+    "genus": "P225",
+    "species": "P225"
+}
+
+NUMERIC_PROPS = {
+    "diet": "P768",
+    "length": "P2043",
+    "height": "P2048",
+    "weight": "P2067",
+    "location": "P183"
+}
+
+# --- Main ---
 for name in animals:
     print(f"\n--- Processing {name} ---")
     sources = []
@@ -103,15 +114,13 @@ for name in animals:
     # Wikipedia
     wiki_data = {}
     try:
-        title = name.replace(" ", "_")
-        r = requests.get(WIKI_API + title, headers=headers, timeout=10)
+        r = requests.get(WIKI_API + name.replace(" ", "_"), headers=headers, timeout=10)
         print(f"  Wikipedia status: {r.status_code}")
         if r.status_code == 200:
             wiki_data = r.json()
             sources.append("Wikipedia")
         else:
             sources.append("Wikipedia FAILED")
-            print(f"  Wikipedia failed for {name}")
     except Exception as e:
         sources.append("Wikipedia FAILED")
         print(f"  Wikipedia error: {e}")
@@ -133,32 +142,20 @@ for name in animals:
             wd_resp = requests.get(f"{WIKIDATA_API}{wikibase}.json", headers=headers, timeout=10).json()
             claims = wd_resp.get("entities", {}).get(wikibase, {}).get("claims", {})
             if claims:
-                classification = {
-                    "domain": get_claim_value(claims, "P1587"),
-                    "kingdom": get_claim_value(claims, "P75"),
-                    "phylum": get_claim_value(claims, "P105"),
-                    "class": get_claim_value(claims, "P279"),
-                    "order": get_claim_value(claims, "P105"),
-                    "family": get_claim_value(claims, "P1036"),
-                    "genus": get_claim_value(claims, "P225"),
-                    "species": get_claim_value(claims, "P225")
-                }
-                diet = get_claim_value(claims, "P768") or diet
-                length = get_claim_value(claims, "P2043") or length
-                height = get_claim_value(claims, "P2048") or height
-                weight = get_claim_value(claims, "P2067") or weight
-                location = get_claim_value(claims, "P183") or location
+                for rank, pid in TAXONOMY_PROPS.items():
+                    classification[rank] = get_claim_value(claims, pid)
+                for field, pid in NUMERIC_PROPS.items():
+                    val = get_claim_value(claims, pid)
+                    if val:
+                        locals()[field] = val
                 sources.append("Wikidata")
-                print(f"  Wikidata fetched for {name}")
             else:
                 sources.append("Wikidata EMPTY")
-                print(f"  Wikidata claims empty for {name}")
         except Exception as e:
             sources.append("Wikidata FAILED")
-            print(f"  Wikidata failed for {name}: {e}")
+            print(f"  Wikidata failed: {e}")
     else:
         sources.append("Wikidata MISSING")
-        print(f"  Wikidata item missing or invalid for {name}")
 
     # EOL fallback
     eol_data = fetch_eol(name)
