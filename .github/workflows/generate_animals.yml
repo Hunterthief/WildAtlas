@@ -11,26 +11,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          persist-credentials: true
+          persist-credentials: false  # disable default token since we’ll use PAT
 
+      # 2️⃣ Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: pip install requests
 
+      # 4️⃣ Run the Python generator
       - name: Run generator
         run: python generator/generate_animals.py
 
+      # 5️⃣ Commit and push JSON using PAT
       - name: Commit and push JSON
+        env:
+          MY_PAT: ${{ secrets.MY_PAT }}
         run: |
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
           git add data/animals.json
           git commit -m "Auto-generate animals.json via Action" || echo "No changes to commit"
-          git push
+          git push https://$MY_PAT@github.com/${{ github.repository }} HEAD:main
