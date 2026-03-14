@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Animal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<a class="back" href="index.html">← Back</a>
+
+<div id="animalPage"></div>
+
+<script>
+
+const params = new URLSearchParams(location.search)
+const name = params.get("name")
+
+fetch("data/animals.json")
+.then(r=>r.json())
+.then(data=>{
+
+const a=data.find(x=>x.name===name)
+
+document.getElementById("animalPage").innerHTML=`
+
+<h1>${a.name}</h1>
+
+<img class="hero" src="${a.image}">
+
+<div class="info">
+
+<p><b>Category:</b> ${a.category}</p>
+<p><b>Habitat:</b> ${a.habitat}</p>
+<p><b>Diet:</b> ${a.diet}</p>
+<p><b>Size:</b> ${a.size}</p>
+<p><b>Weight:</b> ${a.weight}</p>
+
+</div>
+
+<p class="desc">${a.description}</p>
+
+`
+
+})
+
+</script>
+
+</body>
+</html>
