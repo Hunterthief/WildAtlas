@@ -20,41 +20,51 @@ WIKIDATA_API = "https://www.wikidata.org/wiki/Special:EntityData/"
 EOL_SEARCH_API = "https://eol.org/api/search/1.0.json"
 EOL_PAGES_API = "https://eol.org/api/pages/1.0/{}.json"
 
-headers = {
-    "User-Agent": "WildAtlasBot/1.0 (https://github.com/Hunterthief/WildAtlas)"
-}
+headers = {"User-Agent": "WildAtlasBot/1.0 (https://github.com/Hunterthief/WildAtlas)"}
 
 output = []
 
-# Helper functions
+def safe_get(d, *keys):
+    """Safely get nested keys in dict"""
+    for key in keys:
+        if isinstance(d, dict):
+            d = d.get(key)
+        else:
+            return None
+    return d
+
 def get_wikidata_claim(claims, pid):
     vals = claims.get(pid)
     if not vals:
         return None
-    dat = vals[0].get("mainsnak", {}).get("datavalue", {})
-    if dat.get("value", {}).get("id"):
-        qid = dat["value"]["id"]
+    dat = safe_get(vals[0], "mainsnak", "datavalue")
+    if not dat:
+        return None
+    value = dat.get("value")
+    if isinstance(value, dict) and value.get("id"):
+        qid = value["id"]
         try:
-            lab_resp = requests.get(f"{WIKIDATA_API}{qid}.json", headers=headers, timeout=10).json()
-            return lab_resp["entities"][qid]["labels"]["en"]["value"]
+            resp = requests.get(f"{WIKIDATA_API}{qid}.json", headers=headers, timeout=10).json()
+            return safe_get(resp, "entities", qid, "labels", "en", "value")
         except:
             return None
-    return dat.get("value", None)
+    return value
 
 def get_wikidata_numeric(claims, pid):
     vals = claims.get(pid)
     if vals:
-        m = vals[0].get("mainsnak", {}).get("datavalue", {}).get("value", {})
+        m = safe_get(vals[0], "mainsnak", "datavalue", "value")
+        if not m:
+            return None
         num = m.get("amount")
         unit = m.get("unit", "")
         if num:
             return f"{num} {unit.split('/')[-1]}" if unit else str(num)
     return None
 
-def fetch_eol(animal_name):
-    """Fetch diet, size, location from EOL"""
+def fetch_eol(name):
     try:
-        search = requests.get(EOL_SEARCH_API, params={"q": animal_name}, headers=headers, timeout=10).json()
+        search = requests.get(EOL_SEARCH_API, params={"q": name}, headers=headers, timeout=10).json()
         results = search.get("results")
         if not results:
             return {}
@@ -62,24 +72,19 @@ def fetch_eol(animal_name):
         page_data = requests.get(EOL_PAGES_API.format(page_id), headers=headers, timeout=10).json()
         traits = page_data.get("traits", [])
         data = {}
-        for trait in traits:
-            key = trait.get("trait")
-            val = trait.get("value")
-            if key and val:
-                key = key.lower()
-                if key == "diet":
-                    data["diet"] = val
-                elif key in ["length", "body length"]:
-                    data["length"] = val
-                elif key in ["height", "shoulder height"]:
-                    data["height"] = val
-                elif key in ["weight", "mass"]:
-                    data["weight"] = val
-                elif key in ["distribution", "location"]:
-                    data["location"] = val
+        for t in traits:
+            key, val = t.get("trait"), t.get("value")
+            if not key or not val:
+                continue
+            key = key.lower()
+            if key == "diet": data["diet"] = val
+            elif key in ["length", "body length"]: data["length"] = val
+            elif key in ["height", "shoulder height"]: data["height"] = val
+            elif key in ["weight", "mass"]: data["weight"] = val
+            elif key in ["distribution", "location"]: data["location"] = val
         return data
     except Exception as e:
-        print(f"  EOL fetch failed for {animal_name}: {e}")
+        print(f"  EOL fetch failed for {name}: {e}")
         return {}
 
 for name in animals:
@@ -89,47 +94,48 @@ for name in animals:
     # Wikipedia
     wiki_data = {}
     try:
-        title = name.replace(" ", "_")
-        r = requests.get(WIKI_API + title, headers=headers, timeout=10)
+        r = requests.get(WIKI_API + name.replace(" ", "_"), headers=headers, timeout=10)
         print(f"  Wikipedia status: {r.status_code}")
         if r.status_code == 200:
             wiki_data = r.json()
             sources.append("Wikipedia")
         else:
             sources.append("Wikipedia FAILED")
-            print(f"  Wikipedia failed for {name}")
     except Exception as e:
-        sources.append("Wikipedia FAILED")
         print(f"  Wikipedia error: {e}")
+        sources.append("Wikipedia FAILED")
 
     summary = wiki_data.get("extract", "")
     description = wiki_data.get("description", "")
-    image = wiki_data.get("thumbnail", {}).get("source", "")
+    image = safe_get(wiki_data, "thumbnail", "source") or ""
+
+    # Initialize fields
+    classification = {
+        "domain": None, "kingdom": None, "phylum": None, "class": None,
+        "order": None, "family": None, "genus": None, "species": None
+    }
+    diet = length = height = weight = location = None
 
     # Wikidata
-    classification = {}
-    diet = None
-    length = None
-    height = None
-    weight = None
-    location = None
-
     wikibase = wiki_data.get("wikibase_item")
-    if wikibase and isinstance(wikibase, str):
+    if isinstance(wikibase, str):
         try:
             wd_resp = requests.get(f"{WIKIDATA_API}{wikibase}.json", headers=headers, timeout=10).json()
-            claims = wd_resp.get("entities", {}).get(wikibase, {}).get("claims", {})
+            entity = safe_get(wd_resp, "entities", wikibase)
+            claims = entity.get("claims") if entity else {}
             if claims:
-                classification = {
-                    "domain": get_wikidata_claim(claims, "P229"),
-                    "kingdom": get_wikidata_claim(claims, "P1047"),
-                    "phylum": get_wikidata_claim(claims, "P1083"),
-                    "class": get_wikidata_claim(claims, "P1098"),
-                    "order": get_wikidata_claim(claims, "P105"),
-                    "family": get_wikidata_claim(claims, "P1120"),
-                    "genus": get_wikidata_claim(claims, "P2292"),
-                    "species": get_wikidata_claim(claims, "P225")
-                }
+                # Fill classification fields with Wikidata PIDs
+                classification.update({
+                    "domain": get_wikidata_claim(claims, "P229") or classification["domain"],
+                    "kingdom": get_wikidata_claim(claims, "P105") or classification["kingdom"],
+                    "phylum": get_wikidata_claim(claims, "P1083") or classification["phylum"],
+                    "class": get_wikidata_claim(claims, "P279") or classification["class"],
+                    "order": get_wikidata_claim(claims, "P105") or classification["order"],
+                    "family": get_wikidata_claim(claims, "P171") or classification["family"],
+                    "genus": get_wikidata_claim(claims, "P225") or classification["genus"],
+                    "species": get_wikidata_claim(claims, "P225") or classification["species"]
+                })
+                # Numeric and other fields
                 diet = get_wikidata_claim(claims, "P768") or diet
                 length = get_wikidata_numeric(claims, "P2043") or length
                 height = get_wikidata_numeric(claims, "P2048") or height
@@ -172,7 +178,6 @@ for name in animals:
     print(f"  {name} added successfully")
     time.sleep(1)
 
-# Write JSON
 with open(os.path.join("data", "animals.json"), "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2, ensure_ascii=False)
 
