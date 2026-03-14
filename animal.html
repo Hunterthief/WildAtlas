@@ -11,7 +11,7 @@
 
 <a class="back" href="index.html">← Back</a>
 
-<div id="animalPage"></div>
+<div id="animal"></div>
 
 <script>
 
@@ -24,23 +24,13 @@ fetch("data/animals.json")
 
 const a=data.find(x=>x.name===name)
 
-document.getElementById("animalPage").innerHTML=`
+document.getElementById("animal").innerHTML=`
 
 <h1>${a.name}</h1>
 
 <img class="hero" src="${a.image}">
 
-<div class="info">
-
-<p><b>Category:</b> ${a.category}</p>
-<p><b>Habitat:</b> ${a.habitat}</p>
-<p><b>Diet:</b> ${a.diet}</p>
-<p><b>Size:</b> ${a.size}</p>
-<p><b>Weight:</b> ${a.weight}</p>
-
-</div>
-
-<p class="desc">${a.description}</p>
+<p class="desc">${a.summary}</p>
 
 `
 
