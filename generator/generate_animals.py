@@ -11,7 +11,7 @@ CONFIG_DIR = Path(__file__).parent / "config"
 session = requests.Session()
 retry = Retry(total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504])
 session.mount("https://", HTTPAdapter(max_retries=retry))
-headers = {"User-Agent": "WildAtlasBot/1.0", "Accept": "application/json"}
+headers = {"User-Agent": "WildAtlasBot/1.0 (contact@example.com)", "Accept": "application/json"}
 
 WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 WIKI_MOBILE = "https://en.m.wikipedia.org/wiki/"
@@ -139,8 +139,8 @@ def fetch_wikipedia_summary(name):
             return {
                 "summary": d.get("extract", ""),
                 "description": d.get("description", ""),
-                "image": d.get("thumbnail", {}).get("source", ""),
-                "url": d.get("content_urls", {}).get("desktop", {}).get("page", "")
+                "image": d.get("thumbnail", {}).get("source", "").strip(),
+                "url": d.get("content_urls", {}).get("desktop", {}).get("page", "").strip()
             }
     except: pass
     return {"summary": "", "description": "", "image": "", "url": ""}
@@ -339,12 +339,15 @@ def extract_features(text, animal_type):
     features = []
     text_lower = text.lower()
     
-    # Check positive features
+    # Check positive features first (animal-specific) - prioritize these
     for feature in positive:
         if feature in text_lower:
-            features.append(feature.capitalize())
+            # Convert to nice display format
+            display_feature = feature.replace('_', ' ').title()
+            if display_feature not in features:
+                features.append(display_feature)
     
-    # Check for common features in text
+    # Check for common features in text - only add if not already covered by positive features
     common_features = {
         "striped": "Striped coat",
         "stripe": "Striped coat",
@@ -365,8 +368,15 @@ def extract_features(text, animal_type):
     
     for keyword, feature in common_features.items():
         if keyword in text_lower and feature not in features:
-            # Don't add features that don't match animal type
-            if feature not in [f.capitalize() for f in negative]:
+            # Don't add features that are in the negative list for this animal type
+            neg_features_cap = [f.capitalize() for f in negative]
+            # Also check against partial matches (e.g., "mane" should block "Distinctive mane")
+            blocked = False
+            for neg in negative:
+                if neg in keyword or keyword in neg:
+                    blocked = True
+                    break
+            if not blocked and feature not in neg_features_cap:
                 features.append(feature)
     
     return features[:3] if features else None
@@ -376,11 +386,14 @@ def extract_behavior(text, animal_type):
     if not text: return None
     t = text.lower()
     
-    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary']):
+    # Check for solitary indicators first (more specific)
+    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary', 'lives singly']):
         return "Solitary"
-    elif any(w in t for w in ['pack', 'group', 'social', 'herd', 'flock', 'school', 'swarm', 'colony']):
+    # Check for social/pack animals
+    elif any(w in t for w in ['pack', 'herd', 'flock', 'school', 'swarm', 'colony', 'social', 'group living', 'highly social']):
         return "Social"
-    elif any(w in t for w in ['pair', 'mate', 'family', 'monogamous']):
+    # Check for pair/family groups
+    elif any(w in t for w in ['pair', 'mate', 'family group', 'monogamous', 'nuclear family']):
         return "Family groups"
     
     return None
