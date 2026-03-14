@@ -1,104 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>WildAtlas Animal</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WildAtlas | Animal Details</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<a class="back" href="index.html">← Back to WildAtlas</a>
+    <!-- Navigation Bar -->
+    <nav class="detail-nav">
+        <div class="nav-content">
+            <a href="index.html" class="back-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Back to WildAtlas</span>
+            </a>
+            <a href="index.html" class="logo">WildAtlas</a>
+        </div>
+    </nav>
 
-<div id="animal-container" class="animal-page"></div>
+    <!-- Main Content -->
+    <main class="animal-detail">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="animal-identity">
+                    <h1 id="animal-name">Loading...</h1>
+                    <p class="scientific-name" id="animal-scientific">Scientific name</p>
+                    <div class="badges" id="animal-badges"></div>
+                </div>
+                <div class="hero-image-container">
+                    <img id="animal-image" class="hero-image" src="" alt="Animal">
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+        </section>
 
-<script>
-const params = new URLSearchParams(location.search);
-const name = params.get("name");
+        <!-- Summary Card -->
+        <section class="content-section">
+            <div class="summary-card">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4M12 8h.01"/>
+                    </svg>
+                </div>
+                <div class="card-content">
+                    <h2>About</h2>
+                    <p id="animal-summary">Loading description...</p>
+                </div>
+            </div>
+        </section>
 
-fetch("data/animals.json")
-  .then(r => r.json())
-  .then(data => {
-    const a = data.find(x => x.name === name);
-    if (!a) {
-      document.getElementById("animal-container").innerHTML = "<p>Animal not found.</p>";
-      return;
-    }
+        <!-- Info Grid -->
+        <section class="info-grid-section">
+            
+            <!-- Classification Card -->
+            <div class="info-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Taxonomy</h3>
+                </div>
+                <div class="card-body">
+                    <table class="info-table" id="taxonomy-table">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
 
-    // Build HTML
-    let html = `
-      <div class="animal-header">
-        <h1>${a.name}</h1>
-        ${a.image ? `<img class="animal-hero" src="${a.image}" alt="${a.name}">` : ""}
-      </div>
+            <!-- Physical Stats Card -->
+            <div class="info-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3>Physical</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="info-list" id="physical-list"></ul>
+                </div>
+            </div>
 
-      <div class="animal-summary">
-        <p>${a.summary || a.description}</p>
-      </div>
-    `;
+            <!-- Ecology Card -->
+            <div class="info-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Ecology</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="info-list" id="ecology-list"></ul>
+                    <div class="features-section">
+                        <span class="features-label">Distinctive Features</span>
+                        <div class="feature-tags" id="feature-tags"></div>
+                    </div>
+                </div>
+            </div>
 
-    // Scientific Classification
-    if (a.classification) {
-      html += `
-      <section class="animal-section">
-        <h2>Scientific Classification</h2>
-        <table class="classification-table">
-      `;
-      for (let key in a.classification) {
-        if (a.classification[key]) {
-          html += `
-            <tr>
-              <th>${key.charAt(0).toUpperCase() + key.slice(1)}</th>
-              <td>${a.classification[key]}</td>
-            </tr>
-          `;
+            <!-- Conservation Card -->
+            <div class="info-card conservation-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <h3>Conservation</h3>
+                </div>
+                <div class="card-body">
+                    <div class="conservation-status" id="conservation-status">
+                        <span class="status-indicator"></span>
+                        <span class="status-text">Unknown</span>
+                    </div>
+                    <div class="threats-section">
+                        <span class="threats-label">Biggest Threats</span>
+                        <p id="conservation-threats">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reproduction Card -->
+            <div class="info-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3>Reproduction</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="info-list" id="reproduction-list"></ul>
+                </div>
+            </div>
+
+            <!-- Quick Facts Card -->
+            <div class="info-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
+                    <h3>Quick Facts</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="info-list" id="quick-facts-list"></ul>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Sources Section -->
+        <section class="sources-section">
+            <h4>Data Sources</h4>
+            <p id="data-sources">Loading...</p>
+        </section>
+
+        <!-- Inspiration Footer -->
+        <section class="inspiration">
+            <h2>Inspired by Facts.app</h2>
+            <p>This site was inspired by <a href="https://www.facts.app/" target="_blank">Facts.app</a> — a fantastic online encyclopedia. While they focus on prehistoric creatures, WildAtlas celebrates the amazing animals living on Earth today.</p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Animal detail page logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const animalName = params.get('name');
+            
+            if (!animalName) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            loadAnimalData(decodeURIComponent(animalName));
+        });
+        
+        async function loadAnimalData(name) {
+            try {
+                const response = await fetch('data/animals.json');
+                const animals = await response.json();
+                const animal = animals.find(a => a.name.toLowerCase() === name.toLowerCase());
+                
+                if (!animal) {
+                    document.getElementById('animal-name').textContent = 'Animal Not Found';
+                    return;
+                }
+                
+                // Populate all fields
+                document.getElementById('animal-name').textContent = animal.name;
+                document.getElementById('animal-scientific').textContent = animal.scientific_name;
+                document.getElementById('animal-image').src = animal.image ? animal.image.trim() : '';
+                document.getElementById('animal-summary').textContent = animal.summary || animal.description || 'No description available.';
+                
+                // Badges (conservation status)
+                const badgesContainer = document.getElementById('animal-badges');
+                if (animal.ecology?.conservation_status) {
+                    const statusClass = getConservationClass(animal.ecology.conservation_status);
+                    badgesContainer.innerHTML = `<span class="status-badge ${statusClass}">${animal.ecology.conservation_status}</span>`;
+                }
+                
+                // Taxonomy Table
+                const taxonomyTable = document.getElementById('taxonomy-table');
+                if (animal.classification) {
+                    const order = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
+                    taxonomyTable.innerHTML = order.map(key => {
+                        if (animal.classification[key]) {
+                            return `<tr><th>${capitalizeFirst(key)}</th><td>${animal.classification[key]}</td></tr>`;
+                        }
+                        return '';
+                    }).join('');
+                }
+                
+                // Physical List
+                const physicalList = document.getElementById('physical-list');
+                const phys = animal.physical || {};
+                physicalList.innerHTML = buildInfoList([
+                    ['Weight', phys.weight],
+                    ['Length', phys.length],
+                    ['Height', phys.height],
+                    ['Top Speed', phys.top_speed],
+                    ['Lifespan', phys.lifespan]
+                ]);
+                
+                // Ecology List
+                const ecologyList = document.getElementById('ecology-list');
+                const eco = animal.ecology || {};
+                ecologyList.innerHTML = buildInfoList([
+                    ['Diet', eco.diet],
+                    ['Habitat', eco.habitat],
+                    ['Locations', eco.locations],
+                    ['Behavior', eco.group_behavior]
+                ]);
+                
+                // Feature Tags
+                const featureTags = document.getElementById('feature-tags');
+                if (eco.distinctive_features?.length > 0) {
+                    featureTags.innerHTML = eco.distinctive_features.map(f => 
+                        `<span class="feature-tag">${f}</span>`
+                    ).join('');
+                } else {
+                    featureTags.innerHTML = '<span class="no-data">No data</span>';
+                }
+                
+                // Conservation Status
+                const conservationStatus = document.getElementById('conservation-status');
+                const threatsEl = document.getElementById('conservation-threats');
+                if (eco.conservation_status) {
+                    const statusClass = getConservationClass(eco.conservation_status);
+                    conservationStatus.className = `conservation-status ${statusClass}`;
+                    conservationStatus.querySelector('.status-text').textContent = eco.conservation_status;
+                }
+                threatsEl.textContent = eco.biggest_threat || 'Unknown';
+                
+                // Reproduction List
+                const reproList = document.getElementById('reproduction-list');
+                const repro = animal.reproduction || {};
+                reproList.innerHTML = buildInfoList([
+                    ['Young Name', repro.name_of_young || animal.young_name],
+                    ['Group Name', animal.group_name],
+                    ['Gestation', repro.gestation_period],
+                    ['Litter Size', repro.average_litter_size]
+                ]);
+                
+                // Quick Facts
+                const quickFactsList = document.getElementById('quick-facts-list');
+                quickFactsList.innerHTML = buildInfoList([
+                    ['Animal Type', animal.animal_type],
+                    ['Sources', animal.sources?.join(', ')]
+                ]);
+                
+                // Data Sources
+                document.getElementById('data-sources').textContent = animal.sources?.join(', ') || 'Wikipedia, iNaturalist';
+                
+            } catch (error) {
+                console.error('Error loading animal data:', error);
+                document.getElementById('animal-summary').textContent = 'Error loading data. Please try again.';
+            }
         }
-      }
-      html += `</table></section>`;
-    }
-
-    // Diet
-    if (a.diet) {
-      html += `
-      <section class="animal-section">
-        <h2>Diet</h2>
-        <p>${a.diet}</p>
-      </section>`;
-    }
-
-    // Size Information
-    html += `<section class="animal-section"><h2>Size & Weight</h2><table class="size-table">`;
-    if (a.length) {
-      html += `<tr><th>Length</th><td>${a.length}</td></tr>`;
-    }
-    if (a.height) {
-      html += `<tr><th>Height</th><td>${a.height}</td></tr>`;
-    }
-    if (a.weight) {
-      html += `<tr><th>Weight</th><td>${a.weight}</td></tr>`;
-    }
-    html += `</table></section>`;
-
-    // Location
-    if (a.location) {
-      html += `
-      <section class="animal-section">
-        <h2>Location</h2>
-        <p>${a.location}</p>
-      </section>`;
-    }
-
-    // Sources
-    if (a.sources) {
-      html += `
-      <section class="animal-section">
-        <h2>Data Sources</h2>
-        <p>${a.sources.join(", ")}</p>
-      </section>`;
-    }
-
-    document.getElementById("animal-container").innerHTML = html;
-  });
-</script>
-
+        
+        function buildInfoList(items) {
+            return items
+                .filter(([_, value]) => value)
+                .map(([label, value]) => `<li><span class="label">${label}</span><span class="value">${value}</span></li>`)
+                .join('');
+        }
+        
+        function getConservationClass(status) {
+            if (!status) return '';
+            const s = status.toLowerCase();
+            if (s.includes('critically')) return 'status-critical';
+            if (s.includes('endangered')) return 'status-endangered';
+            if (s.includes('vulnerable')) return 'status-vulnerable';
+            if (s.includes('least') || s.includes('concern')) return 'status-least-concern';
+            return 'status-vulnerable';
+        }
+        
+        function capitalizeFirst(str) {
+            if (!str) return '';
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+    </script>
 </body>
 </html>
