@@ -1,34 +1,49 @@
-name: Generate Animals JSON
+import requests
+import json
+import time
+import os
 
-on:
-  push:
-    paths:
-      - 'generator/**'
-  workflow_dispatch:
+# make sure the data folder exists
+os.makedirs("../data", exist_ok=True)  # if running locally
+os.makedirs("data", exist_ok=True)     # if running on GitHub Actions
 
-jobs:
-  generate:
-    runs-on: ubuntu-latest
+animals = [
+    "Lion","Tiger","Elephant","Blue Whale","Orca","Great White Shark",
+    "Dolphin","Octopus","Penguin","Giraffe","Zebra","Bear","Wolf","Fox",
+    "Kangaroo","Koala","Cheetah","Leopard","Hyena","Moose","Walrus",
+    "Seal","Sea Lion","Swordfish","Salmon","Tuna","Clownfish",
+    "Angelfish","Manta Ray","Stingray","Hammerhead Shark","Barracuda",
+    "Pufferfish","Moray Eel","Manatee","Narwhal","Beluga Whale"
+]
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+data = []
 
-    - name: Install dependencies
-      run: pip install requests
+for name in animals:
+    try:
+        r = requests.get(API + name).json()
 
-    - name: Run generator
-      run: python generator/generate_animals.py
+        item = {
+            "name": name,
+            "description": r.get("description",""),
+            "summary": r.get("extract",""),
+            "image": r.get("thumbnail",{}).get("source",""),
+        }
 
-    - name: Commit and push JSON
-      run: |
-        git config --local user.name "github-actions[bot]"
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git add data/animals.json
-        git commit -m "Auto-generate animals.json via Action" || echo "No changes to commit"
-        git push
+        data.append(item)
+
+        print("Added", name)
+
+        time.sleep(1)  # be nice to Wikipedia
+
+    except Exception as e:
+        print("Error fetching", name, e)
+
+# GitHub Actions path
+output_path = "data/animals.json"
+
+with open(output_path, "w") as f:
+    json.dump(data, f, indent=2)
+
+print("animals.json written to", output_path)
