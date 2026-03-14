@@ -37,5 +37,5 @@ for name in animals:
     except:
         pass
 
-with open("../data/animals.json","w") as f:
+with open("/data/animals.json","w") as f:
     json.dump(data,f,indent=2)
