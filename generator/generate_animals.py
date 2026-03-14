@@ -18,20 +18,20 @@ headers = {
     "Accept": "application/sparql-results+json"
 }
 
-# --- SPARQL endpoint ---
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
+WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 
-# --- Static test list for development ---
+# --- Test species with real QIDs ---
 TEST_ANIMALS = [
     {"name": "Tiger", "qid": "Q132186"},          # Panthera tigris
-    {"name": "Elephant", "qid": "Q7374"},        # African elephant, Q7374 or Asian elephant Q7372
-    {"name": "Bald Eagle", "qid": "Q25319"},     # Haliaeetus leucocephalus
+    {"name": "Asian Elephant", "qid": "Q7372"},   # Elephas maximus
+    {"name": "Bald Eagle", "qid": "Q25319"},      # Haliaeetus leucocephalus
 ]
 
 # --- Helpers ---
 def fetch_wikidata_animal(qid):
     query = f"""
-    SELECT ?taxon ?taxonLabel ?rankLabel ?dietLabel ?mass ?massUnitLabel ?bodyLength ?bodyLengthUnitLabel ?locationLabel
+    SELECT ?taxon ?taxonLabel ?rankLabel ?dietLabel ?mass ?massUnitLabel ?bodyLength ?bodyLengthUnitLabel ?locationLabel ?parent ?parentLabel ?parentRankLabel
     WHERE {{
       BIND(wd:{qid} AS ?taxon)
       OPTIONAL {{ ?taxon wdt:P105 ?rank . }}
@@ -43,6 +43,8 @@ def fetch_wikidata_animal(qid):
                  ?lenStmt ps:P2043 ?bodyLength .
                  ?lenStmt pq:P5104 ?bodyLengthUnitLabel . }}
       OPTIONAL {{ ?taxon wdt:P183 ?locationLabel . }}
+      OPTIONAL {{ ?taxon wdt:P171* ?parent .
+                 ?parent wdt:P105 ?parentRank . }}
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en". }}
     }}
     """
@@ -57,7 +59,6 @@ def fetch_wikidata_animal(qid):
     return {}
 
 def fetch_wikipedia(animal_name):
-    WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
     try:
         r = session.get(WIKI_API + animal_name.replace(" ", "_"), headers=headers, timeout=10)
         if r.status_code == 200:
@@ -65,6 +66,18 @@ def fetch_wikipedia(animal_name):
     except Exception as e:
         print(f"  Wikipedia error: {e}")
     return {}
+
+# --- Map ranks to classification fields ---
+RANKS_MAP = {
+    "domain": "domain",
+    "kingdom": "kingdom",
+    "phylum": "phylum",
+    "class": "class",
+    "order": "order",
+    "family": "family",
+    "genus": "genus",
+    "species": "species"
+}
 
 # --- Main ---
 output = []
@@ -74,30 +87,31 @@ for a in TEST_ANIMALS:
     qid = a["qid"]
     print(f"\n--- Processing {name} ({qid}) ---")
 
-    # Wikipedia
+    # Wikipedia fallback
     wiki_data = fetch_wikipedia(name)
     summary = wiki_data.get("extract", "")
     description = wiki_data.get("description", "")
     image = wiki_data.get("thumbnail", {}).get("source", "")
 
-    # Wikidata
-    classification = {k: None for k in ["domain","kingdom","phylum","class","order","family","genus","species"]}
-    diet = length = height = weight = location = None
+    # Wikidata fetch
     data = fetch_wikidata_animal(qid)
     bindings = data.get("results", {}).get("bindings", [])
+
+    classification = {k: None for k in RANKS_MAP.values()}
+    diet = length = height = weight = location = None
     sources = []
 
     if bindings:
         sources.append("Wikidata")
         for w in bindings:
-            rank = w.get("rankLabel", {}).get("value")
-            label = w.get("taxonLabel", {}).get("value")
-            rank_map = {
-                "species":"species","genus":"genus","family":"family","order":"order",
-                "class":"class","phylum":"phylum","kingdom":"kingdom","domain":"domain"
-            }
-            if rank in rank_map:
-                classification[rank_map[rank]] = label
+            # Fill classification using rank + parentRank
+            for rank_key, label_key in [("rankLabel", "taxonLabel"), ("parentRankLabel", "parentLabel")]:
+                rank = w.get(rank_key, {}).get("value")
+                label = w.get(label_key, {}).get("value")
+                if rank in RANKS_MAP:
+                    classification[RANKS_MAP[rank]] = label
+
+            # Traits
             diet = w.get("dietLabel", {}).get("value") or diet
             if w.get("mass") and w.get("massUnitLabel"):
                 weight = f'{w["mass"]["value"]} {w["massUnitLabel"]["value"]}'
