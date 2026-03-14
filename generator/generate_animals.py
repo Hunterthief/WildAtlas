@@ -21,12 +21,13 @@ headers = {
 }
 
 WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
+WIKI_ACTION_API = "https://en.wikipedia.org/w/api.php"
 INAT_API = "https://api.inaturalist.org/v1/taxa"
 GBIF_API = "https://api.gbif.org/v1/species"
 
 CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
 
-def fetch_wikipedia(animal_name):
+def fetch_wikipedia_summary(animal_name):
     """Fetch summary, description, and image from Wikipedia"""
     try:
         safe_name = animal_name.replace(" ", "_")
@@ -44,88 +45,104 @@ def fetch_wikipedia(animal_name):
         print(f"    Wikipedia error: {e}")
     return {"summary": "", "description": "", "image": "", "url": "", "title": ""}
 
+def fetch_wikipedia_section(animal_name, section="Characteristics"):
+    """Fetch specific section from Wikipedia using Action API"""
+    try:
+        safe_name = animal_name.replace(" ", "_")
+        params = {
+            "action": "parse",
+            "page": safe_name,
+            "prop": "text",
+            "section": section,
+            "format": "json"
+        }
+        r = session.get(WIKI_ACTION_API, params=params, headers=headers, timeout=15)
+        if r.status_code == 200:
+            data = r.json()
+            text = data.get("parse", {}).get("text", {}).get("*", "")
+            # Strip HTML tags
+            text = re.sub(r'<[^>]+>', ' ', text)
+            text = re.sub(r'\s+', ' ', text).strip()
+            return text
+    except Exception as e:
+        print(f"    Wikipedia section error: {e}")
+    return ""
+
 def extract_physical_stats(text):
-    """
-    Extract physical statistics from text with VERY specific patterns
-    Only match numbers in proper context (near weight/length keywords)
-    """
+    """Extract physical statistics with strict validation"""
     stats = {"weight": None, "length": None, "height": None, "lifespan": None, "top_speed": None}
     if not text:
         return stats
     
-    # Weight - MUST have context words nearby
-    weight_patterns = [
-        r'(?:weighs?|weight|mass|adult)\s*(?:of|up to|around|about|average)?\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)',
-        r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)\s*(?:in weight|weight|mass|heavy|avg|average)',
-        r'(?:body\s*)?mass\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?)',
-    ]
-    for pattern in weight_patterns:
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            value = float(match.group(1).replace(',', '.'))
-            unit = match.group(2).lower().strip()
-            # Sanity check - tiger weight should be 100-400 kg, not millions
-            if unit in ['t', 'tonne', 'tonnes'] and value < 20:
-                stats["weight"] = f"{value} {unit}"
-                break
-            elif unit in ['kg', 'kilogram', 'kilograms'] and 10 < value < 1000:
-                stats["weight"] = f"{value} {unit}"
-                break
-            elif unit in ['lb', 'lbs', 'pound', 'pounds'] and 20 < value < 2500:
-                stats["weight"] = f"{value} {unit}"
-                break
+    # Weight - strict context + sanity check
+    weight_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|pounds?)', text, re.IGNORECASE)
+    for value, unit in weight_matches:
+        try:
+            val = float(value.replace(',', '.'))
+            unit_clean = unit.lower().strip()
+            if unit_clean in ['t', 'tonne', 'tonnes']:
+                if 0.1 < val < 10:  # Elephant range
+                    stats["weight"] = f"{val} {unit_clean}"
+                    break
+            elif unit_clean in ['kg', 'kilogram', 'kilograms']:
+                if 1 < val < 500:  # Most animals
+                    stats["weight"] = f"{val} {unit_clean}"
+                    break
+            elif unit_clean in ['lb', 'lbs', 'pound', 'pounds']:
+                if 2 < val < 1100:
+                    stats["weight"] = f"{val} {unit_clean}"
+                    break
+        except:
+            continue
     
-    # Length - MUST have context words nearby
-    length_patterns = [
-        r'(?:length|long|body)\s*(?:of|up to|around|about|average)?\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)',
-        r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)\s*(?:long|length|in length|body)',
-        r'(?:body\s*)?length\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(m|cm|ft)',
-    ]
-    for pattern in length_patterns:
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            value = float(match.group(1).replace(',', '.'))
-            unit = match.group(2).lower().strip()
-            # Sanity check - tiger length should be 1.5-4 m, not 45 m
-            if unit in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.5 < value < 10:
-                stats["length"] = f"{value} {unit}"
-                break
-            elif unit in ['cm', 'centimetre', 'centimetres'] and 50 < value < 500:
-                stats["length"] = f"{value} {unit}"
-                break
-            elif unit in ['ft', 'feet', 'foot'] and 2 < value < 30:
-                stats["length"] = f"{value} {unit}"
-                break
+    # Length - strict context + sanity check
+    length_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b|feet)', text, re.IGNORECASE)
+    for value, unit in length_matches:
+        try:
+            val = float(value.replace(',', '.'))
+            unit_clean = unit.lower().strip()
+            if unit_clean in ['m', 'metre', 'metres', 'meter', 'meters']:
+                if 0.3 < val < 10:  # Most animals
+                    stats["length"] = f"{val} {unit_clean}"
+                    break
+            elif unit_clean in ['cm', 'centimetre', 'centimetres']:
+                if 10 < val < 500:
+                    stats["length"] = f"{val} {unit_clean}"
+                    break
+            elif unit_clean in ['ft', 'feet', 'foot']:
+                if 1 < val < 30:
+                    stats["length"] = f"{val} {unit_clean}"
+                    break
+        except:
+            continue
     
-    # Lifespan - MUST have "year" context
-    lifespan_patterns = [
-        r'(?:lifespan|longevity|live|life\s*expectancy)\s*(?:of|up to|around|about)?\s*(\d+(?:-\d+)?)\s*(years?|yrs?)',
-        r'(\d+(?:-\d+)?)\s*(years?|yrs?)\s*(?:lifespan|longevity|old|life)',
-        r'(?:lives?\s*(?:for)?\s*)(\d+(?:-\d+)?)\s*(years?)',
-    ]
-    for pattern in lifespan_patterns:
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            years = match.group(1)
-            # Sanity check - should be 1-100 years, not 000
-            if years and years != "0" and not years.startswith("00"):
-                stats["lifespan"] = f"{years} years"
-                break
+    # Lifespan
+    lifespan_matches = re.findall(r'(\d+(?:-\d+)?)\s*(years?|yrs?)', text, re.IGNORECASE)
+    for value, unit in lifespan_matches:
+        try:
+            if '-' in value:
+                parts = value.split('-')
+                if 1 < int(parts[0]) < 100 and 1 < int(parts[1]) < 100:
+                    stats["lifespan"] = f"{value} years"
+                    break
+            else:
+                val = int(value)
+                if 1 < val < 100:
+                    stats["lifespan"] = f"{value} years"
+                    break
+        except:
+            continue
     
-    # Speed - MUST have speed context
-    speed_patterns = [
-        r'(?:speed|run|fast)\s*(?:of|up to|around|about|can reach)?\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)',
-        r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)\s*(?:speed|top speed|maximum|fast)',
-    ]
-    for pattern in speed_patterns:
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            value = float(match.group(1).replace(',', '.'))
-            unit = match.group(2).lower().strip()
-            # Sanity check - should be 10-120 km/h for most animals
-            if 10 < value < 150:
-                stats["top_speed"] = f"{value} {unit}"
+    # Speed
+    speed_matches = re.findall(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph)', text, re.IGNORECASE)
+    for value, unit in speed_matches:
+        try:
+            val = float(value.replace(',', '.'))
+            if 10 < val < 150:
+                stats["top_speed"] = f"{val} {unit.lower()}"
                 break
+        except:
+            continue
     
     return stats
 
@@ -225,38 +242,45 @@ def fetch_gbif_distribution(scientific_name):
         species_key = species_data.get("key")
         print(f"    GBIF: Found species key {species_key}")
         
-        # Extract conservation status from GBIF
         conservation_status = species_data.get("conservationStatus")
         habitat = species_data.get("habitat")
         
-        # Try to get countries from the species record directly
         locations = []
         
-        # Method 1: Try distribution endpoint
+        # Try occurrences with country facet
         if species_key:
             time.sleep(0.5)
             try:
-                dist_res = session.get(f"{GBIF_API}/{species_key}/distribution", headers=headers, timeout=30)
-                if dist_res.status_code == 200:
-                    dist_data = dist_res.json()
-                    dist_results = dist_data.get("results", [])
-                    print(f"    GBIF: Found {len(dist_results)} distribution records")
-                    for item in dist_results[:10]:
-                        loc = item.get("locality") or item.get("country")
-                        if loc:
-                            locations.append(loc)
-                else:
-                    print(f"    GBIF distribution endpoint failed: {dist_res.status_code}")
+                occ_res = session.get(
+                    "https://api.gbif.org/v1/occurrence/search",
+                    params={
+                        "taxonKey": species_key,
+                        "limit": 0,  # We just want facets
+                        "facet": "country",
+                        "facetLimit": 10
+                    },
+                    headers=headers,
+                    timeout=30
+                )
+                if occ_res.status_code == 200:
+                    occ_data = occ_res.json()
+                    facets = occ_data.get("facets", [])
+                    for facet in facets:
+                        if facet.get("field") == "country":
+                            counts = facet.get("counts", [])
+                            locations = [c.get("name") for c in counts[:5] if c.get("name")]
+                            print(f"    GBIF: Found {len(locations)} countries from facets")
+                            break
             except Exception as e:
-                print(f"    GBIF distribution error: {e}")
+                print(f"    GBIF facet error: {e}")
         
-        # Method 2: If distribution failed, try occurrences endpoint for countries
+        # Fallback: Try simple occurrence search
         if not locations and species_key:
             time.sleep(0.5)
             try:
                 occ_res = session.get(
-                    f"https://api.gbif.org/v1/occurrence/search",
-                    params={"taxonKey": species_key, "limit": 100},
+                    "https://api.gbif.org/v1/occurrence/search",
+                    params={"taxonKey": species_key, "limit": 50},
                     headers=headers,
                     timeout=30
                 )
@@ -340,10 +364,10 @@ def generate_animal_data(animals_list, force_update=False):
                 "last_updated": None
             }
         
-        # 1. Wikipedia
+        # 1. Wikipedia (Summary + Characteristics section)
         if not animal_data["image"] or force_update:
             print("  📖 Fetching from Wikipedia...")
-            wiki_data = fetch_wikipedia(name)
+            wiki_data = fetch_wikipedia_summary(name)
             
             if wiki_data["summary"]:
                 animal_data["summary"] = wiki_data["summary"]
@@ -354,10 +378,12 @@ def generate_animal_data(animals_list, force_update=False):
                 if "Wikipedia" not in animal_data["sources"]:
                     animal_data["sources"].append("Wikipedia")
                 
-                # Extract stats from summary only (full HTML has too much noise)
-                print("     Extracting physical stats from summary...")
-                stats = extract_physical_stats(wiki_data["summary"])
+                # Fetch Characteristics section for physical stats
+                print("     Fetching Characteristics section...")
+                chars_text = fetch_wikipedia_section(name, "Characteristics")
+                all_text = wiki_data["summary"] + " " + chars_text
                 
+                stats = extract_physical_stats(all_text)
                 for stat_name, stat_value in stats.items():
                     if stat_value:
                         animal_data["physical"][stat_name] = stat_value
@@ -385,7 +411,7 @@ def generate_animal_data(animals_list, force_update=False):
             print("  🌍 Fetching distribution from GBIF...")
             gbif_data = fetch_gbif_distribution(sci_name)
             
-            if gbif_data:
+            if gbif_
                 if gbif_data.get("locations"):
                     animal_data["ecology"]["locations"] = gbif_data["locations"]
                 if gbif_data.get("habitat"):
