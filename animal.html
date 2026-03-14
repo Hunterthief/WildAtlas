@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Animal</title>
+<title>WildAtlas</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,9 +22,9 @@ fetch("data/animals.json")
 .then(r=>r.json())
 .then(data=>{
 
-const a=data.find(x=>x.name===name)
+const a = data.find(x=>x.name === name)
 
-document.getElementById("animal").innerHTML=`
+document.getElementById("animal").innerHTML = `
 
 <h1>${a.name}</h1>
 
