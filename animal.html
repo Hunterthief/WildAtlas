@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <!-- Top Navigation (Facts.app Style) -->
+    <!-- Top Navigation -->
     <nav class="top-nav">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">WildAtlas</a>
@@ -47,7 +47,7 @@
             <div class="badges" id="animal-badges"></div>
         </section>
 
-        <!-- Quick Stats Bar (Facts.app Style) -->
+        <!-- Stats Bar (Facts.app Style) -->
         <section class="stats-bar">
             <div class="stat-item">
                 <span class="stat-label">Food</span>
@@ -76,111 +76,171 @@
             </table>
         </section>
 
-        <!-- Main Hero Image -->
-        <section class="hero-image-section">
-            <img id="animal-image" class="hero-image" src="" alt="Animal">
-        </section>
-
-        <!-- Location & Time -->
-        <section class="location-time-section">
-            <div class="location-box">
-                <h4>Location</h4>
-                <p id="location-text">-</p>
-            </div>
-            <div class="time-box">
-                <h4>Conservation Status</h4>
-                <p id="conservation-text">-</p>
-            </div>
-        </section>
-
-        <!-- Main Article Content -->
-        <article class="main-article">
-            <h2 id="article-title">About This Animal</h2>
+        <!-- THREE COLUMN LAYOUT: Left | Image | Right -->
+        <div class="three-column-layout">
             
-            <div class="article-content">
-                <section class="article-section">
-                    <h3>Overview</h3>
-                    <p id="overview-text">Loading...</p>
-                </section>
+            <!-- LEFT SIDEBAR -->
+            <aside class="sidebar left-sidebar">
+                
+                <!-- Diet Card -->
+                <div class="side-card">
+                    <h4>Diet</h4>
+                    <div class="diet-icons-large" id="diet-icons-large"></div>
+                    <p class="diet-text" id="diet-text-large">-</p>
+                </div>
 
-                <section class="article-section">
-                    <h3>Physical Characteristics</h3>
-                    <div class="physical-grid">
-                        <div class="phys-item">
-                            <span class="phys-label">Weight</span>
-                            <span class="phys-value" id="phys-weight">-</span>
-                        </div>
-                        <div class="phys-item">
-                            <span class="phys-label">Length</span>
-                            <span class="phys-value" id="phys-length">-</span>
-                        </div>
-                        <div class="phys-item">
-                            <span class="phys-label">Height</span>
-                            <span class="phys-value" id="phys-height">-</span>
-                        </div>
-                        <div class="phys-item">
-                            <span class="phys-label">Top Speed</span>
-                            <span class="phys-value" id="phys-speed">-</span>
-                        </div>
-                        <div class="phys-item">
-                            <span class="phys-label">Lifespan</span>
-                            <span class="phys-value" id="phys-lifespan">-</span>
-                        </div>
+                <!-- Physical Stats Card -->
+                <div class="side-card">
+                    <h4>Physical Stats</h4>
+                    <div class="side-stat">
+                        <span class="side-stat-label">Length</span>
+                        <span class="side-stat-value" id="side-length">-</span>
                     </div>
-                </section>
-
-                <section class="article-section">
-                    <h3>Ecology & Behavior</h3>
-                    <div class="ecology-grid">
-                        <div class="eco-item">
-                            <span class="eco-label">Diet</span>
-                            <span class="eco-value" id="eco-diet">-</span>
-                        </div>
-                        <div class="eco-item">
-                            <span class="eco-label">Habitat</span>
-                            <span class="eco-value" id="eco-habitat">-</span>
-                        </div>
-                        <div class="eco-item">
-                            <span class="eco-label">Locations</span>
-                            <span class="eco-value" id="eco-locations">-</span>
-                        </div>
-                        <div class="eco-item">
-                            <span class="eco-label">Group Behavior</span>
-                            <span class="eco-value" id="eco-behavior">-</span>
-                        </div>
+                    <div class="side-stat">
+                        <span class="side-stat-label">Height</span>
+                        <span class="side-stat-value" id="side-height">-</span>
                     </div>
-                </section>
+                    <div class="side-stat">
+                        <span class="side-stat-label">Weight</span>
+                        <span class="side-stat-value" id="side-weight">-</span>
+                    </div>
+                    <div class="side-stat">
+                        <span class="side-stat-label">Top Speed</span>
+                        <span class="side-stat-value" id="side-speed">-</span>
+                    </div>
+                    <div class="side-stat">
+                        <span class="side-stat-label">Lifespan</span>
+                        <span class="side-stat-value" id="side-lifespan">-</span>
+                    </div>
+                </div>
 
-                <section class="article-section">
-                    <h3>Distinctive Features</h3>
+                <!-- Taxonomy Card -->
+                <div class="side-card">
+                    <h4>Taxonomy</h4>
+                    <table class="side-table" id="side-taxonomy">
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+            </aside>
+
+            <!-- CENTER IMAGE -->
+            <div class="center-column">
+                <div class="hero-image-wrapper">
+                    <img id="animal-image" class="hero-image" src="" alt="Animal">
+                </div>
+                
+                <!-- Description Below Image -->
+                <div class="description-card">
+                    <h3>About</h3>
+                    <p id="animal-summary">Loading description...</p>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <aside class="sidebar right-sidebar">
+                
+                <!-- Conservation Card -->
+                <div class="side-card conservation-side-card">
+                    <h4>Conservation Status</h4>
+                    <div class="conservation-badge-large" id="conservation-badge">
+                        <span class="conservation-text" id="conservation-text">Unknown</span>
+                    </div>
+                    <div class="threats-box">
+                        <h5>Biggest Threats</h5>
+                        <p id="conservation-threats">-</p>
+                    </div>
+                </div>
+
+                <!-- Habitat Card -->
+                <div class="side-card">
+                    <h4>Habitat</h4>
+                    <div class="habitat-icons-large" id="habitat-icons-large"></div>
+                    <p class="habitat-text" id="habitat-text">-</p>
+                </div>
+
+                <!-- Location Card -->
+                <div class="side-card">
+                    <h4>Locations</h4>
+                    <p class="location-text" id="location-text">-</p>
+                </div>
+
+                <!-- Behavior Card -->
+                <div class="side-card">
+                    <h4>Behavior</h4>
+                    <div class="side-stat">
+                        <span class="side-stat-label">Group Behavior</span>
+                        <span class="side-stat-value" id="behavior-group">-</span>
+                    </div>
+                    <div class="side-stat">
+                        <span class="side-stat-label">Group Name</span>
+                        <span class="side-stat-value" id="behavior-name">-</span>
+                    </div>
+                    <div class="side-stat">
+                        <span class="side-stat-label">Young Name</span>
+                        <span class="side-stat-value" id="behavior-young">-</span>
+                    </div>
+                </div>
+
+                <!-- Features Card -->
+                <div class="side-card">
+                    <h4>Distinctive Features</h4>
                     <div class="feature-tags" id="feature-tags"></div>
-                </section>
+                </div>
 
-                <section class="article-section">
-                    <h3>Reproduction</h3>
-                    <div class="repro-grid">
-                        <div class="repro-item">
-                            <span class="repro-label">Young Name</span>
-                            <span class="repro-value" id="repro-young">-</span>
-                        </div>
-                        <div class="repro-item">
-                            <span class="repro-label">Group Name</span>
-                            <span class="repro-value" id="repro-group">-</span>
-                        </div>
-                        <div class="repro-item">
-                            <span class="repro-label">Gestation</span>
-                            <span class="repro-value" id="repro-gestation">-</span>
-                        </div>
-                        <div class="repro-item">
-                            <span class="repro-label">Litter Size</span>
-                            <span class="repro-value" id="repro-litter">-</span>
-                        </div>
-                    </div>
-                </section>
+            </aside>
+
+        </div>
+
+        <!-- Full Width Article Sections -->
+        <article class="main-article">
+            <h2>Overview</h2>
+            <div class="article-content">
+                <p id="overview-text">Loading...</p>
+            </div>
+
+            <h2>Ecology</h2>
+            <div class="ecology-grid">
+                <div class="eco-box">
+                    <h4>Diet Type</h4>
+                    <p id="eco-diet">-</p>
+                </div>
+                <div class="eco-box">
+                    <h4>Habitat</h4>
+                    <p id="eco-habitat">-</p>
+                </div>
+                <div class="eco-box">
+                    <h4>Geographic Range</h4>
+                    <p id="eco-locations">-</p>
+                </div>
+                <div class="eco-box">
+                    <h4>Social Behavior</h4>
+                    <p id="eco-behavior">-</p>
+                </div>
+            </div>
+
+            <h2>Reproduction</h2>
+            <div class="repro-grid">
+                <div class="repro-box">
+                    <h4>Young Called</h4>
+                    <p id="repro-young">-</p>
+                </div>
+                <div class="repro-box">
+                    <h4>Group Called</h4>
+                    <p id="repro-group">-</p>
+                </div>
+                <div class="repro-box">
+                    <h4>Gestation</h4>
+                    <p id="repro-gestation">-</p>
+                </div>
+                <div class="repro-box">
+                    <h4>Litter Size</h4>
+                    <p id="repro-litter">-</p>
+                </div>
             </div>
         </article>
 
-        <!-- FAQ Section (Facts.app Style) -->
+        <!-- FAQ Section -->
         <section class="faq-section">
             <h2>FAQ</h2>
             <div class="faq-grid">
@@ -211,7 +271,7 @@
             </div>
         </section>
 
-        <!-- Credits Section -->
+        <!-- Credits -->
         <section class="credits-section">
             <p>Data sourced from Wikipedia & iNaturalist</p>
         </section>
