@@ -31,11 +31,11 @@
       "diet": null,
       "prey": null,
       "habitat": null,
-      "locations": null,
+      "locations": "Asia, Africa, Europe, North America, South America",
       "group_behavior": null,
       "lifestyle": null,
       "biggest_threat": null,
-      "conservation_status": null,
+      "conservation_status": "Endangered",
       "estimated_population_size": null
     },
     "reproduction": {
@@ -48,10 +48,9 @@
     },
     "sources": [
       "Wikipedia",
-      "iNaturalist",
-      "GBIF"
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-14T19:59:48.812578"
+    "last_updated": "2026-03-14T20:38:43.581259"
   },
   {
     "name": "Asian Elephant",
@@ -85,7 +84,7 @@
       "diet": null,
       "prey": null,
       "habitat": null,
-      "locations": null,
+      "locations": "Asia",
       "group_behavior": null,
       "lifestyle": null,
       "biggest_threat": null,
@@ -102,10 +101,9 @@
     },
     "sources": [
       "Wikipedia",
-      "iNaturalist",
-      "GBIF"
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-14T19:59:52.717047"
+    "last_updated": "2026-03-14T20:38:45.604510"
   },
   {
     "name": "Bald Eagle",
@@ -156,9 +154,8 @@
     },
     "sources": [
       "Wikipedia",
-      "iNaturalist",
-      "GBIF"
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-14T19:59:56.180126"
+    "last_updated": "2026-03-14T20:38:48.235246"
   }
 ]
