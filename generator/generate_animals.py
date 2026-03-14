@@ -28,7 +28,7 @@ IUCN_API_KEY = os.getenv("IUCN_API_KEY", "")
 WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
 INAT_API = "https://api.inaturalist.org/v1/taxa"
 GBIF_API = "https://api.gbif.org/v1/species"
-IUCN_API_V4 = "https://api.iucnredlist.org/api/v4"  # ← Updated to v4!
+IUCN_API_V4 = "https://api.iucnredlist.org/api/v4"
 
 # --- Classification fields ---
 CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
@@ -243,16 +243,12 @@ def fetch_gbif_distribution(scientific_name):
     return None
 
 def fetch_iucn_conservation(scientific_name):
-    """
-    Fetch conservation status from IUCN Red List API v4
-    Uses Bearer token authentication (not query param like v3)
-    """
+    """Fetch conservation status from IUCN Red List API v4"""
     if not IUCN_API_KEY:
         print("    ⚠ IUCN_API_KEY not set in environment")
         return None
     
     try:
-        # Parse scientific name into genus and species
         name_parts = scientific_name.split(" ")
         if len(name_parts) >= 2:
             genus = name_parts[0]
@@ -261,7 +257,6 @@ def fetch_iucn_conservation(scientific_name):
             genus = scientific_name
             species = ""
         
-        # API v4 endpoint with Bearer token auth
         url = f"{IUCN_API_V4}/taxa/scientific_name/{genus}/{species}"
         
         iucn_headers = {
@@ -281,19 +276,16 @@ def fetch_iucn_conservation(scientific_name):
             print("    IUCN: Species not found in Red List")
             return None
         elif res.status_code != 200:
-            print(f"    IUCN: API error: {res.status_code} - {res.text[:200]}")
+            print(f"    IUCN: API error: {res.status_code}")
             return None
         
         data = res.json()
-        
-        # API v4 returns assessments array
         assessments = data.get("assessments", [])
         
         if not assessments:
             print("    IUCN: No assessments found")
             return None
         
-        # Get the latest assessment
         latest = assessments[0]
         
         return {
@@ -304,8 +296,6 @@ def fetch_iucn_conservation(scientific_name):
     
     except Exception as e:
         print(f"    IUCN error: {e}")
-        import traceback
-        traceback.print_exc()
     return None
 
 def load_cached_data(qid):
@@ -440,7 +430,7 @@ def generate_animal_data(animals_list, force_update=False):
             print("  🌍 Fetching distribution from GBIF...")
             gbif_data = fetch_gbif_distribution(sci_name)
             
-            if gbif_
+            if gbif_data:
                 if gbif_data.get("locations"):
                     animal_data["ecology"]["locations"] = gbif_data["locations"]
                     print(f"     ✓ Locations: {gbif_data['locations'][:50]}...")
