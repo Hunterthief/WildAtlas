@@ -63,14 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Fetch animals.json
+ * Fetch animals.json - FIXED PATH TO data/ FOLDER
  */
 async function fetchAnimals(updateDebug) {
-    updateDebug('📡 Fetching animals.json...');
+    updateDebug('📡 Fetching data/animals.json...');
     
     try {
-        // Add cache-busting parameter
-        const response = await fetch('animals.json?t=' + Date.now());
+        // ✅ CORRECT PATH: data/animals.json
+        const response = await fetch('data/animals.json?t=' + Date.now());
         
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
@@ -102,8 +102,8 @@ async function fetchAnimals(updateDebug) {
                     <h2 style="color: #f87171; margin-bottom: 15px;">⚠️ Unable to Load Data</h2>
                     <p style="color: #94a3b8; margin-bottom: 20px;">${error.message}</p>
                     <p style="color: #64748b; font-size: 0.9rem;">
-                        Try: Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)<br>
-                        Or check if animals.json exists in the same folder as index.html
+                        Expected path: <code>data/animals.json</code><br>
+                        Try: Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
                     </p>
                 </div>
             `;
