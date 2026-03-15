@@ -25,11 +25,11 @@
       "length": null,
       "height": null,
       "top_speed": null,
-      "lifespan": null
+      "lifespan": "12–15 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "tropical forest, mangrove, jungle, forest",
+      "habitat": "tropical forest, mountain, forest, rainforest",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -49,7 +49,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:31:39.297524"
+    "last_updated": "2026-03-15T02:31:10.828842"
   },
   {
     "id": "Q7372",
@@ -81,7 +81,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "woodland, forest",
+      "habitat": "forest, rainforest, sea, savanna",
       "locations": "Asia, India, China, Indonesia, Sumatra",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -101,7 +101,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:31:41.477458"
+    "last_updated": "2026-03-15T02:31:13.177650"
   },
   {
     "id": "Q213537",
@@ -133,7 +133,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, wetland, grassland, mountain",
+      "habitat": "mountain, coastal, forest, sea",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -153,7 +153,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:31:44.094901"
+    "last_updated": "2026-03-15T02:31:15.925792"
   },
   {
     "id": "Q25319",
@@ -181,11 +181,11 @@
       "length": null,
       "height": null,
       "top_speed": null,
-      "lifespan": null
+      "lifespan": "5 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coastal, mountain, forest, cliff",
+      "habitat": "ocean, cliff, mountain, coastal",
       "locations": "North America, Canada, Alaska, United States, Asia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -205,7 +205,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:31:46.376192"
+    "last_updated": "2026-03-15T02:31:18.507083"
   },
   {
     "id": "Q43306",
@@ -229,7 +229,7 @@
     "young_name": "chick",
     "group_name": "colony",
     "physical": {
-      "weight": null,
+      "weight": "22.0–45.0 kg",
       "length": null,
       "height": null,
       "top_speed": null,
@@ -237,7 +237,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "island, ocean, ice",
+      "habitat": "ocean, ice, sea, island",
       "locations": "Antarctica, Southern Ocean, Chile, Australia, New Zealand",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -257,7 +257,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:31:48.680238"
+    "last_updated": "2026-03-15T02:31:21.184065"
   },
   {
     "id": "Q47164",
@@ -289,7 +289,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "sea, ocean, coastal, open ocean",
+      "habitat": "ocean, coastal, sea, temperate",
       "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -309,7 +309,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:31:51.174689"
+    "last_updated": "2026-03-15T02:31:23.733369"
   },
   {
     "id": "Q39709",
@@ -334,14 +334,14 @@
     "group_name": "run",
     "physical": {
       "weight": null,
-      "length": null,
+      "length": "20.0–25.0 cm",
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, stream, ocean, lake",
+      "habitat": "ocean, coastal, Pacific, sea",
       "locations": "North America, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -361,7 +361,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:31:53.435855"
+    "last_updated": "2026-03-15T02:31:25.913979"
   },
   {
     "id": "Q7785",
@@ -385,15 +385,15 @@
     "young_name": "hatchling",
     "group_name": "bale",
     "physical": {
-      "weight": null,
-      "length": null,
+      "weight": "300.0 kg",
+      "length": "28.0–56.0 cm",
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coral reef, sea, coastal, wetland",
+      "habitat": "ocean, coral reef, coastal, sea",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -413,7 +413,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:31:55.714721"
+    "last_updated": "2026-03-15T02:31:28.343713"
   },
   {
     "id": "Q189609",
@@ -439,14 +439,14 @@
     "physical": {
       "weight": null,
       "length": "3.18–4.0 m",
-      "height": "3.18–4.0 m",
+      "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "agricultural, forest",
-      "locations": "Asia, Australia, Europe",
+      "habitat": "coastal, forest, rainforest, sea",
+      "locations": "Asia, Australia, Europe, India, China",
       "group_behavior": "Family groups",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -465,7 +465,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:31:57.884213"
+    "last_updated": "2026-03-15T02:31:30.606618"
   },
   {
     "id": "Q270238",
@@ -493,15 +493,15 @@
       "length": null,
       "height": null,
       "top_speed": null,
-      "lifespan": null
+      "lifespan": "16 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, pond, lake",
-      "locations": "North America, South America, Europe, Asia",
+      "habitat": "coastal, sea, pond, river",
+      "locations": "North America, South America, Europe, Asia, China",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
-      "biggest_threat": "Human-wildlife conflict",
+      "biggest_threat": "Human-wildlife conflict, Overfishing",
       "distinctive_features": [
         "Long tail",
         "Distinctive fins",
@@ -517,7 +517,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:32:00.224381"
+    "last_updated": "2026-03-15T02:31:33.071827"
   },
   {
     "id": "Q165980",
@@ -543,15 +543,15 @@
     "physical": {
       "weight": null,
       "length": "8.9–10.2 cm",
-      "height": null,
+      "height": "3.0–5.0 ft",
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "tropical, garden, forest, mountain",
+      "habitat": "garden, ocean, mountain, coastal",
       "locations": "North America, South America, Europe, Asia, Africa",
-      "group_behavior": "Social",
+      "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
       "distinctive_features": [
@@ -569,7 +569,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:32:02.672017"
+    "last_updated": "2026-03-15T02:31:35.935882"
   },
   {
     "id": "Q7316",
@@ -593,7 +593,7 @@
     "young_name": "larva",
     "group_name": "colony",
     "physical": {
-      "weight": null,
+      "weight": "15.0–50.0 kg",
       "length": null,
       "height": null,
       "top_speed": null,
@@ -601,7 +601,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "agricultural, grassland, forest, urban",
+      "habitat": "mountain, urban, forest, sea",
       "locations": "North America, Europe, Asia, Africa, South America",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -621,6 +621,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-14T22:32:05.448884"
+    "last_updated": "2026-03-15T02:31:49.953522"
   }
 ]
