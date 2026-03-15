@@ -40,52 +40,60 @@
             Back to encyclopedia
         </a>
 
-        <!-- Title Section (Big & Centered) -->
+        <!-- Title Section -->
         <section class="title-section">
             <h1 id="animal-name">Loading...</h1>
             <p class="scientific-name" id="animal-scientific">Scientific name</p>
         </section>
 
-        <!-- THREE COLUMN LAYOUT: Left | Image | Right -->
+        <!-- THREE COLUMN LAYOUT -->
         <div class="three-column-layout">
             
             <!-- LEFT SIDEBAR -->
             <aside class="sidebar left-sidebar">
                 
-                <!-- Quick Stats Card (Food, Length, Height, Weight) -->
-                <div class="side-card">
-                    <h4>Quick Stats</h4>
-                    <div class="stat-row">
-                        <span class="stat-row-label">Food</span>
-                        <div class="stat-row-icons" id="diet-icons-side"></div>
-                        <span class="stat-row-value" id="stat-diet-side">-</span>
-                    </div>
-                    <div class="stat-row">
-                        <span class="stat-row-label">Length</span>
-                        <span class="stat-row-value" id="stat-length-side">-</span>
-                    </div>
-                    <div class="stat-row">
-                        <span class="stat-row-label">Height</span>
-                        <span class="stat-row-value" id="stat-height-side">-</span>
-                    </div>
-                    <div class="stat-row">
-                        <span class="stat-row-label">Weight</span>
-                        <span class="stat-row-value" id="stat-weight-side">-</span>
-                    </div>
+                <!-- Quick Stats (Icon-based) -->
+                <div class="stat-card">
+                    <div class="stat-card-header">Food</div>
+                    <div class="diet-icons" id="diet-icons"></div>
                 </div>
 
-                <!-- Scientific Classification / Taxonomy Card -->
-                <div class="side-card">
-                    <h4>Scientific Classification</h4>
-                    <table class="side-table" id="taxonomy-table">
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 12h20M2 12l5-5M2 12l5 5"/>
+                        </svg>
+                        Length
+                    </div>
+                    <div class="stat-card-value" id="stat-length">-</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M2 12h20"/>
+                        </svg>
+                        Height
+                    </div>
+                    <div class="stat-card-value" id="stat-height">-</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        Weight
+                    </div>
+                    <div class="stat-card-value" id="stat-weight">-</div>
+                </div>
+
+                <!-- Scientific Classification -->
+                <div class="classification-card">
+                    <div class="stat-card-header">Scientific Classification</div>
+                    <table class="classification-table" id="classification-table">
                         <tbody></tbody>
                     </table>
-                </div>
-
-                <!-- Location Card -->
-                <div class="side-card">
-                    <h4>Location</h4>
-                    <p class="location-text" id="location-text">-</p>
                 </div>
 
             </aside>
@@ -94,50 +102,66 @@
             <div class="center-column">
                 <div class="hero-image-wrapper">
                     <img id="animal-image" class="hero-image" src="" alt="Animal">
+                    <div class="scroll-indicator">
+                        <span>Scroll down</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M19 12l-7 7-7-7"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
 
             <!-- RIGHT SIDEBAR -->
             <aside class="sidebar right-sidebar">
                 
-                <!-- Conservation Status Card (MOVED HERE - Top of Right Sidebar) -->
-                <div class="side-card">
-                    <h4>Conservation Status</h4>
+                <!-- Location with Map -->
+                <div class="info-card">
+                    <div class="stat-card-header">Location & Land Formation</div>
+                    <div class="location-content">
+                        <div class="location-map" id="location-map">
+                            <!-- Map placeholder -->
+                            <svg viewBox="0 0 200 100" class="world-map">
+                                <ellipse cx="50" cy="50" rx="40" ry="35" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+                                <ellipse cx="150" cy="50" rx="45" ry="35" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+                                <circle id="location-dot" cx="45" cy="45" r="4" fill="#38bdf8"/>
+                            </svg>
+                        </div>
+                        <p class="location-text" id="location-text">-</p>
+                    </div>
+                </div>
+
+                <!-- Conservation Status -->
+                <div class="info-card">
+                    <div class="stat-card-header">Conservation Status</div>
                     <div class="conservation-status-box" id="conservation-status-box">
                         <span class="conservation-status-text" id="conservation-status-text">Unknown</span>
                     </div>
                     <div class="threats-box">
-                        <h5>Biggest Threats</h5>
+                        <div class="stat-card-header" style="font-size: 0.65rem;">Biggest Threats</div>
                         <p id="conservation-threats">-</p>
                     </div>
                 </div>
 
-                <!-- Habitat Card -->
-                <div class="side-card">
-                    <h4>Habitat</h4>
-                    <p class="side-text" id="habitat-text">-</p>
-                </div>
-
-                <!-- Behavior Card -->
-                <div class="side-card">
-                    <h4>Behavior</h4>
-                    <div class="side-stat">
-                        <span class="side-stat-label">Group Behavior</span>
-                        <span class="side-stat-value" id="behavior-group">-</span>
-                    </div>
-                    <div class="side-stat">
-                        <span class="side-stat-label">Group Name</span>
-                        <span class="side-stat-value" id="behavior-name">-</span>
-                    </div>
-                    <div class="side-stat">
-                        <span class="side-stat-label">Young Name</span>
-                        <span class="side-stat-value" id="behavior-young">-</span>
+                <!-- Time Period (Visual Timeline) -->
+                <div class="info-card">
+                    <div class="stat-card-header">Time Period</div>
+                    <div class="time-content">
+                        <div class="time-range" id="time-range">-</div>
+                        <div class="timeline-visual" id="timeline-visual">
+                            <div class="timeline-bar">
+                                <div class="timeline-fill" id="timeline-fill"></div>
+                            </div>
+                            <div class="timeline-labels">
+                                <span>Ancient</span>
+                                <span>Recent</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Features Card -->
-                <div class="side-card">
-                    <h4>Distinctive Features</h4>
+                <!-- Distinctive Features -->
+                <div class="info-card">
+                    <div class="stat-card-header">Distinctive Features</div>
                     <div class="feature-tags" id="feature-tags"></div>
                 </div>
 
@@ -184,14 +208,6 @@
                 <div class="faq-item">
                     <h3>What makes <span class="faq-animal-name">this animal</span> unique?</h3>
                     <p id="faq-features">Loading...</p>
-                </div>
-                <div class="faq-item">
-                    <h3>What is the scientific name?</h3>
-                    <p id="faq-scientific">Loading...</p>
-                </div>
-                <div class="faq-item">
-                    <h3>What type of animal is this?</h3>
-                    <p id="faq-type">Loading...</p>
                 </div>
             </div>
         </section>
