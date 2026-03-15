@@ -22,14 +22,14 @@
     "group_name": "streak",
     "physical": {
       "weight": null,
-      "length": null,
+      "length": "2.7–3.7 m",
       "height": null,
       "top_speed": null,
       "lifespan": "12–15 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, mangrove, tropical forest, jungle",
+      "habitat": "grassland, jungle, coniferous forest, sea",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -49,7 +49,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:36:50.422896"
+    "last_updated": "2026-03-15T19:38:12.491411"
   },
   {
     "id": "Q7372",
@@ -74,14 +74,14 @@
     "group_name": "colony",
     "physical": {
       "weight": null,
-      "length": null,
+      "length": "7.0–6.0 m",
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, savanna, tropical, rainforest",
+      "habitat": "sea, forest, rainforest, savanna",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
@@ -101,7 +101,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:36:52.424091"
+    "last_updated": "2026-03-15T19:38:14.552208"
   },
   {
     "id": "Q213537",
@@ -126,14 +126,14 @@
     "group_name": "fever",
     "physical": {
       "weight": null,
-      "length": null,
+      "length": "10.0–54.0 m",
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, savanna, jungle, desert",
+      "habitat": "grassland, desert, jungle, sea",
       "locations": "Africa, South Africa, Egypt, Asia, India",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -153,7 +153,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:36:54.870392"
+    "last_updated": "2026-03-15T19:38:16.714398"
   },
   {
     "id": "Q25319",
@@ -185,7 +185,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, savanna, mangrove, river",
+      "habitat": "desert, ocean, cliff, forest",
       "locations": "North America, Canada, Alaska, United States, Mexico",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -205,7 +205,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:36:56.964368"
+    "last_updated": "2026-03-15T19:38:18.857087"
   },
   {
     "id": "Q43306",
@@ -237,7 +237,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "island, ice, marsh, sea",
+      "habitat": "ocean, sea, marsh, ice",
       "locations": "Antarctica, Southern Ocean, New Zealand, Australia, Chile",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -257,7 +257,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:36:59.068755"
+    "last_updated": "2026-03-15T19:38:20.919974"
   },
   {
     "id": "Q47164",
@@ -282,14 +282,14 @@
     "group_name": "shiver",
     "physical": {
       "weight": null,
-      "length": null,
+      "length": "60.0–43.0 m",
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "temperate, tropical, open ocean, marsh",
+      "habitat": "ocean, sea, marsh, temperate",
       "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -309,7 +309,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:37:01.166807"
+    "last_updated": "2026-03-15T19:38:23.123934"
   },
   {
     "id": "Q39709",
@@ -341,7 +341,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "stream, river, Atlantic, coastal",
+      "habitat": "ocean, sea, river, Atlantic",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -361,7 +361,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:37:03.296179"
+    "last_updated": "2026-03-15T19:38:25.210150"
   },
   {
     "id": "Q7785",
@@ -393,7 +393,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, temperate, tropical, wetland",
+      "habitat": "ocean, sea, marsh, river",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -413,7 +413,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:37:05.763685"
+    "last_updated": "2026-03-15T19:38:27.342554"
   },
   {
     "id": "Q189609",
@@ -437,7 +437,7 @@
     "young_name": "hatchling",
     "group_name": "den",
     "physical": {
-      "weight": null,
+      "weight": "9.0 t",
       "length": "3.18–4.0 m",
       "height": null,
       "top_speed": null,
@@ -445,7 +445,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, river, tropical, rainforest",
+      "habitat": "agricultural, sea, forest, marsh",
       "locations": "Asia, India, China, Southeast Asia, Australia",
       "group_behavior": "Family groups",
       "conservation_status": "Vulnerable",
@@ -465,7 +465,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:37:07.909739"
+    "last_updated": "2026-03-15T19:38:29.486891"
   },
   {
     "id": "Q270238",
@@ -497,7 +497,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, pond, tropical, coastal",
+      "habitat": "sea, river, swamp, coastal",
       "locations": "North America, United States, Canada, Europe, Asia",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -517,7 +517,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:37:10.589066"
+    "last_updated": "2026-03-15T19:38:31.516811"
   },
   {
     "id": "Q165980",
@@ -549,7 +549,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, meadow, river, tropical",
+      "habitat": "desert, ocean, sea, forest",
       "locations": "North America, South America, Europe, Asia, Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -569,7 +569,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:37:13.062584"
+    "last_updated": "2026-03-15T19:38:33.951911"
   },
   {
     "id": "Q7316",
@@ -594,14 +594,14 @@
     "group_name": "colony",
     "physical": {
       "weight": null,
-      "length": null,
+      "length": "0.3–0.8 m",
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, temperate, desert, grassland",
+      "habitat": "grassland, agricultural, desert, sea",
       "locations": "North America, Europe, Asia, Africa, South America",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -621,6 +621,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:37:15.767965"
+    "last_updated": "2026-03-15T19:38:36.081725"
   }
 ]
