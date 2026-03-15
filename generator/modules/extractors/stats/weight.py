@@ -4,6 +4,14 @@ Weight Extraction Module
 
 Extracts weight from Wikipedia text with animal-type validation.
 Edit this file only for weight-related changes.
+
+WIKIPEDIA PATTERNS FOUND:
+- "weigh 1,000–1,900 kg" (Great White Shark)
+- "average weight of mature individuals is 68–190 kg" (Green Sea Turtle)
+- "weighed up to 10 kg" (King Cobra)
+- "weighing from 22 to 45 kg" (Emperor Penguin)
+- "mass is normally between 3 and 6.3 kg" (Bald Eagle)
+- "females... averaging as much as 5.6 kg" (Bald Eagle)
 """
 
 import re
@@ -53,10 +61,20 @@ WEIGHT_RANGES = {
 }
 
 WEIGHT_PATTERNS = [
-    r'(?:males?|females?|adults?|individuals?|they|it)\s*(?:weigh|weighs|weight)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?|g|grams?)',
-    r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
-    r'(?:weigh|weight|weighing|up to|over|about|around)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
-    r'weighs?\s*(?:around|about|approximately|up to)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
+    # "average weight of mature individuals is 68–190 kg"
+    r'(?:average\s*)?(?:weight|mass)\s*(?:of\s*)?(?:mature\s*)?(?:individuals?|adults?)?\s*(?:is|of|ranges?|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?|g|grams?)',
+    # "weigh 1,000–1,900 kg"
+    r'(?:males?|females?|adults?|individuals?|they|it)\s*(?:weigh|weighs)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
+    # "weighs up to 10 kg"
+    r'weighs?\s*(?:up\s*to|about|around|approximately)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)?\s*(\d+(?:[.,]\d+)?)?\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
+    # "weighing from 22 to 45 kg"
+    r'weighing\s*(?:from)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
+    # "mass is normally between 3 and 6.3 kg"
+    r'mass\s*(?:is)?\s*(?:normally|typically|usually)?\s*(?:between)?\s*(\d+(?:[.,]\d+)?)\s*(?:and|to|–|-)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
+    # "averaging as much as 5.6 kg"
+    r'averaging\s*(?:as\s*much\s*as)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
+    # "weighed 2,530 kg"
+    r'weighed\s*(?:up\s*to)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
 ]
 
 UNIT_TO_KG = {
@@ -105,8 +123,15 @@ def extract_weight(text, animal_type):
                 v1_kg = v1 * multiplier
                 v2_kg = v2 * multiplier
 
-                # Validate against animal type range
-                if min_kg <= v1_kg <= max_kg or min_kg <= v2_kg <= max_kg:
+                # Validate against animal type range (with tolerance)
+                tolerance = 0.5
+                if (min_kg * (1 - tolerance) <= v1_kg <= max_kg * (1 + tolerance) or
+                    min_kg * (1 - tolerance) <= v2_kg <= max_kg * (1 + tolerance)):
+                    
+                    # Ensure v1 <= v2
+                    if v1 > v2:
+                        v1, v2 = v2, v1
+                    
                     # Return in original unit
                     if unit in ['t', 'tonne', 'tonnes', 'ton']:
                         return f"{v1}–{v2} t" if v1 != v2 else f"{v1} t"
