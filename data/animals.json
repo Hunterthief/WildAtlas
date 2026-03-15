@@ -3,8 +3,10 @@
     "id": "Q132186",
     "name": "Tiger",
     "scientific_name": "Panthera tigris",
-    "common_names": [],
-    "description": "Species of large cat",
+    "common_names": [
+      "Bengal Tiger"
+    ],
+    "description": "The most numerous species of tiger!",
     "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
@@ -15,24 +17,22 @@
       "order": "Carnivora",
       "family": "Felidae",
       "genus": "Panthera",
-      "species": "Panthera tigris"
+      "species": "Panthera Tigris Tigris"
     },
     "animal_type": "feline",
     "young_name": "cub",
     "group_name": "streak",
     "physical": {
-      "weight": null,
+      "weight": "140–300 kg",
       "length": "2.7–3.7 m",
       "height": null,
-      "top_speed": null,
-      "lifespan": "12–15 years"
+      "top_speed": "60 mph",
+      "lifespan": "18 - 25 years"
     },
     "ecology": {
-      "diet": "Herbivore",
-      "habitat": "lake, coniferous forest, marsh, rainforest",
-      "locations": [
-        "Asia"
-      ],
+      "diet": "Carnivore",
+      "habitat": "Dense tropical forest and mangroves",
+      "locations": "Asia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -45,7 +45,7 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": null,
+      "average_litter_size": "3",
       "name_of_young": null
     },
     "conservation": {
@@ -57,11 +57,9 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:20:27.061556",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:35.148841"
   },
   {
     "id": "Q7372",
@@ -93,7 +91,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "lake, savanna, rainforest, forest",
+      "habitat": "rainforest, savanna, tropical, forest",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
@@ -121,7 +119,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:20:30.177584"
+    "last_updated": "2026-03-15T22:23:37.524997"
   },
   {
     "id": "Q213537",
@@ -153,7 +151,7 @@
     },
     "ecology": {
       "diet": "Insectivore",
-      "habitat": "lake, savanna, marsh, tundra",
+      "habitat": "tundra, grassland, coastal, wetland",
       "locations": "North America, Eurasia, Europe, Asia, Russia",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -181,13 +179,15 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:20:33.241131"
+    "last_updated": "2026-03-15T22:23:39.963787"
   },
   {
     "id": "Q25319",
     "name": "Bald Eagle",
     "scientific_name": "Haliaeetus leucocephalus",
-    "common_names": [],
+    "common_names": [
+      "Bald Eagle"
+    ],
     "description": "Bird of prey species of North America",
     "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
@@ -199,31 +199,27 @@
       "order": "Accipitriformes",
       "family": "Accipitridae",
       "genus": "Haliaeetus",
-      "species": "Haliaeetus leucocephalus"
+      "species": "haliaeetus leucocephalus"
     },
     "animal_type": "raptor",
     "young_name": "chick",
     "group_name": "kettle",
     "physical": {
-      "weight": null,
+      "weight": "6.6-14lbs",
       "length": null,
-      "height": null,
-      "top_speed": null,
-      "lifespan": "5 years"
+      "height": "28-38 inches",
+      "top_speed": "100 mph",
+      "lifespan": "15-20 years in the wild"
     },
     "ecology": {
-      "diet": "Piscivore",
-      "habitat": "lake, savanna, ocean, marsh",
-      "locations": [
-        "North-America"
-      ],
+      "diet": "Carnivore",
+      "habitat": "Near forests",
+      "locations": "North-America",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
-      "biggest_threat": "Poaching, Human-wildlife conflict, Pollution",
+      "biggest_threat": "Pesticide use",
       "distinctive_features": [
-        "Wing",
-        "Talons",
-        "Beak"
+        "The white plumage on the head"
       ],
       "population_trend": null
     },
@@ -241,18 +237,18 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:20:35.884096",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:41.448051"
   },
   {
     "id": "Q43306",
     "name": "Emperor Penguin",
     "scientific_name": "Aptenodytes forsteri",
-    "common_names": [],
-    "description": "Large flightless seabird endemic to Antarctica",
+    "common_names": [
+      "Emperor Penguin"
+    ],
+    "description": "The world's largest species of penguin!",
     "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
@@ -269,33 +265,28 @@
     "young_name": "chick",
     "group_name": "colony",
     "physical": {
-      "weight": "22.0–45.0 kg",
+      "weight": "22–45 kg",
       "length": null,
-      "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "height": "100–120 cm",
+      "top_speed": "15 mph",
+      "lifespan": "15 - 50 years"
     },
     "ecology": {
-      "diet": "Piscivore",
-      "habitat": "island, ocean, marsh, sea",
-      "locations": [
-        "Antarctica",
-        "Ocean"
-      ],
-      "group_behavior": "Social",
+      "diet": "Carnivore",
+      "habitat": "Compact sea-ice and ocean",
+      "locations": "Antarctica, Ocean",
+      "group_behavior": "Colony",
       "conservation_status": "Endangered",
-      "biggest_threat": "Habitat loss, Climate change, Overfishing",
+      "biggest_threat": "Global warming",
       "distinctive_features": [
-        "Wing",
-        "Flipper",
-        "Feather"
+        "Bright yellow feathers on neck and ears"
       ],
       "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": null
+      "name_of_young": "Chick"
     },
     "conservation": {
       "category": null,
@@ -306,18 +297,18 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:20:38.355215",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:42.814534"
   },
   {
     "id": "Q47164",
     "name": "Great White Shark",
     "scientific_name": "Carcharodon carcharias",
-    "common_names": [],
-    "description": "Species of large lamniform shark",
+    "common_names": [
+      "Great White Shark"
+    ],
+    "description": "Can grow to more than 8 meters long!",
     "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight and provides buoyancy and stores energy. The species is partially warm-blooded, an adaptation that allows them to remain active in colder waters.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
@@ -334,21 +325,19 @@
     "young_name": "pup",
     "group_name": "shiver",
     "physical": {
-      "weight": null,
+      "weight": "110 kg",
       "length": null,
       "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "top_speed": "15 mph",
+      "lifespan": "30 - 40 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "open ocean, ocean, marsh, temperate",
-      "locations": [
-        "Ocean"
-      ],
+      "habitat": "Temperate, coastal waters and open ocean",
+      "locations": "Ocean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
-      "biggest_threat": "Climate change, Pollution, Overfishing",
+      "biggest_threat": "Hunting and habitat degredation",
       "distinctive_features": [
         "Fin",
         "Tail",
@@ -359,7 +348,7 @@
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "300",
-      "name_of_young": null
+      "name_of_young": "Pup"
     },
     "conservation": {
       "category": null,
@@ -370,11 +359,9 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:20:41.215172",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:44.760478"
   },
   {
     "id": "Q39709",
@@ -406,7 +393,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "lake, Pacific, ocean, coastal",
+      "habitat": "coastal, stream, river, Atlantic",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -434,7 +421,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:20:43.778748"
+    "last_updated": "2026-03-15T22:23:47.232373"
   },
   {
     "id": "Q7785",
@@ -466,7 +453,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "ocean, marsh, temperate, coastal",
+      "habitat": "temperate, coastal, wetland, tropical",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -494,13 +481,15 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:20:46.218849"
+    "last_updated": "2026-03-15T22:23:49.416094"
   },
   {
     "id": "Q189609",
     "name": "King Cobra",
     "scientific_name": "Ophiophagus hannah",
-    "common_names": [],
+    "common_names": [
+      "King Cobra"
+    ],
     "description": "Group of venomous snakes from Asia",
     "summary": "The king cobra is a species complex of snakes endemic to Asia. With an average length of 3.18 to 4 m and a record length of 5.85 m (19.2 ft), it is the world's longest venomous snake and among the heaviest. Under the genus Ophiophagus, it is not phylogenetically a true cobra despite its common name and some resemblance. Spanning from the Indian subcontinent through Southeastern Asia to Southern China, the king cobra is widely distributed albeit not commonly seen.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
@@ -521,29 +510,25 @@
       "weight": null,
       "length": "3.18–4.0 m",
       "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "top_speed": "12 mph",
+      "lifespan": "About 20 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "marsh, rainforest, forest, coastal",
-      "locations": [
-        "Asia"
-      ],
+      "habitat": "Forest, shrublands, wetlands",
+      "locations": "Asia",
       "group_behavior": "Family groups",
       "conservation_status": "Vulnerable",
-      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "biggest_threat": "Poaching, habitat loss",
       "distinctive_features": [
-        "Scale",
-        "Venom",
-        "Fang"
+        "An expanding hood"
       ],
       "population_trend": null
     },
     "reproduction": {
-      "gestation_period": null,
+      "gestation_period": "66-105 days",
       "average_litter_size": "7–43",
-      "name_of_young": null
+      "name_of_young": "Hatchlings"
     },
     "conservation": {
       "category": null,
@@ -554,11 +539,9 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:20:48.713107",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:50.806021"
   },
   {
     "id": "Q270238",
@@ -590,7 +573,7 @@
     },
     "ecology": {
       "diet": "Omnivore",
-      "habitat": "lake, coastal, tropical, swamp",
+      "habitat": "coastal, tropical, river, swamp",
       "locations": "Asia, China, Indonesia, Japan, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -616,13 +599,15 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:20:51.165557"
+    "last_updated": "2026-03-15T22:23:53.127138"
   },
   {
     "id": "Q165980",
     "name": "Monarch Butterfly",
     "scientific_name": "Danaus plexippus",
-    "common_names": [],
+    "common_names": [
+      "Monarch Butterfly"
+    ],
     "description": "Milkweed butterfly in the family Nymphalidae",
     "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
@@ -640,38 +625,28 @@
     "young_name": "caterpillar",
     "group_name": "swarm",
     "physical": {
-      "weight": null,
+      "weight": "0.25 - 0.75 grams",
       "length": "8.9–10.2 cm",
       "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "top_speed": "12 mph",
+      "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "garden, meadow, ocean, forest",
-      "locations": [
-        "Africa",
-        "Asia",
-        "Central-America",
-        "Europe",
-        "North-America",
-        "Oceania",
-        "South-America"
-      ],
-      "group_behavior": "Solitary",
+      "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
+      "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
+      "group_behavior": "Group",
       "conservation_status": "Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Climate change",
+      "biggest_threat": "Habitat loss",
       "distinctive_features": [
-        "Wing",
-        "Proboscis",
-        "Pattern"
+        "Black, orange, and white pattern on wings"
       ],
       "population_trend": null
     },
     "reproduction": {
-      "gestation_period": null,
+      "gestation_period": "3 to 8 days for eggs to hatch after they are laid",
       "average_litter_size": "300–500",
-      "name_of_young": null
+      "name_of_young": "Larvae/Caterpillar"
     },
     "conservation": {
       "category": null,
@@ -682,18 +657,18 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:20:54.123825",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:54.480304"
   },
   {
     "id": "Q7316",
     "name": "Honey Bee",
     "scientific_name": "Apis mellifera",
-    "common_names": [],
-    "description": "Colonial flying insect",
+    "common_names": [
+      "Honey Bee"
+    ],
+    "description": "There are only 8 recognized species!",
     "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
@@ -704,7 +679,7 @@
       "order": "Hymenoptera",
       "family": "Apidae",
       "genus": "Apis",
-      "species": "Apis mellifera"
+      "species": null
     },
     "animal_type": "bee",
     "young_name": "larva",
@@ -718,17 +693,8 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "urban, temperate, forest, mountain",
-      "locations": [
-        "Africa",
-        "Asia",
-        "Central-America",
-        "Eurasia",
-        "Europe",
-        "North-America",
-        "Oceania",
-        "South-America"
-      ],
+      "habitat": "Sheltered forests and meadows",
+      "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Pollution, Overfishing",
@@ -741,7 +707,7 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": null,
+      "average_litter_size": "200",
       "name_of_young": null
     },
     "conservation": {
@@ -753,18 +719,18 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:20:58.499585",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:55.900441"
   },
   {
     "id": "Q35625",
     "name": "Cheetah",
     "scientific_name": "Acinonyx jubatus",
-    "common_names": [],
-    "description": "Large feline of the genus Acinonyx",
+    "common_names": [
+      "Cheetah"
+    ],
+    "description": "The fastest land mammal in the world!",
     "summary": "The cheetah is a species of large feline and the only living member of the genus Acinonyx. An iconic pursuit predator, it is the fastest land animal, capable of running at 93 to 104 km/h ; it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
@@ -781,34 +747,28 @@
     "young_name": "cub",
     "group_name": "streak",
     "physical": {
-      "weight": null,
+      "weight": "40–65 kg",
       "length": "67.0–94.0 cm",
-      "height": null,
-      "top_speed": "100.1 km/h",
-      "lifespan": "3–4 years"
+      "height": "115–136 cm",
+      "top_speed": "70 mph",
+      "lifespan": "10 - 12 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "savanna, marsh, jungle, forest",
-      "locations": [
-        "Africa",
-        "Asia",
-        "Eurasia"
-      ],
-      "group_behavior": "Solitary",
+      "habitat": "Open grassland",
+      "locations": "Africa, Asia, Eurasia",
+      "group_behavior": "Solitary/Pairs",
       "conservation_status": "Critically Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "biggest_threat": "Habitat loss",
       "distinctive_features": [
-        "Stripe",
-        "Spot",
-        "Mane"
+        "Yellowish fur covered in small black spots"
       ],
       "population_trend": null
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": null,
-      "name_of_young": null
+      "gestation_period": "90 days",
+      "average_litter_size": "3",
+      "name_of_young": "Cub"
     },
     "conservation": {
       "category": null,
@@ -819,18 +779,18 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:21:00.881164",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:57.242185"
   },
   {
     "id": "Q14373",
     "name": "Giraffe",
     "scientific_name": "Giraffa camelopardalis",
-    "common_names": [],
-    "description": "Tall African hoofed mammal",
+    "common_names": [
+      "Giraffe"
+    ],
+    "description": "Long, black tongue can grow to 18 inches long!",
     "summary": "Giraffes are large African hoofed mammals. They are the tallest living terrestrial animals and the largest ruminants on Earth. They are classified under the family Giraffidae, along with their closest extant relative, the okapi. Traditionally, giraffes have been thought of as one species, Giraffa camelopardalis, with nine subspecies. Most recently, researchers proposed dividing them into four extant species, with seven subspecies, which can be distinguished morphologically by their fur coat patterns. Six valid extinct species of Giraffa are known from the fossil record.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Giraffe_Mikumi_National_Park.jpg/330px-Giraffe_Mikumi_National_Park.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Giraffe",
@@ -843,36 +803,32 @@
       "genus": "Giraffa",
       "species": "Giraffa camelopardalis"
     },
-    "animal_type": "default",
+    "animal_type": "mammal",
     "young_name": "young",
     "group_name": "population",
     "physical": {
-      "weight": null,
+      "weight": "550 kg",
       "length": "7.0–9.0 m",
-      "height": null,
-      "top_speed": null,
-      "lifespan": "14 months"
+      "height": "4m - 6m (13ft - 20ft)",
+      "top_speed": "30 mph",
+      "lifespan": "20 - 25 years"
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "lake, urban, savanna, marsh",
-      "locations": [
-        "Africa"
-      ],
-      "group_behavior": "Solitary",
+      "habitat": "Open woodland and savannah",
+      "locations": "Africa",
+      "group_behavior": "Herd",
       "conservation_status": "Critically Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "biggest_threat": "Hunting and habitat loss",
       "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Long tail"
+        "Elongated neck and unique patterned coat"
       ],
       "population_trend": null
     },
     "reproduction": {
-      "gestation_period": "400–460 days",
-      "average_litter_size": "97",
-      "name_of_young": null
+      "gestation_period": "457 days",
+      "average_litter_size": "1",
+      "name_of_young": "Calf"
     },
     "conservation": {
       "category": null,
@@ -883,18 +839,18 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:21:03.483715",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:58.574769"
   },
   {
     "id": "Q33602",
     "name": "Polar Bear",
     "scientific_name": "Ursus maritimus",
-    "common_names": [],
-    "description": "Topics referred to by the same term",
+    "common_names": [
+      "Polar Bear"
+    ],
+    "description": "Could be extinct within the next 30 years!",
     "summary": "The polar bear is a large Arctic animal.",
     "image": "",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Polar_Bear",
@@ -911,33 +867,28 @@
     "young_name": "cub",
     "group_name": "sloth",
     "physical": {
-      "weight": null,
+      "weight": "150–600 kg",
       "length": null,
       "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "top_speed": "25 mph",
+      "lifespan": "20 - 30 years"
     },
     "ecology": {
-      "diet": "Omnivore",
-      "habitat": "sea, desert",
-      "locations": [
-        "Eurasia",
-        "Europe",
-        "North-America",
-        "Ocean"
-      ],
+      "diet": "Carnivore",
+      "habitat": "Coastal ice fields and floating ice",
+      "locations": "Eurasia, Europe, North-America, Ocean",
       "group_behavior": "Solitary",
       "conservation_status": null,
-      "biggest_threat": null,
+      "biggest_threat": "Global warming",
       "distinctive_features": [
-        "Thick fur"
+        "Clear not white fur and black skin"
       ],
       "population_trend": null
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": null,
-      "name_of_young": null
+      "gestation_period": "6 - 9 months",
+      "average_litter_size": "2",
+      "name_of_young": "Cub"
     },
     "conservation": {
       "category": null,
@@ -948,10 +899,8 @@
     },
     "sources": [
       "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:21:05.677645",
-    "characteristics": {}
+    "last_updated": "2026-03-15T22:23:59.990026"
   }
 ]
