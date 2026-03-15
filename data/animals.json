@@ -29,7 +29,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "jungle, temperate forest, grassland, forest",
+      "habitat": "rainforest, grassland, mountain, sea",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -42,14 +42,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "1",
+      "average_litter_size": null,
       "name_of_young": "cub"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:33:43.420762"
+    "last_updated": "2026-03-15T20:34:31.982758"
   },
   {
     "id": "Q7372",
@@ -81,7 +81,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "woodland, forest, tropical, rainforest",
+      "habitat": "rainforest, savanna, sea, forest",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
@@ -94,14 +94,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "1",
+      "average_litter_size": "2",
       "name_of_young": "calf"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:33:45.435519"
+    "last_updated": "2026-03-15T20:34:33.671179"
   },
   {
     "id": "Q213537",
@@ -133,7 +133,7 @@
     },
     "ecology": {
       "diet": "Insectivore",
-      "habitat": "jungle, sea, grassland, forest",
+      "habitat": "grassland, savanna, sea, forest",
       "locations": "North America, Eurasia, Europe, Asia, Russia",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -153,7 +153,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:33:48.048438"
+    "last_updated": "2026-03-15T20:34:35.459154"
   },
   {
     "id": "Q25319",
@@ -185,7 +185,7 @@
     },
     "ecology": {
       "diet": "Piscivore",
-      "habitat": "sea, forest, wetland, tropical",
+      "habitat": "savanna, cliff, coastal, forest",
       "locations": "North America, Canada, Alaska, United States, Mexico",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -198,14 +198,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "1",
+      "average_litter_size": "4",
       "name_of_young": "chick"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:33:50.294841"
+    "last_updated": "2026-03-15T20:34:37.232051"
   },
   {
     "id": "Q43306",
@@ -237,7 +237,7 @@
     },
     "ecology": {
       "diet": "Piscivore",
-      "habitat": "island, ice, marsh, ocean",
+      "habitat": "sea, marsh, ocean, island",
       "locations": "Antarctica, Southern Ocean, New Zealand, Australia, Chile",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -257,7 +257,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:33:53.507546"
+    "last_updated": "2026-03-15T20:34:38.936036"
   },
   {
     "id": "Q47164",
@@ -289,7 +289,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "tropical, temperate, coastal, marsh",
+      "habitat": "sea, coastal, tropical, temperate",
       "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -309,7 +309,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:33:55.663404"
+    "last_updated": "2026-03-15T20:34:40.731926"
   },
   {
     "id": "Q39709",
@@ -341,7 +341,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "stream, Atlantic, coastal, river",
+      "habitat": "sea, coastal, river, ocean",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -361,7 +361,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:33:57.700189"
+    "last_updated": "2026-03-15T20:34:42.435829"
   },
   {
     "id": "Q7785",
@@ -393,7 +393,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "tropical, wetland, temperate, coastal",
+      "habitat": "sea, coastal, tropical, river",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -406,14 +406,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "45",
+      "average_litter_size": "85–200",
       "name_of_young": "hatchling"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:33:59.886354"
+    "last_updated": "2026-03-15T20:34:44.147634"
   },
   {
     "id": "Q189609",
@@ -445,7 +445,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, tropical, rainforest, coastal",
+      "habitat": "agricultural, rainforest, sea, coastal",
       "locations": "Asia, India, China, Southeast Asia, Australia",
       "group_behavior": "Family groups",
       "conservation_status": "Vulnerable",
@@ -458,14 +458,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "3",
+      "average_litter_size": "7–43",
       "name_of_young": "hatchling"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:34:02.311243"
+    "last_updated": "2026-03-15T20:34:45.807684"
   },
   {
     "id": "Q270238",
@@ -497,7 +497,7 @@
     },
     "ecology": {
       "diet": "Omnivore",
-      "habitat": "tropical, swamp, coastal, river",
+      "habitat": "sea, coastal, tropical, river",
       "locations": "Asia, China, Indonesia, Japan, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -508,14 +508,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "1",
+      "average_litter_size": "3",
       "name_of_young": "young"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:34:04.545701"
+    "last_updated": "2026-03-15T20:34:47.492354"
   },
   {
     "id": "Q165980",
@@ -547,7 +547,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "woodland, garden, tropical, meadow",
+      "habitat": "sea, coastal, forest, tropical",
       "locations": "North America, South America, Europe, Asia, Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -560,14 +560,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": null,
+      "average_litter_size": "300–500",
       "name_of_young": "caterpillar"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:34:06.950634"
+    "last_updated": "2026-03-15T20:34:49.367872"
   },
   {
     "id": "Q7316",
@@ -599,7 +599,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "grassland, forest, tropical, temperate",
+      "habitat": "agricultural, grassland, sea, forest",
       "locations": "North America, Europe, Asia, Africa, South America",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -612,13 +612,13 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "1",
+      "average_litter_size": null,
       "name_of_young": "larva"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:34:09.585686"
+    "last_updated": "2026-03-15T20:34:51.140228"
   }
 ]
