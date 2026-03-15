@@ -53,12 +53,20 @@
             <aside class="sidebar left-sidebar">
                 
                 <!-- Quick Stats (Icon-based) -->
-                <div class="stat-card">
-                    <div class="stat-card-header">Food</div>
+                <div class="stat-card" id="stat-food-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                        </svg>
+                        Food
+                    </div>
                     <div class="diet-icons" id="diet-icons"></div>
                 </div>
 
-                <div class="stat-card">
+                <div class="stat-card" id="stat-length-card">
                     <div class="stat-card-header">
                         <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M2 12h20M2 12l5-5M2 12l5 5"/>
@@ -68,7 +76,7 @@
                     <div class="stat-card-value" id="stat-length">-</div>
                 </div>
 
-                <div class="stat-card">
+                <div class="stat-card" id="stat-height-card">
                     <div class="stat-card-header">
                         <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2v20M2 12h20"/>
@@ -78,7 +86,7 @@
                     <div class="stat-card-value" id="stat-height">-</div>
                 </div>
 
-                <div class="stat-card">
+                <div class="stat-card" id="stat-weight-card">
                     <div class="stat-card-header">
                         <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -88,9 +96,38 @@
                     <div class="stat-card-value" id="stat-weight">-</div>
                 </div>
 
+                <!-- NEW: Speed Stat -->
+                <div class="stat-card" id="stat-speed-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                        Speed
+                    </div>
+                    <div class="stat-card-value" id="stat-speed">-</div>
+                </div>
+
+                <!-- NEW: Lifespan Stat -->
+                <div class="stat-card" id="stat-lifespan-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        Lifespan
+                    </div>
+                    <div class="stat-card-value" id="stat-lifespan">-</div>
+                </div>
+
                 <!-- Scientific Classification -->
                 <div class="classification-card">
-                    <div class="stat-card-header">Scientific Classification</div>
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                        Classification
+                    </div>
                     <table class="classification-table" id="classification-table">
                         <tbody></tbody>
                     </table>
@@ -115,14 +152,18 @@
             <aside class="sidebar right-sidebar">
                 
                 <!-- Location with Map -->
-                <div class="info-card">
-                    <div class="stat-card-header">Location & Distribution</div>
+                <div class="info-card" id="location-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Location & Distribution
+                    </div>
                     <div class="location-content">
                         <div class="location-map" id="location-map">
-                            <!-- External World Map SVG -->
                             <div class="world-map-container">
                                 <img src="data/world.svg" alt="World Map" class="world-map-svg" id="world-map">
-                                <!-- Location dots will be added by JS -->
                                 <div id="location-dots"></div>
                             </div>
                         </div>
@@ -131,8 +172,13 @@
                 </div>
 
                 <!-- Conservation Status -->
-                <div class="info-card">
-                    <div class="stat-card-header">Conservation Status</div>
+                <div class="info-card" id="conservation-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        Conservation Status
+                    </div>
                     <div class="conservation-status-box" id="conservation-status-box">
                         <span class="conservation-status-text" id="conservation-status-text">Unknown</span>
                     </div>
@@ -143,8 +189,14 @@
                 </div>
 
                 <!-- Time Period (Visual Timeline) -->
-                <div class="info-card">
-                    <div class="stat-card-header">Time Period</div>
+                <div class="info-card" id="time-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        Time Period
+                    </div>
                     <div class="time-content">
                         <div class="time-range" id="time-range">-</div>
                         <div class="timeline-visual">
@@ -160,8 +212,13 @@
                 </div>
 
                 <!-- Reproduction Card -->
-                <div class="info-card">
-                    <div class="stat-card-header">Reproduction</div>
+                <div class="info-card" id="reproduction-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        Reproduction
+                    </div>
                     <div class="reproduction-content">
                         <div class="repro-item">
                             <span class="repro-label">Young Name</span>
@@ -179,6 +236,22 @@
                             <span class="repro-label">Litter Size</span>
                             <span class="repro-value" id="repro-litter">-</span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- NEW: Common Name Card -->
+                <div class="info-card" id="common-name-card">
+                    <div class="stat-card-header">
+                        <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        Common Names
+                    </div>
+                    <div class="common-names-content">
+                        <p class="common-names-text" id="common-names-text">-</p>
                     </div>
                 </div>
 
