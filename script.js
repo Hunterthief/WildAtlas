@@ -198,6 +198,9 @@ function initDetailPage() {
             }
             
             populateDetailPage(animal);
+            
+            // Setup scroll indicator click handler
+            setupScrollIndicator();
         })
         .catch(error => {
             console.error('❌ Error loading animal data:', error);
@@ -216,16 +219,16 @@ function populateDetailPage(animal) {
     
     // === LEFT SIDEBAR ===
     
-    // Diet Icons - Updated to show multiple icons
-const dietIcons = document.getElementById('diet-icons');
-if (dietIcons && eco.diet) {
-    const dietTypes = getDietTypes(eco.diet, animal.animal_type, animal.summary);
-    dietIcons.innerHTML = dietTypes.map(type => `
-        <div class="diet-icon ${type.class}" title="${type.title}">${type.icon}</div>
-    `).join('');
-}
+    // Diet Icons - Multiple icons per animal
+    const dietIcons = document.getElementById('diet-icons');
+    if (dietIcons && eco.diet) {
+        const dietTypes = getDietTypes(eco.diet, animal.animal_type, animal.summary);
+        dietIcons.innerHTML = dietTypes.map(type => `
+            <div class="diet-icon ${type.class}" title="${type.title}">${type.icon}</div>
+        `).join('');
+    }
     
-    // Stats - Only show if data exists
+    // Stats - Only show if data exists (auto-hide null/empty)
     setStatContent('stat-length', 'stat-length-card', phys.length);
     setStatContent('stat-height', 'stat-height-card', phys.height);
     setStatContent('stat-weight', 'stat-weight-card', phys.weight);
@@ -322,7 +325,7 @@ if (dietIcons && eco.diet) {
         reproCard.style.display = 'none';
     }
     
-    // NEW: Common Names
+    // Common Names
     const commonNameCard = document.getElementById('common-name-card');
     const commonNamesText = document.getElementById('common-names-text');
     if (commonNamesText) {
@@ -334,8 +337,6 @@ if (dietIcons && eco.diet) {
             commonNamesText.textContent = commonNames;
         } else {
             commonNamesText.textContent = 'No alternative names';
-            // Optionally hide card if no common names
-            // commonNameCard.style.display = 'none';
         }
     }
     
@@ -357,7 +358,7 @@ if (dietIcons && eco.diet) {
 }
 
 // ============================================
-// NEW: Set Stat Content (Hide if empty)
+// Set Stat Content (Hide if empty)
 // ============================================
 function setStatContent(elementId, cardId, value) {
     const el = document.getElementById(elementId);
@@ -371,6 +372,55 @@ function setStatContent(elementId, cardId, value) {
             el.textContent = '-';
             if (card) card.style.display = 'none';
         }
+    }
+}
+
+// ============================================
+// Scroll Indicator Functionality
+// ============================================
+function setupScrollIndicator() {
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    const overviewSection = document.getElementById('overview-section');
+    
+    if (scrollIndicator && overviewSection) {
+        // Make it clickable
+        scrollIndicator.style.cursor = 'pointer';
+        scrollIndicator.style.pointerEvents = 'auto';
+        
+        // Add click event
+        scrollIndicator.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToOverview();
+        });
+        
+        // Also allow touch for mobile
+        scrollIndicator.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            scrollToOverview();
+        });
+    }
+}
+
+function scrollToOverview() {
+    const overviewSection = document.getElementById('overview-section');
+    
+    if (overviewSection) {
+        // Smooth scroll to overview section
+        overviewSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // Add a subtle highlight effect
+        overviewSection.style.transition = 'background 0.3s ease';
+        overviewSection.style.background = 'rgba(56, 189, 248, 0.05)';
+        overviewSection.style.borderRadius = '12px';
+        overviewSection.style.padding = '20px';
+        
+        setTimeout(() => {
+            overviewSection.style.background = 'transparent';
+            overviewSection.style.padding = '0';
+        }, 1000);
     }
 }
 
@@ -545,8 +595,7 @@ function getDietTypes(diet, animalType, summary) {
     const typeLower = (animalType || '').toLowerCase();
     const types = [];
     
-    // ========== CARNIVORE / MEAT ==========
-    // Show for: Carnivore, OR if text mentions hunting/prey/meat
+    // CARNIVORE / MEAT
     if (dietLower.includes('carnivore') || 
         dietLower.includes('meat') ||
         summaryLower.includes('predator') ||
@@ -556,8 +605,7 @@ function getDietTypes(diet, animalType, summary) {
         types.push({ class: 'carnivore', icon: '🥩', title: 'Meat' });
     }
     
-    // ========== HERBIVORE / PLANTS ==========
-    // Show for: Herbivore, OR if text mentions plants/grazing
+    // HERBIVORE / PLANTS
     if (dietLower.includes('herbivore') || 
         dietLower.includes('plant') ||
         summaryLower.includes('grazes') ||
@@ -567,8 +615,7 @@ function getDietTypes(diet, animalType, summary) {
         types.push({ class: 'herbivore', icon: '🌿', title: 'Plants' });
     }
     
-    // ========== PISCIVORE / FISH ==========
-    // Show for: Piscivore, OR if text mentions fish, OR for fish-eating animals
+    // PISCIVORE / FISH
     if (dietLower.includes('piscivore') || 
         dietLower.includes('fish') ||
         summaryLower.includes('fish') ||
@@ -578,8 +625,7 @@ function getDietTypes(diet, animalType, summary) {
         types.push({ class: 'piscivore', icon: '🐟', title: 'Fish' });
     }
     
-    // ========== INSECTIVORE / INSECTS ==========
-    // Show for: Insectivore, OR if text mentions insects, OR for insect-eating animals
+    // INSECTIVORE / INSECTS
     if (dietLower.includes('insectivore') || 
         summaryLower.includes('insects') ||
         summaryLower.includes('bugs') ||
@@ -588,8 +634,7 @@ function getDietTypes(diet, animalType, summary) {
         types.push({ class: 'insectivore', icon: '🐛', title: 'Insects' });
     }
     
-    // ========== OMNIVORE / MIXED ==========
-    // Show for: Omnivore (in addition to other icons, not instead of)
+    // OMNIVORE / MIXED
     if (dietLower.includes('omnivore') || 
         summaryLower.includes('varied diet') ||
         summaryLower.includes('both plants and animals') ||
@@ -597,25 +642,22 @@ function getDietTypes(diet, animalType, summary) {
         types.push({ class: 'omnivore', icon: '🍽️', title: 'Omnivore' });
     }
     
-    // ========== NECTARIVORE / NECTAR ==========
-    // Show for animals that eat nectar
+    // NECTARIVORE / NECTAR
     if (summaryLower.includes('nectar') ||
         summaryLower.includes('pollinator') ||
         ['butterfly', 'bee', 'hummingbird'].includes(typeLower)) {
         types.push({ class: 'nectarivore', icon: '🌸', title: 'Nectar' });
     }
     
-    // ========== SCAVENGER ==========
-    // Show for scavengers
+    // SCAVENGER
     if (summaryLower.includes('scavenger') ||
         summaryLower.includes('carrion') ||
         ['vulture', 'hyena'].includes(typeLower)) {
         types.push({ class: 'scavenger', icon: '🦴', title: 'Scavenger' });
     }
     
-    // ========== FALLBACK ==========
+    // FALLBACK
     if (types.length === 0) {
-        // Default based on diet type
         if (dietLower.includes('carnivore')) {
             types.push({ class: 'carnivore', icon: '🥩', title: 'Carnivore' });
         } else if (dietLower.includes('herbivore')) {
