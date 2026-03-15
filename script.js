@@ -1,5 +1,4 @@
 // Location coordinates for world map (percentage-based for responsive SVG)
-// Values are percentages (0-100) of map width/height
 const locationCoordinates = {
     'asia': { x: 75, y: 40 },
     'china': { x: 78, y: 42 },
@@ -24,10 +23,6 @@ const locationCoordinates = {
     'indian ocean': { x: 65, y: 60 },
     'arctic': { x: 50, y: 10 },
     'antarctica': { x: 50, y: 90 },
-    'texas': { x: 20, y: 42 },
-    'oklahoma': { x: 21, y: 41 },
-    'florida': { x: 26, y: 46 },
-    'california': { x: 17, y: 40 },
     'brazil': { x: 32, y: 68 },
     'argentina': { x: 30, y: 80 },
     'egypt': { x: 58, y: 45 },
@@ -53,16 +48,17 @@ const locationCoordinates = {
     'madagascar': { x: 65, y: 70 },
     'greenland': { x: 38, y: 15 },
     'iceland': { x: 45, y: 18 },
-    'india': { x: 72, y: 50 },
     'siberia': { x: 80, y: 25 },
     'mongolia': { x: 80, y: 35 },
     'tibet': { x: 75, y: 45 },
     'alps': { x: 53, y: 33 },
-    'himilayas': { x: 73, y: 43 },
+    'himalayas': { x: 73, y: 43 },
     'andes': { x: 25, y: 70 },
     'rockies': { x: 18, y: 35 },
     'appalachian': { x: 24, y: 38 }
 };
+
+let allAnimals = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🦁 WildAtlas initializing...');
@@ -204,7 +200,7 @@ function initDetailPage() {
             populateDetailPage(animal);
         })
         .catch(error => {
-            console.error('❌ Error loading animal ', error);
+            console.error('❌ Error loading animal data:', error);
             document.getElementById('overview-text').textContent = 'Error loading data.';
         });
 }
@@ -229,10 +225,12 @@ function populateDetailPage(animal) {
         `).join('');
     }
     
-    // Stats
-    setTextContent('stat-length', phys.length);
-    setTextContent('stat-height', phys.height);
-    setTextContent('stat-weight', phys.weight);
+    // Stats - Only show if data exists
+    setStatContent('stat-length', 'stat-length-card', phys.length);
+    setStatContent('stat-height', 'stat-height-card', phys.height);
+    setStatContent('stat-weight', 'stat-weight-card', phys.weight);
+    setStatContent('stat-speed', 'stat-speed-card', phys.top_speed);
+    setStatContent('stat-lifespan', 'stat-lifespan-card', phys.lifespan);
     
     // Classification Table
     const classTable = document.getElementById('classification-table');
@@ -253,15 +251,21 @@ function populateDetailPage(animal) {
     if (heroImage) {
         heroImage.src = animal.image ? animal.image.trim() : '';
         heroImage.alt = animal.name;
+        
+        // Hide image wrapper if no image
+        const imageWrapper = document.getElementById('hero-image-wrapper');
+        if (imageWrapper && !animal.image) {
+            imageWrapper.style.display = 'none';
+        }
     }
     
     // === RIGHT SIDEBAR ===
     
     // Location with Map Dots
+    const locationCard = document.getElementById('location-card');
     const locationText = document.getElementById('location-text');
     if (locationText && animal.ecology?.locations) {
         locationText.textContent = animal.ecology.locations;
-        // Wait for map to load before adding dots
         const mapImg = document.getElementById('world-map');
         if (mapImg && mapImg.complete) {
             addLocationDots(animal.ecology.locations);
@@ -270,19 +274,25 @@ function populateDetailPage(animal) {
                 addLocationDots(animal.ecology.locations);
             });
         }
+    } else if (locationCard) {
+        locationCard.style.display = 'none';
     }
     
     // Conservation Status
+    const conservationCard = document.getElementById('conservation-card');
     const conservationBox = document.getElementById('conservation-status-box');
     const conservationText = document.getElementById('conservation-status-text');
     if (conservationBox && animal.ecology?.conservation_status) {
         const statusClass = getConservationClass(animal.ecology.conservation_status);
         conservationBox.className = `conservation-status-box ${statusClass}`;
         if (conservationText) conservationText.textContent = animal.ecology.conservation_status;
+    } else if (conservationCard) {
+        conservationCard.style.display = 'none';
     }
-    setTextContent('conservation-threats', animal.ecology?.biggest_threat);
+    setStatContent('conservation-threats', null, animal.ecology?.biggest_threat);
     
     // Time Period
+    const timeCard = document.getElementById('time-card');
     const timeRange = document.getElementById('time-range');
     const timelineFill = document.getElementById('timeline-fill');
     const timelineStart = document.getElementById('timeline-start');
@@ -294,33 +304,78 @@ function populateDetailPage(animal) {
         if (timelineFill) timelineFill.style.width = timeData.width;
         if (timelineStart) timelineStart.textContent = timeData.start;
         if (timelineEnd) timelineEnd.textContent = 'Present';
+    } else if (timeCard) {
+        timeCard.style.display = 'none';
     }
     
     // Reproduction
-    setTextContent('repro-young', repro.name_of_young || animal.young_name);
-    setTextContent('repro-group', animal.group_name);
-    setTextContent('repro-gestation', repro.gestation_period);
-    setTextContent('repro-litter', repro.average_litter_size);
+    const reproCard = document.getElementById('reproduction-card');
+    const hasReproData = repro.name_of_young || animal.young_name || animal.group_name || 
+                         repro.gestation_period || repro.average_litter_size;
+    
+    if (hasReproData) {
+        setStatContent('repro-young', null, repro.name_of_young || animal.young_name);
+        setStatContent('repro-group', null, animal.group_name);
+        setStatContent('repro-gestation', null, repro.gestation_period);
+        setStatContent('repro-litter', null, repro.average_litter_size);
+    } else if (reproCard) {
+        reproCard.style.display = 'none';
+    }
+    
+    // NEW: Common Names
+    const commonNameCard = document.getElementById('common-name-card');
+    const commonNamesText = document.getElementById('common-names-text');
+    if (commonNamesText) {
+        const commonNames = animal.common_names && animal.common_names.length > 0 
+            ? animal.common_names.join(', ')
+            : null;
+        
+        if (commonNames) {
+            commonNamesText.textContent = commonNames;
+        } else {
+            commonNamesText.textContent = 'No alternative names';
+            // Optionally hide card if no common names
+            // commonNameCard.style.display = 'none';
+        }
+    }
     
     // === MAIN ARTICLE ===
     
-    setTextContent('overview-text', animal.summary || animal.description || 'No description available.');
+    setStatContent('overview-text', null, animal.summary || animal.description || 'No description available.');
     
     const ecologyText = buildEcologyText(animal);
-    setTextContent('ecology-text', ecologyText);
+    setStatContent('ecology-text', null, ecologyText);
     
     // === FAQ ===
     document.querySelectorAll('.faq-animal-name').forEach(el => {
         el.textContent = animal.name.toLowerCase();
     });
-    setTextContent('faq-diet', eco.diet || 'Unknown');
-    setTextContent('faq-habitat', `${eco.habitat || 'Unknown'} - ${eco.locations || 'Unknown'}`);
-    setTextContent('faq-conservation', animal.ecology?.conservation_status || 'Unknown');
-    setTextContent('faq-features', eco.distinctive_features?.join(', ') || 'No data');
+    setStatContent('faq-diet', null, eco.diet || 'Unknown');
+    setStatContent('faq-habitat', null, `${eco.habitat || 'Unknown'} - ${eco.locations || 'Unknown'}`);
+    setStatContent('faq-conservation', null, animal.ecology?.conservation_status || 'Unknown');
+    setStatContent('faq-features', null, eco.distinctive_features?.join(', ') || 'No data');
 }
 
 // ============================================
-// Location Map Functions (External SVG)
+// NEW: Set Stat Content (Hide if empty)
+// ============================================
+function setStatContent(elementId, cardId, value) {
+    const el = document.getElementById(elementId);
+    const card = cardId ? document.getElementById(cardId) : null;
+    
+    if (el) {
+        if (value && value !== '-' && value !== '' && value !== null) {
+            el.textContent = value;
+            if (card) card.style.display = 'flex';
+        } else {
+            el.textContent = '-';
+            if (card) card.style.display = 'none';
+        }
+    }
+}
+
+// ============================================
+// Location Map Functions
 // ============================================
 function addLocationDots(locationsString) {
     const dotsContainer = document.getElementById('location-dots');
@@ -355,19 +410,16 @@ function addLocationDots(locationsString) {
 function findLocationCoordinates(location) {
     const loc = location.toLowerCase().trim();
     
-    // Direct match
     if (locationCoordinates[loc]) {
         return locationCoordinates[loc];
     }
     
-    // Partial match
     for (const key in locationCoordinates) {
         if (loc.includes(key) || key.includes(loc)) {
             return locationCoordinates[key];
         }
     }
     
-    // Region matching
     if (loc.includes('asia') || loc.includes('east')) return locationCoordinates['asia'];
     if (loc.includes('america') || loc.includes('usa') || loc.includes('us') || loc.includes('united states')) {
         return locationCoordinates['north america'];
@@ -447,13 +499,6 @@ function getTimePeriod(animal) {
 // ============================================
 // Helper Functions
 // ============================================
-function setTextContent(id, text) {
-    const el = document.getElementById(id);
-    if (el) {
-        el.textContent = text || '-';
-    }
-}
-
 function getConservationClass(status) {
     if (!status) return '';
     const s = status.toLowerCase();
