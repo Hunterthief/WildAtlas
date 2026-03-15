@@ -29,15 +29,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, coniferous forest, mangrove, lake",
+      "habitat": "swamp, jungle, rainforest, forest",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
       "distinctive_features": [
-        "Striped",
-        "Spotted",
-        "Long Tail"
+        "Stripe",
+        "Spot",
+        "Mane"
       ]
     },
     "reproduction": {
@@ -49,7 +49,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:27.463783"
+    "last_updated": "2026-03-15T03:05:31.973271"
   },
   {
     "id": "Q7372",
@@ -81,15 +81,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, tropical, lake, sea",
-      "locations": "Asia, India, China, Indonesia, Sumatra",
-      "group_behavior": "Solitary",
+      "habitat": "rainforest, forest, savanna, woodland",
+      "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
+      "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
       "distinctive_features": [
         "Distinctive mane",
-        "Long trunk",
-        "Large tusks"
+        "Long tail",
+        "Scaled skin"
       ]
     },
     "reproduction": {
@@ -101,7 +101,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:29.566119"
+    "last_updated": "2026-03-15T03:05:34.432364"
   },
   {
     "id": "Q213537",
@@ -133,15 +133,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, tropical, lake, grassland",
-      "locations": "Asia, India, China, Russia, Indonesia",
+      "habitat": "jungle, forest, savanna, tundra",
+      "locations": "Africa, South Africa, Egypt, Asia, India",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Human-wildlife conflict, Overfishing",
       "distinctive_features": [
-        "Striped coat",
         "Spotted coat",
-        "Distinctive mane"
+        "Distinctive mane",
+        "Prominent horns"
       ]
     },
     "reproduction": {
@@ -153,7 +153,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:31.883833"
+    "last_updated": "2026-03-15T03:05:38.191234"
   },
   {
     "id": "Q25319",
@@ -174,7 +174,7 @@
       "species": "Haliaeetus leucocephalus"
     },
     "animal_type": "raptor",
-    "young_name": "eaglet",
+    "young_name": "chick",
     "group_name": "kettle",
     "physical": {
       "weight": null,
@@ -185,27 +185,27 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, wetland, mangrove, lake",
-      "locations": "North America, Canada, Alaska, United States, Asia",
+      "habitat": "ocean, cliff, swamp, forest",
+      "locations": "North America, Canada, Alaska, United States, Mexico",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Human-wildlife conflict, Pollution",
       "distinctive_features": [
-        "Distinctive wings",
-        "Long tail",
-        "Distinctive fins"
+        "Wing",
+        "Talons",
+        "Beak"
       ]
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "1",
-      "name_of_young": "eaglet"
+      "name_of_young": "chick"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:33.969346"
+    "last_updated": "2026-03-15T03:05:41.253570"
   },
   {
     "id": "Q43306",
@@ -237,15 +237,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ice, ocean, sea, marsh",
-      "locations": "Antarctica, Southern Ocean, Chile, Australia, New Zealand",
-      "group_behavior": "Solitary",
+      "habitat": "ocean, ice, marsh, island",
+      "locations": "Antarctica, Southern Ocean, New Zealand, Australia, Chile",
+      "group_behavior": "Social",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Climate change, Overfishing",
       "distinctive_features": [
-        "Flightless",
-        "Yellow Ear Patches",
-        "Distinctive wings"
+        "Wing",
+        "Flipper",
+        "Feather"
       ]
     },
     "reproduction": {
@@ -257,7 +257,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:37.286837"
+    "last_updated": "2026-03-15T03:05:43.367249"
   },
   {
     "id": "Q47164",
@@ -289,15 +289,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "tropical, ocean, sea, marsh",
+      "habitat": "open ocean, ocean, temperate, marsh",
       "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Climate change, Pollution, Overfishing",
       "distinctive_features": [
-        "White Underside",
-        "Fins",
-        "Long tail"
+        "Fin",
+        "Tail",
+        "Tooth"
       ]
     },
     "reproduction": {
@@ -309,7 +309,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:39.593292"
+    "last_updated": "2026-03-15T03:05:46.010388"
   },
   {
     "id": "Q39709",
@@ -341,15 +341,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Pacific, lake, ocean, sea",
-      "locations": "North America, Canada, Alaska, United States, Europe",
+      "habitat": "ocean, Pacific, stream, Atlantic",
+      "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
       "distinctive_features": [
-        "Anadromous",
-        "Distinctive wings",
-        "Long tail"
+        "Fin",
+        "Tail",
+        "Scale"
       ]
     },
     "reproduction": {
@@ -361,7 +361,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:41.649823"
+    "last_updated": "2026-03-15T03:05:48.072139"
   },
   {
     "id": "Q7785",
@@ -393,15 +393,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coral reef, tropical, ocean, sea",
+      "habitat": "ocean, coral reef, temperate, river",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
       "distinctive_features": [
-        "Carapace",
-        "Flippers",
-        "Green Fat"
+        "Shell",
+        "Flipper",
+        "Scale"
       ]
     },
     "reproduction": {
@@ -413,7 +413,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:43.710370"
+    "last_updated": "2026-03-15T03:05:50.465222"
   },
   {
     "id": "Q189609",
@@ -445,15 +445,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, tropical, agricultural, sea",
-      "locations": "Asia, Australia, Europe, India, China",
+      "habitat": "rainforest, forest, agricultural, river",
+      "locations": "Asia, India, China, Southeast Asia, Australia",
       "group_behavior": "Family groups",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
       "distinctive_features": [
-        "Venomous",
-        "Hood",
-        "Scales"
+        "Scale",
+        "Venom",
+        "Fang"
       ]
     },
     "reproduction": {
@@ -465,7 +465,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:45.729952"
+    "last_updated": "2026-03-15T03:05:52.824294"
   },
   {
     "id": "Q270238",
@@ -497,14 +497,14 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "tropical, lake, swamp, sea",
-      "locations": "North America, South America, Europe, Asia, China",
+      "habitat": "swamp, river, pond, coastal",
+      "locations": "North America, United States, Canada, Europe, Asia",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Human-wildlife conflict, Overfishing",
       "distinctive_features": [
-        "Long tail",
-        "Distinctive fins",
+        "Jump",
+        "Prominent horns",
         "Venomous"
       ]
     },
@@ -517,7 +517,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:47.766225"
+    "last_updated": "2026-03-15T03:05:55.182801"
   },
   {
     "id": "Q165980",
@@ -549,15 +549,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "mountain, forest, tropical, ocean",
+      "habitat": "meadow, garden, ocean, swamp",
       "locations": "North America, South America, Europe, Asia, Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
       "distinctive_features": [
+        "Wing",
         "Proboscis",
-        "Distinctive wings",
-        "Long tail"
+        "Pattern"
       ]
     },
     "reproduction": {
@@ -569,7 +569,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:50.046343"
+    "last_updated": "2026-03-15T03:05:58.111135"
   },
   {
     "id": "Q7316",
@@ -601,15 +601,15 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, tropical, urban, grassland",
+      "habitat": "urban, forest, agricultural, temperate",
       "locations": "North America, Europe, Asia, Africa, South America",
-      "group_behavior": "Solitary",
+      "group_behavior": "Social",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Pollution, Overfishing",
       "distinctive_features": [
-        "Wings",
-        "Pollen Baskets",
-        "Stinger"
+        "Wing",
+        "Stinger",
+        "Pollen Basket"
       ]
     },
     "reproduction": {
@@ -621,6 +621,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T02:46:52.724008"
+    "last_updated": "2026-03-15T03:06:01.162968"
   }
 ]
