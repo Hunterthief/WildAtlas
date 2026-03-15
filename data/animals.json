@@ -59,7 +59,7 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:35.148841"
+    "last_updated": "2026-03-15T22:25:27.068383"
   },
   {
     "id": "Q7372",
@@ -91,7 +91,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "rainforest, savanna, tropical, forest",
+      "habitat": "sea, lake, rainforest, savanna",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
@@ -119,7 +119,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:23:37.524997"
+    "last_updated": "2026-03-15T22:25:29.818637"
   },
   {
     "id": "Q213537",
@@ -151,7 +151,7 @@
     },
     "ecology": {
       "diet": "Insectivore",
-      "habitat": "tundra, grassland, coastal, wetland",
+      "habitat": "grassland, jungle, river, sea",
       "locations": "North America, Eurasia, Europe, Asia, Russia",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -179,7 +179,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:23:39.963787"
+    "last_updated": "2026-03-15T22:25:32.840858"
   },
   {
     "id": "Q25319",
@@ -239,7 +239,7 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:41.448051"
+    "last_updated": "2026-03-15T22:25:34.696707"
   },
   {
     "id": "Q43306",
@@ -299,7 +299,7 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:42.814534"
+    "last_updated": "2026-03-15T22:25:36.455804"
   },
   {
     "id": "Q47164",
@@ -361,7 +361,7 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:44.760478"
+    "last_updated": "2026-03-15T22:25:38.432453"
   },
   {
     "id": "Q39709",
@@ -393,7 +393,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coastal, stream, river, Atlantic",
+      "habitat": "river, sea, lake, Atlantic",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -421,7 +421,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:23:47.232373"
+    "last_updated": "2026-03-15T22:25:41.025619"
   },
   {
     "id": "Q7785",
@@ -453,7 +453,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "temperate, coastal, wetland, tropical",
+      "habitat": "river, sea, temperate, coastal",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -481,7 +481,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:23:49.416094"
+    "last_updated": "2026-03-15T22:25:43.461384"
   },
   {
     "id": "Q189609",
@@ -541,7 +541,7 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:50.806021"
+    "last_updated": "2026-03-15T22:25:45.176965"
   },
   {
     "id": "Q270238",
@@ -573,7 +573,7 @@
     },
     "ecology": {
       "diet": "Omnivore",
-      "habitat": "coastal, tropical, river, swamp",
+      "habitat": "river, sea, lake, coastal",
       "locations": "Asia, China, Indonesia, Japan, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -599,7 +599,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:23:53.127138"
+    "last_updated": "2026-03-15T22:25:47.403752"
   },
   {
     "id": "Q165980",
@@ -659,7 +659,7 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:54.480304"
+    "last_updated": "2026-03-15T22:25:49.083607"
   },
   {
     "id": "Q7316",
@@ -721,7 +721,7 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:55.900441"
+    "last_updated": "2026-03-15T22:25:50.886668"
   },
   {
     "id": "Q35625",
@@ -781,7 +781,7 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:57.242185"
+    "last_updated": "2026-03-15T22:25:52.563095"
   },
   {
     "id": "Q14373",
@@ -841,7 +841,7 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:58.574769"
+    "last_updated": "2026-03-15T22:25:54.236565"
   },
   {
     "id": "Q33602",
@@ -901,6 +901,6 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-15T22:23:59.990026"
+    "last_updated": "2026-03-15T22:25:56.149642"
   }
 ]
