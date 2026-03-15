@@ -1,6 +1,6 @@
 // ============================================
 // WildAtlas - Main JavaScript File
-// 3-Column Layout: Data | Image | Data
+// Facts.app Exact Layout
 // ============================================
 
 let allAnimals = [];
@@ -146,12 +146,16 @@ function initDetailPage() {
         })
         .catch(error => {
             console.error('❌ Error loading animal ', error);
-            document.getElementById('animal-summary').textContent = 'Error loading data.';
+            document.getElementById('overview-text').textContent = 'Error loading data.';
         });
 }
 
 function populateDetailPage(animal) {
-    // Title Section
+    const eco = animal.ecology || {};
+    const phys = animal.physical || {};
+    const repro = animal.reproduction || {};
+    
+    // === TITLE SECTION (Big & Centered) ===
     document.getElementById('animal-name').textContent = animal.name;
     document.getElementById('animal-scientific').textContent = animal.scientific_name;
     
@@ -162,65 +166,38 @@ function populateDetailPage(animal) {
         badgesContainer.innerHTML = `<span class="status-badge ${statusClass}">${animal.ecology.conservation_status}</span>`;
     }
     
-    // Stats Bar
-    const eco = animal.ecology || {};
-    const phys = animal.physical || {};
-    
-    // Diet Icons (Stats Bar)
-    const dietIcons = document.getElementById('diet-icons');
-    if (dietIcons && eco.diet) {
-        const dietTypes = getDietTypes(eco.diet);
-        dietIcons.innerHTML = dietTypes.map(type => `
-            <div class="diet-icon ${type.class}">${type.icon}</div>
-        `).join('');
-    }
-    setTextContent('stat-diet', eco.diet);
-    setTextContent('stat-length', phys.length);
-    setTextContent('stat-height', phys.height);
-    setTextContent('stat-weight', phys.weight);
-    
-    // Classification Table
-    const classTable = document.getElementById('classification-table');
-    if (classTable && animal.classification) {
-        const order = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
-        classTable.innerHTML = order.map(key => {
-            if (animal.classification[key]) {
-                return `<tr><th>${capitalizeFirst(key)}</th><td>${animal.classification[key]}</td></tr>`;
-            }
-            return '';
-        }).join('');
-    }
-    
     // === LEFT SIDEBAR ===
     
-    // Diet Icons Large (Left)
-    const dietIconsLarge = document.getElementById('diet-icons-large');
-    if (dietIconsLarge && eco.diet) {
+    // Stats (Food, Length, Height, Weight)
+    const dietIconsSide = document.getElementById('diet-icons-side');
+    if (dietIconsSide && eco.diet) {
         const dietTypes = getDietTypes(eco.diet);
-        dietIconsLarge.innerHTML = dietTypes.map(type => `
+        dietIconsSide.innerHTML = dietTypes.map(type => `
             <div class="diet-icon ${type.class}">${type.icon}</div>
         `).join('');
     }
-    setTextContent('diet-text-large', eco.diet);
+    setTextContent('stat-diet-side', eco.diet);
+    setTextContent('stat-length-side', phys.length);
+    setTextContent('stat-height-side', phys.height);
+    setTextContent('stat-weight-side', phys.weight);
     
-    // Physical Stats (Left)
-    setTextContent('side-length', phys.length);
-    setTextContent('side-height', phys.height);
-    setTextContent('side-weight', phys.weight);
-    setTextContent('side-speed', phys.top_speed);
-    setTextContent('side-lifespan', phys.lifespan);
-    
-    // Taxonomy (Left)
-    const sideTaxonomy = document.getElementById('side-taxonomy');
-    if (sideTaxonomy && animal.classification) {
+    // Taxonomy Table
+    const taxonomyTable = document.getElementById('taxonomy-table');
+    if (taxonomyTable && animal.classification) {
         const order = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
-        sideTaxonomy.innerHTML = order.map(key => {
+        taxonomyTable.innerHTML = order.map(key => {
             if (animal.classification[key]) {
                 return `<tr><th>${capitalizeFirst(key)}</th><td>${animal.classification[key]}</td></tr>`;
             }
             return '';
         }).join('');
     }
+    
+    // Location
+    setTextContent('location-text', animal.ecology?.locations);
+    
+    // Conservation Status (Time Period equivalent)
+    setTextContent('conservation-status-text', animal.ecology?.conservation_status);
     
     // === CENTER COLUMN ===
     
@@ -231,40 +208,20 @@ function populateDetailPage(animal) {
         heroImage.alt = animal.name;
     }
     
-    // Description
-    setTextContent('animal-summary', animal.summary || animal.description || 'No description available.');
-    
     // === RIGHT SIDEBAR ===
     
-    // Conservation Badge (Right)
-    const conservationBadge = document.getElementById('conservation-badge');
-    const conservationText = document.getElementById('conservation-text');
-    if (conservationBadge && animal.ecology?.conservation_status) {
-        const statusClass = getConservationClass(animal.ecology.conservation_status);
-        conservationBadge.className = `conservation-badge-large ${statusClass}`;
-        if (conservationText) conservationText.textContent = animal.ecology.conservation_status;
-    }
-    setTextContent('conservation-threats', animal.ecology?.biggest_threat);
+    // Diet
+    setTextContent('diet-text', eco.diet);
     
-    // Habitat Icons (Right)
-    const habitatIconsLarge = document.getElementById('habitat-icons-large');
-    if (habitatIconsLarge && eco.habitat) {
-        const habitats = getHabitatTypes(eco.habitat);
-        habitatIconsLarge.innerHTML = habitats.map(h => `
-            <div class="habitat-icon">${h.icon}</div>
-        `).join('');
-    }
+    // Habitat
     setTextContent('habitat-text', eco.habitat);
     
-    // Location (Right)
-    setTextContent('location-text', animal.ecology?.locations);
-    
-    // Behavior (Right)
+    // Behavior
     setTextContent('behavior-group', animal.ecology?.group_behavior);
     setTextContent('behavior-name', animal.group_name);
-    setTextContent('behavior-young', animal.reproduction?.name_of_young || animal.young_name);
+    setTextContent('behavior-young', repro.name_of_young || animal.young_name);
     
-    // Features (Right)
+    // Features
     const featureTags = document.getElementById('feature-tags');
     if (featureTags && eco.distinctive_features?.length > 0) {
         featureTags.innerHTML = eco.distinctive_features.map(f => 
@@ -274,25 +231,20 @@ function populateDetailPage(animal) {
         featureTags.innerHTML = '<span style="color:#888888">No data</span>';
     }
     
-    // === FULL WIDTH SECTIONS ===
+    // === MAIN ARTICLE (No redundant data from sidebars) ===
     
-    // Overview
+    // Overview - Only summary text, no stats
     setTextContent('overview-text', animal.summary || animal.description || 'No description available.');
     
-    // Ecology
-    setTextContent('eco-diet', eco.diet);
-    setTextContent('eco-habitat', eco.habitat);
-    setTextContent('eco-locations', eco.locations);
-    setTextContent('eco-behavior', eco.group_behavior);
+    // Ecology - Only additional info not in sidebars
+    const ecologyText = buildEcologyText(animal);
+    setTextContent('ecology-text', ecologyText);
     
-    // Reproduction
-    const repro = animal.reproduction || {};
-    setTextContent('repro-young', repro.name_of_young || animal.young_name);
-    setTextContent('repro-group', animal.group_name);
-    setTextContent('repro-gestation', repro.gestation_period);
-    setTextContent('repro-litter', repro.average_litter_size);
+    // Reproduction - Only additional info not in sidebars
+    const reproText = buildReproductionText(animal);
+    setTextContent('reproduction-text', reproText);
     
-    // FAQ
+    // === FAQ ===
     document.querySelectorAll('.faq-animal-name').forEach(el => {
         el.textContent = animal.name.toLowerCase();
     });
@@ -335,6 +287,36 @@ function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+// Build ecology text without repeating sidebar data
+function buildEcologyText(animal) {
+    const eco = animal.ecology || {};
+    const parts = [];
+    
+    if (eco.diet) {
+        parts.push(`This animal is a ${eco.diet.toLowerCase()}.`);
+    }
+    if (eco.biggest_threat) {
+        parts.push(`The biggest threats to this species include ${eco.biggest_threat.toLowerCase()}.`);
+    }
+    
+    return parts.length > 0 ? parts.join(' ') : 'No additional ecology information available.';
+}
+
+// Build reproduction text without repeating sidebar data
+function buildReproductionText(animal) {
+    const repro = animal.reproduction || {};
+    const parts = [];
+    
+    if (repro.gestation_period) {
+        parts.push(`Gestation period: ${repro.gestation_period}.`);
+    }
+    if (repro.average_litter_size) {
+        parts.push(`Average litter size: ${repro.average_litter_size}.`);
+    }
+    
+    return parts.length > 0 ? parts.join(' ') : 'No additional reproduction information available.';
+}
+
 // ============================================
 // Diet Icons
 // ============================================
@@ -371,47 +353,6 @@ function getDietTypes(diet) {
     }
     
     return types;
-}
-
-// ============================================
-// Habitat Icons
-// ============================================
-function getHabitatTypes(habitat) {
-    if (!habitat) return [{ icon: '🌍' }];
-    
-    const habitatLower = habitat.toLowerCase();
-    const icons = [];
-    
-    if (habitatLower.includes('forest') || habitatLower.includes('jungle')) {
-        icons.push({ icon: '🌲' });
-    }
-    if (habitatLower.includes('ocean') || habitatLower.includes('sea')) {
-        icons.push({ icon: '🌊' });
-    }
-    if (habitatLower.includes('grassland') || habitatLower.includes('savanna')) {
-        icons.push({ icon: '🌾' });
-    }
-    if (habitatLower.includes('desert')) {
-        icons.push({ icon: '🏜️' });
-    }
-    if (habitatLower.includes('mountain')) {
-        icons.push({ icon: '🏔️' });
-    }
-    if (habitatLower.includes('wetland') || habitatLower.includes('swamp') || habitatLower.includes('marsh')) {
-        icons.push({ icon: '🐊' });
-    }
-    if (habitatLower.includes('arctic') || habitatLower.includes('ice') || habitatLower.includes('snow')) {
-        icons.push({ icon: '❄️' });
-    }
-    if (habitatLower.includes('river') || habitatLower.includes('stream') || habitatLower.includes('lake')) {
-        icons.push({ icon: '🏞️' });
-    }
-    
-    if (icons.length === 0) {
-        icons.push({ icon: '🌍' });
-    }
-    
-    return icons;
 }
 
 console.log('🌍 WildAtlas - Discover the Animal Kingdom');
