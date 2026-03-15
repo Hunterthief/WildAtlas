@@ -159,16 +159,9 @@ function populateDetailPage(animal) {
     document.getElementById('animal-name').textContent = animal.name;
     document.getElementById('animal-scientific').textContent = animal.scientific_name;
     
-    // Badge
-    const badgesContainer = document.getElementById('animal-badges');
-    if (badgesContainer && animal.ecology?.conservation_status) {
-        const statusClass = getConservationClass(animal.ecology.conservation_status);
-        badgesContainer.innerHTML = `<span class="status-badge ${statusClass}">${animal.ecology.conservation_status}</span>`;
-    }
-    
     // === LEFT SIDEBAR ===
     
-    // Stats (Food, Length, Height, Weight)
+    // Quick Stats (Food, Length, Height, Weight)
     const dietIconsSide = document.getElementById('diet-icons-side');
     if (dietIconsSide && eco.diet) {
         const dietTypes = getDietTypes(eco.diet);
@@ -196,9 +189,6 @@ function populateDetailPage(animal) {
     // Location
     setTextContent('location-text', animal.ecology?.locations);
     
-    // Conservation Status (Time Period equivalent)
-    setTextContent('conservation-status-text', animal.ecology?.conservation_status);
-    
     // === CENTER COLUMN ===
     
     // Hero Image
@@ -210,8 +200,15 @@ function populateDetailPage(animal) {
     
     // === RIGHT SIDEBAR ===
     
-    // Diet
-    setTextContent('diet-text', eco.diet);
+    // Conservation Status (MOVED HERE - Top of Right Sidebar)
+    const conservationBox = document.getElementById('conservation-status-box');
+    const conservationText = document.getElementById('conservation-status-text');
+    if (conservationBox && animal.ecology?.conservation_status) {
+        const statusClass = getConservationClass(animal.ecology.conservation_status);
+        conservationBox.className = `conservation-status-box ${statusClass}`;
+        if (conservationText) conservationText.textContent = animal.ecology.conservation_status;
+    }
+    setTextContent('conservation-threats', animal.ecology?.biggest_threat);
     
     // Habitat
     setTextContent('habitat-text', eco.habitat);
@@ -233,7 +230,7 @@ function populateDetailPage(animal) {
     
     // === MAIN ARTICLE (No redundant data from sidebars) ===
     
-    // Overview - Only summary text, no stats
+    // Overview - Only summary text
     setTextContent('overview-text', animal.summary || animal.description || 'No description available.');
     
     // Ecology - Only additional info not in sidebars
