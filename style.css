@@ -657,3 +657,264 @@ a:hover {
     font-size: 0.85rem;
     line-height: 1.5;
 }
+/* ========== NEW: Common Names Card ========== */
+.common-names-content {
+    padding-top: 8px;
+}
+
+.common-names-text {
+    color: #cccccc;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* ========== Streamlined Stat Cards (Facts.app Style) ========== */
+.stat-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid #2a2a2a;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+    border-color: #38bdf8;
+    background: #1f1f1f;
+}
+
+.stat-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.65rem;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.stat-icon {
+    color: #888888;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.stat-card-value {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    line-height: 1.4;
+}
+
+/* Diet Icons - Streamlined */
+.diet-icons {
+    display: flex;
+    gap: 6px;
+}
+
+.diet-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.diet-icon.carnivore { background: rgba(239, 68, 68, 0.15); }
+.diet-icon.herbivore { background: rgba(34, 197, 94, 0.15); }
+.diet-icon.omnivore { background: rgba(249, 115, 22, 0.15); }
+.diet-icon.insectivore { background: rgba(168, 85, 247, 0.15); }
+.diet-icon.piscivore { background: rgba(56, 189, 248, 0.15); }
+
+/* Info Cards - Streamlined */
+.info-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid #2a2a2a;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Classification Card - Streamlined */
+.classification-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid #2a2a2a;
+    margin-top: 8px;
+}
+
+.classification-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.classification-table tr {
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.classification-table tr:last-child {
+    border-bottom: none;
+}
+
+.classification-table th {
+    text-align: left;
+    padding: 6px 0;
+    color: #888888;
+    font-weight: 500;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 40%;
+}
+
+.classification-table td {
+    padding: 6px 0;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Reproduction - Streamlined */
+.repro-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.repro-item:last-child {
+    border-bottom: none;
+}
+
+.repro-label {
+    color: #888888;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.repro-value {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/* Timeline - Streamlined */
+.timeline-bar {
+    height: 6px;
+    background: #2a2a2a;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.timeline-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    border-radius: 3px;
+}
+
+.timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
+    color: #666666;
+    margin-top: 4px;
+}
+
+.time-range {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Conservation Status - Streamlined */
+.conservation-status-box {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.threats-box {
+    padding-top: 10px;
+    border-top: 1px solid #2a2a2a;
+}
+
+.threats-box p {
+    color: #cccccc;
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+/* Location Map - Streamlined */
+.location-map {
+    background: #0a0a0a;
+    border-radius: 6px;
+    padding: 6px;
+    border: 1px solid #2a2a2a;
+    overflow: hidden;
+}
+
+.world-map-container {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    background: #0a0a0a;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.location-text {
+    color: #cccccc;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* Hide empty stat cards */
+.stat-card[style*="display: none"],
+.info-card[style*="display: none"] {
+    display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+    .stat-card-value {
+        font-size: 1.05rem;
+    }
+    
+    .diet-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stat-card {
+        padding: 12px 14px;
+    }
+    
+    .stat-card-header {
+        font-size: 0.6rem;
+    }
+    
+    .stat-card-value {
+        font-size: 1rem;
+    }
+}
