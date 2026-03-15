@@ -36,14 +36,25 @@ COMMON_FEATURES = {
     "scale": "Scaled skin", "fur": "Thick fur"
 }
 
-# Features to block for certain animal types
-FEATURE_BLOCKS = {
-    'fin': ['fish', 'shark', 'ray'],
-    'wing': ['bird', 'raptor', 'penguin', 'butterfly', 'bee', 'bat'],
-    'shell': ['turtle'],
+# Features that are ONLY valid for these animal types
+# (if animal_type is NOT in this list, block the feature)
+FEATURE_ALLOWED_TYPES = {
+    'fin': ['fish', 'shark', 'ray', 'turtle', 'whale'],
+    'wing': ['bird', 'raptor', 'owl', 'penguin', 'butterfly', 'bee', 'bat', 'insect'],
+    'shell': ['turtle', 'crab'],
     'trunk': ['elephant'],
-    'tusk': ['elephant', 'bovine', 'deer'],
-    'stripe': ['feline'],
+    'tusk': ['elephant', 'bovine', 'deer', 'walrus'],
+    'stripe': ['feline', 'zebra', 'tiger'],
+    'mane': ['feline', 'canine', 'equine', 'lion'],
+    'horn': ['bovine', 'deer', 'rhino'],
+    'antler': ['deer', 'bovine'],
+    'venom': ['snake', 'spider', 'frog', 'insect'],
+    'fang': ['feline', 'canine', 'snake', 'bat'],
+    'beak': ['bird', 'raptor', 'owl', 'penguin', 'chicken', 'duck', 'turtle'],
+    'feather': ['bird', 'raptor', 'owl', 'penguin', 'chicken'],
+    'scale': ['fish', 'shark', 'ray', 'snake', 'lizard', 'turtle', 'crocodile'],
+    'fur': ['feline', 'canine', 'bear', 'elephant', 'deer', 'bovine', 'equine', 
+            'rabbit', 'rodent', 'primate', 'bat', 'whale', 'mammal'],
 }
 
 
@@ -68,29 +79,37 @@ def extract_features(text, animal_type):
     features = []
     text_lower = text.lower()
 
+    # First add features from config
     for feature in positive:
         if feature in text_lower:
             display_feature = feature.replace('_', ' ').title()
             if display_feature not in features:
                 features.append(display_feature)
 
+    # Then add common features with proper validation
     for keyword, feature in COMMON_FEATURES.items():
         if keyword in text_lower and feature not in features:
             blocked = False
             
-            # Check negative list
+            # Check negative list from config
             for neg in negative:
                 if neg in keyword or keyword in neg:
                     blocked = True
                     break
-
-            # Check animal type blocks
-            if keyword in FEATURE_BLOCKS:
-                if animal_type not in FEATURE_BLOCKS[keyword]:
+            
+            # Check if this feature is allowed for this animal type
+            if keyword in FEATURE_ALLOWED_TYPES:
+                if animal_type not in FEATURE_ALLOWED_TYPES[keyword]:
                     blocked = True
-
-            # Special case: tail for frogs
-            if 'tail' in keyword and animal_type == 'frog':
+            
+            # Special cases
+            if 'tail' in keyword and animal_type in ['frog', 'butterfly', 'bee']:
+                blocked = True
+            if 'mane' in keyword and animal_type not in ['feline', 'canine', 'equine', 'lion']:
+                blocked = True
+            if 'horn' in keyword and animal_type not in ['bovine', 'deer', 'rhino', 'elephant']:
+                blocked = True
+            if 'antler' in keyword and animal_type not in ['deer', 'bovine']:
                 blocked = True
 
             if not blocked:
