@@ -119,26 +119,12 @@
                     <div class="stat-card-header">Location & Distribution</div>
                     <div class="location-content">
                         <div class="location-map" id="location-map">
-                            <!-- World Map SVG -->
-                            <svg viewBox="0 0 400 200" class="world-map" id="world-map">
-                                <!-- Simplified world map paths -->
-                                <g class="continents" fill="#2a2a2a" stroke="#444" stroke-width="0.5">
-                                    <!-- North America -->
-                                    <path d="M50,40 L90,35 L100,50 L85,70 L60,65 L45,50 Z"/>
-                                    <!-- South America -->
-                                    <path d="M70,75 L90,75 L95,100 L85,130 L75,120 L65,90 Z"/>
-                                    <!-- Europe -->
-                                    <path d="M180,35 L210,35 L215,50 L195,55 L175,50 Z"/>
-                                    <!-- Africa -->
-                                    <path d="M175,60 L210,60 L220,80 L210,110 L185,100 L170,75 Z"/>
-                                    <!-- Asia -->
-                                    <path d="M220,35 L320,35 L340,50 L330,80 L280,75 L240,60 L220,50 Z"/>
-                                    <!-- Australia -->
-                                    <path d="M310,110 L350,110 L355,135 L330,145 L305,130 Z"/>
-                                </g>
+                            <!-- External World Map SVG -->
+                            <div class="world-map-container">
+                                <img src="data/world.svg" alt="World Map" class="world-map-svg" id="world-map">
                                 <!-- Location dots will be added by JS -->
-                                <g id="location-dots"></g>
-                            </svg>
+                                <div id="location-dots"></div>
+                            </div>
                         </div>
                         <p class="location-text" id="location-text">-</p>
                     </div>
@@ -173,7 +159,7 @@
                     </div>
                 </div>
 
-                <!-- Reproduction Card (REPLACED Distinctive Features) -->
+                <!-- Reproduction Card -->
                 <div class="info-card">
                     <div class="stat-card-header">Reproduction</div>
                     <div class="reproduction-content">
@@ -212,8 +198,6 @@
                 <h2>Ecology</h2>
                 <p id="ecology-text">Loading...</p>
             </section>
-
-            <!-- Reproduction section REMOVED from here (now in sidebar) -->
 
         </article>
 
