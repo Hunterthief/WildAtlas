@@ -69,8 +69,9 @@ def detect_animal_type(name, classification=None):
         
         if "mammalia" in class_name:
             if "carnivora" in order_name:
-                if any(w in name_lower for w in ["cat", "feline"]): return "feline"
-                if any(w in name_lower for w in ["dog", "canine", "wolf"]): return "canine"
+                if any(w in name_lower for w in ["cat", "feline", "tiger", "lion", "leopard"]): return "feline"
+                if any(w in name_lower for w in ["dog", "canine", "wolf", "fox"]): return "canine"
+                if any(w in name_lower for w in ["bear"]): return "bear"
                 return "feline"
             elif "proboscidea" in order_name: return "elephant"
             elif "primates" in order_name: return "primate"
@@ -84,7 +85,7 @@ def detect_animal_type(name, classification=None):
             elif "rodentia" in order_name: return "rodent"
             return "mammal"
         elif "aves" in class_name:
-            if any(w in name_lower for w in ["eagle", "hawk", "falcon"]): return "raptor"
+            if any(w in name_lower for w in ["eagle", "hawk", "falcon", "vulture"]): return "raptor"
             if "owl" in name_lower: return "owl"
             if any(w in name_lower for w in ["duck", "mallard"]): return "duck"
             if "goose" in name_lower: return "goose"
@@ -95,20 +96,20 @@ def detect_animal_type(name, classification=None):
         elif "actinopterygii" in class_name or "chondrichthyes" in class_name:
             if any(w in name_lower for w in ["shark"]): return "shark"
             if any(w in name_lower for w in ["ray", "stingray", "manta"]): return "ray"
-            if any(w in name_lower for w in ["salmon", "trout"]): return "salmon"
+            if any(w in name_lower for w in ["salmon", "trout", "tuna"]): return "salmon"
             return "fish"
         elif "amphibia" in class_name:
             if any(w in name_lower for w in ["frog", "toad"]): return "frog"
             return "salamander"
         elif "reptilia" in class_name:
-            if any(w in name_lower for w in ["snake", "serpent"]): return "snake"
-            if any(w in name_lower for w in ["lizard", "gecko"]): return "lizard"
+            if any(w in name_lower for w in ["snake", "serpent", "cobra", "python"]): return "snake"
+            if any(w in name_lower for w in ["lizard", "gecko", "iguana"]): return "lizard"
             if any(w in name_lower for w in ["turtle", "tortoise"]): return "turtle"
             if any(w in name_lower for w in ["crocodile", "alligator"]): return "crocodile"
             return "reptile"
         elif "insecta" in class_name:
             if any(w in name_lower for w in ["butterfly", "moth"]): return "butterfly"
-            if any(w in name_lower for w in ["bee", "wasp"]): return "bee"
+            if any(w in name_lower for w in ["bee", "wasp", "hornet"]): return "bee"
             if "ant" in name_lower: return "ant"
             return "insect"
         elif "arachnida" in class_name:
@@ -142,7 +143,8 @@ def fetch_wikipedia_summary(name):
                 "image": d.get("thumbnail", {}).get("source", "").strip(),
                 "url": d.get("content_urls", {}).get("desktop", {}).get("page", "").strip()
             }
-    except: pass
+    except Exception as e:
+        print(f"    ⚠ Wikipedia summary error: {e}")
     return {"summary": "", "description": "", "image": "", "url": ""}
 
 def fetch_wikipedia_full(name):
@@ -153,105 +155,180 @@ def fetch_wikipedia_full(name):
             text = re.sub(r'\s+', ' ', text).strip()
             text = re.sub(r'\[\d+\]', '', text)
             return text
-    except: pass
+    except Exception as e:
+        print(f"    ⚠ Wikipedia full error: {e}")
     return ""
 
 # ============================================================================
-# DATA EXTRACTION
+# DATA EXTRACTION (IMPROVED)
 # ============================================================================
 
 def extract_stats(text, animal_type):
-    """Extract physical stats"""
+    """Extract physical stats - IMPROVED PATTERNS"""
     stats = {"weight": None, "length": None, "height": None, "lifespan": None, "top_speed": None}
-    if not text: return stats
+    if not text: 
+        print("    ⚠ No text for stats extraction")
+        return stats
     
-    # Weight
+    text_lower = text.lower()
+    
+    # ========== WEIGHT ==========
     weight_patterns = [
-        r'weighs?\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|g|grams?)',
-        r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|g|grams?)',
-        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(kg|tonnes?|t\b|lbs?|g|grams?)\s*weight',
+        # "weighs between X and Y kg"
+        r'weighs?\s*(?:between|from|of|up to)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?|g|grams?)',
+        # "weight of X kg"
+        r'weight\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?)',
+        # "X to Y kilograms"
+        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?)\s*(?:weight|weighing|weighs)?',
+        # Single value "weighs X kg"
+        r'weighs?\s*(?:around|about|approximately)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?)',
+        # "X kg" near weight context
+        r'(?:up to|over|about|around)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b)',
     ]
+    
     for pattern in weight_patterns:
         m = re.search(pattern, text, re.I)
         if m:
             try:
                 groups = m.groups()
-                if len(groups) >= 3 and groups[0] and groups[1]:
-                    v1, v2 = float(groups[0].replace(',','.')), float(groups[1].replace(',','.'))
-                    u = groups[2].lower()
-                    if u in ['kg'] and 0.001 < v1 < 10000:
-                        stats["weight"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
+                if len(groups) >= 2:
+                    v1 = float(groups[0].replace(',', '.'))
+                    v2 = float(groups[1].replace(',', '.')) if len(groups) > 2 and groups[1] and groups[1].replace(',','').replace('.','').isdigit() else v1
+                    u = groups[-1].lower().strip()
+                    
+                    # Validate reasonable ranges
+                    if u in ['kg', 'kilogram', 'kilograms'] and 0.1 < v1 < 10000:
+                        stats["weight"] = f"{v1}–{v2} kg" if v1 != v2 else f"{v1} kg"
+                        print(f"    ✓ Weight found: {stats['weight']}")
                         break
-                    elif u in ['t','tonne','tonnes'] and 0.001 < v1 < 100:
+                    elif u in ['t', 'tonne', 'tonnes', 'ton'] and 0.1 < v1 < 200:
                         stats["weight"] = f"{v1}–{v2} t" if v1 != v2 else f"{v1} t"
+                        print(f"    ✓ Weight found: {stats['weight']}")
                         break
-                    elif u in ['lb','lbs','pounds'] and 0.01 < v1 < 22000:
-                        stats["weight"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
+                    elif u in ['lb', 'lbs', 'pound', 'pounds'] and 1 < v1 < 22000:
+                        stats["weight"] = f"{v1}–{v2} lbs" if v1 != v2 else f"{v1} lbs"
+                        print(f"    ✓ Weight found: {stats['weight']}")
                         break
-            except: pass
+            except Exception as e:
+                print(f"    ⚠ Weight parse error: {e}")
     
-    # Length
+    # ========== LENGTH ==========
     length_patterns = [
-        r'(?:length|long|wingspan)\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|mm\b|ft\b|in\b)',
-        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|mm\b|ft\b|in\b)\s*(?:long|length)',
+        # "length of X to Y meters"
+        r'(?:body\s*)?(?:length|long|total length)\s*(?:of|is|ranges from|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|centimeters?|mm\b|ft\b|feet|in\b|inches?)',
+        # "X to Y meters long"
+        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|centimeters?|ft\b|feet)\s*(?:long|length)?',
+        # "grows to X meters"
+        r'(?:grows|reaches|measures)\s*(?:up to|to|about)?\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)',
+        # Wingspan for birds
+        r'wingspan\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)',
     ]
+    
     for pattern in length_patterns:
         m = re.search(pattern, text, re.I)
         if m:
             try:
                 groups = m.groups()
-                v1, v2 = float(groups[0].replace(',','.')), float(groups[1].replace(',','.'))
-                u = groups[2].lower()
-                if u in ['m','metre','metres','meter','meters'] and 0.001 < v1 < 100:
-                    stats["length"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
+                v1 = float(groups[0].replace(',', '.'))
+                v2 = float(groups[1].replace(',', '.')) if len(groups) > 2 and groups[1] else v1
+                u = groups[-1].lower().strip()
+                
+                if u in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.1 < v1 < 100:
+                    stats["length"] = f"{v1}–{v2} m" if v1 != v2 else f"{v1} m"
+                    print(f"    ✓ Length found: {stats['length']}")
                     break
-                elif u in ['cm','centimetre','centimetres'] and 0.1 < v1 < 10000:
-                    stats["length"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
+                elif u in ['cm', 'centimetre', 'centimetres', 'centimeter', 'centimeters'] and 1 < v1 < 10000:
+                    stats["length"] = f"{v1}–{v2} cm" if v1 != v2 else f"{v1} cm"
+                    print(f"    ✓ Length found: {stats['length']}")
                     break
-            except: pass
+                elif u in ['ft', 'foot', 'feet'] and 0.5 < v1 < 300:
+                    stats["length"] = f"{v1}–{v2} ft" if v1 != v2 else f"{v1} ft"
+                    print(f"    ✓ Length found: {stats['length']}")
+                    break
+            except Exception as e:
+                print(f"    ⚠ Length parse error: {e}")
     
-    # Height
-    if any(w in text.lower() for w in ['shoulder', 'stands', 'tall', 'height']):
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|cm\b|ft\b)', text, re.I)
-        if m:
-            try:
-                v1, v2 = float(m.group(1).replace(',','.')), float(m.group(2).replace(',','.'))
-                u = m.group(3).lower()
-                if u in ['m','metre','metres','meter','meters'] and 0.01 < v1 < 10:
-                    stats["height"] = f"{v1}–{v2} {u}" if v1 != v2 else f"{v1} {u}"
-            except: pass
+    # ========== HEIGHT ==========
+    if any(w in text_lower for w in ['shoulder', 'stands', 'tall', 'height', 'at the shoulder']):
+        height_patterns = [
+            r'(?:stands?|height|tall|at the shoulder)\s*(?:about|around|up to|of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)',
+            r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)\s*(?:tall|height|shoulder)',
+        ]
+        for pattern in height_patterns:
+            m = re.search(pattern, text, re.I)
+            if m:
+                try:
+                    groups = m.groups()
+                    v1 = float(groups[0].replace(',', '.'))
+                    v2 = float(groups[1].replace(',', '.')) if len(groups) > 2 else v1
+                    u = groups[-1].lower().strip()
+                    
+                    if u in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.1 < v1 < 10:
+                        stats["height"] = f"{v1}–{v2} m" if v1 != v2 else f"{v1} m"
+                        print(f"    ✓ Height found: {stats['height']}")
+                        break
+                    elif u in ['cm', 'centimetre', 'centimetres'] and 10 < v1 < 1000:
+                        stats["height"] = f"{v1}–{v2} cm" if v1 != v2 else f"{v1} cm"
+                        print(f"    ✓ Height found: {stats['height']}")
+                        break
+                    elif u in ['ft', 'foot', 'feet'] and 0.5 < v1 < 30:
+                        stats["height"] = f"{v1}–{v2} ft" if v1 != v2 else f"{v1} ft"
+                        print(f"    ✓ Height found: {stats['height']}")
+                        break
+                except Exception as e:
+                    print(f"    ⚠ Height parse error: {e}")
     
-    # Lifespan
+    # ========== LIFESPAN ==========
     lifespan_patterns = [
-        r'live\s*(\d+(?:-\d+)?)\s*(years?|yrs?|months?|weeks?|days?)',
-        r'(\d+(?:-\d+)?)\s*(years?|yrs?|months?|weeks?|days?)\s*(?:lifespan|life|wild|captivity)',
+        r'(?:lifespan|life expectancy|live|lives)\s*(?:of|is|up to|about|around)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs?|months?|weeks?|days?)',
+        r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs?|months?|weeks?|days?)\s*(?:lifespan|life|in wild|in captivity|old|age)',
+        r'(?:up to|about|around|approximately)\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs?)\s*(?:old|age|lifespan)',
     ]
+    
     for pattern in lifespan_patterns:
         m = re.search(pattern, text, re.I)
         if m:
             try:
-                v = m.group(1)
+                v = m.group(1).replace(' ', '')
                 unit = m.group(2).lower()
+                
                 if 'year' in unit:
-                    if '-' in v:
-                        p = v.split('-')
-                        if 0 < int(p[0]) < int(p[1]) < 200:
-                            stats["lifespan"] = f"{v} years"
+                    if '-' in v or '–' in v:
+                        p = re.split(r'[-–]', v)
+                        if len(p) >= 2 and 0 < int(p[0]) < int(p[1]) < 200:
+                            stats["lifespan"] = f"{p[0]}–{p[1]} years"
+                            print(f"    ✓ Lifespan found: {stats['lifespan']}")
                             break
                     elif 0 < int(v) < 200:
                         stats["lifespan"] = f"{v} years"
+                        print(f"    ✓ Lifespan found: {stats['lifespan']}")
                         break
-            except: pass
+                elif 'month' in unit and 1 < int(v) < 120:
+                    stats["lifespan"] = f"{v} months"
+                    print(f"    ✓ Lifespan found: {stats['lifespan']}")
+                    break
+            except Exception as e:
+                print(f"    ⚠ Lifespan parse error: {e}")
     
-    # Speed
-    if any(w in text.lower() for w in ['speed', 'sprint', 'run', 'fly', 'swim', 'fast']):
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h|m/s)', text, re.I)
-        if m:
-            try:
-                v = float(m.group(1).replace(',','.'))
-                if 0.1 < v < 500:
-                    stats["top_speed"] = f"{v} {m.group(2).lower()}"
-            except: pass
+    # ========== SPEED ==========
+    if any(w in text_lower for w in ['speed', 'sprint', 'run', 'fly', 'swim', 'fast', 'km/h', 'mph', 'kilometers per hour']):
+        speed_patterns = [
+            r'(?:speed|sprint|run|swim|fly)\s*(?:of|up to|about|around)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)?\s*(\d+(?:[.,]\d+)?)?\s*(km/h|kmph|mph|mi/h|m/s|kilometers? per hour|miles? per hour)',
+            r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)?\s*(\d+(?:[.,]\d+)?)?\s*(km/h|kmph|mph|mi/h|m/s)\s*(?:speed|top speed|maximum)?',
+            r'(?:up to|about|around|approximately)\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h|m/s)',
+        ]
+        
+        for pattern in speed_patterns:
+            m = re.search(pattern, text, re.I)
+            if m:
+                try:
+                    v = float(m.group(1).replace(',', '.'))
+                    if 1 < v < 500:
+                        stats["top_speed"] = f"{v} {m.group(3).lower()}"
+                        print(f"    ✓ Speed found: {stats['top_speed']}")
+                        break
+                except Exception as e:
+                    print(f"    ⚠ Speed parse error: {e}")
     
     return stats
 
@@ -263,15 +340,15 @@ def extract_diet(text, animal_type):
     t = text.lower()
     
     # Check for specific diet terms
-    if any(w in t for w in ['carnivore', 'carnivorous', 'meat-eater', 'predator', 'preys on', 'hunts']):
+    if any(w in t for w in ['carnivore', 'carnivorous', 'meat-eater', 'predator', 'preys on', 'hunts', 'feeds on animals']):
         return "Carnivore"
-    elif any(w in t for w in ['herbivore', 'herbivorous', 'plant-eater', 'grazes', 'browses', 'foliage', 'vegetation']):
+    elif any(w in t for w in ['herbivore', 'herbivorous', 'plant-eater', 'grazes', 'browses', 'foliage', 'vegetation', 'feeds on plants']):
         return "Herbivore"
-    elif any(w in t for w in ['omnivore', 'omnivorous', 'both plants and animals', 'varied diet']):
+    elif any(w in t for w in ['omnivore', 'omnivorous', 'both plants and animals', 'varied diet', 'eats both']):
         return "Omnivore"
-    elif any(w in t for w in ['insectivore', 'insectivorous', 'eats insects']):
+    elif any(w in t for w in ['insectivore', 'insectivorous', 'eats insects', 'insects']):
         return "Insectivore"
-    elif any(w in t for w in ['piscivore', 'piscivorous', 'eats fish']):
+    elif any(w in t for w in ['piscivore', 'piscivorous', 'eats fish', 'fish']):
         return "Piscivore"
     
     # Fall back to type-specific default
@@ -298,6 +375,13 @@ def extract_locations(text, animal_type):
         for region_locs in LOCATIONS.get("regions", {}).values():
             animal_locations.extend(region_locs)
     
+    # Add common location keywords
+    common_locations = ['Asia', 'Africa', 'Europe', 'North America', 'South America', 
+                       'Australia', 'Antarctica', 'India', 'China', 'Russia', 
+                       'Indonesia', 'Canada', 'United States', 'USA', 'Brazil',
+                       'Amazon', 'Arctic', 'Pacific', 'Atlantic', 'Indian Ocean']
+    animal_locations.extend(common_locations)
+    
     # Find matching locations
     locs = []
     text_lower = text.lower()
@@ -320,10 +404,19 @@ def extract_habitat(text, animal_type):
     if not text: return None
     
     habitat_keywords = HABITATS.get(animal_type, HABITATS.get("default", []))
+    
+    # Add common habitat keywords
+    common_habitats = ['forest', 'jungle', 'savanna', 'grassland', 'desert', 
+                      'mountain', 'ocean', 'sea', 'river', 'lake', 'wetland',
+                      'swamp', 'marsh', 'tundra', 'rainforest', 'woodland',
+                      'coastal', 'coral reef', 'mangrove', 'temperate', 'tropical']
+    habitat_keywords.extend(common_habitats)
+    
     found = []
+    text_lower = text.lower()
     
     for keyword in habitat_keywords:
-        if keyword in text.lower():
+        if keyword.lower() in text_lower:
             found.append(keyword)
     
     return ", ".join(list(set(found))[:4]) if found else None
@@ -363,7 +456,10 @@ def extract_features(text, animal_type):
         "fin": "Distinctive fins",
         "shell": "Protective shell",
         "venom": "Venomous",
-        "color": "Vibrant coloration"
+        "color": "Vibrant coloration",
+        "sail": "Large sail",
+        "claw": "Sharp claws",
+        "fang": "Large fangs"
     }
     
     for keyword, feature in common_features.items():
@@ -387,50 +483,118 @@ def extract_behavior(text, animal_type):
     t = text.lower()
     
     # Check for solitary indicators first (more specific)
-    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary', 'lives singly']):
+    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary', 'lives singly', 'lone']):
         return "Solitary"
     # Check for social/pack animals
-    elif any(w in t for w in ['pack', 'herd', 'flock', 'school', 'swarm', 'colony', 'social', 'group living', 'highly social']):
+    elif any(w in t for w in ['pack', 'herd', 'flock', 'school', 'swarm', 'colony', 'social', 'group living', 'highly social', 'live in groups']):
         return "Social"
     # Check for pair/family groups
-    elif any(w in t for w in ['pair', 'mate', 'family group', 'monogamous', 'nuclear family']):
+    elif any(w in t for w in ['pair', 'mate', 'family group', 'monogamous', 'nuclear family', 'pairs']):
         return "Family groups"
     
     return None
 
 def extract_reproduction(text, animal_type):
+    """Extract reproduction data - IMPROVED PATTERNS"""
     repro = {
         "gestation_period": None,
         "average_litter_size": None,
         "name_of_young": get_young_name(animal_type)
     }
     
-    # Gestation/incubation
-    m = re.search(r'(?:gestation|incubation|pregnancy)\s*lasts?\s*(?:around|about|for)?\s*(\d+(?:-\d+)?)\s*(months?|weeks?|days?)', text, re.I)
-    if m:
-        repro["gestation_period"] = f"{m.group(1)} {m.group(2)}"
+    if not text:
+        return repro
     
-    # Litter/clutch size
-    m = re.search(r'(?:litter|clutch|brood)\s*(?:size|consists?|of)?\s*(?:of|up to|typically|average)?\s*(\d+(?:-\d+)?)\s*(?:eggs|young|offspring|cubs?|chicks?|eggs?)?', text, re.I)
-    if m:
-        repro["average_litter_size"] = m.group(1)
+    text_lower = text.lower()
+    
+    # ========== GESTATION/INCUBATION/PREGNANCY ==========
+    gestation_patterns = [
+        # "gestation period of X months"
+        r'(?:gestation|pregnancy|incubation)\s*(?:period|lasts?|is|of)?\s*(?:around|about|approximately)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)',
+        # "X months gestation"
+        r'(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)\s*(?:gestation|pregnancy|incubation|period)',
+        # "pregnant for X months"
+        r'(?:pregnant|carries young)\s*(?:for)?\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)',
+        # "after X months of pregnancy"
+        r'after\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)\s*(?:of\s*)?(?:pregnancy|gestation)',
+    ]
+    
+    for pattern in gestation_patterns:
+        m = re.search(pattern, text, re.I)
+        if m:
+            try:
+                v = m.group(1).replace(' ', '')
+                unit = m.group(2).lower()
+                
+                if 'month' in unit:
+                    if '-' in v or '–' in v:
+                        p = re.split(r'[-–]', v)
+                        if len(p) >= 2 and 1 <= int(p[0]) <= int(p[1]) <= 24:
+                            repro["gestation_period"] = f"{p[0]}–{p[1]} months"
+                            print(f"    ✓ Gestation found: {repro['gestation_period']}")
+                            break
+                    elif 1 <= int(v) <= 24:
+                        repro["gestation_period"] = f"{v} months"
+                        print(f"    ✓ Gestation found: {repro['gestation_period']}")
+                        break
+                elif 'week' in unit and 1 <= int(v) <= 100:
+                    repro["gestation_period"] = f"{v} weeks"
+                    print(f"    ✓ Gestation found: {repro['gestation_period']}")
+                    break
+                elif 'day' in unit and 1 <= int(v) <= 365:
+                    repro["gestation_period"] = f"{v} days"
+                    print(f"    ✓ Gestation found: {repro['gestation_period']}")
+                    break
+            except Exception as e:
+                print(f"    ⚠ Gestation parse error: {e}")
+    
+    # ========== LITTER/CLUTCH SIZE ==========
+    litter_patterns = [
+        # "litter size of X"
+        r'(?:litter|clutch|brood)\s*(?:size|consists?|of|contains)?\s*(?:of|up to|typically|average)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(?:eggs?|young|offspring|cubs?|chicks?|pups?)?',
+        # "X cubs per litter"
+        r'(\d+(?:\s*[-–]\s*\d+)?)\s*(?:eggs?|young|offspring|cubs?|chicks?|pups?)?\s*(?:per\s*)?(?:litter|clutch|brood)',
+        # "gives birth to X cubs"
+        r'(?:gives birth|lays|produces)\s*(?:to|up to|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(?:eggs?|young|offspring|cubs?|chicks?|pups?)?',
+        # "average of X offspring"
+        r'(?:average|typically|usually)\s*(?:of|is)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(?:offspring|young|eggs?|cubs?)',
+    ]
+    
+    for pattern in litter_patterns:
+        m = re.search(pattern, text, re.I)
+        if m:
+            try:
+                v = m.group(1).replace(' ', '')
+                
+                if '-' in v or '–' in v:
+                    p = re.split(r'[-–]', v)
+                    if len(p) >= 2 and 1 <= int(p[0]) <= int(p[1]) <= 50:
+                        repro["average_litter_size"] = p[0] if p[0] == p[1] else f"{p[0]}–{p[1]}"
+                        print(f"    ✓ Litter size found: {repro['average_litter_size']}")
+                        break
+                elif 1 <= int(v) <= 50:
+                    repro["average_litter_size"] = v
+                    print(f"    ✓ Litter size found: {repro['average_litter_size']}")
+                    break
+            except Exception as e:
+                print(f"    ⚠ Litter size parse error: {e}")
     
     return repro
 
 def extract_threats(text):
     threats = []
     t = text.lower()
-    if any(w in t for w in ['poach', 'illegal trade', 'body parts', 'fur trade', 'ivory']):
+    if any(w in t for w in ['poach', 'illegal trade', 'body parts', 'fur trade', 'ivory', 'horn trade']):
         threats.append('Poaching')
-    if any(w in t for w in ['habitat loss', 'deforestation', 'habitat destruction', 'habitat fragmentation']):
+    if any(w in t for w in ['habitat loss', 'deforestation', 'habitat destruction', 'habitat fragmentation', 'loss of habitat']):
         threats.append('Habitat loss')
-    if any(w in t for w in ['human-wildlife conflict', 'livestock', 'retaliation', 'persecution']):
+    if any(w in t for w in ['human-wildlife conflict', 'livestock', 'retaliation', 'persecution', 'killed by humans']):
         threats.append('Human-wildlife conflict')
-    if any(w in t for w in ['climate change', 'global warming', 'ocean acidification']):
+    if any(w in t for w in ['climate change', 'global warming', 'ocean acidification', 'rising temperatures']):
         threats.append('Climate change')
-    if any(w in t for w in ['pollution', 'pesticide', 'contamination']):
+    if any(w in t for w in ['pollution', 'pesticide', 'contamination', 'pollutants']):
         threats.append('Pollution')
-    if any(w in t for w in ['overfishing', 'bycatch', 'fishing']):
+    if any(w in t for w in ['overfishing', 'bycatch', 'fishing', 'overhunting', 'hunting']):
         threats.append('Overfishing')
     return ', '.join(threats[:3]) if threats else None
 
@@ -466,7 +630,8 @@ def fetch_inaturalist(sci_name):
                             elif rank == "family": classification["family"] = name
                             elif rank == "genus": classification["genus"] = name
                         return classification
-    except: pass
+    except Exception as e:
+        print(f"    ⚠ iNaturalist error: {e}")
     return None
 
 # ============================================================================
@@ -502,6 +667,7 @@ def generate(animals, force=False):
         if cached:
             data = cached
             data["sources"] = list(set(data.get("sources", [])))
+            print("  📦 Using cached data")
         else:
             data = {
                 "id": qid, "name": name, "scientific_name": sci, "common_names": [],
@@ -534,53 +700,52 @@ def generate(animals, force=False):
                 data["group_name"] = get_group_name(animal_type)
                 print(f"    ✓ Type: {animal_type}")
                 
+                # Extract physical stats
                 stats = extract_stats(all_text, animal_type)
                 for k, v in stats.items():
                     if v:
                         data["physical"][k] = v
-                        print(f"    ✓ {k}: {v}")
                 
+                # Extract diet
                 diet = extract_diet(all_text, animal_type)
                 if diet:
                     data["ecology"]["diet"] = diet
-                    print(f"    ✓ diet: {diet}")
                 
+                # Extract conservation status
                 cons = extract_conservation(all_text)
                 if cons:
                     data["ecology"]["conservation_status"] = cons
-                    print(f"    ✓ conservation: {cons}")
                 
+                # Extract locations
                 locs = extract_locations(all_text, animal_type)
                 if locs:
                     data["ecology"]["locations"] = locs
-                    print(f"    ✓ locations: {locs[:50]}...")
                 
+                # Extract habitat
                 habitat = extract_habitat(all_text, animal_type)
                 if habitat:
                     data["ecology"]["habitat"] = habitat
-                    print(f"    ✓ habitat: {habitat}")
                 
+                # Extract features
                 features = extract_features(all_text, animal_type)
                 if features:
                     data["ecology"]["distinctive_features"] = features
-                    print(f"    ✓ features: {features}")
                 
+                # Extract behavior
                 behavior = extract_behavior(all_text, animal_type)
                 if behavior:
                     data["ecology"]["group_behavior"] = behavior
-                    print(f"    ✓ behavior: {behavior}")
                 
+                # Extract reproduction
                 repro = extract_reproduction(all_text, animal_type)
                 for k, v in repro.items():
                     if v:
                         data["reproduction"][k] = v
-                        if k != 'name_of_young':
-                            print(f"    ✓ {k}: {v}")
                 
+                # Extract threats
                 threats = extract_threats(all_text)
                 if threats:
                     data["ecology"]["biggest_threat"] = threats
-                    print(f"    ✓ threats: {threats}")
         
         if not data["classification"]["kingdom"] or force:
             print("  🔬 iNaturalist...")
@@ -604,7 +769,7 @@ def generate(animals, force=False):
     
     with open("data/animals.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
-    print(f"\n✅ Done! {len(output)} animals")
+    print(f"\n✅ Done! {len(output)} animals saved to data/animals.json")
     return output
 
 TEST_ANIMALS = [
