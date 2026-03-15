@@ -29,8 +29,10 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "temperate forest, forest, mountain, sea",
-      "locations": "Asia, India, China, Russia, Indonesia",
+      "habitat": "mangrove, tropical forest, forest, broadleaf forest",
+      "locations": [
+        "Asia"
+      ],
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -38,18 +40,28 @@
         "Stripe",
         "Spot",
         "Mane"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "cub"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
+      "API Ninjas",
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:28.315389"
+    "last_updated": "2026-03-15T22:14:59.209937",
+    "characteristics": {}
   },
   {
     "id": "Q7372",
@@ -81,7 +93,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "lake, forest, sea, woodland",
+      "habitat": "forest, lake, woodland, savanna",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
@@ -90,18 +102,26 @@
         "Trunk",
         "Tusk",
         "Ear"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "2",
-      "name_of_young": "calf"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:30.610868"
+    "last_updated": "2026-03-15T22:15:01.153076"
   },
   {
     "id": "Q213537",
@@ -133,7 +153,7 @@
     },
     "ecology": {
       "diet": "Insectivore",
-      "habitat": "tundra, lake, forest, wetland",
+      "habitat": "tropical, wetland, coastal, forest",
       "locations": "North America, Eurasia, Europe, Asia, Russia",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -142,18 +162,26 @@
         "Tail",
         "Claw",
         "Fur"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": "62–75 days",
       "average_litter_size": "1",
-      "name_of_young": "pup"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:33.336551"
+    "last_updated": "2026-03-15T22:15:03.771064"
   },
   {
     "id": "Q25319",
@@ -185,8 +213,10 @@
     },
     "ecology": {
       "diet": "Piscivore",
-      "habitat": "tundra, lake, forest, mountain",
-      "locations": "North America, Canada, Alaska, United States, Mexico",
+      "habitat": "tropical, wetland, coastal, cliff",
+      "locations": [
+        "North-America"
+      ],
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Human-wildlife conflict, Pollution",
@@ -194,18 +224,28 @@
         "Wing",
         "Talons",
         "Beak"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "4",
-      "name_of_young": "chick"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
+      "API Ninjas",
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:35.613020"
+    "last_updated": "2026-03-15T22:15:06.052949",
+    "characteristics": {}
   },
   {
     "id": "Q43306",
@@ -237,8 +277,11 @@
     },
     "ecology": {
       "diet": "Piscivore",
-      "habitat": "sea, island, ocean, marsh",
-      "locations": "Antarctica, Southern Ocean, New Zealand, Australia, Chile",
+      "habitat": "ice, ocean, sea, marsh",
+      "locations": [
+        "Antarctica",
+        "Ocean"
+      ],
       "group_behavior": "Social",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Climate change, Overfishing",
@@ -246,18 +289,28 @@
         "Wing",
         "Flipper",
         "Feather"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "chick"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
+      "API Ninjas",
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:38.021374"
+    "last_updated": "2026-03-15T22:15:08.122961",
+    "characteristics": {}
   },
   {
     "id": "Q47164",
@@ -289,8 +342,10 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "open ocean, sea, ocean, marsh",
-      "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
+      "habitat": "open ocean, coastal, ocean, tropical",
+      "locations": [
+        "Ocean"
+      ],
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Climate change, Pollution, Overfishing",
@@ -298,18 +353,28 @@
         "Fin",
         "Tail",
         "Tooth"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "300",
-      "name_of_young": "pup"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
+      "API Ninjas",
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:40.136531"
+    "last_updated": "2026-03-15T22:15:10.522862",
+    "characteristics": {}
   },
   {
     "id": "Q39709",
@@ -341,7 +406,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "lake, sea, ocean, Pacific",
+      "habitat": "coastal, lake, stream, ocean",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -350,18 +415,26 @@
         "Fin",
         "Tail",
         "Scale"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "fry"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:42.036515"
+    "last_updated": "2026-03-15T22:15:12.496701"
   },
   {
     "id": "Q7785",
@@ -393,7 +466,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "sea, wetland, ocean, marsh",
+      "habitat": "wetland, coastal, coral reef, ocean",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -402,18 +475,26 @@
         "Shell",
         "Flipper",
         "Scale"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "85–200",
-      "name_of_young": "hatchling"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:44.092977"
+    "last_updated": "2026-03-15T22:15:14.504098"
   },
   {
     "id": "Q189609",
@@ -445,8 +526,10 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "forest, sea, marsh, coastal",
-      "locations": "Asia, India, China, Southeast Asia, Australia",
+      "habitat": "coastal, forest, agricultural, rainforest",
+      "locations": [
+        "Asia"
+      ],
       "group_behavior": "Family groups",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -454,18 +537,28 @@
         "Scale",
         "Venom",
         "Fang"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "7–43",
-      "name_of_young": "hatchling"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
+      "API Ninjas",
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:45.948405"
+    "last_updated": "2026-03-15T22:15:16.442361",
+    "characteristics": {}
   },
   {
     "id": "Q270238",
@@ -485,9 +578,9 @@
       "genus": "Lithobates",
       "species": "Lithobates catesbeianus"
     },
-    "animal_type": "frog",
-    "young_name": "tadpole",
-    "group_name": "army",
+    "animal_type": "default",
+    "young_name": "young",
+    "group_name": "population",
     "physical": {
       "weight": null,
       "length": null,
@@ -497,25 +590,33 @@
     },
     "ecology": {
       "diet": "Omnivore",
-      "habitat": "lake, sea, coastal, swamp",
+      "habitat": "coastal, lake, tropical, river",
       "locations": "Asia, China, Indonesia, Japan, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Human-wildlife conflict, Overfishing",
       "distinctive_features": [
         "Long tail"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "3",
-      "name_of_young": "young"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:47.907727"
+    "last_updated": "2026-03-15T22:15:18.419889"
   },
   {
     "id": "Q165980",
@@ -547,8 +648,16 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "forest, mountain, sea, wetland",
-      "locations": "North America, South America, Europe, Asia, Africa",
+      "habitat": "garden, wetland, coastal, forest",
+      "locations": [
+        "Africa",
+        "Asia",
+        "Central-America",
+        "Europe",
+        "North-America",
+        "Oceania",
+        "South-America"
+      ],
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
@@ -556,18 +665,28 @@
         "Wing",
         "Proboscis",
         "Pattern"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "300–500",
-      "name_of_young": "caterpillar"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
+      "API Ninjas",
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:50.116687"
+    "last_updated": "2026-03-15T22:15:21.043899",
+    "characteristics": {}
   },
   {
     "id": "Q7316",
@@ -599,8 +718,17 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "forest, mountain, sea, grassland",
-      "locations": "North America, Europe, Asia, Africa, South America",
+      "habitat": "tropical, forest, urban, agricultural",
+      "locations": [
+        "Africa",
+        "Asia",
+        "Central-America",
+        "Eurasia",
+        "Europe",
+        "North-America",
+        "Oceania",
+        "South-America"
+      ],
       "group_behavior": "Social",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Pollution, Overfishing",
@@ -608,17 +736,222 @@
         "Wing",
         "Stinger",
         "Pollen Basket"
-      ]
+      ],
+      "population_trend": null
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": null,
-      "name_of_young": "larva"
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
     },
     "sources": [
+      "API Ninjas",
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:51:52.817973"
+    "last_updated": "2026-03-15T22:15:23.023661",
+    "characteristics": {}
+  },
+  {
+    "id": "Q35625",
+    "name": "Cheetah",
+    "scientific_name": "Acinonyx jubatus",
+    "common_names": [],
+    "description": "Large feline of the genus Acinonyx",
+    "summary": "The cheetah is a species of large feline and the only living member of the genus Acinonyx. An iconic pursuit predator, it is the fastest land animal, capable of running at 93 to 104 km/h ; it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Acinonyx",
+      "species": "Acinonyx jubatus"
+    },
+    "animal_type": "feline",
+    "young_name": "cub",
+    "group_name": "streak",
+    "physical": {
+      "weight": null,
+      "length": "67.0–94.0 cm",
+      "height": null,
+      "top_speed": "100.1 km/h",
+      "lifespan": "3–4 years"
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "tropical, tropical forest, forest, jungle",
+      "locations": [
+        "Africa",
+        "Asia",
+        "Eurasia"
+      ],
+      "group_behavior": "Solitary",
+      "conservation_status": "Critically Endangered",
+      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [
+        "Stripe",
+        "Spot",
+        "Mane"
+      ],
+      "population_trend": null
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-15T22:15:25.063117",
+    "characteristics": {}
+  },
+  {
+    "id": "Q14373",
+    "name": "Giraffe",
+    "scientific_name": "Giraffa camelopardalis",
+    "common_names": [],
+    "description": "Tall African hoofed mammal",
+    "summary": "Giraffes are large African hoofed mammals. They are the tallest living terrestrial animals and the largest ruminants on Earth. They are classified under the family Giraffidae, along with their closest extant relative, the okapi. Traditionally, giraffes have been thought of as one species, Giraffa camelopardalis, with nine subspecies. Most recently, researchers proposed dividing them into four extant species, with seven subspecies, which can be distinguished morphologically by their fur coat patterns. Six valid extinct species of Giraffa are known from the fossil record.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Giraffe_Mikumi_National_Park.jpg/330px-Giraffe_Mikumi_National_Park.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Giraffe",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Giraffidae",
+      "genus": "Giraffa",
+      "species": "Giraffa camelopardalis"
+    },
+    "animal_type": "default",
+    "young_name": "young",
+    "group_name": "population",
+    "physical": {
+      "weight": null,
+      "length": "7.0–9.0 m",
+      "height": null,
+      "top_speed": null,
+      "lifespan": "14 months"
+    },
+    "ecology": {
+      "diet": "Herbivore",
+      "habitat": "tropical, forest, lake, woodland",
+      "locations": [
+        "Africa"
+      ],
+      "group_behavior": "Solitary",
+      "conservation_status": "Critically Endangered",
+      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Long tail"
+      ],
+      "population_trend": null
+    },
+    "reproduction": {
+      "gestation_period": "400–460 days",
+      "average_litter_size": "97",
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-15T22:15:27.056287",
+    "characteristics": {}
+  },
+  {
+    "id": "Q33602",
+    "name": "Polar Bear",
+    "scientific_name": "Ursus maritimus",
+    "common_names": [],
+    "description": "Topics referred to by the same term",
+    "summary": "The polar bear is a large Arctic animal.",
+    "image": "",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Polar_Bear",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Ursidae",
+      "genus": "Ursus",
+      "species": "Ursus maritimus"
+    },
+    "animal_type": "bear",
+    "young_name": "cub",
+    "group_name": "sloth",
+    "physical": {
+      "weight": null,
+      "length": null,
+      "height": null,
+      "top_speed": null,
+      "lifespan": null
+    },
+    "ecology": {
+      "diet": "Omnivore",
+      "habitat": "desert, sea",
+      "locations": [
+        "Eurasia",
+        "Europe",
+        "North-America",
+        "Ocean"
+      ],
+      "group_behavior": "Solitary",
+      "conservation_status": null,
+      "biggest_threat": null,
+      "distinctive_features": [
+        "Thick fur"
+      ],
+      "population_trend": null
+    },
+    "reproduction": {
+      "gestation_period": null,
+      "average_litter_size": null,
+      "name_of_young": null
+    },
+    "conservation": {
+      "category": null,
+      "published_year": null,
+      "rationale": null,
+      "geographic_range": null,
+      "conservation_actions": null
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-15T22:15:29.267507",
+    "characteristics": {}
   }
 ]
