@@ -57,8 +57,9 @@ def extract_diet(text, animal_type):
                             'varied diet', 'eats both', 'generalist']):
         return "Omnivore"
     
-    # Insectivore
-    if any(w in t for w in ['insectivore', 'insectivorous', 'eats insects', 'feeds on insects']):
+    # Insectivore - ONLY if explicitly stated (not just "insects" mentioned)
+    if any(w in t for w in ['insectivore', 'insectivorous', 'feeds primarily on insects', 
+                            'diet consists mainly of insects']):
         return "Insectivore"
     
     # Piscivore (fish-eater)
@@ -72,12 +73,12 @@ def extract_diet(text, animal_type):
     if any(w in t for w in ['carnivore', 'carnivorous', 'meat-eater', 'meat eater']):
         return "Carnivore"
     
-    # Predator/prey language (but be careful - some herbivores are called prey)
+    # Predator/prey language
     if any(w in t for w in ['predator', 'predatory', 'preys on', 'hunts']):
         # Make sure it's not talking about being prey
         if 'prey on' in t or 'preys on' in t or 'hunts' in t:
             return "Carnivore"
     
     # ========== FALLBACK TO ANIMAL TYPE DEFAULT ==========
-    # This is important - feline should default to Carnivore
+    # This is important - feline should default to Carnivore, not herbivore
     return get_default_diet(animal_type)
