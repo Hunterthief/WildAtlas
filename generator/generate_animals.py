@@ -16,13 +16,29 @@ from pathlib import Path
 # Import modular components
 from modules.fetchers import fetch_wikipedia_summary, fetch_wikipedia_full, fetch_inaturalist
 from modules.detectors import detect_animal_type, get_young_name, get_group_name
-from modules.extractors.stats import extract_weight, extract_length, extract_height, extract_lifespan, extract_speed
-from modules.extractors.ecology import (
-    extract_diet, extract_conservation, extract_locations,
-    extract_habitat, extract_features, extract_behavior, extract_threats
-)
-from modules.extractors.reproduction import extract_gestation, extract_litter_size
 from modules.cache import load_cache, save_cache
+
+# Import extractors from their sub-packages
+from modules.extractors.stats import (
+    extract_weight,
+    extract_length,
+    extract_height,
+    extract_lifespan,
+    extract_speed
+)
+from modules.extractors.ecology import (
+    extract_diet,
+    extract_conservation,
+    extract_locations,
+    extract_habitat,
+    extract_features,
+    extract_behavior,
+    extract_threats
+)
+from modules.extractors.reproduction import (
+    extract_gestation,
+    extract_litter_size
+)
 
 # Setup
 os.makedirs("data", exist_ok=True)
@@ -69,10 +85,24 @@ def extract_all_data(data, text, animal_type):
     """Run all extraction functions and update data"""
     # Physical stats - each function is independent
     data["physical"]["weight"] = extract_weight(text, animal_type)
+    if data["physical"]["weight"]:
+        print(f" ✓ Weight found: {data['physical']['weight']}")
+    
     data["physical"]["length"] = extract_length(text, animal_type)
+    if data["physical"]["length"]:
+        print(f" ✓ Length found: {data['physical']['length']}")
+    
     data["physical"]["height"] = extract_height(text, animal_type)
+    if data["physical"]["height"]:
+        print(f" ✓ Height found: {data['physical']['height']}")
+    
     data["physical"]["lifespan"] = extract_lifespan(text, animal_type)
+    if data["physical"]["lifespan"]:
+        print(f" ✓ Lifespan found: {data['physical']['lifespan']}")
+    
     data["physical"]["top_speed"] = extract_speed(text, animal_type)
+    if data["physical"]["top_speed"]:
+        print(f" ✓ Speed found: {data['physical']['top_speed']}")
 
     # Ecology data - each function is independent
     data["ecology"]["diet"] = extract_diet(text, animal_type)
@@ -85,7 +115,13 @@ def extract_all_data(data, text, animal_type):
 
     # Reproduction data - each function is independent
     data["reproduction"]["gestation_period"] = extract_gestation(text, animal_type)
+    if data["reproduction"]["gestation_period"]:
+        print(f" ✓ Gestation found: {data['reproduction']['gestation_period']}")
+    
     data["reproduction"]["average_litter_size"] = extract_litter_size(text, animal_type)
+    if data["reproduction"]["average_litter_size"]:
+        print(f" ✓ Litter size found: {data['reproduction']['average_litter_size']}")
+    
     data["reproduction"]["name_of_young"] = get_young_name(animal_type)
 
 
