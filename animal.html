@@ -44,7 +44,6 @@
         <section class="title-section">
             <h1 id="animal-name">Loading...</h1>
             <p class="scientific-name" id="animal-scientific">Scientific name</p>
-            <div class="badges" id="animal-badges"></div>
         </section>
 
         <!-- THREE COLUMN LAYOUT: Left | Image | Right -->
@@ -53,7 +52,7 @@
             <!-- LEFT SIDEBAR -->
             <aside class="sidebar left-sidebar">
                 
-                <!-- Stats Card (Food, Length, Height, Weight) -->
+                <!-- Quick Stats Card (Food, Length, Height, Weight) -->
                 <div class="side-card">
                     <h4>Quick Stats</h4>
                     <div class="stat-row">
@@ -89,12 +88,6 @@
                     <p class="location-text" id="location-text">-</p>
                 </div>
 
-                <!-- Time Period Card -->
-                <div class="side-card">
-                    <h4>Conservation Status</h4>
-                    <p class="time-text" id="conservation-status-text">-</p>
-                </div>
-
             </aside>
 
             <!-- CENTER IMAGE -->
@@ -107,10 +100,16 @@
             <!-- RIGHT SIDEBAR -->
             <aside class="sidebar right-sidebar">
                 
-                <!-- Diet Details Card -->
+                <!-- Conservation Status Card (MOVED HERE - Top of Right Sidebar) -->
                 <div class="side-card">
-                    <h4>Diet</h4>
-                    <p class="side-text" id="diet-text">-</p>
+                    <h4>Conservation Status</h4>
+                    <div class="conservation-status-box" id="conservation-status-box">
+                        <span class="conservation-status-text" id="conservation-status-text">Unknown</span>
+                    </div>
+                    <div class="threats-box">
+                        <h5>Biggest Threats</h5>
+                        <p id="conservation-threats">-</p>
+                    </div>
                 </div>
 
                 <!-- Habitat Card -->
