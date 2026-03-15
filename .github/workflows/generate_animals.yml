@@ -37,14 +37,27 @@ jobs:
         API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
         IUCN_API_KEY: ${{ secrets.IUCN_API_KEY }}
     
+    - name: Debug - Show file status
+      run: |
+        echo "=== Files in data/ directory ==="
+        ls -la data/ || true
+        echo "=== Git status ==="
+        git status
+        echo "=== animals.json exists? ==="
+        test -f data/animals.json && echo "YES" || echo "NO"
+    
     - name: Check for changes
       id: git-check
       run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
         git add data/animals.json
         git add data/*.json 2>/dev/null || true
         if ! git diff --staged --quiet; then
+          echo "✅ Changes detected"
           echo "changes=true" >> $GITHUB_OUTPUT
         else
+          echo "ℹ️ No changes detected"
           echo "changes=false" >> $GITHUB_OUTPUT
         fi
     
@@ -55,3 +68,9 @@ jobs:
         git config --global user.email 'actions@github.com'
         git commit -m "🤖 Auto-update animal data [skip ci]"
         git push https://${{ secrets.MY_PAT }}@github.com/Hunterthief/WildAtlas.git main
+        echo "✅ Successfully pushed changes!"
+    
+    - name: No changes to commit
+      if: steps.git-check.outputs.changes == 'false'
+      run: |
+        echo "ℹ️ No changes to commit - data is up to date"
