@@ -29,7 +29,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "grassland, jungle, coniferous forest, sea",
+      "habitat": "river, rainforest, temperate, sea",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -49,7 +49,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:12.491411"
+    "last_updated": "2026-03-15T20:12:30.995920"
   },
   {
     "id": "Q7372",
@@ -69,39 +69,39 @@
       "genus": "Loxodonta",
       "species": "Loxodonta africana"
     },
-    "animal_type": "ant",
-    "young_name": "larva",
-    "group_name": "colony",
+    "animal_type": "elephant",
+    "young_name": "calf",
+    "group_name": "herd",
     "physical": {
       "weight": null,
-      "length": "7.0–6.0 m",
+      "length": "6.0–7.0 m",
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "sea, forest, rainforest, savanna",
+      "habitat": "savanna, rainforest, sea, tropical",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Climate change",
       "distinctive_features": [
-        "Distinctive mane",
-        "Long tail",
-        "Scaled skin"
+        "Trunk",
+        "Tusk",
+        "Ear"
       ]
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "1",
-      "name_of_young": "larva"
+      "name_of_young": "calf"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:14.552208"
+    "last_updated": "2026-03-15T20:12:33.456826"
   },
   {
     "id": "Q213537",
@@ -121,31 +121,31 @@
       "genus": "Canis",
       "species": "Canis familiaris"
     },
-    "animal_type": "ray",
+    "animal_type": "canine",
     "young_name": "pup",
-    "group_name": "fever",
+    "group_name": "pack",
     "physical": {
       "weight": null,
-      "length": "10.0–54.0 m",
+      "length": null,
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "grassland, desert, jungle, sea",
-      "locations": "Africa, South Africa, Egypt, Asia, India",
-      "group_behavior": "Solitary",
+      "habitat": "river, savanna, coastal, wetland",
+      "locations": "North America, Eurasia, Europe, Asia, Russia",
+      "group_behavior": "Social",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss, Human-wildlife conflict, Overfishing",
       "distinctive_features": [
-        "Spotted coat",
-        "Distinctive mane",
-        "Prominent horns"
+        "Tail",
+        "Claw",
+        "Fur"
       ]
     },
     "reproduction": {
-      "gestation_period": null,
+      "gestation_period": "62–75 days",
       "average_litter_size": "1",
       "name_of_young": "pup"
     },
@@ -153,7 +153,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:16.714398"
+    "last_updated": "2026-03-15T20:12:35.987436"
   },
   {
     "id": "Q25319",
@@ -185,7 +185,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "desert, ocean, cliff, forest",
+      "habitat": "cliff, river, savanna, coastal",
       "locations": "North America, Canada, Alaska, United States, Mexico",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -205,7 +205,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:18.857087"
+    "last_updated": "2026-03-15T20:12:38.337261"
   },
   {
     "id": "Q43306",
@@ -237,7 +237,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ocean, sea, marsh, ice",
+      "habitat": "ocean, sea, island, marsh",
       "locations": "Antarctica, Southern Ocean, New Zealand, Australia, Chile",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -250,14 +250,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "20",
+      "average_litter_size": null,
       "name_of_young": "chick"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:20.919974"
+    "last_updated": "2026-03-15T20:12:40.655814"
   },
   {
     "id": "Q47164",
@@ -282,14 +282,14 @@
     "group_name": "shiver",
     "physical": {
       "weight": null,
-      "length": "60.0–43.0 m",
+      "length": null,
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ocean, sea, marsh, temperate",
+      "habitat": "open ocean, coastal, ocean, temperate",
       "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -302,14 +302,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": null,
+      "average_litter_size": "300",
       "name_of_young": "pup"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:23.123934"
+    "last_updated": "2026-03-15T20:12:43.011898"
   },
   {
     "id": "Q39709",
@@ -341,7 +341,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ocean, sea, river, Atlantic",
+      "habitat": "river, Pacific, coastal, ocean",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -354,14 +354,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "1",
+      "average_litter_size": null,
       "name_of_young": "fry"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:25.210150"
+    "last_updated": "2026-03-15T20:12:45.397680"
   },
   {
     "id": "Q7785",
@@ -393,7 +393,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ocean, sea, marsh, river",
+      "habitat": "river, coastal, coral reef, ocean",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -406,14 +406,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "1",
+      "average_litter_size": "45",
       "name_of_young": "hatchling"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:27.342554"
+    "last_updated": "2026-03-15T20:12:47.685375"
   },
   {
     "id": "Q189609",
@@ -437,7 +437,7 @@
     "young_name": "hatchling",
     "group_name": "den",
     "physical": {
-      "weight": "9.0 t",
+      "weight": null,
       "length": "3.18–4.0 m",
       "height": null,
       "top_speed": null,
@@ -445,7 +445,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "agricultural, sea, forest, marsh",
+      "habitat": "river, coastal, rainforest, sea",
       "locations": "Asia, India, China, Southeast Asia, Australia",
       "group_behavior": "Family groups",
       "conservation_status": "Vulnerable",
@@ -465,7 +465,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:29.486891"
+    "last_updated": "2026-03-15T20:12:49.889929"
   },
   {
     "id": "Q270238",
@@ -497,27 +497,27 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "sea, river, swamp, coastal",
-      "locations": "North America, United States, Canada, Europe, Asia",
+      "habitat": "river, coastal, sea, tropical",
+      "locations": "Asia, China, Indonesia, Japan, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Human-wildlife conflict, Overfishing",
       "distinctive_features": [
-        "Jump",
+        "Distinctive mane",
         "Prominent horns",
-        "Venomous"
+        "Long tail"
       ]
     },
     "reproduction": {
       "gestation_period": null,
       "average_litter_size": "1",
-      "name_of_young": "tadpole"
+      "name_of_young": "young"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:31.516811"
+    "last_updated": "2026-03-15T20:12:52.447374"
   },
   {
     "id": "Q165980",
@@ -543,13 +543,13 @@
     "physical": {
       "weight": null,
       "length": "8.9–10.2 cm",
-      "height": "3.0–5.0 ft",
+      "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "desert, ocean, sea, forest",
+      "habitat": "river, coastal, ocean, garden",
       "locations": "North America, South America, Europe, Asia, Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -562,14 +562,14 @@
     },
     "reproduction": {
       "gestation_period": null,
-      "average_litter_size": "8",
+      "average_litter_size": null,
       "name_of_young": "caterpillar"
     },
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:33.951911"
+    "last_updated": "2026-03-15T20:12:55.204608"
   },
   {
     "id": "Q7316",
@@ -594,14 +594,14 @@
     "group_name": "colony",
     "physical": {
       "weight": null,
-      "length": "0.3–0.8 m",
+      "length": null,
       "height": null,
       "top_speed": null,
       "lifespan": null
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "grassland, agricultural, desert, sea",
+      "habitat": "temperate, desert, sea, urban",
       "locations": "North America, Europe, Asia, Africa, South America",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -621,6 +621,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T19:38:36.081725"
+    "last_updated": "2026-03-15T20:12:58.591099"
   }
 ]
