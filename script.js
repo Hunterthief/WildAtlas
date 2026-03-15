@@ -1,66 +1,67 @@
-// ============================================
-// WildAtlas - Main JavaScript File
-// Streamlined Facts.app Design
-// External World Map SVG
-// ============================================
-
-let allAnimals = [];
-
 // Location coordinates for world map (percentage-based for responsive SVG)
 // Values are percentages (0-100) of map width/height
 const locationCoordinates = {
-    'asia': { x: 72, y: 35 },
-    'china': { x: 75, y: 38 },
-    'india': { x: 68, y: 45 },
-    'russia': { x: 70, y: 25 },
-    'indonesia': { x: 78, y: 55 },
-    'north america': { x: 22, y: 32 },
-    'america': { x: 22, y: 32 },
-    'united states': { x: 20, y: 35 },
-    'usa': { x: 20, y: 35 },
-    'canada': { x: 22, y: 25 },
-    'alaska': { x: 12, y: 22 },
-    'south america': { x: 25, y: 65 },
-    'africa': { x: 52, y: 55 },
-    'europe': { x: 52, y: 30 },
-    'australia': { x: 82, y: 75 },
-    'mexico': { x: 18, y: 42 },
-    'japan': { x: 85, y: 35 },
-    'korea': { x: 80, y: 36 },
-    'pacific': { x: 40, y: 60 },
-    'atlantic': { x: 35, y: 45 },
-    'indian ocean': { x: 62, y: 60 },
+    'asia': { x: 75, y: 40 },
+    'china': { x: 78, y: 42 },
+    'india': { x: 72, y: 50 },
+    'russia': { x: 75, y: 25 },
+    'indonesia': { x: 80, y: 58 },
+    'north america': { x: 25, y: 35 },
+    'america': { x: 25, y: 35 },
+    'united states': { x: 23, y: 38 },
+    'usa': { x: 23, y: 38 },
+    'canada': { x: 25, y: 25 },
+    'alaska': { x: 15, y: 20 },
+    'south america': { x: 30, y: 65 },
+    'africa': { x: 55, y: 55 },
+    'europe': { x: 55, y: 30 },
+    'australia': { x: 85, y: 75 },
+    'mexico': { x: 20, y: 45 },
+    'japan': { x: 88, y: 38 },
+    'korea': { x: 83, y: 40 },
+    'pacific': { x: 45, y: 60 },
+    'atlantic': { x: 40, y: 45 },
+    'indian ocean': { x: 65, y: 60 },
     'arctic': { x: 50, y: 10 },
     'antarctica': { x: 50, y: 90 },
-    'texas': { x: 18, y: 38 },
-    'oklahoma': { x: 19, y: 37 },
-    'florida': { x: 23, y: 42 },
-    'california': { x: 15, y: 38 },
-    'brazil': { x: 28, y: 68 },
-    'argentina': { x: 25, y: 80 },
-    'egypt': { x: 55, y: 42 },
-    'south africa': { x: 55, y: 75 },
-    'uk': { x: 48, y: 28 },
-    'france': { x: 49, y: 32 },
-    'germany': { x: 51, y: 30 },
-    'italy': { x: 52, y: 34 },
-    'spain': { x: 47, y: 36 },
-    'scandinavia': { x: 52, y: 22 },
-    'norway': { x: 51, y: 22 },
-    'sweden': { x: 53, y: 24 },
-    'finland': { x: 55, y: 22 },
-    'poland': { x: 54, y: 30 },
-    'turkey': { x: 58, y: 36 },
-    'iran': { x: 62, y: 38 },
-    'saudi arabia': { x: 60, y: 42 },
-    'thailand': { x: 74, y: 48 },
-    'vietnam': { x: 76, y: 45 },
-    'philippines': { x: 80, y: 50 },
-    'new zealand': { x: 88, y: 82 },
-    'papua new guinea': { x: 85, y: 65 },
-    'madagascar': { x: 62, y: 70 },
-    'greenland': { x: 35, y: 18 },
-    'iceland': { x: 42, y: 22 }
+    'texas': { x: 20, y: 42 },
+    'oklahoma': { x: 21, y: 41 },
+    'florida': { x: 26, y: 46 },
+    'california': { x: 17, y: 40 },
+    'brazil': { x: 32, y: 68 },
+    'argentina': { x: 30, y: 80 },
+    'egypt': { x: 58, y: 45 },
+    'south africa': { x: 58, y: 75 },
+    'uk': { x: 50, y: 28 },
+    'france': { x: 52, y: 32 },
+    'germany': { x: 54, y: 30 },
+    'italy': { x: 55, y: 35 },
+    'spain': { x: 48, y: 38 },
+    'scandinavia': { x: 55, y: 20 },
+    'norway': { x: 54, y: 20 },
+    'sweden': { x: 56, y: 22 },
+    'finland': { x: 58, y: 20 },
+    'poland': { x: 57, y: 30 },
+    'turkey': { x: 60, y: 38 },
+    'iran': { x: 65, y: 40 },
+    'saudi arabia': { x: 62, y: 45 },
+    'thailand': { x: 77, y: 50 },
+    'vietnam': { x: 79, y: 48 },
+    'philippines': { x: 83, y: 52 },
+    'new zealand': { x: 90, y: 82 },
+    'papua new guinea': { x: 87, y: 65 },
+    'madagascar': { x: 65, y: 70 },
+    'greenland': { x: 38, y: 15 },
+    'iceland': { x: 45, y: 18 },
+    'india': { x: 72, y: 50 },
+    'siberia': { x: 80, y: 25 },
+    'mongolia': { x: 80, y: 35 },
+    'tibet': { x: 75, y: 45 },
+    'alps': { x: 53, y: 33 },
+    'himilayas': { x: 73, y: 43 },
+    'andes': { x: 25, y: 70 },
+    'rockies': { x: 18, y: 35 },
+    'appalachian': { x: 24, y: 38 }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -260,7 +261,15 @@ function populateDetailPage(animal) {
     const locationText = document.getElementById('location-text');
     if (locationText && animal.ecology?.locations) {
         locationText.textContent = animal.ecology.locations;
-        addLocationDots(animal.ecology.locations);
+        // Wait for map to load before adding dots
+        const mapImg = document.getElementById('world-map');
+        if (mapImg && mapImg.complete) {
+            addLocationDots(animal.ecology.locations);
+        } else if (mapImg) {
+            mapImg.addEventListener('load', () => {
+                addLocationDots(animal.ecology.locations);
+            });
+        }
     }
     
     // Conservation Status
@@ -320,12 +329,11 @@ function addLocationDots(locationsString) {
     dotsContainer.innerHTML = '';
     
     const locations = locationsString.toLowerCase().split(',').map(l => l.trim());
-    const addedDots = new Set(); // Prevent duplicate dots
+    const addedDots = new Set();
     
     locations.forEach(location => {
         const coords = findLocationCoordinates(location);
         if (coords) {
-            // Create unique key to prevent duplicates
             const dotKey = `${coords.x}-${coords.y}`;
             
             if (!addedDots.has(dotKey)) {
@@ -387,7 +395,6 @@ function getTimePeriod(animal) {
     let text = '';
     let width = '50%';
     
-    // Mammals ~200 million years ago
     if (classType.includes('mammal') || animalType.includes('cat') || animalType.includes('feline') || 
         animalType.includes('dog') || animalType.includes('canine') || animalType.includes('elephant') ||
         animalType.includes('wolf') || animalType.includes('tiger')) {
@@ -395,40 +402,34 @@ function getTimePeriod(animal) {
         text = `Evolved ~${millionsYears} million years ago`;
         width = '85%';
     }
-    // Birds ~150 million years ago
     else if (classType.includes('aves') || animalType.includes('bird') || animalType.includes('eagle') || 
              animalType.includes('penguin') || animalType.includes('raptor')) {
         millionsYears = 150;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '75%';
     }
-    // Reptiles ~300 million years ago
     else if (classType.includes('reptil') || animalType.includes('snake') || animalType.includes('turtle') ||
              animalType.includes('cobra')) {
         millionsYears = 300;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '90%';
     }
-    // Fish ~500 million years ago
     else if (classType.includes('fish') || classType.includes('chondrichthyes') || classType.includes('actinopterygii') ||
              animalType.includes('shark') || animalType.includes('salmon')) {
         millionsYears = 500;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '95%';
     }
-    // Amphibians ~370 million years ago
     else if (classType.includes('amphib') || animalType.includes('frog')) {
         millionsYears = 370;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '92%';
     }
-    // Insects ~400 million years ago
     else if (classType.includes('insect') || animalType.includes('butterfly') || animalType.includes('bee')) {
         millionsYears = 400;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '93%';
     }
-    // Default
     else {
         millionsYears = 100;
         text = `Evolved ~${millionsYears} million years ago`;
