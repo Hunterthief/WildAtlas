@@ -100,9 +100,9 @@
 
             <!-- CENTER IMAGE -->
             <div class="center-column">
-                <div class="hero-image-wrapper">
+                <div class="hero-image-wrapper" id="hero-image-wrapper">
                     <img id="animal-image" class="hero-image" src="" alt="Animal">
-                    <div class="scroll-indicator">
+                    <div class="scroll-indicator" id="scroll-indicator">
                         <span>Scroll down</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 5v14M19 12l-7 7-7-7"/>
@@ -116,14 +116,28 @@
                 
                 <!-- Location with Map -->
                 <div class="info-card">
-                    <div class="stat-card-header">Location & Land Formation</div>
+                    <div class="stat-card-header">Location & Distribution</div>
                     <div class="location-content">
                         <div class="location-map" id="location-map">
-                            <!-- Map placeholder -->
-                            <svg viewBox="0 0 200 100" class="world-map">
-                                <ellipse cx="50" cy="50" rx="40" ry="35" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
-                                <ellipse cx="150" cy="50" rx="45" ry="35" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
-                                <circle id="location-dot" cx="45" cy="45" r="4" fill="#38bdf8"/>
+                            <!-- World Map SVG -->
+                            <svg viewBox="0 0 400 200" class="world-map" id="world-map">
+                                <!-- Simplified world map paths -->
+                                <g class="continents" fill="#2a2a2a" stroke="#444" stroke-width="0.5">
+                                    <!-- North America -->
+                                    <path d="M50,40 L90,35 L100,50 L85,70 L60,65 L45,50 Z"/>
+                                    <!-- South America -->
+                                    <path d="M70,75 L90,75 L95,100 L85,130 L75,120 L65,90 Z"/>
+                                    <!-- Europe -->
+                                    <path d="M180,35 L210,35 L215,50 L195,55 L175,50 Z"/>
+                                    <!-- Africa -->
+                                    <path d="M175,60 L210,60 L220,80 L210,110 L185,100 L170,75 Z"/>
+                                    <!-- Asia -->
+                                    <path d="M220,35 L320,35 L340,50 L330,80 L280,75 L240,60 L220,50 Z"/>
+                                    <!-- Australia -->
+                                    <path d="M310,110 L350,110 L355,135 L330,145 L305,130 Z"/>
+                                </g>
+                                <!-- Location dots will be added by JS -->
+                                <g id="location-dots"></g>
                             </svg>
                         </div>
                         <p class="location-text" id="location-text">-</p>
@@ -147,22 +161,39 @@
                     <div class="stat-card-header">Time Period</div>
                     <div class="time-content">
                         <div class="time-range" id="time-range">-</div>
-                        <div class="timeline-visual" id="timeline-visual">
+                        <div class="timeline-visual">
                             <div class="timeline-bar">
                                 <div class="timeline-fill" id="timeline-fill"></div>
                             </div>
                             <div class="timeline-labels">
-                                <span>Ancient</span>
-                                <span>Recent</span>
+                                <span id="timeline-start">Ancient</span>
+                                <span id="timeline-end">Present</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Distinctive Features -->
+                <!-- Reproduction Card (REPLACED Distinctive Features) -->
                 <div class="info-card">
-                    <div class="stat-card-header">Distinctive Features</div>
-                    <div class="feature-tags" id="feature-tags"></div>
+                    <div class="stat-card-header">Reproduction</div>
+                    <div class="reproduction-content">
+                        <div class="repro-item">
+                            <span class="repro-label">Young Name</span>
+                            <span class="repro-value" id="repro-young">-</span>
+                        </div>
+                        <div class="repro-item">
+                            <span class="repro-label">Group Name</span>
+                            <span class="repro-value" id="repro-group">-</span>
+                        </div>
+                        <div class="repro-item">
+                            <span class="repro-label">Gestation</span>
+                            <span class="repro-value" id="repro-gestation">-</span>
+                        </div>
+                        <div class="repro-item">
+                            <span class="repro-label">Litter Size</span>
+                            <span class="repro-value" id="repro-litter">-</span>
+                        </div>
+                    </div>
                 </div>
 
             </aside>
@@ -182,10 +213,7 @@
                 <p id="ecology-text">Loading...</p>
             </section>
 
-            <section class="article-section">
-                <h2>Reproduction</h2>
-                <p id="reproduction-text">Loading...</p>
-            </section>
+            <!-- Reproduction section REMOVED from here (now in sidebar) -->
 
         </article>
 
