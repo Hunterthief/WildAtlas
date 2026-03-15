@@ -160,11 +160,11 @@ def fetch_wikipedia_full(name):
     return ""
 
 # ============================================================================
-# DATA EXTRACTION (IMPROVED)
+# DATA EXTRACTION (FIXED FOR WIKIPEDIA FORMATS)
 # ============================================================================
 
 def extract_stats(text, animal_type):
-    """Extract physical stats - IMPROVED PATTERNS"""
+    """Extract physical stats - FIXED FOR WIKIPEDIA FORMATS"""
     stats = {"weight": None, "length": None, "height": None, "lifespan": None, "top_speed": None}
     if not text: 
         print("    ⚠ No text for stats extraction")
@@ -173,17 +173,16 @@ def extract_stats(text, animal_type):
     text_lower = text.lower()
     
     # ========== WEIGHT ==========
+    # Wikipedia formats: "weigh 200–260 kg", "weigh 100–160 kg", "weigh 200-260 kg"
     weight_patterns = [
-        # "weighs between X and Y kg"
-        r'weighs?\s*(?:between|from|of|up to)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?|g|grams?)',
-        # "weight of X kg"
-        r'weight\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?)',
-        # "X to Y kilograms"
-        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?)\s*(?:weight|weighing|weighs)?',
-        # Single value "weighs X kg"
-        r'weighs?\s*(?:around|about|approximately)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?)',
-        # "X kg" near weight context
-        r'(?:up to|over|about|around)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b)',
+        # "Male Bengal tigers weigh 200–260 kg"
+        r'(?:males?|females?|adults?|individuals?|they|it)\s*(?:weigh|weighs|weight)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?|g|grams?)',
+        # "weigh 200–260 kg (440–570 lb)"
+        r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?)',
+        # "200–260 kg" near weight context
+        r'(?:weigh|weight|weighing|up to|over|about|around)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?)',
+        # "weighs X kg"
+        r'weighs?\s*(?:around|about|approximately|up to)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t\b|lbs?|pounds?)',
     ]
     
     for pattern in weight_patterns:
@@ -196,11 +195,20 @@ def extract_stats(text, animal_type):
                     v2 = float(groups[1].replace(',', '.')) if len(groups) > 2 and groups[1] and groups[1].replace(',','').replace('.','').isdigit() else v1
                     u = groups[-1].lower().strip()
                     
-                    # Validate reasonable ranges
-                    if u in ['kg', 'kilogram', 'kilograms'] and 0.1 < v1 < 10000:
-                        stats["weight"] = f"{v1}–{v2} kg" if v1 != v2 else f"{v1} kg"
-                        print(f"    ✓ Weight found: {stats['weight']}")
-                        break
+                    # Validate reasonable ranges for different animal types
+                    if u in ['kg', 'kilogram', 'kilograms']:
+                        if animal_type in ['feline', 'canine', 'bear'] and 10 < v1 < 500:
+                            stats["weight"] = f"{v1}–{v2} kg" if v1 != v2 else f"{v1} kg"
+                            print(f"    ✓ Weight found: {stats['weight']}")
+                            break
+                        elif animal_type in ['elephant', 'whale'] and 100 < v1 < 10000:
+                            stats["weight"] = f"{v1}–{v2} kg" if v1 != v2 else f"{v1} kg"
+                            print(f"    ✓ Weight found: {stats['weight']}")
+                            break
+                        elif 0.1 < v1 < 10000:
+                            stats["weight"] = f"{v1}–{v2} kg" if v1 != v2 else f"{v1} kg"
+                            print(f"    ✓ Weight found: {stats['weight']}")
+                            break
                     elif u in ['t', 'tonne', 'tonnes', 'ton'] and 0.1 < v1 < 200:
                         stats["weight"] = f"{v1}–{v2} t" if v1 != v2 else f"{v1} t"
                         print(f"    ✓ Weight found: {stats['weight']}")
@@ -213,15 +221,16 @@ def extract_stats(text, animal_type):
                 print(f"    ⚠ Weight parse error: {e}")
     
     # ========== LENGTH ==========
+    # Wikipedia formats: "head-body length of 1.4–2.8 m", "1.4–2.8 m (4 ft 7 in – 9 ft 2 in)"
     length_patterns = [
-        # "length of X to Y meters"
-        r'(?:body\s*)?(?:length|long|total length)\s*(?:of|is|ranges from|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|centimeters?|mm\b|ft\b|feet|in\b|inches?)',
-        # "X to Y meters long"
-        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|centimeters?|ft\b|feet)\s*(?:long|length)?',
+        # "head-body length of 1.4–2.8 m"
+        r'(?:head[- ]?body|body|total)?\s*(?:length|long)\s*(?:of|is|ranges from|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|centimeters?|mm\b|ft\b|feet|in\b|inches?)',
+        # "1.4–2.8 m (4 ft 7 in – 9 ft 2 in)"
+        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|centimeters?|ft\b|feet)\s*(?:long|length|in length)?',
         # "grows to X meters"
         r'(?:grows|reaches|measures)\s*(?:up to|to|about)?\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)',
         # Wingspan for birds
-        r'wingspan\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)',
+        r'wingspan\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)',
     ]
     
     for pattern in length_patterns:
@@ -249,10 +258,13 @@ def extract_stats(text, animal_type):
                 print(f"    ⚠ Length parse error: {e}")
     
     # ========== HEIGHT ==========
+    # Wikipedia formats: "stands 0.8–1.1 m (2 ft 7 in – 3 ft 7 in) at the shoulder"
     if any(w in text_lower for w in ['shoulder', 'stands', 'tall', 'height', 'at the shoulder']):
         height_patterns = [
-            r'(?:stands?|height|tall|at the shoulder)\s*(?:about|around|up to|of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)',
-            r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)\s*(?:tall|height|shoulder)',
+            # "stands 0.8–1.1 m at the shoulder"
+            r'(?:stands?|stand|height|tall|at the shoulder)\s*(?:about|around|up to|of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)',
+            # "0.8–1.1 m (2 ft 7 in – 3 ft 7 in) at the shoulder"
+            r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m\b|metres?|meters?|cm\b|centimetres?|ft\b|feet)\s*(?:tall|height|shoulder|at the shoulder)',
         ]
         for pattern in height_patterns:
             m = re.search(pattern, text, re.I)
@@ -279,8 +291,9 @@ def extract_stats(text, animal_type):
                     print(f"    ⚠ Height parse error: {e}")
     
     # ========== LIFESPAN ==========
+    # Wikipedia formats: "live 12–15 years", "lifespan of 12–15 years"
     lifespan_patterns = [
-        r'(?:lifespan|life expectancy|live|lives)\s*(?:of|is|up to|about|around)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs?|months?|weeks?|days?)',
+        r'(?:lifespan|life expectancy|live|lives|live up to)\s*(?:of|is|up to|about|around)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs?|months?|weeks?|days?)',
         r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs?|months?|weeks?|days?)\s*(?:lifespan|life|in wild|in captivity|old|age)',
         r'(?:up to|about|around|approximately)\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs?)\s*(?:old|age|lifespan)',
     ]
@@ -311,11 +324,12 @@ def extract_stats(text, animal_type):
                 print(f"    ⚠ Lifespan parse error: {e}")
     
     # ========== SPEED ==========
+    # Wikipedia formats: "can sprint 56 km/h (35 mph)"
     if any(w in text_lower for w in ['speed', 'sprint', 'run', 'fly', 'swim', 'fast', 'km/h', 'mph', 'kilometers per hour']):
         speed_patterns = [
-            r'(?:speed|sprint|run|swim|fly)\s*(?:of|up to|about|around)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)?\s*(\d+(?:[.,]\d+)?)?\s*(km/h|kmph|mph|mi/h|m/s|kilometers? per hour|miles? per hour)',
+            r'(?:speed|sprint|run|swim|fly|can|capable of)\s*(?:of|up to|about|around)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)?\s*(\d+(?:[.,]\d+)?)?\s*(km/h|kmph|mph|mi/h|m/s|kilometers? per hour|miles? per hour)',
             r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−)?\s*(\d+(?:[.,]\d+)?)?\s*(km/h|kmph|mph|mi/h|m/s)\s*(?:speed|top speed|maximum)?',
-            r'(?:up to|about|around|approximately)\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h|m/s)',
+            r'(?:up to|about|around|approximately|can)\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h|m/s)',
         ]
         
         for pattern in speed_patterns:
@@ -495,7 +509,7 @@ def extract_behavior(text, animal_type):
     return None
 
 def extract_reproduction(text, animal_type):
-    """Extract reproduction data - IMPROVED PATTERNS"""
+    """Extract reproduction data - FIXED FOR WIKIPEDIA FORMATS"""
     repro = {
         "gestation_period": None,
         "average_litter_size": None,
@@ -508,15 +522,18 @@ def extract_reproduction(text, animal_type):
     text_lower = text.lower()
     
     # ========== GESTATION/INCUBATION/PREGNANCY ==========
+    # Wikipedia formats: "Gestation lasts around or over three months"
     gestation_patterns = [
-        # "gestation period of X months"
-        r'(?:gestation|pregnancy|incubation)\s*(?:period|lasts?|is|of)?\s*(?:around|about|approximately)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)',
-        # "X months gestation"
+        # "Gestation lasts around or over three months"
+        r'(?:gestation|pregnancy|incubation)\s*(?:period|lasts?|is|of)?\s*(?:around|about|approximately|over)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)',
+        # "three months" gestation
         r'(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)\s*(?:gestation|pregnancy|incubation|period)',
         # "pregnant for X months"
         r'(?:pregnant|carries young)\s*(?:for)?\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)',
         # "after X months of pregnancy"
         r'after\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)\s*(?:of\s*)?(?:pregnancy|gestation)',
+        # "lasts around or over three months"
+        r'lasts?\s*(?:around|about|approximately|over|up to)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)',
     ]
     
     for pattern in gestation_patterns:
@@ -549,15 +566,16 @@ def extract_reproduction(text, animal_type):
                 print(f"    ⚠ Gestation parse error: {e}")
     
     # ========== LITTER/CLUTCH SIZE ==========
+    # Wikipedia formats: "two or three are more typical", "as many as seven cubs"
     litter_patterns = [
-        # "litter size of X"
-        r'(?:litter|clutch|brood)\s*(?:size|consists?|of|contains)?\s*(?:of|up to|typically|average)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(?:eggs?|young|offspring|cubs?|chicks?|pups?)?',
+        # "two or three are more typical"
+        r'(?:litter|clutch|brood|cubs?|young|offspring|chicks?|pups?)?\s*(?:size|consists?|of|contains|are|is)?\s*(?:of|up to|typically|average|more)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(?:eggs?|young|offspring|cubs?|chicks?|pups?)?',
+        # "as many as seven cubs"
+        r'(?:as many as|up to|about|around|typically|usually)\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(?:eggs?|young|offspring|cubs?|chicks?|pups?)?',
         # "X cubs per litter"
         r'(\d+(?:\s*[-–]\s*\d+)?)\s*(?:eggs?|young|offspring|cubs?|chicks?|pups?)?\s*(?:per\s*)?(?:litter|clutch|brood)',
         # "gives birth to X cubs"
         r'(?:gives birth|lays|produces)\s*(?:to|up to|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(?:eggs?|young|offspring|cubs?|chicks?|pups?)?',
-        # "average of X offspring"
-        r'(?:average|typically|usually)\s*(?:of|is)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(?:offspring|young|eggs?|cubs?)',
     ]
     
     for pattern in litter_patterns:
