@@ -505,12 +505,35 @@ a:hover {
     font-size: 0.85rem;
     backdrop-filter: blur(10px);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
     pointer-events: none;
+    cursor: pointer;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.scroll-indicator:hover {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: rgba(56, 189, 248, 0.6);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+.scroll-indicator:active {
+    transform: translateX(-50%) translateY(0);
 }
 
 .hero-image-wrapper:hover .scroll-indicator {
     opacity: 1;
+    pointer-events: auto;
+}
+
+/* Animate the arrow */
+.scroll-indicator svg {
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
 }
 
 /* Main Article */
