@@ -37,7 +37,6 @@ COMMON_FEATURES = {
 }
 
 # Features that are ONLY valid for these animal types
-# (if animal_type is NOT in this list, block the feature)
 FEATURE_ALLOWED_TYPES = {
     'fin': ['fish', 'shark', 'ray', 'turtle', 'whale'],
     'wing': ['bird', 'raptor', 'owl', 'penguin', 'butterfly', 'bee', 'bat', 'insect'],
@@ -45,7 +44,7 @@ FEATURE_ALLOWED_TYPES = {
     'trunk': ['elephant'],
     'tusk': ['elephant', 'bovine', 'deer', 'walrus'],
     'stripe': ['feline', 'zebra', 'tiger'],
-    'mane': ['feline', 'canine', 'equine', 'lion'],
+    'mane': ['feline', 'canine', 'equine'],  # Removed lion-specific, lions are feline
     'horn': ['bovine', 'deer', 'rhino'],
     'antler': ['deer', 'bovine'],
     'venom': ['snake', 'spider', 'frog', 'insect'],
@@ -55,6 +54,19 @@ FEATURE_ALLOWED_TYPES = {
     'scale': ['fish', 'shark', 'ray', 'snake', 'lizard', 'turtle', 'crocodile'],
     'fur': ['feline', 'canine', 'bear', 'elephant', 'deer', 'bovine', 'equine', 
             'rabbit', 'rodent', 'primate', 'bat', 'whale', 'mammal'],
+}
+
+# Features to BLOCK for specific animal types
+FEATURE_BLOCKED_TYPES = {
+    'feline': ['mane', 'horn', 'antler', 'shell', 'fin', 'beak', 'feather', 'scale'],
+    'elephant': ['mane', 'horn', 'shell', 'fin', 'wing', 'feather', 'scale'],
+    'canine': ['mane', 'horn', 'antler', 'shell', 'fin', 'wing', 'beak', 'feather'],
+    'frog': ['mane', 'horn', 'tail', 'fur', 'feather', 'fin', 'shell'],
+    'butterfly': ['fur', 'fin', 'shell', 'mane', 'horn', 'tail'],
+    'bee': ['fur', 'fin', 'shell', 'mane', 'tail', 'horn'],
+    'bird': ['fur', 'fin', 'shell', 'horn', 'scale'],
+    'fish': ['fur', 'feather', 'wing', 'mane', 'horn'],
+    'snake': ['fur', 'feather', 'wing', 'fin', 'shell'],
 }
 
 
@@ -97,7 +109,12 @@ def extract_features(text, animal_type):
                     blocked = True
                     break
             
-            # Check if this feature is allowed for this animal type
+            # Check if feature is blocked for this animal type
+            if animal_type in FEATURE_BLOCKED_TYPES:
+                if keyword in FEATURE_BLOCKED_TYPES[animal_type]:
+                    blocked = True
+            
+            # Check if feature is allowed for this animal type
             if keyword in FEATURE_ALLOWED_TYPES:
                 if animal_type not in FEATURE_ALLOWED_TYPES[keyword]:
                     blocked = True
@@ -105,11 +122,7 @@ def extract_features(text, animal_type):
             # Special cases
             if 'tail' in keyword and animal_type in ['frog', 'butterfly', 'bee']:
                 blocked = True
-            if 'mane' in keyword and animal_type not in ['feline', 'canine', 'equine', 'lion']:
-                blocked = True
-            if 'horn' in keyword and animal_type not in ['bovine', 'deer', 'rhino', 'elephant']:
-                blocked = True
-            if 'antler' in keyword and animal_type not in ['deer', 'bovine']:
+            if 'mane' in keyword and animal_type not in ['feline', 'canine', 'equine']:
                 blocked = True
 
             if not blocked:
