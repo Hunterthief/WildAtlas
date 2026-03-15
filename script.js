@@ -1,34 +1,66 @@
 // ============================================
 // WildAtlas - Main JavaScript File
 // Streamlined Facts.app Design
+// External World Map SVG
 // ============================================
 
 let allAnimals = [];
 
-// Location coordinates for world map (approximate centroids)
+// Location coordinates for world map (percentage-based for responsive SVG)
+// Values are percentages (0-100) of map width/height
 const locationCoordinates = {
-    'asia': { x: 280, y: 50 },
-    'china': { x: 300, y: 55 },
-    'india': { x: 260, y: 65 },
-    'russia': { x: 280, y: 30 },
-    'indonesia': { x: 310, y: 85 },
-    'north america': { x: 70, y: 45 },
-    'america': { x: 70, y: 45 },
-    'united states': { x: 65, y: 50 },
-    'canada': { x: 65, y: 35 },
-    'alaska': { x: 40, y: 30 },
-    'south america': { x: 80, y: 100 },
-    'africa': { x: 195, y: 85 },
-    'europe': { x: 195, y: 45 },
-    'australia': { x: 330, y: 125 },
-    'mexico': { x: 60, y: 60 },
-    'japan': { x: 340, y: 50 },
-    'korea': { x: 320, y: 52 },
-    'pacific': { x: 150, y: 100 },
-    'atlantic': { x: 130, y: 60 },
-    'indian ocean': { x: 240, y: 90 },
-    'arctic': { x: 200, y: 15 },
-    'antarctica': { x: 200, y: 180 }
+    'asia': { x: 72, y: 35 },
+    'china': { x: 75, y: 38 },
+    'india': { x: 68, y: 45 },
+    'russia': { x: 70, y: 25 },
+    'indonesia': { x: 78, y: 55 },
+    'north america': { x: 22, y: 32 },
+    'america': { x: 22, y: 32 },
+    'united states': { x: 20, y: 35 },
+    'usa': { x: 20, y: 35 },
+    'canada': { x: 22, y: 25 },
+    'alaska': { x: 12, y: 22 },
+    'south america': { x: 25, y: 65 },
+    'africa': { x: 52, y: 55 },
+    'europe': { x: 52, y: 30 },
+    'australia': { x: 82, y: 75 },
+    'mexico': { x: 18, y: 42 },
+    'japan': { x: 85, y: 35 },
+    'korea': { x: 80, y: 36 },
+    'pacific': { x: 40, y: 60 },
+    'atlantic': { x: 35, y: 45 },
+    'indian ocean': { x: 62, y: 60 },
+    'arctic': { x: 50, y: 10 },
+    'antarctica': { x: 50, y: 90 },
+    'texas': { x: 18, y: 38 },
+    'oklahoma': { x: 19, y: 37 },
+    'florida': { x: 23, y: 42 },
+    'california': { x: 15, y: 38 },
+    'brazil': { x: 28, y: 68 },
+    'argentina': { x: 25, y: 80 },
+    'egypt': { x: 55, y: 42 },
+    'south africa': { x: 55, y: 75 },
+    'uk': { x: 48, y: 28 },
+    'france': { x: 49, y: 32 },
+    'germany': { x: 51, y: 30 },
+    'italy': { x: 52, y: 34 },
+    'spain': { x: 47, y: 36 },
+    'scandinavia': { x: 52, y: 22 },
+    'norway': { x: 51, y: 22 },
+    'sweden': { x: 53, y: 24 },
+    'finland': { x: 55, y: 22 },
+    'poland': { x: 54, y: 30 },
+    'turkey': { x: 58, y: 36 },
+    'iran': { x: 62, y: 38 },
+    'saudi arabia': { x: 60, y: 42 },
+    'thailand': { x: 74, y: 48 },
+    'vietnam': { x: 76, y: 45 },
+    'philippines': { x: 80, y: 50 },
+    'new zealand': { x: 88, y: 82 },
+    'papua new guinea': { x: 85, y: 65 },
+    'madagascar': { x: 62, y: 70 },
+    'greenland': { x: 35, y: 18 },
+    'iceland': { x: 42, y: 22 }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -241,7 +273,7 @@ function populateDetailPage(animal) {
     }
     setTextContent('conservation-threats', animal.ecology?.biggest_threat);
     
-    // Time Period (Based on animal evolution/appearance)
+    // Time Period
     const timeRange = document.getElementById('time-range');
     const timelineFill = document.getElementById('timeline-fill');
     const timelineStart = document.getElementById('timeline-start');
@@ -255,7 +287,7 @@ function populateDetailPage(animal) {
         if (timelineEnd) timelineEnd.textContent = 'Present';
     }
     
-    // Reproduction (REPLACED Distinctive Features)
+    // Reproduction
     setTextContent('repro-young', repro.name_of_young || animal.young_name);
     setTextContent('repro-group', animal.group_name);
     setTextContent('repro-gestation', repro.gestation_period);
@@ -279,7 +311,7 @@ function populateDetailPage(animal) {
 }
 
 // ============================================
-// Location Map Functions
+// Location Map Functions (External SVG)
 // ============================================
 function addLocationDots(locationsString) {
     const dotsContainer = document.getElementById('location-dots');
@@ -288,26 +320,32 @@ function addLocationDots(locationsString) {
     dotsContainer.innerHTML = '';
     
     const locations = locationsString.toLowerCase().split(',').map(l => l.trim());
+    const addedDots = new Set(); // Prevent duplicate dots
     
     locations.forEach(location => {
         const coords = findLocationCoordinates(location);
         if (coords) {
-            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            circle.setAttribute('cx', coords.x);
-            circle.setAttribute('cy', coords.y);
-            circle.setAttribute('r', '4');
-            circle.setAttribute('class', 'location-dot');
+            // Create unique key to prevent duplicates
+            const dotKey = `${coords.x}-${coords.y}`;
             
-            // Add tooltip
-            circle.setAttribute('data-label', location);
-            
-            dotsContainer.appendChild(circle);
+            if (!addedDots.has(dotKey)) {
+                addedDots.add(dotKey);
+                
+                const dot = document.createElement('div');
+                dot.className = 'location-dot';
+                dot.style.left = coords.x + '%';
+                dot.style.top = coords.y + '%';
+                dot.setAttribute('data-label', location);
+                dot.setAttribute('title', location);
+                
+                dotsContainer.appendChild(dot);
+            }
         }
     });
 }
 
 function findLocationCoordinates(location) {
-    const loc = location.toLowerCase();
+    const loc = location.toLowerCase().trim();
     
     // Direct match
     if (locationCoordinates[loc]) {
@@ -323,11 +361,17 @@ function findLocationCoordinates(location) {
     
     // Region matching
     if (loc.includes('asia') || loc.includes('east')) return locationCoordinates['asia'];
-    if (loc.includes('america') || loc.includes('usa') || loc.includes('us')) return locationCoordinates['north america'];
+    if (loc.includes('america') || loc.includes('usa') || loc.includes('us') || loc.includes('united states')) {
+        return locationCoordinates['north america'];
+    }
     if (loc.includes('europe')) return locationCoordinates['europe'];
     if (loc.includes('africa')) return locationCoordinates['africa'];
     if (loc.includes('australia') || loc.includes('oceania')) return locationCoordinates['australia'];
-    if (loc.includes('south')) return locationCoordinates['south america'];
+    if (loc.includes('south') && !loc.includes('korea')) return locationCoordinates['south america'];
+    if (loc.includes('india')) return locationCoordinates['india'];
+    if (loc.includes('china')) return locationCoordinates['china'];
+    if (loc.includes('russia')) return locationCoordinates['russia'];
+    if (loc.includes('indonesia')) return locationCoordinates['indonesia'];
     
     return null;
 }
@@ -336,9 +380,6 @@ function findLocationCoordinates(location) {
 // Time Period Functions
 // ============================================
 function getTimePeriod(animal) {
-    // For living animals, show evolutionary timeline
-    // Different animal types appeared at different times
-    
     const animalType = animal.animal_type?.toLowerCase() || '';
     const classType = animal.classification?.class?.toLowerCase() || '';
     
@@ -346,7 +387,7 @@ function getTimePeriod(animal) {
     let text = '';
     let width = '50%';
     
-    // Mammals appeared ~200 million years ago
+    // Mammals ~200 million years ago
     if (classType.includes('mammal') || animalType.includes('cat') || animalType.includes('feline') || 
         animalType.includes('dog') || animalType.includes('canine') || animalType.includes('elephant') ||
         animalType.includes('wolf') || animalType.includes('tiger')) {
@@ -354,34 +395,34 @@ function getTimePeriod(animal) {
         text = `Evolved ~${millionsYears} million years ago`;
         width = '85%';
     }
-    // Birds appeared ~150 million years ago
+    // Birds ~150 million years ago
     else if (classType.includes('aves') || animalType.includes('bird') || animalType.includes('eagle') || 
              animalType.includes('penguin') || animalType.includes('raptor')) {
         millionsYears = 150;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '75%';
     }
-    // Reptiles appeared ~300 million years ago
+    // Reptiles ~300 million years ago
     else if (classType.includes('reptil') || animalType.includes('snake') || animalType.includes('turtle') ||
              animalType.includes('cobra')) {
         millionsYears = 300;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '90%';
     }
-    // Fish appeared ~500 million years ago
+    // Fish ~500 million years ago
     else if (classType.includes('fish') || classType.includes('chondrichthyes') || classType.includes('actinopterygii') ||
              animalType.includes('shark') || animalType.includes('salmon')) {
         millionsYears = 500;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '95%';
     }
-    // Amphibians appeared ~370 million years ago
+    // Amphibians ~370 million years ago
     else if (classType.includes('amphib') || animalType.includes('frog')) {
         millionsYears = 370;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '92%';
     }
-    // Insects appeared ~400 million years ago
+    // Insects ~400 million years ago
     else if (classType.includes('insect') || animalType.includes('butterfly') || animalType.includes('bee')) {
         millionsYears = 400;
         text = `Evolved ~${millionsYears} million years ago`;
