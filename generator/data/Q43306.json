@@ -1,0 +1,65 @@
+{
+  "id": "Q43306",
+  "name": "Emperor Penguin",
+  "scientific_name": "Aptenodytes forsteri",
+  "common_names": [],
+  "description": "Large flightless seabird endemic to Antarctica",
+  "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Aves",
+    "order": "Sphenisciformes",
+    "family": "Spheniscidae",
+    "genus": "Aptenodytes",
+    "species": "Aptenodytes forsteri"
+  },
+  "animal_type": "penguin",
+  "young_name": "chick",
+  "group_name": "colony",
+  "physical": {
+    "weight": "22.0–45.0 kg",
+    "length": null,
+    "height": null,
+    "top_speed": null,
+    "lifespan": null
+  },
+  "ecology": {
+    "diet": "Piscivore",
+    "habitat": "island, ocean, sea, ice",
+    "locations": [
+      "Antarctica",
+      "Ocean"
+    ],
+    "group_behavior": "Social",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Habitat loss, Climate change, Overfishing",
+    "distinctive_features": [
+      "Wing",
+      "Flipper",
+      "Feather"
+    ],
+    "population_trend": null
+  },
+  "reproduction": {
+    "gestation_period": null,
+    "average_litter_size": null,
+    "name_of_young": null
+  },
+  "conservation": {
+    "category": null,
+    "published_year": null,
+    "rationale": null,
+    "geographic_range": null,
+    "conservation_actions": null
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-15T21:40:15.769738",
+  "characteristics": {}
+}

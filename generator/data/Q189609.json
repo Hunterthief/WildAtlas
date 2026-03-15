@@ -1,0 +1,64 @@
+{
+  "id": "Q189609",
+  "name": "King Cobra",
+  "scientific_name": "Ophiophagus hannah",
+  "common_names": [],
+  "description": "Group of venomous snakes from Asia",
+  "summary": "The king cobra is a species complex of snakes endemic to Asia. With an average length of 3.18 to 4 m and a record length of 5.85 m (19.2 ft), it is the world's longest venomous snake and among the heaviest. Under the genus Ophiophagus, it is not phylogenetically a true cobra despite its common name and some resemblance. Spanning from the Indian subcontinent through Southeastern Asia to Southern China, the king cobra is widely distributed albeit not commonly seen.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Reptilia",
+    "order": "Squamata",
+    "family": "Elapidae",
+    "genus": "Ophiophagus",
+    "species": "Ophiophagus hannah"
+  },
+  "animal_type": "snake",
+  "young_name": "hatchling",
+  "group_name": "den",
+  "physical": {
+    "weight": null,
+    "length": "3.18–4.0 m",
+    "height": null,
+    "top_speed": null,
+    "lifespan": null
+  },
+  "ecology": {
+    "diet": "Carnivore",
+    "habitat": "forest, sea, river, agricultural",
+    "locations": [
+      "Asia"
+    ],
+    "group_behavior": "Family groups",
+    "conservation_status": "Vulnerable",
+    "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+    "distinctive_features": [
+      "Scale",
+      "Venom",
+      "Fang"
+    ],
+    "population_trend": null
+  },
+  "reproduction": {
+    "gestation_period": null,
+    "average_litter_size": "7–43",
+    "name_of_young": null
+  },
+  "conservation": {
+    "category": null,
+    "published_year": null,
+    "rationale": null,
+    "geographic_range": null,
+    "conservation_actions": null
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-15T21:40:23.888684",
+  "characteristics": {}
+}

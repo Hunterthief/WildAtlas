@@ -1,0 +1,64 @@
+{
+  "id": "Q132186",
+  "name": "Tiger",
+  "scientific_name": "Panthera tigris",
+  "common_names": [],
+  "description": "Species of large cat",
+  "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Mammalia",
+    "order": "Carnivora",
+    "family": "Felidae",
+    "genus": "Panthera",
+    "species": "Panthera tigris"
+  },
+  "animal_type": "feline",
+  "young_name": "cub",
+  "group_name": "streak",
+  "physical": {
+    "weight": null,
+    "length": "2.7–3.7 m",
+    "height": null,
+    "top_speed": null,
+    "lifespan": "12–15 years"
+  },
+  "ecology": {
+    "diet": "Herbivore",
+    "habitat": "grassland, jungle, broadleaf forest, swamp",
+    "locations": [
+      "Asia"
+    ],
+    "group_behavior": "Solitary",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+    "distinctive_features": [
+      "Stripe",
+      "Spot",
+      "Mane"
+    ],
+    "population_trend": null
+  },
+  "reproduction": {
+    "gestation_period": null,
+    "average_litter_size": null,
+    "name_of_young": null
+  },
+  "conservation": {
+    "category": null,
+    "published_year": null,
+    "rationale": null,
+    "geographic_range": null,
+    "conservation_actions": null
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-15T21:40:07.234014",
+  "characteristics": {}
+}

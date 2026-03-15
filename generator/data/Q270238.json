@@ -1,0 +1,58 @@
+{
+  "id": "Q270238",
+  "name": "American Bullfrog",
+  "scientific_name": "Lithobates catesbeianus",
+  "common_names": [],
+  "description": "Species of amphibian",
+  "summary": "The American bullfrog, often simply known as the bullfrog in Canada and the United States, is a large true frog native to eastern North America. It typically inhabits large permanent water bodies such as swamps, ponds, and lakes. Bullfrogs can also be found in manmade habitats such as pools, koi ponds, canals, ditches and culverts. The bullfrog gets its name from the sound the male makes during the breeding season, which sounds similar to a bull bellowing. They are generalist carnivores, consuming a wide variety of prey. In turn, they are eaten by predators such as alligators, snakes, and birds.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Amphibia",
+    "order": "Anura",
+    "family": "Ranidae",
+    "genus": "Lithobates",
+    "species": "Lithobates catesbeianus"
+  },
+  "animal_type": "default",
+  "young_name": "young",
+  "group_name": "population",
+  "physical": {
+    "weight": null,
+    "length": null,
+    "height": null,
+    "top_speed": null,
+    "lifespan": "16 years"
+  },
+  "ecology": {
+    "diet": "Omnivore",
+    "habitat": "swamp, lake, sea, river",
+    "locations": "Asia, China, Indonesia, Japan, Europe",
+    "group_behavior": "Solitary",
+    "conservation_status": "Vulnerable",
+    "biggest_threat": "Human-wildlife conflict, Overfishing",
+    "distinctive_features": [
+      "Long tail"
+    ],
+    "population_trend": null
+  },
+  "reproduction": {
+    "gestation_period": null,
+    "average_litter_size": "3",
+    "name_of_young": null
+  },
+  "conservation": {
+    "category": null,
+    "published_year": null,
+    "rationale": null,
+    "geographic_range": null,
+    "conservation_actions": null
+  },
+  "sources": [
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-15T21:40:25.807433"
+}
