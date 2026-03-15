@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Piscivore",
-    "habitat": "island, ocean, sea, ice",
+    "habitat": "ocean, marsh, ice, sea",
     "locations": [
       "Antarctica",
       "Ocean"
@@ -60,6 +60,6 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:15.769738",
+  "last_updated": "2026-03-15T21:45:55.070290",
   "characteristics": {}
 }

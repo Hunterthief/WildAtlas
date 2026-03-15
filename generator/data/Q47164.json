@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "ocean, sea, coastal, temperate",
+    "habitat": "ocean, marsh, open ocean, tropical",
     "locations": [
       "Ocean"
     ],
@@ -59,6 +59,6 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:17.818971",
+  "last_updated": "2026-03-15T21:45:58.283170",
   "characteristics": {}
 }

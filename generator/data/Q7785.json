@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Herbivore",
-    "habitat": "ocean, sea, river, coastal",
+    "habitat": "ocean, marsh, tropical, wetland",
     "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
@@ -56,5 +56,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:21.867766"
+  "last_updated": "2026-03-15T21:46:04.757750"
 }

@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Omnivore",
-    "habitat": "swamp, lake, sea, river",
+    "habitat": "tropical, swamp, lake, coastal",
     "locations": "Asia, China, Indonesia, Japan, Europe",
     "group_behavior": "Solitary",
     "conservation_status": "Vulnerable",
@@ -54,5 +54,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:25.807433"
+  "last_updated": "2026-03-15T21:46:10.278144"
 }

@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Herbivore",
-    "habitat": "grassland, jungle, broadleaf forest, swamp",
+    "habitat": "temperate, forest, grassland, marsh",
     "locations": [
       "Asia"
     ],
@@ -59,6 +59,6 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:07.234014",
+  "last_updated": "2026-03-15T21:45:40.824748",
   "characteristics": {}
 }

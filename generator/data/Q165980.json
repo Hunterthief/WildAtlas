@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Herbivore",
-    "habitat": "swamp, ocean, forest, garden",
+    "habitat": "coastal, woodland, forest, ocean",
     "locations": [
       "Africa",
       "Asia",
@@ -65,6 +65,6 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:27.993127",
+  "last_updated": "2026-03-15T21:46:13.717412",
   "characteristics": {}
 }

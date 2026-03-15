@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Atlantic, ocean, lake, sea",
+    "habitat": "Pacific, ocean, stream, Atlantic",
     "locations": "North Atlantic, Canada, Alaska, United States, Europe",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
@@ -56,5 +56,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:19.772708"
+  "last_updated": "2026-03-15T21:46:01.793037"
 }

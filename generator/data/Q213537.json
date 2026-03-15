@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Insectivore",
-    "habitat": "grassland, jungle, forest, lake",
+    "habitat": "coastal, forest, grassland, tundra",
     "locations": "North America, Eurasia, Europe, Asia, Russia",
     "group_behavior": "Social",
     "conservation_status": "Endangered",
@@ -56,5 +56,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:11.490065"
+  "last_updated": "2026-03-15T21:45:47.513737"
 }

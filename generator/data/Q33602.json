@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Omnivore",
-    "habitat": "desert, sea",
+    "habitat": "sea, desert",
     "locations": [
       "Eurasia",
       "Europe",
@@ -60,6 +60,6 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:36.107676",
+  "last_updated": "2026-03-15T21:46:25.746354",
   "characteristics": {}
 }

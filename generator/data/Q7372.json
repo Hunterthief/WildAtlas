@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Herbivore",
-    "habitat": "forest, lake, sea, savanna",
+    "habitat": "woodland, forest, tropical, savanna",
     "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
     "group_behavior": "Social",
     "conservation_status": "Critically Endangered",
@@ -56,5 +56,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-15T21:40:09.408212"
+  "last_updated": "2026-03-15T21:45:43.982068"
 }
