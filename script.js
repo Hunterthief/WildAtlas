@@ -5,6 +5,32 @@
 
 let allAnimals = [];
 
+// Location coordinates for world map (approximate centroids)
+const locationCoordinates = {
+    'asia': { x: 280, y: 50 },
+    'china': { x: 300, y: 55 },
+    'india': { x: 260, y: 65 },
+    'russia': { x: 280, y: 30 },
+    'indonesia': { x: 310, y: 85 },
+    'north america': { x: 70, y: 45 },
+    'america': { x: 70, y: 45 },
+    'united states': { x: 65, y: 50 },
+    'canada': { x: 65, y: 35 },
+    'alaska': { x: 40, y: 30 },
+    'south america': { x: 80, y: 100 },
+    'africa': { x: 195, y: 85 },
+    'europe': { x: 195, y: 45 },
+    'australia': { x: 330, y: 125 },
+    'mexico': { x: 60, y: 60 },
+    'japan': { x: 340, y: 50 },
+    'korea': { x: 320, y: 52 },
+    'pacific': { x: 150, y: 100 },
+    'atlantic': { x: 130, y: 60 },
+    'indian ocean': { x: 240, y: 90 },
+    'arctic': { x: 200, y: 15 },
+    'antarctica': { x: 200, y: 180 }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🦁 WildAtlas initializing...');
     
@@ -198,8 +224,12 @@ function populateDetailPage(animal) {
     
     // === RIGHT SIDEBAR ===
     
-    // Location
-    setTextContent('location-text', animal.ecology?.locations);
+    // Location with Map Dots
+    const locationText = document.getElementById('location-text');
+    if (locationText && animal.ecology?.locations) {
+        locationText.textContent = animal.ecology.locations;
+        addLocationDots(animal.ecology.locations);
+    }
     
     // Conservation Status
     const conservationBox = document.getElementById('conservation-status-box');
@@ -211,25 +241,25 @@ function populateDetailPage(animal) {
     }
     setTextContent('conservation-threats', animal.ecology?.biggest_threat);
     
-    // Time Period (Visual Timeline)
+    // Time Period (Based on animal evolution/appearance)
     const timeRange = document.getElementById('time-range');
     const timelineFill = document.getElementById('timeline-fill');
+    const timelineStart = document.getElementById('timeline-start');
+    const timelineEnd = document.getElementById('timeline-end');
+    
     if (timeRange) {
-        timeRange.textContent = 'Present Day';
-        if (timelineFill) {
-            timelineFill.style.width = '100%';
-        }
+        const timeData = getTimePeriod(animal);
+        timeRange.textContent = timeData.text;
+        if (timelineFill) timelineFill.style.width = timeData.width;
+        if (timelineStart) timelineStart.textContent = timeData.start;
+        if (timelineEnd) timelineEnd.textContent = 'Present';
     }
     
-    // Features
-    const featureTags = document.getElementById('feature-tags');
-    if (featureTags && eco.distinctive_features?.length > 0) {
-        featureTags.innerHTML = eco.distinctive_features.map(f => 
-            `<span class="feature-tag">${f}</span>`
-        ).join('');
-    } else if (featureTags) {
-        featureTags.innerHTML = '<span style="color:#666666">No data</span>';
-    }
+    // Reproduction (REPLACED Distinctive Features)
+    setTextContent('repro-young', repro.name_of_young || animal.young_name);
+    setTextContent('repro-group', animal.group_name);
+    setTextContent('repro-gestation', repro.gestation_period);
+    setTextContent('repro-litter', repro.average_litter_size);
     
     // === MAIN ARTICLE ===
     
@@ -237,9 +267,6 @@ function populateDetailPage(animal) {
     
     const ecologyText = buildEcologyText(animal);
     setTextContent('ecology-text', ecologyText);
-    
-    const reproText = buildReproductionText(animal);
-    setTextContent('reproduction-text', reproText);
     
     // === FAQ ===
     document.querySelectorAll('.faq-animal-name').forEach(el => {
@@ -249,6 +276,130 @@ function populateDetailPage(animal) {
     setTextContent('faq-habitat', `${eco.habitat || 'Unknown'} - ${eco.locations || 'Unknown'}`);
     setTextContent('faq-conservation', animal.ecology?.conservation_status || 'Unknown');
     setTextContent('faq-features', eco.distinctive_features?.join(', ') || 'No data');
+}
+
+// ============================================
+// Location Map Functions
+// ============================================
+function addLocationDots(locationsString) {
+    const dotsContainer = document.getElementById('location-dots');
+    if (!dotsContainer || !locationsString) return;
+    
+    dotsContainer.innerHTML = '';
+    
+    const locations = locationsString.toLowerCase().split(',').map(l => l.trim());
+    
+    locations.forEach(location => {
+        const coords = findLocationCoordinates(location);
+        if (coords) {
+            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', coords.x);
+            circle.setAttribute('cy', coords.y);
+            circle.setAttribute('r', '4');
+            circle.setAttribute('class', 'location-dot');
+            
+            // Add tooltip
+            circle.setAttribute('data-label', location);
+            
+            dotsContainer.appendChild(circle);
+        }
+    });
+}
+
+function findLocationCoordinates(location) {
+    const loc = location.toLowerCase();
+    
+    // Direct match
+    if (locationCoordinates[loc]) {
+        return locationCoordinates[loc];
+    }
+    
+    // Partial match
+    for (const key in locationCoordinates) {
+        if (loc.includes(key) || key.includes(loc)) {
+            return locationCoordinates[key];
+        }
+    }
+    
+    // Region matching
+    if (loc.includes('asia') || loc.includes('east')) return locationCoordinates['asia'];
+    if (loc.includes('america') || loc.includes('usa') || loc.includes('us')) return locationCoordinates['north america'];
+    if (loc.includes('europe')) return locationCoordinates['europe'];
+    if (loc.includes('africa')) return locationCoordinates['africa'];
+    if (loc.includes('australia') || loc.includes('oceania')) return locationCoordinates['australia'];
+    if (loc.includes('south')) return locationCoordinates['south america'];
+    
+    return null;
+}
+
+// ============================================
+// Time Period Functions
+// ============================================
+function getTimePeriod(animal) {
+    // For living animals, show evolutionary timeline
+    // Different animal types appeared at different times
+    
+    const animalType = animal.animal_type?.toLowerCase() || '';
+    const classType = animal.classification?.class?.toLowerCase() || '';
+    
+    let millionsYears = 0;
+    let text = '';
+    let width = '50%';
+    
+    // Mammals appeared ~200 million years ago
+    if (classType.includes('mammal') || animalType.includes('cat') || animalType.includes('feline') || 
+        animalType.includes('dog') || animalType.includes('canine') || animalType.includes('elephant') ||
+        animalType.includes('wolf') || animalType.includes('tiger')) {
+        millionsYears = 200;
+        text = `Evolved ~${millionsYears} million years ago`;
+        width = '85%';
+    }
+    // Birds appeared ~150 million years ago
+    else if (classType.includes('aves') || animalType.includes('bird') || animalType.includes('eagle') || 
+             animalType.includes('penguin') || animalType.includes('raptor')) {
+        millionsYears = 150;
+        text = `Evolved ~${millionsYears} million years ago`;
+        width = '75%';
+    }
+    // Reptiles appeared ~300 million years ago
+    else if (classType.includes('reptil') || animalType.includes('snake') || animalType.includes('turtle') ||
+             animalType.includes('cobra')) {
+        millionsYears = 300;
+        text = `Evolved ~${millionsYears} million years ago`;
+        width = '90%';
+    }
+    // Fish appeared ~500 million years ago
+    else if (classType.includes('fish') || classType.includes('chondrichthyes') || classType.includes('actinopterygii') ||
+             animalType.includes('shark') || animalType.includes('salmon')) {
+        millionsYears = 500;
+        text = `Evolved ~${millionsYears} million years ago`;
+        width = '95%';
+    }
+    // Amphibians appeared ~370 million years ago
+    else if (classType.includes('amphib') || animalType.includes('frog')) {
+        millionsYears = 370;
+        text = `Evolved ~${millionsYears} million years ago`;
+        width = '92%';
+    }
+    // Insects appeared ~400 million years ago
+    else if (classType.includes('insect') || animalType.includes('butterfly') || animalType.includes('bee')) {
+        millionsYears = 400;
+        text = `Evolved ~${millionsYears} million years ago`;
+        width = '93%';
+    }
+    // Default
+    else {
+        millionsYears = 100;
+        text = `Evolved ~${millionsYears} million years ago`;
+        width = '60%';
+    }
+    
+    return {
+        text: text,
+        width: width,
+        start: `${millionsYears}M years ago`,
+        end: 'Present'
+    };
 }
 
 // ============================================
@@ -294,20 +445,6 @@ function buildEcologyText(animal) {
     }
     
     return parts.length > 0 ? parts.join(' ') : 'No additional ecology information available.';
-}
-
-function buildReproductionText(animal) {
-    const repro = animal.reproduction || {};
-    const parts = [];
-    
-    if (repro.gestation_period) {
-        parts.push(`Gestation: ${repro.gestation_period}.`);
-    }
-    if (repro.average_litter_size) {
-        parts.push(`Litter size: ${repro.average_litter_size}.`);
-    }
-    
-    return parts.length > 0 ? parts.join(' ') : 'No additional reproduction information available.';
 }
 
 // ============================================
