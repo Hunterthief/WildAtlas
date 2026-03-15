@@ -216,14 +216,14 @@ function populateDetailPage(animal) {
     
     // === LEFT SIDEBAR ===
     
-    // Diet Icons
-    const dietIcons = document.getElementById('diet-icons');
-    if (dietIcons && eco.diet) {
-        const dietTypes = getDietTypes(eco.diet);
-        dietIcons.innerHTML = dietTypes.map(type => `
-            <div class="diet-icon ${type.class}">${type.icon}</div>
-        `).join('');
-    }
+    // Diet Icons - Updated to show multiple icons
+const dietIcons = document.getElementById('diet-icons');
+if (dietIcons && eco.diet) {
+    const dietTypes = getDietTypes(eco.diet, animal.animal_type, animal.summary);
+    dietIcons.innerHTML = dietTypes.map(type => `
+        <div class="diet-icon ${type.class}" title="${type.title}">${type.icon}</div>
+    `).join('');
+}
     
     // Stats - Only show if data exists
     setStatContent('stat-length', 'stat-length-card', phys.length);
