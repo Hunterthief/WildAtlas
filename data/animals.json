@@ -29,7 +29,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "lake, river, rainforest, grassland",
+      "habitat": "temperate forest, forest, mountain, sea",
       "locations": "Asia, India, China, Russia, Indonesia",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -49,7 +49,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:05.799682"
+    "last_updated": "2026-03-15T20:51:28.315389"
   },
   {
     "id": "Q7372",
@@ -81,7 +81,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "savanna, lake, rainforest, tropical",
+      "habitat": "lake, forest, sea, woodland",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
@@ -101,7 +101,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:07.683463"
+    "last_updated": "2026-03-15T20:51:30.610868"
   },
   {
     "id": "Q213537",
@@ -133,7 +133,7 @@
     },
     "ecology": {
       "diet": "Insectivore",
-      "habitat": "savanna, coastal, lake, river",
+      "habitat": "tundra, lake, forest, wetland",
       "locations": "North America, Eurasia, Europe, Asia, Russia",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -153,7 +153,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:10.283969"
+    "last_updated": "2026-03-15T20:51:33.336551"
   },
   {
     "id": "Q25319",
@@ -185,7 +185,7 @@
     },
     "ecology": {
       "diet": "Piscivore",
-      "habitat": "savanna, coastal, lake, river",
+      "habitat": "tundra, lake, forest, mountain",
       "locations": "North America, Canada, Alaska, United States, Mexico",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -205,7 +205,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:12.270674"
+    "last_updated": "2026-03-15T20:51:35.613020"
   },
   {
     "id": "Q43306",
@@ -237,7 +237,7 @@
     },
     "ecology": {
       "diet": "Piscivore",
-      "habitat": "sea, island, marsh, ocean",
+      "habitat": "sea, island, ocean, marsh",
       "locations": "Antarctica, Southern Ocean, New Zealand, Australia, Chile",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -257,7 +257,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:14.381553"
+    "last_updated": "2026-03-15T20:51:38.021374"
   },
   {
     "id": "Q47164",
@@ -289,7 +289,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coastal, tropical, sea, open ocean",
+      "habitat": "open ocean, sea, ocean, marsh",
       "locations": "Atlantic, Pacific, Mediterranean, Australia, South Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -309,7 +309,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:16.451769"
+    "last_updated": "2026-03-15T20:51:40.136531"
   },
   {
     "id": "Q39709",
@@ -341,7 +341,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coastal, river, Atlantic, sea",
+      "habitat": "lake, sea, ocean, Pacific",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -361,7 +361,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:18.600635"
+    "last_updated": "2026-03-15T20:51:42.036515"
   },
   {
     "id": "Q7785",
@@ -393,7 +393,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "coastal, tropical, river, coral reef",
+      "habitat": "sea, wetland, ocean, marsh",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -413,7 +413,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:20.488311"
+    "last_updated": "2026-03-15T20:51:44.092977"
   },
   {
     "id": "Q189609",
@@ -445,7 +445,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coastal, rainforest, river, tropical",
+      "habitat": "forest, sea, marsh, coastal",
       "locations": "Asia, India, China, Southeast Asia, Australia",
       "group_behavior": "Family groups",
       "conservation_status": "Vulnerable",
@@ -465,7 +465,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:22.350588"
+    "last_updated": "2026-03-15T20:51:45.948405"
   },
   {
     "id": "Q270238",
@@ -497,7 +497,7 @@
     },
     "ecology": {
       "diet": "Omnivore",
-      "habitat": "coastal, tropical, river, sea",
+      "habitat": "lake, sea, coastal, swamp",
       "locations": "Asia, China, Indonesia, Japan, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -515,7 +515,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:24.442736"
+    "last_updated": "2026-03-15T20:51:47.907727"
   },
   {
     "id": "Q165980",
@@ -547,7 +547,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "garden, coastal, tropical, river",
+      "habitat": "forest, mountain, sea, wetland",
       "locations": "North America, South America, Europe, Asia, Africa",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -567,7 +567,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:26.668840"
+    "last_updated": "2026-03-15T20:51:50.116687"
   },
   {
     "id": "Q7316",
@@ -599,7 +599,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "tropical, temperate, grassland, mountain",
+      "habitat": "forest, mountain, sea, grassland",
       "locations": "North America, Europe, Asia, Africa, South America",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -619,6 +619,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T20:43:29.523083"
+    "last_updated": "2026-03-15T20:51:52.817973"
   }
 ]
