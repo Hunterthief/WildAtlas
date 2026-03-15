@@ -357,42 +357,6 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.badges {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.status-badge {
-    padding: 6px 16px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.status-badge.status-critical {
-    background: rgba(239, 68, 68, 0.2);
-    color: #f87171;
-}
-
-.status-badge.status-endangered {
-    background: rgba(249, 115, 22, 0.2);
-    color: #fb923c;
-}
-
-.status-badge.status-vulnerable {
-    background: rgba(234, 179, 8, 0.2);
-    color: #facc15;
-}
-
-.status-badge.status-least-concern {
-    background: rgba(34, 197, 94, 0.2);
-    color: #4ade80;
-}
-
 /* Three Column Layout */
 .three-column-layout {
     display: grid;
@@ -424,6 +388,14 @@ a:hover {
     margin-bottom: 16px;
     padding-bottom: 12px;
     border-bottom: 1px solid #2a2a2a;
+}
+
+.side-card h5 {
+    font-size: 0.7rem;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
 }
 
 /* Stat Rows (Left Sidebar) */
@@ -503,7 +475,7 @@ a:hover {
 }
 
 /* Side Text */
-.side-text, .location-text, .time-text {
+.side-text, .location-text {
     color: #cccccc;
     font-size: 0.9rem;
     line-height: 1.6;
@@ -530,6 +502,55 @@ a:hover {
     color: #ffffff;
     font-weight: 500;
     font-size: 0.9rem;
+}
+
+/* Conservation Status Box (Right Sidebar - Colored Container) */
+.conservation-status-box {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    display: inline-block;
+    width: 100%;
+}
+
+.conservation-status-box.status-critical {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+}
+
+.conservation-status-box.status-endangered {
+    background: rgba(249, 115, 22, 0.2);
+    color: #fb923c;
+}
+
+.conservation-status-box.status-vulnerable {
+    background: rgba(234, 179, 8, 0.2);
+    color: #facc15;
+}
+
+.conservation-status-box.status-least-concern {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+}
+
+.conservation-status-text {
+    display: block;
+}
+
+.threats-box {
+    padding-top: 16px;
+    border-top: 1px solid #2a2a2a;
+}
+
+.threats-box p {
+    color: #cccccc;
+    font-size: 0.85rem;
+    line-height: 1.5;
 }
 
 /* Feature Tags */
