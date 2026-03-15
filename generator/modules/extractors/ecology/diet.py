@@ -4,13 +4,6 @@ Diet Extraction Module
 
 Extracts diet type from Wikipedia text.
 Edit this file only for diet-related changes.
-
-WIKIPEDIA PATTERNS FOUND:
-- "diet consists primarily of other snakes" (King Cobra)
-- "strictly herbivorous" (Green Sea Turtle)
-- "juveniles are carnivorous, but as they mature they become omnivorous" (Green Sea Turtle)
-- "opportunistic carnivore" (Bald Eagle)
-- "feeds mainly on fish" (many animals)
 """
 
 def get_default_diet(animal_type):
@@ -32,8 +25,10 @@ def extract_diet(text, animal_type):
     """
     Extract diet type from text.
     
-    IMPORTANT: Check specific diet terms FIRST, then general terms.
-    Order matters to avoid false positives.
+    IMPORTANT ORDER:
+    1. Check for explicit diet statements FIRST
+    2. Check for feeding behavior
+    3. Fall back to animal type default
     
     Args:
         text: Wikipedia article text
@@ -47,46 +42,42 @@ def extract_diet(text, animal_type):
 
     t = text.lower()
 
-    # ========== CHECK SPECIFIC DIET TERMS FIRST ==========
+    # ========== EXPLICIT DIET STATEMENTS (Highest Priority) ==========
     
-    # Herbivore - check before carnivore to avoid false positives
+    # Herbivore - explicit statements
     if any(w in t for w in ['herbivore', 'herbivorous', 'plant-eater', 'plant eater']):
         return "Herbivore"
-    
-    # Strictly/primarily herbivore indicators
     if any(w in t for w in ['strictly herbivorous', 'exclusively herbivorous', 
                             'feeds on plants', 'feeds on vegetation', 'feeds on seagrass',
                             'grazes on', 'browses on', 'foliage', 'seagrass', 'sea grasses']):
         return "Herbivore"
     
-    # Omnivore - check before carnivore
+    # Omnivore - explicit statements
     if any(w in t for w in ['omnivore', 'omnivorous', 'both plants and animals', 
-                            'varied diet', 'eats both', 'generalist carnivore']):
+                            'varied diet', 'eats both', 'generalist']):
         return "Omnivore"
     
     # Insectivore
     if any(w in t for w in ['insectivore', 'insectivorous', 'eats insects', 'feeds on insects']):
         return "Insectivore"
     
-    # Piscivore (fish-eater) - specific term
+    # Piscivore (fish-eater)
     if any(w in t for w in ['piscivore', 'piscivorous', 'feeds mainly on fish', 
                             'diet consists mainly of fish', 'fish comprise']):
         return "Piscivore"
     
-    # ========== THEN CHECK CARNIVORE ==========
+    # ========== CARNIVORE (Check AFTER herbivore/omnivore) ==========
     
-    # Carnivore - specific terms first
+    # Carnivore - explicit statements
     if any(w in t for w in ['carnivore', 'carnivorous', 'meat-eater', 'meat eater']):
         return "Carnivore"
     
-    # Apex predator doesn't always mean carnivore (some are omnivores)
-    # Only use if no herbivore/omnivore indicators found
-    if any(w in t for w in ['apex predator', 'predatory', 'preys on', 'hunts']):
-        # But check if it's specifically about hunting animals
-        if any(w in t for w in ['preys on mammals', 'preys on fish', 'preys on birds',
-                                'hunts mammals', 'hunts fish', 'hunts birds',
-                                'feeds on animals', 'feeds on mammals']):
+    # Predator/prey language (but be careful - some herbivores are called prey)
+    if any(w in t for w in ['predator', 'predatory', 'preys on', 'hunts']):
+        # Make sure it's not talking about being prey
+        if 'prey on' in t or 'preys on' in t or 'hunts' in t:
             return "Carnivore"
     
     # ========== FALLBACK TO ANIMAL TYPE DEFAULT ==========
+    # This is important - feline should default to Carnivore
     return get_default_diet(animal_type)
