@@ -2,11 +2,8 @@
 """
 Animal Detection Module
 
-Handles animal type detection and related metadata:
-- Detect animal type from name and classification
-- Get young/baby name for animal type
-- Get group name for animal type
-- Get default diet for animal type
+Handles animal type detection and related metadata.
+Edit this file only for detection-related changes.
 """
 
 from pathlib import Path
@@ -35,6 +32,9 @@ def detect_animal_type(name, classification=None):
     """
     Detect animal type from name and classification.
     
+    IMPORTANT: Check longer/more specific keywords first to avoid
+    false matches (e.g., "ant" in "elephant", "ray" in "gray")
+    
     Args:
         name: Animal common name
         classification: Optional taxonomic classification dict
@@ -44,18 +44,31 @@ def detect_animal_type(name, classification=None):
     """
     name_lower = name.lower()
 
-    # Check name keywords first (most specific matches first)
-    priority_types = ["raptor", "owl", "duck", "goose", "swan", "chicken", "penguin",
-                      "shark", "ray", "salmon", "frog", "salamander", "snake", "lizard",
-                      "turtle", "crocodile", "butterfly", "bee", "ant", "spider", "crab",
-                      "feline", "canine", "bear", "elephant", "primate", "rodent",
-                      "bat", "whale", "deer", "bovine", "equine", "rabbit"]
+    # Check name keywords - ORDER MATTERS! Check longer/more specific first
+    priority_types = [
+        # Mammals - specific first
+        'elephant', 'feline', 'canine', 'bear', 'primate', 'whale',
+        'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat',
+        # Birds - specific first
+        'penguin', 'raptor', 'owl', 'chicken', 'swan', 'goose', 'duck',
+        # Fish
+        'shark', 'ray', 'salmon',
+        # Reptiles
+        'crocodile', 'turtle', 'snake', 'lizard',
+        # Amphibians
+        'frog', 'salamander',
+        # Insects/Arthropods - specific first
+        'butterfly', 'bee', 'ant', 'spider', 'crab',
+    ]
 
     for animal_type in priority_types:
         config = ANIMAL_TYPES.get(animal_type, {})
         keywords = config.get("keywords", [])
         for keyword in keywords:
-            if keyword in name_lower:
+            # Use word boundary matching to avoid partial matches
+            # e.g., "ant" won't match in "elephant"
+            import re
+            if re.search(r'\b' + re.escape(keyword) + r'\b', name_lower):
                 return animal_type
 
     # Check classification if available
