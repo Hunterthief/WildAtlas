@@ -535,41 +535,107 @@ function buildEcologyText(animal) {
 }
 
 // ============================================
-// Diet Icons
+// Diet Icons - Multiple Icons Per Animal
 // ============================================
-function getDietTypes(diet) {
-    if (!diet) return [{ class: 'omnivore', icon: '🍽️' }];
+function getDietTypes(diet, animalType, summary) {
+    if (!diet) return [{ class: 'unknown', icon: '❓' }];
     
     const dietLower = diet.toLowerCase();
+    const summaryLower = (summary || '').toLowerCase();
+    const typeLower = (animalType || '').toLowerCase();
     const types = [];
     
-    if (dietLower.includes('carnivore') || dietLower.includes('meat')) {
-        types.push({ class: 'carnivore', icon: '🥩' });
-    }
-    if (dietLower.includes('herbivore') || dietLower.includes('plant')) {
-        types.push({ class: 'herbivore', icon: '🌿' });
-    }
-    if (dietLower.includes('omnivore')) {
-        types.push({ class: 'omnivore', icon: '🍽️' });
-    }
-    if (dietLower.includes('insect')) {
-        types.push({ class: 'insectivore', icon: '🐛' });
-    }
-    if (dietLower.includes('fish')) {
-        types.push({ class: 'piscivore', icon: '🐟' });
+    // ========== CARNIVORE / MEAT ==========
+    // Show for: Carnivore, OR if text mentions hunting/prey/meat
+    if (dietLower.includes('carnivore') || 
+        dietLower.includes('meat') ||
+        summaryLower.includes('predator') ||
+        summaryLower.includes('preys on') ||
+        summaryLower.includes('hunts') ||
+        ['feline', 'canine', 'bear', 'shark', 'raptor', 'snake', 'crocodile'].includes(typeLower)) {
+        types.push({ class: 'carnivore', icon: '🥩', title: 'Meat' });
     }
     
+    // ========== HERBIVORE / PLANTS ==========
+    // Show for: Herbivore, OR if text mentions plants/grazing
+    if (dietLower.includes('herbivore') || 
+        dietLower.includes('plant') ||
+        summaryLower.includes('grazes') ||
+        summaryLower.includes('foliage') ||
+        summaryLower.includes('vegetation') ||
+        ['elephant', 'bovine', 'deer', 'rabbit', 'turtle'].includes(typeLower)) {
+        types.push({ class: 'herbivore', icon: '🌿', title: 'Plants' });
+    }
+    
+    // ========== PISCIVORE / FISH ==========
+    // Show for: Piscivore, OR if text mentions fish, OR for fish-eating animals
+    if (dietLower.includes('piscivore') || 
+        dietLower.includes('fish') ||
+        summaryLower.includes('fish') ||
+        summaryLower.includes('salmon') ||
+        summaryLower.includes('marine') ||
+        ['shark', 'eagle', 'penguin', 'bear', 'seal', 'otter'].includes(typeLower)) {
+        types.push({ class: 'piscivore', icon: '🐟', title: 'Fish' });
+    }
+    
+    // ========== INSECTIVORE / INSECTS ==========
+    // Show for: Insectivore, OR if text mentions insects, OR for insect-eating animals
+    if (dietLower.includes('insectivore') || 
+        summaryLower.includes('insects') ||
+        summaryLower.includes('bugs') ||
+        summaryLower.includes('arthropods') ||
+        ['frog', 'bat', 'spider', 'lizard', 'bird'].includes(typeLower)) {
+        types.push({ class: 'insectivore', icon: '🐛', title: 'Insects' });
+    }
+    
+    // ========== OMNIVORE / MIXED ==========
+    // Show for: Omnivore (in addition to other icons, not instead of)
+    if (dietLower.includes('omnivore') || 
+        summaryLower.includes('varied diet') ||
+        summaryLower.includes('both plants and animals') ||
+        ['bear', 'pig', 'raccoon', 'crow'].includes(typeLower)) {
+        types.push({ class: 'omnivore', icon: '🍽️', title: 'Omnivore' });
+    }
+    
+    // ========== NECTARIVORE / NECTAR ==========
+    // Show for animals that eat nectar
+    if (summaryLower.includes('nectar') ||
+        summaryLower.includes('pollinator') ||
+        ['butterfly', 'bee', 'hummingbird'].includes(typeLower)) {
+        types.push({ class: 'nectarivore', icon: '🌸', title: 'Nectar' });
+    }
+    
+    // ========== SCAVENGER ==========
+    // Show for scavengers
+    if (summaryLower.includes('scavenger') ||
+        summaryLower.includes('carrion') ||
+        ['vulture', 'hyena'].includes(typeLower)) {
+        types.push({ class: 'scavenger', icon: '🦴', title: 'Scavenger' });
+    }
+    
+    // ========== FALLBACK ==========
     if (types.length === 0) {
+        // Default based on diet type
         if (dietLower.includes('carnivore')) {
-            types.push({ class: 'carnivore', icon: '🥩' });
+            types.push({ class: 'carnivore', icon: '🥩', title: 'Carnivore' });
         } else if (dietLower.includes('herbivore')) {
-            types.push({ class: 'herbivore', icon: '🌿' });
+            types.push({ class: 'herbivore', icon: '🌿', title: 'Herbivore' });
         } else {
-            types.push({ class: 'omnivore', icon: '🍽️' });
+            types.push({ class: 'omnivore', icon: '🍽️', title: 'Omnivore' });
         }
     }
     
-    return types;
+    // Remove duplicates
+    const unique = [];
+    const seen = new Set();
+    for (const t of types) {
+        if (!seen.has(t.class)) {
+            seen.add(t.class);
+            unique.push(t);
+        }
+    }
+    
+    return unique;
 }
 
 console.log('🌍 WildAtlas - Discover the Animal Kingdom');
