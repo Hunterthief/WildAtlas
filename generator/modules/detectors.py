@@ -8,6 +8,7 @@ Edit this file only for detection-related changes.
 
 from pathlib import Path
 import json
+import re
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
 
@@ -67,15 +68,15 @@ def detect_animal_type(name, classification=None):
         for keyword in keywords:
             # Use word boundary matching to avoid partial matches
             # e.g., "ant" won't match in "elephant"
-            import re
             if re.search(r'\b' + re.escape(keyword) + r'\b', name_lower):
                 return animal_type
 
     # Check classification if available
     if classification:
-        class_name = classification.get("class", "").lower()
-        order_name = classification.get("order", "").lower()
-        family_name = classification.get("family", "").lower()
+        # Safely get classification values (handle None)
+        class_name = (classification.get("class") or "").lower()
+        order_name = (classification.get("order") or "").lower()
+        family_name = (classification.get("family") or "").lower()
 
         if "mammalia" in class_name:
             if "carnivora" in order_name:
@@ -172,4 +173,4 @@ def get_group_name(animal_type):
 
 def get_default_diet(animal_type):
     """Get the default diet for this animal type"""
-    return DIETS.get(animal_type, DIETS.get("default", "Unknown"))
+    return DIETS.get(animal_type, DIETS.get("default", "Unknown")) 
