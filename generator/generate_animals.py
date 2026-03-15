@@ -301,10 +301,20 @@ def generate(animals, force=False):
         print(f" 📚 Sources: {', '.join(data['sources'])}")
         time.sleep(1)
 
-    # Save final output
-    with open("data/animals.json", "w", encoding="utf-8") as f:
+    # ========== SAVE TO REPO ROOT data/ FOLDER ==========
+    # Get repo root (parent of generator/ directory)
+    repo_root = Path(__file__).parent.parent
+    
+    # Ensure repo root data/ directory exists
+    repo_data_dir = repo_root / "data"
+    repo_data_dir.mkdir(exist_ok=True)
+    
+    # Save to repo root: data/animals.json
+    output_path = repo_data_dir / "animals.json"
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
-    print(f"\n✅ Done! {len(output)} animals saved to data/animals.json")
+    
+    print(f"\n✅ Done! {len(output)} animals saved to {output_path}")
     return output
 
 
