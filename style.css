@@ -1,6 +1,7 @@
 /* ============================================
    WildAtlas - Main Stylesheet
-   Facts.app Exact Layout - Sidebars to Edges
+   Streamlined Facts.app Design
+   Icons Over Text
    ============================================ */
 
 * {
@@ -55,15 +56,9 @@ a:hover {
     letter-spacing: -1px;
 }
 
-.tagline {
-    color: #888888;
-    font-size: 0.95rem;
-}
+.tagline { color: #888888; font-size: 0.95rem; }
 
-.search-section {
-    width: 100%;
-    max-width: 500px;
-}
+.search-section { width: 100%; max-width: 500px; }
 
 #search-input {
     width: 100%;
@@ -83,9 +78,7 @@ a:hover {
     box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
 }
 
-#search-input::placeholder {
-    color: #666666;
-}
+#search-input::placeholder { color: #666666; }
 
 #grid {
     display: grid;
@@ -111,15 +104,9 @@ a:hover {
     border-color: #38bdf8;
 }
 
-.card img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-}
+.card img { width: 100%; height: 240px; object-fit: cover; }
 
-.card-content {
-    padding: 20px;
-}
+.card-content { padding: 20px; }
 
 .card-content h3 {
     font-size: 1.3rem;
@@ -157,25 +144,10 @@ a:hover {
     margin-top: 12px;
 }
 
-.conservation-badge.status-critical {
-    background: rgba(239, 68, 68, 0.2);
-    color: #f87171;
-}
-
-.conservation-badge.status-endangered {
-    background: rgba(249, 115, 22, 0.2);
-    color: #fb923c;
-}
-
-.conservation-badge.status-vulnerable {
-    background: rgba(234, 179, 8, 0.2);
-    color: #facc15;
-}
-
-.conservation-badge.status-least-concern {
-    background: rgba(34, 197, 94, 0.2);
-    color: #4ade80;
-}
+.conservation-badge.status-critical { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.conservation-badge.status-endangered { background: rgba(249, 115, 22, 0.2); color: #fb923c; }
+.conservation-badge.status-vulnerable { background: rgba(234, 179, 8, 0.2); color: #facc15; }
+.conservation-badge.status-least-concern { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
 
 .loading {
     grid-column: 1 / -1;
@@ -197,9 +169,7 @@ a:hover {
     margin-bottom: 16px;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 .inspiration {
     max-width: 800px;
@@ -211,16 +181,8 @@ a:hover {
     border: 1px solid #2a2a2a;
 }
 
-.inspiration h2 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: #ffffff;
-}
-
-.inspiration p {
-    color: #888888;
-    line-height: 1.7;
-}
+.inspiration h2 { font-size: 1.4rem; margin-bottom: 12px; color: #ffffff; }
+.inspiration p { color: #888888; line-height: 1.7; }
 
 .site-footer {
     text-align: center;
@@ -267,25 +229,11 @@ a:hover {
     letter-spacing: -0.5px;
 }
 
-.nav-links {
-    display: flex;
-    gap: 32px;
-}
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: #888888; font-size: 0.95rem; font-weight: 500; }
+.nav-links a:hover { color: #ffffff; }
 
-.nav-links a {
-    color: #888888;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-.nav-links a:hover {
-    color: #ffffff;
-}
-
-.nav-actions {
-    display: flex;
-    gap: 16px;
-}
+.nav-actions { display: flex; gap: 16px; }
 
 .btn-login {
     color: #888888;
@@ -293,10 +241,7 @@ a:hover {
     font-weight: 500;
     padding: 8px 16px;
 }
-
-.btn-login:hover {
-    color: #ffffff;
-}
+.btn-login:hover { color: #ffffff; }
 
 .btn-join {
     background: #38bdf8;
@@ -306,11 +251,7 @@ a:hover {
     padding: 8px 20px;
     border-radius: 6px;
 }
-
-.btn-join:hover {
-    background: #7dd3fc;
-    color: #0a0a0a;
-}
+.btn-join:hover { background: #7dd3fc; color: #0a0a0a; }
 
 /* Animal Detail Main */
 .animal-detail {
@@ -329,12 +270,9 @@ a:hover {
     margin-bottom: 50px;
     padding: 8px 0;
 }
+.back-link:hover { color: #38bdf8; }
 
-.back-link:hover {
-    color: #38bdf8;
-}
-
-/* Title Section (Big & Centered) */
+/* Title Section */
 .title-section {
     text-align: center;
     margin-bottom: 60px;
@@ -357,11 +295,11 @@ a:hover {
     margin-bottom: 20px;
 }
 
-/* Three Column Layout - Sidebars to Edges */
+/* Three Column Layout - Streamlined */
 .three-column-layout {
     display: grid;
-    grid-template-columns: 240px 1fr 240px;
-    gap: 60px;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 40px;
     align-items: start;
     margin-bottom: 80px;
 }
@@ -370,141 +308,133 @@ a:hover {
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
-.side-card {
+/* Stat Cards (Left Sidebar) */
+.stat-card {
     background: #1a1a1a;
-    border-radius: 12px;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 16px;
     border: 1px solid #2a2a2a;
 }
 
-.side-card h4 {
+.stat-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 0.7rem;
     color: #888888;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #2a2a2a;
+    margin-bottom: 12px;
 }
 
-.side-card h5 {
-    font-size: 0.65rem;
+.stat-icon {
     color: #888888;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
+    flex-shrink: 0;
 }
 
-/* Stat Rows (Left Sidebar) */
-.stat-row {
+.stat-card-value {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Diet Icons */
+.diet-icons {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px 0;
-    border-bottom: 1px solid #2a2a2a;
+    gap: 8px;
 }
 
-.stat-row:last-child {
-    border-bottom: none;
-}
-
-.stat-row-label {
-    color: #888888;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.stat-row-icons {
-    display: flex;
-    gap: 6px;
-}
-
-.stat-row-icons .diet-icon {
-    width: 26px;
-    height: 26px;
-    border-radius: 6px;
+.diet-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
+    font-size: 1.2rem;
 }
 
-.stat-row-icons .diet-icon.carnivore { background: rgba(239, 68, 68, 0.2); }
-.stat-row-icons .diet-icon.herbivore { background: rgba(34, 197, 94, 0.2); }
-.stat-row-icons .diet-icon.omnivore { background: rgba(249, 115, 22, 0.2); }
-.stat-row-icons .diet-icon.insectivore { background: rgba(168, 85, 247, 0.2); }
-.stat-row-icons .diet-icon.piscivore { background: rgba(56, 189, 248, 0.2); }
+.diet-icon.carnivore { background: rgba(239, 68, 68, 0.2); }
+.diet-icon.herbivore { background: rgba(34, 197, 94, 0.2); }
+.diet-icon.omnivore { background: rgba(249, 115, 22, 0.2); }
+.diet-icon.insectivore { background: rgba(168, 85, 247, 0.2); }
+.diet-icon.piscivore { background: rgba(56, 189, 248, 0.2); }
 
-.stat-row-value {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 0.9rem;
+/* Classification Card */
+.classification-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #2a2a2a;
 }
 
-/* Side Table (Taxonomy) */
-.side-table {
+.classification-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.side-table tr {
+.classification-table tr {
     border-bottom: 1px solid #2a2a2a;
 }
 
-.side-table tr:last-child {
+.classification-table tr:last-child {
     border-bottom: none;
 }
 
-.side-table th {
+.classification-table th {
     text-align: left;
     padding: 8px 0;
     color: #888888;
     font-weight: 500;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     width: 40%;
 }
 
-.side-table td {
+.classification-table td {
     padding: 8px 0;
     color: #ffffff;
     font-size: 0.85rem;
 }
 
-/* Side Text */
-.side-text, .location-text {
+/* Info Cards (Right Sidebar) */
+.info-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #2a2a2a;
+}
+
+/* Location Map */
+.location-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.location-map {
+    background: #0a0a0a;
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #2a2a2a;
+}
+
+.world-map {
+    width: 100%;
+    height: auto;
+}
+
+.location-text {
     color: #cccccc;
     font-size: 0.85rem;
     line-height: 1.5;
 }
 
-/* Side Stats (Right Sidebar) */
-.side-stat {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #2a2a2a;
-}
-
-.side-stat:last-child {
-    border-bottom: none;
-}
-
-.side-stat-label {
-    color: #888888;
-    font-size: 0.75rem;
-}
-
-.side-stat-value {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 0.85rem;
-}
-
-/* Conservation Status Box (Right Sidebar - Colored Container) */
+/* Conservation Status */
 .conservation-status-box {
     padding: 10px 14px;
     border-radius: 6px;
@@ -513,37 +443,17 @@ a:hover {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 14px;
-    display: inline-block;
+    margin-bottom: 12px;
     width: 100%;
 }
 
-.conservation-status-box.status-critical {
-    background: rgba(239, 68, 68, 0.2);
-    color: #f87171;
-}
-
-.conservation-status-box.status-endangered {
-    background: rgba(249, 115, 22, 0.2);
-    color: #fb923c;
-}
-
-.conservation-status-box.status-vulnerable {
-    background: rgba(234, 179, 8, 0.2);
-    color: #facc15;
-}
-
-.conservation-status-box.status-least-concern {
-    background: rgba(34, 197, 94, 0.2);
-    color: #4ade80;
-}
-
-.conservation-status-text {
-    display: block;
-}
+.conservation-status-box.status-critical { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.conservation-status-box.status-endangered { background: rgba(249, 115, 22, 0.2); color: #fb923c; }
+.conservation-status-box.status-vulnerable { background: rgba(234, 179, 8, 0.2); color: #facc15; }
+.conservation-status-box.status-least-concern { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
 
 .threats-box {
-    padding-top: 14px;
+    padding-top: 12px;
     border-top: 1px solid #2a2a2a;
 }
 
@@ -551,6 +461,46 @@ a:hover {
     color: #cccccc;
     font-size: 0.8rem;
     line-height: 1.5;
+}
+
+/* Time Period Visual */
+.time-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.time-range {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.timeline-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.timeline-bar {
+    height: 8px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.timeline-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    border-radius: 4px;
+    width: 50%;
+}
+
+.timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #666666;
 }
 
 /* Feature Tags */
@@ -577,6 +527,7 @@ a:hover {
 }
 
 .hero-image-wrapper {
+    position: relative;
     width: 100%;
     border-radius: 16px;
     overflow: hidden;
@@ -591,6 +542,22 @@ a:hover {
     display: block;
 }
 
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 0.85rem;
+    backdrop-filter: blur(10px);
+}
+
 /* Main Article */
 .main-article {
     margin-bottom: 60px;
@@ -599,9 +566,7 @@ a:hover {
     margin-right: auto;
 }
 
-.article-section {
-    margin-bottom: 40px;
-}
+.article-section { margin-bottom: 40px; }
 
 .article-section h2 {
     font-size: 1.5rem;
@@ -658,10 +623,7 @@ a:hover {
     line-height: 1.4;
 }
 
-.faq-item h3 .faq-animal-name {
-    color: #38bdf8;
-    font-style: italic;
-}
+.faq-item h3 .faq-animal-name { color: #38bdf8; font-style: italic; }
 
 .faq-item p {
     color: #888888;
@@ -691,29 +653,19 @@ a:hover {
     margin-bottom: 8px;
 }
 
-.inspiration-note {
-    color: #888888;
-}
-
-.inspiration-note a {
-    color: #38bdf8;
-}
+.inspiration-note { color: #888888; }
+.inspiration-note a { color: #38bdf8; }
 
 /* ========== RESPONSIVE DESIGN ========== */
 
 @media (max-width: 1300px) {
     .three-column-layout {
-        grid-template-columns: 220px 1fr 220px;
-        gap: 40px;
+        grid-template-columns: 240px 1fr 240px;
+        gap: 30px;
     }
     
-    .animal-detail {
-        padding: 40px 40px 80px;
-    }
-    
-    .nav-container {
-        padding: 16px 40px;
-    }
+    .animal-detail { padding: 40px 40px 80px; }
+    .nav-container { padding: 16px 40px; }
 }
 
 @media (max-width: 1100px) {
@@ -727,81 +679,50 @@ a:hover {
         flex-wrap: wrap;
     }
     
-    .side-card {
+    .stat-card, .info-card, .classification-card {
         flex: 1;
         min-width: 250px;
     }
     
-    .center-column {
-        order: -1;
-    }
+    .center-column { order: -1; }
     
-    .hero-image {
-        height: 500px;
-    }
+    .hero-image { height: 500px; }
     
-    .title-section h1 {
-        font-size: 3rem;
-    }
+    .title-section h1 { font-size: 3rem; }
 }
 
 @media (max-width: 768px) {
-    .nav-container {
-        padding: 16px 20px;
-    }
+    .nav-container { padding: 16px 20px; }
+    .nav-links { display: none; }
     
-    .nav-links {
-        display: none;
-    }
+    .animal-detail { padding: 30px 20px 60px; }
     
-    .animal-detail {
-        padding: 30px 20px 60px;
-    }
+    .title-section h1 { font-size: 2.5rem; }
+    .scientific-name { font-size: 1.3rem; }
     
-    .title-section h1 {
-        font-size: 2.5rem;
-    }
+    .sidebar { flex-direction: column; }
+    .stat-card, .info-card, .classification-card { min-width: 100%; }
     
-    .scientific-name {
-        font-size: 1.3rem;
-    }
+    .hero-image { height: 350px; }
     
-    .sidebar {
-        flex-direction: column;
-    }
+    .faq-grid { grid-template-columns: 1fr; }
     
-    .side-card {
-        min-width: 100%;
-    }
-    
-    .hero-image {
-        height: 350px;
-    }
-    
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-actions {
-        display: none;
-    }
+    .nav-actions { display: none; }
 }
 
 @media (max-width: 480px) {
-    .topbar {
-        padding: 20px;
-    }
+    .topbar { padding: 20px; }
     
     #grid {
         padding: 20px;
         grid-template-columns: 1fr;
     }
     
-    .title-section h1 {
-        font-size: 2rem;
-    }
+    .title-section h1 { font-size: 2rem; }
+    .hero-image { height: 280px; }
     
-    .hero-image {
-        height: 280px;
+    .scroll-indicator {
+        padding: 8px 16px;
+        font-size: 0.8rem;
     }
 }
