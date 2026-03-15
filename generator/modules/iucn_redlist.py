@@ -7,9 +7,6 @@ Documentation: https://apiv4.iucnredlist.org/api/v4/docs
 
 API Key: Store in GitHub Secrets as IUCN_API_KEY
 Free tier: 10,000 requests/month
-
-Note: IUCN API may not be accessible from all environments.
-This module gracefully falls back if the API is unreachable.
 """
 
 import requests
@@ -54,7 +51,7 @@ def _fetch_iucn_with_base(scientific_name: str, api_key: str, base_url: str) -> 
         response = requests.get(
             f"{base_url}/species/getSpecies/{scientific_name.replace(' ', '%20')}",
             params={"key": api_key},
-            timeout=15  # Shorter timeout for faster fallback
+            timeout=15
         )
         
         if response.status_code == 200:
@@ -71,17 +68,17 @@ def _fetch_iucn_with_base(scientific_name: str, api_key: str, base_url: str) -> 
         
         return None
         
-    except requests.exceptions.DNSResolutionError:
-        print(f" ⚠ IUCN: DNS resolution failed for {base_url}")
-        return None
-    except requests.exceptions.ConnectionError:
-        print(f" ⚠ IUCN: Connection failed for {base_url}")
+    except requests.exceptions.ConnectionError as e:
+        print(f" ⚠ IUCN: Connection failed for {base_url} - {str(e)[:100]}")
         return None
     except requests.exceptions.Timeout:
         print(f" ⚠ IUCN: Timeout for {base_url}")
         return None
+    except requests.exceptions.RequestException as e:
+        print(f" ⚠ IUCN API error ({base_url}): {str(e)[:100]}")
+        return None
     except Exception as e:
-        print(f" ⚠ IUCN API error ({base_url}): {e}")
+        print(f" ⚠ IUCN unexpected error ({base_url}): {str(e)[:100]}")
         return None
 
 
@@ -121,7 +118,7 @@ def _fetch_taxon_details(taxon_id: int, api_key: str, base_url: str) -> Optional
         }
         
     except Exception as e:
-        print(f" ⚠ IUCN details error: {e}")
+        print(f" ⚠ IUCN details error: {str(e)[:100]}")
         return None
 
 
