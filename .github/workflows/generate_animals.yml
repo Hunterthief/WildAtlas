@@ -9,9 +9,15 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.MY_PAT }}
+        fetch-depth: 0
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -20,6 +26,7 @@ jobs:
     
     - name: Install dependencies
       run: |
+        python -m pip install --upgrade pip
         pip install -r generator/requirements.txt
     
     - name: Generate animal data
@@ -28,12 +35,23 @@ jobs:
         python generate_animals.py --force
       env:
         API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
+        IUCN_API_KEY: ${{ secrets.IUCN_API_KEY }}
     
-    - name: Commit and push if changed
+    - name: Check for changes
+      id: git-check
       run: |
-        git config --global user.name 'GitHub Actions'
-        git config --global user.email 'actions@github.com'
         git add data/animals.json
-        git add data/*.json || true
-        git diff --staged --quiet || git commit -m "Auto-update animal data [skip ci]"
-        git push
+        git add data/*.json 2>/dev/null || true
+        if ! git diff --staged --quiet; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push changes
+      if: steps.git-check.outputs.changes == 'true'
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
+        git commit -m "🤖 Auto-update animal data [skip ci]"
+        git push https://${{ secrets.MY_PAT }}@github.com/Hunterthief/WildAtlas.git main
