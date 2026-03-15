@@ -212,6 +212,7 @@ function populateDetailPage(animal) {
     const eco = animal.ecology || {};
     const phys = animal.physical || {};
     const repro = animal.reproduction || {};
+    const summary = animal.summary || '';
     
     // === TITLE SECTION ===
     document.getElementById('animal-name').textContent = animal.name;
@@ -222,7 +223,7 @@ function populateDetailPage(animal) {
     // Diet Icons - Multiple icons per animal
     const dietIcons = document.getElementById('diet-icons');
     if (dietIcons && eco.diet) {
-        const dietTypes = getDietTypes(eco.diet, animal.animal_type, animal.summary);
+        const dietTypes = getDietTypes(eco.diet, animal.animal_type, summary);
         dietIcons.innerHTML = dietTypes.map(type => `
             <div class="diet-icon ${type.class}" title="${type.title}">${type.icon}</div>
         `).join('');
@@ -340,21 +341,328 @@ function populateDetailPage(animal) {
         }
     }
     
-    // === MAIN ARTICLE ===
+    // === MAIN ARTICLE SECTIONS ===
     
+    // Overview - Use summary from Wikipedia
     setStatContent('overview-text', null, animal.summary || animal.description || 'No description available.');
     
-    const ecologyText = buildEcologyText(animal);
-    setStatContent('ecology-text', null, ecologyText);
+    // Description - Generate from summary and physical data
+    const descriptionText = generateDescriptionText(animal, summary);
+    setStatContent('description-text', null, descriptionText);
+    
+    // Habitat & Distribution - Generate from ecology data
+    const habitatText = generateHabitatText(animal);
+    setStatContent('habitat-text', null, habitatText);
+    
+    // Behavior & Ecology - Generate from ecology and behavior data
+    const behaviorText = generateBehaviorText(animal, summary);
+    setStatContent('behavior-text', null, behaviorText);
+    
+    // Conservation - Generate from conservation status and threats
+    const conservationArticleText = generateConservationText(animal);
+    setStatContent('conservation-text', null, conservationArticleText);
     
     // === FAQ ===
     document.querySelectorAll('.faq-animal-name').forEach(el => {
         el.textContent = animal.name.toLowerCase();
     });
-    setStatContent('faq-diet', null, eco.diet || 'Unknown');
-    setStatContent('faq-habitat', null, `${eco.habitat || 'Unknown'} - ${eco.locations || 'Unknown'}`);
-    setStatContent('faq-conservation', null, animal.ecology?.conservation_status || 'Unknown');
-    setStatContent('faq-features', null, eco.distinctive_features?.join(', ') || 'No data');
+    
+    // FAQ - Diet
+    setStatContent('faq-diet', null, generateDietFAQ(animal));
+    
+    // FAQ - Habitat
+    setStatContent('faq-habitat', null, generateHabitatFAQ(animal));
+    
+    // FAQ - Size
+    setStatContent('faq-size', null, generateSizeFAQ(animal));
+    
+    // FAQ - Conservation
+    setStatContent('faq-conservation', null, generateConservationFAQ(animal));
+    
+    // FAQ - Lifespan
+    setStatContent('faq-lifespan', null, generateLifespanFAQ(animal));
+    
+    // FAQ - Features
+    setStatContent('faq-features', null, generateFeaturesFAQ(animal));
+    
+    // FAQ - Danger
+    setStatContent('faq-danger', null, generateDangerFAQ(animal));
+    
+    // FAQ - Reproduction
+    setStatContent('faq-reproduction', null, generateReproductionFAQ(animal));
+}
+
+// ============================================
+// Article Section Text Generators
+// ============================================
+function generateDescriptionText(animal, summary) {
+    const phys = animal.physical || {};
+    const eco = animal.ecology || {};
+    const parts = [];
+    
+    // Physical description
+    let desc = `${animal.name} is a ${animal.animal_type || 'animal'}`;
+    
+    if (eco.diet) {
+        desc += ` and a ${eco.diet.toLowerCase()}`;
+    }
+    
+    desc += '.';
+    parts.push(desc);
+    
+    // Size information
+    const sizeParts = [];
+    if (phys.length) sizeParts.push(`length of ${phys.length}`);
+    if (phys.height) sizeParts.push(`height of ${phys.height}`);
+    if (phys.weight) sizeParts.push(`weight of ${phys.weight}`);
+    
+    if (sizeParts.length > 0) {
+        parts.push(`It has a ${sizeParts.join(', ')}.`);
+    }
+    
+    // Distinctive features
+    if (eco.distinctive_features && eco.distinctive_features.length > 0) {
+        const features = eco.distinctive_features.slice(0, 3).join(', ').toLowerCase();
+        parts.push(`The most distinctive features include ${features}.`);
+    }
+    
+    // Add summary excerpt
+    if (summary) {
+        const sentences = summary.split('.').slice(0, 2);
+        if (sentences.length > 0) {
+            parts.push(sentences[0].trim() + '.');
+        }
+    }
+    
+    return parts.join(' ');
+}
+
+function generateHabitatText(animal) {
+    const eco = animal.ecology || {};
+    const parts = [];
+    
+    // Location
+    if (eco.locations) {
+        parts.push(`${animal.name} is found in ${eco.locations.toLowerCase()}.`);
+    }
+    
+    // Habitat type
+    if (eco.habitat) {
+        parts.push(`It inhabits ${eco.habitat.toLowerCase()} environments.`);
+    }
+    
+    // Behavior context
+    if (eco.group_behavior) {
+        const behavior = eco.group_behavior.toLowerCase();
+        parts.push(`This species is ${behavior === 'social' ? 'social and lives in groups' : 'typically solitary'}.`);
+    }
+    
+    return parts.join(' ') || 'Habitat information is not available for this species.';
+}
+
+function generateBehaviorText(animal, summary) {
+    const eco = animal.ecology || {};
+    const phys = animal.physical || {};
+    const parts = [];
+    
+    // Diet and hunting
+    if (eco.diet) {
+        const diet = eco.diet.toLowerCase();
+        if (diet === 'carnivore') {
+            parts.push(`As a carnivore, ${animal.name.toLowerCase()} hunts and feeds on other animals.`);
+        } else if (diet === 'herbivore') {
+            parts.push(`As a herbivore, ${animal.name.toLowerCase()} feeds primarily on plants and vegetation.`);
+        } else if (diet === 'omnivore') {
+            parts.push(`As an omnivore, ${animal.name.toLowerCase()} has a varied diet including both plants and animals.`);
+        }
+    }
+    
+    // Speed
+    if (phys.top_speed) {
+        parts.push(`It can reach speeds of up to ${phys.top_speed}.`);
+    }
+    
+    // Social behavior
+    if (eco.group_behavior) {
+        const behavior = eco.group_behavior.toLowerCase();
+        if (behavior.includes('social')) {
+            parts.push('These animals are social and often live in family groups or herds.');
+        } else if (behavior.includes('solitary')) {
+            parts.push('They are typically solitary animals, coming together only for mating.');
+        }
+    }
+    
+    // Extract from summary if available
+    if (summary) {
+        const behaviorKeywords = ['hunt', 'feed', 'live', 'behavior', 'social', 'group', 'solitary'];
+        const sentences = summary.split('.');
+        for (const sentence of sentences) {
+            if (behaviorKeywords.some(k => sentence.toLowerCase().includes(k))) {
+                parts.push(sentence.trim() + '.');
+                break;
+            }
+        }
+    }
+    
+    return parts.join(' ') || 'Behavioral information is not available for this species.';
+}
+
+function generateConservationText(animal) {
+    const eco = animal.ecology || {};
+    const parts = [];
+    
+    // Conservation status
+    if (eco.conservation_status) {
+        const status = eco.conservation_status.toLowerCase();
+        parts.push(`${animal.name} is classified as ${eco.conservation_status.toLowerCase()}.`);
+        
+        if (status.includes('endangered') || status.includes('critically')) {
+            parts.push('This means the species faces a very high risk of extinction in the wild.');
+        } else if (status.includes('vulnerable')) {
+            parts.push('This means the species faces a high risk of extinction in the wild.');
+        } else if (status.includes('least concern')) {
+            parts.push('This means the species is widespread and abundant.');
+        }
+    }
+    
+    // Threats
+    if (eco.biggest_threat) {
+        parts.push(`The biggest threats include ${eco.biggest_threat.toLowerCase()}.`);
+    }
+    
+    return parts.join(' ') || 'Conservation information is not available for this species.';
+}
+
+// ============================================
+// FAQ Generators
+// ============================================
+function generateDietFAQ(animal) {
+    const eco = animal.ecology || {};
+    
+    if (eco.diet) {
+        let answer = `${animal.name} is a ${eco.diet.toLowerCase()}.`;
+        
+        if (eco.diet === 'Carnivore') {
+            answer += ' It feeds on other animals.';
+        } else if (eco.diet === 'Herbivore') {
+            answer += ' It feeds primarily on plants and vegetation.';
+        } else if (eco.diet === 'Omnivore') {
+            answer += ' It has a varied diet including both plants and animals.';
+        }
+        
+        return answer;
+    }
+    
+    return 'Diet information is not available for this species.';
+}
+
+function generateHabitatFAQ(animal) {
+    const eco = animal.ecology || {};
+    
+    if (eco.locations || eco.habitat) {
+        let answer = '';
+        
+        if (eco.locations) {
+            answer += `${animal.name} is found in ${eco.locations.toLowerCase()}. `;
+        }
+        
+        if (eco.habitat) {
+            answer += `It inhabits ${eco.habitat.toLowerCase()} environments.`;
+        }
+        
+        return answer.trim();
+    }
+    
+    return 'Habitat information is not available for this species.';
+}
+
+function generateSizeFAQ(animal) {
+    const phys = animal.physical || {};
+    const parts = [];
+    
+    if (phys.length) parts.push(`${phys.length} long`);
+    if (phys.height) parts.push(`${phys.height} tall`);
+    if (phys.weight) parts.push(`weighs ${phys.weight}`);
+    
+    if (parts.length > 0) {
+        return `${animal.name} is ${parts.join(', ')}.`;
+    }
+    
+    return 'Size information is not available for this species.';
+}
+
+function generateConservationFAQ(animal) {
+    const eco = animal.ecology || {};
+    
+    if (eco.conservation_status) {
+        let answer = `${animal.name} is classified as ${eco.conservation_status.toLowerCase()}.`;
+        
+        if (eco.biggest_threat) {
+            answer += ` The biggest threats include ${eco.biggest_threat.toLowerCase()}.`;
+        }
+        
+        return answer;
+    }
+    
+    return 'Conservation status information is not available for this species.';
+}
+
+function generateLifespanFAQ(animal) {
+    const phys = animal.physical || {};
+    
+    if (phys.lifespan) {
+        return `${animal.name} can live for ${phys.lifespan.toLowerCase()}.`;
+    }
+    
+    return 'Lifespan information is not available for this species.';
+}
+
+function generateFeaturesFAQ(animal) {
+    const eco = animal.ecology || {};
+    
+    if (eco.distinctive_features && eco.distinctive_features.length > 0) {
+        const features = eco.distinctive_features.join(', ').toLowerCase();
+        return `The most distinctive features of ${animal.name.toLowerCase()} include ${features}.`;
+    }
+    
+    return 'Distinctive feature information is not available for this species.';
+}
+
+function generateDangerFAQ(animal) {
+    const animalType = animal.animal_type?.toLowerCase() || '';
+    const eco = animal.ecology || {};
+    
+    // Dangerous animals
+    const dangerousTypes = ['feline', 'canine', 'bear', 'shark', 'snake', 'crocodile', 'raptor'];
+    
+    if (dangerousTypes.includes(animalType)) {
+        return `${animal.name} can be dangerous to humans if threatened or provoked. It is best to observe from a safe distance and never approach wild animals.`;
+    }
+    
+    return `${animal.name} is generally not dangerous to humans, but like all wild animals, should be observed from a safe distance.`;
+}
+
+function generateReproductionFAQ(animal) {
+    const repro = animal.reproduction || {};
+    const parts = [];
+    
+    if (repro.gestation_period) {
+        parts.push(`gestation period of ${repro.gestation_period.toLowerCase()}`);
+    }
+    
+    if (repro.average_litter_size) {
+        parts.push(`typically has ${repro.average_litter_size} offspring`);
+    }
+    
+    if (repro.name_of_young) {
+        parts.push(`young are called ${repro.name_of_young.toLowerCase()}`);
+    }
+    
+    if (parts.length > 0) {
+        return `${animal.name} has a ${parts.join(', ')}.`;
+    }
+    
+    return 'Reproduction information is not available for this species.';
 }
 
 // ============================================
@@ -568,20 +876,6 @@ function truncateText(str, length) {
 function capitalizeFirst(str) {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-function buildEcologyText(animal) {
-    const eco = animal.ecology || {};
-    const parts = [];
-    
-    if (eco.diet) {
-        parts.push(`This animal is a ${eco.diet.toLowerCase()}.`);
-    }
-    if (eco.biggest_threat) {
-        parts.push(`The biggest threats include ${eco.biggest_threat.toLowerCase()}.`);
-    }
-    
-    return parts.length > 0 ? parts.join(' ') : 'No additional ecology information available.';
 }
 
 // ============================================
