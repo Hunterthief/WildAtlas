@@ -3,10 +3,15 @@
 Cache Module
 
 Handles loading and saving cached animal data to avoid redundant API calls.
+Cache is stored in generator/data/ for internal use.
 """
 
 import os
 import json
+from pathlib import Path
+
+# Cache directory is in generator/data/
+CACHE_DIR = Path(__file__).parent.parent / "data"
 
 
 def load_cache(qid):
@@ -19,8 +24,9 @@ def load_cache(qid):
     Returns:
         dict: Cached animal data or None if not found
     """
-    f = f"data/{qid}.json"
-    if os.path.exists(f):
+    CACHE_DIR.mkdir(exist_ok=True)
+    f = CACHE_DIR / f"{qid}.json"
+    if f.exists():
         try:
             with open(f, "r", encoding="utf-8") as fp:
                 return json.load(fp)
@@ -37,5 +43,6 @@ def save_cache(qid, data):
         qid: Animal identifier (Q-number or animal_id)
         data: Animal data dict to save
     """
-    with open(f"data/{qid}.json", "w", encoding="utf-8") as f:
+    CACHE_DIR.mkdir(exist_ok=True)
+    with open(CACHE_DIR / f"{qid}.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
