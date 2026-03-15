@@ -6,13 +6,20 @@ Extracts diet type from Wikipedia text.
 Edit this file only for diet-related changes.
 """
 
-from pathlib import Path
-import json
-import sys
 
-# Add parent to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-from detectors import get_default_diet
+def get_default_diet(animal_type):
+    """Get default diet from config"""
+    from pathlib import Path
+    import json
+    
+    config_dir = Path(__file__).parent.parent.parent.parent / "config"
+    diets_path = config_dir / "diets.json"
+    
+    if diets_path.exists():
+        with open(diets_path, "r", encoding="utf-8") as f:
+            diets = json.load(f)
+            return diets.get(animal_type, diets.get("default", "Unknown"))
+    return "Unknown"
 
 
 def extract_diet(text, animal_type):
