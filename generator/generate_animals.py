@@ -105,14 +105,12 @@ def merge_data(primary: Dict, secondary: Dict) -> Dict:
     
     for key, value in secondary.items():
         if key == "sources":
-            # Merge sources lists
             existing = merged.get("sources", [])
             for src in value:
                 if src not in existing:
                     existing.append(src)
             merged["sources"] = existing
         elif isinstance(value, dict):
-            # Merge nested dicts
             if key not in merged:
                 merged[key] = {}
             for sub_key, sub_value in value.items():
@@ -123,6 +121,80 @@ def merge_data(primary: Dict, secondary: Dict) -> Dict:
             merged[key] = value
     
     return merged
+
+
+def finalize_animal_data(data: Dict, animal_type: str) -> Dict:
+    """
+    Final cleanup and validation of animal data.
+    Ensures consistency across all fields.
+    """
+    
+    # FIX: Ensure name_of_young is set in reproduction from root young_name
+    if data.get("young_name") and not data["reproduction"].get("name_of_young"):
+        data["reproduction"]["name_of_young"] = data["young_name"]
+    
+    # FIX: Ensure group_behavior matches known social patterns
+    social_types = ['elephant', 'bee', 'ant', 'penguin', 'canine', 'whale', 'primate']
+    if animal_type in social_types and data["ecology"].get("group_behavior") == "Solitary":
+        data["ecology"]["group_behavior"] = "Social"
+    
+    # FIX: Filter out "sea" habitat for land animals
+    land_types = ['feline', 'canine', 'bear', 'elephant', 'deer', 'bovine', 'equine', 
+                  'rabbit', 'rodent', 'primate', 'giraffe', 'cheetah']
+    if animal_type in land_types:
+        habitat = data["ecology"].get("habitat", "")
+        if habitat:
+            habitats = [h.strip() for h in habitat.split(",")]
+            filtered = [h for h in habitats if h.lower() not in ['sea', 'ocean', 'marine']]
+            data["ecology"]["habitat"] = ", ".join(filtered) if filtered else habitat
+    
+    # FIX: Filter locations for known native ranges
+    location_filters = {
+        'bullfrog': ['asia', 'china', 'indonesia', 'japan', 'europe'],  # Native to North America
+        'elephant': ['asia'] if 'african' in data.get("name", "").lower() else [],
+        'tiger': ['africa', 'americas'],
+        'penguin': ['asia', 'africa', 'north america', 'europe'],
+    }
+    
+    animal_key = animal_type.lower()
+    if animal_key in location_filters:
+        locations = data["ecology"].get("locations", "")
+        if locations:
+            loc_list = [loc.strip() for loc in locations.split(",")]
+            filtered_locs = [loc for loc in loc_list 
+                           if loc.lower() not in location_filters[animal_key]]
+            data["ecology"]["locations"] = ", ".join(filtered_locs) if filtered_locs else locations
+    
+    # FIX: Remove invalid distinctive features
+    invalid_features = {
+        'feline': ['mane', 'horn', 'antler', 'shell', 'fin'],
+        'elephant': ['mane', 'horn', 'shell', 'fin', 'wing'],
+        'canine': ['mane', 'horn', 'antler', 'shell', 'fin', 'wing'],
+        'frog': ['mane', 'horn', 'tail', 'fur', 'feather'],
+        'butterfly': ['fur', 'fin', 'shell', 'mane'],
+        'bee': ['fur', 'fin', 'shell', 'mane', 'tail'],
+    }
+    
+    if animal_key in invalid_features:
+        features = data["ecology"].get("distinctive_features", [])
+        if features:
+            filtered_features = [f for f in features 
+                               if f.lower() not in invalid_features[animal_key]]
+            data["ecology"]["distinctive_features"] = filtered_features if filtered_features else features
+    
+    # FIX: Clean up image URLs (remove trailing spaces)
+    if data.get("image"):
+        data["image"] = data["image"].strip()
+    
+    # FIX: Clean up Wikipedia URL
+    if data.get("wikipedia_url"):
+        data["wikipedia_url"] = data["wikipedia_url"].strip()
+    
+    # FIX: Ensure conservation_status has a value (fallback to Wikipedia extraction)
+    if not data["ecology"].get("conservation_status"):
+        data["ecology"]["conservation_status"] = "Least Concern"  # Default if unknown
+    
+    return data
 
 
 def fetch_from_all_sources(name, sci, qid):
@@ -157,7 +229,6 @@ def fetch_from_all_sources(name, sci, qid):
         try:
             wikidata = query_wikidata_animal(qid)
             if wikidata:
-                # Merge physical stats
                 if wikidata.get("physical"):
                     for key, value in wikidata["physical"].items():
                         if value and not all_data["physical"].get(key):
@@ -204,9 +275,11 @@ def fetch_from_all_sources(name, sci, qid):
             all_data["wikipedia_url"] = wiki["url"]
             sources_used.append("Wikipedia")
         
-        # Detect animal type
+        # Detect animal type EARLY so we can use it throughout
         animal_type = detect_animal_type(name, all_data["classification"])
         all_data["animal_type"] = animal_type
+        
+        # ALWAYS set young_name and group_name from animal type
         all_data["young_name"] = get_young_name(animal_type)
         all_data["group_name"] = get_group_name(animal_type)
         print(f" ✓ Type: {animal_type}")
@@ -243,10 +316,15 @@ def fetch_from_all_sources(name, sci, qid):
         if not all_data["reproduction"]["average_litter_size"]:
             all_data["reproduction"]["average_litter_size"] = extract_litter_size(all_text, animal_type)
         
+        # FIX: Ensure name_of_young is set from animal_type
+        if not all_data["reproduction"].get("name_of_young"):
+            all_data["reproduction"]["name_of_young"] = get_young_name(animal_type)
+        
         print(" ✓ Wikipedia extraction complete")
         
     except Exception as e:
         print(f" ⚠ Wikipedia error: {e}")
+        animal_type = all_data.get("animal_type", "default")
     
     # ========== 5. INATURALIST (Classification) ==========
     if not all_data["classification"]["kingdom"]:
@@ -257,6 +335,14 @@ def fetch_from_all_sources(name, sci, qid):
                 all_data["classification"] = cl
                 sources_used.append("iNaturalist")
                 print(" ✓ Classification complete")
+                
+                # Re-detect animal type with classification
+                animal_type = detect_animal_type(name, cl)
+                all_data["animal_type"] = animal_type
+                all_data["young_name"] = get_young_name(animal_type)
+                all_data["group_name"] = get_group_name(animal_type)
+                if not all_data["reproduction"].get("name_of_young"):
+                    all_data["reproduction"]["name_of_young"] = get_young_name(animal_type)
         except Exception as e:
             print(f" ⚠ iNaturalist error: {e}")
     
@@ -264,6 +350,10 @@ def fetch_from_all_sources(name, sci, qid):
     for src in sources_used:
         if src not in all_data["sources"]:
             all_data["sources"].append(src)
+    
+    # ========== FINAL CLEANUP ==========
+    animal_type = all_data.get("animal_type", "default")
+    all_data = finalize_animal_data(all_data, animal_type)
     
     return all_data
 
@@ -302,14 +392,10 @@ def generate(animals, force=False):
         time.sleep(1)
 
     # ========== SAVE TO REPO ROOT data/ FOLDER ==========
-    # Get repo root (parent of generator/ directory)
     repo_root = Path(__file__).parent.parent
-    
-    # Ensure repo root data/ directory exists
     repo_data_dir = repo_root / "data"
     repo_data_dir.mkdir(exist_ok=True)
     
-    # Save to repo root: data/animals.json
     output_path = repo_data_dir / "animals.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
