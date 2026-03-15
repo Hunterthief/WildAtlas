@@ -29,7 +29,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "mangrove, tropical forest, forest, broadleaf forest",
+      "habitat": "lake, coniferous forest, marsh, rainforest",
       "locations": [
         "Asia"
       ],
@@ -60,7 +60,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:14:59.209937",
+    "last_updated": "2026-03-15T22:20:27.061556",
     "characteristics": {}
   },
   {
@@ -93,7 +93,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "forest, lake, woodland, savanna",
+      "habitat": "lake, savanna, rainforest, forest",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
@@ -121,7 +121,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:01.153076"
+    "last_updated": "2026-03-15T22:20:30.177584"
   },
   {
     "id": "Q213537",
@@ -153,7 +153,7 @@
     },
     "ecology": {
       "diet": "Insectivore",
-      "habitat": "tropical, wetland, coastal, forest",
+      "habitat": "lake, savanna, marsh, tundra",
       "locations": "North America, Eurasia, Europe, Asia, Russia",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -181,7 +181,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:03.771064"
+    "last_updated": "2026-03-15T22:20:33.241131"
   },
   {
     "id": "Q25319",
@@ -213,7 +213,7 @@
     },
     "ecology": {
       "diet": "Piscivore",
-      "habitat": "tropical, wetland, coastal, cliff",
+      "habitat": "lake, savanna, ocean, marsh",
       "locations": [
         "North-America"
       ],
@@ -244,7 +244,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:06.052949",
+    "last_updated": "2026-03-15T22:20:35.884096",
     "characteristics": {}
   },
   {
@@ -277,7 +277,7 @@
     },
     "ecology": {
       "diet": "Piscivore",
-      "habitat": "ice, ocean, sea, marsh",
+      "habitat": "island, ocean, marsh, sea",
       "locations": [
         "Antarctica",
         "Ocean"
@@ -309,7 +309,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:08.122961",
+    "last_updated": "2026-03-15T22:20:38.355215",
     "characteristics": {}
   },
   {
@@ -342,7 +342,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "open ocean, coastal, ocean, tropical",
+      "habitat": "open ocean, ocean, marsh, temperate",
       "locations": [
         "Ocean"
       ],
@@ -373,7 +373,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:10.522862",
+    "last_updated": "2026-03-15T22:20:41.215172",
     "characteristics": {}
   },
   {
@@ -406,7 +406,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coastal, lake, stream, ocean",
+      "habitat": "lake, Pacific, ocean, coastal",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -434,7 +434,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:12.496701"
+    "last_updated": "2026-03-15T22:20:43.778748"
   },
   {
     "id": "Q7785",
@@ -466,7 +466,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "wetland, coastal, coral reef, ocean",
+      "habitat": "ocean, marsh, temperate, coastal",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -494,7 +494,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:14.504098"
+    "last_updated": "2026-03-15T22:20:46.218849"
   },
   {
     "id": "Q189609",
@@ -526,7 +526,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "coastal, forest, agricultural, rainforest",
+      "habitat": "marsh, rainforest, forest, coastal",
       "locations": [
         "Asia"
       ],
@@ -557,7 +557,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:16.442361",
+    "last_updated": "2026-03-15T22:20:48.713107",
     "characteristics": {}
   },
   {
@@ -590,7 +590,7 @@
     },
     "ecology": {
       "diet": "Omnivore",
-      "habitat": "coastal, lake, tropical, river",
+      "habitat": "lake, coastal, tropical, swamp",
       "locations": "Asia, China, Indonesia, Japan, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -616,7 +616,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:18.419889"
+    "last_updated": "2026-03-15T22:20:51.165557"
   },
   {
     "id": "Q165980",
@@ -648,7 +648,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "garden, wetland, coastal, forest",
+      "habitat": "garden, meadow, ocean, forest",
       "locations": [
         "Africa",
         "Asia",
@@ -685,7 +685,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:21.043899",
+    "last_updated": "2026-03-15T22:20:54.123825",
     "characteristics": {}
   },
   {
@@ -718,7 +718,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "tropical, forest, urban, agricultural",
+      "habitat": "urban, temperate, forest, mountain",
       "locations": [
         "Africa",
         "Asia",
@@ -756,7 +756,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:23.023661",
+    "last_updated": "2026-03-15T22:20:58.499585",
     "characteristics": {}
   },
   {
@@ -789,7 +789,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "tropical, tropical forest, forest, jungle",
+      "habitat": "savanna, marsh, jungle, forest",
       "locations": [
         "Africa",
         "Asia",
@@ -822,7 +822,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:25.063117",
+    "last_updated": "2026-03-15T22:21:00.881164",
     "characteristics": {}
   },
   {
@@ -855,7 +855,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "tropical, forest, lake, woodland",
+      "habitat": "lake, urban, savanna, marsh",
       "locations": [
         "Africa"
       ],
@@ -886,7 +886,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:27.056287",
+    "last_updated": "2026-03-15T22:21:03.483715",
     "characteristics": {}
   },
   {
@@ -919,7 +919,7 @@
     },
     "ecology": {
       "diet": "Omnivore",
-      "habitat": "desert, sea",
+      "habitat": "sea, desert",
       "locations": [
         "Eurasia",
         "Europe",
@@ -951,7 +951,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-15T22:15:29.267507",
+    "last_updated": "2026-03-15T22:21:05.677645",
     "characteristics": {}
   }
 ]
