@@ -60,7 +60,14 @@ jobs:
           echo "ℹ️ No changes detected"
           echo "changes=false" >> $GITHUB_OUTPUT
         fi
-    
+        
+    - name: Debug - Show JSON content
+      run: |
+        echo "=== First 50 lines of animals.json ==="
+        head -50 data/animals.json || echo "File not found"
+        echo "=== File size ==="
+        wc -l data/animals.json || echo "File not found"
+        
     - name: Commit and push changes
       if: steps.git-check.outputs.changes == 'true'
       run: |
