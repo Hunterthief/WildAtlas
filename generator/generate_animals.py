@@ -16,11 +16,12 @@ from pathlib import Path
 # Import modular components
 from modules.fetchers import fetch_wikipedia_summary, fetch_wikipedia_full, fetch_inaturalist
 from modules.detectors import detect_animal_type, get_young_name, get_group_name
-from modules.extractors import (
-    extract_stats, extract_diet, extract_conservation,
-    extract_locations, extract_habitat, extract_features,
-    extract_behavior, extract_reproduction, extract_threats
+from modules.extractors.stats import extract_weight, extract_length, extract_height, extract_lifespan, extract_speed
+from modules.extractors.ecology import (
+    extract_diet, extract_conservation, extract_locations,
+    extract_habitat, extract_features, extract_behavior, extract_threats
 )
+from modules.extractors.reproduction import extract_gestation, extract_litter_size
 from modules.cache import load_cache, save_cache
 
 # Setup
@@ -66,13 +67,14 @@ def update_from_wikipedia(data, wiki):
 
 def extract_all_data(data, text, animal_type):
     """Run all extraction functions and update data"""
-    # Physical stats
-    stats = extract_stats(text, animal_type)
-    for k, v in stats.items():
-        if v:
-            data["physical"][k] = v
+    # Physical stats - each function is independent
+    data["physical"]["weight"] = extract_weight(text, animal_type)
+    data["physical"]["length"] = extract_length(text, animal_type)
+    data["physical"]["height"] = extract_height(text, animal_type)
+    data["physical"]["lifespan"] = extract_lifespan(text, animal_type)
+    data["physical"]["top_speed"] = extract_speed(text, animal_type)
 
-    # Ecology data
+    # Ecology data - each function is independent
     data["ecology"]["diet"] = extract_diet(text, animal_type)
     data["ecology"]["conservation_status"] = extract_conservation(text)
     data["ecology"]["locations"] = extract_locations(text, animal_type)
@@ -81,11 +83,10 @@ def extract_all_data(data, text, animal_type):
     data["ecology"]["group_behavior"] = extract_behavior(text, animal_type)
     data["ecology"]["biggest_threat"] = extract_threats(text)
 
-    # Reproduction data
-    repro = extract_reproduction(text, animal_type)
-    for k, v in repro.items():
-        if v:
-            data["reproduction"][k] = v
+    # Reproduction data - each function is independent
+    data["reproduction"]["gestation_period"] = extract_gestation(text, animal_type)
+    data["reproduction"]["average_litter_size"] = extract_litter_size(text, animal_type)
+    data["reproduction"]["name_of_young"] = get_young_name(animal_type)
 
 
 def generate(animals, force=False):
