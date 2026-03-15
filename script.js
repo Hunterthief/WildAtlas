@@ -1,6 +1,6 @@
 // ============================================
 // WildAtlas - Main JavaScript File
-// Facts.app Exact Layout
+// Streamlined Facts.app Design
 // ============================================
 
 let allAnimals = [];
@@ -155,39 +155,37 @@ function populateDetailPage(animal) {
     const phys = animal.physical || {};
     const repro = animal.reproduction || {};
     
-    // === TITLE SECTION (Big & Centered) ===
+    // === TITLE SECTION ===
     document.getElementById('animal-name').textContent = animal.name;
     document.getElementById('animal-scientific').textContent = animal.scientific_name;
     
     // === LEFT SIDEBAR ===
     
-    // Quick Stats (Food, Length, Height, Weight)
-    const dietIconsSide = document.getElementById('diet-icons-side');
-    if (dietIconsSide && eco.diet) {
+    // Diet Icons
+    const dietIcons = document.getElementById('diet-icons');
+    if (dietIcons && eco.diet) {
         const dietTypes = getDietTypes(eco.diet);
-        dietIconsSide.innerHTML = dietTypes.map(type => `
+        dietIcons.innerHTML = dietTypes.map(type => `
             <div class="diet-icon ${type.class}">${type.icon}</div>
         `).join('');
     }
-    setTextContent('stat-diet-side', eco.diet);
-    setTextContent('stat-length-side', phys.length);
-    setTextContent('stat-height-side', phys.height);
-    setTextContent('stat-weight-side', phys.weight);
     
-    // Taxonomy Table
-    const taxonomyTable = document.getElementById('taxonomy-table');
-    if (taxonomyTable && animal.classification) {
+    // Stats
+    setTextContent('stat-length', phys.length);
+    setTextContent('stat-height', phys.height);
+    setTextContent('stat-weight', phys.weight);
+    
+    // Classification Table
+    const classTable = document.getElementById('classification-table');
+    if (classTable && animal.classification) {
         const order = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
-        taxonomyTable.innerHTML = order.map(key => {
+        classTable.innerHTML = order.map(key => {
             if (animal.classification[key]) {
                 return `<tr><th>${capitalizeFirst(key)}</th><td>${animal.classification[key]}</td></tr>`;
             }
             return '';
         }).join('');
     }
-    
-    // Location
-    setTextContent('location-text', animal.ecology?.locations);
     
     // === CENTER COLUMN ===
     
@@ -200,7 +198,10 @@ function populateDetailPage(animal) {
     
     // === RIGHT SIDEBAR ===
     
-    // Conservation Status (MOVED HERE - Top of Right Sidebar)
+    // Location
+    setTextContent('location-text', animal.ecology?.locations);
+    
+    // Conservation Status
     const conservationBox = document.getElementById('conservation-status-box');
     const conservationText = document.getElementById('conservation-status-text');
     if (conservationBox && animal.ecology?.conservation_status) {
@@ -210,13 +211,15 @@ function populateDetailPage(animal) {
     }
     setTextContent('conservation-threats', animal.ecology?.biggest_threat);
     
-    // Habitat
-    setTextContent('habitat-text', eco.habitat);
-    
-    // Behavior
-    setTextContent('behavior-group', animal.ecology?.group_behavior);
-    setTextContent('behavior-name', animal.group_name);
-    setTextContent('behavior-young', repro.name_of_young || animal.young_name);
+    // Time Period (Visual Timeline)
+    const timeRange = document.getElementById('time-range');
+    const timelineFill = document.getElementById('timeline-fill');
+    if (timeRange) {
+        timeRange.textContent = 'Present Day';
+        if (timelineFill) {
+            timelineFill.style.width = '100%';
+        }
+    }
     
     // Features
     const featureTags = document.getElementById('feature-tags');
@@ -225,19 +228,16 @@ function populateDetailPage(animal) {
             `<span class="feature-tag">${f}</span>`
         ).join('');
     } else if (featureTags) {
-        featureTags.innerHTML = '<span style="color:#888888">No data</span>';
+        featureTags.innerHTML = '<span style="color:#666666">No data</span>';
     }
     
-    // === MAIN ARTICLE (No redundant data from sidebars) ===
+    // === MAIN ARTICLE ===
     
-    // Overview - Only summary text
     setTextContent('overview-text', animal.summary || animal.description || 'No description available.');
     
-    // Ecology - Only additional info not in sidebars
     const ecologyText = buildEcologyText(animal);
     setTextContent('ecology-text', ecologyText);
     
-    // Reproduction - Only additional info not in sidebars
     const reproText = buildReproductionText(animal);
     setTextContent('reproduction-text', reproText);
     
@@ -249,8 +249,6 @@ function populateDetailPage(animal) {
     setTextContent('faq-habitat', `${eco.habitat || 'Unknown'} - ${eco.locations || 'Unknown'}`);
     setTextContent('faq-conservation', animal.ecology?.conservation_status || 'Unknown');
     setTextContent('faq-features', eco.distinctive_features?.join(', ') || 'No data');
-    setTextContent('faq-scientific', animal.scientific_name);
-    setTextContent('faq-type', animal.animal_type || 'Unknown');
 }
 
 // ============================================
@@ -284,7 +282,6 @@ function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// Build ecology text without repeating sidebar data
 function buildEcologyText(animal) {
     const eco = animal.ecology || {};
     const parts = [];
@@ -293,22 +290,21 @@ function buildEcologyText(animal) {
         parts.push(`This animal is a ${eco.diet.toLowerCase()}.`);
     }
     if (eco.biggest_threat) {
-        parts.push(`The biggest threats to this species include ${eco.biggest_threat.toLowerCase()}.`);
+        parts.push(`The biggest threats include ${eco.biggest_threat.toLowerCase()}.`);
     }
     
     return parts.length > 0 ? parts.join(' ') : 'No additional ecology information available.';
 }
 
-// Build reproduction text without repeating sidebar data
 function buildReproductionText(animal) {
     const repro = animal.reproduction || {};
     const parts = [];
     
     if (repro.gestation_period) {
-        parts.push(`Gestation period: ${repro.gestation_period}.`);
+        parts.push(`Gestation: ${repro.gestation_period}.`);
     }
     if (repro.average_litter_size) {
-        parts.push(`Average litter size: ${repro.average_litter_size}.`);
+        parts.push(`Litter size: ${repro.average_litter_size}.`);
     }
     
     return parts.length > 0 ? parts.join(' ') : 'No additional reproduction information available.';
