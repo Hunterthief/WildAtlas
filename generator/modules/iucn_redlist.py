@@ -32,23 +32,30 @@ def fetch_iucn_data(scientific_name: str, api_key: str) -> Optional[Dict[str, An
         return None
     
     try:
-        # Step 1: Get species ID by name
-        species_response = requests.get(
-            f"{IUCN_API_BASE}/species_name/{scientific_name.replace(' ', '%20')}",
+        # Step 1: Get species ID by scientific name
+        # Using the taxa endpoint which is more reliable
+        response = requests.get(
+            f"{IUCN_API_BASE}/taxonname/gettaxonname/{scientific_name.replace(' ', '%20')}",
             params={"key": api_key},
             timeout=30
         )
         
-        if species_response.status_code != 200:
-            print(f" ⚠ IUCN species lookup failed: {species_response.status_code}")
+        print(f" 📡 IUCN API Status: {response.status_code}")
+        
+        if response.status_code == 403:
+            print(" ⚠ IUCN: Authentication failed - check API key")
+            return None
+        elif response.status_code != 200:
+            print(f" ⚠ IUCN species lookup failed: {response.status_code}")
             return None
         
-        species_data = species_response.json()
+        species_data = response.json()
         results = species_data.get("result", [])
         
         if not results:
-            print(f" ⚠ IUCN: No results for {scientific_name}")
-            return None
+            # Try alternative: search by common name
+            print(f" ⚠ IUCN: No results for {scientific_name}, trying fallback")
+            return fetch_iucn_by_common_name(scientific_name.split()[0], api_key)
         
         # Get the taxon ID
         taxon_id = results[0].get("taxonid")
@@ -68,17 +75,33 @@ def fetch_iucn_data(scientific_name: str, api_key: str) -> Optional[Dict[str, An
         return None
 
 
+def fetch_iucn_by_common_name(common_name: str, api_key: str) -> Optional[Dict[str, Any]]:
+    """Fallback: Search by common name if scientific name fails"""
+    try:
+        response = requests.get(
+            f"{IUCN_API_BASE}/speciesname/{common_name.replace(' ', '%20')}",
+            params={"key": api_key},
+            timeout=30
+        )
+        
+        if response.status_code == 200:
+            results = response.json().get("result", [])
+            if results:
+                taxon_id = results[0].get("taxonid")
+                if taxon_id:
+                    return fetch_taxon_details(taxon_id, api_key)
+    except:
+        pass
+    return None
+
+
 def fetch_taxon_details(taxon_id: int, api_key: str) -> Optional[Dict[str, Any]]:
-    """
-    Fetch detailed conservation data for a taxon ID.
-    
-    Returns conservation status, threats, population, etc.
-    """
+    """Fetch detailed conservation data for a taxon ID"""
     
     try:
         # Get latest assessment
         assessment_response = requests.get(
-            f"{IUCN_API_BASE}/species_assessment/{taxon_id}",
+            f"{IUCN_API_BASE}/speciesassessment/{taxon_id}",
             params={"key": api_key},
             timeout=30
         )
@@ -123,7 +146,7 @@ def fetch_threats(taxon_id: int, api_key: str) -> Optional[str]:
     """Fetch threat information for a species"""
     try:
         response = requests.get(
-            f"{IUCN_API_BASE}/species_threats/{taxon_id}",
+            f"{IUCN_API_BASE}/speciesthreats/{taxon_id}",
             params={"key": api_key},
             timeout=30
         )
@@ -131,7 +154,6 @@ def fetch_threats(taxon_id: int, api_key: str) -> Optional[str]:
         if response.status_code == 200:
             threats = response.json().get("result", [])
             if threats:
-                # Extract top 3 threat scopes
                 threat_list = []
                 for t in threats[:3]:
                     scope = t.get("scope", "")
@@ -147,7 +169,7 @@ def fetch_population(taxon_id: int, api_key: str) -> Dict[str, Optional[str]]:
     """Fetch population data for a species"""
     try:
         response = requests.get(
-            f"{IUCN_API_BASE}/species_population/{taxon_id}",
+            f"{IUCN_API_BASE}/speciespopulation/{taxon_id}",
             params={"key": api_key},
             timeout=30
         )
@@ -167,7 +189,7 @@ def fetch_actions(taxon_id: int, api_key: str) -> Optional[str]:
     """Fetch conservation actions for a species"""
     try:
         response = requests.get(
-            f"{IUCN_API_BASE}/species_actions/{taxon_id}",
+            f"{IUCN_API_BASE}/speciesactions/{taxon_id}",
             params={"key": api_key},
             timeout=30
         )
@@ -183,20 +205,7 @@ def fetch_actions(taxon_id: int, api_key: str) -> Optional[str]:
 
 
 def parse_conservation_status(category: Optional[str]) -> Optional[str]:
-    """
-    Parse IUCN category to standardized status string.
-    
-    IUCN Categories:
-    - EX: Extinct
-    - EW: Extinct in the Wild
-    - CR: Critically Endangered
-    - EN: Endangered
-    - VU: Vulnerable
-    - NT: Near Threatened
-    - LC: Least Concern
-    - DD: Data Deficient
-    - NE: Not Evaluated
-    """
+    """Parse IUCN category to standardized status string"""
     
     if not category:
         return None
@@ -214,11 +223,3 @@ def parse_conservation_status(category: Optional[str]) -> Optional[str]:
     }
     
     return status_map.get(category.upper())
-
-
-# Test function
-if __name__ == "__main__":
-    import os
-    api_key = os.environ.get("IUCN_API_KEY", "")
-    result = fetch_iucn_data("Panthera tigris", api_key)
-    print(result)
