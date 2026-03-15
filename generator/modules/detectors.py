@@ -50,8 +50,9 @@ def detect_animal_type(name, classification=None):
         # Mammals - specific first
         'elephant', 'feline', 'canine', 'bear', 'primate', 'whale',
         'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat',
+        'giraffe', 'cheetah', 'hippo', 'rhino', 'zebra',
         # Birds - specific first
-        'penguin', 'raptor', 'owl', 'chicken', 'swan', 'goose', 'duck',
+        'penguin', 'raptor', 'owl', 'chicken', 'swan', 'goose', 'duck', 'eagle',
         # Fish
         'shark', 'ray', 'salmon',
         # Reptiles
@@ -67,13 +68,11 @@ def detect_animal_type(name, classification=None):
         keywords = config.get("keywords", [])
         for keyword in keywords:
             # Use word boundary matching to avoid partial matches
-            # e.g., "ant" won't match in "elephant"
             if re.search(r'\b' + re.escape(keyword) + r'\b', name_lower):
                 return animal_type
 
     # Check classification if available
     if classification:
-        # Safely get classification values (handle None)
         class_name = (classification.get("class") or "").lower()
         order_name = (classification.get("order") or "").lower()
         family_name = (classification.get("family") or "").lower()
@@ -100,6 +99,8 @@ def detect_animal_type(name, classification=None):
                     return "bovine"
                 if any(w in name_lower for w in ["horse", "zebra", "donkey"]):
                     return "equine"
+                if "giraffe" in name_lower or "giraffidae" in family_name:
+                    return "giraffe"
             elif "lagomorpha" in order_name:
                 return "rabbit"
             elif "chiroptera" in order_name:
@@ -173,4 +174,4 @@ def get_group_name(animal_type):
 
 def get_default_diet(animal_type):
     """Get the default diet for this animal type"""
-    return DIETS.get(animal_type, DIETS.get("default", "Unknown")) 
+    return DIETS.get(animal_type, DIETS.get("default", "Unknown"))
