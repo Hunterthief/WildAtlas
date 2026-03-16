@@ -177,7 +177,7 @@ function filterAnimals(query) {
 // ============================================
 // Detail Page Functions
 // ============================================
-function initDetailPage() {
+async function initDetailPage() {
     const params = new URLSearchParams(window.location.search);
     const animalName = params.get('name');
     
@@ -185,6 +185,9 @@ function initDetailPage() {
         window.location.href = 'index.html';
         return;
     }
+    
+    // Load model links first
+    await loadModelLinks();
     
     fetchAnimals()
         .then(animals => {
@@ -198,8 +201,11 @@ function initDetailPage() {
             }
             
             populateDetailPage(animal);
-            
-            // Setup scroll indicator click handler
+             const eco = animal.ecology || {};
+             const phys = animal.physical || {};
+             const repro = animal.reproduction || {};
+             const summary = animal.summary || '';
+            // Setup scroll indicator after content is loaded
             setupScrollIndicator();
         })
         .catch(error => {
@@ -207,12 +213,6 @@ function initDetailPage() {
             document.getElementById('overview-text').textContent = 'Error loading data.';
         });
 }
-
-function populateDetailPage(animal) {
-    const eco = animal.ecology || {};
-    const phys = animal.physical || {};
-    const repro = animal.reproduction || {};
-    const summary = animal.summary || '';
     
     // === TITLE SECTION ===
     document.getElementById('animal-name').textContent = animal.name;
@@ -529,71 +529,43 @@ function generateConservationText(animal) {
     return parts.join(' ') || 'Conservation information is not available for this species.';
 }
 // ============================================
-// 3D Model Functions (Sketchfab API)
+// 3D Model Configuration
 // ============================================
+let SKETCHFAB_MODELS = {};
 
-// Sketchfab API Configuration
-const SKETCHFAB_API_URL = 'https://api.sketchfab.com/v3/search';
-const SKETCHFAB_API_KEY = ''; // Get free API key from https://sketchfab.com/developers
+// Load model links from JSON file
+async function loadModelLinks() {
+    try {
+        const response = await fetch('data/model_links.json?t=' + Date.now());
+        if (response.ok) {
+            SKETCHFAB_MODELS = await response.json();
+            console.log(`✅ Loaded ${Object.keys(SKETCHFAB_MODELS).length} 3D model links`);
+        } else {
+            console.warn('⚠️ Could not load model_links.json - using empty model list');
+        }
+    } catch (error) {
+        console.error('❌ Error loading model links:', error);
+    }
+}
 
-// Search for 3D model on Sketchfab
-async function search3DModel(animalName) {
-    if (!SKETCHFAB_API_KEY) {
-        console.log('⚠️ No Sketchfab API key - skipping 3D model');
-        return null;
+// Find matching 3D model for animal
+function findMatchingModel(animalName) {
+    const nameLower = animalName.toLowerCase();
+    
+    // Direct match
+    if (SKETCHFAB_MODELS[nameLower]) {
+        return SKETCHFAB_MODELS[nameLower];
     }
     
-    try {
-        // Search for animal model
-        const query = `${animalName} animal 3d model`;
-        const response = await fetch(
-            `${SKETCHFAB_API_URL}?q=${encodeURIComponent(query)}&downloadable=true&type=models&limit=1`,
-            {
-                headers: {
-                    'Authorization': `Token ${SKETCHFAB_API_KEY}`
-                }
-            }
-        );
-        
-        if (response.ok) {
-            const data = await response.json();
-            if (data.results && data.results.length > 0) {
-                const model = data.results[0];
-                return {
-                    uid: model.uid,
-                    name: model.name,
-                    url: `https://sketchfab.com/models/${model.uid}`,
-                    gltfUrl: model.glb_url || model.gltf_url,
-                    thumbnail: model.thumbnails?.images?.[1]?.url
-                };
-            }
-        }
-        
-        return null;
-    } catch (error) {
-        console.error('❌ Error searching 3D model:', error);
-        return null;
-    }
-}
-
-// Alternative: Pre-defined 3D model mappings (fallback if API fails)
-const PREDEFINED_3D_MODELS = {
-    'tiger': 'https://sketchfab.com/models/abc123/download',
-    'elephant': 'https://sketchfab.com/models/def456/download',
-    'wolf': 'https://sketchfab.com/models/ghi789/download',
-    // Add more as you find good models
-};
-
-function getPredefinedModel(animalName) {
-    const nameLower = animalName.toLowerCase();
-    for (const [key, url] of Object.entries(PREDEFINED_3D_MODELS)) {
-        if (nameLower.includes(key)) {
-            return { gltfUrl: url, name: animalName };
+    // Partial match
+    for (const [key, url] of Object.entries(SKETCHFAB_MODELS)) {
+        if (nameLower.includes(key) || key.includes(nameLower)) {
+            return url;
         }
     }
+    
     return null;
 }
-
 // Setup 3D model viewer
 async function setup3DModel(animal) {
     const modelViewer = document.getElementById('animal-3d-model');
