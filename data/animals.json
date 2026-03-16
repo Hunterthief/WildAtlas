@@ -36,8 +36,7 @@
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
       "distinctive_features": [
         "Stripe",
-        "Spot",
-        "Mane"
+        "Spot"
       ],
       "population_trend": null
     },
@@ -46,16 +45,16 @@
       "average_litter_size": "3",
       "name_of_young": "cub"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:23.089621",
     "additional_info": {
       "lifestyle": "Solitary",
       "color": "BlackWhiteOrange",
       "skin_type": "Fur"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:32:49.633324"
   },
   {
     "id": "Q7372",
@@ -87,7 +86,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "forest, rainforest, tropical, lake",
+      "habitat": "forest, savanna, rainforest",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
@@ -104,11 +103,12 @@
       "average_litter_size": "2",
       "name_of_young": "calf"
     },
+    "additional_info": {},
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T15:20:25.517104"
+    "last_updated": "2026-03-16T15:32:52.764704"
   },
   {
     "id": "Q213537",
@@ -140,7 +140,7 @@
     },
     "ecology": {
       "diet": "Insectivore",
-      "habitat": "forest, tropical, jungle, lake",
+      "habitat": "coastal, forest, desert, savanna",
       "locations": "North America, Eurasia, Europe, Asia, Russia",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -157,11 +157,12 @@
       "average_litter_size": "1",
       "name_of_young": "pup"
     },
+    "additional_info": {},
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T15:20:28.069676"
+    "last_updated": "2026-03-16T15:32:55.438821"
   },
   {
     "id": "Q25319",
@@ -210,16 +211,16 @@
       "average_litter_size": "4",
       "name_of_young": "chick"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:29.526634",
     "additional_info": {
       "prey": "Fish, birds, and small mammals",
       "color": "BrownYellowWhite",
       "number_of_species": "1"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:32:57.393789"
   },
   {
     "id": "Q43306",
@@ -268,11 +269,6 @@
       "average_litter_size": null,
       "name_of_young": "Chick"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:31.065706",
     "additional_info": {
       "prey": "Fish, Krill, Squid",
       "lifestyle": "Diurnal",
@@ -281,7 +277,12 @@
       "estimated_population": "200,000 breeding pairs",
       "number_of_species": "1",
       "age_of_sexual_maturity": "3 - 8 years"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:32:59.040068"
   },
   {
     "id": "Q47164",
@@ -332,11 +333,6 @@
       "average_litter_size": "300",
       "name_of_young": "Pup"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:32.983232",
     "additional_info": {
       "prey": "Seals, Sea Lions, Dolphins",
       "lifestyle": "Diurnal",
@@ -345,7 +341,12 @@
       "estimated_population": "Unknown",
       "number_of_species": "1",
       "age_of_sexual_maturity": "17 years"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:33:01.000383"
   },
   {
     "id": "Q39709",
@@ -377,7 +378,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ocean, Atlantic, lake, coastal",
+      "habitat": "coastal, sea, river, Atlantic",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -394,11 +395,12 @@
       "average_litter_size": null,
       "name_of_young": "fry"
     },
+    "additional_info": {},
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T15:20:35.125631"
+    "last_updated": "2026-03-16T15:33:04.017990"
   },
   {
     "id": "Q7785",
@@ -430,7 +432,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "ocean, tropical, coral reef, coastal",
+      "habitat": "coastal, sea, tropical, temperate",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -447,11 +449,12 @@
       "average_litter_size": "85–200",
       "name_of_young": "hatchling"
     },
+    "additional_info": {},
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T15:20:37.143184"
+    "last_updated": "2026-03-16T15:33:06.794286"
   },
   {
     "id": "Q189609",
@@ -500,11 +503,6 @@
       "average_litter_size": "7–43",
       "name_of_young": "Hatchlings"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:38.660908",
     "additional_info": {
       "prey": "Lizards, birds, other snakes",
       "lifestyle": "Diurnal",
@@ -512,7 +510,12 @@
       "skin_type": "Scales",
       "estimated_population": "Unknown",
       "number_of_species": "20"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:33:08.641903"
   },
   {
     "id": "Q270238",
@@ -544,7 +547,7 @@
     },
     "ecology": {
       "diet": "Omnivore",
-      "habitat": "tropical, coastal, lake, swamp",
+      "habitat": "coastal, sea, river, tropical",
       "locations": "Asia, China, Indonesia, Japan, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -559,11 +562,12 @@
       "average_litter_size": "3",
       "name_of_young": "young"
     },
+    "additional_info": {},
     "sources": [
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T15:20:40.733273"
+    "last_updated": "2026-03-16T15:33:11.486702"
   },
   {
     "id": "Q165980",
@@ -612,18 +616,18 @@
       "average_litter_size": "300–500",
       "name_of_young": "Larvae/Caterpillar"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:42.832469",
     "additional_info": {
       "lifestyle": "Diurnal",
       "color": "BlackWhiteOrange",
       "skin_type": "Scales",
       "number_of_species": "3",
       "age_of_sexual_maturity": "4-5 days after emerging from pupa"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:33:13.339327"
   },
   {
     "id": "Q7316",
@@ -674,16 +678,16 @@
       "average_litter_size": "200",
       "name_of_young": "larva"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:44.792901",
     "additional_info": {
       "color": "BrownYellowBlack",
       "skin_type": "Hair",
       "number_of_species": "8"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:33:15.287464"
   },
   {
     "id": "Q35625",
@@ -732,11 +736,6 @@
       "average_litter_size": "3",
       "name_of_young": "Cub"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:46.633233",
     "additional_info": {
       "prey": "Gazelle, Wildebeest, Hare",
       "lifestyle": "Diurnal",
@@ -746,7 +745,12 @@
       "number_of_species": "5",
       "age_of_sexual_maturity": "20 - 24 months",
       "age_of_weaning": "3 months"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:33:16.714239"
   },
   {
     "id": "Q14373",
@@ -795,11 +799,6 @@
       "average_litter_size": "1",
       "name_of_young": "Calf"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:47.985992",
     "additional_info": {
       "prey": "Leaves, Fruits, Seeds",
       "lifestyle": "Diurnal",
@@ -809,7 +808,12 @@
       "number_of_species": "9",
       "age_of_sexual_maturity": "3.5 - 4.5 years",
       "age_of_weaning": "13 months"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:33:18.235867"
   },
   {
     "id": "Q33602",
@@ -858,11 +862,6 @@
       "average_litter_size": "2",
       "name_of_young": "Cub"
     },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:20:49.692269",
     "additional_info": {
       "prey": "Seal, Walrus, Seabirds",
       "lifestyle": "Diurnal",
@@ -872,6 +871,11 @@
       "number_of_species": "1",
       "age_of_sexual_maturity": "3 - 5 years",
       "age_of_weaning": "2 - 3 years"
-    }
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T15:33:19.964404"
   }
 ]
