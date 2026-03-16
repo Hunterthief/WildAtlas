@@ -136,21 +136,13 @@ def save_animal_file(data, name, qid):
 # ============================================================================
 
 def build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci_name):
-    """
-    Simply map Ninja API data directly to our format.
-    No extraction, no complex logic.
-    """
-    
-    # Get Ninja API data
     chars = ninja_data.get("characteristics", {}) if ninja_data else {}
     taxonomy = ninja_data.get("taxonomy", {}) if ninja_data else {}
     locations = ninja_data.get("locations", []) if ninja_data else []
     
-    # Determine animal type from taxonomy
     animal_type = "default"
     if taxonomy:
         family = taxonomy.get("family", "").lower()
-        order = taxonomy.get("order", "").lower()
         if "felidae" in family:
             animal_type = "feline"
         elif "canidae" in family:
@@ -160,7 +152,6 @@ def build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci
     
     young_name = chars.get("name_of_young") or get_young_name(animal_type)
     
-    # Build data structure - DIRECT MAPPING
     data = {
         "id": qid,
         "name": name,
@@ -170,8 +161,6 @@ def build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci
         "summary": wiki_data.get("summary", "") if wiki_data else "",
         "image": wiki_data.get("image", "") if wiki_data else "",
         "wikipedia_url": wiki_data.get("url", "") if wiki_data else "",
-        
-        # Classification from iNaturalist or Ninja
         "classification": {
             "kingdom": inat_classification.get("kingdom") if inat_classification else taxonomy.get("kingdom", ""),
             "phylum": inat_classification.get("phylum") if inat_classification else taxonomy.get("phylum", ""),
@@ -181,40 +170,31 @@ def build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci
             "genus": inat_classification.get("genus") if inat_classification else taxonomy.get("genus", ""),
             "species": inat_classification.get("species") if inat_classification else taxonomy.get("scientific_name", sci_name)
         },
-        
         "animal_type": animal_type,
         "young_name": young_name,
         "group_name": get_group_name(animal_type),
-        
-        # Physical - DIRECT from Ninja API
         "physical": {
             "weight": chars.get("weight", ""),
-            "length": "",  # Ninja doesn't provide
+            "length": "",
             "height": chars.get("height", ""),
             "top_speed": chars.get("top_speed", ""),
             "lifespan": chars.get("lifespan", "")
         },
-        
-        # Ecology - DIRECT from Ninja API
         "ecology": {
             "diet": chars.get("diet", ""),
             "habitat": chars.get("habitat", ""),
             "locations": ", ".join(locations) if locations else "",
             "group_behavior": chars.get("group_behavior", ""),
-            "conservation_status": "",  # Ninja doesn't provide
+            "conservation_status": "",
             "biggest_threat": chars.get("biggest_threat", ""),
             "distinctive_features": [chars.get("most_distinctive_feature")] if chars.get("most_distinctive_feature") else [],
             "population_trend": ""
         },
-        
-        # Reproduction - DIRECT from Ninja API
         "reproduction": {
             "gestation_period": chars.get("gestation_period", ""),
             "average_litter_size": chars.get("average_litter_size", ""),
             "name_of_young": young_name
         },
-        
-        # Additional Info - DIRECT from Ninja API (ALL FIELDS)
         "additional_info": {
             "lifestyle": chars.get("lifestyle", ""),
             "color": chars.get("color", ""),
@@ -228,16 +208,12 @@ def build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci
             "age_of_weaning": chars.get("age_of_weaning", ""),
             "most_distinctive_feature": chars.get("most_distinctive_feature", "")
         },
-        
         "sources": ["API Ninjas"] if ninja_data else [],
         "last_updated": datetime.now().isoformat()
     }
     
-    # Add Wikipedia source
     if wiki_data and wiki_data.get("summary"):
         data["sources"].append("Wikipedia")
-    
-    # Add iNaturalist source
     if inat_classification:
         data["sources"].append("iNaturalist")
     
@@ -263,11 +239,10 @@ def generate(animals, force=False):
             data = cached
             print(" 📦 Using cached data")
         else:
-            # 1. Fetch from Ninja API
             print(" 🥷 Fetching from Ninja API...")
             ninja_data = fetch_animal_data(name, ninja_api_key)
             
-            if not ninja_
+            if not ninja_data:
                 print(f" ⚠ No data from Ninja API for {name}")
                 ninja_data = {
                     "name": name,
@@ -279,15 +254,12 @@ def generate(animals, force=False):
                 chars = ninja_data.get("characteristics", {})
                 print(f"   📊 Got {len(chars)} fields from Ninja API")
 
-            # 2. Fetch from Wikipedia (summary/image only)
             print(" 📖 Fetching from Wikipedia...")
             wiki_data = fetch_wikipedia_summary(name)
             
-            # 3. Fetch from iNaturalist (classification only)
             print(" 🔬 Fetching from iNaturalist...")
             inat_classification = fetch_inaturalist(sci)
             
-            # 4. Build data (DIRECT MAPPING)
             data = build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci)
             save_animal_file(data, name, qid)
 
@@ -295,7 +267,6 @@ def generate(animals, force=False):
         print(f" ✅ {name} complete!")
         time.sleep(1)
 
-    # Save combined file
     with open(DATA_DIR / "animals.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
