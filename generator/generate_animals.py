@@ -62,20 +62,12 @@ def fetch_wikipedia_summary(name):
     return {"summary": "", "description": "", "image": "", "url": ""}
 
 def fetch_wikipedia_full(name):
-    """Fetch full Wikipedia article and clean it properly"""
     try:
         r = session.get(f"{WIKI_MOBILE}{name.replace(' ', '_')}", headers=headers, timeout=15)
         if r.status_code == 200:
-            text = r.text
-            # Remove all HTML tags
-            text = re.sub(r'<[^>]+>', ' ', text)
-            # Remove JavaScript, templates, and wiki markup
-            text = re.sub(r'\{\{[^}]+\}\}', ' ', text)  # Templates
-            text = re.sub(r'\[\[[^]]+\]\]', lambda m: m.group(0).split('|')[-1].rstrip(']]'), text)  # Links
-            text = re.sub(r'\[\d+\]', '', text)  # Citations
-            text = re.sub(r'==[^=]+==', '', text)  # Section markers
-            text = re.sub(r'\s+', ' ', text)
-            text = text.strip()
+            text = re.sub(r'<[^>]+>', ' ', r.text)
+            text = re.sub(r'\s+', ' ', text).strip()
+            text = re.sub(r'\[\d+\]', '', text)
             return text
     except Exception as e:
         print(f" ⚠ Wikipedia full error: {e}")
@@ -104,50 +96,66 @@ def clean_wikipedia_text(text):
     text = re.sub(r'&[^;]+;', ' ', text)
     
     # Remove special wiki markup
-    text = re.sub(r"'''", '', text)
-    text = re.sub(r"''", '', text)
-    text = re.sub(r'\|', ' ', text)
+    text = text.replace("'''", '')
+    text = text.replace("''", '')
+    text = text.replace('|', ' ')
     
-    # Remove common garbage patterns
-    garbage_patterns = [
-        r'Jump to content', r'Jump to navigation', r'Jump to search',
-        r'From Wikipedia', r'free encyclopedia',
-        r'Wikidata', r'Featured article',
-        r'Use dmy dates', r'Use British English',
-        r'Short description', r'pp-semi', r'pp-move',
-        r'Speciesbox', r'fossil range', r'IUCN', r'CITES',
-        r'cite book', r'cite journal', r'cite web', r'cite news',
-        r'Reflist', r'References', r'Bibliography',
-        r'External links', r'See also',
-        r'Authority control', r'Portal bar',
-        r'Wikijunior', r'Wikiquote', r'Wikivoyage',
-        r'Category:', r'Cat:', r'Navbox',
-        r'clear', r'thumb', r'alt=', r'px',
-        r'File:', r'Image:', r'Gallery',
-        r'main\|', r'further\|', r'Redirect',
-        r'sfn\|', r'harvnb\|', r'ef name=',
-        r'access-date', r'archive-date', r'archive-url',
-        r'isbn', r'pmid', r'pmc', r'doi',
-        r'volume=', r'issue=', r'pages=', r'year=',
-        r'author=', r'title=', r'publisher=', r'location=',
-        r'url=', r'chapter=', r'edition=',
-        r'lang=', r'trans-', r's2cid=', r'bibcode=',
-        r'hdl=', r'jstor=', r'ssrn=',
-        r'{{', r'}}', r'[[', r']]', r'{{{', r'}}}',
+    # Remove common garbage strings (literal strings, not regex)
+    garbage_strings = [
+        'Jump to content', 'Jump to navigation', 'Jump to search',
+        'From Wikipedia', 'free encyclopedia',
+        'Wikidata', 'Featured article',
+        'Use dmy dates', 'Use British English',
+        'Short description', 'pp-semi', 'pp-move',
+        'Speciesbox', 'fossil range', 'IUCN', 'CITES',
+        'cite book', 'cite journal', 'cite web', 'cite news',
+        'Reflist', 'References', 'Bibliography',
+        'External links', 'See also',
+        'Authority control', 'Portal bar',
+        'Wikijunior', 'Wikiquote', 'Wikivoyage',
+        'Category:', 'Cat:', 'Navbox',
+        'clear', 'thumb', 'alt=', 'px',
+        'File:', 'Image:', 'Gallery',
+        'main|', 'further|', 'Redirect',
+        'sfn|', 'harvnb|', 'ef name=',
+        'access-date', 'archive-date', 'archive-url',
+        'isbn', 'pmid', 'pmc', 'doi',
+        'volume=', 'issue=', 'pages=', 'year=',
+        'author=', 'title=', 'publisher=', 'location=',
+        'url=', 'chapter=', 'edition=',
+        'lang=', 'trans-', 's2cid=', 'bibcode=',
+        'hdl=', 'jstor=', 'ssrn=',
+        '[edit]',
     ]
-    for pattern in garbage_patterns:
-        text = re.sub(pattern, ' ', text, flags=re.I)
     
-    # Remove language names and navigation
-    lang_names = r'Acèh|Адыгабзэ|Afrikaans|Alemannisch|العربية|مصرى|Asturianu|Авар|Azərbaycanca|Беларуская|Български|Brezhoneg|Bosanski|Català|Cebuano|Čeština|Cymraeg|Dansk|Deutsch|Eesti|Ελληνικά|Español|Esperanto|Euskara|فارسی|Suomi|Français|Frysk|Gaeilge|Galego|עברית|हिन्दी|Hrvatski|Magyar|Հայերեն|Bahasa|Íslenska|Italiano|日本語|Jawa|ქართული|Қазақша|한국어|Kurdî|Кыргызча|Latina|Lietuvių|Latviešu|Македонски|മലയാളം|मराठी|Malti|Nederlands|Norsk|Occitan|Polski|Português|Română|Русский|Sicilianu|Scots|Srpski|Svenska|Kiswahili|தமிழ்|తెలుగు|Тоҷикӣ|ไทย|Tagalog|Türkçe|Українська|اردو|Oʻzbekcha|Tiếng|Winaray|中文|Bân-lâm-gú|粵語'
-    text = re.sub(lang_names, ' ', text, flags=re.I)
+    for garbage in garbage_strings:
+        text = text.replace(garbage, ' ')
+    
+    # Remove language names (common ones)
+    lang_strings = [
+        'Acèh', 'Адыгабзэ', 'Afrikaans', 'Alemannisch', 'العربية', 'مصرى',
+        'Asturianu', 'Авар', 'Azərbaycanca', 'Беларуская', 'Български',
+        'Brezhoneg', 'Bosanski', 'Català', 'Cebuano', 'Čeština', 'Cymraeg',
+        'Dansk', 'Deutsch', 'Eesti', 'Ελληνικά', 'Español', 'Esperanto',
+        'Euskara', 'فارسی', 'Suomi', 'Français', 'Frysk', 'Gaeilge', 'Galego',
+        'עברית', 'हिन्दी', 'Hrvatski', 'Magyar', 'Հայերեն', 'Bahasa',
+        'Íslenska', 'Italiano', '日本語', 'Jawa', 'ქართული', 'Қазақша',
+        '한국어', 'Kurdî', 'Кыргызча', 'Latina', 'Lietuvių', 'Latviešu',
+        'Македонски', 'മലയാളം', 'मराठी', 'Malti', 'Nederlands', 'Norsk',
+        'Occitan', 'Polski', 'Português', 'Română', 'Русский', 'Sicilianu',
+        'Scots', 'Srpski', 'Svenska', 'Kiswahili', 'தமிழ்', 'తెలుగు',
+        'Тоҷикӣ', 'ไทย', 'Tagalog', 'Türkçe', 'Українська', 'اردو',
+        'Oʻzbekcha', 'Tiếng', 'Winaray', '中文', 'Bân-lâm-gú', '粵語',
+    ]
+    
+    for lang in lang_strings:
+        text = text.replace(lang, ' ')
     
     # Clean up multiple spaces
     text = re.sub(r'\s+', ' ', text)
     
     # Remove remaining template artifacts
     text = re.sub(r'\([^)]*\{[^}]*\}[^)]*\)', ' ', text)
-    text = re.sub(r'\[edit\]', '', text, flags=re.I)
     
     return text.strip()
 
@@ -243,70 +251,34 @@ def extract_stats_from_sections(sections):
     for section_name, section_text in sections.items():
         all_text += section_text + " "
     
-    # Also check summary
-    all_text += " "
-    
     if not all_text:
         return stats
     
-    # Weight - look for kg/lbs patterns
-    weight_patterns = [
-        r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|tonnes?|t|lbs?|pounds)',
-        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms)\s*(?:weight|weigh)',
-        r'weight\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|lbs|pounds)',
-    ]
-    for pattern in weight_patterns:
-        m = re.search(pattern, all_text, re.I)
-        if m:
-            stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-            break
+    # Weight
+    m = re.search(r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|tonnes?|t|lbs?|pounds)', all_text, re.I)
+    if m:
+        stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
     
     # Length
-    length_patterns = [
-        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:long|length|in length)',
-        r'length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|ft|feet)',
-    ]
-    for pattern in length_patterns:
-        m = re.search(pattern, all_text, re.I)
-        if m:
-            stats["length"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-            break
+    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:long|length|in length)', all_text, re.I)
+    if m:
+        stats["length"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
     
     # Height
     if 'shoulder' in all_text.lower() or 'stands' in all_text.lower():
-        height_patterns = [
-            r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:tall|height|shoulder)',
-            r'stands?\s*(?:about|around|up to)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|ft|feet)',
-        ]
-        for pattern in height_patterns:
-            m = re.search(pattern, all_text, re.I)
-            if m:
-                stats["height"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-                break
+        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:tall|height|shoulder)', all_text, re.I)
+        if m:
+            stats["height"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
     
     # Lifespan
-    lifespan_patterns = [
-        r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)\s*(?:lifespan|life|old|age|in the wild|in captivity)',
-        r'lifespan\s*(?:of|is)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)',
-        r'live\s*(?:for|up to|to)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)',
-    ]
-    for pattern in lifespan_patterns:
-        m = re.search(pattern, all_text, re.I)
-        if m:
-            stats["lifespan"] = f"{m.group(1)} {m.group(2)}"
-            break
+    m = re.search(r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)\s*(?:lifespan|life|old|age|in the wild|in captivity)', all_text, re.I)
+    if m:
+        stats["lifespan"] = f"{m.group(1)} {m.group(2)}"
     
     # Speed
-    speed_patterns = [
-        r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)\s*(?:speed|top speed|maximum|can run|sprint)',
-        r'speed\s*(?:of|up to)?\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)',
-        r'can\s*(?:run|reach|travel|sprint)\s*(?:up to)?\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)',
-    ]
-    for pattern in speed_patterns:
-        m = re.search(pattern, all_text, re.I)
-        if m:
-            stats["top_speed"] = f"{m.group(1)} {m.group(2)}"
-            break
+    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)\s*(?:speed|top speed|maximum|can run|sprint)', all_text, re.I)
+    if m:
+        stats["top_speed"] = f"{m.group(1)} {m.group(2)}"
     
     return stats
 
@@ -331,19 +303,9 @@ def extract_diet_from_sections(sections):
         diet = "Omnivore"
     
     # Prey items
-    prey_patterns = [
-        r'(?:preys? on|feeds? on|hunts?|eats?|diet consists of|primary prey)[:\s]+([^.]{10,150})',
-        r'(?:includes?|such as|mainly|primarily)[:\s]+([^.]{10,100})(?:,|\.|$)',
-        r'(?:deer|wild boar|buffalo|gazelle|antelope|ungulate|sambar|gaur)[^.]{0,80}',
-    ]
-    for pattern in prey_patterns:
-        m = re.search(pattern, all_text, re.I)
-        if m:
-            prey_text = m.group(0).strip()
-            prey_text = re.sub(r'^(?:It |They |The animal |This species )', '', prey_text, flags=re.I)
-            if 10 < len(prey_text) < 150:
-                prey = prey_text[:120]
-                break
+    m = re.search(r'(?:preys? on|feeds? on|hunts?|eats?|diet consists of|primary prey)[:\s]+([^.]{10,150})', all_text, re.I)
+    if m:
+        prey = m.group(1).strip()[:120]
     
     return diet, prey
 
@@ -444,9 +406,9 @@ def extract_additional_info_from_sections(sections):
         info["group"] = m.group(1).capitalize()
     
     # Number of species
-    m = re.search(r'(?:\d+)\s*(?:species|subspecies)\s*(?:of|in|recognized|known)', all_text, re.I)
+    m = re.search(r'(\d+)\s*(?:species|subspecies)\s*(?:of|in|recognized|known)', all_text, re.I)
     if m:
-        info["number_of_species"] = m.group(0).split()[0]
+        info["number_of_species"] = m.group(1)
     
     # Population
     m = re.search(r'(?:population|estimated|total)\s*(?:is|of|size)?\s*(?:about|around|approximately|over|under)?\s*(\d+(?:,\d+)*(?:\s*(?:million|billion|thousand))?)', all_text, re.I)
