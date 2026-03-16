@@ -184,6 +184,7 @@ function setupViewToggle(modelViewer, imageElement, toggleButton, toggleText) {
 }
 
 let allAnimals = [];
+let currentFilter = 'all';
 
 // ============================================
 // Initialize on Page Load
@@ -196,10 +197,99 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (isHomePage) {
         initHomePage();
+        setupTypeTabs();
     } else if (isDetailPage) {
         initDetailPage();
     }
 });
+
+// ============================================
+// Type Tabs System
+// ============================================
+function setupTypeTabs() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all tabs
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            button.classList.add('active');
+            
+            // Get filter type
+            const filterType = button.dataset.type;
+            currentFilter = filterType;
+            
+            // Filter and render animals
+            filterAndRenderAnimals(filterType);
+            
+            // Update search placeholder
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                const typeName = button.querySelector('.tab-label').textContent;
+                searchInput.placeholder = `Search ${typeName.toLowerCase()}...`;
+            }
+        });
+    });
+}
+
+function filterAndRenderAnimals(filterType) {
+    if (filterType === 'all') {
+        renderGrid(allAnimals);
+    } else {
+        const filtered = allAnimals.filter(animal => {
+            const animalType = animal.animal_type?.toLowerCase() || '';
+            const classType = animal.classification?.class?.toLowerCase() || '';
+            
+            // Map filter types to animal classifications
+            const typeMappings = {
+                'mammal': ['mammal', 'mammalia', 'feline', 'canine', 'bear', 'elephant', 'primate', 'whale', 'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat', 'giraffe', 'cheetah'],
+                'bird': ['bird', 'aves', 'raptor', 'owl', 'penguin', 'chicken', 'duck', 'goose', 'swan', 'eagle'],
+                'reptile': ['reptile', 'reptilia', 'snake', 'lizard', 'turtle', 'crocodile'],
+                'fish': ['fish', 'shark', 'ray', 'salmon'],
+                'amphibian': ['amphibian', 'amphibia', 'frog', 'salamander'],
+                'insect': ['insect', 'insecta', 'butterfly', 'bee', 'ant', 'spider', 'crab']
+            };
+            
+            const validTypes = typeMappings[filterType] || [];
+            
+            return validTypes.some(type => 
+                animalType.includes(type) || classType.includes(type)
+            );
+        });
+        
+        renderGrid(filtered);
+    }
+}
+
+function updateTabCounts() {
+    const typeMappings = {
+        'mammal': ['mammal', 'mammalia', 'feline', 'canine', 'bear', 'elephant', 'primate', 'whale', 'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat', 'giraffe', 'cheetah'],
+        'bird': ['bird', 'aves', 'raptor', 'owl', 'penguin', 'chicken', 'duck', 'goose', 'swan', 'eagle'],
+        'reptile': ['reptile', 'reptilia', 'snake', 'lizard', 'turtle', 'crocodile'],
+        'fish': ['fish', 'shark', 'ray', 'salmon'],
+        'amphibian': ['amphibian', 'amphibia', 'frog', 'salamander'],
+        'insect': ['insect', 'insecta', 'butterfly', 'bee', 'ant', 'spider', 'crab']
+    };
+    
+    // Count all
+    document.getElementById('count-all').textContent = allAnimals.length;
+    
+    // Count by type
+    for (const [type, validTypes] of Object.entries(typeMappings)) {
+        const count = allAnimals.filter(animal => {
+            const animalType = animal.animal_type?.toLowerCase() || '';
+            const classType = animal.classification?.class?.toLowerCase() || '';
+            return validTypes.some(t => animalType.includes(t) || classType.includes(t));
+        }).length;
+        
+        const countElement = document.getElementById(`count-${type}`);
+        if (countElement) {
+            countElement.textContent = count;
+        }
+    }
+}
 
 // ============================================
 // Home Page Functions
@@ -212,6 +302,11 @@ function initHomePage() {
         .then(animals => {
             allAnimals = animals;
             console.log(`✅ Loaded ${animals.length} animals`);
+            
+            // Update tab counts
+            updateTabCounts();
+            
+            // Render all animals initially
             renderGrid(animals);
         })
         .catch(error => {
@@ -251,7 +346,7 @@ function renderGrid(animals) {
         grid.innerHTML = `
             <div class="no-results" style="grid-column: 1/-1;">
                 <h2>No animals found</h2>
-                <p>Try searching for something else.</p>
+                <p>Try searching for something else or selecting a different category.</p>
             </div>
         `;
         return;
@@ -266,10 +361,17 @@ function renderGrid(animals) {
         const imageUrl = animal.image ? animal.image.trim() : 'https://via.placeholder.com/330x240?text=No+Image';
         const summary = animal.summary || animal.description || 'No description available.';
         
+        // Get animal type badge
+        const animalType = animal.animal_type || 'Unknown';
+        const typeClass = getAnimalTypeClass(animalType);
+        
         card.innerHTML = `
             <img src="${imageUrl}" alt="${animal.name}" loading="lazy">
             <div class="card-content">
-                <h3>${animal.name}</h3>
+                <div class="card-header">
+                    <h3>${animal.name}</h3>
+                    <span class="type-badge ${typeClass}">${capitalizeFirst(animalType)}</span>
+                </div>
                 <p class="scientific-name">${animal.scientific_name}</p>
                 <p>${truncateText(summary, 100)}</p>
                 ${statusLabel ? `<span class="conservation-badge ${statusClass}">${statusLabel}</span>` : ''}
@@ -284,9 +386,29 @@ function renderGrid(animals) {
     });
 }
 
+function getAnimalTypeClass(animalType) {
+    const typeLower = animalType.toLowerCase();
+    
+    if (['feline', 'canine', 'bear', 'elephant', 'primate', 'whale', 'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat', 'giraffe', 'cheetah', 'mammal'].includes(typeLower)) {
+        return 'type-mammal';
+    } else if (['bird', 'raptor', 'owl', 'penguin', 'chicken', 'duck', 'goose', 'swan', 'eagle'].includes(typeLower)) {
+        return 'type-bird';
+    } else if (['reptile', 'snake', 'lizard', 'turtle', 'crocodile'].includes(typeLower)) {
+        return 'type-reptile';
+    } else if (['fish', 'shark', 'ray', 'salmon'].includes(typeLower)) {
+        return 'type-fish';
+    } else if (['amphibian', 'frog', 'salamander'].includes(typeLower)) {
+        return 'type-amphibian';
+    } else if (['insect', 'butterfly', 'bee', 'ant', 'spider', 'crab'].includes(typeLower)) {
+        return 'type-insect';
+    }
+    
+    return 'type-other';
+}
+
 function filterAnimals(query) {
     if (!query) {
-        renderGrid(allAnimals);
+        filterAndRenderAnimals(currentFilter);
         return;
     }
     
