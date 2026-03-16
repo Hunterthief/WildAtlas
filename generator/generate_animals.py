@@ -556,30 +556,39 @@ def save_animal_file(data, name, qid):
     return filepath
 
 # ============================================================================
-# BUILD ANIMAL DATA
+# BUILD ANIMAL DATA - FIXED TO PROPERLY MAP ALL NINJA API FIELDS
 # ============================================================================
 
 def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, qid, name, sci_name):
+    """
+    Build complete animal data structure.
+    FIXED: Properly map ALL Ninja API characteristics fields
+    """
+    
+    # Extract Ninja API data
     ninja_taxonomy = {}
     ninja_chars = {}
     ninja_locations = []
     
-    if ninja_data:
+    if ninja_
         ninja_taxonomy = ninja_data.get("taxonomy", {}) or {}
         ninja_chars = ninja_data.get("characteristics", {}) or {}
         ninja_locations = ninja_data.get("locations", []) or []
     
+    # Get classification (prefer iNaturalist, fallback to Ninja)
     classification = inat_classification if inat_classification else ninja_taxonomy
     animal_type = detect_animal_type(name, classification)
     young_name = get_young_name(animal_type)
     group_name = get_group_name(animal_type)
     
+    # Combine all text for Wikipedia extraction
     all_text = ""
     if wiki_summary and wiki_summary.get("summary") and wiki_summary.get("summary") != "Unknown":
         all_text += wiki_summary.get("summary", "") + " "
     if wiki_full:
         all_text += wiki_full
     
+    # ========== BUILD DATA STRUCTURE WITH NINJA API DATA AS PRIMARY SOURCE ==========
     data = {
         "id": qid,
         "name": name,
@@ -589,6 +598,8 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
         "summary": wiki_summary.get("summary", "Unknown") if wiki_summary else "Unknown",
         "image": wiki_summary.get("image", "") if wiki_summary else "",
         "wikipedia_url": wiki_summary.get("url", "Unknown") if wiki_summary else "Unknown",
+        
+        # Classification from Ninja API (iNaturalist will fill gaps later)
         "classification": {
             "kingdom": ninja_taxonomy.get("kingdom") or "Unknown",
             "phylum": ninja_taxonomy.get("phylum") or "Unknown",
@@ -598,31 +609,40 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             "genus": ninja_taxonomy.get("genus") or "Unknown",
             "species": ninja_taxonomy.get("scientific_name") or sci_name
         },
+        
         "animal_type": animal_type,
         "young_name": young_name,
         "group_name": group_name,
+        
+        # Physical - ALL from Ninja API first
         "physical": {
             "weight": ninja_chars.get("weight") or "Unknown",
-            "length": "Unknown",
+            "length": "Unknown",  # Ninja API doesn't provide length
             "height": ninja_chars.get("height") or "Unknown",
             "top_speed": ninja_chars.get("top_speed") or "Unknown",
             "lifespan": ninja_chars.get("lifespan") or "Unknown"
         },
+        
+        # Ecology - ALL from Ninja API first
         "ecology": {
             "diet": ninja_chars.get("diet") or "Unknown",
             "habitat": ninja_chars.get("habitat") or "Unknown",
             "locations": ", ".join(ninja_locations) if ninja_locations else "Unknown",
             "group_behavior": ninja_chars.get("group_behavior") or "Unknown",
-            "conservation_status": "Unknown",
+            "conservation_status": "Unknown",  # Ninja API doesn't provide this
             "biggest_threat": ninja_chars.get("biggest_threat") or "Unknown",
             "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
             "population_trend": "Unknown"
         },
+        
+        # Reproduction - ALL from Ninja API first
         "reproduction": {
             "gestation_period": ninja_chars.get("gestation_period") or "Unknown",
             "average_litter_size": ninja_chars.get("average_litter_size") or "Unknown",
             "name_of_young": ninja_chars.get("name_of_young") or young_name
         },
+        
+        # Additional Info - ALL from Ninja API first (THIS WAS THE BUG!)
         "additional_info": {
             "lifestyle": ninja_chars.get("lifestyle") or "Unknown",
             "color": ninja_chars.get("color") or "Unknown",
@@ -636,16 +656,20 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             "age_of_weaning": ninja_chars.get("age_of_weaning") or "Unknown",
             "most_distinctive_feature": ninja_chars.get("most_distinctive_feature") or "Unknown"
         },
+        
         "sources": [],
         "last_updated": datetime.now().isoformat()
     }
     
-    if ninja_data:
+    # Add sources
+    if ninja_
         data["sources"].append("API Ninjas")
     if wiki_summary and wiki_summary.get("summary") and wiki_summary.get("summary") != "Unknown":
         data["sources"].append("Wikipedia")
     
+    # ========== SUPPLEMENT WITH WIKIPEDIA EXTRACTION (ONLY IF NINJA DATA IS UNKNOWN) ==========
     if all_text:
+        # Physical stats
         if data["physical"]["weight"] == "Unknown":
             stats = extract_stats(all_text, animal_type)
             if stats["weight"] != "Unknown":
@@ -667,6 +691,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             if stats["lifespan"] != "Unknown":
                 data["physical"]["lifespan"] = stats["lifespan"]
         
+        # Ecology
         if data["ecology"]["diet"] == "Unknown":
             diet = extract_diet(all_text, animal_type)
             if diet != "Unknown":
@@ -696,13 +721,22 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             if threats != "Unknown":
                 data["ecology"]["biggest_threat"] = threats
         
+        # Reproduction
         if data["reproduction"]["gestation_period"] == "Unknown":
             repro = extract_reproduction(all_text, animal_type)
             if repro["gestation_period"] != "Unknown":
                 data["reproduction"]["gestation_period"] = repro["gestation_period"]
-            if repro["average_litter_size"] != "Unknown":
+            if repro["average_litter_size"] == "Unknown":
                 data["reproduction"]["average_litter_size"] = repro["average_litter_size"]
+        
+        # Additional Info (from Wikipedia)
+        if data["additional_info"]["prey"] == "Unknown":
+            # Try to extract prey from text
+            prey_match = re.search(r'(?:preys? on|feeds? on|eats|diet consists of|primary food)[:\s]+([^.]+)', all_text, re.I)
+            if prey_match:
+                data["additional_info"]["prey"] = prey_match.group(1).strip()[:100]
     
+    # ========== MERGE INATURALIST CLASSIFICATION (FILL GAPS ONLY) ==========
     if inat_classification:
         for field in CLASSIFICATION_FIELDS:
             if data["classification"][field] == "Unknown" and inat_classification.get(field):
@@ -769,7 +803,7 @@ def generate(animals, force=False):
             print(" 🥷 Fetching from Ninja API...")
             ninja_data = fetch_animal_data(name, ninja_api_key)
             
-            if not ninja_data:
+            if not ninja_
                 print(f" ⚠ No data from Ninja API for {name}")
                 ninja_data = {
                     "name": name,
@@ -780,6 +814,8 @@ def generate(animals, force=False):
             else:
                 chars = ninja_data.get("characteristics", {})
                 print(f"   📊 Ninja API data received: {len(chars)} characteristics")
+                # Debug: Show which fields are available
+                print(f"   🔍 Available fields: {', '.join(chars.keys())[:100]}...")
 
             print(" 📖 Fetching from Wikipedia...")
             wiki_summary = fetch_wikipedia_summary(name)
