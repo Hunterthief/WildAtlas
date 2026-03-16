@@ -8,15 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "wikipedia_sections": {
-    "etymology": "Cheetah - with reference errors\",\"CS1: long volume value\",\"CS1 German-language sources (de)\",\"Pages with broken reference names\",\"Webarchive template wayback links\",\"\",\"\",\"\",\"\",\"\",\"\",\" with unknown parameters\",\"Articles to be expanded from February 2026\",\"All articles to be expanded\",\"\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 20–24 taxon IDs\",\" with unknown parameters Articles to be expanded from February 2026 All articles to be expanded Taxonbars with automatically added original combinations Taxonbars with 20–24 taxon IDs Articles containing video clips This page was last edited on 9 March 2026, at 17:33 &#160;(UTC) . Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply.",
-    "description": "",
-    "distribution": "Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-    "habitat": "",
-    "hunting_diet": "",
-    "behavior": "",
-    "reproduction": "",
-    "threats": "",
-    "conservation": ""
+    "etymology": "jubatus Binomial name Acinonyx jubatus ( Schreber , 1775) Subspecies List Southeast African cheetah . 3 This in turn comes from Sanskrit : चित्रय ( Chitra-ya ) meaning 'variegated', 'adorned' or 'painted'. 4 In the past, the cheetah was often called \"hunting leopard\" because they could be tamed and used for coursing . 5 The generic name Acinonyx probably derives from the combination of two Greek words: ἀκίνητος ( akī́nētos ) meaning 'unmoved' or 'motionless', and ὄνυξ ( ónyx ) meaning 'nail' or 'hoof'.",
+    "description": "For other uses, see Cheetah (disambiguation) . The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m (3 ft 7 in and 4 ft 11 in). Adults weigh between 21 and 65 kg (46 and 143 lb). The cheetah was first scientifically described in the late 18th century.",
+    "distribution": "jubatus ) (Schreber, 1775) Asiatic cheetah ( A. venaticus ) ( Griffith , 1821) Northeast African cheetah ( A. soemmeringii ) ( Fitzinger , 1855) Northwest African cheetah ( A. hecki ) ( Hilzheimer de , 1913) Historic and present range of cheetah subspecies Synonyms 2 List Acinonyx venator Brookes , 1828 A. wagneri Hilzheimer, 1913 Cynaelurus guttatus Mivart , 1900 Cynaelurus jubata Mivart, 1900 Cynaelurus lanea Heuglin , 1861 Cynailurus jubatus Wagler , 1830 Cynailurus soemmeringii Fitzinger, 1855 Cynofelis guttata Lesson , 1842 Cynofelis jubata Lesson, 1842 Felis fearonii Smith , 1834 F.",
+    "habitat": "It lives in a variety of habitats such as savannahs in the Serengeti , arid mountain ranges in the Sahara , and hilly desert terrain. In central, northern and western Africa, it inhabits arid mountain ranges and valleys; in the harsh climate of the Sahara, it prefers high mountains, which receive more rainfall than the surrounding desert. The vegetation and water resources in these mountains support antelopes. In Iran, it occurs in hilly terrain of deserts at elevations up to 2,000–3,000 m (6,600–9,800 ft), where annual precipitation is generally below 100 mm (3.9 in); the primary vegetation i",
+    "hunting_diet": "An iconic pursuit predator , it is the fastest land animal , capable of running at 93 to 104 km/h (58 to 65 mph); it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. It feeds on small- to medium-sized prey, mostly weighing under 40 kg (88 lb), and prefers medium-sized ungulates such as impala , springbok and Thomson's gazelles . The cheetah typically stalks and approaches its prey within 30–200 m (98–656 ft) before charging at high speed, striking down the prey with its dewclaw in full pursuit and killing it with a throat bite .",
+    "behavior": "The cheetah lives in three main social groups : females and their cubs, male \"coalitions\", and solitary males. The cheetah is active during the day, with peaks during dawn and dusk. 21 In 2017, the Cat Classification Task Force of the Cat Specialist Group revised felid taxonomy and recognised these four subspecies as valid. 50 The remarkable homogeneity in cheetah genes has been demonstrated by experiments involving the major histocompatibility complex (MHC); unless the MHC genes are highly homogeneous in a population, skin grafts exchanged between a pair of unrelated individuals would be reje",
+    "reproduction": "After a gestation of nearly three months, females give birth to a litter of three or four cubs, who are weaned at around four months and are independent by around 20 months of age. 46 The cheetah was the first felid observed to have unusually low genetic variability among individuals, 47 which has led to poor breeding in captivity, increased spermatozoal defects, high juvenile mortality and increased susceptibility to diseases and infections. 48 49 A prominent instance was the deadly feline coronavirus outbreak in the cheetah breeding facility at Wildlife Safari in Winston, Oregon in 1983 whic",
+    "threats": "The cheetah is threatened by habitat loss , conflict with humans, poaching and high susceptibility to diseases. 25 It is listed as critically endangered on the Red List. The Iranian population appears to have decreased from 60 to 100 individuals in 2007 to 43 in 2016, distributed in three subpopulations over less than 150,000 km 2 (58,000 sq mi) in Iran's central plateau. 8 59 122 In Kruger National Park there are exceptional records of two giraffe calves and two cape buffalo calves hunted by cheetahs.",
+    "conservation": "Cheetah Temporal range: Pleistocene –Present Male cheetah in South Africa Conservation status Vulnerable ( 3.1 ) 1 Appendix I 1 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Mammalia Order: Carnivora Family: Felidae Genus: Acinonyx Species: A. The global cheetah population was estimated at 6,517 individuals in 2021; it is listed as Vulnerable on the Red List . It has been widely depicted in art, literature, advertising, and animation. 51 52 The low genetic diversity is thought to have been created by two population bottlenecks from about 100,000 years and about 12,000 yea"
   },
   "classification": {
     "kingdom": "Animalia",
@@ -42,7 +42,7 @@
     "habitat": "Open grassland",
     "locations": "Africa, Asia, Eurasia",
     "group_behavior": "Solitary/Pairs",
-    "conservation_status": "",
+    "conservation_status": "Critically Endangered",
     "biggest_threat": "Habitat loss",
     "distinctive_features": [
       "Yellowish fur covered in small black spots"
@@ -72,5 +72,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T22:34:24.302011"
+  "last_updated": "2026-03-16T22:56:35.710929"
 }

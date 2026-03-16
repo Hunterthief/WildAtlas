@@ -8,15 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikipedia_sections": {
-    "etymology": "Tiger - \",\"\",\" from May 2024\",\" from May 2024 \\\"] = 1,\\n [\\\"Wikijunior\\\"] = 1,\\n [\\\"Wikiquote-inline\\\"] = 1,\\n [\\\"Wikivoyage inline\\\"] = 1,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-web.eqiad.main-d6795c69-ghts8\",\"timestamp\":\"20260316200626\",\"ttl\":14400,\"transientcontent\":true,\"expiry-source\":\"Module:Portal_bar (setTTL)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Tiger\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Tiger\",\"sameAs\":\"http:\\/\\/www..org\\/entity\\/Q19939\",\"mainEntity\":\"http:\\/\\/www..org\\/entity\\/Q19939\",\"author\":{\"@type\":\"Organization\",\"name\":\"Contributors to Wikimedia projects\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Wikimedia Foundation, Inc.",
-    "description": "",
-    "distribution": "",
-    "habitat": "",
-    "hunting_diet": "",
-    "behavior": "",
-    "reproduction": "",
-    "threats": "",
-    "conservation": ""
+    "etymology": "tigris Binomial name Panthera tigris ( Linnaeus , 1758) 2 Subspecies P. Etymology The Old English tigras derives from Old French tigre , from Latin tigris , which was a borrowing from tigris ( Ancient Greek : τίγρις ). 4 Since ancient times, the word tigris has been suggested to originate from the Armenian or Persian word for 'arrow', which may also be the origin of the name for the river Tigris . 5 6 However, today, the names are thought to be homonyms , and the connection between the tiger and the river is doubted.",
+    "description": "For other uses, see Tiger (disambiguation) and Tigress (disambiguation) . It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. His scientific description was based on descriptions by earlier naturalists such as Conrad Gessner and Ulisse Aldrovandi . 9 10 The validity of several tiger subspecies was questioned in 1999 as most putative subspecies were distinguished on the basis of fur length and colouration, striping patterns and body size of specimens in natural history museum collections that are not necessarily representa",
+    "distribution": "It is traditionally classified into nine recent subspecies , though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands . Throughout the tiger's range, it inhabits mainly forests , from coniferous and temperate broadleaf and mixed forests in the Russian Far East and Northeast China to tropical and subtropical moist broadleaf forests on the Indian subcontinent and Southeast Asia . It lives a mostly solitary life and occupies home ranges , defending these from individuals of the same sex.",
+    "habitat": "57 59 This is supported by a Fourier analysis study showing that the striping patterns line up with their environment. 65 The tiger mainly lives in forest habitats and is highly adaptable. 54 Records in Central Asia indicate that it primarily inhabited Tugay riverine forests and hilly and lowland forests in the Caucasus . 67 On the Indian subcontinent, it inhabits mainly tropical and subtropical moist broadleaf forests , temperate broadleaf and mixed forests , tropical moist evergreen forests , tropical dry forests , alluvial plains and the mangrove forests of the Sundarbans .",
+    "hunting_diet": "The tiger is an apex predator and preys mainly on ungulates , which it takes by ambush. However, a female is more tense when encountering another female at a kill. 95 96 Communication During friendly encounters and bonding, tigers rub against each other's bodies. They produce a deer-like \"pok\" sound for unknown reasons, but most often at kills. 107 108 Siberian tiger baring teeth as a sign of aggression Captive Sumatran tiger roaring Caged tiger growling and snarling Hunting and diet Bengal tiger attacking a sambar deer in Ranthambore Tiger Reserve The tiger is a carnivore and an apex predator",
+    "behavior": "10 In 2017, the Cat Classification Task Force of the Cat Specialist Group revised felid taxonomy in accordance with the 2015 two-subspecies proposal and recognised only P. 16 The Cat Specialist Group states that \"Given the varied interpretations of data, the [subspecific] taxonomy of this species is currently under review by the SSC Cat Specialist Group.\" 17 The following tables are based on the classification of the tiger as of 2005, 9 and also reflect the classification recognised by the Cat Classification Task Force in 2017.",
+    "reproduction": "Females give birth to usually two or three cubs that stay with their mother for about two years. 27 It has a unique mtDNA haplotype due to interbreeding with ancient tiger lineages. 29 30 Malayan tiger formerly P. jacksoni (Luo et al., 2004) 31 The Malayan tiger was proposed as a distinct subspecies on the basis of mtDNA and micro-satellite sequences that differ from the Indochinese tiger. 30 There is no geographical barrier between tiger populations in northern Malaysia and southern Thailand . The liger is the offspring of a female tiger and a male lion and the tigon the offspring of a male t",
+    "threats": "It is listed as Endangered on the Red List of Threatened Species , as its range is thought to have declined by 53% to 68% since the late 1990s. Major threats to tigers are habitat destruction and fragmentation due to deforestation , poaching for fur and the illegal trade of body parts for medicinal purposes. 23 It has been extinct since the 1970s. 12 16 28 It is extinct in the wild as there has not been a confirmed sighting since the 1970s, 1 and survives only in captivity. 15 Indochinese tiger formerly P.",
+    "conservation": "Tiger Temporal range: Early Pleistocene – Present PreꞒ Ꞓ O S D C P T J K Pg N Female Bengal tiger in Kanha Tiger Reserve , India Conservation status Endangered ( 3.1 ) 1 Appendix I 1 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Mammalia Order: Carnivora Family: Felidae Genus: Panthera Species: P. National conservation measures consist of action plans, anti-poaching patrols and schemes for monitoring tiger populations. virgata ( Illiger , 1815) 21 This population occurred from Turkey to around the Caspian Sea ."
   },
   "classification": {
     "kingdom": "Animalia",
@@ -41,9 +41,9 @@
     "diet": "Carnivore",
     "habitat": "Dense tropical forest and mangroves",
     "locations": "Asia",
-    "group_behavior": "",
-    "conservation_status": "",
-    "biggest_threat": "",
+    "group_behavior": "Solitary",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Poaching, Habitat loss",
     "distinctive_features": [],
     "population_trend": ""
   },
@@ -56,19 +56,19 @@
     "lifestyle": "Solitary",
     "color": "BlackWhiteOrange",
     "skin_type": "Fur",
-    "prey": "",
+    "prey": "to tigers are habitat destruction and fragmentation due to deforestation , poaching for fur and the illegal trade of bod",
     "slogan": "The most numerous species of tiger!",
     "group": "",
     "number_of_species": "",
     "estimated_population_size": "",
     "age_of_sexual_maturity": "",
     "age_of_weaning": "",
-    "most_distinctive_feature": ""
+    "most_distinctive_feature": "mtDNA haplotype due to interbreeding with ancient tiger lineages"
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T22:34:21.965122"
+  "last_updated": "2026-03-16T22:56:33.482456"
 }

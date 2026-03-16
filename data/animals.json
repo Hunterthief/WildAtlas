@@ -9,15 +9,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikipedia_sections": {
-      "etymology": "Tiger - \",\"\",\" from May 2024\",\" from May 2024 \\\"] = 1,\\n [\\\"Wikijunior\\\"] = 1,\\n [\\\"Wikiquote-inline\\\"] = 1,\\n [\\\"Wikivoyage inline\\\"] = 1,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-web.eqiad.main-d6795c69-ghts8\",\"timestamp\":\"20260316200626\",\"ttl\":14400,\"transientcontent\":true,\"expiry-source\":\"Module:Portal_bar (setTTL)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Tiger\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Tiger\",\"sameAs\":\"http:\\/\\/www..org\\/entity\\/Q19939\",\"mainEntity\":\"http:\\/\\/www..org\\/entity\\/Q19939\",\"author\":{\"@type\":\"Organization\",\"name\":\"Contributors to Wikimedia projects\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Wikimedia Foundation, Inc.",
-      "description": "",
-      "distribution": "",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "tigris Binomial name Panthera tigris ( Linnaeus , 1758) 2 Subspecies P. Etymology The Old English tigras derives from Old French tigre , from Latin tigris , which was a borrowing from tigris ( Ancient Greek : τίγρις ). 4 Since ancient times, the word tigris has been suggested to originate from the Armenian or Persian word for 'arrow', which may also be the origin of the name for the river Tigris . 5 6 However, today, the names are thought to be homonyms , and the connection between the tiger and the river is doubted.",
+      "description": "For other uses, see Tiger (disambiguation) and Tigress (disambiguation) . It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. His scientific description was based on descriptions by earlier naturalists such as Conrad Gessner and Ulisse Aldrovandi . 9 10 The validity of several tiger subspecies was questioned in 1999 as most putative subspecies were distinguished on the basis of fur length and colouration, striping patterns and body size of specimens in natural history museum collections that are not necessarily representa",
+      "distribution": "It is traditionally classified into nine recent subspecies , though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands . Throughout the tiger's range, it inhabits mainly forests , from coniferous and temperate broadleaf and mixed forests in the Russian Far East and Northeast China to tropical and subtropical moist broadleaf forests on the Indian subcontinent and Southeast Asia . It lives a mostly solitary life and occupies home ranges , defending these from individuals of the same sex.",
+      "habitat": "57 59 This is supported by a Fourier analysis study showing that the striping patterns line up with their environment. 65 The tiger mainly lives in forest habitats and is highly adaptable. 54 Records in Central Asia indicate that it primarily inhabited Tugay riverine forests and hilly and lowland forests in the Caucasus . 67 On the Indian subcontinent, it inhabits mainly tropical and subtropical moist broadleaf forests , temperate broadleaf and mixed forests , tropical moist evergreen forests , tropical dry forests , alluvial plains and the mangrove forests of the Sundarbans .",
+      "hunting_diet": "The tiger is an apex predator and preys mainly on ungulates , which it takes by ambush. However, a female is more tense when encountering another female at a kill. 95 96 Communication During friendly encounters and bonding, tigers rub against each other's bodies. They produce a deer-like \"pok\" sound for unknown reasons, but most often at kills. 107 108 Siberian tiger baring teeth as a sign of aggression Captive Sumatran tiger roaring Caged tiger growling and snarling Hunting and diet Bengal tiger attacking a sambar deer in Ranthambore Tiger Reserve The tiger is a carnivore and an apex predator",
+      "behavior": "10 In 2017, the Cat Classification Task Force of the Cat Specialist Group revised felid taxonomy in accordance with the 2015 two-subspecies proposal and recognised only P. 16 The Cat Specialist Group states that \"Given the varied interpretations of data, the [subspecific] taxonomy of this species is currently under review by the SSC Cat Specialist Group.\" 17 The following tables are based on the classification of the tiger as of 2005, 9 and also reflect the classification recognised by the Cat Classification Task Force in 2017.",
+      "reproduction": "Females give birth to usually two or three cubs that stay with their mother for about two years. 27 It has a unique mtDNA haplotype due to interbreeding with ancient tiger lineages. 29 30 Malayan tiger formerly P. jacksoni (Luo et al., 2004) 31 The Malayan tiger was proposed as a distinct subspecies on the basis of mtDNA and micro-satellite sequences that differ from the Indochinese tiger. 30 There is no geographical barrier between tiger populations in northern Malaysia and southern Thailand . The liger is the offspring of a female tiger and a male lion and the tigon the offspring of a male t",
+      "threats": "It is listed as Endangered on the Red List of Threatened Species , as its range is thought to have declined by 53% to 68% since the late 1990s. Major threats to tigers are habitat destruction and fragmentation due to deforestation , poaching for fur and the illegal trade of body parts for medicinal purposes. 23 It has been extinct since the 1970s. 12 16 28 It is extinct in the wild as there has not been a confirmed sighting since the 1970s, 1 and survives only in captivity. 15 Indochinese tiger formerly P.",
+      "conservation": "Tiger Temporal range: Early Pleistocene – Present PreꞒ Ꞓ O S D C P T J K Pg N Female Bengal tiger in Kanha Tiger Reserve , India Conservation status Endangered ( 3.1 ) 1 Appendix I 1 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Mammalia Order: Carnivora Family: Felidae Genus: Panthera Species: P. National conservation measures consist of action plans, anti-poaching patrols and schemes for monitoring tiger populations. virgata ( Illiger , 1815) 21 This population occurred from Turkey to around the Caspian Sea ."
     },
     "classification": {
       "kingdom": "Animalia",
@@ -42,9 +42,9 @@
       "diet": "Carnivore",
       "habitat": "Dense tropical forest and mangroves",
       "locations": "Asia",
-      "group_behavior": "",
-      "conservation_status": "",
-      "biggest_threat": "",
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Poaching, Habitat loss",
       "distinctive_features": [],
       "population_trend": ""
     },
@@ -57,21 +57,21 @@
       "lifestyle": "Solitary",
       "color": "BlackWhiteOrange",
       "skin_type": "Fur",
-      "prey": "",
+      "prey": "to tigers are habitat destruction and fragmentation due to deforestation , poaching for fur and the illegal trade of bod",
       "slogan": "The most numerous species of tiger!",
       "group": "",
       "number_of_species": "",
       "estimated_population_size": "",
       "age_of_sexual_maturity": "",
       "age_of_weaning": "",
-      "most_distinctive_feature": ""
+      "most_distinctive_feature": "mtDNA haplotype due to interbreeding with ancient tiger lineages"
     },
     "sources": [
       "API Ninjas",
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:21.965122"
+    "last_updated": "2026-03-16T22:56:33.482456"
   },
   {
     "id": "Q35625",
@@ -83,15 +83,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikipedia_sections": {
-      "etymology": "Cheetah - with reference errors\",\"CS1: long volume value\",\"CS1 German-language sources (de)\",\"Pages with broken reference names\",\"Webarchive template wayback links\",\"\",\"\",\"\",\"\",\"\",\"\",\" with unknown parameters\",\"Articles to be expanded from February 2026\",\"All articles to be expanded\",\"\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 20–24 taxon IDs\",\" with unknown parameters Articles to be expanded from February 2026 All articles to be expanded Taxonbars with automatically added original combinations Taxonbars with 20–24 taxon IDs Articles containing video clips This page was last edited on 9 March 2026, at 17:33 &#160;(UTC) . Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply.",
-      "description": "",
-      "distribution": "Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "jubatus Binomial name Acinonyx jubatus ( Schreber , 1775) Subspecies List Southeast African cheetah . 3 This in turn comes from Sanskrit : चित्रय ( Chitra-ya ) meaning 'variegated', 'adorned' or 'painted'. 4 In the past, the cheetah was often called \"hunting leopard\" because they could be tamed and used for coursing . 5 The generic name Acinonyx probably derives from the combination of two Greek words: ἀκίνητος ( akī́nētos ) meaning 'unmoved' or 'motionless', and ὄνυξ ( ónyx ) meaning 'nail' or 'hoof'.",
+      "description": "For other uses, see Cheetah (disambiguation) . The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m (3 ft 7 in and 4 ft 11 in). Adults weigh between 21 and 65 kg (46 and 143 lb). The cheetah was first scientifically described in the late 18th century.",
+      "distribution": "jubatus ) (Schreber, 1775) Asiatic cheetah ( A. venaticus ) ( Griffith , 1821) Northeast African cheetah ( A. soemmeringii ) ( Fitzinger , 1855) Northwest African cheetah ( A. hecki ) ( Hilzheimer de , 1913) Historic and present range of cheetah subspecies Synonyms 2 List Acinonyx venator Brookes , 1828 A. wagneri Hilzheimer, 1913 Cynaelurus guttatus Mivart , 1900 Cynaelurus jubata Mivart, 1900 Cynaelurus lanea Heuglin , 1861 Cynailurus jubatus Wagler , 1830 Cynailurus soemmeringii Fitzinger, 1855 Cynofelis guttata Lesson , 1842 Cynofelis jubata Lesson, 1842 Felis fearonii Smith , 1834 F.",
+      "habitat": "It lives in a variety of habitats such as savannahs in the Serengeti , arid mountain ranges in the Sahara , and hilly desert terrain. In central, northern and western Africa, it inhabits arid mountain ranges and valleys; in the harsh climate of the Sahara, it prefers high mountains, which receive more rainfall than the surrounding desert. The vegetation and water resources in these mountains support antelopes. In Iran, it occurs in hilly terrain of deserts at elevations up to 2,000–3,000 m (6,600–9,800 ft), where annual precipitation is generally below 100 mm (3.9 in); the primary vegetation i",
+      "hunting_diet": "An iconic pursuit predator , it is the fastest land animal , capable of running at 93 to 104 km/h (58 to 65 mph); it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. It feeds on small- to medium-sized prey, mostly weighing under 40 kg (88 lb), and prefers medium-sized ungulates such as impala , springbok and Thomson's gazelles . The cheetah typically stalks and approaches its prey within 30–200 m (98–656 ft) before charging at high speed, striking down the prey with its dewclaw in full pursuit and killing it with a throat bite .",
+      "behavior": "The cheetah lives in three main social groups : females and their cubs, male \"coalitions\", and solitary males. The cheetah is active during the day, with peaks during dawn and dusk. 21 In 2017, the Cat Classification Task Force of the Cat Specialist Group revised felid taxonomy and recognised these four subspecies as valid. 50 The remarkable homogeneity in cheetah genes has been demonstrated by experiments involving the major histocompatibility complex (MHC); unless the MHC genes are highly homogeneous in a population, skin grafts exchanged between a pair of unrelated individuals would be reje",
+      "reproduction": "After a gestation of nearly three months, females give birth to a litter of three or four cubs, who are weaned at around four months and are independent by around 20 months of age. 46 The cheetah was the first felid observed to have unusually low genetic variability among individuals, 47 which has led to poor breeding in captivity, increased spermatozoal defects, high juvenile mortality and increased susceptibility to diseases and infections. 48 49 A prominent instance was the deadly feline coronavirus outbreak in the cheetah breeding facility at Wildlife Safari in Winston, Oregon in 1983 whic",
+      "threats": "The cheetah is threatened by habitat loss , conflict with humans, poaching and high susceptibility to diseases. 25 It is listed as critically endangered on the Red List. The Iranian population appears to have decreased from 60 to 100 individuals in 2007 to 43 in 2016, distributed in three subpopulations over less than 150,000 km 2 (58,000 sq mi) in Iran's central plateau. 8 59 122 In Kruger National Park there are exceptional records of two giraffe calves and two cape buffalo calves hunted by cheetahs.",
+      "conservation": "Cheetah Temporal range: Pleistocene –Present Male cheetah in South Africa Conservation status Vulnerable ( 3.1 ) 1 Appendix I 1 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Mammalia Order: Carnivora Family: Felidae Genus: Acinonyx Species: A. The global cheetah population was estimated at 6,517 individuals in 2021; it is listed as Vulnerable on the Red List . It has been widely depicted in art, literature, advertising, and animation. 51 52 The low genetic diversity is thought to have been created by two population bottlenecks from about 100,000 years and about 12,000 yea"
     },
     "classification": {
       "kingdom": "Animalia",
@@ -117,7 +117,7 @@
       "habitat": "Open grassland",
       "locations": "Africa, Asia, Eurasia",
       "group_behavior": "Solitary/Pairs",
-      "conservation_status": "",
+      "conservation_status": "Critically Endangered",
       "biggest_threat": "Habitat loss",
       "distinctive_features": [
         "Yellowish fur covered in small black spots"
@@ -147,7 +147,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:24.302011"
+    "last_updated": "2026-03-16T22:56:35.710929"
   },
   {
     "id": "Q7372",
@@ -159,15 +159,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
     "wikipedia_sections": {
-      "etymology": "Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy . Privacy policy About Wikipedia Disclaimers Wikipedia Legal &amp; safety s Code of Conduct Developers Statistics Cookie statement Mobile view Search Search African elephant Add topic (RLQ=window.RLQ||[]).push(function(){mw.config.set({\"wgHostname\":\"mw-web.eqiad.main-75fd46bc46-dlm8z\",\"wgBackendResponseTime\":154,\"wgPageParseReport\":{\"limitreport\":{\"cputime\":\"0.838\",\"walltime\":\"1.",
-      "description": "",
-      "distribution": "African elephant - using multiple image with auto scaled images\",\"All with auto scaled images All articles with unsourced statements Articles with unsourced statements from August 2025 Webarchive template wayback links Articles containing video clips This page was last edited on 14 March 2026, at 15:35 &#160;(UTC) . Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "The name refers to the lozenge-shaped enamel of their molar teeth. Etymology [ edit ] The name Loxodonta comes from the Ancient Greek words λοξός ( loxós, \"slanting\", \"crosswise\") and ὀδούς ( odoús , \"tooth\"), referring to the lozenge -shaped enamel of the molar teeth , which differs significantly from the rounded shape of the Asian elephant 's molar enamel. 2 Taxonomy and evolution [ edit ] The first scientific description of the African elephant was written in 1797 by Johann Friedrich Blumenbach , who proposed the scientific name Elephas africanus .",
+      "description": "africana ) and the smaller African forest elephant  cyclotis was proposed by Paul Matschie in 1900, who described three African elephant zoological specimens from Cameroon whose skulls differed in shape from those of elephant skulls collected elsewhere in Africa. 9 10 11 12 13 In 1907, Richard Lydekker proposed six African elephant subspecies based on the different sizes and shapes of their ears.",
+      "distribution": "African elephants Temporal range: Late Miocene – Present , 7–0 Ma PreꞒ Ꞓ O S D C P T J K Pg N African bush elephant bull in Kruger National Park African forest elephant in Nouabalé-Ndoki National Park Scientific classification Kingdom: Animalia Phylum: Chordata Class: Mammalia Order: Proboscidea Family: Elephantidae Tribe: Loxodontini Genus: Loxodonta Anonymous, 1827 1 Type species Elephas africana 1 Blumenbach, 1797 Species and subspecies L. Fossil remains of Loxodonta species have been found in Africa , spanning from the Late Miocene (from around 7–6 million years ago) onwards.",
+      "habitat": "2018, showing hybridization -facilitated introgressive gene flow from forest elephants into Palaeoloxodon . 21 Analysis of Chinese Palaeoloxodon mitogenomes suggests that this forest elephant ancestry was widely shared among Palaeoloxodon species. 31 Distribution and habitat [ edit ] African elephants are distributed in Sub-Saharan Africa , where they inhabit Sahelian scrubland and arid regions, tropical rainforests , mopane and miombo woodlands . The carrying capacity of remaining suitable habitats was estimated at 8,985,000 elephants at most by 1987.",
+      "hunting_diet": "Both are social herbivores with grey skin . They use it for smelling, touching, feeding, drinking, dusting, producing sounds, loading, defending and attacking. 25 Elephants sometimes swim underwater and use their trunks as snorkels . 25 Tusks are primarily used to dig for roots and strip the bark from trees for food, for fighting each other during the mating season, and for defending themselves against predators. The tusks weigh from 23 to 45 kg (51–99 lb) and can be from 1.5 to 2.4 m (5–8 ft) long.",
+      "behavior": "34 When separate family units bond, they form kinship or bond groups. After puberty , male elephants tend to form close alliances with other males. While females are the most active members of African elephant groups, both male and female elephants are capable of distinguishing between hundreds of different low-frequency infrasonic calls to communicate with and identify each other. 38 Bulls were believed to be solitary animals, becoming independent once reaching maturity. 46 Elephants exhibit a wide variety of behaviours, including those associated with grief , learning , mimicry , art , play ",
+      "reproduction": "Elephant mating rituals include the gentle entwining of trunks. Bulls only return to the herd to breed or to socialize; they do not provide parental care to their offspring or raise them, but rather play a fatherly role in general to younger bulls to show dominance. 51 Reproduction [ edit ] Bull elephants in mock aggression Mating ritual African elephants are at their most fertile between the ages of 25 and 45 years. Calves are normally born after a gestation period of 22 months. Males sire few offspring in periods when they are not in musth.",
+      "threats": "Both species are at a pertinent risk of extinction according to the Red List ; as of 2021, the bush elephant is considered endangered while the forest elephant is considered critically endangered . They are threatened by habitat loss and fragmentation, along with poaching for the illegal ivory trade in several range countries. Loxodonta is one of two extant genera in the family Elephantidae . 20 Phylogeny and evolution [ edit ] Relationships of living and extinct elephants based on DNA, after Palkopoulou et al.",
+      "conservation": "68 Conflicts between elephants and a growing human population are a major issue in elephant conservation. 70 Conservation [ edit ] In 1986, the African Elephant Database was initiated with the aim to monitor the status of African elephant populations. \"The ivory trade and elephant conservation\" (PDF) . Bibcode : 2004EnvCo..31..309S . Coming of Age With Elephants . \"Le braconnage et la population d'éléphants au Parc National de Zakouma (Tchad)\" . Bois et Forêts des Tropiques . : 10.19182/bft2010.303.a20454 ."
     },
     "classification": {
       "kingdom": "Animalia",
@@ -189,19 +189,19 @@
       "lifespan": ""
     },
     "ecology": {
-      "diet": "",
-      "habitat": "",
-      "locations": "African elephant - using multiple image with auto scaled images\",\"All with auto scaled images All articles with unsourced statements Articles with unsourced statements from August 2025 Webarchive template wayback links Articles containing video clips This page was last edited on 14 March 2026, at 15:35 &#160;(UTC) . Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-      "group_behavior": "",
-      "conservation_status": "",
-      "biggest_threat": "",
+      "diet": "Carnivore",
+      "habitat": "2018, showing hybridization -facilitated introgressive gene flow from forest elephants into Palaeoloxodon . 21 Analysis of Chinese Palaeoloxodon mitogenomes suggests that this forest elephant ancestry was widely shared among Palaeoloxodon species. 31 Distribution and habitat [ edit ] African elephants are distributed in Sub-Saharan Africa , where they inhabit Sahelian scrubland and arid regions, tropical rainforests , mopane and miombo woodlands . The carrying capacity of remaining suitable habitats was estimated at 8,985,000 elephants at most by 1987.",
+      "locations": "African elephants Temporal range: Late Miocene – Present , 7–0 Ma PreꞒ Ꞓ O S D C P T J K Pg N African bush elephant bull in Kruger National Park African forest elephant in Nouabalé-Ndoki National Park Scientific classification Kingdom: Animalia Phylum: Chordata Class: Mammalia Order: Proboscidea Family: Elephantidae Tribe: Loxodontini Genus: Loxodonta Anonymous, 1827 1 Type species Elephas africana 1 Blumenbach, 1797 Species and subspecies L. Fossil remains of Loxodonta species have been found in Africa , spanning from the Late Miocene (from around 7–6 million years ago) onwards.",
+      "group_behavior": "Solitary",
+      "conservation_status": "Critically Endangered",
+      "biggest_threat": "Poaching, Habitat loss",
       "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "calf"
+      "name_of_young": "er"
     },
     "additional_info": {
       "lifestyle": "",
@@ -221,7 +221,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:26.531469"
+    "last_updated": "2026-03-16T22:56:38.162205"
   },
   {
     "id": "Q213537",
@@ -233,15 +233,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
     "wikipedia_sections": {
-      "etymology": "Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of \\\"] = 1,\\n [\\\"Webarchive\\\"] = 1,\\n [\\\"Wikiquote\\\"] = 1,\\n [\\\"Wikispecies\\\"] = 1,\\n [\\\"Wikt-lang\\\"] = 1,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-web.eqiad.main-8568574b87-hdf8w\",\"timestamp\":\"20260316115400\",\"ttl\":46800,\"transientcontent\":true,\"expiry-source\":\"Module:Citation/CS1 (setTTL)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Wolf\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Wolf\",\"sameAs\":\"http:\\/\\/www..org\\/entity\\/Q18498\",\"mainEntity\":\"http:\\/\\/www..",
-      "description": "Wolf - with reference errors\",\"Pages with incorrect ref formatting\",\"\",\"\",\"\",\"\",\"\",\"Commons category link is on \",\"Webarchive template wayback links\",\"Taxonbars with 30–34 taxon IDs\",\" Commons category link is on Webarchive template wayback links Taxonbars with 30–34 taxon IDs Articles containing video clips This page was last edited on 16 March 2026, at 11:53 &#160;(UTC) .",
-      "distribution": "",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "lupus Binomial name Canis lupus Linnaeus , 1758 3 Subspecies See Subspecies of Canis lupus Global wolf range based on 's 2023 assessment. Etymology : Wolf (name) The English \"wolf\" stems from the Old English wulf , which is itself derived from the Proto-Germanic wulfaz . The Proto-Indo-European root wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic lúkʷos ). 5 6 The name \"grey wolf\" refers to the greyish colour of the species. 7 Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names.",
+      "description": "For other uses, see Grey Wolf (disambiguation) and Wolf (disambiguation) . For the football club, see Wolverhampton Wanderers F.C. The wolf is the largest wild extant member of the family Canidae , and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal , to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may b",
+      "distribution": ": wolves ), also known as the grey wolf or gray wolf , is a canine native to Eurasia and North America . More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo , though grey wolves, as popularly understood, include only naturally occurring wild subspecies. Wolves have a long history of interactions with humans, having been despised and hunted in most pastoral communities because of their attacks on livestock, while conversely being respected in some agrarian and hunter-gatherer societies.",
+      "habitat": "30 Although mating between golden jackals and wolves has never been observed, evidence of jackal-wolf hybridization was discovered through mitochondrial DNA analysis of jackals living in the Caucasus Mountains 30 and in Bulgaria. Wolves live in forests, inland wetlands , shrublands , grasslands (including Arctic tundra ), pastures , deserts, and rocky peaks on mountains. In wolves, the incubation period for rabies is eight to 21 days, and results in the host becoming agitated, deserting its pack, and travelling up to 80 km (50 mi) a day, thus increasing the risk of infecting other wolves.",
+      "hunting_diet": "A carnivore , the wolf is an apex predator that feeds on large wild hooved mammals as well as smaller animals, livestock, carrion , and garbage. This suggests they either often processed carcasses, or that they competed with other carnivores and needed to consume their prey quickly. The frequency and location of tooth fractures in these wolves indicates they were habitual bone crackers like the modern spotted hyena . 40 41 Its molars have a flat chewing surface, but not to the same extent as the coyote, whose diet contains more vegetable matter.",
+      "behavior": "Of all members of the genus Canis , the wolf is most specialized for cooperative game hunting , as demonstrated by its physical adaptations to tackling large prey, its more social nature , and its highly advanced expressive behaviour , including individual or group howling . Wolves are also territorial , and fights over territory are among the principal causes of mortality. Wolf attacks on humans are rare because wolves are relatively few, live away from people, and have developed a fear of humans because of their experiences with hunters, farmers, ranchers, and shepherds.",
+      "reproduction": "It travels in nu families , consisting of a mated pair accompanied by their offspring. Offspring may leave to form their own packs on the onset of sexual maturity and in response to competition for food within the pack. They frequently eat waterfowl and their eggs. In the rare cases where other wolves are adopted, the adoptee is almost invariably an immature animal of one to three years old, and unlikely to compete for breeding rights with the mated pair. This usually occurs between the months of February and May.",
+      "threats": "Compared with modern wolves, some Pleistocene wolves showed an increase in tooth breakage similar to that seen in the extinct dire wolf . 21 An extinct Late Pleistocene wolf may have been the ancestor of the dog, 25 18 with the dog's similarity to the extant wolf being the result of genetic admixture between the two. 18 The dingo, Basenji , Tibetan Mastiff and Chinese indigenous breeds are basal members of the domestic dog clade. 27 The common ancestor of the coyote and the wolf is admixed with a ghost population of an extinct unidentified canid.",
+      "conservation": "Wolf Temporal range: Middle Pleistocene – present (400,000–0 YBP ) Eurasian wolf ( Canis lupus lupus ) at Polar Park in Bardu, Norway Conservation status Least Concern ( 3.1 ) 1 Appendix II 2 a Scientific classification Kingdom: Animalia Phylum: Chordata Class: Mammalia Order: Carnivora Family: Canidae Genus: Canis Species: C. The global wild grey wolf population is estimated to be between 200,000 and 250,000 individuals as of 2026 4 and has been assessed as Least Concern by the International Union for Conservation of Nature ( )."
     },
     "classification": {
       "kingdom": "Animalia",
@@ -263,12 +263,12 @@
       "lifespan": ""
     },
     "ecology": {
-      "diet": "",
-      "habitat": "",
-      "locations": "",
-      "group_behavior": "",
-      "conservation_status": "",
-      "biggest_threat": "",
+      "diet": "Carnivore",
+      "habitat": "30 Although mating between golden jackals and wolves has never been observed, evidence of jackal-wolf hybridization was discovered through mitochondrial DNA analysis of jackals living in the Caucasus Mountains 30 and in Bulgaria. Wolves live in forests, inland wetlands , shrublands , grasslands (including Arctic tundra ), pastures , deserts, and rocky peaks on mountains. In wolves, the incubation period for rabies is eight to 21 days, and results in the host becoming agitated, deserting its pack, and travelling up to 80 km (50 mi) a day, thus increasing the risk of infecting other wolves.",
+      "locations": ": wolves ), also known as the grey wolf or gray wolf , is a canine native to Eurasia and North America . More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo , though grey wolves, as popularly understood, include only naturally occurring wild subspecies. Wolves have a long history of interactions with humans, having been despised and hunted in most pastoral communities because of their attacks on livestock, while conversely being respected in some agrarian and hunter-gatherer societies.",
+      "group_behavior": "Social",
+      "conservation_status": "Least Concern",
+      "biggest_threat": "Human-wildlife conflict",
       "distinctive_features": [],
       "population_trend": ""
     },
@@ -281,7 +281,7 @@
       "lifestyle": "",
       "color": "",
       "skin_type": "",
-      "prey": "",
+      "prey": "large wild hooved mammals as well as smaller animals, livestock, carrion , and garbage",
       "slogan": "",
       "group": "",
       "number_of_species": "",
@@ -295,7 +295,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:29.215364"
+    "last_updated": "2026-03-16T22:56:40.864534"
   },
   {
     "id": "Q25319",
@@ -307,15 +307,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
     "wikipedia_sections": {
-      "etymology": "Bald eagle - \",\" from December 2024\",\"\",\" CS1 Latin-language sources (la) CS1 maint: deprecated archival service Articles containing potentially dated statements from 2007 All articles containing potentially dated statements All articles with failed verification Articles with failed verification from December 2025 Webarchive template wayback links Taxonbars with 35–39 taxon IDs This page was last edited on 26 February 2026, at 22:52 &#160;(UTC) . Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy .",
-      "description": "",
-      "distribution": "Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "leucocephalus Binomial name Haliaeetus leucocephalus ( Linnaeus , 1766 ) Subspecies H. leucocephalus – Southern bald eagle H. Bald eagles are not bald in the literal sense; the name derives from an older meaning of the word, \"white-headed\". Bald in the English name is from an older usage meaning \"having white on the face or head\" rather than \"hairless\", referring to the white head feathers contrasting with the darker body. 4 The genus name is Neo-Latin : Haliaeetus (from the Ancient Greek : ἁλιάετος , romanized : haliaetos , lit.",
+      "description": "For other uses, see Bald Eagle (disambiguation) . A sea eagle , it has two known subspecies and forms a species pair with the white-tailed eagle ( Haliaeetus albicilla ), which occupies the same niche as the bald eagle in the Palearctic . It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting. The bald eagle is an opportunistic feeder that subsists mainly on fish , upon which it swoops down and snatches from the water with its talons. It builds the largest nest of any North American bird and the largest tree nests ever recorded for any animal ",
+      "distribution": "\"American eagle\" redirects here. For other uses, see American Eagle (disambiguation) . Please help improve it by removing low-quality or irrelevant citations or redistributing those citations so there are fewer than four in a row. Its range includes most of Canada and Alaska , all of the contiguous United States , and northern Mexico . The two species fill the same ecological niche in their respective ranges. The pair diverged from other sea eagles at the beginning of the Early Miocene (c. 10 Ma BP ) at the latest, but possibly as early as the Early/Middle Oligocene , 28 Ma BP, if the most anc",
+      "habitat": "Occupying varied habitats from the bayous of Louisiana to the Sonoran Desert and the eastern deciduous forests of Quebec and New England , northern birds are migratory , while southern birds are resident, remaining on their breeding territory all year. 40 The birds primarily gather along the Squamish and Cheakamus Rivers , attracted by the salmon spawning in the area. 41 Similar congregations of wintering bald eagles at open lakes and rivers, wherein fish are readily available for hunting or scavenging, are observed in the Northern United States .",
+      "hunting_diet": "The highly developed talon of the hind toe is used to pierce the vital areas of prey while it is held immobile by the front toes. Selected trees must have good visibility, be over 20 m (66 ft) tall, an open structure, and proximity to prey. If its territory has access to open water, it remains there year-round, but if the body of water freezes during the winter, making it impossible to obtain food, it migrates to the south or to the coast. 57 The bald eagle selects migration routes which take advantage of thermals, updrafts , and food resources.",
+      "behavior": "19 46 Behavior The bald eagle is a powerful flier, and soars on thermal convection currents. It reaches speeds of 56–70 km/h (35–43 mph) when gliding and flapping, and about 48 km/h (30 mph) while carrying fish. 55 Its dive speed is between 120–160 km/h (75–99 mph), though it seldom dives vertically. 56 Regarding their flying abilities, despite being morphologically less well adapted to faster flight than golden eagles (especially during dives), the bald eagle is considered surprisingly maneuverable in flight.",
+      "reproduction": "washingtoniensis – Northern bald eagle Bald eagle range .mw-parser-output .legend{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .legend-color{display:inline-block;min-width:1.25em;height:1.25em;line-height:1.25;margin:1 0;text-align:center;border:1 solid black;background-color:transparent;color:black}.mw-parser-output .legend-text{} Breeding resident Breeding summer visitor Winter visitor On migration only Star: accidental records Synonyms Falco leucocephalus Linnaeus, 1766 Falco pygargus Daudin, 1800 (nec Linnaeus) Falco ossifragus Shaw, 1809 (nec Linnaeus) Haliaeetus le",
+      "threats": "Populations have since recovered, and the species' status was downgraded from \" endangered \" to \" threatened \" in 1995 and removed from the list altogether in 2007. 61 91 Benthic fishes such as catfish are usually consumed after they die and float to the surface, though while temporarily swimming in the open may be more vulnerable to predation than most fish since their eyes focus downwards. 79 Bald eagles also regularly exploit water turbines which produce battered, stunned or dead fish easily consumed.",
+      "conservation": "( January 2026 ) ( Learn how and when to remove this message ) Bald eagle Temporal range: Pleistocene-Recent 0.3–0 Ma 1 PreꞒ Ꞓ O S D C P T J K Pg N Bald eagle preparing to fly at Kachemak Bay in Alaska , United States A recording of a bald eagle at Yellowstone National Park Conservation status Least Concern ( 3.1 ) 2 Appendix II 3 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Aves Order: Accipitriformes Family: Accipitridae Genus: Haliaeetus Species: H. 96 Along some portions of the North Pacific coastline, bald eagles which had historically preyed mainly kelp -dwelling f"
     },
     "classification": {
       "kingdom": "Animalia",
@@ -340,8 +340,8 @@
       "diet": "Carnivore",
       "habitat": "Near forests",
       "locations": "North-America",
-      "group_behavior": "",
-      "conservation_status": "",
+      "group_behavior": "Pairs",
+      "conservation_status": "Endangered",
       "biggest_threat": "Pesticide use",
       "distinctive_features": [
         "The white plumage on the head"
@@ -371,7 +371,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:31.617629"
+    "last_updated": "2026-03-16T22:56:43.443708"
   },
   {
     "id": "Q43306",
@@ -383,15 +383,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
     "wikipedia_sections": {
-      "etymology": "Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of \\\"] = 1,\\n [\\\"Wikispecies\\\"] = 1,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-web.eqiad.main-8568574b87-mtlkt\",\"timestamp\":\"20260316095608\",\"ttl\":54000,\"transientcontent\":true,\"expiry-source\":\"Module:Citation/CS1 (setTTL)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Emperor penguin\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Emperor_penguin\",\"sameAs\":\"http:\\/\\/www..org\\/entity\\/Q161829\",\"mainEntity\":\"http:\\/\\/www..",
-      "description": "Emperor penguin - \",\" from November 2020\",\"\",\"All All articles with unsourced statements Articles with unsourced statements from March 2025 Commons category link is on Taxonbars with 25–29 taxon IDs Articles containing video clips This page was last edited on 9 March 2026, at 02:40 &#160;(UTC) .",
-      "distribution": "",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
+      "description": "For the band, see Emperor Penguin (band) . The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg (49 to 99 lb). Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches. 6 Description Adults with chicks Adult emperor penguins are 110–120 cm (43–47 in) in length, averaging 115 cm (45 in) according to Stonehouse (1975) citation needed . Due to the method of bird measurement that measures length between bill to tail, sometimes body length and standing height ",
+      "distribution": "ridgeni )—has been found from the late Pliocene , about three million years ago, in New Zealand. (2012) measured standing height of 81–94 cm (32–37 in) according to 11 complete skins collected in American Museum of Natural History . 7 The weight ranges from 22.7 to 45.4 kg (50 to 100 lb) and varies by sex, with males weighing more than females. The upper mandible of the 8 cm (3.1 in) long bill is black, and the lower mandible can be pink, orange or lilac. 17 In juveniles, the auricular patches, chin and throat are white, while its bill is black.",
+      "habitat": "Like all species of penguin, the emperor is flightless, with a streamlined body, and wings stiffened and flattened into flippers for a marine habitat . 12 Adaptations to cold The emperor penguin breeds in the coldest environment of any bird species; air temperatures may reach −40 °C (−40 °F), and wind speeds may reach 144 km/h (89 mph). Water temperature is a frigid −1.8 °C (28.8 °F), which is much lower than the emperor penguin's average body temperature of 39 °C (102 °F). 52 In January 2009, a study from the Woods Hole Oceanographic Institution concluded that global climate change could push",
+      "hunting_diet": "Its diet consists primarily of fish , but also includes crustaceans , such as krill , and cephalopods , such as squid . While hunting, the species can remain submerged around 20 minutes, diving to a depth of 535 m (1,755 ft). It has several adaptations to facilitate this, including an unusually structured haemoglobin to allow it to function at low oxygen levels, solid bones to reduce barotrauma , and the ability to reduce its metabolism and shut down non-essential organ functions. 15 The tongue is equipped with rear-facing barbs to prevent prey from escaping when caught.",
+      "behavior": "It almost always breeds on stable pack ice near the coast and up to 18 km (11 mi) offshore. 42 This individual, which is believed to have originated from eastern Antarctica, was encountered by a group of surfers shortly after it arrived in Denmark, and was taken in by conservationists at the Department of Biodiversity, Conservation and Attractions to have its condition evaluated. 44 Colonies are known to fluctuate over time, often breaking into \"suburbs\" which move apart from the parent group, and some have been known to disappear entirely.",
+      "reproduction": "The only penguin species that breeds during the Antarctic winter, emperor penguins trek 50–120 km (31–75 mi) over the ice to breeding colonies which can contain up to several thousand individuals. The female lays a single egg, which is incubated for just over two months by the male while the female returns to the sea to feed; parents subsequently take turns foraging at sea and caring for their chick in the colony. The lifespan of an emperor penguin is typically 20 years in the wild, although observations suggest that some individuals may live as long as 50 years of age.",
+      "threats": "The species has adapted in several ways to counteract heat loss. 32 At temperatures above 20 °C (68 °F), an emperor penguin may become agitated as its body temperature and metabolic rate rise to increase heat loss. 16 Its haemoglobin and myoglobin are able to bind and transport oxygen at low blood concentrations; this allows the bird to function with very low oxygen levels that would otherwise result in loss of consciousness. 3 The Cape Crozier colony on the Ross Sea shrank drastically between the first visits by the Discovery Expedition in 1902–03 45 and the later visits by the Terra Nova Exp",
+      "conservation": "Emperor penguin Adults with a chick on Snow Hill Island , Antarctic Peninsula Conservation status Near Threatened ( 3.1 ) 1 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Aves Order: Sphenisciformes Family: Spheniscidae Genus: Aptenodytes Species: A. 22 Therefore, 80% of the emperor penguin population comprises adults five years and older. 21 Vocalisation Emperor penguins and chick vocalizing in Antarctica As the species has no fixed nesting sites that individuals can use to locate their own partner or chick, emperor penguins must rely on vocal sounds alone for identificat"
     },
     "classification": {
       "kingdom": "Animalia",
@@ -417,7 +417,7 @@
       "habitat": "Compact sea-ice and ocean",
       "locations": "Antarctica, Ocean",
       "group_behavior": "Colony",
-      "conservation_status": "",
+      "conservation_status": "Near Threatened",
       "biggest_threat": "Global warming",
       "distinctive_features": [
         "Bright yellow feathers on neck and ears"
@@ -447,7 +447,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:33.770765"
+    "last_updated": "2026-03-16T22:56:45.984246"
   },
   {
     "id": "Q47164",
@@ -459,15 +459,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
     "wikipedia_sections": {
-      "etymology": "Great white shark - \",\" from December 2025\",\"\",\" with auto scaled images\",\" with unknown parameters\",\"Commons category link from \",\"Good articles\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 25–29 taxon IDs\",\" Cite IUCN without doi CS1 maint: DOI inactive as of September 2025 CS1 maint: article number as page number CS1 maint: deprecated archival service CS1 maint: url-status with auto scaled images with unknown parameters Commons category link from Good articles Taxonbars with automatically added original combinations Taxonbars with 25–29 taxon IDs Articles containing video clips This page was last edited on 16 March 2026, at 20:54 &#160;(UTC) . Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply.",
-      "description": "",
-      "distribution": "",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "carcharias Binomial name Carcharodon carcharias ( Linnaeus , 1758 ) Range based on Huveneers et al. It is closely related to the mako sharks , the porbeagle , and the salmon shark . It is a robustly built species with a grayish upperside and a white underside. Etymology and naming The name 'great white shark' likely comes from the white underside exposed on beached sharks. The most common English names for the species include great white shark, white shark, and Australian variant white pointer. 6 7 These names refer to its white underside, which is noticeable in dead sharks lying upside down.",
+      "description": "For the novel, see White Shark (novel) . The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark . It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. 10 Phylogeny Most phylogenetic analyses based on molecular data or anatomical features place the white shark as the sister clade to the mako shark clade with the Lamna clade as the sister clade to all others in the family.",
+      "distribution": "Great white shark Temporal range: Early Pliocene – Recent 5–0 Ma 1 PreꞒ Ꞓ O S D C P T J K Pg N Pal. Populations are most concentrated at the Pacific and Atlantic sides of North America and in the waters of southern Africa and Oceania . They are a highly migratory species, traveling between the coast and open ocean and even between continents. c 18 A more recent 2024 clock shifted the range between 57.2 and 31.8 mya. d 19 A minority of analyses recovered an alternate placement of the white shark as the sister clade to the rest.",
+      "habitat": "White sharks inhabit tropical and temperate ocean waters around the world and can be found both along the coast and further out to sea. 30 Instead, populations within the major ocean basins show distinct genetic lineages that diverged from each other at least thousands of years ago. 20 The datings by the 2024 study coincide with the penultimate glaciation , which may have restricted cross-oceanic movements through sea level fall. 68 Distribution and habitat Shark being baited in Guadalupe Island Biosphere Reserve , Mexico White sharks range from tropical to temperate and even colder waters aro",
+      "hunting_diet": "The white shark preys on marine mammals such as seals and dolphins , as well as fish, including other sharks, and cephalopods . It is also a prolific scavenger of whale carcasses. Though normally an apex predator , the species is sometimes preyed on by orcas . White sharks are generally solitary, but may gather in aggregations, particularly at feeding sites. They may communicate and establish dominance hierarchies with body language . Juvenile white sharks typically inhabit shallower water and are limited to feeding on smaller prey.",
+      "behavior": "The species is partially warm-blooded , an adaptation that allows it to remain active in colder waters. 77 Behavior and ecology White shark surfacing at Dyer Island White sharks are estimated to swim 2.88–4.86 km/h (1.79–3.02 mph), 83 but can sprint up to 24.12 km/h (14.99 mph). 84 f One individual was recorded cruising at a sustained speed of 4.7 km/h (2.9 mph) while migrating, which is fast for a shark and more similar to fast-swimming tuna . 76 White sharks display various surface behaviors. 88 89 The white shark is generally considered to be a solitary species, though aggregations do occur",
+      "reproduction": "The species reproduces with pups hatching from eggs inside the female before being born live. 64 The lipids and fatty acids provide the shark energy for travel and also power reproduction and growth. 62 63 One study concluded that a white shark liver is more energy-rich than whale blubber . 63 White sharks appear to have strong immune systems and can tolerate high amounts of toxic heavy metals like mercury and arsenic in their blood, more so than other vertebrates. 65 They are also documented to heal relatively quickly from even severe wounds, 66 and the species' genome shows \"positive selecti",
+      "threats": "154 The novel and film helped create the image of the species as a dangerous man-eater. Benchley would later express regret stating \"I cannot rewrite Jaws , nor make an ignoble monster of this magnificent animal.\" 155 Compared to other fish, the white shark was not an important species for fishermen. Their meat was considered tasty but was not considered worth it due to the difficulty of hauling them in. 187 The results of this study are disputed; in 2024 it was noted that catches of white sharks in KZN have declined since 2010, suggesting they have not moved eastward.",
+      "conservation": "Miocene P P Male off Isla Guadalupe , Mexico Conservation status Vulnerable ( 3.1 ) 2 (Global) Critically Endangered ( 3.1 ) 3 4 (Europe and the Mediterranean) Scientific classification Kingdom: Animalia Phylum: Chordata Class: Chondrichthyes Subclass: Elasmobranchii Division: Selachii Order: Lamniformes Family: Lamnidae Genus: Carcharodon Smith , 1838 Species: C. The International Union for Conservation of Nature lists the white shark as a vulnerable species globally and critically endangered regionally in European and Mediterranean waters."
     },
     "classification": {
       "kingdom": "Animalia",
@@ -493,7 +493,7 @@
       "habitat": "Temperate, coastal waters and open ocean",
       "locations": "Ocean",
       "group_behavior": "Solitary",
-      "conservation_status": "",
+      "conservation_status": "Critically Endangered",
       "biggest_threat": "Hunting and habitat degredation",
       "distinctive_features": [],
       "population_trend": ""
@@ -521,7 +521,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:36.305243"
+    "last_updated": "2026-03-16T22:56:48.481002"
   },
   {
     "id": "Q39709",
@@ -533,15 +533,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
     "wikipedia_sections": {
-      "etymology": "Atlantic salmon - using multiple image with auto scaled images\",\" All articles with unsourced statements Articles with unsourced statements from January 2017 Articles with unsourced statements from February 2021 Articles with unsourced statements from March 2013 with auto scaled images Articles with unsourced statements from April 2016 Articles with unsourced statements from July 2019 Articles with specifically marked weasel-worded phrases from October 2019 All articles needing examples Articles needing examples from October 2019 All articles with vague or ambiguous time Vague or ambiguous time from October 2019 Articles with unsourced statements from October 2019 Vague or ambiguous time from February 2011 Articles with unsourced statements from September 2010 Commons category link is on T.",
-      "description": "",
-      "distribution": "Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "salar is iteroparous , which means it can survive spawning and return to sea to repeat the process again in another year with 5–10% returning to the sea to spawn again. The different life stages of the fish are known by several different names in English; alevin , fry , parr and smolt . 4 Nomenclature [ edit ] The Atlantic salmon was given its scientific binomial name by Swedish zoologist and taxonomist Carl Linnaeus in 1758 . The name, Salmo salar , derives from the Latin salmo , meaning salmon , and salar , meaning leaper, according to M.",
+      "description": "For other species, see Landlocked salmon (disambiguation) . This article is about a particular species of fish. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon , growing up to 1 m (3.3 ft) in length. 2 When the mature fish re-enter rivers to spawn, they change in colour and appearance. Some populations of this fish only migrate to large lakes, and are \"landlocked\", spending their entire lives in freshwater. Such individuals can grow to extremely large sizes, although they are rare.",
+      "distribution": "Such populations are found throughout the range of the species. Unlike Pacific species of salmon, S. 3 Although this is now a viable alternative to wild-caught fish, farming methods have attracted criticism from environmentalists. citation needed Distribution and habitat [ edit ] Ocean migration of Atlantic salmon 9 Ocean phase, in Newfoundland At Atlantic Sea-Park , in Norway The natural breeding grounds of Atlantic salmon are rivers in Europe and the northeastern coast of North America. In Europe, Atlantic salmon are still found as far south as Spain, and as far northeast as the Pechora Rive",
+      "habitat": "Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous , hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn. It has thus long been the target of recreational and commercial fishing , and this, as well as habitat destruction , has impacted the population in some areas. An Atlantic salmon netted in 1960 in Scotland, in the estuary of the river Hope, weighed 49.44 kg (109.0 lb), the heaviest recorded in all available literature.",
+      "hunting_diet": "For the food, see Salmon as food . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Atlantic salmon meat is a particularly nutritious food and is considered one of the more refined types of fish meat in many cultures. 23 Ecology [ edit ] Diet [ edit ] Young salmon begin a feeding response within a few days. After the yolk sac is absorbed by the body, they begin to hunt. Plankton such as euphausiids are important food for pre-grilse but amphipods and decapods are also consumed.",
+      "behavior": "With this behavioural change, the fish are now referred to as smolt. When the smolt reach the sea, they follow sea surface currents and feed on plankton or fry from other fish species such as herring. During their time at sea, they can sense the change in the Earth magnetic field through iron in their lateral line. 24 Behaviour [ edit ] Fry and parr have been said by whom? to be territorial, but evidence example needed showing them to guard territories is inconclusive. While they may occasionally when?",
+      "reproduction": "When smoltification is complete, the parr (young fish) now begin to swim with the current instead of against it. Some have been known to eat salmon eggs. 27 The first phase is the alevin stage, when the fish stay in the breeding ground and use the remaining nutrients in their yolk sacs . Once ready, young smolt leave, preferring an ebb tide . Some dolphins have been noticed playing with dead salmon, but it is still un whether they consume them. 23 Very young fertilized salmon eggs. Notice the developing eyes and neural tube .",
+      "threats": "Beaver populations were trapped to near-extinction by 1800, and log drives and -cutting further exacerbated stream erosion and habitat loss. Numerous examples of fully freshwater (i.e., \"landlocked\") populations of the species exist throughout the Northern Hemisphere , 2 including a now extinct population in Lake Ontario , which has been shown in recent studies to have spent its entire life cycle in the watershed of the lake. At one time, the species supported an important commercial fishery, but having become endangered throughout its range globally, wild-caught Atlantic salmon are now virtua",
+      "conservation": "Find sources: \"Atlantic salmon\" – news · newspapers · books · scholar · JSTOR ( October 2023 ) ( Learn how and when to remove this message ) Atlantic salmon Breeding male, caught in Germany Illustration Conservation status Near Threatened ( 3.1 ) 1 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Actinopterygii Order: Salmoniformes Family: Salmonidae Genus: Salmo Species: S. As a result, the species is the subject of conservation efforts in several countries, which appear to have been somewhat successful since the 2000s."
     },
     "classification": {
       "kingdom": "Animalia",
@@ -564,18 +564,92 @@
     },
     "ecology": {
       "diet": "",
-      "habitat": "",
-      "locations": "Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-      "group_behavior": "",
-      "conservation_status": "",
-      "biggest_threat": "",
+      "habitat": "Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous , hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn. It has thus long been the target of recreational and commercial fishing , and this, as well as habitat destruction , has impacted the population in some areas. An Atlantic salmon netted in 1960 in Scotland, in the estuary of the river Hope, weighed 49.44 kg (109.0 lb), the heaviest recorded in all available literature.",
+      "locations": "Such populations are found throughout the range of the species. Unlike Pacific species of salmon, S. 3 Although this is now a viable alternative to wild-caught fish, farming methods have attracted criticism from environmentalists. citation needed Distribution and habitat [ edit ] Ocean migration of Atlantic salmon 9 Ocean phase, in Newfoundland At Atlantic Sea-Park , in Norway The natural breeding grounds of Atlantic salmon are rivers in Europe and the northeastern coast of North America. In Europe, Atlantic salmon are still found as far south as Spain, and as far northeast as the Pechora Rive",
+      "group_behavior": "Pairs",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Habitat loss",
       "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "young"
+      "name_of_young": "salmon"
+    },
+    "additional_info": {
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "the process again in another year with 5–10% returning to the sea to spawn again",
+      "slogan": "",
+      "group": "",
+      "number_of_species": "",
+      "estimated_population_size": "",
+      "age_of_sexual_maturity": "",
+      "age_of_weaning": "",
+      "most_distinctive_feature": ""
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-16T22:56:50.920043"
+  },
+  {
+    "id": "Q7785",
+    "name": "Green Sea Turtle",
+    "scientific_name": "Chelonia mydas",
+    "common_names": [],
+    "description": "Species of large sea reptile",
+    "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
+    "wikipedia_sections": {
+      "etymology": "mydas Binomial name Chelonia mydas ( Linnaeus , 1758 ) Synonyms 4 Species synonymy Testudo mydas Linnaeus, 1758 Testudo macropus Walbaum , 1782 ( nomen illegitimum ) Testudo viridis Schneider , 1783 Testudo japonica Thunberg , 1787 Testudo marina vulgaris Lacépède , 1788 Testudo viridisquamosa Lacépède, 1788 Testudo mydas macropus Suckow , 1798 Chelonia mydas — Brongniart , 1800 Testudo chloronotos Bechstein , 1800 Testudo cepediana Daudin , 1801 Testudo rugosa Daudin, 1801 Chelone mydas — Brongniart, 1805 Chelonia japonica — Schweigger , 1812 Chelonia virgata Schweigger, 1812 Caretta cepedii ",
+      "description": "For the comic book character, see Green Turtle (comics) . For the synonym of the order Testudines, see Turtle . mydas is covered by a large, teardrop-shaped carapace; it has a pair of large, paddle -like flippers . It is usually lightly colored, although in the eastern Pacific populations, parts of the carapace can be almost black. Unlike other members of its family, such as the hawksbill sea turtle , C. The carnivorous Eretmochelys (hawksbill), Caretta (loggerhead) and Lepidochelys (ridley) were assigned to the tribe Carettini .",
+      "distribution": "6 Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans , but it is also found in the Indian Ocean . 7 33 Distribution [ edit ] Green sea turtle nesting populations The range of the green sea turtle extends throughout tropical and subtropical oceans worldwide. Each population is genetically distinct, with its own set of nesting and feeding grounds within the population's known range. 7 One of the genetic differences between the two subpopulations is the type of mitochondrial DNA found in individual's cells.",
+      "habitat": "In addition, real estate development often causes habitat loss by eliminating nesting beaches. Taxonomy [ edit ] The green sea turtle is a member of the tribe Cheloniini . Although the species is most abundant in tropical climates, green sea turtles can also be found in temperate climates , and individuals have been spotted as far north as Canada in the western Atlantic, and the Cimbrian peninsula in the east. Habitat [ edit ] Green sea turtle on Punaluu black sand beach of Big Island, Hawaii. Green sea turtles move across three habitat types, depending on their life stage .",
+      "hunting_diet": "The adults usually inhabit shallow lagoons , feeding mostly on various species of seagrasses . 10 The green sea turtle is the only aquatic turtle species which is herbivorous when fully grown. Like other sea turtles, green sea turtles migrate long distances between feeding grounds and hatching beaches. Many islands worldwide are known as Turtle Island due to green sea turtles nesting on their beaches. 11 It is illegal to collect, harm, or kill them. In addition, many countries have laws and ordinances to protect nesting areas.",
+      "behavior": "59 Only over the last 30 years have extensive studies been performed covering the behaviors of the Galápagos green turtles. Much of the debate that has surrounded them recently is over the binomial classification of the species. 69 Ecology and behavior [ edit ] Swimming, Hawaii As one of the first sea turtle species studied, much of what is known of sea turtle ecology comes from studies of green turtles. mydas changes drastically with each stage of its life history. Mating behaviour is similar to other marine turtles.",
+      "reproduction": "Females crawl out on beaches, dig nests, and lay eggs during the night. Later, hatchlings emerge, and scramble into the water. Those that reach maturity may live to 90 years in the wild. mydas front appendages have only a single claw (as opposed to the hawksbill two), although a second claw is sometimes prominent in young specimens. December is breeding season near the Bolong beach. 48 An annual presence is recorded in the Gulf of Panama, on the Isla Parida island. 10 66 These young turtles are rarely seen as they swim in deep, pelagic waters.",
+      "threats": "mydas was listed as endangered by the and until 2025 and is protected from exploitation in most countries. However, turtles are still in danger due to human activity. 75 Their serrated jaw helps them chew green and red algae (such as filamentous red alga ( Bostrychia ), red moss ( Caloglossa ), freshwater red algae ( Compsopogon ), lobster horns ( Polysiphonia ), sea lettuce ( Ulva lactuca ), green seaweed ( Gayralia ), and crinkle grass ( Rhizoclonium )) and sea grasses. Barnacles attach to the carapace, and leeches to the flippers and skin of the turtles, causing damage to the soft tissues a",
+      "conservation": "Green sea turtles Temporal range: 0.21–0 Ma 1 PreꞒ Ꞓ O S D C P T J K Pg N At Moorea , French Polynesia Conservation status Least Concern ( 3.1 ) 2 Appendix I 3 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Reptilia Order: Testudines Suborder: Cryptodira Family: Cheloniidae Subfamily: Cheloniinae Genus: Chelonia Brongniart , 1800 Species: C. Pollution indirectly harms turtles at both population and individual scales. Many turtles die after being caught in fishing nets. 12 A 1993 study clarified the status of genus Chelonia with respect to the other marine turtles."
+    },
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Testudines",
+      "family": "Cheloniidae",
+      "genus": "Chelonia",
+      "species": "Chelonia mydas"
+    },
+    "animal_type": "default",
+    "young_name": "young",
+    "group_name": "population",
+    "physical": {
+      "weight": "",
+      "length": "",
+      "height": "",
+      "top_speed": "",
+      "lifespan": "90 years"
+    },
+    "ecology": {
+      "diet": "Carnivore",
+      "habitat": "In addition, real estate development often causes habitat loss by eliminating nesting beaches. Taxonomy [ edit ] The green sea turtle is a member of the tribe Cheloniini . Although the species is most abundant in tropical climates, green sea turtles can also be found in temperate climates , and individuals have been spotted as far north as Canada in the western Atlantic, and the Cimbrian peninsula in the east. Habitat [ edit ] Green sea turtle on Punaluu black sand beach of Big Island, Hawaii. Green sea turtles move across three habitat types, depending on their life stage .",
+      "locations": "6 Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans , but it is also found in the Indian Ocean . 7 33 Distribution [ edit ] Green sea turtle nesting populations The range of the green sea turtle extends throughout tropical and subtropical oceans worldwide. Each population is genetically distinct, with its own set of nesting and feeding grounds within the population's known range. 7 One of the genetic differences between the two subpopulations is the type of mitochondrial DNA found in individual's cells.",
+      "group_behavior": "Pairs",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Habitat loss",
+      "distinctive_features": [],
+      "population_trend": ""
+    },
+    "reproduction": {
+      "gestation_period": "",
+      "average_litter_size": "",
+      "name_of_young": "specimens"
     },
     "additional_info": {
       "lifestyle": "",
@@ -595,81 +669,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:38.538196"
-  },
-  {
-    "id": "Q7785",
-    "name": "Green Sea Turtle",
-    "scientific_name": "Chelonia mydas",
-    "common_names": [],
-    "description": "Species of large sea reptile",
-    "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
-    "wikipedia_sections": {
-      "etymology": "&#91; 147 &#93; As of June 2020 &#91;update&#93; , a project called \"The Turtle Cooling Project\" is being undertaken by scientists from the World Wildlife Fund Australia, University of Queensland , Deakin University and the Queensland Government . It is looking at the effect of global warming on northern green turtle breeding, in particular the effect of producing more female turtles owing to the higher temperatures. They are working in the area around Raine Island, Heron Island and Moulter Cay. &#91; 148 &#93; Genetics The genome of Chelonia mydas was sequenced in 2013 to examine the development and evolution of the turtle body plan.",
-      "description": "Green sea turtle - uggestedEditsEnableTopics\":true,\"wgGESuggestedEditsTaskTypes\":{\"taskTypes\":[\"copyedit\",\"link-recommendation\"],\"unavailableTaskTypes\":[]},\"wgGETopicsMatchModeEnabled\":false,\"wgGELevelingUpEnabledFor in deep-dive tank, and released 14 animals. In 2020, they also initiated a study to better understand how micro-plastics are impacting the sea turtles in their care. In 2016, Florida enacted extensive protection measures. Florida statutes (F.A.C. The bill, HCR14, was largely overlooked by the media since at that point it was only a local issue. While conservationists respect the need for turtles in rituals, they wanted a smaller quota.",
-      "distribution": "In the State of Hawaii , specifically on the Island of Hawaiʻi (Hawaii County), state representative Faye Hanohano , a Native Hawaiian rights activist, pressed for a measure to delist C. The most notable is Turtle Islands Wildlife Sanctuary , an UNESCO tentative site which encompasses an entire municipality and one of Southeast Asia's most important green sea turtle nesting sites. &#91; 131 &#93; Other notable sites include the UNESCO tentative site of El Nido-Taytay Management Resource Protected Area and the UNESCO World Heritage Site of Tubbataha Reefs Natural Park. The species is protected under Republic Act 9147 or the Wildlife Resources Conservation and Protection Act, while the sites where they live and nest are protected under the National Integrated Protected Areas System Act.",
-      "habitat": "Protection is also afforded to marine turtle habitat. While the bill was passed in the United States House of Representatives , the United States Senate's Committee on Energy and Environment refused to hear it, which meant that the bill did not go on to be heard by the Senate.",
-      "hunting_diet": "&#91; 130 &#93; Multiple protected areas of the Philippines have significant green sea turtle nesting and feeding sites.",
-      "behavior": "&#91; 38 &#93; On Ascension Island , which contains some of the most important nesting beaches, an active conservation program has been implemented. &#91; 135 &#93; Karumbé has been monitoring foraging and developmental areas of juvenile green turtles in Uruguay since 1999. &#91; 136 &#93; In Mozambique, there are a number of initiatives to protect sea turtles. In the Primeiras e Segundas , WWF Mozambique has established a turtle tagging and protection program. The archipelago is a vital nesting area for green turtles, including Ilha do Fogo where Earth Legacy Foundation &#91; 137 &#93; manage a turtle monitoring programme, and at Celdeira Island, where several nesting females have been tagged.",
-      "reproduction": "Rule 68E-1) restrict the take, possession, disturbance, mutilation, destruction, selling, transference, molestation, and harassment of marine turtles, nests or eggs. &#91; 132 &#93; Ecotourism is one initiative in Sabah , Malaysia . The island of Pulau Selingan is home to a turtle hatchery . When the eggs hatch, tourists assist in the release of the baby turtles into the sea. &#91; 133 &#93; The Hawaiian subpopulation has made a remarkable comeback and is now one focus of ecotourism and has become something of a state mascot . Students of Hawaii Preparatory Academy on the Big Island have tagged thousands of specimens since the early 1990s. &#91; 24 &#93; In the United Kingdom the species is protected by a Biodiversity Action Plan , due to excess harvesting and marine pollution .",
-      "threats": "It rejected a request made by Bali Governor I Made Mangku Pastika in November 2009 to set a quota of 1,000 turtles to be killed in Hindu religious ceremonies. Staff people place some of the eggs laid each night in a hatchery to protect them from predators. Incubation takes around sixty days. However, the population has continued to decline. &#91; 10 &#93; In the Atlantic, conservation initiatives have centered around Caribbean nesting sites. The Tortuguero nesting beaches in Costa Rica have been the subject of egg-collection limits since the 1950s. However, the hatching rate declined in the 1990s, and a further decline in the population was threatened by the deaths of thousands of females as they struggled to climb the small sandy cliffs.",
-      "conservation": "A specific authorization from commission staff is required to conduct scientific, conservation, or educational activities that directly involve marine turtles in or collected from Florida , their nests, hatchlings or parts thereof, regardless of applicant's possession of any federal permit. mydas from protected status so that Native Hawaiians could legally harvest the turtles and possibly their eggs as well. &#91; 129 &#93; Country-specific initiatives At the Osaka Aquarium , profile photo of turtle resting on bottom In addition to management by global entities such as the IUCN and CITES , specific countries around the world have undertaken conservation efforts."
-    },
-    "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Reptilia",
-      "order": "Testudines",
-      "family": "Cheloniidae",
-      "genus": "Chelonia",
-      "species": "Chelonia mydas"
-    },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
-    "physical": {
-      "weight": "",
-      "length": "",
-      "height": "",
-      "top_speed": "",
-      "lifespan": ""
-    },
-    "ecology": {
-      "diet": "Carnivore",
-      "habitat": "Protection is also afforded to marine turtle habitat. While the bill was passed in the United States House of Representatives , the United States Senate's Committee on Energy and Environment refused to hear it, which meant that the bill did not go on to be heard by the Senate.",
-      "locations": "In the State of Hawaii , specifically on the Island of Hawaiʻi (Hawaii County), state representative Faye Hanohano , a Native Hawaiian rights activist, pressed for a measure to delist C. The most notable is Turtle Islands Wildlife Sanctuary , an UNESCO tentative site which encompasses an entire municipality and one of Southeast Asia's most important green sea turtle nesting sites. &#91; 131 &#93; Other notable sites include the UNESCO tentative site of El Nido-Taytay Management Resource Protected Area and the UNESCO World Heritage Site of Tubbataha Reefs Natural Park. The species is protected under Republic Act 9147 or the Wildlife Resources Conservation and Protection Act, while the sites where they live and nest are protected under the National Integrated Protected Areas System Act.",
-      "group_behavior": "",
-      "conservation_status": "",
-      "biggest_threat": "",
-      "distinctive_features": [],
-      "population_trend": ""
-    },
-    "reproduction": {
-      "gestation_period": "",
-      "average_litter_size": "",
-      "name_of_young": "young"
-    },
-    "additional_info": {
-      "lifestyle": "",
-      "color": "",
-      "skin_type": "",
-      "prey": "",
-      "slogan": "",
-      "group": "",
-      "number_of_species": "",
-      "estimated_population_size": "",
-      "age_of_sexual_maturity": "",
-      "age_of_weaning": "",
-      "most_distinctive_feature": "Turtle Islands Wildlife Sanctuary , an UNESCO tentative site which encompasses an entire municipalit"
-    },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia",
-      "iNaturalist"
-    ],
-    "last_updated": "2026-03-16T22:34:40.814008"
+    "last_updated": "2026-03-16T22:56:53.378860"
   },
   {
     "id": "Q189609",
@@ -681,15 +681,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
     "wikipedia_sections": {
-      "etymology": "King cobra - \",\" from August 2021\",\"\",\"Taxonbars with multiple manual items\",\"IUCN Red List vulnerable species\",\"Fauna listed on CITES Appendix II\",\"Apex predators\",\"Elapidae\",\"Reptiles of Borneo\",\"National symbols of India\",\"Reptiles described in 1836\",\"Reptiles of Bangladesh\",\"Reptiles of Bhutan\",\"Reptiles of Brunei\",\"Reptiles of Cambodia\",\"Reptiles of Hong Kong\",\"Snakes of India\",\"Reptiles of Laos\",\"Reptiles of Nepal\",\"Reptiles of the Philippines\",\"Snakes of China\",\"Snakes of Indonesia\",\"Snakes of Malaysia\",\"Snakes of Myanmar\",\"Snakes of Singapore\",\"Snakes of Thailand\",\"Snakes of Vietnam\",\"Taxa named by Theodore Edward Cantor\"],\"wgPageViewLanguage\":\"en\",\"wgPageContentLanguage\":\"en\",\"wgPageContentModel\":\"wikitext\",\"wgRelevantPageName\":\"King_cobra\",\"wgRelevantArticleId\":168503,\"wgTemp fro.",
-      "description": "",
-      "distribution": "Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "Under the genus Ophiophagus , it is not phylogenetically a true cobra despite its common name and some resemblance. Etymology The king cobra is also referred to by the common name \" hamadryad \", especially in older literature. Hamadryas hannah was the scientific name used by Danish naturalist Theodore Edward Cantor in 1836 who described four king cobra specimens , three captured in the Sundarbans and one in the vicinity of Kolkata . 4 The origin of the species name hannah was not specified during description and has long been uncertain, but may potentially refer to Hannah Sarah Wallich, the el",
+      "description": "For other uses, see King Cobra (disambiguation) . With an average length of 3.18 to 4 m (10.4 to 13.1 ft) and a record length of 5.85 m (19.2 ft), 2 it is the world's longest venomous snake and among the heaviest. Individuals have diversified colouration across its habitats , from black with white strips to unbroken brownish grey, although after taxonomic re-evaluation, it is no longer the sole member of its genus but is now a species complex; these differences in pattern and other aspects may cause the genus to be split into at least four species, spread across its large geographic range .",
+      "distribution": "Not to be confused with Indian cobra . Spanning from the Indian subcontinent through Southeastern Asia to Southern China , the king cobra is widely distributed albeit not commonly seen. Capable of striking at a considerable range and height with an immense venom yield, envenomation from this species may induce rapid onset of neurotoxic and cytotoxic symptoms, requiring prompt antivenom administration. Despite the fearsome reputation, aggression toward humans usually only arises from an individual inadvertently exposing itself or being cornered; encounters happen through chance, including negat",
+      "habitat": "These populations have sometimes been thought to be the result of introduction by snake charmers or transport along rivers, but are now more likely considered natural populations. 66 67 Relationship with humans Conservation In Southeast Asia, the king cobra is threatened foremost by habitat destruction owing to deforestation and expansion of agricultural land. Tropical Conservation Science . \"The Hamadryad or King Cobra Naja hannah (Cantor)\" . The Journal of the Bombay Natural History Society . ^ Bhaisare, D.; Ramanuj, V.; Shankar, P.",
+      "hunting_diet": "It chiefly hunts other snakes , including those of its own kind , although other lizards and rodents are occasional prey items. 2 Following envenomation , it swallows its prey whole. It is considered diurnal because it hunts during the day, but has also been seen at night, albeit rarely. 2 Diet Preying on a smaller snake The king cobra is an apex predator and dominant over all other snakes except large pythons . 33 It also hunts Malabar pit viper and hump-nosed pit viper by following their odour trails.",
+      "behavior": "5 Behaviour and ecology Like other snakes, a king cobra receives chemical information via its forked tongue , which picks up scent particles and transfers them to a sensory receptor ( Jacobson's organ ) located in the roof of its mouth. They may be brightly marked, but these colours often fade as they mature. They are alert and nervous, being highly aggressive if disturbed. 22 The average lifespan of a wild king cobra is about 20 years. How Snakes Work: Structure, Function and Behavior of the World's Snakes .",
+      "reproduction": "This is the only ophidian that constructs an above-ground nest for its eggs, which are purposefully and meticulously gathered and protected by the female throughout the incubation period. 37 It usually avoids humans and slinks off when disturbed, but is known to aggressively defend incubating eggs and attack intruders rapidly. When alarmed, it raises the front part of its body, extends the hood, shows the fangs and hisses loudly. 33 38 Wild king cobras encountered in Singapore appeared to be placid, but reared up and struck in self defense when cornered.",
+      "threats": "Threatened by habitat destruction , it has been listed as Vulnerable on the Red List since 2010. It is also threatened by wildlife smuggling , as well as by poaching , then sold as bushmeat or turned into snake leather, and for use in traditional Chinese medicine . 1 The king cobra is listed in Appendix II . Red List of Threatened Species . : 10.2305/ .UK.2012-1.RLTS.T177540A1491874.en . \"King Cobra, Hamadryad ( Ophiophagus hannah )\". Snakes of the world: A catalogue of living and extinct species .",
+      "conservation": "King cobra Coiled juvenile Conservation status Vulnerable ( 3.1 ) 1 Appendix II 1 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Reptilia Order: Squamata Suborder: Serpentes Family: Elapidae Genus: Ophiophagus Günther , 1864 Species: O. However, it remains uncertain if any populations continue to persist there. It is protected under the Wildlife Resources Conservation and Protection Act (Republic Act No."
     },
     "classification": {
       "kingdom": "Animalia",
@@ -745,7 +745,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:43.104800"
+    "last_updated": "2026-03-16T22:56:55.715636"
   },
   {
     "id": "Q270238",
@@ -757,15 +757,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
     "wikipedia_sections": {
-      "etymology": "Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy . Privacy policy About Wikipedia Disclaimers Wikipedia Legal &amp; safety s Code of Conduct Developers Statistics Cookie statement Mobile view Search Search American bullfrog Add topic (RLQ=window.RLQ||[]).push(function(){mw.config.set({\"wgHostname\":\"mw-web.eqiad.main-75fd46bc46-trkjw\",\"wgBackendResponseTime\":150,\"wgPageParseReport\":{\"limitreport\":{\"cputime\":\"1.170\",\"walltime\":\"1.",
-      "description": "",
-      "distribution": "American bullfrog - needing cleanup\",\"Cleanup tagged \",\" with auto scaled images\",\"All with auto scaled images All articles with unsourced statements Articles with unsourced statements from March 2026 All articles that are too technical Wikipedia articles that are too technical from March 2026 All articles needing expert attention Articles needing expert attention from March 2026 Commons link from Taxonbars with multiple manual items This page was last edited on 11 March 2026, at 08:48 &#160;(UTC) . Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-      "habitat": "",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "",
-      "threats": "",
-      "conservation": ""
+      "etymology": "The bullfrog gets its name from the sound the male makes during the breeding season , which sounds similar to a bull bellowing. Taxonomy [ edit ] The specific name , catesbeiana ( feminine ) or catesbeianus (masculine), is in honor of English naturalist Mark Catesby . 3 Some authorities use the scientific name , Lithobates catesbeiana , 4 although others prefer Rana catesbeiana . In other words, the kinematic parameters developed by contribution of the elastic structures differ from those developed by muscular projection, accounting for the difference in velocity, power output, and thermal dep",
+      "description": "It typically inhabits large permanent water bodies such as swamps , ponds , and lakes . The bullfrog is large and is commonly eaten throughout its range, especially in the southern United States where they are plentiful. In these places they are considered an invasive species due to their voracious appetite and the large number of eggs they produce, which has a negative effect on native amphibians, certain insects and other fauna. Bullfrogs are very skittish which can make their capture difficult and thus they often become established.",
+      "distribution": "For the Asian bullfrog, see Banded bullfrog . The specific problem is: Redundant/repetitive information. Please help improve this article if you can. Bullfrogs can also be found in manmade habitats such as pools, koi ponds , canals , ditches and culverts . Their use as a food source has led to bullfrogs being introduced outside of their native range. Bullfrogs have been introduced into the Western United States , South America , Western Europe , China , Japan , South Korea and Southeast Asia . 5 6 7 8 A 2016 phylogenetic study of Lithobates and Rana , using mitochondrial and nu sequences , rec",
+      "habitat": "state east of the Mississippi River . 53 The significance of forelimb sexual dimorphism allow males to remain in amplexus with the female for longer durations increasing their chance at reproductive success in the highly competitive mating environment. \"Evidence of niche shift and invasion potential of Lithobates catesbeianus in the habitat of Mexican endemic frogs.\" PloS one vol. \"Foraging success of the tropical frog, Eleutherodactylus coqui : the cost of calling\". ^ Prestwich, Kenneth N.; Brugger, Kristin E.; Topping, Mary (1 July 1989).",
+      "hunting_diet": "They are generalist carnivores, consuming a wide variety of prey. In turn, they are eaten by predators such as alligators , snakes, and birds. Other than for food, bullfrogs are also used for dissection in science classes. Albino bullfrogs are sometimes kept as pets, and bullfrog tadpoles are often sold at ponds or fish stores. When the frog attacks prey, the act of opening its mouth is akin to the release of a slingshot; the elastic force stored up in both the tongue and the jaw are combined to shoot the tip of the tongue toward the prey much faster than the prey's ability to see the strike a",
+      "behavior": "The territorial males that occupy sites are usually spaced some 3 to 6 m (9.8 to 19.7 ft) apart and call loudly. 45 46 At least three different types of calls have been noted in male bullfrogs under different circumstances. These male and female behaviors cause male-male competition to be high within the bullfrog population and sexual selection for the females to be an intense process. 43 Kentwood Wells postulated leks , territorial polygyny , and harems are the most likely classifications for the bullfrog mating system.",
+      "reproduction": "In addition, the unintended escape of frogs from breeding establishments or scientific research facilities, captive escapees or released pets are also a possibility. 42 Breeding season [ edit ] The bullfrog breeding season typically lasts two to three months. 43 44 A study of bullfrogs in Michigan showed the males arriving at the breeding site in late May or early June, and remaining in the area into July. 47 48 The males continuously engage in sexual activity throughout the long breeding season.",
+      "threats": "19 It is very common on the West Coast , especially in California , where it is believed to pose a threat to the California red-legged frog , and is considered to be a factor in the decline of that vulnerable species . An attack on one bullfrog is likely to alert others in the vicinity to danger and they will all retreat into the safety of deeper water. Red List of Threatened Species . : 10.2305/ .UK.2022-1.RLTS.T58565A193396825.en . ^ \" Lithobates catesbeianus \" . Red List of Threatened Species .",
+      "conservation": "( March 2026 ) ( Learn how and when to remove this message ) American bullfrog Adult male Conservation status Least Concern ( 3.1 ) 1 Secure ( NatureServe ) 2 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Amphibia Order: Anura Family: Ranidae Genus: Lithobates Species: L. 47 When male population density is higher, females depend on other cues to select their mates. Dominant tenure is more strictly defined as the amount of time a male maintains a dominant status. 55 Chorus tenure is restricted due to increased risk of predation, 56 lost foraging opportunities, 57 and highe"
     },
     "classification": {
       "kingdom": "Animalia",
@@ -787,11 +787,11 @@
       "lifespan": ""
     },
     "ecology": {
-      "diet": "",
-      "habitat": "",
-      "locations": "American bullfrog - needing cleanup\",\"Cleanup tagged \",\" with auto scaled images\",\"All with auto scaled images All articles with unsourced statements Articles with unsourced statements from March 2026 All articles that are too technical Wikipedia articles that are too technical from March 2026 All articles needing expert attention Articles needing expert attention from March 2026 Commons link from Taxonbars with multiple manual items This page was last edited on 11 March 2026, at 08:48 &#160;(UTC) . Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-      "group_behavior": "",
-      "conservation_status": "",
+      "diet": "Carnivore",
+      "habitat": "state east of the Mississippi River . 53 The significance of forelimb sexual dimorphism allow males to remain in amplexus with the female for longer durations increasing their chance at reproductive success in the highly competitive mating environment. \"Evidence of niche shift and invasion potential of Lithobates catesbeianus in the habitat of Mexican endemic frogs.\" PloS one vol. \"Foraging success of the tropical frog, Eleutherodactylus coqui : the cost of calling\". ^ Prestwich, Kenneth N.; Brugger, Kristin E.; Topping, Mary (1 July 1989).",
+      "locations": "For the Asian bullfrog, see Banded bullfrog . The specific problem is: Redundant/repetitive information. Please help improve this article if you can. Bullfrogs can also be found in manmade habitats such as pools, koi ponds , canals , ditches and culverts . Their use as a food source has led to bullfrogs being introduced outside of their native range. Bullfrogs have been introduced into the Western United States , South America , Western Europe , China , Japan , South Korea and Southeast Asia . 5 6 7 8 A 2016 phylogenetic study of Lithobates and Rana , using mitochondrial and nu sequences , rec",
+      "group_behavior": "Pairs",
+      "conservation_status": "Vulnerable",
       "biggest_threat": "",
       "distinctive_features": [],
       "population_trend": ""
@@ -805,7 +805,7 @@
       "lifestyle": "",
       "color": "",
       "skin_type": "",
-      "prey": "",
+      "prey": "to the California red-legged frog , and is considered to be a factor in the decline of that vulnerable species",
       "slogan": "",
       "group": "",
       "number_of_species": "",
@@ -819,7 +819,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:45.465700"
+    "last_updated": "2026-03-16T22:56:58.510260"
   },
   {
     "id": "Q165980",
@@ -831,15 +831,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
     "wikipedia_sections": {
-      "etymology": "Many monarch researchers have cited recent evidence from long-term citizen science data that shows that the number of breeding (adult) monarchs has not declined in the last two decades. &#91; 200 &#93; &#91; 201 &#93; &#91; 202 &#93; The lack of long-term declines in the numbers of breeding and migratory monarchs, yet the clear declines in overwintering numbers, suggests a growing disconnect exists between these life stages. One researcher has suggested that mortality from car strikes constitutes an increasing threat to migrating monarchs. Mexican environmental authorities continue to monitor illegal logging of the oyamel fir trees ; however, organized criminals have repeatedly crushed such efforts in the name of very short-term financial gain.",
-      "description": "Monarch butterfly - uggestedEditsEnableTopics\":true,\"wgGESuggestedEditsTaskTypes\":{\"taskTypes\":[\"copyedit\",\"link-recommendation\"],\"unavailableTaskTypes\":[]},\"wgGETopicsMatchModeEnabled\":false,\"wgGELevelingUpEnabledFor the arrival of GM crops. &#91; 199 &#93; Losses during migration Eastern and midwestern monarchs are experiencing problems reaching Mexico.",
-      "distribution": "",
-      "habitat": "&#91; 204 &#93; Importance of overwintering habitat Area covered by monarchs ( D. Pollinator Habitat Acreage: Restore or enhance 7 million acres of land for pollinators over the next 5 years through Federal actions and public/private partnerships. Environment and Climate Change Canada , Government of Canada .",
-      "hunting_diet": "",
-      "behavior": "",
-      "reproduction": "\"Size of the Canadian Breeding Population of Monarch Butterflies Is Driven by Factors Acting During Spring Migration and Recolonization\" . Frontiers in Ecology and Evolution . Bibcode : 2019FrEEv...7..308C . doi : 10.3389/fevo.2019.00308 . ISSN &#160; 2296-701X . Tyler; Larrivée, Maxim; Prudic, Kathleen L.; Norris, D. Ryan (June 21, 2019). \"Estimating the annual distribution of monarch butterflies in Canada over 16 years using citizen science data\" . Bibcode : 2019Facet...4..238T . doi : 10.1139/facets-2018-0011 . hdl : 10150/633480 . ^ Obama, President Barack (June 20, 2014). \"Presidential Memorandum – Creating a Federal Strategy to Promote the Health of Honey Bees and Other Pollinators\" . Office of the Press Secretary .",
-      "threats": "&#91; 203 &#93; A study of road mortality in northern Mexico, published in 2019, showed very high mortality from just two \"hotspots\" each year, amounting to 200,000 monarchs killed. The decline was expected to increase during the 2013–2014 season. Using this guidance, we assign each candidate an LPN of 1 to 12, depending on the magnitude of threats, immediacy of threats, and taxonomic status; the lower the LPN, the higher the listing priority (that is, a species with an LPN of 1 would have the highest listing priority).\" ^ U.S. Fish and Wildlife Service (December 12, 2024). \"Endangered and Threatened Wildlife and Plants; Threatened Species Status With Section 4(D) Rule for Monarch Butterfly and Designation of Critical Habitat\" (PDF) . 89 (239): 100662– 100716.",
-      "conservation": "plexippus , eastern migratory population) in their overwintering areas in Mexico between 1993 and 2018 The area of Mexican forest to which eastern and midwestern monarchs migrate reached its lowest level in two decades in 2013. The strategy laid out federal actions to achieve three goals, two of which were: Monarch Butterflies: Increase the Eastern population of the monarch butterfly to 225 million butterflies occupying an area of approximately 15 acres (6.1 hectares) in the overwintering grounds in Mexico, through domestic/international actions and public-private partnerships, by 2020."
+      "etymology": "6 Other common names, depending on region, include milkweed , common tiger , wanderer , and black-veined brown . Etymology [ edit ] The name monarch is believed to have been given in honor of King William III of England , as the butterfly's main color is that of the king's secondary title, Prince of Orange . 13 The monarch was originally described by Carl Linnaeus in his Systema Naturae of 1758 and placed in the genus Papilio . 14 In 1780, Jan Krzysztof Kluk used the monarch as the type species for a new genus, Danaus .",
+      "description": "plexippus on Tithonia flower D. plexippus Piedra Herrada, Mexico The monarch butterfly or simply monarch ( Danaus plexippus ) is a milkweed butterfly ( subfamily Danainae ) in the family Nymphalidae . 10 A Müllerian mimic , the viceroy butterfly , is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing. Linnaeus divided his large genus Papilio , containing all known butterfly species, into what we would now call subgenera. The Danai festivi formed one of the \"subgenera\", containing colorful species, as opposed to the Danai candidi , containin",
+      "distribution": "7 It is among the most familiar of North American butterflies and an iconic pollinator , 8 although it is not an especially effective pollinator of milkweeds . 9 Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). The eastern North American monarch population is notable for its annual southward late-summer/autumn instinctive migration from the northern and central United States and southern Canada to Florida and Mexico. 6 During the fall migration, monarchs cover thousands of miles, with a corresponding multigenerational retur",
+      "habitat": "Sea levels were higher, and the entire Amazonas lowland was a vast expanse of brackish swamp that offered limited butterfly habitat. 64 Male search and capture strategies may influence copulatory success, and human-induced changes to the habitat can influence monarch mating activity at overwintering sites. 77 Their wintering habitat typically provides access to streams, plenty of sunlight (enabling body temperatures that allow flight), and appropriate roosting vegetation, and is relatively free of predators.",
+      "hunting_diet": "24 21 The offspring's consumption of milkweed benefits health and helps defend them against predators. Instars last about 3 to 5 days, depending on factors such as temperature and food availability. The larva or caterpillar eats its egg case and begins to feed on milkweed in a circular motion, often leaving a characteristic, arc-shaped hole in the leaf. 40 In a laboratory setting, the fourth- and fifth-instar caterpillar stages showed aggressive behavior with lower food availability. Once conditions allow, it flies and feeds on many nectar plants.",
+      "behavior": "The genome provides researchers insights into migratory behavior, the circadian clock, juvenile hormone pathways, and microRNAs that are differentially expressed between summer and migratory monarchs. 41 This demonstrates the aggressive behavior of monarch caterpillars due to the availability of milkweed. Pupa [ edit ] A caterpillar metamorphosing into a pupa Chrysalis To prepare for the pupal or chrysalis stage, the caterpillar chooses a safe place for pupation, where it spins a silk pad on a downward-facing horizontal surface.",
+      "reproduction": "30 Monarchs transition from eggs to adults during warm summer temperatures in as little as 25 days, extending to as many as seven weeks during cool spring conditions. Played a second time at half speed. The egg is derived from materials ingested as a larva and from the spermatophores received from males during mating. 32 Female monarchs lay eggs singly, most often on the underside of a young leaf of a milkweed plant during the spring and summer. They typically lay 300 to 500 eggs over a two- to five-week period.",
+      "threats": "31 During their development, both larvae and their milkweed hosts are vulnerable to weather extremes, predators, parasites, and diseases; commonly fewer than 10% of monarch eggs and caterpillars survive. 24 21–22 Egg [ edit ] Sequential stages of monarch development - an egg, five caterpillars, and a chrysalis on common milkweed leaves Egg Monarch butterfly flying around narrowleaf milkweed , depositing an egg. 109 This is thought to adversely affect migration patterns and to cause a dramatic buildup of the dangerous parasite, Ophryocystis elektroscirrha .",
+      "conservation": "Some researchers believe the southern monarch separated from the monarch's population some two million years ago, at the end of the Pliocene . tobagi Austin Hobart Clark, 1941 − Tobago The population level of the white morph in Oahu is nearing 10%. On other Hawaiian islands, the white morph occurs at a relatively low frequency. 65 Distribution and habitat [ edit ] String of monarchs wintering at California's Pismo State Beach Monarch Preserve (2015) The range of the western and eastern populations of D."
     },
     "classification": {
       "kingdom": "Animalia",
@@ -865,7 +865,7 @@
       "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
       "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
       "group_behavior": "Group",
-      "conservation_status": "Endangered",
+      "conservation_status": "Vulnerable",
       "biggest_threat": "Habitat loss",
       "distinctive_features": [
         "Black, orange, and white pattern on wings"
@@ -881,7 +881,7 @@
       "lifestyle": "Diurnal",
       "color": "BlackWhiteOrange",
       "skin_type": "Scales",
-      "prey": "to migrating monarchs",
+      "prey": "its egg case and begins to feed on milkweed in a circular motion, often leaving a characteristic, arc-shaped hole in the",
       "slogan": "",
       "group": "Invertebrates",
       "number_of_species": "3",
@@ -895,7 +895,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:48.501298"
+    "last_updated": "2026-03-16T22:57:01.234793"
   },
   {
     "id": "Q7316",
@@ -907,15 +907,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
     "wikipedia_sections": {
-      "etymology": "Honey bee - \",\" the origin of the genus. Among the extant members of Apis , the more basal species make single, exposed combs, while the more recently evolved species nest in cavities and have multiple combs, which has greatly facilitated their domestication. &#91; 25 &#93; Western honey bee Main article: Apis mellifera The European honey bee may have originated from eastern Africa. This bee is pictured in Tanzania. mellifera , the most common domesticated &#91; 26 &#93; species, was first domesticated before 2600 BC &#91; 27 &#93; and was the third insect to have its genome mapped. It seems to have originated in eastern tropical Africa and spread from there to Europe and eastwards into Asia to the Tian Shan range.",
-      "description": "They make very small, exposed nests in trees and shrubs. Their stings are often incapable of penetrating human skin, so the hive and swarms can be handled with minimal protection. &#91; 18 &#93; Apis florea have smaller wing spans than its sister species. &#91; 20 &#93; Apis florea are also completely yellow except the scutellum of workers, which is black. &#91; 20 &#93; Megapis Two species are recognized in the subgenus Megapis . They usually build single or a few exposed combs on high tree limbs, on cliffs, and sometimes on buildings. They can be very fierce. Periodically robbed of their honey by human \"honey hunters\", colonies are easily capable of stinging a human being to death if provoked.",
-      "distribution": "&#91; 16 &#93; &#91; 18 &#93; Most species have historically been cultured or at least exploited for honey and beeswax by humans indigenous to their native ranges. Only two species have been truly domesticated : Apis mellifera and Apis cerana . A.&#160;mellifera has been cultivated at least since the time of the building of the Egyptian pyramids , and only that species has been moved extensively beyond its native range. &#91; 19 &#93; Micrapis Apis florea and Apis andreniformis are small honey bees of southern and southeastern Asia. They occur largely sympatrically , though they are very distinct evolutionarily and are probably the result of allopatric speciation , their distribution later converging. Given that A.&#160;florea is more widely distributed and A.",
-      "habitat": "&#91; 23 &#93; Its habitat is limited to the tropical evergreen forests of the Malay Peninsula , Borneo and Sumatra and they do not live in tropical evergreen rain forests which extend into Thailand, Myanmar, Cambodia and Vietnam. &#91; 23 &#93; Philippine honey bee Apis nigrocincta is a cavity-nesting species. The species has rust-coloured scapes , legs, and clypeuses , with reddish-tan hair colour that covers most of the body. &#91; 24 &#93; Eastern honey bee Apis cerana , the eastern honey bee proper, is the traditional honey bee of southern and eastern Asia. One of its subspecies, the Indian honey bee ( A.&#160;c.&#160;indica ), was domesticated and kept in hives in a fashion similar to A.&#160;mellifera , though on a more limited, regional scale.",
-      "hunting_diet": "Worker bees cooperate to find food and use a pattern of \"dancing\" (known as the bee dance or waggle dance) to communicate information regarding resources with each other; this dance varies from species to species, but all living species of Apis exhibit some form of the behavior. If the resources are very close to the hive, they may also exhibit a less specific dance commonly known as the \"round dance\". Honey bees also perform tremble dances , which recruit receiver bees to collect nectar from returning foragers. Virgin queens go on mating flights away from their home colony to a drone congregation area and mate with multiple drones before returning. The drones die in the act of mating. Queen honey bees do not mate with drones from their home colony.",
-      "behavior": "&#91; 22 &#93; Essentially restricted to the Himalayas , it differs little from the giant honey bee in appearance but has extensive behavioral adaptations that enable it to nest in the open at high altitudes despite low ambient temperatures. It is the largest living honey bee. Apis Western honey bee on a honeycomb Eastern Apis species include three or four&#160;species, including A.&#160;koschevnikovi , A.&#160;nigrocincta , and A.&#160;cerana . The genetics of the western honey bee ( A.&#160;mellifera ) are unclear. Koschevnikov's honey bee Koschevnikov's honey bee ( Apis koschevnikovi ) is often referred to in the literature as the \"red bee of Sabah\"; however, A.",
-      "reproduction": "Species While about 20,000 species of bees exist, &#91; 15 &#93; only eight extant species of honey bee are recognized, with a total of 43 subspecies , although historically seven to 11 species are recognized: &#91; 16 &#93; Apis andreniformis (the black dwarf honey bee); Apis cerana (the eastern honey bee); Apis dorsata (the giant honey bee); Apis florea (the red dwarf honey bee); Apis koschevnikovi (Koschevnikov's honey bee); Apis laboriosa (the Himalayan giant honey bee); Apis mellifera (the western honey bee); and Apis nigrocincta (the Philippine honey bee). &#91; 17 &#93; Honey bees are the only extant members of the tribe Apini.",
-      "threats": "This would fit the hypothesis that the ancestral stock of cave-nesting honey bees was separated into the western group of East Africa and the eastern group of tropical Asia by desertification in the Middle East and adjacent regions, which caused declines of food plants and trees that provided nest sites, eventually causing gene flow to cease. &#91; 28 &#93; The diversity of A. mellifera subspecies is probably the product of a largely Early Pleistocene radiation aided by climate and habitat changes during the last ice age .",
-      "conservation": "mellifera is vulnerable to local hornets and disease, the Japanese honey bee A. cerana japonica is used in its place. Modern hives also enable beekeepers to transport bees, moving from field to field as the crop needs pollinating and allowing the beekeeper to charge for the pollination services they provide, revising the historical role of the self-employed beekeeper, and favoring large-scale commercial operations. &#91; 60 &#93; Colony collapse disorder Main article: Colony collapse disorder Primarily in places where western honey bees were imported by humans, periodic collapses in western honey bee populations have occurred at least since the late 19th century."
+      "etymology": "Etymology and name [ edit ] The genus name Apis is Latin for \"bee\". 5 6 Although modern dictionaries may refer to Apis as either honey bee or honeybee, entomologist Robert Snodgrass asserts that correct usage requires two words, i.e., honey bee , because it is a kind or type of bee. It is incorrect to run the two words together, as in dragonfly or butterfly , which are appropriate because dragonflies and butterflies are not flies. 7 Honey bee, not honeybee, is the listed common name in the Integrated Taxonomic Information System , the Entomological Society of America Common Names of Insects Da",
+      "description": "Followed by segment at one-tenth speed. A honey bee (also spelled honeybee ) is a eusocial flying insect from the genus Apis of the largest bee family , Apidae . 1 Honey bees are known for their construction of perennial nests within cavities (i.e. beehives ) containing hexagonal cells made of secreted wax , 2 their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey , the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers , bears and human hunter-ga",
+      "distribution": "The only other domesticated species is the eastern honey bee ( Apis cerana ), which are raised in South , Southeast and East Asia . Only members of the genus Apis are true honey bees, 4 but some other bee species also produce and store honey and have been kept by humans for that purpose, including the stingless bees belonging to the genus Melipona and the Indian stingless or dammar bee Tetragonula iridipennis . In addition to harvesting honey, modern humans also use beeswax in making candles , soap, lip balms and various cosmetics, as a lubricant and in mould-making using the lost wax process ",
+      "habitat": "23 Its habitat is limited to the tropical evergreen forests of the Malay Peninsula , Borneo and Sumatra and they do not live in tropical evergreen rain forests which extend into Thailand, Myanmar, Cambodia and Vietnam. 23 Philippine honey bee [ edit ] Apis nigrocincta is a cavity-nesting species. Many subspecies have adapted to the local geographic and climatic environments; in addition, breeds such as the Buckfast bee have been bred. Honey bees did not naturally cross the Rocky Mountains ; they were transported by the Mormon pioneers to Utah in the late 1840s, and by ship to California in the",
+      "hunting_diet": "Worker bees cooperate to find food and use a pattern of \"dancing\" (known as the bee dance or waggle dance) to communicate information regarding resources with each other; this dance varies from species to species, but all living species of Apis exhibit some form of the behavior. If the resources are very close to the hive, they may also exhibit a less specific dance commonly known as the \"round dance\". Honey bees also perform tremble dances , which recruit receiver bees to collect nectar from returning foragers.",
+      "behavior": "14 The close relatives of modern honey bees—e.g., bumblebees and stingless bees —are also social to some degree, and social behavior is considered to be a trait that predates the origin of the genus. Among the extant members of Apis , the more basal species make single, exposed combs, while the more recently evolved species nest in cavities and have multiple combs, which has greatly facilitated their domestication. Behavior, colour, and anatomy can be quite different from one subspecies or even strain to another.",
+      "reproduction": "Species [ edit ] While about 20,000 species of bees exist, 15 only eight extant species of honey bee are recognized, with a total of 43 subspecies , although historically seven to 11 species are recognized: 16 Apis andreniformis (the black dwarf honey bee); Apis cerana (the eastern honey bee); Apis dorsata (the giant honey bee); Apis florea (the red dwarf honey bee); Apis koschevnikovi (Koschevnikov's honey bee); Apis laboriosa (the Himalayan giant honey bee); Apis mellifera (the western honey bee); and Apis nigrocincta (the Philippine honey bee).",
+      "threats": "mellifera is vulnerable to local hornets and disease, the Japanese honey bee A. cerana japonica is used in its place. Colony losses have occurred periodically throughout history. Fungus, mites, and starvation have all been thought to be the cause of the deaths. Limited occurrences resembling CCD were documented as early as 1869. The previous year (2021–2022) the loss was 39% and the 2020–2021 loss was 50.8%. Beekeepers told the surveying scientists that a 21% loss over the winter is acceptable and more than three-fifths of beekeepers surveyed said their losses were higher than that in 2022–202",
+      "conservation": "60 Colony collapse disorder [ edit ] Main article: Colony collapse disorder Primarily in places where western honey bees were imported by humans, periodic collapses in western honey bee populations have occurred at least since the late 19th century. 61 However, as humans continued to manipulate the western honey bee and deliberately transferred them on a global scale, diseases simultaneously spread and harmed managed colonies. If not detected and treated early on, the mite population may increase to such an extent that the hive will succumb to the diseases and deformities caused by the mites."
     },
     "classification": {
       "kingdom": "Animalia",
@@ -969,6 +969,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T22:34:51.839165"
+    "last_updated": "2026-03-16T22:57:04.476336"
   }
 ]

@@ -8,15 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
   "wikipedia_sections": {
-    "etymology": "Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of \\\"] = 1,\\n [\\\"Wikispecies\\\"] = 1,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-web.eqiad.main-8568574b87-mtlkt\",\"timestamp\":\"20260316095608\",\"ttl\":54000,\"transientcontent\":true,\"expiry-source\":\"Module:Citation/CS1 (setTTL)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Emperor penguin\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Emperor_penguin\",\"sameAs\":\"http:\\/\\/www..org\\/entity\\/Q161829\",\"mainEntity\":\"http:\\/\\/www..",
-    "description": "Emperor penguin - \",\" from November 2020\",\"\",\"All All articles with unsourced statements Articles with unsourced statements from March 2025 Commons category link is on Taxonbars with 25–29 taxon IDs Articles containing video clips This page was last edited on 9 March 2026, at 02:40 &#160;(UTC) .",
-    "distribution": "",
-    "habitat": "",
-    "hunting_diet": "",
-    "behavior": "",
-    "reproduction": "",
-    "threats": "",
-    "conservation": ""
+    "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
+    "description": "For the band, see Emperor Penguin (band) . The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg (49 to 99 lb). Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches. 6 Description Adults with chicks Adult emperor penguins are 110–120 cm (43–47 in) in length, averaging 115 cm (45 in) according to Stonehouse (1975) citation needed . Due to the method of bird measurement that measures length between bill to tail, sometimes body length and standing height ",
+    "distribution": "ridgeni )—has been found from the late Pliocene , about three million years ago, in New Zealand. (2012) measured standing height of 81–94 cm (32–37 in) according to 11 complete skins collected in American Museum of Natural History . 7 The weight ranges from 22.7 to 45.4 kg (50 to 100 lb) and varies by sex, with males weighing more than females. The upper mandible of the 8 cm (3.1 in) long bill is black, and the lower mandible can be pink, orange or lilac. 17 In juveniles, the auricular patches, chin and throat are white, while its bill is black.",
+    "habitat": "Like all species of penguin, the emperor is flightless, with a streamlined body, and wings stiffened and flattened into flippers for a marine habitat . 12 Adaptations to cold The emperor penguin breeds in the coldest environment of any bird species; air temperatures may reach −40 °C (−40 °F), and wind speeds may reach 144 km/h (89 mph). Water temperature is a frigid −1.8 °C (28.8 °F), which is much lower than the emperor penguin's average body temperature of 39 °C (102 °F). 52 In January 2009, a study from the Woods Hole Oceanographic Institution concluded that global climate change could push",
+    "hunting_diet": "Its diet consists primarily of fish , but also includes crustaceans , such as krill , and cephalopods , such as squid . While hunting, the species can remain submerged around 20 minutes, diving to a depth of 535 m (1,755 ft). It has several adaptations to facilitate this, including an unusually structured haemoglobin to allow it to function at low oxygen levels, solid bones to reduce barotrauma , and the ability to reduce its metabolism and shut down non-essential organ functions. 15 The tongue is equipped with rear-facing barbs to prevent prey from escaping when caught.",
+    "behavior": "It almost always breeds on stable pack ice near the coast and up to 18 km (11 mi) offshore. 42 This individual, which is believed to have originated from eastern Antarctica, was encountered by a group of surfers shortly after it arrived in Denmark, and was taken in by conservationists at the Department of Biodiversity, Conservation and Attractions to have its condition evaluated. 44 Colonies are known to fluctuate over time, often breaking into \"suburbs\" which move apart from the parent group, and some have been known to disappear entirely.",
+    "reproduction": "The only penguin species that breeds during the Antarctic winter, emperor penguins trek 50–120 km (31–75 mi) over the ice to breeding colonies which can contain up to several thousand individuals. The female lays a single egg, which is incubated for just over two months by the male while the female returns to the sea to feed; parents subsequently take turns foraging at sea and caring for their chick in the colony. The lifespan of an emperor penguin is typically 20 years in the wild, although observations suggest that some individuals may live as long as 50 years of age.",
+    "threats": "The species has adapted in several ways to counteract heat loss. 32 At temperatures above 20 °C (68 °F), an emperor penguin may become agitated as its body temperature and metabolic rate rise to increase heat loss. 16 Its haemoglobin and myoglobin are able to bind and transport oxygen at low blood concentrations; this allows the bird to function with very low oxygen levels that would otherwise result in loss of consciousness. 3 The Cape Crozier colony on the Ross Sea shrank drastically between the first visits by the Discovery Expedition in 1902–03 45 and the later visits by the Terra Nova Exp",
+    "conservation": "Emperor penguin Adults with a chick on Snow Hill Island , Antarctic Peninsula Conservation status Near Threatened ( 3.1 ) 1 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Aves Order: Sphenisciformes Family: Spheniscidae Genus: Aptenodytes Species: A. 22 Therefore, 80% of the emperor penguin population comprises adults five years and older. 21 Vocalisation Emperor penguins and chick vocalizing in Antarctica As the species has no fixed nesting sites that individuals can use to locate their own partner or chick, emperor penguins must rely on vocal sounds alone for identificat"
   },
   "classification": {
     "kingdom": "Animalia",
@@ -42,7 +42,7 @@
     "habitat": "Compact sea-ice and ocean",
     "locations": "Antarctica, Ocean",
     "group_behavior": "Colony",
-    "conservation_status": "",
+    "conservation_status": "Near Threatened",
     "biggest_threat": "Global warming",
     "distinctive_features": [
       "Bright yellow feathers on neck and ears"
@@ -72,5 +72,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T22:34:33.770765"
+  "last_updated": "2026-03-16T22:56:45.984246"
 }

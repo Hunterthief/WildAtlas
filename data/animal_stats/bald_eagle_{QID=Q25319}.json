@@ -8,15 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
   "wikipedia_sections": {
-    "etymology": "Bald eagle - \",\" from December 2024\",\"\",\" CS1 Latin-language sources (la) CS1 maint: deprecated archival service Articles containing potentially dated statements from 2007 All articles containing potentially dated statements All articles with failed verification Articles with failed verification from December 2025 Webarchive template wayback links Taxonbars with 35–39 taxon IDs This page was last edited on 26 February 2026, at 22:52 &#160;(UTC) . Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy .",
-    "description": "",
-    "distribution": "Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
-    "habitat": "",
-    "hunting_diet": "",
-    "behavior": "",
-    "reproduction": "",
-    "threats": "",
-    "conservation": ""
+    "etymology": "leucocephalus Binomial name Haliaeetus leucocephalus ( Linnaeus , 1766 ) Subspecies H. leucocephalus – Southern bald eagle H. Bald eagles are not bald in the literal sense; the name derives from an older meaning of the word, \"white-headed\". Bald in the English name is from an older usage meaning \"having white on the face or head\" rather than \"hairless\", referring to the white head feathers contrasting with the darker body. 4 The genus name is Neo-Latin : Haliaeetus (from the Ancient Greek : ἁλιάετος , romanized : haliaetos , lit.",
+    "description": "For other uses, see Bald Eagle (disambiguation) . A sea eagle , it has two known subspecies and forms a species pair with the white-tailed eagle ( Haliaeetus albicilla ), which occupies the same niche as the bald eagle in the Palearctic . It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting. The bald eagle is an opportunistic feeder that subsists mainly on fish , upon which it swoops down and snatches from the water with its talons. It builds the largest nest of any North American bird and the largest tree nests ever recorded for any animal ",
+    "distribution": "\"American eagle\" redirects here. For other uses, see American Eagle (disambiguation) . Please help improve it by removing low-quality or irrelevant citations or redistributing those citations so there are fewer than four in a row. Its range includes most of Canada and Alaska , all of the contiguous United States , and northern Mexico . The two species fill the same ecological niche in their respective ranges. The pair diverged from other sea eagles at the beginning of the Early Miocene (c. 10 Ma BP ) at the latest, but possibly as early as the Early/Middle Oligocene , 28 Ma BP, if the most anc",
+    "habitat": "Occupying varied habitats from the bayous of Louisiana to the Sonoran Desert and the eastern deciduous forests of Quebec and New England , northern birds are migratory , while southern birds are resident, remaining on their breeding territory all year. 40 The birds primarily gather along the Squamish and Cheakamus Rivers , attracted by the salmon spawning in the area. 41 Similar congregations of wintering bald eagles at open lakes and rivers, wherein fish are readily available for hunting or scavenging, are observed in the Northern United States .",
+    "hunting_diet": "The highly developed talon of the hind toe is used to pierce the vital areas of prey while it is held immobile by the front toes. Selected trees must have good visibility, be over 20 m (66 ft) tall, an open structure, and proximity to prey. If its territory has access to open water, it remains there year-round, but if the body of water freezes during the winter, making it impossible to obtain food, it migrates to the south or to the coast. 57 The bald eagle selects migration routes which take advantage of thermals, updrafts , and food resources.",
+    "behavior": "19 46 Behavior The bald eagle is a powerful flier, and soars on thermal convection currents. It reaches speeds of 56–70 km/h (35–43 mph) when gliding and flapping, and about 48 km/h (30 mph) while carrying fish. 55 Its dive speed is between 120–160 km/h (75–99 mph), though it seldom dives vertically. 56 Regarding their flying abilities, despite being morphologically less well adapted to faster flight than golden eagles (especially during dives), the bald eagle is considered surprisingly maneuverable in flight.",
+    "reproduction": "washingtoniensis – Northern bald eagle Bald eagle range .mw-parser-output .legend{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .legend-color{display:inline-block;min-width:1.25em;height:1.25em;line-height:1.25;margin:1 0;text-align:center;border:1 solid black;background-color:transparent;color:black}.mw-parser-output .legend-text{} Breeding resident Breeding summer visitor Winter visitor On migration only Star: accidental records Synonyms Falco leucocephalus Linnaeus, 1766 Falco pygargus Daudin, 1800 (nec Linnaeus) Falco ossifragus Shaw, 1809 (nec Linnaeus) Haliaeetus le",
+    "threats": "Populations have since recovered, and the species' status was downgraded from \" endangered \" to \" threatened \" in 1995 and removed from the list altogether in 2007. 61 91 Benthic fishes such as catfish are usually consumed after they die and float to the surface, though while temporarily swimming in the open may be more vulnerable to predation than most fish since their eyes focus downwards. 79 Bald eagles also regularly exploit water turbines which produce battered, stunned or dead fish easily consumed.",
+    "conservation": "( January 2026 ) ( Learn how and when to remove this message ) Bald eagle Temporal range: Pleistocene-Recent 0.3–0 Ma 1 PreꞒ Ꞓ O S D C P T J K Pg N Bald eagle preparing to fly at Kachemak Bay in Alaska , United States A recording of a bald eagle at Yellowstone National Park Conservation status Least Concern ( 3.1 ) 2 Appendix II 3 Scientific classification Kingdom: Animalia Phylum: Chordata Class: Aves Order: Accipitriformes Family: Accipitridae Genus: Haliaeetus Species: H. 96 Along some portions of the North Pacific coastline, bald eagles which had historically preyed mainly kelp -dwelling f"
   },
   "classification": {
     "kingdom": "Animalia",
@@ -41,8 +41,8 @@
     "diet": "Carnivore",
     "habitat": "Near forests",
     "locations": "North-America",
-    "group_behavior": "",
-    "conservation_status": "",
+    "group_behavior": "Pairs",
+    "conservation_status": "Endangered",
     "biggest_threat": "Pesticide use",
     "distinctive_features": [
       "The white plumage on the head"
@@ -72,5 +72,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T22:34:31.617629"
+  "last_updated": "2026-03-16T22:56:43.443708"
 }
