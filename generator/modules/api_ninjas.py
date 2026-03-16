@@ -8,8 +8,7 @@ Free tier: 100 requests/month
 """
 
 import requests
-import re
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any
 
 # ✅ FIXED: Removed trailing spaces from URL
 API_NINJAS_ENDPOINT = "https://api.api-ninjas.com/v1/animals"
@@ -46,7 +45,7 @@ def fetch_animal_data(name: str, api_key: str) -> Optional[Dict[str, Any]]:
             results = response.json()
             if results:
                 print(f"   ✓ Found {len(results)} result(s) for {name}")
-                return results[0]  # Return raw data, let generator.py parse it
+                return results[0]
             else:
                 print(f"   ⚠ No results for {name}")
         elif response.status_code == 429:
