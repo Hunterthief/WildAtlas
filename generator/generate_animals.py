@@ -150,7 +150,7 @@ def finalize_animal_data(data: Dict, animal_type: str) -> Dict:
     
     # FIX: Filter locations for known native ranges
     location_filters = {
-        'bullfrog': ['asia', 'china', 'indonesia', 'japan', 'europe'],  # Native to North America
+        'bullfrog': ['asia', 'china', 'indonesia', 'japan', 'europe'],
         'elephant': ['asia'] if 'african' in data.get("name", "").lower() else [],
         'tiger': ['africa', 'americas'],
         'penguin': ['asia', 'africa', 'north america', 'europe'],
@@ -192,9 +192,53 @@ def finalize_animal_data(data: Dict, animal_type: str) -> Dict:
     
     # FIX: Ensure conservation_status has a value (fallback to Wikipedia extraction)
     if not data["ecology"].get("conservation_status"):
-        data["ecology"]["conservation_status"] = "Least Concern"  # Default if unknown
+        data["ecology"]["conservation_status"] = "Least Concern"
     
     return data
+
+
+def generate_model_links_file(animals):
+    """Generate model_links.json after animals.json is created"""
+    
+    model_links = {}
+    
+    # Known verified models (manually curated)
+    verified_keywords = {
+        'tiger': 'tiger-88b907577f274d2e930c521a4c988f24',
+        'elephant': 'african-elephant-5c5b5e5e5e5e5e5e5e5e5e5e',
+        'wolf': 'gray-wolf-88b907577f274d2e930c521a4c988f24',
+        'eagle': 'bald-eagle-88b907577f274d2e930c521a4c988f24',
+        'penguin': 'emperor-penguin-88b907577f274d2e930c521a4c988f24',
+        'shark': 'great-white-shark-88b907577f274d2e930c521a4c988f24',
+        'turtle': 'green-sea-turtle-88b907577f274d2e930c521a4c988f24',
+        'cobra': 'king-cobra-88b907577f274d2e930c521a4c988f24',
+        'butterfly': 'monarch-butterfly-88b907577f274d2e930c521a4c988f24',
+        'bee': 'honey-bee-88b907577f274d2e930c521a4c988f24',
+        'cheetah': 'cheetah-88b907577f274d2e930c521a4c988f24',
+        'giraffe': 'giraffe-88b907577f274d2e930c521a4c988f24',
+        'bear': 'polar-bear-88b907577f274d2e930c521a4c988f24',
+    }
+    
+    for animal in animals:
+        name = animal.get("name", "").lower()
+        model_url = ""
+        
+        # Match by keyword
+        for keyword, model_id in verified_keywords.items():
+            if keyword in name:
+                model_url = f"https://sketchfab.com/3d-models/{model_id}"
+                break
+        
+        model_links[name] = model_url
+    
+    # Save to data/model_links.json
+    repo_root = Path(__file__).parent.parent
+    model_links_path = repo_root / "data" / "model_links.json"
+    
+    with open(model_links_path, "w", encoding="utf-8") as f:
+        json.dump(model_links, f, indent=2, ensure_ascii=False)
+    
+    print(f"✅ Generated model_links.json with {len(model_links)} entries")
 
 
 def fetch_from_all_sources(name, sci, qid):
@@ -390,63 +434,7 @@ def generate(animals, force=False):
         print(f" ✅ {name} complete!")
         print(f" 📚 Sources: {', '.join(data['sources'])}")
         time.sleep(1)
-        def generate_model_links_file(animals):
-    """Generate model_links.json after animals.json is created"""
-    
-    model_links = {}
-    
-    # Known verified models (manually curated)
-    verified_keywords = {
-        'tiger': 'tiger-88b907577f274d2e930c521a4c988f24',
-        'elephant': 'african-elephant-5c5b5e5e5e5e5e5e5e5e5e5e',
-        'wolf': 'gray-wolf-88b907577f274d2e930c521a4c988f24',
-        'eagle': 'bald-eagle-88b907577f274d2e930c521a4c988f24',
-        'penguin': 'emperor-penguin-88b907577f274d2e930c521a4c988f24',
-        'shark': 'great-white-shark-88b907577f274d2e930c521a4c988f24',
-        'turtle': 'green-sea-turtle-88b907577f274d2e930c521a4c988f24',
-        'cobra': 'king-cobra-88b907577f274d2e930c521a4c988f24',
-        'butterfly': 'monarch-butterfly-88b907577f274d2e930c521a4c988f24',
-        'bee': 'honey-bee-88b907577f274d2e930c521a4c988f24',
-        'cheetah': 'cheetah-88b907577f274d2e930c521a4c988f24',
-        'giraffe': 'giraffe-88b907577f274d2e930c521a4c988f24',
-        'bear': 'polar-bear-88b907577f274d2e930c521a4c988f24',
-    }
-    
-    for animal in animals:
-        name = animal.get("name", "").lower()
-        model_url = ""
-        
-        # Match by keyword
-        for keyword, model_id in verified_keywords.items():
-            if keyword in name:
-                model_url = f"https://sketchfab.com/3d-models/{model_id}"
-                break
-        
-        model_links[name] = model_url
-    
-    # Save to data/model_links.json
-    repo_root = Path(__file__).parent.parent
-    model_links_path = repo_root / "data" / "model_links.json"
-    
-    with open(model_links_path, "w", encoding="utf-8") as f:
-        json.dump(model_links, f, indent=2, ensure_ascii=False)
-    
-    print(f"✅ Generated model_links.json with {len(model_links)} entries")
 
-
-# Call this at the end of generate() function
-def generate(animals, force=False):
-    # ... existing code ...
-    
-    # Save final output
-    with open("data/animals.json", "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
-    
-    # Generate model links
-    generate_model_links_file(output)
-    
-    print(f"\n✅ Done! {len(output)} animals saved to data/animals.json")
-    return output
     # ========== SAVE TO REPO ROOT data/ FOLDER ==========
     repo_root = Path(__file__).parent.parent
     repo_data_dir = repo_root / "data"
@@ -455,6 +443,9 @@ def generate(animals, force=False):
     output_path = repo_data_dir / "animals.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
+    
+    # Generate model links file
+    generate_model_links_file(output)
     
     print(f"\n✅ Done! {len(output)} animals saved to {output_path}")
     return output
