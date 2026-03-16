@@ -1,5 +1,6 @@
 // ============================================
 // WildAtlas - Main JavaScript
+// Facts.app Dinosaurs Style
 // ============================================
 
 // ============================================
@@ -184,7 +185,7 @@ function setupViewToggle(modelViewer, imageElement, toggleButton, toggleText) {
 }
 
 let allAnimals = [];
-let currentFilter = 'all';
+let currentView = 'grid';
 
 // ============================================
 // Initialize on Page Load
@@ -192,102 +193,92 @@ let currentFilter = 'all';
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🦁 WildAtlas initializing...');
     
-    const isHomePage = document.getElementById('grid') !== null;
+    const isHomePage = document.getElementById('grid-mammal') !== null;
     const isDetailPage = document.getElementById('animal-name') !== null;
     
     if (isHomePage) {
         initHomePage();
-        setupTypeTabs();
+        setupSectionToggles();
+        setupViewToggle();
     } else if (isDetailPage) {
         initDetailPage();
     }
 });
 
 // ============================================
-// Type Tabs System
+// Section Toggle System (Collapsible)
 // ============================================
-function setupTypeTabs() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
+function setupSectionToggles() {
+    const sectionHeaders = document.querySelectorAll('.section-header');
     
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all tabs
-            tabButtons.forEach(btn => btn.classList.remove('active'));
+    sectionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const section = header.parentElement;
+            section.classList.toggle('collapsed');
             
-            // Add active class to clicked tab
-            button.classList.add('active');
-            
-            // Get filter type
-            const filterType = button.dataset.type;
-            currentFilter = filterType;
-            
-            // Filter and render animals
-            filterAndRenderAnimals(filterType);
-            
-            // Update search placeholder
-            const searchInput = document.getElementById('search-input');
-            if (searchInput) {
-                const typeName = button.querySelector('.tab-label').textContent;
-                searchInput.placeholder = `Search ${typeName.toLowerCase()}...`;
-            }
+            // Save state to localStorage
+            const type = section.dataset.type;
+            localStorage.setItem(`section-${type}`, section.classList.contains('collapsed') ? 'collapsed' : 'expanded');
         });
+    });
+    
+    // Restore state from localStorage
+    const types = ['mammal', 'bird', 'reptile', 'fish', 'amphibian', 'insect'];
+    types.forEach(type => {
+        const state = localStorage.getItem(`section-${type}`);
+        if (state === 'collapsed') {
+            const section = document.querySelector(`.type-section[data-type="${type}"]`);
+            if (section) {
+                section.classList.add('collapsed');
+            }
+        }
     });
 }
 
-function filterAndRenderAnimals(filterType) {
-    if (filterType === 'all') {
-        renderGrid(allAnimals);
-    } else {
-        const filtered = allAnimals.filter(animal => {
-            const animalType = animal.animal_type?.toLowerCase() || '';
-            const classType = animal.classification?.class?.toLowerCase() || '';
+// ============================================
+// View Toggle (Grid/List)
+// ============================================
+function setupViewToggle() {
+    const viewButtons = document.querySelectorAll('.view-btn');
+    
+    viewButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active from all
+            viewButtons.forEach(btn => btn.classList.remove('active'));
             
-            // Map filter types to animal classifications
-            const typeMappings = {
-                'mammal': ['mammal', 'mammalia', 'feline', 'canine', 'bear', 'elephant', 'primate', 'whale', 'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat', 'giraffe', 'cheetah'],
-                'bird': ['bird', 'aves', 'raptor', 'owl', 'penguin', 'chicken', 'duck', 'goose', 'swan', 'eagle'],
-                'reptile': ['reptile', 'reptilia', 'snake', 'lizard', 'turtle', 'crocodile'],
-                'fish': ['fish', 'shark', 'ray', 'salmon'],
-                'amphibian': ['amphibian', 'amphibia', 'frog', 'salamander'],
-                'insect': ['insect', 'insecta', 'butterfly', 'bee', 'ant', 'spider', 'crab']
-            };
+            // Add active to clicked
+            button.classList.add('active');
             
-            const validTypes = typeMappings[filterType] || [];
+            // Get view type
+            currentView = button.dataset.view;
             
-            return validTypes.some(type => 
-                animalType.includes(type) || classType.includes(type)
-            );
+            // Update all grids
+            const grids = document.querySelectorAll('.animal-grid');
+            grids.forEach(grid => {
+                if (currentView === 'list') {
+                    grid.classList.add('list-view');
+                } else {
+                    grid.classList.remove('list-view');
+                }
+            });
+            
+            // Save preference
+            localStorage.setItem('view-preference', currentView);
         });
-        
-        renderGrid(filtered);
-    }
-}
-
-function updateTabCounts() {
-    const typeMappings = {
-        'mammal': ['mammal', 'mammalia', 'feline', 'canine', 'bear', 'elephant', 'primate', 'whale', 'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat', 'giraffe', 'cheetah'],
-        'bird': ['bird', 'aves', 'raptor', 'owl', 'penguin', 'chicken', 'duck', 'goose', 'swan', 'eagle'],
-        'reptile': ['reptile', 'reptilia', 'snake', 'lizard', 'turtle', 'crocodile'],
-        'fish': ['fish', 'shark', 'ray', 'salmon'],
-        'amphibian': ['amphibian', 'amphibia', 'frog', 'salamander'],
-        'insect': ['insect', 'insecta', 'butterfly', 'bee', 'ant', 'spider', 'crab']
-    };
+    });
     
-    // Count all
-    document.getElementById('count-all').textContent = allAnimals.length;
-    
-    // Count by type
-    for (const [type, validTypes] of Object.entries(typeMappings)) {
-        const count = allAnimals.filter(animal => {
-            const animalType = animal.animal_type?.toLowerCase() || '';
-            const classType = animal.classification?.class?.toLowerCase() || '';
-            return validTypes.some(t => animalType.includes(t) || classType.includes(t));
-        }).length;
-        
-        const countElement = document.getElementById(`count-${type}`);
-        if (countElement) {
-            countElement.textContent = count;
-        }
+    // Restore preference
+    const savedView = localStorage.getItem('view-preference');
+    if (savedView && savedView === 'list') {
+        const grids = document.querySelectorAll('.animal-grid');
+        grids.forEach(grid => grid.classList.add('list-view'));
+        viewButtons.forEach(btn => {
+            if (btn.dataset.view === 'list') {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
     }
 }
 
@@ -295,7 +286,6 @@ function updateTabCounts() {
 // Home Page Functions
 // ============================================
 function initHomePage() {
-    const grid = document.getElementById('grid');
     const searchInput = document.getElementById('search-input');
     
     fetchAnimals()
@@ -303,22 +293,11 @@ function initHomePage() {
             allAnimals = animals;
             console.log(`✅ Loaded ${animals.length} animals`);
             
-            // Update tab counts
-            updateTabCounts();
-            
-            // Render all animals initially
-            renderGrid(animals);
+            // Organize and render by type
+            organizeByType(animals);
         })
         .catch(error => {
             console.error('❌ Error loading animals:', error);
-            if (grid) {
-                grid.innerHTML = `
-                    <div class="error-message" style="grid-column: 1/-1;">
-                        <h2>⚠️ Unable to Load Data</h2>
-                        <p>${error.message}</p>
-                    </div>
-                `;
-            }
         });
     
     if (searchInput) {
@@ -336,82 +315,106 @@ async function fetchAnimals() {
     return await response.json();
 }
 
-function renderGrid(animals) {
-    const grid = document.getElementById('grid');
+// Organize animals by type into sections
+function organizeByType(animals) {
+    const typeMappings = {
+        'mammal': [' mammal ', ' mammalia ', ' feline ', ' canine ', ' bear ', ' elephant ', ' primate ', ' whale ', ' deer ', ' bovine ', ' equine ', ' rabbit ', ' rodent ', ' bat ', ' giraffe ', ' cheetah '],
+        'bird': [' bird ', ' aves ', ' raptor ', ' owl ', ' penguin ', ' chicken ', 'duck ', ' goose ', ' swan ', ' eagle '],
+        'reptile': [' reptile ', ' reptilia ', ' snake ', ' lizard ', ' turtle ', ' crocodile '],
+        'fish': [' fish ', ' shark ', ' ray ', ' salmon '],
+        'amphibian': [' amphibian ', ' amphibia ', ' frog ', ' salamander '],
+        'insect': [' insect ', ' insecta ', ' butterfly ', ' bee ', ' ant ', ' spider ', ' crab ']
+    };
+    
+    // Clear all grids
+    Object.keys(typeMappings).forEach(type => {
+        document.getElementById(`grid-${type}`).innerHTML = '';
+    });
+    
+    // Count animals per type
+    const counts = {
+        mammal: 0,
+        bird: 0,
+        reptile: 0,
+        fish: 0,
+        amphibian: 0,
+        insect: 0
+    };
+    
+    // Organize animals
+    animals.forEach(animal => {
+        const animalType = animal.animal_type?.toLowerCase() || '';
+        const classType = animal.classification?.class?.toLowerCase() || '';
+        
+        // Find matching type
+        for (const [type, validTypes] of Object.entries(typeMappings)) {
+            if (validTypes.some(t => animalType.includes(t) || classType.includes(t))) {
+                renderAnimalCard(animal, type);
+                counts[type]++;
+                break;
+            }
+        }
+    });
+    
+    // Update counts
+    for (const [type, count] of Object.entries(counts)) {
+        const countElement = document.getElementById(`count-${type}`);
+        if (countElement) {
+            countElement.textContent = count;
+        }
+    }
+}
+
+// Render individual animal card (Facts.app style)
+function renderAnimalCard(animal, type) {
+    const grid = document.getElementById(`grid-${type}`);
     if (!grid) return;
     
-    grid.innerHTML = '';
+    const card = document.createElement('div');
+    card.className = 'animal-card';
     
-    if (animals.length === 0) {
-        grid.innerHTML = `
-            <div class="no-results" style="grid-column: 1/-1;">
-                <h2>No animals found</h2>
-                <p>Try searching for something else or selecting a different category.</p>
-            </div>
-        `;
-        return;
-    }
+    const imageUrl = animal.image ? animal.image.trim() : 'https://via.placeholder.com/48?text=?';
+    const name = animal.name;
+    const scientific = animal.scientific_name;
     
-    animals.forEach(animal => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        
-        const statusClass = getConservationClass(animal.ecology?.conservation_status);
-        const statusLabel = animal.ecology?.conservation_status || '';
-        const imageUrl = animal.image ? animal.image.trim() : 'https://via.placeholder.com/330x240?text=No+Image';
-        const summary = animal.summary || animal.description || 'No description available.';
-        
-        // Get animal type badge
-        const animalType = animal.animal_type || 'Unknown';
-        const typeClass = getAnimalTypeClass(animalType);
-        
-        card.innerHTML = `
-            <img src="${imageUrl}" alt="${animal.name}" loading="lazy">
-            <div class="card-content">
-                <div class="card-header">
-                    <h3>${animal.name}</h3>
-                    <span class="type-badge ${typeClass}">${capitalizeFirst(animalType)}</span>
-                </div>
-                <p class="scientific-name">${animal.scientific_name}</p>
-                <p>${truncateText(summary, 100)}</p>
-                ${statusLabel ? `<span class="conservation-badge ${statusClass}">${statusLabel}</span>` : ''}
-            </div>
-        `;
-        
-        card.addEventListener('click', () => {
-            window.location.href = `animal.html?name=${encodeURIComponent(animal.name)}`;
-        });
-        
-        grid.appendChild(card);
+    card.innerHTML = `
+        <img src="${imageUrl}" alt="${name}" loading="lazy">
+        <div class="animal-card-info">
+            <div class="animal-card-name">${name}</div>
+            <div class="animal-card-scientific">${scientific}</div>
+        </div>
+    `;
+    
+    card.addEventListener('click', () => {
+        window.location.href = `animal.html?name=${encodeURIComponent(name)}`;
     });
+    
+    grid.appendChild(card);
 }
 
-function getAnimalTypeClass(animalType) {
-    const typeLower = animalType.toLowerCase();
-    
-    if (['feline', 'canine', 'bear', 'elephant', 'primate', 'whale', 'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat', 'giraffe', 'cheetah', 'mammal'].includes(typeLower)) {
-        return 'type-mammal';
-    } else if (['bird', 'raptor', 'owl', 'penguin', 'chicken', 'duck', 'goose', 'swan', 'eagle'].includes(typeLower)) {
-        return 'type-bird';
-    } else if (['reptile', 'snake', 'lizard', 'turtle', 'crocodile'].includes(typeLower)) {
-        return 'type-reptile';
-    } else if (['fish', 'shark', 'ray', 'salmon'].includes(typeLower)) {
-        return 'type-fish';
-    } else if (['amphibian', 'frog', 'salamander'].includes(typeLower)) {
-        return 'type-amphibian';
-    } else if (['insect', 'butterfly', 'bee', 'ant', 'spider', 'crab'].includes(typeLower)) {
-        return 'type-insect';
-    }
-    
-    return 'type-other';
-}
-
+// Filter animals across all sections
 function filterAnimals(query) {
+    const typeMappings = {
+        'mammal': [' mammal ', ' mammalia ', ' feline ', ' canine ', ' bear ', ' elephant ', ' primate ', ' whale ', ' deer ', ' bovine ', ' equine ', ' rabbit ', ' rodent ', ' bat ', ' giraffe ', ' cheetah '],
+        'bird': [' bird ', ' aves ', ' raptor ', ' owl ', ' penguin ', ' chicken ', ' duck ', ' goose ', ' swan ', ' eagle '],
+        'reptile': [' reptile ', ' reptilia ', ' snake ', ' lizard ', ' turtle ', ' crocodile '],
+        'fish': [' fish ', ' shark ', ' ray ', ' salmon '],
+        'amphibian': [' amphibian ', ' amphibia ', ' frog ', ' salamander '],
+        'insect': [' insect ', ' insecta ', ' butterfly ', ' bee ', ' ant ', ' spider ', ' crab ']
+    };
+    
     if (!query) {
-        filterAndRenderAnimals(currentFilter);
+        // Show all
+        organizeByType(allAnimals);
         return;
     }
     
+    // Clear all grids
+    Object.keys(typeMappings).forEach(type => {
+        document.getElementById(`grid-${type}`).innerHTML = '';
+    });
+    
+    // Filter and render
     const filtered = allAnimals.filter(animal => {
         const nameMatch = animal.name?.toLowerCase().includes(query);
         const scientificMatch = animal.scientific_name?.toLowerCase().includes(query);
@@ -421,7 +424,39 @@ function filterAnimals(query) {
         return nameMatch || scientificMatch || typeMatch || habitatMatch || locationMatch;
     });
     
-    renderGrid(filtered);
+    // Re-organize filtered results
+    filtered.forEach(animal => {
+        const animalType = animal.animal_type?.toLowerCase() || '';
+        const classType = animal.classification?.class?.toLowerCase() || '';
+        
+        for (const [type, validTypes] of Object.entries(typeMappings)) {
+            if (validTypes.some(t => animalType.includes(t) || classType.includes(t))) {
+                renderAnimalCard(animal, type);
+                break;
+            }
+        }
+    });
+    
+    // Update counts
+    const counts = { mammal: 0, bird: 0, reptile: 0, fish: 0, amphibian: 0, insect: 0 };
+    filtered.forEach(animal => {
+        const animalType = animal.animal_type?.toLowerCase() || '';
+        const classType = animal.classification?.class?.toLowerCase() || '';
+        
+        for (const [type, validTypes] of Object.entries(typeMappings)) {
+            if (validTypes.some(t => animalType.includes(t) || classType.includes(t))) {
+                counts[type]++;
+                break;
+            }
+        }
+    });
+    
+    for (const [type, count] of Object.entries(counts)) {
+        const countElement = document.getElementById(`count-${type}`);
+        if (countElement) {
+            countElement.textContent = count;
+        }
+    }
 }
 
 // ============================================
@@ -451,8 +486,6 @@ async function initDetailPage() {
             }
             
             populateDetailPage(animal);
-            
-            // Setup scroll indicator after content is loaded
             setupScrollIndicator();
         })
         .catch(error => {
@@ -473,7 +506,7 @@ function populateDetailPage(animal) {
     
     // === LEFT SIDEBAR ===
     
-    // Diet Icons - Multiple icons per animal
+    // Diet Icons
     const dietIcons = document.getElementById('diet-icons');
     if (dietIcons && eco.diet) {
         const dietTypes = getDietTypes(eco.diet, animal.animal_type, summary);
@@ -482,7 +515,7 @@ function populateDetailPage(animal) {
         `).join('');
     }
     
-    // Stats - Only show if data exists (auto-hide null/empty)
+    // Stats
     setStatContent('stat-length', 'stat-length-card', phys.length);
     setStatContent('stat-height', 'stat-height-card', phys.height);
     setStatContent('stat-weight', 'stat-weight-card', phys.weight);
@@ -503,10 +536,10 @@ function populateDetailPage(animal) {
     
     // === CENTER COLUMN ===
     
-    // Setup 3D Model (or image fallback)
+    // Setup 3D Model
     setup3DModel(animal);
     
-    // Hero Image (set src, visibility handled by setup3DModel)
+    // Hero Image
     const heroImage = document.getElementById('animal-image');
     if (heroImage && animal.image) {
         heroImage.src = animal.image.trim();
@@ -593,22 +626,17 @@ function populateDetailPage(animal) {
     
     // === MAIN ARTICLE SECTIONS ===
     
-    // Overview
     setStatContent('overview-text', null, animal.summary || animal.description || 'No description available.');
     
-    // Description
     const descriptionText = generateDescriptionText(animal, summary);
     setStatContent('description-text', null, descriptionText);
     
-    // Habitat
     const habitatText = generateHabitatText(animal);
     setStatContent('habitat-text', null, habitatText);
     
-    // Behavior
     const behaviorText = generateBehaviorText(animal, summary);
     setStatContent('behavior-text', null, behaviorText);
     
-    // Conservation
     const conservationArticleText = generateConservationText(animal);
     setStatContent('conservation-text', null, conservationArticleText);
     
@@ -762,37 +790,37 @@ function getTimePeriod(animal) {
     let text = '';
     let width = '50%';
     
-    if (classType.includes('mammal') || animalType.includes('cat') || animalType.includes('feline') || 
-        animalType.includes('dog') || animalType.includes('canine') || animalType.includes('elephant') ||
-        animalType.includes('wolf') || animalType.includes('tiger')) {
+    if (classType.includes(' mammal ') || animalType.includes(' cat ') || animalType.includes(' feline ') || 
+        animalType.includes(' dog ') || animalType.includes(' canine ') || animalType.includes(' elephant ') ||
+        animalType.includes(' wolf ') || animalType.includes(' tiger ')) {
         millionsYears = 200;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '85%';
     }
-    else if (classType.includes('aves') || animalType.includes('bird') || animalType.includes('eagle') || 
-             animalType.includes('penguin') || animalType.includes('raptor')) {
+    else if (classType.includes(' aves ') || animalType.includes(' bird ') || animalType.includes(' eagle ') || 
+             animalType.includes(' penguin ') || animalType.includes(' raptor ')) {
         millionsYears = 150;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '75%';
     }
-    else if (classType.includes('reptil') || animalType.includes('snake') || animalType.includes('turtle') ||
-             animalType.includes('cobra')) {
+    else if (classType.includes(' reptil ') || animalType.includes(' snake ') || animalType.includes(' turtle ') ||
+             animalType.includes(' cobra ')) {
         millionsYears = 300;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '90%';
     }
-    else if (classType.includes('fish') || classType.includes('chondrichthyes') || classType.includes('actinopterygii') ||
+    else if (classType.includes(' fish ') || classType.includes(' chondrichthyes ') || classType.includes(' actinopterygii ') ||
              animalType.includes('shark') || animalType.includes('salmon')) {
         millionsYears = 500;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '95%';
     }
-    else if (classType.includes('amphib') || animalType.includes('frog')) {
+    else if (classType.includes(' amphib ') || animalType.includes(' frog ')) {
         millionsYears = 370;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '92%';
     }
-    else if (classType.includes('insect') || animalType.includes('butterfly') || animalType.includes('bee')) {
+    else if (classType.includes(' insect ') || animalType.includes(' butterfly ') || animalType.includes(' bee ')) {
         millionsYears = 400;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '93%';
@@ -902,7 +930,7 @@ function generateBehaviorText(animal, summary) {
     }
     
     if (summary) {
-        const behaviorKeywords = ['hunt', 'feed', 'live', 'behavior', 'social', 'group', 'solitary'];
+        const behaviorKeywords = [' hunt ', ' feed ', ' live ', ' behavior ', ' social ', ' group ', ' solitary '];
         const sentences = summary.split('.');
         for (const sentence of sentences) {
             if (behaviorKeywords.some(k => sentence.toLowerCase().includes(k))) {
@@ -1036,7 +1064,7 @@ function generateFeaturesFAQ(animal) {
 
 function generateDangerFAQ(animal) {
     const animalType = animal.animal_type?.toLowerCase() || '';
-    const dangerousTypes = ['feline', 'canine', 'bear', 'shark', 'snake', 'crocodile', 'raptor'];
+    const dangerousTypes = [' feline ', ' canine ', ' bear ', ' shark ', ' snake ', ' crocodile ', ' raptor '];
     
     if (dangerousTypes.includes(animalType)) {
         return `${animal.name} can be dangerous to humans if threatened or provoked. It is best to observe from a safe distance and never approach wild animals.`;
@@ -1109,7 +1137,7 @@ function getDietTypes(diet, animalType, summary) {
         summaryLower.includes('predator') ||
         summaryLower.includes('preys on') ||
         summaryLower.includes('hunts') ||
-        ['feline', 'canine', 'bear', 'shark', 'raptor', 'snake', 'crocodile'].includes(typeLower)) {
+        [' feline ', ' canine ', ' bear ', ' shark ', ' raptor ', ' snake ', ' crocodile '].includes(typeLower)) {
         types.push({ class: 'carnivore', icon: '🥩', title: 'Meat' });
     }
     
@@ -1119,7 +1147,7 @@ function getDietTypes(diet, animalType, summary) {
         summaryLower.includes('grazes') ||
         summaryLower.includes('foliage') ||
         summaryLower.includes('vegetation') ||
-        ['elephant', 'bovine', 'deer', 'rabbit', 'turtle'].includes(typeLower)) {
+        [' elephant ', ' bovine ', ' deer ', ' rabbit ', ' turtle '].includes(typeLower)) {
         types.push({ class: 'herbivore', icon: '🌿', title: 'Plants' });
     }
     
@@ -1129,7 +1157,7 @@ function getDietTypes(diet, animalType, summary) {
         summaryLower.includes('fish') ||
         summaryLower.includes('salmon') ||
         summaryLower.includes('marine') ||
-        ['shark', 'eagle', 'penguin', 'bear', 'seal', 'otter'].includes(typeLower)) {
+        [' shark ', ' eagle ', ' penguin ', ' bear ', ' seal ', ' otter '].includes(typeLower)) {
         types.push({ class: 'piscivore', icon: '🐟', title: 'Fish' });
     }
     
@@ -1138,7 +1166,7 @@ function getDietTypes(diet, animalType, summary) {
         summaryLower.includes('insects') ||
         summaryLower.includes('bugs') ||
         summaryLower.includes('arthropods') ||
-        ['frog', 'bat', 'spider', 'lizard', 'bird'].includes(typeLower)) {
+        [' frog ', ' bat ', ' spider ', ' lizard ', ' bird '].includes(typeLower)) {
         types.push({ class: 'insectivore', icon: '🐛', title: 'Insects' });
     }
     
@@ -1146,21 +1174,21 @@ function getDietTypes(diet, animalType, summary) {
     if (dietLower.includes('omnivore') || 
         summaryLower.includes('varied diet') ||
         summaryLower.includes('both plants and animals') ||
-        ['bear', 'pig', 'raccoon', 'crow'].includes(typeLower)) {
+        [' bear ', ' pig ', ' raccoon ', ' crow '].includes(typeLower)) {
         types.push({ class: 'omnivore', icon: '🍽️', title: 'Omnivore' });
     }
     
     // NECTARIVORE / NECTAR
     if (summaryLower.includes('nectar') ||
         summaryLower.includes('pollinator') ||
-        ['butterfly', 'bee', 'hummingbird'].includes(typeLower)) {
+        [' butterfly ', ' bee ', ' hummingbird '].includes(typeLower)) {
         types.push({ class: 'nectarivore', icon: '🌸', title: 'Nectar' });
     }
     
     // SCAVENGER
     if (summaryLower.includes('scavenger') ||
         summaryLower.includes('carrion') ||
-        ['vulture', 'hyena'].includes(typeLower)) {
+        [' vulture ', ' hyena '].includes(typeLower)) {
         types.push({ class: 'scavenger', icon: '🦴', title: 'Scavenger' });
     }
     
