@@ -1,0 +1,62 @@
+{
+  "id": "Q7785",
+  "name": "Green Sea Turtle",
+  "scientific_name": "Chelonia mydas",
+  "common_names": [],
+  "description": "Species of large sea reptile",
+  "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
+  "classification": {
+    "kingdom": "Unknown",
+    "phylum": "Unknown",
+    "class": "Unknown",
+    "order": "Unknown",
+    "family": "Unknown",
+    "genus": "Unknown",
+    "species": "Chelonia mydas"
+  },
+  "animal_type": "turtle",
+  "young_name": "hatchling",
+  "group_name": "bale",
+  "physical": {
+    "weight": "Unknown",
+    "length": "Unknown",
+    "height": "Unknown",
+    "top_speed": "Unknown",
+    "lifespan": "Unknown"
+  },
+  "ecology": {
+    "diet": "Unknown",
+    "habitat": "Unknown",
+    "locations": "Unknown",
+    "group_behavior": "Unknown",
+    "conservation_status": "Unknown",
+    "biggest_threat": "Unknown",
+    "distinctive_features": [],
+    "population_trend": "Unknown"
+  },
+  "reproduction": {
+    "gestation_period": "Unknown",
+    "average_litter_size": "Unknown",
+    "name_of_young": "hatchling"
+  },
+  "additional_info": {
+    "lifestyle": "Unknown",
+    "color": "Unknown",
+    "skin_type": "Unknown",
+    "prey": "Unknown",
+    "slogan": "Unknown",
+    "group": "Unknown",
+    "number_of_species": "Unknown",
+    "estimated_population_size": "Unknown",
+    "age_of_sexual_maturity": "Unknown",
+    "age_of_weaning": "Unknown",
+    "most_distinctive_feature": "Unknown"
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia"
+  ],
+  "last_updated": "2026-03-16T16:05:31.912322"
+}

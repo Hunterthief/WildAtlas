@@ -1,0 +1,62 @@
+{
+  "id": "Q213537",
+  "name": "Gray Wolf",
+  "scientific_name": "Canis lupus",
+  "common_names": [],
+  "description": "Species of canine",
+  "summary": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America. More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo, though grey wolves, as popularly understood, include only naturally occurring wild subspecies. The wolf is the largest wild extant member of the family Canidae, and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal, to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
+  "classification": {
+    "kingdom": "Unknown",
+    "phylum": "Unknown",
+    "class": "Unknown",
+    "order": "Unknown",
+    "family": "Unknown",
+    "genus": "Unknown",
+    "species": "Canis lupus"
+  },
+  "animal_type": "ray",
+  "young_name": "pup",
+  "group_name": "fever",
+  "physical": {
+    "weight": "Unknown",
+    "length": "Unknown",
+    "height": "Unknown",
+    "top_speed": "Unknown",
+    "lifespan": "Unknown"
+  },
+  "ecology": {
+    "diet": "Unknown",
+    "habitat": "Unknown",
+    "locations": "Unknown",
+    "group_behavior": "Unknown",
+    "conservation_status": "Unknown",
+    "biggest_threat": "Unknown",
+    "distinctive_features": [],
+    "population_trend": "Unknown"
+  },
+  "reproduction": {
+    "gestation_period": "Unknown",
+    "average_litter_size": "Unknown",
+    "name_of_young": "pup"
+  },
+  "additional_info": {
+    "lifestyle": "Unknown",
+    "color": "Unknown",
+    "skin_type": "Unknown",
+    "prey": "Unknown",
+    "slogan": "Unknown",
+    "group": "Unknown",
+    "number_of_species": "Unknown",
+    "estimated_population_size": "Unknown",
+    "age_of_sexual_maturity": "Unknown",
+    "age_of_weaning": "Unknown",
+    "most_distinctive_feature": "Unknown"
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia"
+  ],
+  "last_updated": "2026-03-16T16:05:26.336835"
+}

@@ -4,57 +4,124 @@
     "name": "Tiger",
     "scientific_name": "Panthera tigris",
     "common_names": [],
-    "description": "The most numerous species of tiger!",
+    "description": "Species of large cat",
     "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Mammalia",
-      "order": "Carnivora",
-      "family": "Felidae",
-      "genus": "Panthera",
-      "species": "Panthera Tigris Tigris"
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
+      "species": "Panthera tigris"
     },
     "animal_type": "feline",
     "young_name": "cub",
     "group_name": "streak",
     "physical": {
-      "weight": "140–300 kg",
-      "length": "2.7–3.7 m",
-      "height": null,
-      "top_speed": "60 mph",
-      "lifespan": "18 - 25 years"
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "Dense tropical forest and mangroves",
-      "locations": "Asia",
-      "group_behavior": "Solitary",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
-      "distinctive_features": [
-        "Stripe",
-        "Spot"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": "3",
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
       "name_of_young": "cub"
     },
     "additional_info": {
-      "lifestyle": "Solitary",
-      "color": "BlackWhiteOrange",
-      "skin_type": "Fur"
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
     },
     "sources": [
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:32:49.633324"
+    "last_updated": "2026-03-16T16:05:22.963629"
+  },
+  {
+    "id": "Q35625",
+    "name": "Cheetah",
+    "scientific_name": "Acinonyx jubatus",
+    "common_names": [],
+    "description": "Large feline of the genus Acinonyx",
+    "summary": "The cheetah is a species of large feline and the only living member of the genus Acinonyx. An iconic pursuit predator, it is the fastest land animal, capable of running at 93 to 104 km/h ; it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
+    "classification": {
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
+      "species": "Acinonyx jubatus"
+    },
+    "animal_type": "feline",
+    "young_name": "cub",
+    "group_name": "streak",
+    "physical": {
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
+    },
+    "ecology": {
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
+    },
+    "reproduction": {
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
+      "name_of_young": "cub"
+    },
+    "additional_info": {
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T16:05:24.138457"
   },
   {
     "id": "Q7372",
@@ -66,49 +133,57 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Mammalia",
-      "order": "Proboscidea",
-      "family": "Elephantidae",
-      "genus": "Loxodonta",
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
       "species": "Loxodonta africana"
     },
-    "animal_type": "elephant",
-    "young_name": "calf",
-    "group_name": "herd",
+    "animal_type": "ant",
+    "young_name": "larva",
+    "group_name": "colony",
     "physical": {
-      "weight": null,
-      "length": "6.0–7.0 m",
-      "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Herbivore",
-      "habitat": "forest, savanna, rainforest",
-      "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
-      "group_behavior": "Social",
-      "conservation_status": "Critically Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Climate change",
-      "distinctive_features": [
-        "Trunk",
-        "Tusk",
-        "Ear"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": "2",
-      "name_of_young": "calf"
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
+      "name_of_young": "larva"
     },
-    "additional_info": {},
+    "additional_info": {
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
+    },
     "sources": [
-      "Wikipedia",
-      "iNaturalist"
+      "API Ninjas",
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:32:52.764704"
+    "last_updated": "2026-03-16T16:05:25.260952"
   },
   {
     "id": "Q213537",
@@ -120,233 +195,243 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Mammalia",
-      "order": "Carnivora",
-      "family": "Canidae",
-      "genus": "Canis",
-      "species": "Canis familiaris"
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
+      "species": "Canis lupus"
     },
-    "animal_type": "canine",
+    "animal_type": "ray",
     "young_name": "pup",
-    "group_name": "pack",
+    "group_name": "fever",
     "physical": {
-      "weight": null,
-      "length": null,
-      "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Insectivore",
-      "habitat": "coastal, forest, desert, savanna",
-      "locations": "North America, Eurasia, Europe, Asia, Russia",
-      "group_behavior": "Social",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Habitat loss, Human-wildlife conflict, Overfishing",
-      "distinctive_features": [
-        "Tail",
-        "Claw",
-        "Fur"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": "62–75 days",
-      "average_litter_size": "1",
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
       "name_of_young": "pup"
     },
-    "additional_info": {},
-    "sources": [
-      "Wikipedia",
-      "iNaturalist"
-    ],
-    "last_updated": "2026-03-16T15:32:55.438821"
-  },
-  {
-    "id": "Q25319",
-    "name": "Bald Eagle",
-    "scientific_name": "Haliaeetus leucocephalus",
-    "common_names": [
-      "bald eagle"
-    ],
-    "description": "Bird of prey species of North America",
-    "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
-    "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Aves",
-      "order": "Accipitriformes",
-      "family": "Accipitridae",
-      "genus": "Haliaeetus",
-      "species": "haliaeetus leucocephalus"
-    },
-    "animal_type": "raptor",
-    "young_name": "chick",
-    "group_name": "kettle",
-    "physical": {
-      "weight": "6.6-14lbs",
-      "length": null,
-      "height": "28-38 inches",
-      "top_speed": "100 mph",
-      "lifespan": "15-20 years in the wild"
-    },
-    "ecology": {
-      "diet": "Carnivore",
-      "habitat": "Near forests",
-      "locations": "North-America",
-      "group_behavior": "Solitary",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Pesticide use",
-      "distinctive_features": [
-        "The white plumage on the head"
-      ],
-      "population_trend": null
-    },
-    "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": "4",
-      "name_of_young": "chick"
-    },
     "additional_info": {
-      "prey": "Fish, birds, and small mammals",
-      "color": "BrownYellowWhite",
-      "number_of_species": "1"
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
     },
     "sources": [
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:32:57.393789"
+    "last_updated": "2026-03-16T16:05:26.336835"
+  },
+  {
+    "id": "Q25319",
+    "name": "Bald Eagle",
+    "scientific_name": "Haliaeetus leucocephalus",
+    "common_names": [],
+    "description": "Bird of prey species of North America",
+    "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
+    "classification": {
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
+      "species": "Haliaeetus leucocephalus"
+    },
+    "animal_type": "raptor",
+    "young_name": "chick",
+    "group_name": "kettle",
+    "physical": {
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
+    },
+    "ecology": {
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
+    },
+    "reproduction": {
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
+      "name_of_young": "chick"
+    },
+    "additional_info": {
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia"
+    ],
+    "last_updated": "2026-03-16T16:05:27.465452"
   },
   {
     "id": "Q43306",
     "name": "Emperor Penguin",
     "scientific_name": "Aptenodytes forsteri",
-    "common_names": [
-      "Emperor Penguin"
-    ],
-    "description": "The world's largest species of penguin!",
+    "common_names": [],
+    "description": "Large flightless seabird endemic to Antarctica",
     "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Aves",
-      "order": "Sphenisciformes",
-      "family": "Spheniscidae",
-      "genus": "Aptenodytes",
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
       "species": "Aptenodytes forsteri"
     },
     "animal_type": "penguin",
     "young_name": "chick",
     "group_name": "colony",
     "physical": {
-      "weight": "22–45 kg",
-      "length": null,
-      "height": "100–120 cm",
-      "top_speed": "15 mph",
-      "lifespan": "15 - 50 years"
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "Compact sea-ice and ocean",
-      "locations": "Antarctica, Ocean",
-      "group_behavior": "Colony",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Global warming",
-      "distinctive_features": [
-        "Bright yellow feathers on neck and ears"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": null,
-      "name_of_young": "Chick"
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
+      "name_of_young": "chick"
     },
     "additional_info": {
-      "prey": "Fish, Krill, Squid",
-      "lifestyle": "Diurnal",
-      "color": "YellowBlackWhiteOrange",
-      "skin_type": "Feathers",
-      "estimated_population": "200,000 breeding pairs",
-      "number_of_species": "1",
-      "age_of_sexual_maturity": "3 - 8 years"
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
     },
     "sources": [
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:32:59.040068"
+    "last_updated": "2026-03-16T16:05:28.587673"
   },
   {
     "id": "Q47164",
     "name": "Great White Shark",
     "scientific_name": "Carcharodon carcharias",
-    "common_names": [
-      "Great White Shark"
-    ],
-    "description": "Can grow to more than 8 meters long!",
+    "common_names": [],
+    "description": "Species of large lamniform shark",
     "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight and provides buoyancy and stores energy. The species is partially warm-blooded, an adaptation that allows them to remain active in colder waters.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Chondrichthyes",
-      "order": "Lamniformes",
-      "family": "Lamnidae",
-      "genus": "Carcharodon",
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
       "species": "Carcharodon carcharias"
     },
     "animal_type": "shark",
     "young_name": "pup",
     "group_name": "shiver",
     "physical": {
-      "weight": "110 kg",
-      "length": null,
-      "height": null,
-      "top_speed": "15 mph",
-      "lifespan": "30 - 40 years"
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "Temperate, coastal waters and open ocean",
-      "locations": "Ocean",
-      "group_behavior": "Solitary",
-      "conservation_status": "Critically Endangered",
-      "biggest_threat": "Hunting and habitat degredation",
-      "distinctive_features": [
-        "Fin",
-        "Tail",
-        "Tooth"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": "300",
-      "name_of_young": "Pup"
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
+      "name_of_young": "pup"
     },
     "additional_info": {
-      "prey": "Seals, Sea Lions, Dolphins",
-      "lifestyle": "Diurnal",
-      "color": "GreyBlackWhite",
-      "skin_type": "Tough",
-      "estimated_population": "Unknown",
-      "number_of_species": "1",
-      "age_of_sexual_maturity": "17 years"
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
     },
     "sources": [
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:33:01.000383"
+    "last_updated": "2026-03-16T16:05:29.708360"
   },
   {
     "id": "Q39709",
@@ -358,49 +443,57 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Actinopterygii",
-      "order": "Salmoniformes",
-      "family": "Salmonidae",
-      "genus": "Salmo",
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
       "species": "Salmo salar"
     },
     "animal_type": "salmon",
     "young_name": "fry",
     "group_name": "run",
     "physical": {
-      "weight": null,
-      "length": "20.0–25.0 cm",
-      "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "coastal, sea, river, Atlantic",
-      "locations": "North Atlantic, Canada, Alaska, United States, Europe",
-      "group_behavior": "Solitary",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Climate change",
-      "distinctive_features": [
-        "Fin",
-        "Tail",
-        "Scale"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": null,
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
       "name_of_young": "fry"
     },
-    "additional_info": {},
+    "additional_info": {
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
+    },
     "sources": [
-      "Wikipedia",
-      "iNaturalist"
+      "API Ninjas",
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:33:04.017990"
+    "last_updated": "2026-03-16T16:05:30.788816"
   },
   {
     "id": "Q7785",
@@ -412,110 +505,119 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Reptilia",
-      "order": "Testudines",
-      "family": "Cheloniidae",
-      "genus": "Chelonia",
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
       "species": "Chelonia mydas"
     },
     "animal_type": "turtle",
     "young_name": "hatchling",
     "group_name": "bale",
     "physical": {
-      "weight": "300.0 kg",
-      "length": "28.0–56.0 cm",
-      "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Herbivore",
-      "habitat": "coastal, sea, tropical, temperate",
-      "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
-      "group_behavior": "Solitary",
-      "conservation_status": "Critically Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Climate change",
-      "distinctive_features": [
-        "Shell",
-        "Flipper",
-        "Scale"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": "85–200",
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
       "name_of_young": "hatchling"
     },
-    "additional_info": {},
+    "additional_info": {
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
+    },
     "sources": [
-      "Wikipedia",
-      "iNaturalist"
+      "API Ninjas",
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:33:06.794286"
+    "last_updated": "2026-03-16T16:05:31.912322"
   },
   {
     "id": "Q189609",
     "name": "King Cobra",
     "scientific_name": "Ophiophagus hannah",
-    "common_names": [
-      "King Cobra"
-    ],
+    "common_names": [],
     "description": "Group of venomous snakes from Asia",
     "summary": "The king cobra is a species complex of snakes endemic to Asia. With an average length of 3.18 to 4 m and a record length of 5.85 m (19.2 ft), it is the world's longest venomous snake and among the heaviest. Under the genus Ophiophagus, it is not phylogenetically a true cobra despite its common name and some resemblance. Spanning from the Indian subcontinent through Southeastern Asia to Southern China, the king cobra is widely distributed albeit not commonly seen.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Reptilia",
-      "order": "Squamata",
-      "family": "Elapidae",
-      "genus": "Ophiophagus",
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
       "species": "Ophiophagus hannah"
     },
     "animal_type": "snake",
     "young_name": "hatchling",
     "group_name": "den",
     "physical": {
-      "weight": null,
-      "length": "3.18–4.0 m",
-      "height": null,
-      "top_speed": "12 mph",
-      "lifespan": "About 20 years"
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "Forest, shrublands, wetlands",
-      "locations": "Asia",
-      "group_behavior": "Family groups",
-      "conservation_status": "Vulnerable",
-      "biggest_threat": "Poaching, habitat loss",
-      "distinctive_features": [
-        "An expanding hood"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": "66-105 days",
-      "average_litter_size": "7–43",
-      "name_of_young": "Hatchlings"
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
+      "name_of_young": "hatchling"
     },
     "additional_info": {
-      "prey": "Lizards, birds, other snakes",
-      "lifestyle": "Diurnal",
-      "color": "BrownYellowBlackGreen",
-      "skin_type": "Scales",
-      "estimated_population": "Unknown",
-      "number_of_species": "20"
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
     },
     "sources": [
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:33:08.641903"
+    "last_updated": "2026-03-16T16:05:32.986818"
   },
   {
     "id": "Q270238",
@@ -527,355 +629,180 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Amphibia",
-      "order": "Anura",
-      "family": "Ranidae",
-      "genus": "Lithobates",
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
       "species": "Lithobates catesbeianus"
     },
     "animal_type": "frog",
     "young_name": "tadpole",
     "group_name": "army",
     "physical": {
-      "weight": null,
-      "length": null,
-      "height": null,
-      "top_speed": null,
-      "lifespan": "16 years"
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Omnivore",
-      "habitat": "coastal, sea, river, tropical",
-      "locations": "Asia, China, Indonesia, Japan, Europe",
-      "group_behavior": "Solitary",
-      "conservation_status": "Vulnerable",
-      "biggest_threat": "Human-wildlife conflict, Overfishing",
-      "distinctive_features": [
-        "Long tail"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": "3",
-      "name_of_young": "young"
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
+      "name_of_young": "tadpole"
     },
-    "additional_info": {},
+    "additional_info": {
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
+    },
     "sources": [
-      "Wikipedia",
-      "iNaturalist"
+      "API Ninjas",
+      "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:33:11.486702"
+    "last_updated": "2026-03-16T16:05:34.057587"
   },
   {
     "id": "Q165980",
     "name": "Monarch Butterfly",
     "scientific_name": "Danaus plexippus",
-    "common_names": [
-      "Monarch Butterfly"
-    ],
+    "common_names": [],
     "description": "Milkweed butterfly in the family Nymphalidae",
     "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Arthropoda",
-      "class": "Insecta",
-      "order": "Lepidoptera",
-      "family": "Nymphalidae",
-      "genus": "Danaus",
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
       "species": "Danaus plexippus"
     },
     "animal_type": "butterfly",
     "young_name": "caterpillar",
     "group_name": "swarm",
     "physical": {
-      "weight": "0.25 - 0.75 grams",
-      "length": "8.9–10.2 cm",
-      "height": null,
-      "top_speed": "12 mph",
-      "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Herbivore",
-      "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
-      "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
-      "group_behavior": "Group",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Habitat loss",
-      "distinctive_features": [
-        "Black, orange, and white pattern on wings"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": "3 to 8 days for eggs to hatch after they are laid",
-      "average_litter_size": "300–500",
-      "name_of_young": "Larvae/Caterpillar"
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
+      "name_of_young": "caterpillar"
     },
     "additional_info": {
-      "lifestyle": "Diurnal",
-      "color": "BlackWhiteOrange",
-      "skin_type": "Scales",
-      "number_of_species": "3",
-      "age_of_sexual_maturity": "4-5 days after emerging from pupa"
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
     },
     "sources": [
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:33:13.339327"
+    "last_updated": "2026-03-16T16:05:35.129376"
   },
   {
     "id": "Q7316",
     "name": "Honey Bee",
     "scientific_name": "Apis mellifera",
-    "common_names": [
-      "Honey Bee"
-    ],
-    "description": "There are only 8 recognized species!",
+    "common_names": [],
+    "description": "Colonial flying insect",
     "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
     "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Arthropoda",
-      "class": "Insecta",
-      "order": "Hymenoptera",
-      "family": "Apidae",
-      "genus": "Apis",
-      "species": null
+      "kingdom": "Unknown",
+      "phylum": "Unknown",
+      "class": "Unknown",
+      "order": "Unknown",
+      "family": "Unknown",
+      "genus": "Unknown",
+      "species": "Apis mellifera"
     },
     "animal_type": "bee",
     "young_name": "larva",
     "group_name": "colony",
     "physical": {
-      "weight": null,
-      "length": null,
-      "height": null,
-      "top_speed": null,
-      "lifespan": null
+      "weight": "Unknown",
+      "length": "Unknown",
+      "height": "Unknown",
+      "top_speed": "Unknown",
+      "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Herbivore",
-      "habitat": "Sheltered forests and meadows",
-      "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
-      "group_behavior": "Social",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Habitat loss, Pollution, Overfishing",
-      "distinctive_features": [
-        "Wing",
-        "Stinger",
-        "Pollen Basket"
-      ],
-      "population_trend": null
+      "diet": "Unknown",
+      "habitat": "Unknown",
+      "locations": "Unknown",
+      "group_behavior": "Unknown",
+      "conservation_status": "Unknown",
+      "biggest_threat": "Unknown",
+      "distinctive_features": [],
+      "population_trend": "Unknown"
     },
     "reproduction": {
-      "gestation_period": null,
-      "average_litter_size": "200",
+      "gestation_period": "Unknown",
+      "average_litter_size": "Unknown",
       "name_of_young": "larva"
     },
     "additional_info": {
-      "color": "BrownYellowBlack",
-      "skin_type": "Hair",
-      "number_of_species": "8"
+      "lifestyle": "Unknown",
+      "color": "Unknown",
+      "skin_type": "Unknown",
+      "prey": "Unknown",
+      "slogan": "Unknown",
+      "group": "Unknown",
+      "number_of_species": "Unknown",
+      "estimated_population_size": "Unknown",
+      "age_of_sexual_maturity": "Unknown",
+      "age_of_weaning": "Unknown",
+      "most_distinctive_feature": "Unknown"
     },
     "sources": [
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T15:33:15.287464"
-  },
-  {
-    "id": "Q35625",
-    "name": "Cheetah",
-    "scientific_name": "Acinonyx jubatus",
-    "common_names": [
-      "Cheetah"
-    ],
-    "description": "The fastest land mammal in the world!",
-    "summary": "The cheetah is a species of large feline and the only living member of the genus Acinonyx. An iconic pursuit predator, it is the fastest land animal, capable of running at 93 to 104 km/h ; it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
-    "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Mammalia",
-      "order": "Carnivora",
-      "family": "Felidae",
-      "genus": "Acinonyx",
-      "species": "Acinonyx jubatus"
-    },
-    "animal_type": "feline",
-    "young_name": "cub",
-    "group_name": "streak",
-    "physical": {
-      "weight": "40–65 kg",
-      "length": "67.0–94.0 cm",
-      "height": "115–136 cm",
-      "top_speed": "70 mph",
-      "lifespan": "10 - 12 years"
-    },
-    "ecology": {
-      "diet": "Carnivore",
-      "habitat": "Open grassland",
-      "locations": "Africa, Asia, Eurasia",
-      "group_behavior": "Solitary/Pairs",
-      "conservation_status": "Critically Endangered",
-      "biggest_threat": "Habitat loss",
-      "distinctive_features": [
-        "Yellowish fur covered in small black spots"
-      ],
-      "population_trend": null
-    },
-    "reproduction": {
-      "gestation_period": "90 days",
-      "average_litter_size": "3",
-      "name_of_young": "Cub"
-    },
-    "additional_info": {
-      "prey": "Gazelle, Wildebeest, Hare",
-      "lifestyle": "Diurnal",
-      "color": "BrownYellowBlackTan",
-      "skin_type": "Fur",
-      "estimated_population": "8,500",
-      "number_of_species": "5",
-      "age_of_sexual_maturity": "20 - 24 months",
-      "age_of_weaning": "3 months"
-    },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:33:16.714239"
-  },
-  {
-    "id": "Q14373",
-    "name": "Giraffe",
-    "scientific_name": "Giraffa camelopardalis",
-    "common_names": [
-      "Giraffe"
-    ],
-    "description": "Long, black tongue can grow to 18 inches long!",
-    "summary": "Giraffes are large African hoofed mammals. They are the tallest living terrestrial animals and the largest ruminants on Earth. They are classified under the family Giraffidae, along with their closest extant relative, the okapi. Traditionally, giraffes have been thought of as one species, Giraffa camelopardalis, with nine subspecies. Most recently, researchers proposed dividing them into four extant species, with seven subspecies, which can be distinguished morphologically by their fur coat patterns. Six valid extinct species of Giraffa are known from the fossil record.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Giraffe_Mikumi_National_Park.jpg/330px-Giraffe_Mikumi_National_Park.jpg",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Giraffe",
-    "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Mammalia",
-      "order": "Artiodactyla",
-      "family": "Giraffidae",
-      "genus": "Giraffa",
-      "species": "Giraffa camelopardalis"
-    },
-    "animal_type": "giraffe",
-    "young_name": "young",
-    "group_name": "population",
-    "physical": {
-      "weight": "550 kg",
-      "length": "7.0–9.0 m",
-      "height": "4m - 6m (13ft - 20ft)",
-      "top_speed": "30 mph",
-      "lifespan": "20 - 25 years"
-    },
-    "ecology": {
-      "diet": "Herbivore",
-      "habitat": "Open woodland and savannah",
-      "locations": "Africa",
-      "group_behavior": "Herd",
-      "conservation_status": "Critically Endangered",
-      "biggest_threat": "Hunting and habitat loss",
-      "distinctive_features": [
-        "Elongated neck and unique patterned coat"
-      ],
-      "population_trend": null
-    },
-    "reproduction": {
-      "gestation_period": "457 days",
-      "average_litter_size": "1",
-      "name_of_young": "Calf"
-    },
-    "additional_info": {
-      "prey": "Leaves, Fruits, Seeds",
-      "lifestyle": "Diurnal",
-      "color": "BrownRedBlackWhiteTan",
-      "skin_type": "Hair",
-      "estimated_population": "Stable",
-      "number_of_species": "9",
-      "age_of_sexual_maturity": "3.5 - 4.5 years",
-      "age_of_weaning": "13 months"
-    },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:33:18.235867"
-  },
-  {
-    "id": "Q33602",
-    "name": "Polar Bear",
-    "scientific_name": "Ursus maritimus",
-    "common_names": [
-      "Polar Bear"
-    ],
-    "description": "Could be extinct within the next 30 years!",
-    "summary": "The polar bear is a large Arctic animal.",
-    "image": "",
-    "wikipedia_url": "https://en.wikipedia.org/wiki/Polar_Bear",
-    "classification": {
-      "kingdom": "Animalia",
-      "phylum": "Chordata",
-      "class": "Mammalia",
-      "order": "Carnivora",
-      "family": "Ursidae",
-      "genus": "Ursus",
-      "species": "Ursus maritimus"
-    },
-    "animal_type": "bear",
-    "young_name": "cub",
-    "group_name": "sloth",
-    "physical": {
-      "weight": "150–600 kg",
-      "length": null,
-      "height": null,
-      "top_speed": "25 mph",
-      "lifespan": "20 - 30 years"
-    },
-    "ecology": {
-      "diet": "Carnivore",
-      "habitat": "Coastal ice fields and floating ice",
-      "locations": "Eurasia, Europe, North-America, Ocean",
-      "group_behavior": "Solitary",
-      "conservation_status": "Least Concern",
-      "biggest_threat": "Global warming",
-      "distinctive_features": [
-        "Clear not white fur and black skin"
-      ],
-      "population_trend": null
-    },
-    "reproduction": {
-      "gestation_period": "6 - 9 months",
-      "average_litter_size": "2",
-      "name_of_young": "Cub"
-    },
-    "additional_info": {
-      "prey": "Seal, Walrus, Seabirds",
-      "lifestyle": "Diurnal",
-      "color": "YellowWhite",
-      "skin_type": "Fur",
-      "estimated_population": "20,000 - 25,000",
-      "number_of_species": "1",
-      "age_of_sexual_maturity": "3 - 5 years",
-      "age_of_weaning": "2 - 3 years"
-    },
-    "sources": [
-      "API Ninjas",
-      "Wikipedia"
-    ],
-    "last_updated": "2026-03-16T15:33:19.964404"
+    "last_updated": "2026-03-16T16:05:36.252840"
   }
 ]

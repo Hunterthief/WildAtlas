@@ -1,0 +1,62 @@
+{
+  "id": "Q39709",
+  "name": "Atlantic Salmon",
+  "scientific_name": "Salmo salar",
+  "common_names": [],
+  "description": "Species of fish",
+  "summary": "The Atlantic salmon is a species of ray-finned fish in the family Salmonidae. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon, growing up to 1 m (3.3 ft) in length. Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous, hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
+  "classification": {
+    "kingdom": "Unknown",
+    "phylum": "Unknown",
+    "class": "Unknown",
+    "order": "Unknown",
+    "family": "Unknown",
+    "genus": "Unknown",
+    "species": "Salmo salar"
+  },
+  "animal_type": "salmon",
+  "young_name": "fry",
+  "group_name": "run",
+  "physical": {
+    "weight": "Unknown",
+    "length": "Unknown",
+    "height": "Unknown",
+    "top_speed": "Unknown",
+    "lifespan": "Unknown"
+  },
+  "ecology": {
+    "diet": "Unknown",
+    "habitat": "Unknown",
+    "locations": "Unknown",
+    "group_behavior": "Unknown",
+    "conservation_status": "Unknown",
+    "biggest_threat": "Unknown",
+    "distinctive_features": [],
+    "population_trend": "Unknown"
+  },
+  "reproduction": {
+    "gestation_period": "Unknown",
+    "average_litter_size": "Unknown",
+    "name_of_young": "fry"
+  },
+  "additional_info": {
+    "lifestyle": "Unknown",
+    "color": "Unknown",
+    "skin_type": "Unknown",
+    "prey": "Unknown",
+    "slogan": "Unknown",
+    "group": "Unknown",
+    "number_of_species": "Unknown",
+    "estimated_population_size": "Unknown",
+    "age_of_sexual_maturity": "Unknown",
+    "age_of_weaning": "Unknown",
+    "most_distinctive_feature": "Unknown"
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia"
+  ],
+  "last_updated": "2026-03-16T16:05:30.788816"
+}

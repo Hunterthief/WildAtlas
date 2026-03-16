@@ -1,0 +1,62 @@
+{
+  "id": "Q7316",
+  "name": "Honey Bee",
+  "scientific_name": "Apis mellifera",
+  "common_names": [],
+  "description": "Colonial flying insect",
+  "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
+  "classification": {
+    "kingdom": "Unknown",
+    "phylum": "Unknown",
+    "class": "Unknown",
+    "order": "Unknown",
+    "family": "Unknown",
+    "genus": "Unknown",
+    "species": "Apis mellifera"
+  },
+  "animal_type": "bee",
+  "young_name": "larva",
+  "group_name": "colony",
+  "physical": {
+    "weight": "Unknown",
+    "length": "Unknown",
+    "height": "Unknown",
+    "top_speed": "Unknown",
+    "lifespan": "Unknown"
+  },
+  "ecology": {
+    "diet": "Unknown",
+    "habitat": "Unknown",
+    "locations": "Unknown",
+    "group_behavior": "Unknown",
+    "conservation_status": "Unknown",
+    "biggest_threat": "Unknown",
+    "distinctive_features": [],
+    "population_trend": "Unknown"
+  },
+  "reproduction": {
+    "gestation_period": "Unknown",
+    "average_litter_size": "Unknown",
+    "name_of_young": "larva"
+  },
+  "additional_info": {
+    "lifestyle": "Unknown",
+    "color": "Unknown",
+    "skin_type": "Unknown",
+    "prey": "Unknown",
+    "slogan": "Unknown",
+    "group": "Unknown",
+    "number_of_species": "Unknown",
+    "estimated_population_size": "Unknown",
+    "age_of_sexual_maturity": "Unknown",
+    "age_of_weaning": "Unknown",
+    "most_distinctive_feature": "Unknown"
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia"
+  ],
+  "last_updated": "2026-03-16T16:05:36.252840"
+}

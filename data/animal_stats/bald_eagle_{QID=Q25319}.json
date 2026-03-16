@@ -1,0 +1,62 @@
+{
+  "id": "Q25319",
+  "name": "Bald Eagle",
+  "scientific_name": "Haliaeetus leucocephalus",
+  "common_names": [],
+  "description": "Bird of prey species of North America",
+  "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
+  "classification": {
+    "kingdom": "Unknown",
+    "phylum": "Unknown",
+    "class": "Unknown",
+    "order": "Unknown",
+    "family": "Unknown",
+    "genus": "Unknown",
+    "species": "Haliaeetus leucocephalus"
+  },
+  "animal_type": "raptor",
+  "young_name": "chick",
+  "group_name": "kettle",
+  "physical": {
+    "weight": "Unknown",
+    "length": "Unknown",
+    "height": "Unknown",
+    "top_speed": "Unknown",
+    "lifespan": "Unknown"
+  },
+  "ecology": {
+    "diet": "Unknown",
+    "habitat": "Unknown",
+    "locations": "Unknown",
+    "group_behavior": "Unknown",
+    "conservation_status": "Unknown",
+    "biggest_threat": "Unknown",
+    "distinctive_features": [],
+    "population_trend": "Unknown"
+  },
+  "reproduction": {
+    "gestation_period": "Unknown",
+    "average_litter_size": "Unknown",
+    "name_of_young": "chick"
+  },
+  "additional_info": {
+    "lifestyle": "Unknown",
+    "color": "Unknown",
+    "skin_type": "Unknown",
+    "prey": "Unknown",
+    "slogan": "Unknown",
+    "group": "Unknown",
+    "number_of_species": "Unknown",
+    "estimated_population_size": "Unknown",
+    "age_of_sexual_maturity": "Unknown",
+    "age_of_weaning": "Unknown",
+    "most_distinctive_feature": "Unknown"
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia"
+  ],
+  "last_updated": "2026-03-16T16:05:27.465452"
+}

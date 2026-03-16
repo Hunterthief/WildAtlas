@@ -1,0 +1,62 @@
+{
+  "id": "Q189609",
+  "name": "King Cobra",
+  "scientific_name": "Ophiophagus hannah",
+  "common_names": [],
+  "description": "Group of venomous snakes from Asia",
+  "summary": "The king cobra is a species complex of snakes endemic to Asia. With an average length of 3.18 to 4 m and a record length of 5.85 m (19.2 ft), it is the world's longest venomous snake and among the heaviest. Under the genus Ophiophagus, it is not phylogenetically a true cobra despite its common name and some resemblance. Spanning from the Indian subcontinent through Southeastern Asia to Southern China, the king cobra is widely distributed albeit not commonly seen.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
+  "classification": {
+    "kingdom": "Unknown",
+    "phylum": "Unknown",
+    "class": "Unknown",
+    "order": "Unknown",
+    "family": "Unknown",
+    "genus": "Unknown",
+    "species": "Ophiophagus hannah"
+  },
+  "animal_type": "snake",
+  "young_name": "hatchling",
+  "group_name": "den",
+  "physical": {
+    "weight": "Unknown",
+    "length": "Unknown",
+    "height": "Unknown",
+    "top_speed": "Unknown",
+    "lifespan": "Unknown"
+  },
+  "ecology": {
+    "diet": "Unknown",
+    "habitat": "Unknown",
+    "locations": "Unknown",
+    "group_behavior": "Unknown",
+    "conservation_status": "Unknown",
+    "biggest_threat": "Unknown",
+    "distinctive_features": [],
+    "population_trend": "Unknown"
+  },
+  "reproduction": {
+    "gestation_period": "Unknown",
+    "average_litter_size": "Unknown",
+    "name_of_young": "hatchling"
+  },
+  "additional_info": {
+    "lifestyle": "Unknown",
+    "color": "Unknown",
+    "skin_type": "Unknown",
+    "prey": "Unknown",
+    "slogan": "Unknown",
+    "group": "Unknown",
+    "number_of_species": "Unknown",
+    "estimated_population_size": "Unknown",
+    "age_of_sexual_maturity": "Unknown",
+    "age_of_weaning": "Unknown",
+    "most_distinctive_feature": "Unknown"
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia"
+  ],
+  "last_updated": "2026-03-16T16:05:32.986818"
+}
