@@ -1,13 +1,24 @@
 # generator/generate_animals.py
-import requests, json, time, os, re, sys
+"""Main generator - orchestrates all fetchers and extractors"""
+import json, time, os, sys
 from datetime import datetime
 from pathlib import Path
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
 
+# Import modules
 sys.path.insert(0, str(Path(__file__).parent))
 from modules.api_ninjas import fetch_animal_data
+from fetchers import fetch_wikipedia_summary, fetch_wikipedia_full, fetch_inaturalist
+from extractors import (
+    extract_wikipedia_sections,
+    extract_stats_from_sections,
+    extract_diet_from_sections,
+    extract_reproduction_from_sections,
+    extract_conservation_from_sections,
+    extract_behavior_from_sections,
+    extract_additional_info_from_sections
+)
 
+# Setup paths
 REPO_ROOT = Path(__file__).parent.parent
 DATA_DIR = REPO_ROOT / "data"
 ANIMAL_STATS_DIR = DATA_DIR / "animal_stats"
@@ -16,17 +27,6 @@ os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(ANIMAL_STATS_DIR, exist_ok=True)
 
 CONFIG_DIR = Path(__file__).parent / "config"
-
-session = requests.Session()
-retry = Retry(total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504])
-session.mount("https://", HTTPAdapter(max_retries=retry))
-headers = {"User-Agent": "WildAtlasBot/1.0 (contact@example.com)", "Accept": "application/json"}
-
-WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
-WIKI_MOBILE = "https://en.m.wikipedia.org/wiki/"
-INAT_API = "https://api.inaturalist.org/v1/taxa"
-
-CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
 
 # Load configs
 def load_config(filename):
@@ -45,475 +45,6 @@ def get_young_name(animal_type):
 def get_group_name(animal_type):
     return GROUP_NAMES.get(animal_type, GROUP_NAMES.get("default", "population"))
 
-# Wikipedia
-def fetch_wikipedia_summary(name):
-    try:
-        r = session.get(f"{WIKI_API}{name.replace(' ', '_')}", headers=headers, timeout=15)
-        if r.status_code == 200:
-            d = r.json()
-            return {
-                "summary": d.get("extract", ""),
-                "description": d.get("description", ""),
-                "image": d.get("thumbnail", {}).get("source", ""),
-                "url": d.get("content_urls", {}).get("desktop", {}).get("page", "")
-            }
-    except Exception as e:
-        print(f" ⚠ Wikipedia error: {e}")
-    return {"summary": "", "description": "", "image": "", "url": ""}
-
-def fetch_wikipedia_full(name):
-    try:
-        r = session.get(f"{WIKI_MOBILE}{name.replace(' ', '_')}", headers=headers, timeout=15)
-        if r.status_code == 200:
-            text = re.sub(r'<[^>]+>', ' ', r.text)
-            text = re.sub(r'\s+', ' ', text).strip()
-            text = re.sub(r'\[\d+\]', '', text)
-            return text
-    except Exception as e:
-        print(f" ⚠ Wikipedia full error: {e}")
-    return ""
-
-def clean_wikipedia_text(text):
-    """Aggressively clean Wikipedia text of all garbage"""
-    if not text:
-        return ""
-    
-    # Remove templates {{...}}
-    text = re.sub(r'\{\{[^}]*\}\}', ' ', text)
-    
-    # Remove references [1], [2], etc.
-    text = re.sub(r'\[\d+\]', '', text)
-    
-    # Remove wiki links [[...]] but keep text
-    def replace_link(m):
-        content = m.group(1)
-        if '|' in content:
-            return content.split('|')[-1]
-        return content
-    text = re.sub(r'\[\[([^]]+)\]\]', replace_link, text)
-    
-    # Remove HTML entities
-    text = re.sub(r'&[^;]+;', ' ', text)
-    
-    # Remove special wiki markup
-    text = text.replace("'''", '')
-    text = text.replace("''", '')
-    text = text.replace('|', ' ')
-    
-    # Remove common garbage strings (literal strings, not regex)
-    garbage_strings = [
-        'Jump to content', 'Jump to navigation', 'Jump to search',
-        'From Wikipedia', 'free encyclopedia',
-        'Wikidata', 'Featured article',
-        'Use dmy dates', 'Use British English',
-        'Short description', 'pp-semi', 'pp-move',
-        'Speciesbox', 'fossil range', 'IUCN', 'CITES',
-        'cite book', 'cite journal', 'cite web', 'cite news',
-        'Reflist', 'References', 'Bibliography',
-        'External links', 'See also',
-        'Authority control', 'Portal bar',
-        'Wikijunior', 'Wikiquote', 'Wikivoyage',
-        'Category:', 'Cat:', 'Navbox',
-        'clear', 'thumb', 'alt=', 'px',
-        'File:', 'Image:', 'Gallery',
-        'main|', 'further|', 'Redirect',
-        'sfn|', 'harvnb|', 'ef name=',
-        'access-date', 'archive-date', 'archive-url',
-        'isbn', 'pmid', 'pmc', 'doi',
-        'volume=', 'issue=', 'pages=', 'year=',
-        'author=', 'title=', 'publisher=', 'location=',
-        'url=', 'chapter=', 'edition=',
-        'lang=', 'trans-', 's2cid=', 'bibcode=',
-        'hdl=', 'jstor=', 'ssrn=',
-        '[edit]', 'For other uses', 'disambiguation',
-        'Binomial name', 'Scientific classification',
-        'Kingdom:', 'Phylum:', 'Class:', 'Order:', 'Family:', 'Genus:', 'Species:',
-        'Conservation status', 'Appendix', 'Taxonbar',
-    ]
-    
-    for garbage in garbage_strings:
-        text = text.replace(garbage, ' ')
-    
-    # Remove language names (common ones)
-    lang_strings = [
-        'Acèh', 'Адыгабзэ', 'Afrikaans', 'Alemannisch', 'العربية', 'مصرى',
-        'Asturianu', 'Авар', 'Azərbaycanca', 'Беларуская', 'Български',
-        'Brezhoneg', 'Bosanski', 'Català', 'Cebuano', 'Čeština', 'Cymraeg',
-        'Dansk', 'Deutsch', 'Eesti', 'Ελληνικά', 'Español', 'Esperanto',
-        'Euskara', 'فارسی', 'Suomi', 'Français', 'Frysk', 'Gaeilge', 'Galego',
-        'עברית', 'हिन्दी', 'Hrvatski', 'Magyar', 'Հայերեն', 'Bahasa',
-        'Íslenska', 'Italiano', '日本語', 'Jawa', 'ქართული', 'Қазақша',
-        '한국어', 'Kurdî', 'Кыргызча', 'Latina', 'Lietuvių', 'Latviešu',
-        'Македонски', 'മലയാളം', 'मराठी', 'Malti', 'Nederlands', 'Norsk',
-        'Occitan', 'Polski', 'Português', 'Română', 'Русский', 'Sicilianu',
-        'Scots', 'Srpski', 'Svenska', 'Kiswahili', 'தமிழ்', 'తెలుగు',
-        'Тоҷикӣ', 'ไทย', 'Tagalog', 'Türkçe', 'Українська', 'اردو',
-        'Oʻzbekcha', 'Tiếng', 'Winaray', '中文', 'Bân-lâm-gú', '粵語',
-    ]
-    
-    for lang in lang_strings:
-        text = text.replace(lang, ' ')
-    
-    # Remove section headers like "== Etymology =="
-    text = re.sub(r'==[^=]+==', ' ', text)
-    
-    # Remove table markers and infobox content
-    text = re.sub(r'\{\|.*?\|\}', ' ', text, flags=re.DOTALL)
-    text = re.sub(r'\|-', ' ', text)
-    text = re.sub(r'!\s*\w+', ' ', text)
-    
-    # Remove citation templates
-    text = re.sub(r'\{\{cite[^}]*\}\}', ' ', text)
-    text = re.sub(r'\{\{harvnb[^}]*\}\}', ' ', text)
-    text = re.sub(r'\{\{sfn[^}]*\}\}', ' ', text)
-    text = re.sub(r'\{\{refn[^}]*\}\}', ' ', text)
-    text = re.sub(r'\{\{efn[^}]*\}\}', ' ', text)
-    
-    # Remove convert templates
-    text = re.sub(r'\{\{convert\|[^}]*\}\}', ' ', text)
-    text = re.sub(r'\{\{cvt\|[^}]*\}\}', ' ', text)
-    
-    # Remove long parentheticals (often citations)
-    text = re.sub(r'\([^)]{50,}\)', ' ', text)
-    
-    # Clean up multiple spaces
-    text = re.sub(r'\s+', ' ', text)
-    
-    return text.strip()
-
-def extract_wikipedia_sections(text):
-    """Extract Wikipedia sections with proper cleaning"""
-    sections = {
-        "etymology": "",
-        "description": "",
-        "distribution": "",
-        "habitat": "",
-        "hunting_diet": "",
-        "behavior": "",
-        "reproduction": "",
-        "threats": "",
-        "conservation": ""
-    }
-    
-    if not text or len(text) < 500:
-        return sections
-    
-    # Clean the text first
-    text = clean_wikipedia_text(text)
-    
-    if len(text) < 500:
-        return sections
-    
-    # Split into sentences
-    sentences = re.split(r'(?<=[.!?])\s+', text)
-    
-    # Keywords for each section
-    section_keywords = {
-        "etymology": ['etymology', 'name', 'named', 'called', 'word', 'term', 'origin', 'latin', 'greek', 'persian', 'armenian', 'means', 'derives'],
-        "description": ['description', 'physical', 'appearance', 'characteristics', 'features', 'weighs', 'measures', 'length', 'size', 'large', 'small', 'fur', 'coat', 'stripes', 'spots', 'color', 'coloured', 'skull', 'teeth', 'claws', 'paws', 'tail', 'head', 'body'],
-        "distribution": ['distribution', 'range', 'found', 'native', 'lives', 'located', 'region', 'country', 'continent', 'asia', 'africa', 'europe', 'america', 'australia', 'russia', 'india', 'china', 'indonesia', 'sumatra', 'java', 'bali'],
-        "habitat": ['habitat', 'environment', 'lives in', 'inhabits', 'forest', 'grassland', 'desert', 'mountain', 'ocean', 'river', 'tropical', 'temperate', 'mangrove', 'woodland'],
-        "hunting_diet": ['diet', 'eats', 'feeds', 'hunts', 'prey', 'predator', 'carnivore', 'herbivore', 'omnivore', 'food', 'feeding', 'kill', 'deer', 'boar', 'ungulate', 'attack'],
-        "behavior": ['behavior', 'behaviour', 'social', 'solitary', 'group', 'pack', 'herd', 'territorial', 'active', 'nocturnal', 'diurnal', 'crepuscular', 'mark', 'territory', 'urine', 'scent', 'communication'],
-        "reproduction": ['reproduction', 'breeding', 'mating', 'gestation', 'pregnant', 'pregnancy', 'litter', 'cubs', 'young', 'offspring', 'eggs', 'lay', 'birth', 'wean', 'sexual maturity'],
-        "threats": ['threats', 'threatened', 'danger', 'predators', 'hunted', 'killed', 'poach', 'poaching', 'endangered', 'vulnerable', 'extinct', 'decline', 'decrease', 'loss', 'destruction'],
-        "conservation": ['conservation', 'protected', 'status', 'iucn', 'endangered', 'vulnerable', 'least concern', 'critically endangered', 'population', 'preserve', 'reserve', 'park', 'action plan', 'cites', 'patrol']
-    }
-    
-    current_section = "description"
-    section_content = {k: [] for k in sections}
-    
-    for sentence in sentences:
-        sentence_lower = sentence.lower().strip()
-        
-        # Skip very short sentences
-        if len(sentence_lower) < 30:
-            continue
-        
-        # Skip sentences with remaining template garbage
-        if any(garbage in sentence_lower for garbage in ['{{', '}}', '[[', ']]', 'cite', 'isbn', 'doi', 'pmid', 'ref', 'http']):
-            continue
-        
-        # Detect section changes based on keywords
-        best_match = None
-        best_score = 0
-        
-        for section_name, keywords in section_keywords.items():
-            score = sum(1 for kw in keywords if kw in sentence_lower)
-            if score > best_score:
-                best_score = score
-                best_match = section_name
-        
-        # Assign to best matching section or current section
-        if best_match and best_score >= 1:
-            current_section = best_match
-        
-        # Add to section if not full (limit 500 chars per section)
-        if len(' '.join(section_content[current_section])) < 500:
-            section_content[current_section].append(sentence)
-    
-    # Combine sentences for each section
-    for key in sections:
-        content = ' '.join(section_content[key]).strip()
-        content = re.sub(r'\s+', ' ', content)
-        # Clean up any remaining garbage
-        content = re.sub(r'\([^)]{50,}\)', '', content)  # Remove long parentheticals
-        content = content[:600]  # Limit length
-        if len(content) > 600:
-            content = content.rsplit('.', 1)[0] + '.'
-        sections[key] = content
-    
-    return sections
-
-def extract_stats_from_sections(sections):
-    """Extract physical stats from sections - ONLY if field is empty"""
-    stats = {"weight": "", "length": "", "height": "", "lifespan": "", "top_speed": ""}
-    
-    all_text = ""
-    for section_name, section_text in sections.items():
-        all_text += section_text + " "
-    
-    if not all_text:
-        return stats
-    
-    # Weight
-    m = re.search(r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|tonnes?|t|lbs?|pounds)', all_text, re.I)
-    if m:
-        stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-    
-    # Length
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:long|length|in length)', all_text, re.I)
-    if m:
-        stats["length"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-    
-    # Height
-    if 'shoulder' in all_text.lower() or 'stands' in all_text.lower():
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:tall|height|shoulder)', all_text, re.I)
-        if m:
-            stats["height"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-    
-    # Lifespan
-    m = re.search(r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)\s*(?:lifespan|life|old|age|in the wild|in captivity)', all_text, re.I)
-    if m:
-        stats["lifespan"] = f"{m.group(1)} {m.group(2)}"
-    
-    # Speed
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)\s*(?:speed|top speed|maximum|can run|sprint)', all_text, re.I)
-    if m:
-        stats["top_speed"] = f"{m.group(1)} {m.group(2)}"
-    
-    return stats
-
-def extract_diet_from_sections(sections):
-    """Extract diet and prey from sections - ONLY if field is empty"""
-    diet = ""
-    prey = ""
-    
-    all_text = ""
-    for section_name, section_text in sections.items():
-        all_text += section_text + " "
-    
-    if not all_text:
-        return diet, prey
-    
-    # Diet type
-    if any(w in all_text.lower() for w in ['carnivore', 'carnivorous', 'meat-eater', 'predator', 'predatory']):
-        diet = "Carnivore"
-    elif any(w in all_text.lower() for w in ['herbivore', 'herbivorous', 'plant-eater', 'grazes', 'browses']):
-        diet = "Herbivore"
-    elif any(w in all_text.lower() for w in ['omnivore', 'omnivorous', 'both plants and animals']):
-        diet = "Omnivore"
-    
-    # Prey items - look for actual prey animals, not threats
-    prey_patterns = [
-        r'preys? mainly on ([^.]{10,100})',
-        r'feeds? mainly on ([^.]{10,100})',
-        r'hunts? ([^.]{10,100})',
-        r'diet consists (?:mainly)?of ([^.]{10,100})',
-        r'(?:deer|wild boar|buffalo|sambar|gaur|ungulate|barasingha|wapiti|monkey|peafowl|porcupine|fish)',
-    ]
-    for pattern in prey_patterns:
-        m = re.search(pattern, all_text, re.I)
-        if m:
-            prey_text = m.group(0).strip()
-            # Make sure it's not about threats
-            if 'threat' not in prey_text.lower() and 'poach' not in prey_text.lower():
-                prey = prey_text[:100]
-                break
-    
-    return diet, prey
-
-def extract_reproduction_from_sections(sections):
-    """Extract reproduction data from sections - ONLY if field is empty"""
-    repro = {"gestation_period": "", "average_litter_size": "", "name_of_young": ""}
-    
-    all_text = ""
-    for section_name, section_text in sections.items():
-        all_text += section_text + " "
-    
-    if not all_text:
-        return repro
-    
-    # Gestation
-    m = re.search(r'(?:gestation|pregnancy)\s*(?:period)?\s*(?:lasts?|is|of)?\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(days?|months?|weeks?)', all_text, re.I)
-    if m:
-        repro["gestation_period"] = f"{m.group(1)} {m.group(2)}"
-    
-    # Litter size
-    m = re.search(r'(?:litter|cubs?|young|offspring)\s*(?:size|consists of)?\s*(?:of|is)?\s*(?:usually|typically|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)', all_text, re.I)
-    if m:
-        repro["average_litter_size"] = m.group(1)
-    
-    # Name of young
-    m = re.search(r'young\s*(?:are\s*)?(?:called|known as)?\s*(?:a|an)?\s*(\w+)', all_text, re.I)
-    if m:
-        repro["name_of_young"] = m.group(1).lower()
-    
-    return repro
-
-def extract_conservation_from_sections(sections):
-    """Extract conservation status and threats from sections - ONLY if field is empty"""
-    status = ""
-    threats = []
-    
-    all_text = ""
-    for section_name, section_text in sections.items():
-        all_text += section_text + " "
-    
-    # Conservation status
-    statuses = ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Least Concern", "Data Deficient"]
-    for s in statuses:
-        if s.lower() in all_text.lower():
-            status = s
-            break
-    
-    # Threats - look for actual threats, not conservation measures
-    if any(w in all_text.lower() for w in ['poach', 'illegal trade', 'body parts', 'fur trade', 'ivory', 'tiger bone', 'medicinal']):
-        threats.append('Poaching')
-    if any(w in all_text.lower() for w in ['habitat loss', 'habitat destruction', 'habitat fragmentation', 'deforestation', 'logging']):
-        threats.append('Habitat loss')
-    if any(w in all_text.lower() for w in ['human-wildlife conflict', 'livestock', 'retaliation', 'attack', 'killed']):
-        threats.append('Human-wildlife conflict')
-    
-    return status, ', '.join(threats[:3])
-
-def extract_behavior_from_sections(sections):
-    """Extract group behavior from sections - ONLY if field is empty"""
-    all_text = ""
-    for section_name, section_text in sections.items():
-        all_text += section_text + " "
-    
-    if not all_text:
-        return ""
-    
-    t = all_text.lower()
-    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary', 'lives singly']):
-        return "Solitary"
-    elif any(w in t for w in ['pack', 'herd', 'flock', 'colony', 'social', 'group living', 'highly social']):
-        return "Social"
-    elif any(w in t for w in ['pair', 'mate', 'pairs', 'family group']):
-        return "Pairs"
-    
-    return ""
-
-def extract_additional_info_from_sections(sections):
-    """Extract ALL additional_info fields from sections - ONLY if field is empty"""
-    info = {
-        "group": "",
-        "number_of_species": "",
-        "estimated_population_size": "",
-        "age_of_sexual_maturity": "",
-        "age_of_weaning": "",
-        "most_distinctive_feature": ""
-    }
-    
-    all_text = ""
-    for section_name, section_text in sections.items():
-        all_text += section_text + " "
-    
-    if not all_text:
-        return info
-    
-    # Group (Mammal, Bird, Fish, etc.)
-    m = re.search(r'is a (?:large )?(?:species of )?(mammal|bird|fish|reptile|amphibian|insect|invertebrate|cat|feline)', all_text, re.I)
-    if m:
-        info["group"] = m.group(1).capitalize()
-    
-    # Number of species
-    m = re.search(r'(?:nine|two|five|three|six|seven|eight|four|10|20|30)\s*(?:recent |living )?(?:sub)?species', all_text, re.I)
-    if m:
-        num_text = m.group(0)
-        # Extract the number
-        num_match = re.search(r'(nine|two|five|three|six|seven|eight|four|10|20|30|\d+)', num_text, re.I)
-        if num_match:
-            info["number_of_species"] = num_match.group(1)
-    
-    # Population
-    m = re.search(r'(?:population|estimated|total)\s*(?:is|of|size)?\s*(?:about|around|approximately|over|under)?\s*(\d+(?:,\d+)*(?:\s*(?:million|billion|thousand))?)', all_text, re.I)
-    if m:
-        info["estimated_population_size"] = m.group(1).strip()
-    
-    # Sexual maturity
-    m = re.search(r'(?:sexually mature|sexual maturity|mature)\s*(?:at|reached|occurs|become)?\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?)', all_text, re.I)
-    if m:
-        info["age_of_sexual_maturity"] = f"{m.group(1)} {m.group(2)}"
-    
-    # Weaning
-    m = re.search(r'(?:weaned|weaning)\s*(?:at|occurs)?\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?|weeks?)', all_text, re.I)
-    if m:
-        info["age_of_weaning"] = f"{m.group(1)} {m.group(2)}"
-    
-    # Distinctive feature - look for actual physical features, not genetics
-    feature_patterns = [
-        r'(?:most distinctive|distinctive|characteristic|notable|unique)\s*(?:feature|characteristic|trait|marking)?\s*(?:is|are)?\s*(?:the)?\s*([^.]{10,100})',
-        r'(?:marked with|has|features?|characterized by)\s*(?:distinctive )?([^.]{10,80}(?:stripes|spots|coat|fur|color|mane|tail|ears))',
-    ]
-    for pattern in feature_patterns:
-        m = re.search(pattern, all_text, re.I)
-        if m:
-            feature = m.group(1).strip()
-            # Make sure it's not about genetics or DNA
-            if 'dna' not in feature.lower() and 'mtdna' not in feature.lower() and 'haplotype' not in feature.lower() and 'gene' not in feature.lower():
-                feature = re.sub(r'^(?:the |its |their |a |an )', '', feature, flags=re.I)
-                if 10 < len(feature) < 150:
-                    info["most_distinctive_feature"] = feature[:120]
-                    break
-    
-    return info
-
-# iNaturalist
-def fetch_inaturalist(sci_name):
-    try:
-        params = {"q": sci_name, "per_page": 1, "rank": "species"}
-        r = session.get(INAT_API, params=params, headers=headers, timeout=30)
-        if r.status_code != 200:
-            params = {"q": sci_name, "per_page": 1}
-            r = session.get(INAT_API, params=params, headers=headers, timeout=30)
-        if r.status_code == 200:
-            results = r.json().get("results", [])
-            if results:
-                taxon = results[0]
-                time.sleep(0.5)
-                anc_ids = taxon.get("ancestor_ids", [])
-                if anc_ids:
-                    r = session.get(f"{INAT_API}/{','.join(map(str, anc_ids))}", headers=headers, timeout=30)
-                    if r.status_code == 200:
-                        classification = {f: "" for f in CLASSIFICATION_FIELDS}
-                        classification["species"] = taxon.get("name", sci_name)
-                        for a in r.json().get("results", []):
-                            rank = a.get("rank", "").lower()
-                            name = a.get("name")
-                            if rank == "kingdom": classification["kingdom"] = name
-                            elif rank == "phylum": classification["phylum"] = name
-                            elif rank == "class": classification["class"] = name
-                            elif rank == "order": classification["order"] = name
-                            elif rank == "family": classification["family"] = name
-                            elif rank == "genus": classification["genus"] = name
-                        return classification
-    except Exception as e:
-        print(f" ⚠ iNaturalist error: {e}")
-    return None
-
 # File operations
 def get_animal_filename(name, qid):
     clean_name = name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
@@ -526,12 +57,13 @@ def save_animal_file(data, name, qid):
         json.dump(data, f, indent=2, ensure_ascii=False)
     print(f" 💾 Saved: {filename}")
 
-# Build data from ALL sources - NINJA API FIRST, WIKIPEDIA ONLY AS FALLBACK
-def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_classification, qid, name, sci_name):
+# Build animal data
+def build_animal_data(ninja_data, wiki_summary, wiki_sections, inat_classification, qid, name, sci_name):
     ninja_chars = ninja_data.get("characteristics", {}) if ninja_data else {}
     ninja_taxonomy = ninja_data.get("taxonomy", {}) if ninja_data else {}
     ninja_locations = ninja_data.get("locations", []) if ninja_data else []
     
+    # Animal type
     animal_type = "default"
     taxonomy_to_use = inat_classification if inat_classification else ninja_taxonomy
     if taxonomy_to_use:
@@ -547,7 +79,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
     
     young_name = ninja_chars.get("name_of_young", "") or get_young_name(animal_type)
     
-    # Extract Wikipedia data (will only be used if Ninja API fields are empty)
+    # Extract from Wikipedia (only used as fallback)
     wiki_stats = extract_stats_from_sections(wiki_sections)
     wiki_diet, wiki_prey = extract_diet_from_sections(wiki_sections)
     wiki_repro = extract_reproduction_from_sections(wiki_sections)
@@ -555,7 +87,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
     wiki_behavior = extract_behavior_from_sections(wiki_sections)
     wiki_additional = extract_additional_info_from_sections(wiki_sections)
     
-    # Build data - NINJA API FIRST, Wikipedia ONLY as fallback for empty fields
+    # Build data - Ninja API first, Wikipedia as fallback
     data = {
         "id": qid,
         "name": name,
@@ -617,6 +149,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
         "last_updated": datetime.now().isoformat()
     }
     
+    # Add sources
     if ninja_data is not None:
         data["sources"].append("API Ninjas")
     if wiki_summary and wiki_summary.get("summary"):
@@ -626,7 +159,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
     
     return data
 
-# Main
+# Main generation
 def generate(animals, force=False):
     output = []
     ninja_api_key = os.environ.get("API_NINJAS_KEY", "")
@@ -658,7 +191,7 @@ def generate(animals, force=False):
         print(" 🔬 Fetching from iNaturalist...")
         inat_classification = fetch_inaturalist(sci)
         
-        data = build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_classification, qid, name, sci)
+        data = build_animal_data(ninja_data, wiki_summary, wiki_sections, inat_classification, qid, name, sci)
         save_animal_file(data, name, qid)
         
         output.append(data)
