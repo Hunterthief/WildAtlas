@@ -5,13 +5,8 @@ from pathlib import Path
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-# Import Ninja API module
 sys.path.insert(0, str(Path(__file__).parent))
 from modules.api_ninjas import fetch_animal_data
-
-# ============================================================================
-# SETUP
-# ============================================================================
 
 REPO_ROOT = Path(__file__).parent.parent
 DATA_DIR = REPO_ROOT / "data"
@@ -19,10 +14,6 @@ ANIMAL_STATS_DIR = DATA_DIR / "animal_stats"
 
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(ANIMAL_STATS_DIR, exist_ok=True)
-
-# ============================================================================
-# FILE NAMING
-# ============================================================================
 
 def get_animal_filename(name, qid):
     clean_name = name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
@@ -35,14 +26,8 @@ def save_animal_file(data, name, qid):
         json.dump(data, f, indent=2, ensure_ascii=False)
     print(f" 💾 Saved: {filename}")
 
-# ============================================================================
-# FORMAT NINJA API DATA
-# ============================================================================
-
 def format_ninja_data(ninja_data, qid, name, sci_name):
-    """Format Ninja API data into our structure"""
-    
-    if not ninja_data:
+    if ninja_data is None:
         return {
             "id": qid,
             "name": name,
@@ -54,7 +39,6 @@ def format_ninja_data(ninja_data, qid, name, sci_name):
     taxonomy = ninja_data.get("taxonomy", {})
     locations = ninja_data.get("locations", [])
     
-    # Determine animal type
     animal_type = "default"
     if taxonomy:
         family = taxonomy.get("family", "").lower()
@@ -67,7 +51,6 @@ def format_ninja_data(ninja_data, qid, name, sci_name):
         elif "elephantidae" in family:
             animal_type = "elephant"
     
-    # Map to our format
     data = {
         "id": qid,
         "name": name,
@@ -130,10 +113,6 @@ def format_ninja_data(ninja_data, qid, name, sci_name):
     
     return data
 
-# ============================================================================
-# MAIN GENERATION
-# ============================================================================
-
 def generate(animals, force=False):
     output = []
     ninja_api_key = os.environ.get("API_NINJAS_KEY", "")
@@ -147,13 +126,12 @@ def generate(animals, force=False):
         print(" 🥷 Fetching from Ninja API...")
         ninja_data = fetch_animal_data(name, ninja_api_key)
         
-        if ninja_
+        if ninja_data is not None:
             chars = ninja_data.get("characteristics", {})
             print(f"   📊 Got {len(chars)} fields from Ninja API")
         else:
             print(f" ⚠ No data from Ninja API for {name}")
         
-        # Format and save
         data = format_ninja_data(ninja_data, qid, name, sci)
         save_animal_file(data, name, qid)
         
@@ -161,7 +139,6 @@ def generate(animals, force=False):
         print(f" ✅ {name} complete!")
         time.sleep(1)
 
-    # Save combined file
     with open(DATA_DIR / "animals.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
