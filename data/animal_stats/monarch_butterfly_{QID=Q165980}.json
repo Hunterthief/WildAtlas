@@ -16,13 +16,13 @@
     "genus": "Danaus",
     "species": "Danaus plexippus"
   },
-  "animal_type": "butterfly",
-  "young_name": "caterpillar",
-  "group_name": "swarm",
+  "animal_type": "default",
+  "young_name": "Larvae/Caterpillar",
+  "group_name": "population",
   "physical": {
     "weight": "0.25 - 0.75 grams",
-    "length": "Unknown",
-    "height": "Unknown",
+    "length": "",
+    "height": "",
     "top_speed": "12 mph",
     "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
   },
@@ -31,29 +31,29 @@
     "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
     "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
     "group_behavior": "Group",
-    "conservation_status": "Endangered",
+    "conservation_status": "",
     "biggest_threat": "Habitat loss",
     "distinctive_features": [
       "Black, orange, and white pattern on wings"
     ],
-    "population_trend": "Unknown"
+    "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "3 to 8 days for eggs to hatch after they are laid",
-    "average_litter_size": "Unknown",
+    "average_litter_size": "",
     "name_of_young": "Larvae/Caterpillar"
   },
   "additional_info": {
     "lifestyle": "Diurnal",
     "color": "BlackWhiteOrange",
     "skin_type": "Scales",
-    "prey": "Unknown",
-    "slogan": "Unknown",
+    "prey": "",
+    "slogan": "",
     "group": "Invertebrates",
     "number_of_species": "3",
-    "estimated_population_size": "Unknown",
+    "estimated_population_size": "",
     "age_of_sexual_maturity": "4-5 days after emerging from pupa",
-    "age_of_weaning": "Unknown",
+    "age_of_weaning": "",
     "most_distinctive_feature": "Black, orange, and white pattern on wings"
   },
   "sources": [
@@ -61,5 +61,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:53:53.791752"
+  "last_updated": "2026-03-16T19:02:30.139756"
 }

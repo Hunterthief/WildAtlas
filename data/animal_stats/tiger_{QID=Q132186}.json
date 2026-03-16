@@ -14,15 +14,15 @@
     "order": "Carnivora",
     "family": "Felidae",
     "genus": "Panthera",
-    "species": "Panthera Tigris Tigris"
+    "species": "Panthera tigris"
   },
   "animal_type": "feline",
   "young_name": "cub",
   "group_name": "streak",
   "physical": {
     "weight": "140kg - 300kg (309lbs - 660lbs)",
-    "length": "Unknown",
-    "height": "Unknown",
+    "length": "",
+    "height": "",
     "top_speed": "60 mph",
     "lifespan": "18 - 25 years"
   },
@@ -30,14 +30,14 @@
     "diet": "Carnivore",
     "habitat": "Dense tropical forest and mangroves",
     "locations": "Asia",
-    "group_behavior": "Unknown",
-    "conservation_status": "Endangered",
-    "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+    "group_behavior": "",
+    "conservation_status": "",
+    "biggest_threat": "",
     "distinctive_features": [],
-    "population_trend": "Unknown"
+    "population_trend": ""
   },
   "reproduction": {
-    "gestation_period": "Unknown",
+    "gestation_period": "",
     "average_litter_size": "3",
     "name_of_young": "cub"
   },
@@ -45,19 +45,19 @@
     "lifestyle": "Solitary",
     "color": "BlackWhiteOrange",
     "skin_type": "Fur",
-    "prey": "Unknown",
+    "prey": "",
     "slogan": "The most numerous species of tiger!",
-    "group": "Unknown",
-    "number_of_species": "Unknown",
-    "estimated_population_size": "Unknown",
-    "age_of_sexual_maturity": "Unknown",
-    "age_of_weaning": "Unknown",
-    "most_distinctive_feature": "Unknown"
+    "group": "",
+    "number_of_species": "",
+    "estimated_population_size": "",
+    "age_of_sexual_maturity": "",
+    "age_of_weaning": "",
+    "most_distinctive_feature": ""
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:53:26.310977"
+  "last_updated": "2026-03-16T19:02:06.832943"
 }

@@ -16,48 +16,48 @@
     "genus": "Salmo",
     "species": "Salmo salar"
   },
-  "animal_type": "salmon",
-  "young_name": "fry",
-  "group_name": "run",
+  "animal_type": "default",
+  "young_name": "young",
+  "group_name": "population",
   "physical": {
-    "weight": "Unknown",
-    "length": "Unknown",
-    "height": "Unknown",
-    "top_speed": "Unknown",
-    "lifespan": "Unknown"
+    "weight": "",
+    "length": "",
+    "height": "",
+    "top_speed": "",
+    "lifespan": ""
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "coastal, lake, river, stream",
-    "locations": "North Atlantic, Canada, Alaska, United States, Europe",
-    "group_behavior": "Unknown",
-    "conservation_status": "Endangered",
-    "biggest_threat": "Poaching, Habitat loss",
+    "diet": "",
+    "habitat": "",
+    "locations": "",
+    "group_behavior": "",
+    "conservation_status": "",
+    "biggest_threat": "",
     "distinctive_features": [],
-    "population_trend": "Unknown"
+    "population_trend": ""
   },
   "reproduction": {
-    "gestation_period": "Unknown",
-    "average_litter_size": "Unknown",
-    "name_of_young": "fry"
+    "gestation_period": "",
+    "average_litter_size": "",
+    "name_of_young": "young"
   },
   "additional_info": {
-    "lifestyle": "Unknown",
-    "color": "Unknown",
-    "skin_type": "Unknown",
-    "prey": "Unknown",
-    "slogan": "Unknown",
-    "group": "Unknown",
-    "number_of_species": "Unknown",
-    "estimated_population_size": "Unknown",
-    "age_of_sexual_maturity": "Unknown",
-    "age_of_weaning": "Unknown",
-    "most_distinctive_feature": "Unknown"
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "",
+    "slogan": "",
+    "group": "",
+    "number_of_species": "",
+    "estimated_population_size": "",
+    "age_of_sexual_maturity": "",
+    "age_of_weaning": "",
+    "most_distinctive_feature": ""
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:53:43.148182"
+  "last_updated": "2026-03-16T19:02:21.515041"
 }

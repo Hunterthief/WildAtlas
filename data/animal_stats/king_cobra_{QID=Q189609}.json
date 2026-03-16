@@ -16,13 +16,13 @@
     "genus": "Ophiophagus",
     "species": "Ophiophagus hannah"
   },
-  "animal_type": "snake",
-  "young_name": "hatchling",
-  "group_name": "den",
+  "animal_type": "default",
+  "young_name": "Hatchlings",
+  "group_name": "population",
   "physical": {
-    "weight": "Unknown",
-    "length": "Unknown",
-    "height": "Unknown",
+    "weight": "",
+    "length": "",
+    "height": "",
     "top_speed": "12 mph",
     "lifespan": "About 20 years"
   },
@@ -30,17 +30,17 @@
     "diet": "Carnivore",
     "habitat": "Forest, shrublands, wetlands",
     "locations": "Asia",
-    "group_behavior": "Unknown",
-    "conservation_status": "Vulnerable",
+    "group_behavior": "",
+    "conservation_status": "",
     "biggest_threat": "Poaching, habitat loss",
     "distinctive_features": [
       "An expanding hood"
     ],
-    "population_trend": "Unknown"
+    "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "66-105 days",
-    "average_litter_size": "Unknown",
+    "average_litter_size": "",
     "name_of_young": "Hatchlings"
   },
   "additional_info": {
@@ -48,12 +48,12 @@
     "color": "BrownYellowBlackGreen",
     "skin_type": "Scales",
     "prey": "Lizards, birds, other snakes",
-    "slogan": "Unknown",
+    "slogan": "",
     "group": "Solitary",
     "number_of_species": "20",
     "estimated_population_size": "Unknown",
-    "age_of_sexual_maturity": "Unknown",
-    "age_of_weaning": "Unknown",
+    "age_of_sexual_maturity": "",
+    "age_of_weaning": "",
     "most_distinctive_feature": "An expanding hood"
   },
   "sources": [
@@ -61,5 +61,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:53:48.375320"
+  "last_updated": "2026-03-16T19:02:25.706560"
 }

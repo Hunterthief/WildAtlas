@@ -14,14 +14,14 @@
     "order": "Accipitriformes",
     "family": "Accipitridae",
     "genus": "Haliaeetus",
-    "species": "haliaeetus leucocephalus"
+    "species": "Haliaeetus leucocephalus"
   },
-  "animal_type": "raptor",
-  "young_name": "chick",
-  "group_name": "kettle",
+  "animal_type": "default",
+  "young_name": "young",
+  "group_name": "population",
   "physical": {
     "weight": "6.6-14lbs",
-    "length": "Unknown",
+    "length": "",
     "height": "28-38 inches",
     "top_speed": "100 mph",
     "lifespan": "15-20 years in the wild"
@@ -30,30 +30,30 @@
     "diet": "Carnivore",
     "habitat": "Near forests",
     "locations": "North-America",
-    "group_behavior": "Unknown",
-    "conservation_status": "Endangered",
+    "group_behavior": "",
+    "conservation_status": "",
     "biggest_threat": "Pesticide use",
     "distinctive_features": [
       "The white plumage on the head"
     ],
-    "population_trend": "Unknown"
+    "population_trend": ""
   },
   "reproduction": {
-    "gestation_period": "Unknown",
-    "average_litter_size": "Unknown",
-    "name_of_young": "chick"
+    "gestation_period": "",
+    "average_litter_size": "",
+    "name_of_young": "young"
   },
   "additional_info": {
-    "lifestyle": "Unknown",
+    "lifestyle": "",
     "color": "BrownYellowWhite",
-    "skin_type": "Unknown",
+    "skin_type": "",
     "prey": "Fish, birds, and small mammals",
-    "slogan": "Unknown",
-    "group": "Unknown",
+    "slogan": "",
+    "group": "",
     "number_of_species": "1",
-    "estimated_population_size": "Unknown",
-    "age_of_sexual_maturity": "Unknown",
-    "age_of_weaning": "Unknown",
+    "estimated_population_size": "",
+    "age_of_sexual_maturity": "",
+    "age_of_weaning": "",
     "most_distinctive_feature": "The white plumage on the head"
   },
   "sources": [
@@ -61,5 +61,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:53:35.410416"
+  "last_updated": "2026-03-16T19:02:15.149039"
 }

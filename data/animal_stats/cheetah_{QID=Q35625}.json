@@ -17,11 +17,11 @@
     "species": "Acinonyx jubatus"
   },
   "animal_type": "feline",
-  "young_name": "cub",
+  "young_name": "Cub",
   "group_name": "streak",
   "physical": {
     "weight": "40kg - 65kg (88lbs - 140lbs)",
-    "length": "Unknown",
+    "length": "",
     "height": "115cm - 136cm (45in - 53in)",
     "top_speed": "70 mph",
     "lifespan": "10 - 12 years"
@@ -31,12 +31,12 @@
     "habitat": "Open grassland",
     "locations": "Africa, Asia, Eurasia",
     "group_behavior": "Solitary/Pairs",
-    "conservation_status": "Critically Endangered",
+    "conservation_status": "",
     "biggest_threat": "Habitat loss",
     "distinctive_features": [
       "Yellowish fur covered in small black spots"
     ],
-    "population_trend": "Unknown"
+    "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "90 days",
@@ -61,5 +61,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:53:28.446695"
+  "last_updated": "2026-03-16T19:02:08.823886"
 }
