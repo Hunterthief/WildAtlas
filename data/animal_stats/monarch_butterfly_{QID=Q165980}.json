@@ -3,10 +3,10 @@
   "name": "Monarch Butterfly",
   "scientific_name": "Danaus plexippus",
   "common_names": [],
-  "description": "Milkweed butterfly in the family Nymphalidae",
-  "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
-  "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
+  "description": "",
+  "summary": "",
+  "image": "",
+  "wikipedia_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -18,7 +18,7 @@
   },
   "animal_type": "default",
   "young_name": "Larvae/Caterpillar",
-  "group_name": "population",
+  "group_name": "Invertebrates",
   "physical": {
     "weight": "0.25 - 0.75 grams",
     "length": "",
@@ -57,9 +57,7 @@
     "most_distinctive_feature": "Black, orange, and white pattern on wings"
   },
   "sources": [
-    "API Ninjas",
-    "Wikipedia",
-    "iNaturalist"
+    "API Ninjas"
   ],
-  "last_updated": "2026-03-16T19:02:30.139756"
+  "last_updated": "2026-03-16T19:15:10.724194"
 }

@@ -3,10 +3,10 @@
   "name": "King Cobra",
   "scientific_name": "Ophiophagus hannah",
   "common_names": [],
-  "description": "Group of venomous snakes from Asia",
-  "summary": "The king cobra is a species complex of snakes endemic to Asia. With an average length of 3.18 to 4 m and a record length of 5.85 m (19.2 ft), it is the world's longest venomous snake and among the heaviest. Under the genus Ophiophagus, it is not phylogenetically a true cobra despite its common name and some resemblance. Spanning from the Indian subcontinent through Southeastern Asia to Southern China, the king cobra is widely distributed albeit not commonly seen.",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
-  "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
+  "description": "",
+  "summary": "",
+  "image": "",
+  "wikipedia_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -18,7 +18,7 @@
   },
   "animal_type": "default",
   "young_name": "Hatchlings",
-  "group_name": "population",
+  "group_name": "Solitary",
   "physical": {
     "weight": "",
     "length": "",
@@ -57,9 +57,7 @@
     "most_distinctive_feature": "An expanding hood"
   },
   "sources": [
-    "API Ninjas",
-    "Wikipedia",
-    "iNaturalist"
+    "API Ninjas"
   ],
-  "last_updated": "2026-03-16T19:02:25.706560"
+  "last_updated": "2026-03-16T19:15:08.261095"
 }

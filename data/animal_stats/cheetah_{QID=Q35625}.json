@@ -3,10 +3,10 @@
   "name": "Cheetah",
   "scientific_name": "Acinonyx jubatus",
   "common_names": [],
-  "description": "Large feline of the genus Acinonyx",
-  "summary": "The cheetah is a species of large feline and the only living member of the genus Acinonyx. An iconic pursuit predator, it is the fastest land animal, capable of running at 93 to 104 km/h ; it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg.",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
-  "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
+  "description": "",
+  "summary": "",
+  "image": "",
+  "wikipedia_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -18,7 +18,7 @@
   },
   "animal_type": "feline",
   "young_name": "Cub",
-  "group_name": "streak",
+  "group_name": "Mammal",
   "physical": {
     "weight": "40kg - 65kg (88lbs - 140lbs)",
     "length": "",
@@ -57,9 +57,7 @@
     "most_distinctive_feature": "Yellowish fur covered in small black spots"
   },
   "sources": [
-    "API Ninjas",
-    "Wikipedia",
-    "iNaturalist"
+    "API Ninjas"
   ],
-  "last_updated": "2026-03-16T19:02:08.823886"
+  "last_updated": "2026-03-16T19:14:58.237161"
 }

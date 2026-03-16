@@ -3,10 +3,10 @@
   "name": "Great White Shark",
   "scientific_name": "Carcharodon carcharias",
   "common_names": [],
-  "description": "Species of large lamniform shark",
-  "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. The species is partially warm-blooded, an adaptation that allows it to remain active in colder waters.",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
-  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
+  "description": "",
+  "summary": "",
+  "image": "",
+  "wikipedia_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -18,7 +18,7 @@
   },
   "animal_type": "default",
   "young_name": "Pup",
-  "group_name": "population",
+  "group_name": "Fish",
   "physical": {
     "weight": "1,110kg - 2,240kg (2,450lbs - 4,938lbs)",
     "length": "",
@@ -55,9 +55,7 @@
     "most_distinctive_feature": ""
   },
   "sources": [
-    "API Ninjas",
-    "Wikipedia",
-    "iNaturalist"
+    "API Ninjas"
   ],
-  "last_updated": "2026-03-16T19:02:19.391902"
+  "last_updated": "2026-03-16T19:15:04.461763"
 }

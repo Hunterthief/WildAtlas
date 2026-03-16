@@ -3,10 +3,10 @@
   "name": "Emperor Penguin",
   "scientific_name": "Aptenodytes forsteri",
   "common_names": [],
-  "description": "Large flightless seabird endemic to Antarctica",
-  "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
-  "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
+  "description": "",
+  "summary": "",
+  "image": "",
+  "wikipedia_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -18,7 +18,7 @@
   },
   "animal_type": "default",
   "young_name": "Chick",
-  "group_name": "population",
+  "group_name": "Bird",
   "physical": {
     "weight": "22kg - 45kg (49lbs - 99lbs)",
     "length": "",
@@ -57,9 +57,7 @@
     "most_distinctive_feature": "Bright yellow feathers on neck and ears"
   },
   "sources": [
-    "API Ninjas",
-    "Wikipedia",
-    "iNaturalist"
+    "API Ninjas"
   ],
-  "last_updated": "2026-03-16T19:02:17.237579"
+  "last_updated": "2026-03-16T19:15:03.258104"
 }

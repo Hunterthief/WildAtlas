@@ -3,10 +3,10 @@
   "name": "Bald Eagle",
   "scientific_name": "Haliaeetus leucocephalus",
   "common_names": [],
-  "description": "Bird of prey species of North America",
-  "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
-  "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
+  "description": "",
+  "summary": "",
+  "image": "",
+  "wikipedia_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -14,11 +14,11 @@
     "order": "Accipitriformes",
     "family": "Accipitridae",
     "genus": "Haliaeetus",
-    "species": "Haliaeetus leucocephalus"
+    "species": "haliaeetus leucocephalus"
   },
   "animal_type": "default",
-  "young_name": "young",
-  "group_name": "population",
+  "young_name": "",
+  "group_name": "",
   "physical": {
     "weight": "6.6-14lbs",
     "length": "",
@@ -41,7 +41,7 @@
   "reproduction": {
     "gestation_period": "",
     "average_litter_size": "",
-    "name_of_young": "young"
+    "name_of_young": ""
   },
   "additional_info": {
     "lifestyle": "",
@@ -57,9 +57,7 @@
     "most_distinctive_feature": "The white plumage on the head"
   },
   "sources": [
-    "API Ninjas",
-    "Wikipedia",
-    "iNaturalist"
+    "API Ninjas"
   ],
-  "last_updated": "2026-03-16T19:02:15.149039"
+  "last_updated": "2026-03-16T19:15:02.081231"
 }

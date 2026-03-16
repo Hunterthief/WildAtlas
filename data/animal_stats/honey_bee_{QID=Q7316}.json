@@ -3,10 +3,10 @@
   "name": "Honey Bee",
   "scientific_name": "Apis mellifera",
   "common_names": [],
-  "description": "Colonial flying insect",
-  "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
-  "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
+  "description": "",
+  "summary": "",
+  "image": "",
+  "wikipedia_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -17,8 +17,8 @@
     "species": "Apis mellifera"
   },
   "animal_type": "default",
-  "young_name": "young",
-  "group_name": "population",
+  "young_name": "",
+  "group_name": "",
   "physical": {
     "weight": "",
     "length": "",
@@ -39,7 +39,7 @@
   "reproduction": {
     "gestation_period": "",
     "average_litter_size": "200",
-    "name_of_young": "young"
+    "name_of_young": ""
   },
   "additional_info": {
     "lifestyle": "",
@@ -55,9 +55,7 @@
     "most_distinctive_feature": ""
   },
   "sources": [
-    "API Ninjas",
-    "Wikipedia",
-    "iNaturalist"
+    "API Ninjas"
   ],
-  "last_updated": "2026-03-16T19:02:32.970545"
+  "last_updated": "2026-03-16T19:15:11.898176"
 }
