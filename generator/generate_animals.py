@@ -9,10 +9,25 @@ from requests.packages.urllib3.util.retry import Retry
 sys.path.insert(0, str(Path(__file__).parent))
 from modules.api_ninjas import fetch_animal_data
 
-# Setup
-os.makedirs("data", exist_ok=True)
-os.makedirs("data/animal_stats", exist_ok=True)
+# ============================================================================
+# SETUP - FIXED PATHS TO REPO ROOT
+# ============================================================================
+
+# Go up from generator/ to repo root
+REPO_ROOT = Path(__file__).parent.parent
+
+# Data directories at repo root
+DATA_DIR = REPO_ROOT / "data"
+ANIMAL_STATS_DIR = DATA_DIR / "animal_stats"
+
+# Create directories
+os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(ANIMAL_STATS_DIR, exist_ok=True)
+
+# Config directory (stays in generator/)
 CONFIG_DIR = Path(__file__).parent / "config"
+
+# Session setup
 session = requests.Session()
 retry = Retry(total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504])
 session.mount("https://", HTTPAdapter(max_retries=retry))
@@ -523,8 +538,8 @@ def get_animal_filename(name, qid):
 def load_cache(qid, name=None):
     if name:
         filename = get_animal_filename(name, qid)
-        f = f"data/animal_stats/{filename}"
-        if os.path.exists(f):
+        f = ANIMAL_STATS_DIR / filename
+        if f.exists():
             try:
                 with open(f, "r", encoding="utf-8") as fp:
                     return json.load(fp)
@@ -534,23 +549,17 @@ def load_cache(qid, name=None):
 
 def save_animal_file(data, name, qid):
     filename = get_animal_filename(name, qid)
-    filepath = f"data/animal_stats/{filename}"
+    filepath = ANIMAL_STATS_DIR / filename
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     print(f" 💾 Saved: {filename}")
     return filepath
 
 # ============================================================================
-# BUILD ANIMAL DATA - FIXED TO PROPERLY MERGE NINJA API DATA
+# BUILD ANIMAL DATA
 # ============================================================================
 
 def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, qid, name, sci_name):
-    """
-    Build complete animal data structure.
-    FIXED: Properly merge ALL Ninja API data fields
-    """
-    
-    # Get animal type from Ninja taxonomy first, then refine with iNaturalist
     ninja_taxonomy = {}
     ninja_chars = {}
     ninja_locations = []
@@ -565,14 +574,12 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
     young_name = get_young_name(animal_type)
     group_name = get_group_name(animal_type)
     
-    # Combine all text for extraction
     all_text = ""
     if wiki_summary and wiki_summary.get("summary") and wiki_summary.get("summary") != "Unknown":
         all_text += wiki_summary.get("summary", "") + " "
     if wiki_full:
         all_text += wiki_full
     
-    # ========== BUILD DATA STRUCTURE WITH NINJA API DATA FIRST ==========
     data = {
         "id": qid,
         "name": name,
@@ -633,15 +640,12 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
         "last_updated": datetime.now().isoformat()
     }
     
-    # Add sources
     if ninja_data:
         data["sources"].append("API Ninjas")
     if wiki_summary and wiki_summary.get("summary") and wiki_summary.get("summary") != "Unknown":
         data["sources"].append("Wikipedia")
     
-    # ========== SUPPLEMENT WITH WIKIPEDIA EXTRACTION (ONLY IF NINJA DATA IS UNKNOWN) ==========
     if all_text:
-        # Physical stats
         if data["physical"]["weight"] == "Unknown":
             stats = extract_stats(all_text, animal_type)
             if stats["weight"] != "Unknown":
@@ -663,7 +667,6 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             if stats["lifespan"] != "Unknown":
                 data["physical"]["lifespan"] = stats["lifespan"]
         
-        # Ecology
         if data["ecology"]["diet"] == "Unknown":
             diet = extract_diet(all_text, animal_type)
             if diet != "Unknown":
@@ -693,7 +696,6 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             if threats != "Unknown":
                 data["ecology"]["biggest_threat"] = threats
         
-        # Reproduction
         if data["reproduction"]["gestation_period"] == "Unknown":
             repro = extract_reproduction(all_text, animal_type)
             if repro["gestation_period"] != "Unknown":
@@ -701,7 +703,6 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             if repro["average_litter_size"] != "Unknown":
                 data["reproduction"]["average_litter_size"] = repro["average_litter_size"]
     
-    # ========== MERGE INATURALIST CLASSIFICATION (FILL GAPS) ==========
     if inat_classification:
         for field in CLASSIFICATION_FIELDS:
             if data["classification"][field] == "Unknown" and inat_classification.get(field):
@@ -747,7 +748,6 @@ def generate(animals, force=False):
                     "characteristics": {}
                 }
             else:
-                # Debug: Show what we got from Ninja API
                 chars = ninja_data.get("characteristics", {})
                 print(f"   📊 Ninja API data received: {len(chars)} characteristics")
 
@@ -765,12 +765,12 @@ def generate(animals, force=False):
         print(f" ✅ {name} complete!")
         time.sleep(1)
 
-    with open("data/animals.json", "w", encoding="utf-8") as f:
+    with open(DATA_DIR / "animals.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
     print(f"\n✅ Done! {len(output)} animals saved:")
-    print(f"   • Individual files: data/animal_stats/")
-    print(f"   • Combined file: data/animals.json")
+    print(f"   • Individual files: {ANIMAL_STATS_DIR}/")
+    print(f"   • Combined file: {DATA_DIR}/animals.json")
     return output
 
 TEST_ANIMALS = [
