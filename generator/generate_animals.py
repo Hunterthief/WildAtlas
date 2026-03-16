@@ -569,6 +569,9 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
         ninja_taxonomy = ninja_data.get("taxonomy", {}) or {}
         ninja_chars = ninja_data.get("characteristics", {}) or {}
         ninja_locations = ninja_data.get("locations", []) or []
+        
+        # Debug: Print what we got from Ninja API
+        print(f"   📋 Ninja characteristics keys: {list(ninja_chars.keys())}")
     
     classification = inat_classification if inat_classification else ninja_taxonomy
     animal_type = detect_animal_type(name, classification)
@@ -581,6 +584,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
     if wiki_full:
         all_text += wiki_full
     
+    # ========== BUILD DATA STRUCTURE - MAP EVERY NINJA API FIELD EXPLICITLY ==========
     data = {
         "id": qid,
         "name": name,
@@ -590,63 +594,78 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
         "summary": wiki_summary.get("summary", "Unknown") if wiki_summary else "Unknown",
         "image": wiki_summary.get("image", "") if wiki_summary else "",
         "wikipedia_url": wiki_summary.get("url", "Unknown") if wiki_summary else "Unknown",
+        
+        # Classification from Ninja API
         "classification": {
-            "kingdom": ninja_taxonomy.get("kingdom") or "Unknown",
-            "phylum": ninja_taxonomy.get("phylum") or "Unknown",
-            "class": ninja_taxonomy.get("class") or "Unknown",
-            "order": ninja_taxonomy.get("order") or "Unknown",
-            "family": ninja_taxonomy.get("family") or "Unknown",
-            "genus": ninja_taxonomy.get("genus") or "Unknown",
-            "species": ninja_taxonomy.get("scientific_name") or sci_name
+            "kingdom": ninja_taxonomy.get("kingdom") if ninja_taxonomy.get("kingdom") else "Unknown",
+            "phylum": ninja_taxonomy.get("phylum") if ninja_taxonomy.get("phylum") else "Unknown",
+            "class": ninja_taxonomy.get("class") if ninja_taxonomy.get("class") else "Unknown",
+            "order": ninja_taxonomy.get("order") if ninja_taxonomy.get("order") else "Unknown",
+            "family": ninja_taxonomy.get("family") if ninja_taxonomy.get("family") else "Unknown",
+            "genus": ninja_taxonomy.get("genus") if ninja_taxonomy.get("genus") else "Unknown",
+            "species": ninja_taxonomy.get("scientific_name") if ninja_taxonomy.get("scientific_name") else sci_name
         },
+        
         "animal_type": animal_type,
         "young_name": young_name,
         "group_name": group_name,
+        
+        # Physical - EXPLICIT mapping from Ninja API
         "physical": {
-            "weight": ninja_chars.get("weight") or "Unknown",
-            "length": "Unknown",
-            "height": ninja_chars.get("height") or "Unknown",
-            "top_speed": ninja_chars.get("top_speed") or "Unknown",
-            "lifespan": ninja_chars.get("lifespan") or "Unknown"
+            "weight": ninja_chars.get("weight") if ninja_chars.get("weight") else "Unknown",
+            "length": "Unknown",  # Ninja API doesn't provide length
+            "height": ninja_chars.get("height") if ninja_chars.get("height") else "Unknown",
+            "top_speed": ninja_chars.get("top_speed") if ninja_chars.get("top_speed") else "Unknown",
+            "lifespan": ninja_chars.get("lifespan") if ninja_chars.get("lifespan") else "Unknown"
         },
+        
+        # Ecology - EXPLICIT mapping from Ninja API
         "ecology": {
-            "diet": ninja_chars.get("diet") or "Unknown",
-            "habitat": ninja_chars.get("habitat") or "Unknown",
+            "diet": ninja_chars.get("diet") if ninja_chars.get("diet") else "Unknown",
+            "habitat": ninja_chars.get("habitat") if ninja_chars.get("habitat") else "Unknown",
             "locations": ", ".join(ninja_locations) if ninja_locations else "Unknown",
-            "group_behavior": ninja_chars.get("group_behavior") or "Unknown",
+            "group_behavior": ninja_chars.get("group_behavior") if ninja_chars.get("group_behavior") else "Unknown",
             "conservation_status": "Unknown",
-            "biggest_threat": ninja_chars.get("biggest_threat") or "Unknown",
+            "biggest_threat": ninja_chars.get("biggest_threat") if ninja_chars.get("biggest_threat") else "Unknown",
             "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
             "population_trend": "Unknown"
         },
+        
+        # Reproduction - EXPLICIT mapping from Ninja API
         "reproduction": {
-            "gestation_period": ninja_chars.get("gestation_period") or "Unknown",
-            "average_litter_size": ninja_chars.get("average_litter_size") or "Unknown",
-            "name_of_young": ninja_chars.get("name_of_young") or young_name
+            "gestation_period": ninja_chars.get("gestation_period") if ninja_chars.get("gestation_period") else "Unknown",
+            "average_litter_size": ninja_chars.get("average_litter_size") if ninja_chars.get("average_litter_size") else "Unknown",
+            "name_of_young": ninja_chars.get("name_of_young") if ninja_chars.get("name_of_young") else young_name
         },
+        
+        # Additional Info - EXPLICIT mapping from Ninja API (ALL FIELDS)
         "additional_info": {
-            "lifestyle": ninja_chars.get("lifestyle") or "Unknown",
-            "color": ninja_chars.get("color") or "Unknown",
-            "skin_type": ninja_chars.get("skin_type") or "Unknown",
-            "prey": ninja_chars.get("prey") or "Unknown",
-            "slogan": ninja_chars.get("slogan") or "Unknown",
-            "group": ninja_chars.get("group") or "Unknown",
-            "number_of_species": ninja_chars.get("number_of_species") or "Unknown",
-            "estimated_population_size": ninja_chars.get("estimated_population_size") or "Unknown",
-            "age_of_sexual_maturity": ninja_chars.get("age_of_sexual_maturity") or "Unknown",
-            "age_of_weaning": ninja_chars.get("age_of_weaning") or "Unknown",
-            "most_distinctive_feature": ninja_chars.get("most_distinctive_feature") or "Unknown"
+            "lifestyle": ninja_chars.get("lifestyle") if ninja_chars.get("lifestyle") else "Unknown",
+            "color": ninja_chars.get("color") if ninja_chars.get("color") else "Unknown",
+            "skin_type": ninja_chars.get("skin_type") if ninja_chars.get("skin_type") else "Unknown",
+            "prey": ninja_chars.get("prey") if ninja_chars.get("prey") else "Unknown",
+            "slogan": ninja_chars.get("slogan") if ninja_chars.get("slogan") else "Unknown",
+            "group": ninja_chars.get("group") if ninja_chars.get("group") else "Unknown",
+            "number_of_species": ninja_chars.get("number_of_species") if ninja_chars.get("number_of_species") else "Unknown",
+            "estimated_population_size": ninja_chars.get("estimated_population_size") if ninja_chars.get("estimated_population_size") else "Unknown",
+            "age_of_sexual_maturity": ninja_chars.get("age_of_sexual_maturity") if ninja_chars.get("age_of_sexual_maturity") else "Unknown",
+            "age_of_weaning": ninja_chars.get("age_of_weaning") if ninja_chars.get("age_of_weaning") else "Unknown",
+            "most_distinctive_feature": ninja_chars.get("most_distinctive_feature") if ninja_chars.get("most_distinctive_feature") else "Unknown"
         },
+        
         "sources": [],
         "last_updated": datetime.now().isoformat()
     }
     
+    # Add sources
     if ninja_data:
         data["sources"].append("API Ninjas")
     if wiki_summary and wiki_summary.get("summary") and wiki_summary.get("summary") != "Unknown":
         data["sources"].append("Wikipedia")
     
+    # ========== SUPPLEMENT WITH WIKIPEDIA (ONLY IF NINJA DATA IS UNKNOWN) ==========
     if all_text:
+        # Physical stats
         if data["physical"]["weight"] == "Unknown":
             stats = extract_stats(all_text, animal_type)
             if stats["weight"] != "Unknown":
@@ -668,6 +687,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             if stats["lifespan"] != "Unknown":
                 data["physical"]["lifespan"] = stats["lifespan"]
         
+        # Ecology
         if data["ecology"]["diet"] == "Unknown":
             diet = extract_diet(all_text, animal_type)
             if diet != "Unknown":
@@ -697,6 +717,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             if threats != "Unknown":
                 data["ecology"]["biggest_threat"] = threats
         
+        # Reproduction
         if data["reproduction"]["gestation_period"] == "Unknown":
             repro = extract_reproduction(all_text, animal_type)
             if repro["gestation_period"] != "Unknown":
@@ -704,11 +725,14 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             if repro["average_litter_size"] == "Unknown":
                 data["reproduction"]["average_litter_size"] = repro["average_litter_size"]
         
-        if data["additional_info"]["prey"] == "Unknown":
-            prey_match = re.search(r'(?:preys? on|feeds? on|eats|diet consists of|primary food)[:\s]+([^.]+)', all_text, re.I)
-            if prey_match:
-                data["additional_info"]["prey"] = prey_match.group(1).strip()[:100]
+        # Additional Info - ONLY extract from Wikipedia if Ninja API didn't provide it
+        # DO NOT extract prey from Wikipedia text (it grabs garbage)
+        # if data["additional_info"]["prey"] == "Unknown":
+        #     prey_match = re.search(r'(?:preys? on|feeds? on|eats|diet consists of|primary food)[:\s]+([^.]+)', all_text, re.I)
+        #     if prey_match:
+        #         data["additional_info"]["prey"] = prey_match.group(1).strip()[:100]
     
+    # ========== MERGE INATURALIST CLASSIFICATION (FILL GAPS ONLY) ==========
     if inat_classification:
         for field in CLASSIFICATION_FIELDS:
             if data["classification"][field] == "Unknown" and inat_classification.get(field):
