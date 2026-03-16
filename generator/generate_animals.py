@@ -20,109 +20,13 @@ ANIMAL_STATS_DIR = DATA_DIR / "animal_stats"
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(ANIMAL_STATS_DIR, exist_ok=True)
 
-CONFIG_DIR = Path(__file__).parent / "config"
-
-session = requests.Session()
-retry = Retry(total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504])
-session.mount("https://", HTTPAdapter(max_retries=retry))
-headers = {"User-Agent": "WildAtlasBot/1.0 (contact@example.com)", "Accept": "application/json"}
-
-WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
-INAT_API = "https://api.inaturalist.org/v1/taxa"
-
-CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
-
 # ============================================================================
-# LOAD CONFIG FILES
-# ============================================================================
-
-def load_config(filename):
-    config_path = CONFIG_DIR / filename
-    if config_path.exists():
-        with open(config_path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {}
-
-YOUNG_NAMES = load_config("young_names.json")
-GROUP_NAMES = load_config("group_names.json")
-
-def get_young_name(animal_type):
-    return YOUNG_NAMES.get(animal_type, YOUNG_NAMES.get("default", "young"))
-
-def get_group_name(animal_type):
-    return GROUP_NAMES.get(animal_type, GROUP_NAMES.get("default", "population"))
-
-# ============================================================================
-# WIKIPEDIA (for summary/image only)
-# ============================================================================
-
-def fetch_wikipedia_summary(name):
-    try:
-        r = session.get(f"{WIKI_API}{name.replace(' ', '_')}", headers=headers, timeout=15)
-        if r.status_code == 200:
-            d = r.json()
-            return {
-                "summary": d.get("extract", ""),
-                "description": d.get("description", ""),
-                "image": d.get("thumbnail", {}).get("source", ""),
-                "url": d.get("content_urls", {}).get("desktop", {}).get("page", "")
-            }
-    except Exception as e:
-        print(f" ⚠ Wikipedia error: {e}")
-    return {"summary": "", "description": "", "image": "", "url": ""}
-
-# ============================================================================
-# INATURALIST (for classification only)
-# ============================================================================
-
-def fetch_inaturalist(sci_name):
-    try:
-        params = {"q": sci_name, "per_page": 1, "rank": "species"}
-        r = session.get(INAT_API, params=params, headers=headers, timeout=30)
-        if r.status_code == 200:
-            results = r.json().get("results", [])
-            if results:
-                taxon = results[0]
-                time.sleep(0.5)
-                anc_ids = taxon.get("ancestor_ids", [])
-                if anc_ids:
-                    r = session.get(f"{INAT_API}/{','.join(map(str, anc_ids))}", headers=headers, timeout=30)
-                    if r.status_code == 200:
-                        classification = {f: "" for f in CLASSIFICATION_FIELDS}
-                        classification["species"] = taxon.get("name", sci_name)
-                        for a in r.json().get("results", []):
-                            rank = a.get("rank", "").lower()
-                            name = a.get("name")
-                            if rank == "kingdom": classification["kingdom"] = name
-                            elif rank == "phylum": classification["phylum"] = name
-                            elif rank == "class": classification["class"] = name
-                            elif rank == "order": classification["order"] = name
-                            elif rank == "family": classification["family"] = name
-                            elif rank == "genus": classification["genus"] = name
-                        return classification
-    except Exception as e:
-        print(f" ⚠ iNaturalist error: {e}")
-    return None
-
-# ============================================================================
-# FILE NAMING & CACHING
+# FILE NAMING
 # ============================================================================
 
 def get_animal_filename(name, qid):
     clean_name = name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
     return f"{clean_name}_{{QID={qid}}}.json"
-
-def load_cache(qid, name=None):
-    if name:
-        filename = get_animal_filename(name, qid)
-        f = ANIMAL_STATS_DIR / filename
-        if f.exists():
-            try:
-                with open(f, "r", encoding="utf-8") as fp:
-                    return json.load(fp)
-            except:
-                pass
-    return None
 
 def save_animal_file(data, name, qid):
     filename = get_animal_filename(name, qid)
@@ -132,14 +36,25 @@ def save_animal_file(data, name, qid):
     print(f" 💾 Saved: {filename}")
 
 # ============================================================================
-# BUILD ANIMAL DATA - DIRECT MAPPING FROM NINJA API
+# FORMAT NINJA API DATA
 # ============================================================================
 
-def build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci_name):
-    chars = ninja_data.get("characteristics", {}) if ninja_data else {}
-    taxonomy = ninja_data.get("taxonomy", {}) if ninja_data else {}
-    locations = ninja_data.get("locations", []) if ninja_data else []
+def format_ninja_data(ninja_data, qid, name, sci_name):
+    """Format Ninja API data into our structure"""
     
+    if not ninja_data:
+        return {
+            "id": qid,
+            "name": name,
+            "scientific_name": sci_name,
+            "error": "No data from Ninja API"
+        }
+    
+    chars = ninja_data.get("characteristics", {})
+    taxonomy = ninja_data.get("taxonomy", {})
+    locations = ninja_data.get("locations", [])
+    
+    # Determine animal type
     animal_type = "default"
     if taxonomy:
         family = taxonomy.get("family", "").lower()
@@ -149,30 +64,31 @@ def build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci
             animal_type = "canine"
         elif "ursidae" in family:
             animal_type = "bear"
+        elif "elephantidae" in family:
+            animal_type = "elephant"
     
-    young_name = chars.get("name_of_young") or get_young_name(animal_type)
-    
+    # Map to our format
     data = {
         "id": qid,
         "name": name,
         "scientific_name": sci_name,
         "common_names": [],
-        "description": wiki_data.get("description", "") if wiki_data else "",
-        "summary": wiki_data.get("summary", "") if wiki_data else "",
-        "image": wiki_data.get("image", "") if wiki_data else "",
-        "wikipedia_url": wiki_data.get("url", "") if wiki_data else "",
+        "description": "",
+        "summary": "",
+        "image": "",
+        "wikipedia_url": "",
         "classification": {
-            "kingdom": inat_classification.get("kingdom") if inat_classification else taxonomy.get("kingdom", ""),
-            "phylum": inat_classification.get("phylum") if inat_classification else taxonomy.get("phylum", ""),
-            "class": inat_classification.get("class") if inat_classification else taxonomy.get("class", ""),
-            "order": inat_classification.get("order") if inat_classification else taxonomy.get("order", ""),
-            "family": inat_classification.get("family") if inat_classification else taxonomy.get("family", ""),
-            "genus": inat_classification.get("genus") if inat_classification else taxonomy.get("genus", ""),
-            "species": inat_classification.get("species") if inat_classification else taxonomy.get("scientific_name", sci_name)
+            "kingdom": taxonomy.get("kingdom", ""),
+            "phylum": taxonomy.get("phylum", ""),
+            "class": taxonomy.get("class", ""),
+            "order": taxonomy.get("order", ""),
+            "family": taxonomy.get("family", ""),
+            "genus": taxonomy.get("genus", ""),
+            "species": taxonomy.get("scientific_name", sci_name)
         },
         "animal_type": animal_type,
-        "young_name": young_name,
-        "group_name": get_group_name(animal_type),
+        "young_name": chars.get("name_of_young", ""),
+        "group_name": chars.get("group", ""),
         "physical": {
             "weight": chars.get("weight", ""),
             "length": "",
@@ -193,7 +109,7 @@ def build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci
         "reproduction": {
             "gestation_period": chars.get("gestation_period", ""),
             "average_litter_size": chars.get("average_litter_size", ""),
-            "name_of_young": young_name
+            "name_of_young": chars.get("name_of_young", "")
         },
         "additional_info": {
             "lifestyle": chars.get("lifestyle", ""),
@@ -208,14 +124,9 @@ def build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci
             "age_of_weaning": chars.get("age_of_weaning", ""),
             "most_distinctive_feature": chars.get("most_distinctive_feature", "")
         },
-        "sources": ["API Ninjas"] if ninja_data else [],
+        "sources": ["API Ninjas"],
         "last_updated": datetime.now().isoformat()
     }
-    
-    if wiki_data and wiki_data.get("summary"):
-        data["sources"].append("Wikipedia")
-    if inat_classification:
-        data["sources"].append("iNaturalist")
     
     return data
 
@@ -233,44 +144,28 @@ def generate(animals, force=False):
         print(f"[{i+1}/{len(animals)}] {name} ({sci})")
         print(f"{'='*60}")
 
-        cached = load_cache(qid, name) if not force else None
-
-        if cached and not force:
-            data = cached
-            print(" 📦 Using cached data")
+        print(" 🥷 Fetching from Ninja API...")
+        ninja_data = fetch_animal_data(name, ninja_api_key)
+        
+        if ninja_
+            chars = ninja_data.get("characteristics", {})
+            print(f"   📊 Got {len(chars)} fields from Ninja API")
         else:
-            print(" 🥷 Fetching from Ninja API...")
-            ninja_data = fetch_animal_data(name, ninja_api_key)
-            
-            if not ninja_data:
-                print(f" ⚠ No data from Ninja API for {name}")
-                ninja_data = {
-                    "name": name,
-                    "taxonomy": {},
-                    "locations": [],
-                    "characteristics": {}
-                }
-            else:
-                chars = ninja_data.get("characteristics", {})
-                print(f"   📊 Got {len(chars)} fields from Ninja API")
-
-            print(" 📖 Fetching from Wikipedia...")
-            wiki_data = fetch_wikipedia_summary(name)
-            
-            print(" 🔬 Fetching from iNaturalist...")
-            inat_classification = fetch_inaturalist(sci)
-            
-            data = build_animal_data(ninja_data, wiki_data, inat_classification, qid, name, sci)
-            save_animal_file(data, name, qid)
-
+            print(f" ⚠ No data from Ninja API for {name}")
+        
+        # Format and save
+        data = format_ninja_data(ninja_data, qid, name, sci)
+        save_animal_file(data, name, qid)
+        
         output.append(data)
         print(f" ✅ {name} complete!")
         time.sleep(1)
 
+    # Save combined file
     with open(DATA_DIR / "animals.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
-    print(f"\n✅ Done! {len(output)} animals saved")
+    print(f"\n✅ Done! {len(output)} animals saved to {ANIMAL_STATS_DIR}/")
     return output
 
 TEST_ANIMALS = [
