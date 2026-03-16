@@ -262,7 +262,14 @@ function populateDetailPage(animal) {
             imageWrapper.style.display = 'none';
         }
     }
+    setup3DModel(animal);
     
+    // Hero Image (now handled by setup3DModel)
+    const heroImage = document.getElementById('animal-image');
+    if (heroImage && animal.image) {
+        heroImage.src = animal.image.trim();
+        heroImage.alt = animal.name;
+    }
     // === RIGHT SIDEBAR ===
     
     // Location with Map Dots
