@@ -744,11 +744,12 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
 
 def generate(animals, force=False):
     output = []
-    ninja_api_key = os.environ.get("NINJA_API_KEY", "")
+    # ✅ FIXED: Use API_NINJAS_KEY instead of NINJA_API_KEY
+    ninja_api_key = os.environ.get("API_NINJAS_KEY", "")
     
     if not ninja_api_key:
-        print(" ⚠ WARNING: NINJA_API_KEY not set! API calls will fail.")
-        print("   Set it with: export NINJA_API_KEY='your_key_here'")
+        print(" ⚠ WARNING: API_NINJAS_KEY not set! API calls will fail.")
+        print("   Set it in GitHub Secrets as 'API_NINJAS_KEY'")
     
     for i, a in enumerate(animals):
         name, sci, qid = a["name"], a["scientific_name"], a.get("qid", f"animal_{i}")
