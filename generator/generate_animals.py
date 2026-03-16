@@ -4,10 +4,11 @@ import json, time, os, sys
 from datetime import datetime
 from pathlib import Path
 
-# Add generator directory to Python path
-sys.path.insert(0, str(Path(__file__).parent))
+# Add generator directory to Python path (CRITICAL for GitHub Actions)
+GENERATOR_DIR = Path(__file__).parent
+sys.path.insert(0, str(GENERATOR_DIR))
 
-# Import modules
+# Import modules - use explicit paths from generator directory
 from modules.api_ninjas import fetch_animal_data
 from fetchers.wikipedia import fetch_wikipedia_summary, fetch_wikipedia_full
 from fetchers.inaturalist import fetch_inaturalist
@@ -20,14 +21,14 @@ from extractors.behavior import extract_behavior_from_sections
 from extractors.additional_info import extract_additional_info_from_sections
 
 # Setup paths
-REPO_ROOT = Path(__file__).parent.parent
+REPO_ROOT = GENERATOR_DIR.parent
 DATA_DIR = REPO_ROOT / "data"
 ANIMAL_STATS_DIR = DATA_DIR / "animal_stats"
 
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(ANIMAL_STATS_DIR, exist_ok=True)
 
-CONFIG_DIR = Path(__file__).parent / "config"
+CONFIG_DIR = GENERATOR_DIR / "config"
 
 # Load configs
 def load_config(filename):
