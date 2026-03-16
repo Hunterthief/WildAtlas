@@ -56,7 +56,7 @@ def extract_countries(occurrences: Dict[str, Any]) -> List[str]:
 def extract_coordinates(occurrences: Dict[str, Any]) -> Dict[str, Any]:
     """Extract coordinate bounds for distribution map"""
     lats = []
-        lons = []
+    lons = []  # ← FIXED: Removed extra indent
     
     for result in occurrences.get("results", [])[:50]:  # Sample first 50
         lat = result.get("decimalLatitude")
@@ -78,6 +78,9 @@ def extract_coordinates(occurrences: Dict[str, Any]) -> Dict[str, Any]:
 
 def extract_habitat_from_gbif(species_data: Dict[str, Any]) -> str:
     """Extract habitat information from GBIF species data"""
+    if not species_data:
+        return ""
+    
     # GBIF doesn't have structured habitat, but we can use description
     description = species_data.get("description", "")
     
@@ -104,7 +107,8 @@ def extract_gbif_all(scientific_name: str) -> Dict[str, Any]:
         "countries": [],
         "coordinates": {},
         "habitat": "",
-        "occurrence_count": 0
+        "occurrence_count": 0,
+        "gbif_key": ""
     }
     
     if occurrences:
