@@ -20,8 +20,8 @@
   "young_name": "hatchling",
   "group_name": "den",
   "physical": {
-    "weight": "9.0 t",
-    "length": "3.18–4.0 m",
+    "weight": "Unknown",
+    "length": "Unknown",
     "height": "Unknown",
     "top_speed": "12 mph",
     "lifespan": "About 20 years"
@@ -30,7 +30,7 @@
     "diet": "Carnivore",
     "habitat": "Forest, shrublands, wetlands",
     "locations": "Asia",
-    "group_behavior": "Social",
+    "group_behavior": "Unknown",
     "conservation_status": "Vulnerable",
     "biggest_threat": "Poaching, habitat loss",
     "distinctive_features": [
@@ -61,5 +61,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:42:48.813289"
+  "last_updated": "2026-03-16T18:53:48.375320"
 }

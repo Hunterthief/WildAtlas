@@ -21,7 +21,7 @@
   "group_name": "colony",
   "physical": {
     "weight": "Unknown",
-    "length": "0.3–0.8 m",
+    "length": "Unknown",
     "height": "Unknown",
     "top_speed": "Unknown",
     "lifespan": "Unknown"
@@ -30,14 +30,10 @@
     "diet": "Herbivore",
     "habitat": "Sheltered forests and meadows",
     "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
-    "group_behavior": "Solitary",
+    "group_behavior": "Unknown",
     "conservation_status": "Endangered",
-    "biggest_threat": "Habitat loss, Pollution, Overfishing",
-    "distinctive_features": [
-      "Wing",
-      "Stinger",
-      "Pollen Basket"
-    ],
+    "biggest_threat": "Habitat loss",
+    "distinctive_features": [],
     "population_trend": "Unknown"
   },
   "reproduction": {
@@ -63,5 +59,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:42:57.043316"
+  "last_updated": "2026-03-16T18:53:56.529478"
 }

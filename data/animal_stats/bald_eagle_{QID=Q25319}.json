@@ -30,7 +30,7 @@
     "diet": "Carnivore",
     "habitat": "Near forests",
     "locations": "North-America",
-    "group_behavior": "Solitary",
+    "group_behavior": "Unknown",
     "conservation_status": "Endangered",
     "biggest_threat": "Pesticide use",
     "distinctive_features": [
@@ -61,5 +61,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:42:37.039953"
+  "last_updated": "2026-03-16T18:53:35.410416"
 }

@@ -21,23 +21,19 @@
   "group_name": "run",
   "physical": {
     "weight": "Unknown",
-    "length": "20.0–25.0 cm",
+    "length": "Unknown",
     "height": "Unknown",
     "top_speed": "Unknown",
     "lifespan": "Unknown"
   },
   "ecology": {
-    "diet": "Carnivore",
-    "habitat": "stream, lake, river, Atlantic",
+    "diet": "Unknown",
+    "habitat": "coastal, lake, river, stream",
     "locations": "North Atlantic, Canada, Alaska, United States, Europe",
-    "group_behavior": "Solitary",
+    "group_behavior": "Unknown",
     "conservation_status": "Endangered",
-    "biggest_threat": "Poaching, Habitat loss, Climate change",
-    "distinctive_features": [
-      "Fin",
-      "Tail",
-      "Scale"
-    ],
+    "biggest_threat": "Poaching, Habitat loss",
+    "distinctive_features": [],
     "population_trend": "Unknown"
   },
   "reproduction": {
@@ -63,5 +59,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:42:44.058404"
+  "last_updated": "2026-03-16T18:53:43.148182"
 }

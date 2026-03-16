@@ -22,7 +22,7 @@
     "group_name": "streak",
     "physical": {
       "weight": "140kg - 300kg (309lbs - 660lbs)",
-      "length": "2.7–3.7 m",
+      "length": "Unknown",
       "height": "Unknown",
       "top_speed": "60 mph",
       "lifespan": "18 - 25 years"
@@ -31,14 +31,10 @@
       "diet": "Carnivore",
       "habitat": "Dense tropical forest and mangroves",
       "locations": "Asia",
-      "group_behavior": "Solitary",
+      "group_behavior": "Unknown",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
-      "distinctive_features": [
-        "Stripe",
-        "Spot",
-        "Mane"
-      ],
+      "distinctive_features": [],
       "population_trend": "Unknown"
     },
     "reproduction": {
@@ -64,7 +60,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:27.208890"
+    "last_updated": "2026-03-16T18:53:26.310977"
   },
   {
     "id": "Q35625",
@@ -89,7 +85,7 @@
     "group_name": "streak",
     "physical": {
       "weight": "40kg - 65kg (88lbs - 140lbs)",
-      "length": "67.0–94.0 cm",
+      "length": "Unknown",
       "height": "115cm - 136cm (45in - 53in)",
       "top_speed": "70 mph",
       "lifespan": "10 - 12 years"
@@ -129,7 +125,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:29.557875"
+    "last_updated": "2026-03-16T18:53:28.446695"
   },
   {
     "id": "Q7372",
@@ -154,23 +150,19 @@
     "group_name": "colony",
     "physical": {
       "weight": "Unknown",
-      "length": "7.0–6.0 m",
+      "length": "Unknown",
       "height": "Unknown",
       "top_speed": "Unknown",
       "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "lake, forest, woodland, tropical",
+      "diet": "Unknown",
+      "habitat": "forest, woodland, lake, rainforest",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
-      "group_behavior": "Solitary",
+      "group_behavior": "Unknown",
       "conservation_status": "Critically Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Climate change",
-      "distinctive_features": [
-        "Distinctive mane",
-        "Long trunk",
-        "Large tusks"
-      ],
+      "biggest_threat": "Poaching, Habitat loss",
+      "distinctive_features": [],
       "population_trend": "Unknown"
     },
     "reproduction": {
@@ -196,7 +188,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:31.848522"
+    "last_updated": "2026-03-16T18:53:30.381717"
   },
   {
     "id": "Q213537",
@@ -221,23 +213,19 @@
     "group_name": "fever",
     "physical": {
       "weight": "Unknown",
-      "length": "10.0–54.0 m",
+      "length": "Unknown",
       "height": "Unknown",
       "top_speed": "Unknown",
       "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "forest, jungle, lake, grassland",
+      "diet": "Unknown",
+      "habitat": "forest, mountain, wetland, marsh",
       "locations": "Africa, South Africa, Egypt, Asia, India",
-      "group_behavior": "Solitary",
+      "group_behavior": "Unknown",
       "conservation_status": "Endangered",
-      "biggest_threat": "Habitat loss, Human-wildlife conflict, Overfishing",
-      "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Distinctive mane"
-      ],
+      "biggest_threat": "Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [],
       "population_trend": "Unknown"
     },
     "reproduction": {
@@ -263,7 +251,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:34.649187"
+    "last_updated": "2026-03-16T18:53:33.042173"
   },
   {
     "id": "Q25319",
@@ -297,7 +285,7 @@
       "diet": "Carnivore",
       "habitat": "Near forests",
       "locations": "North-America",
-      "group_behavior": "Solitary",
+      "group_behavior": "Unknown",
       "conservation_status": "Endangered",
       "biggest_threat": "Pesticide use",
       "distinctive_features": [
@@ -328,7 +316,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:37.039953"
+    "last_updated": "2026-03-16T18:53:35.410416"
   },
   {
     "id": "Q43306",
@@ -393,7 +381,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:39.360129"
+    "last_updated": "2026-03-16T18:53:38.104246"
   },
   {
     "id": "Q47164",
@@ -418,7 +406,7 @@
     "group_name": "shiver",
     "physical": {
       "weight": "1,110kg - 2,240kg (2,450lbs - 4,938lbs)",
-      "length": "60.0–43.0 m",
+      "length": "Unknown",
       "height": "Unknown",
       "top_speed": "15 mph",
       "lifespan": "30 - 40 years"
@@ -430,11 +418,7 @@
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Hunting and habitat degredation",
-      "distinctive_features": [
-        "Fin",
-        "Tail",
-        "Tooth"
-      ],
+      "distinctive_features": [],
       "population_trend": "Unknown"
     },
     "reproduction": {
@@ -460,7 +444,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:41.927688"
+    "last_updated": "2026-03-16T18:53:40.537527"
   },
   {
     "id": "Q39709",
@@ -485,23 +469,19 @@
     "group_name": "run",
     "physical": {
       "weight": "Unknown",
-      "length": "20.0–25.0 cm",
+      "length": "Unknown",
       "height": "Unknown",
       "top_speed": "Unknown",
       "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "stream, lake, river, Atlantic",
+      "diet": "Unknown",
+      "habitat": "coastal, lake, river, stream",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
-      "group_behavior": "Solitary",
+      "group_behavior": "Unknown",
       "conservation_status": "Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Climate change",
-      "distinctive_features": [
-        "Fin",
-        "Tail",
-        "Scale"
-      ],
+      "biggest_threat": "Poaching, Habitat loss",
+      "distinctive_features": [],
       "population_trend": "Unknown"
     },
     "reproduction": {
@@ -527,7 +507,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:44.058404"
+    "last_updated": "2026-03-16T18:53:43.148182"
   },
   {
     "id": "Q7785",
@@ -552,23 +532,19 @@
     "group_name": "bale",
     "physical": {
       "weight": "Unknown",
-      "length": "28.0–56.0 cm",
+      "length": "Unknown",
       "height": "Unknown",
       "top_speed": "Unknown",
       "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "wetland, marsh, coastal, tropical",
+      "diet": "Unknown",
+      "habitat": "wetland, coastal, marsh, river",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
-      "group_behavior": "Solitary",
+      "group_behavior": "Unknown",
       "conservation_status": "Critically Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Climate change",
-      "distinctive_features": [
-        "Shell",
-        "Flipper",
-        "Scale"
-      ],
+      "biggest_threat": "Poaching, Habitat loss",
+      "distinctive_features": [],
       "population_trend": "Unknown"
     },
     "reproduction": {
@@ -594,7 +570,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:46.380425"
+    "last_updated": "2026-03-16T18:53:45.637250"
   },
   {
     "id": "Q189609",
@@ -618,8 +594,8 @@
     "young_name": "hatchling",
     "group_name": "den",
     "physical": {
-      "weight": "9.0 t",
-      "length": "3.18–4.0 m",
+      "weight": "Unknown",
+      "length": "Unknown",
       "height": "Unknown",
       "top_speed": "12 mph",
       "lifespan": "About 20 years"
@@ -628,7 +604,7 @@
       "diet": "Carnivore",
       "habitat": "Forest, shrublands, wetlands",
       "locations": "Asia",
-      "group_behavior": "Social",
+      "group_behavior": "Unknown",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Poaching, habitat loss",
       "distinctive_features": [
@@ -659,7 +635,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:48.813289"
+    "last_updated": "2026-03-16T18:53:48.375320"
   },
   {
     "id": "Q270238",
@@ -690,17 +666,13 @@
       "lifespan": "Unknown"
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "lake, swamp, coastal, tropical",
+      "diet": "Unknown",
+      "habitat": "coastal, lake, pond, river",
       "locations": "North America, United States, Canada, Europe, Asia",
-      "group_behavior": "Solitary",
+      "group_behavior": "Unknown",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Human-wildlife conflict",
-      "distinctive_features": [
-        "Jump",
-        "Distinctive mane",
-        "Prominent horns"
-      ],
+      "distinctive_features": [],
       "population_trend": "Unknown"
     },
     "reproduction": {
@@ -726,7 +698,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:50.977141"
+    "last_updated": "2026-03-16T18:53:51.182822"
   },
   {
     "id": "Q165980",
@@ -751,7 +723,7 @@
     "group_name": "swarm",
     "physical": {
       "weight": "0.25 - 0.75 grams",
-      "length": "8.9–10.2 cm",
+      "length": "Unknown",
       "height": "Unknown",
       "top_speed": "12 mph",
       "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
@@ -791,7 +763,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:53.794602"
+    "last_updated": "2026-03-16T18:53:53.791752"
   },
   {
     "id": "Q7316",
@@ -816,7 +788,7 @@
     "group_name": "colony",
     "physical": {
       "weight": "Unknown",
-      "length": "0.3–0.8 m",
+      "length": "Unknown",
       "height": "Unknown",
       "top_speed": "Unknown",
       "lifespan": "Unknown"
@@ -825,14 +797,10 @@
       "diet": "Herbivore",
       "habitat": "Sheltered forests and meadows",
       "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
-      "group_behavior": "Solitary",
+      "group_behavior": "Unknown",
       "conservation_status": "Endangered",
-      "biggest_threat": "Habitat loss, Pollution, Overfishing",
-      "distinctive_features": [
-        "Wing",
-        "Stinger",
-        "Pollen Basket"
-      ],
+      "biggest_threat": "Habitat loss",
+      "distinctive_features": [],
       "population_trend": "Unknown"
     },
     "reproduction": {
@@ -858,6 +826,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:42:57.043316"
+    "last_updated": "2026-03-16T18:53:56.529478"
   }
 ]
