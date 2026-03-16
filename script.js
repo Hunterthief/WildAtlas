@@ -532,7 +532,128 @@ function generateConservationText(animal) {
     
     return parts.join(' ') || 'Conservation information is not available for this species.';
 }
+// ============================================
+// 3D Model Functions (Sketchfab API)
+// ============================================
 
+// Sketchfab API Configuration
+const SKETCHFAB_API_URL = 'https://api.sketchfab.com/v3/search';
+const SKETCHFAB_API_KEY = ''; // Get free API key from https://sketchfab.com/developers
+
+// Search for 3D model on Sketchfab
+async function search3DModel(animalName) {
+    if (!SKETCHFAB_API_KEY) {
+        console.log('⚠️ No Sketchfab API key - skipping 3D model');
+        return null;
+    }
+    
+    try {
+        // Search for animal model
+        const query = `${animalName} animal 3d model`;
+        const response = await fetch(
+            `${SKETCHFAB_API_URL}?q=${encodeURIComponent(query)}&downloadable=true&type=models&limit=1`,
+            {
+                headers: {
+                    'Authorization': `Token ${SKETCHFAB_API_KEY}`
+                }
+            }
+        );
+        
+        if (response.ok) {
+            const data = await response.json();
+            if (data.results && data.results.length > 0) {
+                const model = data.results[0];
+                return {
+                    uid: model.uid,
+                    name: model.name,
+                    url: `https://sketchfab.com/models/${model.uid}`,
+                    gltfUrl: model.glb_url || model.gltf_url,
+                    thumbnail: model.thumbnails?.images?.[1]?.url
+                };
+            }
+        }
+        
+        return null;
+    } catch (error) {
+        console.error('❌ Error searching 3D model:', error);
+        return null;
+    }
+}
+
+// Alternative: Pre-defined 3D model mappings (fallback if API fails)
+const PREDEFINED_3D_MODELS = {
+    'tiger': 'https://sketchfab.com/models/abc123/download',
+    'elephant': 'https://sketchfab.com/models/def456/download',
+    'wolf': 'https://sketchfab.com/models/ghi789/download',
+    // Add more as you find good models
+};
+
+function getPredefinedModel(animalName) {
+    const nameLower = animalName.toLowerCase();
+    for (const [key, url] of Object.entries(PREDEFINED_3D_MODELS)) {
+        if (nameLower.includes(key)) {
+            return { gltfUrl: url, name: animalName };
+        }
+    }
+    return null;
+}
+
+// Setup 3D model viewer
+async function setup3DModel(animal) {
+    const modelViewer = document.getElementById('animal-3d-model');
+    const imageElement = document.getElementById('animal-image');
+    const toggleButton = document.getElementById('view-toggle');
+    const toggleText = document.getElementById('view-toggle-text');
+    
+    if (!modelViewer || !imageElement) return;
+    
+    let modelData = null;
+    
+    // Try Sketchfab API first
+    if (SKETCHFAB_API_KEY) {
+        modelData = await search3DModel(animal.name);
+    }
+    
+    // Fallback to predefined models
+    if (!modelData) {
+        modelData = getPredefinedModel(animal.name);
+    }
+    
+    // Fallback to image if no 3D model
+    if (!modelData || !modelData.gltfUrl) {
+        console.log('ℹ️ No 3D model found - using image');
+        imageElement.style.display = 'block';
+        modelViewer.style.display = 'none';
+        if (toggleButton) toggleButton.style.display = 'none';
+        return;
+    }
+    
+    // Load 3D model
+    modelViewer.src = modelData.gltfUrl;
+    modelViewer.alt = `3D model of ${animal.name}`;
+    
+    // Show both options
+    imageElement.style.display = 'none';
+    modelViewer.style.display = 'block';
+    if (toggleButton) toggleButton.style.display = 'flex';
+    
+    // Toggle between 3D and image
+    let showing3D = true;
+    toggleButton.addEventListener('click', () => {
+        showing3D = !showing3D;
+        if (showing3D) {
+            modelViewer.style.display = 'block';
+            imageElement.style.display = 'none';
+            toggleText.textContent = 'View Image';
+        } else {
+            modelViewer.style.display = 'none';
+            imageElement.style.display = 'block';
+            toggleText.textContent = 'View 3D Model';
+        }
+    });
+    
+    console.log(`✅ 3D model loaded for ${animal.name}`);
+}
 // ============================================
 // FAQ Generators
 // ============================================
