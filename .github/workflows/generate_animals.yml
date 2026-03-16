@@ -20,7 +20,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -31,26 +30,16 @@ jobs:
         run: |
           pip install requests
 
-      - name: Clean up ALL old data directories
-        run: |
-          echo "🧹 Cleaning up old data directories..."
-          rm -rf generator/data/
-          rm -rf data/
-          echo "✅ Old directories removed"
-
-      - name: Run generator (ALWAYS FORCE)
+      - name: Run generator
         env:
           API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
         run: |
           cd generator
-          python generate_animals.py --force
-
-      - name: Debug - Show what was created
-        run: |
-          echo "=== data/ directory ==="
-          ls -la data/ 2>/dev/null || echo "data/ not found"
-          echo "=== data/animal_stats/ file count ==="
-          ls data/animal_stats/ 2>/dev/null | wc -l || echo "0"
+          if [ "${{ github.event.inputs.force_update }}" == "true" ]; then
+            python generate_animals.py --force
+          else
+            python generate_animals.py
+          fi
 
       - name: Commit and push JSON
         env:
@@ -58,12 +47,7 @@ jobs:
         run: |
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
-          
-          git pull --rebase https://$MY_PAT@github.com/${{ github.repository }} main || echo "No remote changes"
-          
           git add data/animals.json
           git add data/animal_stats/
-          
           git commit -m "🤖 Auto-update animal data [skip ci]" || echo "No changes to commit"
-          
           git push https://$MY_PAT@github.com/${{ github.repository }} HEAD:main
