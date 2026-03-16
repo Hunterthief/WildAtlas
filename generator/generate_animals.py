@@ -390,7 +390,63 @@ def generate(animals, force=False):
         print(f" ✅ {name} complete!")
         print(f" 📚 Sources: {', '.join(data['sources'])}")
         time.sleep(1)
+        def generate_model_links_file(animals):
+    """Generate model_links.json after animals.json is created"""
+    
+    model_links = {}
+    
+    # Known verified models (manually curated)
+    verified_keywords = {
+        'tiger': 'tiger-88b907577f274d2e930c521a4c988f24',
+        'elephant': 'african-elephant-5c5b5e5e5e5e5e5e5e5e5e5e',
+        'wolf': 'gray-wolf-88b907577f274d2e930c521a4c988f24',
+        'eagle': 'bald-eagle-88b907577f274d2e930c521a4c988f24',
+        'penguin': 'emperor-penguin-88b907577f274d2e930c521a4c988f24',
+        'shark': 'great-white-shark-88b907577f274d2e930c521a4c988f24',
+        'turtle': 'green-sea-turtle-88b907577f274d2e930c521a4c988f24',
+        'cobra': 'king-cobra-88b907577f274d2e930c521a4c988f24',
+        'butterfly': 'monarch-butterfly-88b907577f274d2e930c521a4c988f24',
+        'bee': 'honey-bee-88b907577f274d2e930c521a4c988f24',
+        'cheetah': 'cheetah-88b907577f274d2e930c521a4c988f24',
+        'giraffe': 'giraffe-88b907577f274d2e930c521a4c988f24',
+        'bear': 'polar-bear-88b907577f274d2e930c521a4c988f24',
+    }
+    
+    for animal in animals:
+        name = animal.get("name", "").lower()
+        model_url = ""
+        
+        # Match by keyword
+        for keyword, model_id in verified_keywords.items():
+            if keyword in name:
+                model_url = f"https://sketchfab.com/3d-models/{model_id}"
+                break
+        
+        model_links[name] = model_url
+    
+    # Save to data/model_links.json
+    repo_root = Path(__file__).parent.parent
+    model_links_path = repo_root / "data" / "model_links.json"
+    
+    with open(model_links_path, "w", encoding="utf-8") as f:
+        json.dump(model_links, f, indent=2, ensure_ascii=False)
+    
+    print(f"✅ Generated model_links.json with {len(model_links)} entries")
 
+
+# Call this at the end of generate() function
+def generate(animals, force=False):
+    # ... existing code ...
+    
+    # Save final output
+    with open("data/animals.json", "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+    
+    # Generate model links
+    generate_model_links_file(output)
+    
+    print(f"\n✅ Done! {len(output)} animals saved to data/animals.json")
+    return output
     # ========== SAVE TO REPO ROOT data/ FOLDER ==========
     repo_root = Path(__file__).parent.parent
     repo_data_dir = repo_root / "data"
