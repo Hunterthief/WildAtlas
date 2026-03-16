@@ -3,10 +3,19 @@
   "name": "Great White Shark",
   "scientific_name": "Carcharodon carcharias",
   "common_names": [],
-  "description": "",
-  "summary": "",
-  "image": "",
-  "wikipedia_url": "",
+  "description": "Species of large lamniform shark",
+  "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. The species is partially warm-blooded, an adaptation that allows it to remain active in colder waters.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
+  "wikipedia_sections": {
+    "overview": "",
+    "description": "matches Wikidata\",\"Wikipedia indefinitely semi-protected pages\",\"Use American English from March 2026\",\"All Wikipedia articles written in American English\",\"Use dmy dates from December 2025\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"Pages using multiple image with unknown parameters\",\"Commons category link from Wikidata\",\"Good articles\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 25–29 taxon IDs\",\"Articles containi",
+    "ecology": "and habitat Toggle Distribution and habitat subsection 4.1 Migrations 5",
+    "behavior": "and",
+    "reproduction": "and growth 5.4 Mortality and health 6 Relationship with humans Toggle Relationship with humans subsection 6.1 Bites 6.2 Captivity 6.3 Tourism 7",
+    "conservation": "Toggle Conservation subsection 7.1 South Africa 7.2 Oceania 7.3 United States 7.4 Europe and the Mediterranean 8 See also 9 Notes 10 References Toggle References subsection 10.1 Sources 11 External links Toggle the table of contents Great white shark 102 languages Afrikaans Aragonés العربية مصرى Asturianu Azərbaycanca تۆرکجه Basa Bali Bikol Central Български भोजपुरी বাংলা Brezhoneg Bosanski Català Cebuano کوردی Corsu Čeština Cymraeg Dansk Deutsch ދިވެހިބަސް Ελληνικά Esperanto Español Eesti Euska",
+    "distribution": ""
+  },
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -18,7 +27,7 @@
   },
   "animal_type": "default",
   "young_name": "Pup",
-  "group_name": "Fish",
+  "group_name": "population",
   "physical": {
     "weight": "1,110kg - 2,240kg (2,450lbs - 4,938lbs)",
     "length": "",
@@ -31,9 +40,13 @@
     "habitat": "Temperate, coastal waters and open ocean",
     "locations": "Ocean",
     "group_behavior": "Solitary",
-    "conservation_status": "",
+    "conservation_status": "Critically Endangered",
     "biggest_threat": "Hunting and habitat degredation",
-    "distinctive_features": [],
+    "distinctive_features": [
+      "Striped coat",
+      "Spotted coat",
+      "Distinctive mane"
+    ],
     "population_trend": ""
   },
   "reproduction": {
@@ -55,7 +68,9 @@
     "most_distinctive_feature": ""
   },
   "sources": [
-    "API Ninjas"
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:15:04.461763"
+  "last_updated": "2026-03-16T19:50:42.888713"
 }

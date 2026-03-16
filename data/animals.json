@@ -4,10 +4,19 @@
     "name": "Tiger",
     "scientific_name": "Panthera tigris",
     "common_names": [],
-    "description": "",
-    "summary": "",
-    "image": "",
-    "wikipedia_url": "",
+    "description": "Species of large cat",
+    "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "is different from Wikidata\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Wikipedia indefinitely move-protected pages\",\"Use dmy dates from May 2024\",\"Use British English from April 2020\",\"All Wikipedia articles written in British English\",\"Articles with 'species' microformats\",\"Articles containing Old French (842-ca. 1400)-language text\",\"Articles containing Latin-language text\",\"Articles containing Ancient Greek (to 1453)-language text\",\"Pages using multiple image with unkn",
+      "ecology": "and habitat Toggle Distribution and habitat subsection 4.1 Population density 5 Behaviour and ecology Toggle Behaviour and ecology subsection 5.1 Social spacing 5.2 Communication 5.3 Hunting and diet 5.4 Competitors 5.5",
+      "behavior": "and diet 5.4 Competitors 5.5",
+      "reproduction": "and life cycle 5.6 Health and diseases 6 Threats 7",
+      "conservation": "7 Conservation 8 Relationship with humans Toggle Relationship with humans subsection 8.1 Hunting 8.2 Attacks 8.3 Captivity 8.4 Cultural significance 9 See also 10 References Toggle References subsection 10.1 Bibliography 11 External links Toggle the table of contents Tiger 201 languages Acèh Адыгабзэ Afrikaans Alemannisch አማርኛ Aragonés Ænglisc Obolo अंगिका العربية الدارجة مصرى Asturianu Kotava Azərbaycanca تۆرکجه Башҡортса Basa Bali Batak Toba Bikol Central Беларуская (тарашкевіца) Беларуская Бъ",
+      "distribution": ""
+    },
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -15,11 +24,11 @@
       "order": "Carnivora",
       "family": "Felidae",
       "genus": "Panthera",
-      "species": "Panthera Tigris Tigris"
+      "species": "Panthera tigris"
     },
     "animal_type": "feline",
-    "young_name": "",
-    "group_name": "",
+    "young_name": "cub",
+    "group_name": "streak",
     "physical": {
       "weight": "140kg - 300kg (309lbs - 660lbs)",
       "length": "",
@@ -31,22 +40,26 @@
       "diet": "Carnivore",
       "habitat": "Dense tropical forest and mangroves",
       "locations": "Asia",
-      "group_behavior": "",
-      "conservation_status": "",
-      "biggest_threat": "",
-      "distinctive_features": [],
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Distinctive mane"
+      ],
       "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "3",
-      "name_of_young": ""
+      "name_of_young": "cub"
     },
     "additional_info": {
       "lifestyle": "Solitary",
       "color": "BlackWhiteOrange",
       "skin_type": "Fur",
-      "prey": "",
+      "prey": "7 Conservation 8 Relationship with humans Toggle Relationship with humans subsec",
       "slogan": "The most numerous species of tiger!",
       "group": "",
       "number_of_species": "",
@@ -56,19 +69,30 @@
       "most_distinctive_feature": ""
     },
     "sources": [
-      "API Ninjas"
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:14:56.996045"
+    "last_updated": "2026-03-16T19:50:28.659092"
   },
   {
     "id": "Q35625",
     "name": "Cheetah",
     "scientific_name": "Acinonyx jubatus",
     "common_names": [],
-    "description": "",
-    "summary": "",
-    "image": "",
-    "wikipedia_url": "",
+    "description": "Large feline of the genus Acinonyx",
+    "summary": "The cheetah is a species of large feline and the only living member of the genus Acinonyx. An iconic pursuit predator, it is the fastest land animal, capable of running at 93 to 104 km/h ; it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "is different from Wikidata\",\"Good articles\",\"Wikipedia indefinitely semi-protected pages\",\"Use dmy dates from May 2024\",\"Use British English from May 2020\",\"All Wikipedia articles written in British English\",\"Articles with 'species' microformats\",\"Articles containing Urdu-language text\",\"Articles containing Hindi-language text\",\"Articles containing Sanskrit-language text\",\"Articles containing Greek-language text\",\"Articles containing Latin-language text\",\"Pages using multiple image with unknown ",
+      "ecology": "and habitat Toggle Distribution and habitat subsection 6.1 Historical range 6.2 Present distribution 7 Ecology and behaviour Toggle Ecology and behaviour subsection 7.1 Social organisation 7.2 Home ranges and territories 7.3 Communication 7.4 Diet and hunting 7.5",
+      "behavior": "7.5",
+      "reproduction": "and life cycle 7.6 Competition 8 Threats 9",
+      "conservation": "9 Conservation Toggle Conservation subsection 9.1 In Africa 9.2 In Asia 10 Interaction with humans Toggle Interaction with humans subsection 10.1 Taming 10.2 In captivity 10.3 Attacks on humans 10.4 In culture 11 See also 12 References 13 Further reading 14 External links Toggle the table of contents Cheetah 141 languages Afrikaans አማርኛ Aragonés Ænglisc العربية مصرى Asturianu Авар Kotava Azərbaycanca تۆرکجه Basa Bali Bikol Central Беларуская (тарашкевіца) Беларуская Български भोजपुरी বাংলা བོད་ཡ",
+      "distribution": ""
+    },
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -80,7 +104,7 @@
     },
     "animal_type": "feline",
     "young_name": "Cub",
-    "group_name": "Mammal",
+    "group_name": "streak",
     "physical": {
       "weight": "40kg - 65kg (88lbs - 140lbs)",
       "length": "",
@@ -93,7 +117,7 @@
       "habitat": "Open grassland",
       "locations": "Africa, Asia, Eurasia",
       "group_behavior": "Solitary/Pairs",
-      "conservation_status": "",
+      "conservation_status": "Critically Endangered",
       "biggest_threat": "Habitat loss",
       "distinctive_features": [
         "Yellowish fur covered in small black spots"
@@ -119,31 +143,182 @@
       "most_distinctive_feature": "Yellowish fur covered in small black spots"
     },
     "sources": [
-      "API Ninjas"
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:14:58.237161"
+    "last_updated": "2026-03-16T19:50:30.879687"
   },
   {
     "id": "Q7372",
     "name": "African Elephant",
     "scientific_name": "Loxodonta africana",
-    "error": "No data from Ninja API"
+    "common_names": [],
+    "description": "Genus comprising two living elephant species",
+    "summary": "African elephants are members of the genus Loxodonta comprising two living elephant species, the African bush elephant and the smaller African forest elephant. Both are social herbivores with grey skin. However, they differ in the size and colour of their tusks as well as the shape and size of their ears and skulls.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "matches Wikidata\",\"Use dmy dates from September 2020\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"All articles with unsourced statements\",\"Articles with unsourced statements from August 2025\",\"Webarchive template wayback links\",\"Articles containing video clips\",\"African elephants\",\"Mammals of Sub-Saharan Africa\",\"EDGE species\",\"Animal species groups\",\"National symbols of the Central African Republic\",\"National symbols of Equatorial Guinea\",\"Nation",
+      "ecology": "and habitat 5",
+      "behavior": "and",
+      "reproduction": "6 Threats 7",
+      "conservation": "7 Conservation 8 In culture Toggle In culture subsection 8.1 As national symbols 9 See also 10 Notes 11 References 12 External links Toggle the table of contents African elephant 73 languages Afrikaans العربية مصرى Kotava Azərbaycanca Български বাংলা Brezhoneg Bosanski Català Cebuano کوردی Чӑвашла Cymraeg Deutsch Zazaki Ελληνικά Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego עברית हिन्दी Magyar Հայերեն Bahasa Indonesia Italiano 日本語 ქართული Қазақша 한국어 Лакку Latviešu Malagasy Māo",
+      "distribution": ""
+    },
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Proboscidea",
+      "family": "Elephantidae",
+      "genus": "Loxodonta",
+      "species": "Loxodonta africana"
+    },
+    "animal_type": "elephant",
+    "young_name": "calf",
+    "group_name": "herd",
+    "physical": {
+      "weight": "",
+      "length": "",
+      "height": "",
+      "top_speed": "",
+      "lifespan": ""
+    },
+    "ecology": {
+      "diet": "",
+      "habitat": "",
+      "locations": "",
+      "group_behavior": "Solitary",
+      "conservation_status": "Critically Endangered",
+      "biggest_threat": "Poaching, Habitat loss",
+      "distinctive_features": [
+        "Distinctive mane",
+        "Long trunk",
+        "Large tusks"
+      ],
+      "population_trend": ""
+    },
+    "reproduction": {
+      "gestation_period": "",
+      "average_litter_size": "",
+      "name_of_young": "calf"
+    },
+    "additional_info": {
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "7 Conservation 8 In culture Toggle In culture subsection 8",
+      "slogan": "",
+      "group": "",
+      "number_of_species": "",
+      "estimated_population_size": "",
+      "age_of_sexual_maturity": "",
+      "age_of_weaning": "",
+      "most_distinctive_feature": ""
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-16T19:50:33.079453"
   },
   {
     "id": "Q213537",
     "name": "Gray Wolf",
     "scientific_name": "Canis lupus",
-    "error": "No data from Ninja API"
+    "common_names": [],
+    "description": "Species of canine",
+    "summary": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America. More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo, though grey wolves, as popularly understood, include only naturally occurring wild subspecies. The wolf is the largest wild extant member of the family Canidae, and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal, to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "is different from Wikidata\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Wikipedia indefinitely move-protected pages\",\"Use mdy dates from December 2019\",\"Use Canadian English from December 2019\",\"All Wikipedia articles written in Canadian English\",\"Articles with 'species' microformats\",\"Articles containing Proto-Germanic-language text\",\"Articles containing Proto-Indo-European-language text\",\"Articles containing Proto-Italic-language text\",\"Articles with hAudio microformats\"",
+      "ecology": "Toggle Ecology subsection 4.1 Distribution and habitat 4.2 Diet 4.3 Interactions with other predators 4.4 Infections 5 Behaviour Toggle Behaviour subsection 5.1 Social structure 5.2 Communication 5.3",
+      "behavior": "and feeding 5.5 Intelligence and cognition 6 Status and",
+      "reproduction": "5.4 Hunting and feeding 5.5 Intelligence and cognition 6 Status and",
+      "conservation": "and conservation Toggle Status and conservation subsection 6.1 North America 6.2 Eurasia 7 Relationships with humans Toggle Relationships with humans subsection 7.1 In culture 7.1.1 In folklore, religion and mythology 7.1.2 In fable and literature 7.2 Conflicts 7.2.1 Predation on livestock 7.2.2 Competition with dogs 7.2.3 Attacks on humans 7.2.4 Human hunting of wolves 7.3 Wolves as pets and working animals 8 Notes 9 References 10 Bibliography 11 External links Toggle the table of contents Wolf",
+      "distribution": ""
+    },
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Canidae",
+      "genus": "Canis",
+      "species": "Canis familiaris"
+    },
+    "animal_type": "canine",
+    "young_name": "pup",
+    "group_name": "pack",
+    "physical": {
+      "weight": "",
+      "length": "",
+      "height": "",
+      "top_speed": "",
+      "lifespan": ""
+    },
+    "ecology": {
+      "diet": "",
+      "habitat": "",
+      "locations": "",
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Habitat loss",
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Distinctive mane"
+      ],
+      "population_trend": ""
+    },
+    "reproduction": {
+      "gestation_period": "",
+      "average_litter_size": "",
+      "name_of_young": "pup"
+    },
+    "additional_info": {
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "large wild hooved mammals as well as smaller animals, livestock, carrion , and g",
+      "slogan": "",
+      "group": "",
+      "number_of_species": "",
+      "estimated_population_size": "",
+      "age_of_sexual_maturity": "",
+      "age_of_weaning": "",
+      "most_distinctive_feature": ""
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-16T19:50:35.677346"
   },
   {
     "id": "Q25319",
     "name": "Bald Eagle",
     "scientific_name": "Haliaeetus leucocephalus",
     "common_names": [],
-    "description": "",
-    "summary": "",
-    "image": "",
-    "wikipedia_url": "",
+    "description": "Bird of prey species of North America",
+    "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "is different from Wikidata\",\"Wikipedia references cleanup from January 2026\",\"All articles needing references cleanup\",\"Articles covered by WikiProject Wikify from January 2026\",\"All articles covered by WikiProject Wikify\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Use mdy dates from December 2024\",\"Articles with 'species' microformats\",\"Articles containing potentially dated statements from 2007\",\"All articles containing potentially dated statements\",\"All articles with fa",
+      "ecology": "4 Habitat 5",
+      "behavior": "6 Diet and feeding Toggle Diet and feeding subsection 6.1 Behavior 6.2 Fish 6.3 Birds 6.4 Mammals 6.5 Reptiles and other prey 6.6 Interspecific predatory relationships 7",
+      "reproduction": "8 Longevity and mortality 9 Relationship with humans Toggle Relationship with humans subsection 9.1 Population decline and recovery 9.2 Killing permits 9.3 In captivity 10 Cultural significance Toggle Cultural significance subsection 10.1 Role in Native American culture 10.2 National symbol of the United States 10.3 Popular culture 11 See also 12 References 13 Further reading Toggle Further reading subsection 13.1 Identification 14 External links Toggle External links subsection 14.1 Video links",
+      "conservation": "status Least Concern &#160;( IUCN 3.1 ) &#91; 2 &#93; CITES Appendix II &#8239; &#91; 3 &#93; Scientific classification Kingdom: Animalia Phylum: Chordata Class: Aves Order: Accipitriformes Family: Accipitridae Genus: Haliaeetus Species: H.&#160;leucocephalus Binomial name Haliaeetus leucocephalus ( Linnaeus , 1766 ) Subspecies H. l. leucocephalus – Southern bald eagle H. l. washingtoniensis – Northern bald eagle Bald eagle range .mw-parser-output .legend{page-break-inside:avoid;break-inside:avo",
+      "distribution": ""
+    },
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -151,11 +326,11 @@
       "order": "Accipitriformes",
       "family": "Accipitridae",
       "genus": "Haliaeetus",
-      "species": "haliaeetus leucocephalus"
+      "species": "Haliaeetus leucocephalus"
     },
     "animal_type": "default",
-    "young_name": "",
-    "group_name": "",
+    "young_name": "young",
+    "group_name": "population",
     "physical": {
       "weight": "6.6-14lbs",
       "length": "",
@@ -167,8 +342,8 @@
       "diet": "Carnivore",
       "habitat": "Near forests",
       "locations": "North-America",
-      "group_behavior": "",
-      "conservation_status": "",
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
       "biggest_threat": "Pesticide use",
       "distinctive_features": [
         "The white plumage on the head"
@@ -178,7 +353,7 @@
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": ""
+      "name_of_young": "young"
     },
     "additional_info": {
       "lifestyle": "",
@@ -194,19 +369,30 @@
       "most_distinctive_feature": "The white plumage on the head"
     },
     "sources": [
-      "API Ninjas"
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:15:02.081231"
+    "last_updated": "2026-03-16T19:50:38.157369"
   },
   {
     "id": "Q43306",
     "name": "Emperor Penguin",
     "scientific_name": "Aptenodytes forsteri",
     "common_names": [],
-    "description": "",
-    "summary": "",
-    "image": "",
-    "wikipedia_url": "",
+    "description": "Large flightless seabird endemic to Antarctica",
+    "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "matches Wikidata\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Use dmy dates from November 2020\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from March 2025\",\"Commons category link is on Wikidata\",\"Taxonbars with 25–29 taxon IDs\",\"Articles containing video clips\",\"IUCN Red List near threatened species\",\"Penguins\",\"Aptenodytes\",\"Birds of Antarctica\",\"Birds described in 1844\",\"Taxa named by George Robert ",
+      "ecology": "and habitat Toggle Distribution and habitat subsection 3.1",
+      "behavior": "5 Relationship with humans Toggle Relationship with humans subsection 5.1 In zoos and aquariums 5.2 Penguin rescue, rehabilitation and release 5.3 Cultural references 6 Notes 7 References 8 External links Toggle the table of contents Emperor penguin 75 languages Afrikaans العربية مصرى Azərbaycanca Basa Bali Беларуская Български বাংলা Brezhoneg Català Cebuano کوردی Čeština Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego Avañe&#039;ẽ עברית H",
+      "reproduction": "4.3 Feeding 5 Relationship with humans Toggle Relationship with humans subsection 5.1 In zoos and aquariums 5.2 Penguin rescue, rehabilitation and release 5.3 Cultural references 6 Notes 7 References 8 External links Toggle the table of contents Emperor penguin 75 languages Afrikaans العربية مصرى Azərbaycanca Basa Bali Беларуская Български বাংলা Brezhoneg Català Cebuano کوردی Čeština Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego Avañe&#0",
+      "conservation": "status 4 Behaviour Toggle Behaviour subsection 4.1 Predators 4.2 Courtship and breeding 4.3 Feeding 5 Relationship with humans Toggle Relationship with humans subsection 5.1 In zoos and aquariums 5.2 Penguin rescue, rehabilitation and release 5.3 Cultural references 6 Notes 7 References 8 External links Toggle the table of contents Emperor penguin 75 languages Afrikaans العربية مصرى Azərbaycanca Basa Bali Беларуская Български বাংলা Brezhoneg Català Cebuano کوردی Čeština Cymraeg Dansk Deutsch Ελλ",
+      "distribution": ""
+    },
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -218,7 +404,7 @@
     },
     "animal_type": "default",
     "young_name": "Chick",
-    "group_name": "Bird",
+    "group_name": "population",
     "physical": {
       "weight": "22kg - 45kg (49lbs - 99lbs)",
       "length": "",
@@ -231,7 +417,7 @@
       "habitat": "Compact sea-ice and ocean",
       "locations": "Antarctica, Ocean",
       "group_behavior": "Colony",
-      "conservation_status": "",
+      "conservation_status": "Endangered",
       "biggest_threat": "Global warming",
       "distinctive_features": [
         "Bright yellow feathers on neck and ears"
@@ -257,19 +443,30 @@
       "most_distinctive_feature": "Bright yellow feathers on neck and ears"
     },
     "sources": [
-      "API Ninjas"
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:15:03.258104"
+    "last_updated": "2026-03-16T19:50:40.353638"
   },
   {
     "id": "Q47164",
     "name": "Great White Shark",
     "scientific_name": "Carcharodon carcharias",
     "common_names": [],
-    "description": "",
-    "summary": "",
-    "image": "",
-    "wikipedia_url": "",
+    "description": "Species of large lamniform shark",
+    "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. The species is partially warm-blooded, an adaptation that allows it to remain active in colder waters.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "matches Wikidata\",\"Wikipedia indefinitely semi-protected pages\",\"Use American English from March 2026\",\"All Wikipedia articles written in American English\",\"Use dmy dates from December 2025\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"Pages using multiple image with unknown parameters\",\"Commons category link from Wikidata\",\"Good articles\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 25–29 taxon IDs\",\"Articles containi",
+      "ecology": "and habitat Toggle Distribution and habitat subsection 4.1 Migrations 5",
+      "behavior": "and",
+      "reproduction": "and growth 5.4 Mortality and health 6 Relationship with humans Toggle Relationship with humans subsection 6.1 Bites 6.2 Captivity 6.3 Tourism 7",
+      "conservation": "Toggle Conservation subsection 7.1 South Africa 7.2 Oceania 7.3 United States 7.4 Europe and the Mediterranean 8 See also 9 Notes 10 References Toggle References subsection 10.1 Sources 11 External links Toggle the table of contents Great white shark 102 languages Afrikaans Aragonés العربية مصرى Asturianu Azərbaycanca تۆرکجه Basa Bali Bikol Central Български भोजपुरी বাংলা Brezhoneg Bosanski Català Cebuano کوردی Corsu Čeština Cymraeg Dansk Deutsch ދިވެހިބަސް Ελληνικά Esperanto Español Eesti Euska",
+      "distribution": ""
+    },
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -281,7 +478,7 @@
     },
     "animal_type": "default",
     "young_name": "Pup",
-    "group_name": "Fish",
+    "group_name": "population",
     "physical": {
       "weight": "1,110kg - 2,240kg (2,450lbs - 4,938lbs)",
       "length": "",
@@ -294,9 +491,13 @@
       "habitat": "Temperate, coastal waters and open ocean",
       "locations": "Ocean",
       "group_behavior": "Solitary",
-      "conservation_status": "",
+      "conservation_status": "Critically Endangered",
       "biggest_threat": "Hunting and habitat degredation",
-      "distinctive_features": [],
+      "distinctive_features": [
+        "Striped coat",
+        "Spotted coat",
+        "Distinctive mane"
+      ],
       "population_trend": ""
     },
     "reproduction": {
@@ -318,31 +519,182 @@
       "most_distinctive_feature": ""
     },
     "sources": [
-      "API Ninjas"
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:15:04.461763"
+    "last_updated": "2026-03-16T19:50:42.888713"
   },
   {
     "id": "Q39709",
     "name": "Atlantic Salmon",
     "scientific_name": "Salmo salar",
-    "error": "No data from Ninja API"
+    "common_names": [],
+    "description": "Species of fish",
+    "summary": "The Atlantic salmon is a species of ray-finned fish in the family Salmonidae. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon, growing up to 1 m (3.3 ft) in length. Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous, hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "matches Wikidata\",\"Articles needing additional references from October 2023\",\"All articles needing additional references\",\"Use dmy dates from June 2020\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from January 2017\",\"Articles with unsourced statements from February 2021\",\"Articles with unsourced statements from March 2013\",\"Pages using multiple image with auto scaled images\",\"Articles with unsourced statements from April 201",
+      "ecology": "and habitat 4 Ecology Toggle Ecology subsection 4.1 Diet 4.2 Behaviour 4.3 Life stages 4.3.1 Freshwater phase 4.3.2 Saltwater phases 4.4 Breeding 4.4.1 Hybridization 4.5 Beaver impact 5 Relationship to humans Toggle Relationship to humans subsection 5.1 Aquaculture 5.1.1 Controversy 5.1.2 Future prospects 6",
+      "behavior": "at sea, or are repeat spawners, can be much larger. An Atlantic salmon netted in 1960 in Scotland, in the estuary of the river Hope, weighed 49.44&#160;kg (109.0&#160;lb), the heaviest recorded in all available literature. Another netted in 1925 in Norway measured 160.65&#160;cm (63.25&#160;in) in length, the longest Atlantic salmon on record. &#91; 8 &#93; .mw-parser-output .tmulti .multiimageinner{display:flex;flex-direction:column}.mw-parser-output .tmulti .trow{display:flex;flex-direction:ro",
+      "reproduction": "4.4.1 Hybridization 4.5 Beaver impact 5 Relationship to humans Toggle Relationship to humans subsection 5.1 Aquaculture 5.1.1 Controversy 5.1.2 Future prospects 6",
+      "conservation": "Toggle Conservation subsection 6.1 Restoration efforts 6.2 NASCO 7 Legislation Toggle Legislation subsection 7.1 England and Wales 7.2 Scotland 7.3 United States 7.4 Canada 8 See also 9 Notes 10 References 11 External links Toggle the table of contents Atlantic salmon 70 languages Afrikaans Alemannisch Aragonés العربية مصرى Azərbaycanca Беларуская Български Brezhoneg Català Cebuano Čeština Kaszëbsczi Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Gaeilge Gale",
+      "distribution": ""
+    },
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Actinopterygii",
+      "order": "Salmoniformes",
+      "family": "Salmonidae",
+      "genus": "Salmo",
+      "species": "Salmo salar"
+    },
+    "animal_type": "default",
+    "young_name": "young",
+    "group_name": "population",
+    "physical": {
+      "weight": "",
+      "length": "",
+      "height": "",
+      "top_speed": "",
+      "lifespan": ""
+    },
+    "ecology": {
+      "diet": "",
+      "habitat": "",
+      "locations": "",
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
+      "biggest_threat": "Poaching, Habitat loss",
+      "distinctive_features": [
+        "Spotted coat",
+        "Distinctive mane",
+        "Distinctive wings"
+      ],
+      "population_trend": ""
+    },
+    "reproduction": {
+      "gestation_period": "",
+      "average_litter_size": "",
+      "name_of_young": "young"
+    },
+    "additional_info": {
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "Lakes\",\"Fish of Greenland\",\"Fauna of Atlantic Canada\",\"Fauna of the Northeastern",
+      "slogan": "",
+      "group": "",
+      "number_of_species": "",
+      "estimated_population_size": "",
+      "age_of_sexual_maturity": "",
+      "age_of_weaning": "",
+      "most_distinctive_feature": ""
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-16T19:50:45.325773"
   },
   {
     "id": "Q7785",
     "name": "Green Sea Turtle",
     "scientific_name": "Chelonia mydas",
-    "error": "No data from Ninja API"
+    "common_names": [],
+    "description": "Species of large sea reptile",
+    "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "is different from Wikidata\",\"Articles with 'species' microformats\",\"Articles containing potentially dated statements from June 2020\",\"All articles containing potentially dated statements\",\"Cite IUCN without doi\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 30–34 taxon IDs\",\"IUCN Red List least concern species\",\"Fauna listed on CITES Appendix I\",\"Chelonia\",\"Sea turtles\",\"Fauna of the Pantropical realm\",\"Fauna of Ascension Island\",\"Marine fauna of Northern Australia\",",
+      "ecology": "loss\",\"Animal taxa named by Carl Linnaeus\",\"Habitats Directive species\",\"Fauna of Christmas Island\"],\"wgPageViewLanguage\":\"en\",\"wgPageContentLanguage\":\"en\",\"wgPageContentModel\":\"wikitext\",\"wgRelevantPageName\":\"Green_sea_turtle\",\"wgRelevantArticleId\":2150513,\"wgTempUserName\":null,\"wgIsProbablyEditable\":true,\"wgRelevantPageIsProbablyEditable\":true,\"wgRestrictionEdit\":[],\"wgRestrictionMove\":[],\"wgRedirectedFrom\":\"Green_Sea_Turtle\",\"wgNoticeProject\":\"wikipedia\",\"wgFlaggedRevsParams\":{\"tags\":{\"status",
+      "behavior": "Toggle",
+      "reproduction": "5.4 Breathing and sleep 6 Physiology and sensory modalities 7 Unique characteristics and features 8 Importance to humans 9",
+      "conservation": "Toggle Conservation subsection 9.1 Threats 9.2 Global initiatives 9.3 Country-specific initiatives 10 Genetics 11 Gallery 12 See also 13 References 14 External links Toggle the table of contents Green sea turtle 69 languages العربية ܐܪܡܝܐ مصرى Asturianu Azərbaycanca Basa Bali Български বাংলা Brezhoneg Català Cebuano Čeština Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Føroyskt Français Gaeilge Galego ગુજરાતી עברית Hrvatski Magyar Հայերեն Bahasa Indonesia Íslenska It",
+      "distribution": ""
+    },
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Testudines",
+      "family": "Cheloniidae",
+      "genus": "Chelonia",
+      "species": "Chelonia mydas"
+    },
+    "animal_type": "default",
+    "young_name": "young",
+    "group_name": "population",
+    "physical": {
+      "weight": "",
+      "length": "",
+      "height": "",
+      "top_speed": "",
+      "lifespan": ""
+    },
+    "ecology": {
+      "diet": "",
+      "habitat": "",
+      "locations": "",
+      "group_behavior": "Solitary",
+      "conservation_status": "Critically Endangered",
+      "biggest_threat": "Poaching, Habitat loss",
+      "distinctive_features": [
+        "Spotted coat",
+        "Distinctive mane",
+        "Prominent horns"
+      ],
+      "population_trend": ""
+    },
+    "reproduction": {
+      "gestation_period": "",
+      "average_litter_size": "",
+      "name_of_young": "young"
+    },
+    "additional_info": {
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "strictly being seagrass, &#91; 9 &#93; not to the color of its carapace, which i",
+      "slogan": "",
+      "group": "",
+      "number_of_species": "",
+      "estimated_population_size": "",
+      "age_of_sexual_maturity": "",
+      "age_of_weaning": "",
+      "most_distinctive_feature": ""
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-16T19:50:47.552339"
   },
   {
     "id": "Q189609",
     "name": "King Cobra",
     "scientific_name": "Ophiophagus hannah",
     "common_names": [],
-    "description": "",
-    "summary": "",
-    "image": "",
-    "wikipedia_url": "",
+    "description": "Group of venomous snakes from Asia",
+    "summary": "The king cobra is a species complex of snakes endemic to Asia. With an average length of 3.18 to 4 m and a record length of 5.85 m (19.2 ft), it is the world's longest venomous snake and among the heaviest. Under the genus Ophiophagus, it is not phylogenetically a true cobra despite its common name and some resemblance. Spanning from the Indian subcontinent through Southeastern Asia to Southern China, the king cobra is widely distributed albeit not commonly seen.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "is different from Wikidata\",\"Wikipedia indefinitely semi-protected pages\",\"Use dmy dates from August 2021\",\"Articles with 'species' microformats\",\"Taxonbars with multiple manual Wikidata items\",\"IUCN Red List vulnerable species\",\"Fauna listed on CITES Appendix II\",\"Apex predators\",\"Elapidae\",\"Reptiles of Borneo\",\"National symbols of India\",\"Reptiles described in 1836\",\"Reptiles of Bangladesh\",\"Reptiles of Bhutan\",\"Reptiles of Brunei\",\"Reptiles of Cambodia\",\"Reptiles of Hong Kong\",\"Snakes of Indi",
+      "ecology": "and habitat 5 Behaviour and ecology Toggle Behaviour and ecology subsection 5.1 Diet 5.2 Antipredator",
+      "behavior": "5.3",
+      "reproduction": "6 Venom Toggle Venom subsection 6.1 Composition 6.2 Clinical management 7 Relationship with humans Toggle Relationship with humans subsection 7.1",
+      "conservation": "7.2 Cultural significance 8 References 9 External links Toggle the table of contents King cobra 79 languages العربية مصرى অসমীয়া Azərbaycanca تۆرکجه Basa Bali Bikol Central Беларуская (тарашкевіца) Беларуская Български বাংলা Català Cebuano Čeština Dansk Deutsch Esperanto Español Eesti Euskara فارسی Suomi Français Gaeilge עברית हिन्दी Hrvatski Magyar Հայերեն Bahasa Indonesia Íslenska Italiano 日本語 Jawa ქართული Қазақша ಕನ್ನಡ 한국어 Kurdî Lietuvių Latviešu മലയാളം Монгол मराठी Bahasa Melayu မြန်မာဘာသာ ",
+      "distribution": ""
+    },
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -354,7 +706,7 @@
     },
     "animal_type": "default",
     "young_name": "Hatchlings",
-    "group_name": "Solitary",
+    "group_name": "population",
     "physical": {
       "weight": "",
       "length": "",
@@ -366,8 +718,8 @@
       "diet": "Carnivore",
       "habitat": "Forest, shrublands, wetlands",
       "locations": "Asia",
-      "group_behavior": "",
-      "conservation_status": "",
+      "group_behavior": "Social",
+      "conservation_status": "Vulnerable",
       "biggest_threat": "Poaching, habitat loss",
       "distinctive_features": [
         "An expanding hood"
@@ -393,25 +745,106 @@
       "most_distinctive_feature": "An expanding hood"
     },
     "sources": [
-      "API Ninjas"
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:15:08.261095"
+    "last_updated": "2026-03-16T19:50:49.802391"
   },
   {
     "id": "Q270238",
     "name": "American Bullfrog",
     "scientific_name": "Lithobates catesbeianus",
-    "error": "No data from Ninja API"
+    "common_names": [],
+    "description": "Species of amphibian",
+    "summary": "The American bullfrog, often simply known as the bullfrog in Canada and the United States, is a large true frog native to eastern North America. It typically inhabits large permanent water bodies such as swamps, ponds, and lakes. Bullfrogs can also be found in manmade habitats such as pools, koi ponds, canals, ditches and culverts. The bullfrog gets its name from the sound the male makes during the breeding season, which sounds similar to a bull bellowing. They are generalist carnivores, consuming a wide variety of prey. In turn, they are eaten by predators such as alligators, snakes, and birds.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "matches Wikidata\",\"Good articles\",\"Articles needing cleanup from March 2026\",\"All pages needing cleanup\",\"Cleanup tagged articles with a reason field from March 2026\",\"Wikipedia pages needing cleanup from March 2026\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"All articles with unsourced statements\",\"Articles with unsourced statements from March 2026\",\"All articles that are too technical\",\"Wikipedia articles that are too technical from March 2026\"",
+      "ecology": "4 Biology Toggle Biology subsection 4.1 Ecology 4.1.1 As an invasive species 4.2 Breeding season 4.2.1 Choruses 4.2.2 Aggressive",
+      "behavior": "4.3 Life cycle 5 Relation to humans 6 References 7 External links Toggle the table of contents American bullfrog 48 languages Aragonés العربية مصرى Basa Bali Беларуская Български Brezhoneg Català Cebuano Čeština Чӑвашла Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Võro Français Galego עברית Magyar Bahasa Indonesia Íslenska Italiano 日本語 한국어 Lietuvių Монгол Bahasa Melayu Nederlands Norsk bokmål Diné bizaad Polski Português Русский Simple English Slovenščina Svenska ไทย Türkçe",
+      "reproduction": "season 4.2.1 Choruses 4.2.2 Aggressive",
+      "conservation": "status Least Concern &#160;( IUCN 3.1 ) &#91; 1 &#93; Secure &#160;( NatureServe ) &#91; 2 &#93; Scientific classification Kingdom: Animalia Phylum: Chordata Class: Amphibia Order: Anura Family: Ranidae Genus: Lithobates Species: L.&#160;catesbeianus Binomial name Lithobates catesbeianus ( Shaw , 1802) Natural range – blue; Introduced range – red Synonyms List .mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output ",
+      "distribution": ""
+    },
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Ranidae",
+      "genus": "Lithobates",
+      "species": "Lithobates catesbeianus"
+    },
+    "animal_type": "default",
+    "young_name": "young",
+    "group_name": "population",
+    "physical": {
+      "weight": "",
+      "length": "",
+      "height": "",
+      "top_speed": "",
+      "lifespan": ""
+    },
+    "ecology": {
+      "diet": "",
+      "habitat": "",
+      "locations": "",
+      "group_behavior": "Solitary",
+      "conservation_status": "Vulnerable",
+      "biggest_threat": "",
+      "distinctive_features": [
+        "Distinctive mane",
+        "Prominent horns",
+        "Distinctive wings"
+      ],
+      "population_trend": ""
+    },
+    "reproduction": {
+      "gestation_period": "",
+      "average_litter_size": "",
+      "name_of_young": "young"
+    },
+    "additional_info": {
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "to the California red-legged frog , and is considered to be a factor in the decl",
+      "slogan": "",
+      "group": "",
+      "number_of_species": "",
+      "estimated_population_size": "",
+      "age_of_sexual_maturity": "",
+      "age_of_weaning": "",
+      "most_distinctive_feature": ""
+    },
+    "sources": [
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
+    ],
+    "last_updated": "2026-03-16T19:50:52.120358"
   },
   {
     "id": "Q165980",
     "name": "Monarch Butterfly",
     "scientific_name": "Danaus plexippus",
     "common_names": [],
-    "description": "",
-    "summary": "",
-    "image": "",
-    "wikipedia_url": "",
+    "description": "Milkweed butterfly in the family Nymphalidae",
+    "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "matches Wikidata\",\"Use mdy dates from October 2021\",\"Use American English from October 2021\",\"All Wikipedia articles written in American English\",\"Articles with 'species' microformats\",\"Articles containing Latin-language text\",\"Articles containing potentially dated statements from 2022\",\"All articles containing potentially dated statements\",\"Articles containing potentially dated statements from 2017\",\"Articles with ibid from October 2024\",\"Commons category link is on Wikidata\",\"Taxonbars with au",
+      "ecology": "and habitat 8 Larval host plants 9 Adult food sources 10 Flight and migration 11 Interactions with predators Toggle Interactions with predators subsection 11.1 Types of predators 11.2 Aposematism 11.3 Mimicry 12 Human interaction Toggle Human interaction subsection 12.1 Captive rearing 13 Threats Toggle Threats subsection 13.1 Western monarch population 13.2 Eastern and midwestern monarch populations 13.2.1 Habitat loss due to herbicide use and genetically modified crops 13.2.2 Losses during mig",
+      "behavior": "and are often found far from milkweed plants as they seek a site for pupating. &#91; 39 &#93; A monarch caterpillar can travel up to 10 meters from its milkweed plant to find a safe place to pupate. &#91; 40 &#93; In a laboratory setting, the fourth- and fifth-instar caterpillar stages showed aggressive behavior with lower food availability. Attacked caterpillars were found to be attacked when feeding on milkweed leaves, and the caterpillars attacked when foraging for milkweed. &#91; 41 &#93; Th",
+      "reproduction": "Toggle Life cycle subsection 4.1 Egg 4.2 Larva 4.3 Pupa 4.4 Adult 4.5 Male 4.6 Female 5 Vision 6 Courtship and mating 7 Distribution and habitat 8 Larval host plants 9 Adult food sources 10 Flight and migration 11 Interactions with predators Toggle Interactions with predators subsection 11.1 Types of predators 11.2 Aposematism 11.3 Mimicry 12 Human interaction Toggle Human interaction subsection 12.1 Captive rearing 13 Threats Toggle Threats subsection 13.1 Western monarch population 13.2 Easter",
+      "conservation": "Toggle Threats subsection 13.1 Western monarch population 13.2 Eastern and midwestern monarch populations 13.2.1 Habitat loss due to herbicide use and genetically modified crops 13.2.2 Losses during migration 13.2.3 Importance of overwintering habitat 13.3 Parasites 13.4 Confusion of host plants 13.5 Climate 14 Conservation status 15 Conservation efforts Toggle Conservation efforts subsection 15.1 Federal actions 15.2 Other actions 15.2.1 State and local governments 15.2.2 National Cooperative H",
+      "distribution": ""
+    },
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -423,7 +856,7 @@
     },
     "animal_type": "default",
     "young_name": "Larvae/Caterpillar",
-    "group_name": "Invertebrates",
+    "group_name": "population",
     "physical": {
       "weight": "0.25 - 0.75 grams",
       "length": "",
@@ -436,7 +869,7 @@
       "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
       "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
       "group_behavior": "Group",
-      "conservation_status": "",
+      "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss",
       "distinctive_features": [
         "Black, orange, and white pattern on wings"
@@ -452,7 +885,7 @@
       "lifestyle": "Diurnal",
       "color": "BlackWhiteOrange",
       "skin_type": "Scales",
-      "prey": "",
+      "prey": "Toggle Threats subsection 13",
       "slogan": "",
       "group": "Invertebrates",
       "number_of_species": "3",
@@ -462,19 +895,30 @@
       "most_distinctive_feature": "Black, orange, and white pattern on wings"
     },
     "sources": [
-      "API Ninjas"
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:15:10.724194"
+    "last_updated": "2026-03-16T19:50:55.177143"
   },
   {
     "id": "Q7316",
     "name": "Honey Bee",
     "scientific_name": "Apis mellifera",
     "common_names": [],
-    "description": "",
-    "summary": "",
-    "image": "",
-    "wikipedia_url": "",
+    "description": "Colonial flying insect",
+    "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
+    "wikipedia_sections": {
+      "overview": "",
+      "description": "is different from Wikidata\",\"Wikipedia pending changes protected pages\",\"Use British English from June 2015\",\"All Wikipedia articles written in British English\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from August 2021\",\"Wikipedia articles needing clarification from August 2021\",\"Commons category link is on Wikidata\",\"Taxonbars with 20–24 taxon IDs\",\"Articles containing video clips\",\"Honey bees\",\"Beekeeping\",\"Bees\",\"Extan",
+      "ecology": "Toggle Origin, systematics, and distribution subsection 2.1 Species 2.2 Micrapis 2.3 Megapis 2.4 Apis 2.4.1 Koschevnikov's honey bee 2.4.2 Philippine honey bee 2.4.3 Eastern honey bee 2.4.4 Western honey bee 2.4.5 Africanized honey bee 3 Living and fossil honey bees (Apini: Apis ) 4 Life cycle Toggle Life cycle subsection 4.1 Gallery 4.2 Winter survival 5 Pollination Toggle Pollination subsection 5.1 Claims of human dependency 6 Nutrition 7 Beekeeping Toggle Beekeeping subsection 7.1 Colony coll",
+      "behavior": "is considered to be a trait that predates the origin of the genus. Among the extant members of Apis , the more basal species make single, exposed combs, while the more recently evolved species nest in cavities and have multiple combs, which has greatly facilitated their domestication. Species [ edit ] While about 20,000 species of bees exist, &#91; 15 &#93; only eight extant species of honey bee are recognized, with a total of 43 subspecies , although historically seven to 11 species are recogni",
+      "reproduction": "Toggle Life cycle subsection 4.1 Gallery 4.2 Winter survival 5 Pollination Toggle Pollination subsection 5.1 Claims of human dependency 6 Nutrition 7 Beekeeping Toggle Beekeeping subsection 7.1 Colony collapse disorder 7.2 Parasites 7.2.1 Acarapis woodi 7.2.2 Galleria mellonella 7.2.3 Varroa mites 8 Bee products Toggle Bee products subsection 8.1 Honey 8.2 Beeswax 8.3 Bee bread 8.4 Bees as food 8.5 Propolis 8.6 Royal jelly 9 Sexes and castes Toggle Sexes and castes subsection 9.1 Drones 9.2 Work",
+      "conservation": "This is an accepted version of this page This is the latest accepted revision , reviewed on 16 March 2026 . Colonial flying insect .mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}} For other uses, see Honey bee (disambiguation) . Honey bee Temporal range:",
+      "distribution": ""
+    },
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -485,8 +929,8 @@
       "species": "Apis mellifera"
     },
     "animal_type": "default",
-    "young_name": "",
-    "group_name": "",
+    "young_name": "young",
+    "group_name": "population",
     "physical": {
       "weight": "",
       "length": "",
@@ -498,22 +942,26 @@
       "diet": "Herbivore",
       "habitat": "Sheltered forests and meadows",
       "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
-      "group_behavior": "",
-      "conservation_status": "",
+      "group_behavior": "Solitary",
+      "conservation_status": "Endangered",
       "biggest_threat": "",
-      "distinctive_features": [],
+      "distinctive_features": [
+        "Distinctive mane",
+        "Prominent horns",
+        "Distinctive wings"
+      ],
       "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "200",
-      "name_of_young": ""
+      "name_of_young": "young"
     },
     "additional_info": {
       "lifestyle": "",
       "color": "BrownYellowBlack",
       "skin_type": "Hair",
-      "prey": "",
+      "prey": "Plains , usually preceding the colonists",
       "slogan": "There are only 8 recognized species!",
       "group": "",
       "number_of_species": "8",
@@ -523,8 +971,10 @@
       "most_distinctive_feature": ""
     },
     "sources": [
-      "API Ninjas"
+      "API Ninjas",
+      "Wikipedia",
+      "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:15:11.898176"
+    "last_updated": "2026-03-16T19:50:58.172805"
   }
 ]

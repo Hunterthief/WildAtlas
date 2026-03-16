@@ -2,5 +2,75 @@
   "id": "Q7372",
   "name": "African Elephant",
   "scientific_name": "Loxodonta africana",
-  "error": "No data from Ninja API"
+  "common_names": [],
+  "description": "Genus comprising two living elephant species",
+  "summary": "African elephants are members of the genus Loxodonta comprising two living elephant species, the African bush elephant and the smaller African forest elephant. Both are social herbivores with grey skin. However, they differ in the size and colour of their tusks as well as the shape and size of their ears and skulls.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
+  "wikipedia_sections": {
+    "overview": "",
+    "description": "matches Wikidata\",\"Use dmy dates from September 2020\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"All articles with unsourced statements\",\"Articles with unsourced statements from August 2025\",\"Webarchive template wayback links\",\"Articles containing video clips\",\"African elephants\",\"Mammals of Sub-Saharan Africa\",\"EDGE species\",\"Animal species groups\",\"National symbols of the Central African Republic\",\"National symbols of Equatorial Guinea\",\"Nation",
+    "ecology": "and habitat 5",
+    "behavior": "and",
+    "reproduction": "6 Threats 7",
+    "conservation": "7 Conservation 8 In culture Toggle In culture subsection 8.1 As national symbols 9 See also 10 Notes 11 References 12 External links Toggle the table of contents African elephant 73 languages Afrikaans العربية مصرى Kotava Azərbaycanca Български বাংলা Brezhoneg Bosanski Català Cebuano کوردی Чӑвашла Cymraeg Deutsch Zazaki Ελληνικά Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego עברית हिन्दी Magyar Հայերեն Bahasa Indonesia Italiano 日本語 ქართული Қазақша 한국어 Лакку Latviešu Malagasy Māo",
+    "distribution": ""
+  },
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Mammalia",
+    "order": "Proboscidea",
+    "family": "Elephantidae",
+    "genus": "Loxodonta",
+    "species": "Loxodonta africana"
+  },
+  "animal_type": "elephant",
+  "young_name": "calf",
+  "group_name": "herd",
+  "physical": {
+    "weight": "",
+    "length": "",
+    "height": "",
+    "top_speed": "",
+    "lifespan": ""
+  },
+  "ecology": {
+    "diet": "",
+    "habitat": "",
+    "locations": "",
+    "group_behavior": "Solitary",
+    "conservation_status": "Critically Endangered",
+    "biggest_threat": "Poaching, Habitat loss",
+    "distinctive_features": [
+      "Distinctive mane",
+      "Long trunk",
+      "Large tusks"
+    ],
+    "population_trend": ""
+  },
+  "reproduction": {
+    "gestation_period": "",
+    "average_litter_size": "",
+    "name_of_young": "calf"
+  },
+  "additional_info": {
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "7 Conservation 8 In culture Toggle In culture subsection 8",
+    "slogan": "",
+    "group": "",
+    "number_of_species": "",
+    "estimated_population_size": "",
+    "age_of_sexual_maturity": "",
+    "age_of_weaning": "",
+    "most_distinctive_feature": ""
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-16T19:50:33.079453"
 }

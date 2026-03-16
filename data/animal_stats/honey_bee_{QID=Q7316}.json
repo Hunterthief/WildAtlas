@@ -3,10 +3,19 @@
   "name": "Honey Bee",
   "scientific_name": "Apis mellifera",
   "common_names": [],
-  "description": "",
-  "summary": "",
-  "image": "",
-  "wikipedia_url": "",
+  "description": "Colonial flying insect",
+  "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
+  "wikipedia_sections": {
+    "overview": "",
+    "description": "is different from Wikidata\",\"Wikipedia pending changes protected pages\",\"Use British English from June 2015\",\"All Wikipedia articles written in British English\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from August 2021\",\"Wikipedia articles needing clarification from August 2021\",\"Commons category link is on Wikidata\",\"Taxonbars with 20–24 taxon IDs\",\"Articles containing video clips\",\"Honey bees\",\"Beekeeping\",\"Bees\",\"Extan",
+    "ecology": "Toggle Origin, systematics, and distribution subsection 2.1 Species 2.2 Micrapis 2.3 Megapis 2.4 Apis 2.4.1 Koschevnikov's honey bee 2.4.2 Philippine honey bee 2.4.3 Eastern honey bee 2.4.4 Western honey bee 2.4.5 Africanized honey bee 3 Living and fossil honey bees (Apini: Apis ) 4 Life cycle Toggle Life cycle subsection 4.1 Gallery 4.2 Winter survival 5 Pollination Toggle Pollination subsection 5.1 Claims of human dependency 6 Nutrition 7 Beekeeping Toggle Beekeeping subsection 7.1 Colony coll",
+    "behavior": "is considered to be a trait that predates the origin of the genus. Among the extant members of Apis , the more basal species make single, exposed combs, while the more recently evolved species nest in cavities and have multiple combs, which has greatly facilitated their domestication. Species [ edit ] While about 20,000 species of bees exist, &#91; 15 &#93; only eight extant species of honey bee are recognized, with a total of 43 subspecies , although historically seven to 11 species are recogni",
+    "reproduction": "Toggle Life cycle subsection 4.1 Gallery 4.2 Winter survival 5 Pollination Toggle Pollination subsection 5.1 Claims of human dependency 6 Nutrition 7 Beekeeping Toggle Beekeeping subsection 7.1 Colony collapse disorder 7.2 Parasites 7.2.1 Acarapis woodi 7.2.2 Galleria mellonella 7.2.3 Varroa mites 8 Bee products Toggle Bee products subsection 8.1 Honey 8.2 Beeswax 8.3 Bee bread 8.4 Bees as food 8.5 Propolis 8.6 Royal jelly 9 Sexes and castes Toggle Sexes and castes subsection 9.1 Drones 9.2 Work",
+    "conservation": "This is an accepted version of this page This is the latest accepted revision , reviewed on 16 March 2026 . Colonial flying insect .mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}} For other uses, see Honey bee (disambiguation) . Honey bee Temporal range:",
+    "distribution": ""
+  },
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -17,8 +26,8 @@
     "species": "Apis mellifera"
   },
   "animal_type": "default",
-  "young_name": "",
-  "group_name": "",
+  "young_name": "young",
+  "group_name": "population",
   "physical": {
     "weight": "",
     "length": "",
@@ -30,22 +39,26 @@
     "diet": "Herbivore",
     "habitat": "Sheltered forests and meadows",
     "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
-    "group_behavior": "",
-    "conservation_status": "",
+    "group_behavior": "Solitary",
+    "conservation_status": "Endangered",
     "biggest_threat": "",
-    "distinctive_features": [],
+    "distinctive_features": [
+      "Distinctive mane",
+      "Prominent horns",
+      "Distinctive wings"
+    ],
     "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "",
     "average_litter_size": "200",
-    "name_of_young": ""
+    "name_of_young": "young"
   },
   "additional_info": {
     "lifestyle": "",
     "color": "BrownYellowBlack",
     "skin_type": "Hair",
-    "prey": "",
+    "prey": "Plains , usually preceding the colonists",
     "slogan": "There are only 8 recognized species!",
     "group": "",
     "number_of_species": "8",
@@ -55,7 +68,9 @@
     "most_distinctive_feature": ""
   },
   "sources": [
-    "API Ninjas"
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:15:11.898176"
+  "last_updated": "2026-03-16T19:50:58.172805"
 }

@@ -2,5 +2,75 @@
   "id": "Q7785",
   "name": "Green Sea Turtle",
   "scientific_name": "Chelonia mydas",
-  "error": "No data from Ninja API"
+  "common_names": [],
+  "description": "Species of large sea reptile",
+  "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
+  "wikipedia_sections": {
+    "overview": "",
+    "description": "is different from Wikidata\",\"Articles with 'species' microformats\",\"Articles containing potentially dated statements from June 2020\",\"All articles containing potentially dated statements\",\"Cite IUCN without doi\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 30–34 taxon IDs\",\"IUCN Red List least concern species\",\"Fauna listed on CITES Appendix I\",\"Chelonia\",\"Sea turtles\",\"Fauna of the Pantropical realm\",\"Fauna of Ascension Island\",\"Marine fauna of Northern Australia\",",
+    "ecology": "loss\",\"Animal taxa named by Carl Linnaeus\",\"Habitats Directive species\",\"Fauna of Christmas Island\"],\"wgPageViewLanguage\":\"en\",\"wgPageContentLanguage\":\"en\",\"wgPageContentModel\":\"wikitext\",\"wgRelevantPageName\":\"Green_sea_turtle\",\"wgRelevantArticleId\":2150513,\"wgTempUserName\":null,\"wgIsProbablyEditable\":true,\"wgRelevantPageIsProbablyEditable\":true,\"wgRestrictionEdit\":[],\"wgRestrictionMove\":[],\"wgRedirectedFrom\":\"Green_Sea_Turtle\",\"wgNoticeProject\":\"wikipedia\",\"wgFlaggedRevsParams\":{\"tags\":{\"status",
+    "behavior": "Toggle",
+    "reproduction": "5.4 Breathing and sleep 6 Physiology and sensory modalities 7 Unique characteristics and features 8 Importance to humans 9",
+    "conservation": "Toggle Conservation subsection 9.1 Threats 9.2 Global initiatives 9.3 Country-specific initiatives 10 Genetics 11 Gallery 12 See also 13 References 14 External links Toggle the table of contents Green sea turtle 69 languages العربية ܐܪܡܝܐ مصرى Asturianu Azərbaycanca Basa Bali Български বাংলা Brezhoneg Català Cebuano Čeština Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Føroyskt Français Gaeilge Galego ગુજરાતી עברית Hrvatski Magyar Հայերեն Bahasa Indonesia Íslenska It",
+    "distribution": ""
+  },
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Reptilia",
+    "order": "Testudines",
+    "family": "Cheloniidae",
+    "genus": "Chelonia",
+    "species": "Chelonia mydas"
+  },
+  "animal_type": "default",
+  "young_name": "young",
+  "group_name": "population",
+  "physical": {
+    "weight": "",
+    "length": "",
+    "height": "",
+    "top_speed": "",
+    "lifespan": ""
+  },
+  "ecology": {
+    "diet": "",
+    "habitat": "",
+    "locations": "",
+    "group_behavior": "Solitary",
+    "conservation_status": "Critically Endangered",
+    "biggest_threat": "Poaching, Habitat loss",
+    "distinctive_features": [
+      "Spotted coat",
+      "Distinctive mane",
+      "Prominent horns"
+    ],
+    "population_trend": ""
+  },
+  "reproduction": {
+    "gestation_period": "",
+    "average_litter_size": "",
+    "name_of_young": "young"
+  },
+  "additional_info": {
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "strictly being seagrass, &#91; 9 &#93; not to the color of its carapace, which i",
+    "slogan": "",
+    "group": "",
+    "number_of_species": "",
+    "estimated_population_size": "",
+    "age_of_sexual_maturity": "",
+    "age_of_weaning": "",
+    "most_distinctive_feature": ""
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-16T19:50:47.552339"
 }

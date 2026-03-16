@@ -3,10 +3,19 @@
   "name": "Monarch Butterfly",
   "scientific_name": "Danaus plexippus",
   "common_names": [],
-  "description": "",
-  "summary": "",
-  "image": "",
-  "wikipedia_url": "",
+  "description": "Milkweed butterfly in the family Nymphalidae",
+  "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
+  "wikipedia_sections": {
+    "overview": "",
+    "description": "matches Wikidata\",\"Use mdy dates from October 2021\",\"Use American English from October 2021\",\"All Wikipedia articles written in American English\",\"Articles with 'species' microformats\",\"Articles containing Latin-language text\",\"Articles containing potentially dated statements from 2022\",\"All articles containing potentially dated statements\",\"Articles containing potentially dated statements from 2017\",\"Articles with ibid from October 2024\",\"Commons category link is on Wikidata\",\"Taxonbars with au",
+    "ecology": "and habitat 8 Larval host plants 9 Adult food sources 10 Flight and migration 11 Interactions with predators Toggle Interactions with predators subsection 11.1 Types of predators 11.2 Aposematism 11.3 Mimicry 12 Human interaction Toggle Human interaction subsection 12.1 Captive rearing 13 Threats Toggle Threats subsection 13.1 Western monarch population 13.2 Eastern and midwestern monarch populations 13.2.1 Habitat loss due to herbicide use and genetically modified crops 13.2.2 Losses during mig",
+    "behavior": "and are often found far from milkweed plants as they seek a site for pupating. &#91; 39 &#93; A monarch caterpillar can travel up to 10 meters from its milkweed plant to find a safe place to pupate. &#91; 40 &#93; In a laboratory setting, the fourth- and fifth-instar caterpillar stages showed aggressive behavior with lower food availability. Attacked caterpillars were found to be attacked when feeding on milkweed leaves, and the caterpillars attacked when foraging for milkweed. &#91; 41 &#93; Th",
+    "reproduction": "Toggle Life cycle subsection 4.1 Egg 4.2 Larva 4.3 Pupa 4.4 Adult 4.5 Male 4.6 Female 5 Vision 6 Courtship and mating 7 Distribution and habitat 8 Larval host plants 9 Adult food sources 10 Flight and migration 11 Interactions with predators Toggle Interactions with predators subsection 11.1 Types of predators 11.2 Aposematism 11.3 Mimicry 12 Human interaction Toggle Human interaction subsection 12.1 Captive rearing 13 Threats Toggle Threats subsection 13.1 Western monarch population 13.2 Easter",
+    "conservation": "Toggle Threats subsection 13.1 Western monarch population 13.2 Eastern and midwestern monarch populations 13.2.1 Habitat loss due to herbicide use and genetically modified crops 13.2.2 Losses during migration 13.2.3 Importance of overwintering habitat 13.3 Parasites 13.4 Confusion of host plants 13.5 Climate 14 Conservation status 15 Conservation efforts Toggle Conservation efforts subsection 15.1 Federal actions 15.2 Other actions 15.2.1 State and local governments 15.2.2 National Cooperative H",
+    "distribution": ""
+  },
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -18,7 +27,7 @@
   },
   "animal_type": "default",
   "young_name": "Larvae/Caterpillar",
-  "group_name": "Invertebrates",
+  "group_name": "population",
   "physical": {
     "weight": "0.25 - 0.75 grams",
     "length": "",
@@ -31,7 +40,7 @@
     "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
     "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
     "group_behavior": "Group",
-    "conservation_status": "",
+    "conservation_status": "Endangered",
     "biggest_threat": "Habitat loss",
     "distinctive_features": [
       "Black, orange, and white pattern on wings"
@@ -47,7 +56,7 @@
     "lifestyle": "Diurnal",
     "color": "BlackWhiteOrange",
     "skin_type": "Scales",
-    "prey": "",
+    "prey": "Toggle Threats subsection 13",
     "slogan": "",
     "group": "Invertebrates",
     "number_of_species": "3",
@@ -57,7 +66,9 @@
     "most_distinctive_feature": "Black, orange, and white pattern on wings"
   },
   "sources": [
-    "API Ninjas"
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:15:10.724194"
+  "last_updated": "2026-03-16T19:50:55.177143"
 }

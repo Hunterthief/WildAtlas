@@ -2,5 +2,75 @@
   "id": "Q39709",
   "name": "Atlantic Salmon",
   "scientific_name": "Salmo salar",
-  "error": "No data from Ninja API"
+  "common_names": [],
+  "description": "Species of fish",
+  "summary": "The Atlantic salmon is a species of ray-finned fish in the family Salmonidae. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon, growing up to 1 m (3.3 ft) in length. Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous, hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
+  "wikipedia_sections": {
+    "overview": "",
+    "description": "matches Wikidata\",\"Articles needing additional references from October 2023\",\"All articles needing additional references\",\"Use dmy dates from June 2020\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from January 2017\",\"Articles with unsourced statements from February 2021\",\"Articles with unsourced statements from March 2013\",\"Pages using multiple image with auto scaled images\",\"Articles with unsourced statements from April 201",
+    "ecology": "and habitat 4 Ecology Toggle Ecology subsection 4.1 Diet 4.2 Behaviour 4.3 Life stages 4.3.1 Freshwater phase 4.3.2 Saltwater phases 4.4 Breeding 4.4.1 Hybridization 4.5 Beaver impact 5 Relationship to humans Toggle Relationship to humans subsection 5.1 Aquaculture 5.1.1 Controversy 5.1.2 Future prospects 6",
+    "behavior": "at sea, or are repeat spawners, can be much larger. An Atlantic salmon netted in 1960 in Scotland, in the estuary of the river Hope, weighed 49.44&#160;kg (109.0&#160;lb), the heaviest recorded in all available literature. Another netted in 1925 in Norway measured 160.65&#160;cm (63.25&#160;in) in length, the longest Atlantic salmon on record. &#91; 8 &#93; .mw-parser-output .tmulti .multiimageinner{display:flex;flex-direction:column}.mw-parser-output .tmulti .trow{display:flex;flex-direction:ro",
+    "reproduction": "4.4.1 Hybridization 4.5 Beaver impact 5 Relationship to humans Toggle Relationship to humans subsection 5.1 Aquaculture 5.1.1 Controversy 5.1.2 Future prospects 6",
+    "conservation": "Toggle Conservation subsection 6.1 Restoration efforts 6.2 NASCO 7 Legislation Toggle Legislation subsection 7.1 England and Wales 7.2 Scotland 7.3 United States 7.4 Canada 8 See also 9 Notes 10 References 11 External links Toggle the table of contents Atlantic salmon 70 languages Afrikaans Alemannisch Aragonés العربية مصرى Azərbaycanca Беларуская Български Brezhoneg Català Cebuano Čeština Kaszëbsczi Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Gaeilge Gale",
+    "distribution": ""
+  },
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Actinopterygii",
+    "order": "Salmoniformes",
+    "family": "Salmonidae",
+    "genus": "Salmo",
+    "species": "Salmo salar"
+  },
+  "animal_type": "default",
+  "young_name": "young",
+  "group_name": "population",
+  "physical": {
+    "weight": "",
+    "length": "",
+    "height": "",
+    "top_speed": "",
+    "lifespan": ""
+  },
+  "ecology": {
+    "diet": "",
+    "habitat": "",
+    "locations": "",
+    "group_behavior": "Solitary",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Poaching, Habitat loss",
+    "distinctive_features": [
+      "Spotted coat",
+      "Distinctive mane",
+      "Distinctive wings"
+    ],
+    "population_trend": ""
+  },
+  "reproduction": {
+    "gestation_period": "",
+    "average_litter_size": "",
+    "name_of_young": "young"
+  },
+  "additional_info": {
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "Lakes\",\"Fish of Greenland\",\"Fauna of Atlantic Canada\",\"Fauna of the Northeastern",
+    "slogan": "",
+    "group": "",
+    "number_of_species": "",
+    "estimated_population_size": "",
+    "age_of_sexual_maturity": "",
+    "age_of_weaning": "",
+    "most_distinctive_feature": ""
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-16T19:50:45.325773"
 }

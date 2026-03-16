@@ -2,5 +2,75 @@
   "id": "Q270238",
   "name": "American Bullfrog",
   "scientific_name": "Lithobates catesbeianus",
-  "error": "No data from Ninja API"
+  "common_names": [],
+  "description": "Species of amphibian",
+  "summary": "The American bullfrog, often simply known as the bullfrog in Canada and the United States, is a large true frog native to eastern North America. It typically inhabits large permanent water bodies such as swamps, ponds, and lakes. Bullfrogs can also be found in manmade habitats such as pools, koi ponds, canals, ditches and culverts. The bullfrog gets its name from the sound the male makes during the breeding season, which sounds similar to a bull bellowing. They are generalist carnivores, consuming a wide variety of prey. In turn, they are eaten by predators such as alligators, snakes, and birds.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
+  "wikipedia_sections": {
+    "overview": "",
+    "description": "matches Wikidata\",\"Good articles\",\"Articles needing cleanup from March 2026\",\"All pages needing cleanup\",\"Cleanup tagged articles with a reason field from March 2026\",\"Wikipedia pages needing cleanup from March 2026\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"All articles with unsourced statements\",\"Articles with unsourced statements from March 2026\",\"All articles that are too technical\",\"Wikipedia articles that are too technical from March 2026\"",
+    "ecology": "4 Biology Toggle Biology subsection 4.1 Ecology 4.1.1 As an invasive species 4.2 Breeding season 4.2.1 Choruses 4.2.2 Aggressive",
+    "behavior": "4.3 Life cycle 5 Relation to humans 6 References 7 External links Toggle the table of contents American bullfrog 48 languages Aragonés العربية مصرى Basa Bali Беларуская Български Brezhoneg Català Cebuano Čeština Чӑвашла Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Võro Français Galego עברית Magyar Bahasa Indonesia Íslenska Italiano 日本語 한국어 Lietuvių Монгол Bahasa Melayu Nederlands Norsk bokmål Diné bizaad Polski Português Русский Simple English Slovenščina Svenska ไทย Türkçe",
+    "reproduction": "season 4.2.1 Choruses 4.2.2 Aggressive",
+    "conservation": "status Least Concern &#160;( IUCN 3.1 ) &#91; 1 &#93; Secure &#160;( NatureServe ) &#91; 2 &#93; Scientific classification Kingdom: Animalia Phylum: Chordata Class: Amphibia Order: Anura Family: Ranidae Genus: Lithobates Species: L.&#160;catesbeianus Binomial name Lithobates catesbeianus ( Shaw , 1802) Natural range – blue; Introduced range – red Synonyms List .mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output ",
+    "distribution": ""
+  },
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Amphibia",
+    "order": "Anura",
+    "family": "Ranidae",
+    "genus": "Lithobates",
+    "species": "Lithobates catesbeianus"
+  },
+  "animal_type": "default",
+  "young_name": "young",
+  "group_name": "population",
+  "physical": {
+    "weight": "",
+    "length": "",
+    "height": "",
+    "top_speed": "",
+    "lifespan": ""
+  },
+  "ecology": {
+    "diet": "",
+    "habitat": "",
+    "locations": "",
+    "group_behavior": "Solitary",
+    "conservation_status": "Vulnerable",
+    "biggest_threat": "",
+    "distinctive_features": [
+      "Distinctive mane",
+      "Prominent horns",
+      "Distinctive wings"
+    ],
+    "population_trend": ""
+  },
+  "reproduction": {
+    "gestation_period": "",
+    "average_litter_size": "",
+    "name_of_young": "young"
+  },
+  "additional_info": {
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "to the California red-legged frog , and is considered to be a factor in the decl",
+    "slogan": "",
+    "group": "",
+    "number_of_species": "",
+    "estimated_population_size": "",
+    "age_of_sexual_maturity": "",
+    "age_of_weaning": "",
+    "most_distinctive_feature": ""
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-16T19:50:52.120358"
 }

@@ -2,5 +2,75 @@
   "id": "Q213537",
   "name": "Gray Wolf",
   "scientific_name": "Canis lupus",
-  "error": "No data from Ninja API"
+  "common_names": [],
+  "description": "Species of canine",
+  "summary": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America. More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo, though grey wolves, as popularly understood, include only naturally occurring wild subspecies. The wolf is the largest wild extant member of the family Canidae, and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal, to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
+  "wikipedia_sections": {
+    "overview": "",
+    "description": "is different from Wikidata\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Wikipedia indefinitely move-protected pages\",\"Use mdy dates from December 2019\",\"Use Canadian English from December 2019\",\"All Wikipedia articles written in Canadian English\",\"Articles with 'species' microformats\",\"Articles containing Proto-Germanic-language text\",\"Articles containing Proto-Indo-European-language text\",\"Articles containing Proto-Italic-language text\",\"Articles with hAudio microformats\"",
+    "ecology": "Toggle Ecology subsection 4.1 Distribution and habitat 4.2 Diet 4.3 Interactions with other predators 4.4 Infections 5 Behaviour Toggle Behaviour subsection 5.1 Social structure 5.2 Communication 5.3",
+    "behavior": "and feeding 5.5 Intelligence and cognition 6 Status and",
+    "reproduction": "5.4 Hunting and feeding 5.5 Intelligence and cognition 6 Status and",
+    "conservation": "and conservation Toggle Status and conservation subsection 6.1 North America 6.2 Eurasia 7 Relationships with humans Toggle Relationships with humans subsection 7.1 In culture 7.1.1 In folklore, religion and mythology 7.1.2 In fable and literature 7.2 Conflicts 7.2.1 Predation on livestock 7.2.2 Competition with dogs 7.2.3 Attacks on humans 7.2.4 Human hunting of wolves 7.3 Wolves as pets and working animals 8 Notes 9 References 10 Bibliography 11 External links Toggle the table of contents Wolf",
+    "distribution": ""
+  },
+  "classification": {
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Mammalia",
+    "order": "Carnivora",
+    "family": "Canidae",
+    "genus": "Canis",
+    "species": "Canis familiaris"
+  },
+  "animal_type": "canine",
+  "young_name": "pup",
+  "group_name": "pack",
+  "physical": {
+    "weight": "",
+    "length": "",
+    "height": "",
+    "top_speed": "",
+    "lifespan": ""
+  },
+  "ecology": {
+    "diet": "",
+    "habitat": "",
+    "locations": "",
+    "group_behavior": "Solitary",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Habitat loss",
+    "distinctive_features": [
+      "Striped coat",
+      "Spotted coat",
+      "Distinctive mane"
+    ],
+    "population_trend": ""
+  },
+  "reproduction": {
+    "gestation_period": "",
+    "average_litter_size": "",
+    "name_of_young": "pup"
+  },
+  "additional_info": {
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "large wild hooved mammals as well as smaller animals, livestock, carrion , and g",
+    "slogan": "",
+    "group": "",
+    "number_of_species": "",
+    "estimated_population_size": "",
+    "age_of_sexual_maturity": "",
+    "age_of_weaning": "",
+    "most_distinctive_feature": ""
+  },
+  "sources": [
+    "API Ninjas",
+    "Wikipedia",
+    "iNaturalist"
+  ],
+  "last_updated": "2026-03-16T19:50:35.677346"
 }
