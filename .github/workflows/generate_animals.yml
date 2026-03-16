@@ -1,75 +1,54 @@
-# .github/workflows/generate_animals.yml
-name: Generate Animal Data
+name: Generate Animals JSON
 
 on:
   push:
-    branches: [ main ]
+    paths:
+      - 'generator/**'
   workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force re-fetch all data'
+        required: false
+        default: 'false'
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.MY_PAT }}
-        fetch-depth: 0
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r generator/requirements.txt
-    
-    - name: Generate animal data
-      run: |
-        cd generator
-        python generate_animals.py --force
-      env:
-        API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
-        IUCN_API_KEY: ${{ secrets.IUCN_API_KEY }}
-    
-    - name: Debug - Show file status
-      run: |
-        echo "=== Files in repo root data/ directory ==="
-        ls -la data/ || true
-        echo "=== Git status ==="
-        git status
-    
-    - name: Check for changes
-      id: git-check
-      run: |
-        git config --global user.name 'GitHub Actions Bot'
-        git config --global user.email 'actions@github.com'
-        git add data/animals.json
-        git add data/*.json 2>/dev/null || true
-        
-        if ! git diff --staged --quiet; then
-          echo "✅ Changes detected"
-          echo "changes=true" >> $GITHUB_OUTPUT
-        else
-          echo "ℹ️ No changes detected"
-          echo "changes=false" >> $GITHUB_OUTPUT
-        fi
-    
-    - name: Commit and push changes
-      if: steps.git-check.outputs.changes == 'true'
-      run: |
-        git config --global user.name 'GitHub Actions Bot'
-        git config --global user.email 'actions@github.com'
-        git commit -m "🤖 Auto-update animal data [skip ci]"
-        git push https://${{ secrets.MY_PAT }}@github.com/Hunterthief/WildAtlas.git main
-        echo "✅ Successfully pushed changes!"
-    
-    - name: No changes to commit
-      if: steps.git-check.outputs.changes == 'false'
-      run: |
-        echo "ℹ️ No changes to commit - data is up to date"
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+          pip install beautifulsoup4
+
+      - name: Run generator
+        env:
+          NINJA_API_KEY: ${{ secrets.NINJA_API_KEY }}
+          IUCN_API_KEY: ${{ secrets.IUCN_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.force_update }}" == "true" ]; then
+            python generator/generate_animals.py --force
+          else
+            python generator/generate_animals.py
+          fi
+
+      - name: Commit and push JSON
+        env:
+          MY_PAT: ${{ secrets.MY_PAT }}
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git add data/animals.json
+          git add data/animal_stats/
+          git commit -m "🤖 Auto-update animal data [skip ci]" || echo "No changes to commit"
+          git push https://$MY_PAT@github.com/${{ github.repository }} HEAD:main
