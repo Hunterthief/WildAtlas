@@ -8,55 +8,58 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Aves",
+    "order": "Sphenisciformes",
+    "family": "Spheniscidae",
+    "genus": "Aptenodytes",
     "species": "Aptenodytes forsteri"
   },
   "animal_type": "penguin",
   "young_name": "chick",
   "group_name": "colony",
   "physical": {
-    "weight": "Unknown",
+    "weight": "22kg - 45kg (49lbs - 99lbs)",
     "length": "Unknown",
-    "height": "Unknown",
-    "top_speed": "Unknown",
-    "lifespan": "Unknown"
+    "height": "100cm - 120cm (39in - 47in)",
+    "top_speed": "15 mph",
+    "lifespan": "15 - 50 years"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Carnivore",
+    "habitat": "Compact sea-ice and ocean",
+    "locations": "Antarctica, Ocean",
+    "group_behavior": "Colony",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Global warming",
+    "distinctive_features": [
+      "Bright yellow feathers on neck and ears"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
     "gestation_period": "Unknown",
     "average_litter_size": "Unknown",
-    "name_of_young": "chick"
+    "name_of_young": "Chick"
   },
   "additional_info": {
-    "lifestyle": "Unknown",
-    "color": "Unknown",
-    "skin_type": "Unknown",
-    "prey": "Unknown",
-    "slogan": "Unknown",
-    "group": "Unknown",
-    "number_of_species": "Unknown",
-    "estimated_population_size": "Unknown",
-    "age_of_sexual_maturity": "Unknown",
+    "lifestyle": "Diurnal",
+    "color": "YellowBlackWhiteOrange",
+    "skin_type": "Feathers",
+    "prey": "Fish, Krill, Squid",
+    "slogan": "The world's largest species of penguin!",
+    "group": "Bird",
+    "number_of_species": "1",
+    "estimated_population_size": "200,000 breeding pairs",
+    "age_of_sexual_maturity": "3 - 8 years",
     "age_of_weaning": "Unknown",
-    "most_distinctive_feature": "Unknown"
+    "most_distinctive_feature": "Bright yellow feathers on neck and ears"
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:28.587673"
+  "last_updated": "2026-03-16T18:11:38.339764"
 }

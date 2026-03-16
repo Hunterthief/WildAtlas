@@ -8,12 +8,12 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Mammalia",
+    "order": "Proboscidea",
+    "family": "Elephantidae",
+    "genus": "Loxodonta",
     "species": "Loxodonta africana"
   },
   "animal_type": "ant",
@@ -21,24 +21,28 @@
   "group_name": "colony",
   "physical": {
     "weight": "Unknown",
-    "length": "Unknown",
+    "length": "7.0–6.0 m",
     "height": "Unknown",
     "top_speed": "Unknown",
     "lifespan": "Unknown"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Carnivore",
+    "habitat": "savanna, lake, sea, woodland",
+    "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
+    "group_behavior": "Solitary",
+    "conservation_status": "Critically Endangered",
+    "biggest_threat": "Poaching, Habitat loss, Climate change",
+    "distinctive_features": [
+      "Distinctive mane",
+      "Long trunk",
+      "Large tusks"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "Unknown",
+    "average_litter_size": "1",
     "name_of_young": "larva"
   },
   "additional_info": {
@@ -56,7 +60,8 @@
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:25.260952"
+  "last_updated": "2026-03-16T18:11:30.940722"
 }

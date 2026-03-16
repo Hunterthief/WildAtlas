@@ -8,55 +8,58 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Mammalia",
+    "order": "Carnivora",
+    "family": "Felidae",
+    "genus": "Acinonyx",
     "species": "Acinonyx jubatus"
   },
   "animal_type": "feline",
   "young_name": "cub",
   "group_name": "streak",
   "physical": {
-    "weight": "Unknown",
-    "length": "Unknown",
-    "height": "Unknown",
-    "top_speed": "Unknown",
-    "lifespan": "Unknown"
+    "weight": "40kg - 65kg (88lbs - 140lbs)",
+    "length": "67.0–94.0 cm",
+    "height": "115cm - 136cm (45in - 53in)",
+    "top_speed": "70 mph",
+    "lifespan": "10 - 12 years"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Carnivore",
+    "habitat": "Open grassland",
+    "locations": "Africa, Asia, Eurasia",
+    "group_behavior": "Solitary/Pairs",
+    "conservation_status": "Critically Endangered",
+    "biggest_threat": "Habitat loss",
+    "distinctive_features": [
+      "Yellowish fur covered in small black spots"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
-    "gestation_period": "Unknown",
-    "average_litter_size": "Unknown",
-    "name_of_young": "cub"
+    "gestation_period": "90 days",
+    "average_litter_size": "3",
+    "name_of_young": "Cub"
   },
   "additional_info": {
-    "lifestyle": "Unknown",
-    "color": "Unknown",
-    "skin_type": "Unknown",
-    "prey": "Unknown",
-    "slogan": "Unknown",
-    "group": "Unknown",
-    "number_of_species": "Unknown",
-    "estimated_population_size": "Unknown",
-    "age_of_sexual_maturity": "Unknown",
-    "age_of_weaning": "Unknown",
-    "most_distinctive_feature": "Unknown"
+    "lifestyle": "Diurnal",
+    "color": "BrownYellowBlackTan",
+    "skin_type": "Fur",
+    "prey": "Gazelle, Wildebeest, Hare",
+    "slogan": "The fastest land mammal in the world!",
+    "group": "Mammal",
+    "number_of_species": "5",
+    "estimated_population_size": "8,500",
+    "age_of_sexual_maturity": "20 - 24 months",
+    "age_of_weaning": "3 months",
+    "most_distinctive_feature": "Yellowish fur covered in small black spots"
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:24.138457"
+  "last_updated": "2026-03-16T18:11:28.788550"
 }

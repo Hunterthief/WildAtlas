@@ -8,12 +8,12 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Reptilia",
+    "order": "Testudines",
+    "family": "Cheloniidae",
+    "genus": "Chelonia",
     "species": "Chelonia mydas"
   },
   "animal_type": "turtle",
@@ -21,24 +21,28 @@
   "group_name": "bale",
   "physical": {
     "weight": "Unknown",
-    "length": "Unknown",
+    "length": "28.0–56.0 cm",
     "height": "Unknown",
     "top_speed": "Unknown",
     "lifespan": "Unknown"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Carnivore",
+    "habitat": "river, sea, temperate, coastal",
+    "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
+    "group_behavior": "Solitary",
+    "conservation_status": "Critically Endangered",
+    "biggest_threat": "Poaching, Habitat loss, Climate change",
+    "distinctive_features": [
+      "Shell",
+      "Flipper",
+      "Scale"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "Unknown",
+    "average_litter_size": "1",
     "name_of_young": "hatchling"
   },
   "additional_info": {
@@ -56,7 +60,8 @@
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:31.912322"
+  "last_updated": "2026-03-16T18:11:45.131749"
 }

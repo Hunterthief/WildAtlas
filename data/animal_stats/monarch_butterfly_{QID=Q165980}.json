@@ -8,55 +8,58 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
+    "kingdom": "Animalia",
+    "phylum": "Arthropoda",
+    "class": "Insecta",
+    "order": "Lepidoptera",
+    "family": "Nymphalidae",
+    "genus": "Danaus",
     "species": "Danaus plexippus"
   },
   "animal_type": "butterfly",
   "young_name": "caterpillar",
   "group_name": "swarm",
   "physical": {
-    "weight": "Unknown",
-    "length": "Unknown",
+    "weight": "0.25 - 0.75 grams",
+    "length": "8.9–10.2 cm",
     "height": "Unknown",
-    "top_speed": "Unknown",
-    "lifespan": "Unknown"
+    "top_speed": "12 mph",
+    "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Herbivore",
+    "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
+    "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
+    "group_behavior": "Group",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Habitat loss",
+    "distinctive_features": [
+      "Black, orange, and white pattern on wings"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
-    "gestation_period": "Unknown",
+    "gestation_period": "3 to 8 days for eggs to hatch after they are laid",
     "average_litter_size": "Unknown",
-    "name_of_young": "caterpillar"
+    "name_of_young": "Larvae/Caterpillar"
   },
   "additional_info": {
-    "lifestyle": "Unknown",
-    "color": "Unknown",
-    "skin_type": "Unknown",
+    "lifestyle": "Diurnal",
+    "color": "BlackWhiteOrange",
+    "skin_type": "Scales",
     "prey": "Unknown",
     "slogan": "Unknown",
-    "group": "Unknown",
-    "number_of_species": "Unknown",
+    "group": "Invertebrates",
+    "number_of_species": "3",
     "estimated_population_size": "Unknown",
-    "age_of_sexual_maturity": "Unknown",
+    "age_of_sexual_maturity": "4-5 days after emerging from pupa",
     "age_of_weaning": "Unknown",
-    "most_distinctive_feature": "Unknown"
+    "most_distinctive_feature": "Black, orange, and white pattern on wings"
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:35.129376"
+  "last_updated": "2026-03-16T18:11:52.457422"
 }

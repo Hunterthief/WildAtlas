@@ -8,55 +8,58 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
-    "species": "Haliaeetus leucocephalus"
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Aves",
+    "order": "Accipitriformes",
+    "family": "Accipitridae",
+    "genus": "Haliaeetus",
+    "species": "haliaeetus leucocephalus"
   },
   "animal_type": "raptor",
   "young_name": "chick",
   "group_name": "kettle",
   "physical": {
-    "weight": "Unknown",
+    "weight": "6.6-14lbs",
     "length": "Unknown",
-    "height": "Unknown",
-    "top_speed": "Unknown",
-    "lifespan": "Unknown"
+    "height": "28-38 inches",
+    "top_speed": "100 mph",
+    "lifespan": "15-20 years in the wild"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Carnivore",
+    "habitat": "Near forests",
+    "locations": "North-America",
+    "group_behavior": "Solitary",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Pesticide use",
+    "distinctive_features": [
+      "The white plumage on the head"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "Unknown",
+    "average_litter_size": "1",
     "name_of_young": "chick"
   },
   "additional_info": {
     "lifestyle": "Unknown",
-    "color": "Unknown",
+    "color": "BrownYellowWhite",
     "skin_type": "Unknown",
-    "prey": "Unknown",
+    "prey": "Fish, birds, and small mammals",
     "slogan": "Unknown",
     "group": "Unknown",
-    "number_of_species": "Unknown",
+    "number_of_species": "1",
     "estimated_population_size": "Unknown",
     "age_of_sexual_maturity": "Unknown",
     "age_of_weaning": "Unknown",
-    "most_distinctive_feature": "Unknown"
+    "most_distinctive_feature": "The white plumage on the head"
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:27.465452"
+  "last_updated": "2026-03-16T18:11:35.954849"
 }

@@ -8,12 +8,12 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Amphibia",
+    "order": "Anura",
+    "family": "Ranidae",
+    "genus": "Lithobates",
     "species": "Lithobates catesbeianus"
   },
   "animal_type": "frog",
@@ -27,18 +27,22 @@
     "lifespan": "Unknown"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Carnivore",
+    "habitat": "river, lake, pond, swamp",
+    "locations": "North America, United States, Canada, Europe, Asia",
+    "group_behavior": "Solitary",
+    "conservation_status": "Vulnerable",
+    "biggest_threat": "Human-wildlife conflict",
+    "distinctive_features": [
+      "Jump",
+      "Distinctive mane",
+      "Prominent horns"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "Unknown",
+    "average_litter_size": "1",
     "name_of_young": "tadpole"
   },
   "additional_info": {
@@ -56,7 +60,8 @@
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:34.057587"
+  "last_updated": "2026-03-16T18:11:49.881926"
 }

@@ -8,12 +8,12 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Actinopterygii",
+    "order": "Salmoniformes",
+    "family": "Salmonidae",
+    "genus": "Salmo",
     "species": "Salmo salar"
   },
   "animal_type": "salmon",
@@ -21,24 +21,28 @@
   "group_name": "run",
   "physical": {
     "weight": "Unknown",
-    "length": "Unknown",
+    "length": "20.0–25.0 cm",
     "height": "Unknown",
     "top_speed": "Unknown",
     "lifespan": "Unknown"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Carnivore",
+    "habitat": "river, lake, stream, sea",
+    "locations": "North Atlantic, Canada, Alaska, United States, Europe",
+    "group_behavior": "Solitary",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Poaching, Habitat loss, Climate change",
+    "distinctive_features": [
+      "Fin",
+      "Tail",
+      "Scale"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "Unknown",
+    "average_litter_size": "1",
     "name_of_young": "fry"
   },
   "additional_info": {
@@ -56,7 +60,8 @@
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:30.788816"
+  "last_updated": "2026-03-16T18:11:42.778793"
 }

@@ -8,45 +8,49 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
-    "species": "Panthera tigris"
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Mammalia",
+    "order": "Carnivora",
+    "family": "Felidae",
+    "genus": "Panthera",
+    "species": "Panthera Tigris Tigris"
   },
   "animal_type": "feline",
   "young_name": "cub",
   "group_name": "streak",
   "physical": {
-    "weight": "Unknown",
-    "length": "Unknown",
+    "weight": "140kg - 300kg (309lbs - 660lbs)",
+    "length": "2.7–3.7 m",
     "height": "Unknown",
-    "top_speed": "Unknown",
-    "lifespan": "Unknown"
+    "top_speed": "60 mph",
+    "lifespan": "18 - 25 years"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Carnivore",
+    "habitat": "Dense tropical forest and mangroves",
+    "locations": "Asia",
+    "group_behavior": "Solitary",
+    "conservation_status": "Endangered",
+    "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+    "distinctive_features": [
+      "Stripe",
+      "Spot",
+      "Mane"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "Unknown",
+    "average_litter_size": "1",
     "name_of_young": "cub"
   },
   "additional_info": {
-    "lifestyle": "Unknown",
-    "color": "Unknown",
-    "skin_type": "Unknown",
+    "lifestyle": "Solitary",
+    "color": "BlackWhiteOrange",
+    "skin_type": "Fur",
     "prey": "Unknown",
-    "slogan": "Unknown",
+    "slogan": "The most numerous species of tiger!",
     "group": "Unknown",
     "number_of_species": "Unknown",
     "estimated_population_size": "Unknown",
@@ -56,7 +60,8 @@
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:22.963629"
+  "last_updated": "2026-03-16T18:11:25.981408"
 }

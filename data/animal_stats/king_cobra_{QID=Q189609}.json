@@ -8,55 +8,58 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
   "classification": {
-    "kingdom": "Unknown",
-    "phylum": "Unknown",
-    "class": "Unknown",
-    "order": "Unknown",
-    "family": "Unknown",
-    "genus": "Unknown",
+    "kingdom": "Animalia",
+    "phylum": "Chordata",
+    "class": "Reptilia",
+    "order": "Squamata",
+    "family": "Elapidae",
+    "genus": "Ophiophagus",
     "species": "Ophiophagus hannah"
   },
   "animal_type": "snake",
   "young_name": "hatchling",
   "group_name": "den",
   "physical": {
-    "weight": "Unknown",
-    "length": "Unknown",
+    "weight": "9.0 t",
+    "length": "3.18–4.0 m",
     "height": "Unknown",
-    "top_speed": "Unknown",
-    "lifespan": "Unknown"
+    "top_speed": "12 mph",
+    "lifespan": "About 20 years"
   },
   "ecology": {
-    "diet": "Unknown",
-    "habitat": "Unknown",
-    "locations": "Unknown",
-    "group_behavior": "Unknown",
-    "conservation_status": "Unknown",
-    "biggest_threat": "Unknown",
-    "distinctive_features": [],
+    "diet": "Carnivore",
+    "habitat": "Forest, shrublands, wetlands",
+    "locations": "Asia",
+    "group_behavior": "Social",
+    "conservation_status": "Vulnerable",
+    "biggest_threat": "Poaching, habitat loss",
+    "distinctive_features": [
+      "An expanding hood"
+    ],
     "population_trend": "Unknown"
   },
   "reproduction": {
-    "gestation_period": "Unknown",
+    "gestation_period": "66-105 days",
     "average_litter_size": "Unknown",
-    "name_of_young": "hatchling"
+    "name_of_young": "Hatchlings"
   },
   "additional_info": {
-    "lifestyle": "Unknown",
-    "color": "Unknown",
-    "skin_type": "Unknown",
-    "prey": "Unknown",
+    "lifestyle": "Diurnal",
+    "color": "BrownYellowBlackGreen",
+    "skin_type": "Scales",
+    "prey": "Lizards, birds, other snakes",
     "slogan": "Unknown",
-    "group": "Unknown",
-    "number_of_species": "Unknown",
+    "group": "Solitary",
+    "number_of_species": "20",
     "estimated_population_size": "Unknown",
     "age_of_sexual_maturity": "Unknown",
     "age_of_weaning": "Unknown",
-    "most_distinctive_feature": "Unknown"
+    "most_distinctive_feature": "An expanding hood"
   },
   "sources": [
     "API Ninjas",
-    "Wikipedia"
+    "Wikipedia",
+    "iNaturalist"
   ],
-  "last_updated": "2026-03-16T16:05:32.986818"
+  "last_updated": "2026-03-16T18:11:47.547869"
 }
