@@ -13,21 +13,15 @@ from modules.api_ninjas import fetch_animal_data
 # SETUP - FIXED PATHS TO REPO ROOT
 # ============================================================================
 
-# Go up from generator/ to repo root
 REPO_ROOT = Path(__file__).parent.parent
-
-# Data directories at repo root
 DATA_DIR = REPO_ROOT / "data"
 ANIMAL_STATS_DIR = DATA_DIR / "animal_stats"
 
-# Create directories
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(ANIMAL_STATS_DIR, exist_ok=True)
 
-# Config directory (stays in generator/)
 CONFIG_DIR = Path(__file__).parent / "config"
 
-# Session setup
 session = requests.Session()
 retry = Retry(total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504])
 session.mount("https://", HTTPAdapter(max_retries=retry))
@@ -197,13 +191,10 @@ def extract_stats(text, animal_type):
     stats = {"weight": "Unknown", "length": "Unknown", "height": "Unknown", "lifespan": "Unknown", "top_speed": "Unknown"}
     if not text:
         return stats
-
     text_lower = text.lower()
-
-    # Weight
+    
     weight_patterns = [
         r'(?:weigh|weighs|weight)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
-        r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|t|lbs?|pounds?)',
     ]
     for pattern in weight_patterns:
         m = re.search(pattern, text, re.I)
@@ -216,108 +207,8 @@ def extract_stats(text, animal_type):
                 if u in ['kg', 'kilogram', 'kilograms'] and 0.1 < v1 < 10000:
                     stats["weight"] = f"{v1}–{v2} kg" if v1 != v2 else f"{v1} kg"
                     break
-                elif u in ['t', 'tonne', 'tonnes'] and 0.1 < v1 < 200:
-                    stats["weight"] = f"{v1}–{v2} t" if v1 != v2 else f"{v1} t"
-                    break
-                elif u in ['lb', 'lbs', 'pound', 'pounds'] and 1 < v1 < 22000:
-                    stats["weight"] = f"{v1}–{v2} lbs" if v1 != v2 else f"{v1} lbs"
-                    break
             except:
                 pass
-
-    # Length
-    length_patterns = [
-        r'(?:length|long)\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)',
-        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:long|length)?',
-    ]
-    for pattern in length_patterns:
-        m = re.search(pattern, text, re.I)
-        if m:
-            try:
-                groups = m.groups()
-                v1 = float(groups[0].replace(',', '.'))
-                v2 = float(groups[1].replace(',', '.')) if len(groups) > 2 else v1
-                u = groups[-1].lower().strip()
-                if u in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.1 < v1 < 100:
-                    stats["length"] = f"{v1}–{v2} m" if v1 != v2 else f"{v1} m"
-                    break
-                elif u in ['cm', 'centimetre', 'centimetres'] and 1 < v1 < 10000:
-                    stats["length"] = f"{v1}–{v2} cm" if v1 != v2 else f"{v1} cm"
-                    break
-                elif u in ['ft', 'foot', 'feet'] and 0.5 < v1 < 300:
-                    stats["length"] = f"{v1}–{v2} ft" if v1 != v2 else f"{v1} ft"
-                    break
-            except:
-                pass
-
-    # Height
-    if any(w in text_lower for w in ['shoulder', 'stands', 'tall', 'height']):
-        height_patterns = [
-            r'(?:stands?|height|tall)\s*(?:about|around|up to)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|−|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)',
-        ]
-        for pattern in height_patterns:
-            m = re.search(pattern, text, re.I)
-            if m:
-                try:
-                    groups = m.groups()
-                    v1 = float(groups[0].replace(',', '.'))
-                    v2 = float(groups[1].replace(',', '.')) if len(groups) > 2 else v1
-                    u = groups[-1].lower().strip()
-                    if u in ['m', 'metre', 'metres', 'meter', 'meters'] and 0.1 < v1 < 10:
-                        stats["height"] = f"{v1}–{v2} m" if v1 != v2 else f"{v1} m"
-                        break
-                    elif u in ['cm', 'centimetre', 'centimetres'] and 10 < v1 < 1000:
-                        stats["height"] = f"{v1}–{v2} cm" if v1 != v2 else f"{v1} cm"
-                        break
-                    elif u in ['ft', 'foot', 'feet'] and 0.5 < v1 < 30:
-                        stats["height"] = f"{v1}–{v2} ft" if v1 != v2 else f"{v1} ft"
-                        break
-                except:
-                    pass
-
-    # Lifespan
-    lifespan_patterns = [
-        r'(?:lifespan|life expectancy|live|lives)\s*(?:of|is|up to|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs?|months?|weeks?|days?)',
-        r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs?|months?|weeks?|days?)\s*(?:lifespan|life|old|age)',
-    ]
-    for pattern in lifespan_patterns:
-        m = re.search(pattern, text, re.I)
-        if m:
-            try:
-                v = m.group(1).replace(' ', '')
-                unit = m.group(2).lower()
-                if 'year' in unit:
-                    if '-' in v or '–' in v:
-                        p = re.split(r'[-–]', v)
-                        if len(p) >= 2 and 0 < int(p[0]) < int(p[1]) < 200:
-                            stats["lifespan"] = f"{p[0]}–{p[1]} years"
-                            break
-                    elif 0 < int(v) < 200:
-                        stats["lifespan"] = f"{v} years"
-                        break
-                elif 'month' in unit and 1 < int(v) < 120:
-                    stats["lifespan"] = f"{v} months"
-                    break
-            except:
-                pass
-
-    # Speed
-    if any(w in text_lower for w in ['speed', 'sprint', 'run', 'fly', 'swim', 'fast', 'km/h', 'mph']):
-        speed_patterns = [
-            r'(?:speed|sprint|run|swim|fly|can)\s*(?:of|up to|about)?\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h|m/s)',
-            r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h|m/s)\s*(?:speed|top speed)?',
-        ]
-        for pattern in speed_patterns:
-            m = re.search(pattern, text, re.I)
-            if m:
-                try:
-                    v = float(m.group(1).replace(',', '.'))
-                    if 1 < v < 500:
-                        stats["top_speed"] = f"{v} {m.group(2).lower()}"
-                        break
-                except:
-                    pass
-
     return stats
 
 def extract_diet(text, animal_type):
@@ -330,8 +221,6 @@ def extract_diet(text, animal_type):
         return "Herbivore"
     elif any(w in t for w in ['omnivore', 'omnivorous', 'both plants and animals', 'varied diet']):
         return "Omnivore"
-    elif any(w in t for w in ['insectivore', 'insectivorous', 'eats insects']):
-        return "Insectivore"
     return get_default_diet(animal_type)
 
 def extract_conservation(text):
@@ -392,18 +281,6 @@ def extract_features(text, animal_type):
             display_feature = feature.replace('_', ' ').title()
             if display_feature not in features:
                 features.append(display_feature)
-    common_features = {
-        "striped": "Striped coat", "spotted": "Spotted coat",
-        "mane": "Distinctive mane", "trunk": "Long trunk",
-        "tusk": "Large tusks", "horn": "Prominent horns",
-        "wing": "Distinctive wings", "tail": "Long tail",
-        "fin": "Distinctive fins", "shell": "Protective shell",
-        "venom": "Venomous", "claw": "Sharp claws",
-        "fur": "Thick fur", "scale": "Scaled skin"
-    }
-    for keyword, feature in common_features.items():
-        if keyword in text_lower and feature not in features:
-            features.append(feature)
     return features[:3] if features else []
 
 def extract_behavior(text, animal_type):
@@ -414,8 +291,6 @@ def extract_behavior(text, animal_type):
         return "Solitary"
     elif any(w in t for w in ['pack', 'herd', 'flock', 'school', 'swarm', 'colony', 'social', 'group']):
         return "Social"
-    elif any(w in t for w in ['pair', 'mate', 'family group', 'monogamous', 'pairs']):
-        return "Family groups"
     return "Solitary"
 
 def extract_reproduction(text, animal_type):
@@ -428,7 +303,6 @@ def extract_reproduction(text, animal_type):
         return repro
     gestation_patterns = [
         r'(?:gestation|pregnancy|incubation)\s*(?:period|lasts?|is)?\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)',
-        r'(\d+(?:\s*[-–]\s*\d+)?)\s*(months?|weeks?|days?)\s*(?:gestation|pregnancy|incubation)',
     ]
     for pattern in gestation_patterns:
         m = re.search(pattern, text, re.I)
@@ -445,30 +319,8 @@ def extract_reproduction(text, animal_type):
                     elif 1 <= int(v) <= 24:
                         repro["gestation_period"] = f"{v} months"
                         break
-                elif 'week' in unit and 1 <= int(v) <= 100:
-                    repro["gestation_period"] = f"{v} weeks"
-                    break
                 elif 'day' in unit and 1 <= int(v) <= 365:
                     repro["gestation_period"] = f"{v} days"
-                    break
-            except:
-                pass
-    litter_patterns = [
-        r'(?:litter|clutch|cubs?|young|offspring)?\s*(?:size)?\s*(?:of|up to|typically|average)?\s*(\d+(?:\s*[-–]\s*\d+)?)',
-        r'(?:gives birth|lays|produces)\s*(?:to|up to|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)',
-    ]
-    for pattern in litter_patterns:
-        m = re.search(pattern, text, re.I)
-        if m:
-            try:
-                v = m.group(1).replace(' ', '')
-                if '-' in v or '–' in v:
-                    p = re.split(r'[-–]', v)
-                    if len(p) >= 2 and 1 <= int(p[0]) <= int(p[1]) <= 50:
-                        repro["average_litter_size"] = p[0] if p[0] == p[1] else f"{p[0]}–{p[1]}"
-                        break
-                elif 1 <= int(v) <= 50:
-                    repro["average_litter_size"] = v
                     break
             except:
                 pass
@@ -483,12 +335,6 @@ def extract_threats(text):
         threats.append('Habitat loss')
     if any(w in t for w in ['human-wildlife conflict', 'livestock', 'retaliation', 'persecution']):
         threats.append('Human-wildlife conflict')
-    if any(w in t for w in ['climate change', 'global warming', 'ocean acidification']):
-        threats.append('Climate change')
-    if any(w in t for w in ['pollution', 'pesticide', 'contamination']):
-        threats.append('Pollution')
-    if any(w in t for w in ['overfishing', 'bycatch', 'fishing', 'overhunting']):
-        threats.append('Overfishing')
     return ', '.join(threats[:3]) if threats else "Unknown"
 
 # ============================================================================
@@ -556,22 +402,27 @@ def save_animal_file(data, name, qid):
     return filepath
 
 # ============================================================================
-# BUILD ANIMAL DATA
+# BUILD ANIMAL DATA - FIXED TO PROPERLY MAP ALL NINJA API FIELDS
 # ============================================================================
 
 def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, qid, name, sci_name):
-    # Extract Ninja API data
+    # Extract Ninja API data with explicit checks
     ninja_taxonomy = {}
     ninja_chars = {}
     ninja_locations = []
     
     if ninja_data:
-        ninja_taxonomy = ninja_data.get("taxonomy", {}) or {}
-        ninja_chars = ninja_data.get("characteristics", {}) or {}
-        ninja_locations = ninja_data.get("locations", []) or []
+        ninja_taxonomy = ninja_data.get("taxonomy") if ninja_data.get("taxonomy") else {}
+        ninja_chars = ninja_data.get("characteristics") if ninja_data.get("characteristics") else {}
+        ninja_locations = ninja_data.get("locations") if ninja_data.get("locations") else []
         
-        # Debug: Print what we got from Ninja API
-        print(f"   📋 Ninja characteristics keys: {list(ninja_chars.keys())}")
+        # Debug output
+        print(f"   📋 Ninja characteristics: {len(ninja_chars)} fields")
+        for key in ['prey', 'group', 'number_of_species', 'estimated_population_size', 
+                    'age_of_sexual_maturity', 'age_of_weaning', 'most_distinctive_feature', 
+                    'gestation_period', 'lifestyle', 'color', 'skin_type', 'slogan']:
+            val = ninja_chars.get(key)
+            print(f"      {key}: {val}")
     
     classification = inat_classification if inat_classification else ninja_taxonomy
     animal_type = detect_animal_type(name, classification)
@@ -584,73 +435,68 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
     if wiki_full:
         all_text += wiki_full
     
-    # ========== BUILD DATA STRUCTURE - MAP EVERY NINJA API FIELD EXPLICITLY ==========
+    # Build data structure - use .get() with explicit None check
     data = {
         "id": qid,
         "name": name,
         "scientific_name": sci_name,
         "common_names": [],
-        "description": wiki_summary.get("description", "Unknown") if wiki_summary else "Unknown",
-        "summary": wiki_summary.get("summary", "Unknown") if wiki_summary else "Unknown",
+        "description": wiki_summary.get("description") if wiki_summary and wiki_summary.get("description") else "Unknown",
+        "summary": wiki_summary.get("summary") if wiki_summary and wiki_summary.get("summary") else "Unknown",
         "image": wiki_summary.get("image", "") if wiki_summary else "",
-        "wikipedia_url": wiki_summary.get("url", "Unknown") if wiki_summary else "Unknown",
+        "wikipedia_url": wiki_summary.get("url") if wiki_summary and wiki_summary.get("url") else "Unknown",
         
-        # Classification from Ninja API
         "classification": {
-            "kingdom": ninja_taxonomy.get("kingdom") if ninja_taxonomy.get("kingdom") else "Unknown",
-            "phylum": ninja_taxonomy.get("phylum") if ninja_taxonomy.get("phylum") else "Unknown",
-            "class": ninja_taxonomy.get("class") if ninja_taxonomy.get("class") else "Unknown",
-            "order": ninja_taxonomy.get("order") if ninja_taxonomy.get("order") else "Unknown",
-            "family": ninja_taxonomy.get("family") if ninja_taxonomy.get("family") else "Unknown",
-            "genus": ninja_taxonomy.get("genus") if ninja_taxonomy.get("genus") else "Unknown",
-            "species": ninja_taxonomy.get("scientific_name") if ninja_taxonomy.get("scientific_name") else sci_name
+            "kingdom": ninja_taxonomy.get("kingdom") if ninja_taxonomy and ninja_taxonomy.get("kingdom") else "Unknown",
+            "phylum": ninja_taxonomy.get("phylum") if ninja_taxonomy and ninja_taxonomy.get("phylum") else "Unknown",
+            "class": ninja_taxonomy.get("class") if ninja_taxonomy and ninja_taxonomy.get("class") else "Unknown",
+            "order": ninja_taxonomy.get("order") if ninja_taxonomy and ninja_taxonomy.get("order") else "Unknown",
+            "family": ninja_taxonomy.get("family") if ninja_taxonomy and ninja_taxonomy.get("family") else "Unknown",
+            "genus": ninja_taxonomy.get("genus") if ninja_taxonomy and ninja_taxonomy.get("genus") else "Unknown",
+            "species": ninja_taxonomy.get("scientific_name") if ninja_taxonomy and ninja_taxonomy.get("scientific_name") else sci_name
         },
         
         "animal_type": animal_type,
         "young_name": young_name,
         "group_name": group_name,
         
-        # Physical - EXPLICIT mapping from Ninja API
         "physical": {
-            "weight": ninja_chars.get("weight") if ninja_chars.get("weight") else "Unknown",
-            "length": "Unknown",  # Ninja API doesn't provide length
-            "height": ninja_chars.get("height") if ninja_chars.get("height") else "Unknown",
-            "top_speed": ninja_chars.get("top_speed") if ninja_chars.get("top_speed") else "Unknown",
-            "lifespan": ninja_chars.get("lifespan") if ninja_chars.get("lifespan") else "Unknown"
+            "weight": ninja_chars.get("weight") if ninja_chars and ninja_chars.get("weight") else "Unknown",
+            "length": "Unknown",
+            "height": ninja_chars.get("height") if ninja_chars and ninja_chars.get("height") else "Unknown",
+            "top_speed": ninja_chars.get("top_speed") if ninja_chars and ninja_chars.get("top_speed") else "Unknown",
+            "lifespan": ninja_chars.get("lifespan") if ninja_chars and ninja_chars.get("lifespan") else "Unknown"
         },
         
-        # Ecology - EXPLICIT mapping from Ninja API
         "ecology": {
-            "diet": ninja_chars.get("diet") if ninja_chars.get("diet") else "Unknown",
-            "habitat": ninja_chars.get("habitat") if ninja_chars.get("habitat") else "Unknown",
+            "diet": ninja_chars.get("diet") if ninja_chars and ninja_chars.get("diet") else "Unknown",
+            "habitat": ninja_chars.get("habitat") if ninja_chars and ninja_chars.get("habitat") else "Unknown",
             "locations": ", ".join(ninja_locations) if ninja_locations else "Unknown",
-            "group_behavior": ninja_chars.get("group_behavior") if ninja_chars.get("group_behavior") else "Unknown",
+            "group_behavior": ninja_chars.get("group_behavior") if ninja_chars and ninja_chars.get("group_behavior") else "Unknown",
             "conservation_status": "Unknown",
-            "biggest_threat": ninja_chars.get("biggest_threat") if ninja_chars.get("biggest_threat") else "Unknown",
-            "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
+            "biggest_threat": ninja_chars.get("biggest_threat") if ninja_chars and ninja_chars.get("biggest_threat") else "Unknown",
+            "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars and ninja_chars.get("most_distinctive_feature") else [],
             "population_trend": "Unknown"
         },
         
-        # Reproduction - EXPLICIT mapping from Ninja API
         "reproduction": {
-            "gestation_period": ninja_chars.get("gestation_period") if ninja_chars.get("gestation_period") else "Unknown",
-            "average_litter_size": ninja_chars.get("average_litter_size") if ninja_chars.get("average_litter_size") else "Unknown",
-            "name_of_young": ninja_chars.get("name_of_young") if ninja_chars.get("name_of_young") else young_name
+            "gestation_period": ninja_chars.get("gestation_period") if ninja_chars and ninja_chars.get("gestation_period") else "Unknown",
+            "average_litter_size": ninja_chars.get("average_litter_size") if ninja_chars and ninja_chars.get("average_litter_size") else "Unknown",
+            "name_of_young": ninja_chars.get("name_of_young") if ninja_chars and ninja_chars.get("name_of_young") else young_name
         },
         
-        # Additional Info - EXPLICIT mapping from Ninja API (ALL FIELDS)
         "additional_info": {
-            "lifestyle": ninja_chars.get("lifestyle") if ninja_chars.get("lifestyle") else "Unknown",
-            "color": ninja_chars.get("color") if ninja_chars.get("color") else "Unknown",
-            "skin_type": ninja_chars.get("skin_type") if ninja_chars.get("skin_type") else "Unknown",
-            "prey": ninja_chars.get("prey") if ninja_chars.get("prey") else "Unknown",
-            "slogan": ninja_chars.get("slogan") if ninja_chars.get("slogan") else "Unknown",
-            "group": ninja_chars.get("group") if ninja_chars.get("group") else "Unknown",
-            "number_of_species": ninja_chars.get("number_of_species") if ninja_chars.get("number_of_species") else "Unknown",
-            "estimated_population_size": ninja_chars.get("estimated_population_size") if ninja_chars.get("estimated_population_size") else "Unknown",
-            "age_of_sexual_maturity": ninja_chars.get("age_of_sexual_maturity") if ninja_chars.get("age_of_sexual_maturity") else "Unknown",
-            "age_of_weaning": ninja_chars.get("age_of_weaning") if ninja_chars.get("age_of_weaning") else "Unknown",
-            "most_distinctive_feature": ninja_chars.get("most_distinctive_feature") if ninja_chars.get("most_distinctive_feature") else "Unknown"
+            "lifestyle": ninja_chars.get("lifestyle") if ninja_chars and ninja_chars.get("lifestyle") else "Unknown",
+            "color": ninja_chars.get("color") if ninja_chars and ninja_chars.get("color") else "Unknown",
+            "skin_type": ninja_chars.get("skin_type") if ninja_chars and ninja_chars.get("skin_type") else "Unknown",
+            "prey": ninja_chars.get("prey") if ninja_chars and ninja_chars.get("prey") else "Unknown",
+            "slogan": ninja_chars.get("slogan") if ninja_chars and ninja_chars.get("slogan") else "Unknown",
+            "group": ninja_chars.get("group") if ninja_chars and ninja_chars.get("group") else "Unknown",
+            "number_of_species": ninja_chars.get("number_of_species") if ninja_chars and ninja_chars.get("number_of_species") else "Unknown",
+            "estimated_population_size": ninja_chars.get("estimated_population_size") if ninja_chars and ninja_chars.get("estimated_population_size") else "Unknown",
+            "age_of_sexual_maturity": ninja_chars.get("age_of_sexual_maturity") if ninja_chars and ninja_chars.get("age_of_sexual_maturity") else "Unknown",
+            "age_of_weaning": ninja_chars.get("age_of_weaning") if ninja_chars and ninja_chars.get("age_of_weaning") else "Unknown",
+            "most_distinctive_feature": ninja_chars.get("most_distinctive_feature") if ninja_chars and ninja_chars.get("most_distinctive_feature") else "Unknown"
         },
         
         "sources": [],
@@ -663,9 +509,8 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
     if wiki_summary and wiki_summary.get("summary") and wiki_summary.get("summary") != "Unknown":
         data["sources"].append("Wikipedia")
     
-    # ========== SUPPLEMENT WITH WIKIPEDIA (ONLY IF NINJA DATA IS UNKNOWN) ==========
+    # Supplement with Wikipedia extraction (only if Ninja data is Unknown)
     if all_text:
-        # Physical stats
         if data["physical"]["weight"] == "Unknown":
             stats = extract_stats(all_text, animal_type)
             if stats["weight"] != "Unknown":
@@ -674,24 +519,6 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             stats = extract_stats(all_text, animal_type)
             if stats["length"] != "Unknown":
                 data["physical"]["length"] = stats["length"]
-        if data["physical"]["height"] == "Unknown":
-            stats = extract_stats(all_text, animal_type)
-            if stats["height"] != "Unknown":
-                data["physical"]["height"] = stats["height"]
-        if data["physical"]["top_speed"] == "Unknown":
-            stats = extract_stats(all_text, animal_type)
-            if stats["top_speed"] != "Unknown":
-                data["physical"]["top_speed"] = stats["top_speed"]
-        if data["physical"]["lifespan"] == "Unknown":
-            stats = extract_stats(all_text, animal_type)
-            if stats["lifespan"] != "Unknown":
-                data["physical"]["lifespan"] = stats["lifespan"]
-        
-        # Ecology
-        if data["ecology"]["diet"] == "Unknown":
-            diet = extract_diet(all_text, animal_type)
-            if diet != "Unknown":
-                data["ecology"]["diet"] = diet
         if data["ecology"]["conservation_status"] == "Unknown":
             cons = extract_conservation(all_text)
             if cons != "Unknown":
@@ -704,35 +531,16 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             habitat = extract_habitat(all_text, animal_type)
             if habitat != "Unknown":
                 data["ecology"]["habitat"] = habitat
-        if not data["ecology"]["distinctive_features"]:
-            features = extract_features(all_text, animal_type)
-            if features:
-                data["ecology"]["distinctive_features"] = features
-        if data["ecology"]["group_behavior"] == "Unknown":
-            behavior = extract_behavior(all_text, animal_type)
-            if behavior != "Unknown":
-                data["ecology"]["group_behavior"] = behavior
         if data["ecology"]["biggest_threat"] == "Unknown":
             threats = extract_threats(all_text)
             if threats != "Unknown":
                 data["ecology"]["biggest_threat"] = threats
-        
-        # Reproduction
         if data["reproduction"]["gestation_period"] == "Unknown":
             repro = extract_reproduction(all_text, animal_type)
             if repro["gestation_period"] != "Unknown":
                 data["reproduction"]["gestation_period"] = repro["gestation_period"]
-            if repro["average_litter_size"] == "Unknown":
-                data["reproduction"]["average_litter_size"] = repro["average_litter_size"]
-        
-        # Additional Info - ONLY extract from Wikipedia if Ninja API didn't provide it
-        # DO NOT extract prey from Wikipedia text (it grabs garbage)
-        # if data["additional_info"]["prey"] == "Unknown":
-        #     prey_match = re.search(r'(?:preys? on|feeds? on|eats|diet consists of|primary food)[:\s]+([^.]+)', all_text, re.I)
-        #     if prey_match:
-        #         data["additional_info"]["prey"] = prey_match.group(1).strip()[:100]
     
-    # ========== MERGE INATURALIST CLASSIFICATION (FILL GAPS ONLY) ==========
+    # Merge iNaturalist classification
     if inat_classification:
         for field in CLASSIFICATION_FIELDS:
             if data["classification"][field] == "Unknown" and inat_classification.get(field):
@@ -777,10 +585,6 @@ def generate(animals, force=False):
                     "locations": [],
                     "characteristics": {}
                 }
-            else:
-                chars = ninja_data.get("characteristics", {})
-                print(f"   📊 Ninja API data received: {len(chars)} characteristics")
-                print(f"   🔍 Available fields: {', '.join(chars.keys())[:100]}...")
 
             print(" 📖 Fetching from Wikipedia...")
             wiki_summary = fetch_wikipedia_summary(name)
