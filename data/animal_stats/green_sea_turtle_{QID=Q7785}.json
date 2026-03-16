@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "temperate, ocean, wetland, marsh",
+    "habitat": "wetland, marsh, coastal, tropical",
     "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
@@ -49,7 +49,7 @@
     "lifestyle": "Unknown",
     "color": "Unknown",
     "skin_type": "Unknown",
-    "prey": "9",
+    "prey": "Unknown",
     "slogan": "Unknown",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:27:23.326303"
+  "last_updated": "2026-03-16T18:42:46.380425"
 }

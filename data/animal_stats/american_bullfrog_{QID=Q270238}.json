@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "swamp, pond, river, sea",
+    "habitat": "lake, swamp, coastal, tropical",
     "locations": "North America, United States, Canada, Europe, Asia",
     "group_behavior": "Solitary",
     "conservation_status": "Vulnerable",
@@ -49,7 +49,7 @@
     "lifestyle": "Unknown",
     "color": "Unknown",
     "skin_type": "Unknown",
-    "prey": "the young of several snakes, including the California endemic giant garter snake , a threatened spec",
+    "prey": "Unknown",
     "slogan": "Unknown",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:27:29.746509"
+  "last_updated": "2026-03-16T18:42:50.977141"
 }

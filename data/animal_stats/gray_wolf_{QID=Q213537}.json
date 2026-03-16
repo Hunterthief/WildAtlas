@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "wetland, marsh, desert, mountain",
+    "habitat": "forest, jungle, lake, grassland",
     "locations": "Africa, South Africa, Egypt, Asia, India",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
@@ -49,7 +49,7 @@
     "lifestyle": "Unknown",
     "color": "Unknown",
     "skin_type": "Unknown",
-    "prey": "large wild hooved mammals as well as smaller animals, livestock, carrion , and garbage",
+    "prey": "Unknown",
     "slogan": "Unknown",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:27:09.085859"
+  "last_updated": "2026-03-16T18:42:34.649187"
 }

@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Pacific, ocean, stream, river",
+    "habitat": "stream, lake, river, Atlantic",
     "locations": "North Atlantic, Canada, Alaska, United States, Europe",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
@@ -49,7 +49,7 @@
     "lifestyle": "Unknown",
     "color": "Unknown",
     "skin_type": "Unknown",
-    "prey": "plankton or fry from other fish species such as herring",
+    "prey": "Unknown",
     "slogan": "Unknown",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:27:20.439432"
+  "last_updated": "2026-03-16T18:42:44.058404"
 }

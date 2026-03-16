@@ -50,7 +50,7 @@
       "lifestyle": "Solitary",
       "color": "BlackWhiteOrange",
       "skin_type": "Fur",
-      "prey": "7 Conservation 8 Relationship with humans Toggle Relationship with humans subsection 8",
+      "prey": "Unknown",
       "slogan": "The most numerous species of tiger!",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -64,7 +64,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:00.306599"
+    "last_updated": "2026-03-16T18:42:27.208890"
   },
   {
     "id": "Q35625",
@@ -129,7 +129,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:02.803475"
+    "last_updated": "2026-03-16T18:42:29.557875"
   },
   {
     "id": "Q7372",
@@ -161,7 +161,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "rainforest, sea, savanna, lake",
+      "habitat": "lake, forest, woodland, tropical",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -182,7 +182,7 @@
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "7 Conservation 8 In culture Toggle In culture subsection 8",
+      "prey": "Unknown",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -196,7 +196,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:06.166005"
+    "last_updated": "2026-03-16T18:42:31.848522"
   },
   {
     "id": "Q213537",
@@ -228,7 +228,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "wetland, marsh, desert, mountain",
+      "habitat": "forest, jungle, lake, grassland",
       "locations": "Africa, South Africa, Egypt, Asia, India",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -249,7 +249,7 @@
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "large wild hooved mammals as well as smaller animals, livestock, carrion , and garbage",
+      "prey": "Unknown",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -263,7 +263,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:09.085859"
+    "last_updated": "2026-03-16T18:42:34.649187"
   },
   {
     "id": "Q25319",
@@ -328,7 +328,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:11.906848"
+    "last_updated": "2026-03-16T18:42:37.039953"
   },
   {
     "id": "Q43306",
@@ -393,7 +393,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:14.484385"
+    "last_updated": "2026-03-16T18:42:39.360129"
   },
   {
     "id": "Q47164",
@@ -460,7 +460,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:17.273528"
+    "last_updated": "2026-03-16T18:42:41.927688"
   },
   {
     "id": "Q39709",
@@ -492,7 +492,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Pacific, ocean, stream, river",
+      "habitat": "stream, lake, river, Atlantic",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -513,7 +513,7 @@
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "plankton or fry from other fish species such as herring",
+      "prey": "Unknown",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -527,7 +527,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:20.439432"
+    "last_updated": "2026-03-16T18:42:44.058404"
   },
   {
     "id": "Q7785",
@@ -559,7 +559,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "temperate, ocean, wetland, marsh",
+      "habitat": "wetland, marsh, coastal, tropical",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -580,7 +580,7 @@
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "9",
+      "prey": "Unknown",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -594,7 +594,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:23.326303"
+    "last_updated": "2026-03-16T18:42:46.380425"
   },
   {
     "id": "Q189609",
@@ -659,7 +659,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:26.627702"
+    "last_updated": "2026-03-16T18:42:48.813289"
   },
   {
     "id": "Q270238",
@@ -691,7 +691,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "swamp, pond, river, sea",
+      "habitat": "lake, swamp, coastal, tropical",
       "locations": "North America, United States, Canada, Europe, Asia",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -712,7 +712,7 @@
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "the young of several snakes, including the California endemic giant garter snake , a threatened spec",
+      "prey": "Unknown",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -726,7 +726,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:29.746509"
+    "last_updated": "2026-03-16T18:42:50.977141"
   },
   {
     "id": "Q165980",
@@ -777,7 +777,7 @@
       "lifestyle": "Diurnal",
       "color": "BlackWhiteOrange",
       "skin_type": "Scales",
-      "prey": "Toggle Threats subsection 13",
+      "prey": "Unknown",
       "slogan": "Unknown",
       "group": "Invertebrates",
       "number_of_species": "3",
@@ -791,7 +791,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:33.334904"
+    "last_updated": "2026-03-16T18:42:53.794602"
   },
   {
     "id": "Q7316",
@@ -844,7 +844,7 @@
       "lifestyle": "Unknown",
       "color": "BrownYellowBlack",
       "skin_type": "Hair",
-      "prey": "haemolymph",
+      "prey": "Unknown",
       "slogan": "There are only 8 recognized species!",
       "group": "Unknown",
       "number_of_species": "8",
@@ -858,6 +858,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:27:37.325048"
+    "last_updated": "2026-03-16T18:42:57.043316"
   }
 ]
