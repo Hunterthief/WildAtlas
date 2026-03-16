@@ -20,6 +20,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -29,6 +30,12 @@ jobs:
       - name: Install dependencies
         run: |
           pip install requests
+
+      - name: Clean up old data directory
+        run: |
+          echo "🧹 Cleaning up old generator/data/ directory..."
+          rm -rf generator/data/
+          echo "✅ Old directory removed"
 
       - name: Run generator
         env:
@@ -47,8 +54,10 @@ jobs:
           ls -la
           echo "=== data/ directory ==="
           ls -la data/ 2>/dev/null || echo "data/ not found"
-          echo "=== data/animal_stats/ ==="
-          ls -la data/animal_stats/ 2>/dev/null || echo "data/animal_stats/ not found"
+          echo "=== data/animal_stats/ (first 10 files) ==="
+          ls data/animal_stats/ 2>/dev/null | head -10 || echo "data/animal_stats/ not found"
+          echo "=== generator/data/ (should not exist) ==="
+          ls generator/data/ 2>/dev/null || echo "generator/data/ does not exist (good!)"
 
       - name: Commit and push JSON
         env:
@@ -56,7 +65,16 @@ jobs:
         run: |
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
+          
+          echo "📊 Git status:"
+          git status
+          
+          echo "📁 Adding files..."
           git add data/animals.json
           git add data/animal_stats/
+          
+          echo "💬 Committing..."
           git commit -m "🤖 Auto-update animal data [skip ci]" || echo "No changes to commit"
+          
+          echo "🚀 Pushing..."
           git push https://$MY_PAT@github.com/${{ github.repository }} HEAD:main
