@@ -8,13 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
   "wikipedia_sections": {
-    "overview": "",
-    "description": "is different from Wikidata\",\"Wikipedia indefinitely semi-protected pages\",\"Use dmy dates from August 2021\",\"Articles with 'species' microformats\",\"Taxonbars with multiple manual Wikidata items\",\"IUCN Red List vulnerable species\",\"Fauna listed on CITES Appendix II\",\"Apex predators\",\"Elapidae\",\"Reptiles of Borneo\",\"National symbols of India\",\"Reptiles described in 1836\",\"Reptiles of Bangladesh\",\"Reptiles of Bhutan\",\"Reptiles of Brunei\",\"Reptiles of Cambodia\",\"Reptiles of Hong Kong\",\"Snakes of Indi",
-    "ecology": "and habitat 5 Behaviour and ecology Toggle Behaviour and ecology subsection 5.1 Diet 5.2 Antipredator",
-    "behavior": "5.3",
-    "reproduction": "6 Venom Toggle Venom subsection 6.1 Composition 6.2 Clinical management 7 Relationship with humans Toggle Relationship with humans subsection 7.1",
-    "conservation": "7.2 Cultural significance 8 References 9 External links Toggle the table of contents King cobra 79 languages العربية مصرى অসমীয়া Azərbaycanca تۆرکجه Basa Bali Bikol Central Беларуская (тарашкевіца) Беларуская Български বাংলা Català Cebuano Čeština Dansk Deutsch Esperanto Español Eesti Euskara فارسی Suomi Français Gaeilge עברית हिन्दी Hrvatski Magyar Հայերեն Bahasa Indonesia Íslenska Italiano 日本語 Jawa ქართული Қазақша ಕನ್ನಡ 한국어 Kurdî Lietuvių Latviešu മലയാളം Монгол मराठी Bahasa Melayu မြန်မာဘာသာ ",
-    "distribution": ""
+    "etymology": "",
+    "description": "",
+    "distribution": "",
+    "habitat": "",
+    "hunting_diet": "",
+    "behavior": "",
+    "reproduction": "",
+    "threats": "",
+    "conservation": ""
   },
   "classification": {
     "kingdom": "Animalia",
@@ -39,8 +41,8 @@
     "diet": "Carnivore",
     "habitat": "Forest, shrublands, wetlands",
     "locations": "Asia",
-    "group_behavior": "Social",
-    "conservation_status": "Vulnerable",
+    "group_behavior": "",
+    "conservation_status": "",
     "biggest_threat": "Poaching, habitat loss",
     "distinctive_features": [
       "An expanding hood"
@@ -70,5 +72,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:50:49.802391"
+  "last_updated": "2026-03-16T22:28:07.648766"
 }

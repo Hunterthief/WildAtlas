@@ -8,13 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
   "wikipedia_sections": {
-    "overview": "",
-    "description": "matches Wikidata\",\"Articles needing additional references from October 2023\",\"All articles needing additional references\",\"Use dmy dates from June 2020\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from January 2017\",\"Articles with unsourced statements from February 2021\",\"Articles with unsourced statements from March 2013\",\"Pages using multiple image with auto scaled images\",\"Articles with unsourced statements from April 201",
-    "ecology": "and habitat 4 Ecology Toggle Ecology subsection 4.1 Diet 4.2 Behaviour 4.3 Life stages 4.3.1 Freshwater phase 4.3.2 Saltwater phases 4.4 Breeding 4.4.1 Hybridization 4.5 Beaver impact 5 Relationship to humans Toggle Relationship to humans subsection 5.1 Aquaculture 5.1.1 Controversy 5.1.2 Future prospects 6",
-    "behavior": "at sea, or are repeat spawners, can be much larger. An Atlantic salmon netted in 1960 in Scotland, in the estuary of the river Hope, weighed 49.44&#160;kg (109.0&#160;lb), the heaviest recorded in all available literature. Another netted in 1925 in Norway measured 160.65&#160;cm (63.25&#160;in) in length, the longest Atlantic salmon on record. &#91; 8 &#93; .mw-parser-output .tmulti .multiimageinner{display:flex;flex-direction:column}.mw-parser-output .tmulti .trow{display:flex;flex-direction:ro",
-    "reproduction": "4.4.1 Hybridization 4.5 Beaver impact 5 Relationship to humans Toggle Relationship to humans subsection 5.1 Aquaculture 5.1.1 Controversy 5.1.2 Future prospects 6",
-    "conservation": "Toggle Conservation subsection 6.1 Restoration efforts 6.2 NASCO 7 Legislation Toggle Legislation subsection 7.1 England and Wales 7.2 Scotland 7.3 United States 7.4 Canada 8 See also 9 Notes 10 References 11 External links Toggle the table of contents Atlantic salmon 70 languages Afrikaans Alemannisch Aragonés العربية مصرى Azərbaycanca Беларуская Български Brezhoneg Català Cebuano Čeština Kaszëbsczi Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Gaeilge Gale",
-    "distribution": ""
+    "etymology": "",
+    "description": "",
+    "distribution": "",
+    "habitat": "",
+    "hunting_diet": "",
+    "behavior": "",
+    "reproduction": "",
+    "threats": "",
+    "conservation": ""
   },
   "classification": {
     "kingdom": "Animalia",
@@ -39,14 +41,10 @@
     "diet": "",
     "habitat": "",
     "locations": "",
-    "group_behavior": "Solitary",
-    "conservation_status": "Endangered",
-    "biggest_threat": "Poaching, Habitat loss",
-    "distinctive_features": [
-      "Spotted coat",
-      "Distinctive mane",
-      "Distinctive wings"
-    ],
+    "group_behavior": "",
+    "conservation_status": "",
+    "biggest_threat": "",
+    "distinctive_features": [],
     "population_trend": ""
   },
   "reproduction": {
@@ -58,7 +56,7 @@
     "lifestyle": "",
     "color": "",
     "skin_type": "",
-    "prey": "Lakes\",\"Fish of Greenland\",\"Fauna of Atlantic Canada\",\"Fauna of the Northeastern",
+    "prey": "",
     "slogan": "",
     "group": "",
     "number_of_species": "",
@@ -72,5 +70,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:50:45.325773"
+  "last_updated": "2026-03-16T22:28:02.379795"
 }

@@ -8,13 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
   "wikipedia_sections": {
-    "overview": "",
-    "description": "matches Wikidata\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Use dmy dates from November 2020\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from March 2025\",\"Commons category link is on Wikidata\",\"Taxonbars with 25–29 taxon IDs\",\"Articles containing video clips\",\"IUCN Red List near threatened species\",\"Penguins\",\"Aptenodytes\",\"Birds of Antarctica\",\"Birds described in 1844\",\"Taxa named by George Robert ",
-    "ecology": "and habitat Toggle Distribution and habitat subsection 3.1",
-    "behavior": "5 Relationship with humans Toggle Relationship with humans subsection 5.1 In zoos and aquariums 5.2 Penguin rescue, rehabilitation and release 5.3 Cultural references 6 Notes 7 References 8 External links Toggle the table of contents Emperor penguin 75 languages Afrikaans العربية مصرى Azərbaycanca Basa Bali Беларуская Български বাংলা Brezhoneg Català Cebuano کوردی Čeština Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego Avañe&#039;ẽ עברית H",
-    "reproduction": "4.3 Feeding 5 Relationship with humans Toggle Relationship with humans subsection 5.1 In zoos and aquariums 5.2 Penguin rescue, rehabilitation and release 5.3 Cultural references 6 Notes 7 References 8 External links Toggle the table of contents Emperor penguin 75 languages Afrikaans العربية مصرى Azərbaycanca Basa Bali Беларуская Български বাংলা Brezhoneg Català Cebuano کوردی Čeština Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego Avañe&#0",
-    "conservation": "status 4 Behaviour Toggle Behaviour subsection 4.1 Predators 4.2 Courtship and breeding 4.3 Feeding 5 Relationship with humans Toggle Relationship with humans subsection 5.1 In zoos and aquariums 5.2 Penguin rescue, rehabilitation and release 5.3 Cultural references 6 Notes 7 References 8 External links Toggle the table of contents Emperor penguin 75 languages Afrikaans العربية مصرى Azərbaycanca Basa Bali Беларуская Български বাংলা Brezhoneg Català Cebuano کوردی Čeština Cymraeg Dansk Deutsch Ελλ",
-    "distribution": ""
+    "etymology": "",
+    "description": "",
+    "distribution": "",
+    "habitat": "",
+    "hunting_diet": "",
+    "behavior": "",
+    "reproduction": "",
+    "threats": "",
+    "conservation": ""
   },
   "classification": {
     "kingdom": "Animalia",
@@ -40,7 +42,7 @@
     "habitat": "Compact sea-ice and ocean",
     "locations": "Antarctica, Ocean",
     "group_behavior": "Colony",
-    "conservation_status": "Endangered",
+    "conservation_status": "",
     "biggest_threat": "Global warming",
     "distinctive_features": [
       "Bright yellow feathers on neck and ears"
@@ -70,5 +72,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:50:40.353638"
+  "last_updated": "2026-03-16T22:27:57.124310"
 }

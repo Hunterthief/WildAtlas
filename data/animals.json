@@ -9,13 +9,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "is different from Wikidata\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Wikipedia indefinitely move-protected pages\",\"Use dmy dates from May 2024\",\"Use British English from April 2020\",\"All Wikipedia articles written in British English\",\"Articles with 'species' microformats\",\"Articles containing Old French (842-ca. 1400)-language text\",\"Articles containing Latin-language text\",\"Articles containing Ancient Greek (to 1453)-language text\",\"Pages using multiple image with unkn",
-      "ecology": "and habitat Toggle Distribution and habitat subsection 4.1 Population density 5 Behaviour and ecology Toggle Behaviour and ecology subsection 5.1 Social spacing 5.2 Communication 5.3 Hunting and diet 5.4 Competitors 5.5",
-      "behavior": "and diet 5.4 Competitors 5.5",
-      "reproduction": "and life cycle 5.6 Health and diseases 6 Threats 7",
-      "conservation": "7 Conservation 8 Relationship with humans Toggle Relationship with humans subsection 8.1 Hunting 8.2 Attacks 8.3 Captivity 8.4 Cultural significance 9 See also 10 References Toggle References subsection 10.1 Bibliography 11 External links Toggle the table of contents Tiger 201 languages Acèh Адыгабзэ Afrikaans Alemannisch አማርኛ Aragonés Ænglisc Obolo अंगिका العربية الدارجة مصرى Asturianu Kotava Azərbaycanca تۆرکجه Башҡортса Basa Bali Batak Toba Bikol Central Беларуская (тарашкевіца) Беларуская Бъ",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": ""
     },
     "classification": {
       "kingdom": "Animalia",
@@ -40,14 +42,10 @@
       "diet": "Carnivore",
       "habitat": "Dense tropical forest and mangroves",
       "locations": "Asia",
-      "group_behavior": "Solitary",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
-      "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Distinctive mane"
-      ],
+      "group_behavior": "",
+      "conservation_status": "",
+      "biggest_threat": "",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
@@ -59,7 +57,7 @@
       "lifestyle": "Solitary",
       "color": "BlackWhiteOrange",
       "skin_type": "Fur",
-      "prey": "7 Conservation 8 Relationship with humans Toggle Relationship with humans subsec",
+      "prey": "",
       "slogan": "The most numerous species of tiger!",
       "group": "",
       "number_of_species": "",
@@ -73,7 +71,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:28.659092"
+    "last_updated": "2026-03-16T22:27:44.710645"
   },
   {
     "id": "Q35625",
@@ -85,13 +83,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "is different from Wikidata\",\"Good articles\",\"Wikipedia indefinitely semi-protected pages\",\"Use dmy dates from May 2024\",\"Use British English from May 2020\",\"All Wikipedia articles written in British English\",\"Articles with 'species' microformats\",\"Articles containing Urdu-language text\",\"Articles containing Hindi-language text\",\"Articles containing Sanskrit-language text\",\"Articles containing Greek-language text\",\"Articles containing Latin-language text\",\"Pages using multiple image with unknown ",
-      "ecology": "and habitat Toggle Distribution and habitat subsection 6.1 Historical range 6.2 Present distribution 7 Ecology and behaviour Toggle Ecology and behaviour subsection 7.1 Social organisation 7.2 Home ranges and territories 7.3 Communication 7.4 Diet and hunting 7.5",
-      "behavior": "7.5",
-      "reproduction": "and life cycle 7.6 Competition 8 Threats 9",
-      "conservation": "9 Conservation Toggle Conservation subsection 9.1 In Africa 9.2 In Asia 10 Interaction with humans Toggle Interaction with humans subsection 10.1 Taming 10.2 In captivity 10.3 Attacks on humans 10.4 In culture 11 See also 12 References 13 Further reading 14 External links Toggle the table of contents Cheetah 141 languages Afrikaans አማርኛ Aragonés Ænglisc العربية مصرى Asturianu Авар Kotava Azərbaycanca تۆرکجه Basa Bali Bikol Central Беларуская (тарашкевіца) Беларуская Български भोजपुरी বাংলা བོད་ཡ",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": ""
     },
     "classification": {
       "kingdom": "Animalia",
@@ -117,7 +117,7 @@
       "habitat": "Open grassland",
       "locations": "Africa, Asia, Eurasia",
       "group_behavior": "Solitary/Pairs",
-      "conservation_status": "Critically Endangered",
+      "conservation_status": "",
       "biggest_threat": "Habitat loss",
       "distinctive_features": [
         "Yellowish fur covered in small black spots"
@@ -147,7 +147,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:30.879687"
+    "last_updated": "2026-03-16T22:27:46.927602"
   },
   {
     "id": "Q7372",
@@ -159,13 +159,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "matches Wikidata\",\"Use dmy dates from September 2020\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"All articles with unsourced statements\",\"Articles with unsourced statements from August 2025\",\"Webarchive template wayback links\",\"Articles containing video clips\",\"African elephants\",\"Mammals of Sub-Saharan Africa\",\"EDGE species\",\"Animal species groups\",\"National symbols of the Central African Republic\",\"National symbols of Equatorial Guinea\",\"Nation",
-      "ecology": "and habitat 5",
-      "behavior": "and",
-      "reproduction": "6 Threats 7",
-      "conservation": "7 Conservation 8 In culture Toggle In culture subsection 8.1 As national symbols 9 See also 10 Notes 11 References 12 External links Toggle the table of contents African elephant 73 languages Afrikaans العربية مصرى Kotava Azərbaycanca Български বাংলা Brezhoneg Bosanski Català Cebuano کوردی Чӑвашла Cymraeg Deutsch Zazaki Ελληνικά Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego עברית हिन्दी Magyar Հայերեն Bahasa Indonesia Italiano 日本語 ქართული Қазақша 한국어 Лакку Latviešu Malagasy Māo",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": ""
     },
     "classification": {
       "kingdom": "Animalia",
@@ -190,14 +192,10 @@
       "diet": "",
       "habitat": "",
       "locations": "",
-      "group_behavior": "Solitary",
-      "conservation_status": "Critically Endangered",
-      "biggest_threat": "Poaching, Habitat loss",
-      "distinctive_features": [
-        "Distinctive mane",
-        "Long trunk",
-        "Large tusks"
-      ],
+      "group_behavior": "",
+      "conservation_status": "",
+      "biggest_threat": "",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
@@ -209,7 +207,7 @@
       "lifestyle": "",
       "color": "",
       "skin_type": "",
-      "prey": "7 Conservation 8 In culture Toggle In culture subsection 8",
+      "prey": "",
       "slogan": "",
       "group": "",
       "number_of_species": "",
@@ -223,7 +221,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:33.079453"
+    "last_updated": "2026-03-16T22:27:49.466539"
   },
   {
     "id": "Q213537",
@@ -235,13 +233,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "is different from Wikidata\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Wikipedia indefinitely move-protected pages\",\"Use mdy dates from December 2019\",\"Use Canadian English from December 2019\",\"All Wikipedia articles written in Canadian English\",\"Articles with 'species' microformats\",\"Articles containing Proto-Germanic-language text\",\"Articles containing Proto-Indo-European-language text\",\"Articles containing Proto-Italic-language text\",\"Articles with hAudio microformats\"",
-      "ecology": "Toggle Ecology subsection 4.1 Distribution and habitat 4.2 Diet 4.3 Interactions with other predators 4.4 Infections 5 Behaviour Toggle Behaviour subsection 5.1 Social structure 5.2 Communication 5.3",
-      "behavior": "and feeding 5.5 Intelligence and cognition 6 Status and",
-      "reproduction": "5.4 Hunting and feeding 5.5 Intelligence and cognition 6 Status and",
-      "conservation": "and conservation Toggle Status and conservation subsection 6.1 North America 6.2 Eurasia 7 Relationships with humans Toggle Relationships with humans subsection 7.1 In culture 7.1.1 In folklore, religion and mythology 7.1.2 In fable and literature 7.2 Conflicts 7.2.1 Predation on livestock 7.2.2 Competition with dogs 7.2.3 Attacks on humans 7.2.4 Human hunting of wolves 7.3 Wolves as pets and working animals 8 Notes 9 References 10 Bibliography 11 External links Toggle the table of contents Wolf",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": ""
     },
     "classification": {
       "kingdom": "Animalia",
@@ -266,14 +266,10 @@
       "diet": "",
       "habitat": "",
       "locations": "",
-      "group_behavior": "Solitary",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Habitat loss",
-      "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Distinctive mane"
-      ],
+      "group_behavior": "",
+      "conservation_status": "",
+      "biggest_threat": "",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
@@ -285,7 +281,7 @@
       "lifestyle": "",
       "color": "",
       "skin_type": "",
-      "prey": "large wild hooved mammals as well as smaller animals, livestock, carrion , and g",
+      "prey": "",
       "slogan": "",
       "group": "",
       "number_of_species": "",
@@ -299,7 +295,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:35.677346"
+    "last_updated": "2026-03-16T22:27:52.036940"
   },
   {
     "id": "Q25319",
@@ -311,13 +307,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "is different from Wikidata\",\"Wikipedia references cleanup from January 2026\",\"All articles needing references cleanup\",\"Articles covered by WikiProject Wikify from January 2026\",\"All articles covered by WikiProject Wikify\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Use mdy dates from December 2024\",\"Articles with 'species' microformats\",\"Articles containing potentially dated statements from 2007\",\"All articles containing potentially dated statements\",\"All articles with fa",
-      "ecology": "4 Habitat 5",
-      "behavior": "6 Diet and feeding Toggle Diet and feeding subsection 6.1 Behavior 6.2 Fish 6.3 Birds 6.4 Mammals 6.5 Reptiles and other prey 6.6 Interspecific predatory relationships 7",
-      "reproduction": "8 Longevity and mortality 9 Relationship with humans Toggle Relationship with humans subsection 9.1 Population decline and recovery 9.2 Killing permits 9.3 In captivity 10 Cultural significance Toggle Cultural significance subsection 10.1 Role in Native American culture 10.2 National symbol of the United States 10.3 Popular culture 11 See also 12 References 13 Further reading Toggle Further reading subsection 13.1 Identification 14 External links Toggle External links subsection 14.1 Video links",
-      "conservation": "status Least Concern &#160;( IUCN 3.1 ) &#91; 2 &#93; CITES Appendix II &#8239; &#91; 3 &#93; Scientific classification Kingdom: Animalia Phylum: Chordata Class: Aves Order: Accipitriformes Family: Accipitridae Genus: Haliaeetus Species: H.&#160;leucocephalus Binomial name Haliaeetus leucocephalus ( Linnaeus , 1766 ) Subspecies H. l. leucocephalus – Southern bald eagle H. l. washingtoniensis – Northern bald eagle Bald eagle range .mw-parser-output .legend{page-break-inside:avoid;break-inside:avo",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "found in North America\"}",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": ""
     },
     "classification": {
       "kingdom": "Animalia",
@@ -342,8 +340,8 @@
       "diet": "Carnivore",
       "habitat": "Near forests",
       "locations": "North-America",
-      "group_behavior": "Solitary",
-      "conservation_status": "Endangered",
+      "group_behavior": "",
+      "conservation_status": "",
       "biggest_threat": "Pesticide use",
       "distinctive_features": [
         "The white plumage on the head"
@@ -373,7 +371,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:38.157369"
+    "last_updated": "2026-03-16T22:27:54.917101"
   },
   {
     "id": "Q43306",
@@ -385,13 +383,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "matches Wikidata\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Use dmy dates from November 2020\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from March 2025\",\"Commons category link is on Wikidata\",\"Taxonbars with 25–29 taxon IDs\",\"Articles containing video clips\",\"IUCN Red List near threatened species\",\"Penguins\",\"Aptenodytes\",\"Birds of Antarctica\",\"Birds described in 1844\",\"Taxa named by George Robert ",
-      "ecology": "and habitat Toggle Distribution and habitat subsection 3.1",
-      "behavior": "5 Relationship with humans Toggle Relationship with humans subsection 5.1 In zoos and aquariums 5.2 Penguin rescue, rehabilitation and release 5.3 Cultural references 6 Notes 7 References 8 External links Toggle the table of contents Emperor penguin 75 languages Afrikaans العربية مصرى Azərbaycanca Basa Bali Беларуская Български বাংলা Brezhoneg Català Cebuano کوردی Čeština Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego Avañe&#039;ẽ עברית H",
-      "reproduction": "4.3 Feeding 5 Relationship with humans Toggle Relationship with humans subsection 5.1 In zoos and aquariums 5.2 Penguin rescue, rehabilitation and release 5.3 Cultural references 6 Notes 7 References 8 External links Toggle the table of contents Emperor penguin 75 languages Afrikaans العربية مصرى Azərbaycanca Basa Bali Беларуская Български বাংলা Brezhoneg Català Cebuano کوردی Čeština Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego Avañe&#0",
-      "conservation": "status 4 Behaviour Toggle Behaviour subsection 4.1 Predators 4.2 Courtship and breeding 4.3 Feeding 5 Relationship with humans Toggle Relationship with humans subsection 5.1 In zoos and aquariums 5.2 Penguin rescue, rehabilitation and release 5.3 Cultural references 6 Notes 7 References 8 External links Toggle the table of contents Emperor penguin 75 languages Afrikaans العربية مصرى Azərbaycanca Basa Bali Беларуская Български বাংলা Brezhoneg Català Cebuano کوردی Čeština Cymraeg Dansk Deutsch Ελλ",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": ""
     },
     "classification": {
       "kingdom": "Animalia",
@@ -417,7 +417,7 @@
       "habitat": "Compact sea-ice and ocean",
       "locations": "Antarctica, Ocean",
       "group_behavior": "Colony",
-      "conservation_status": "Endangered",
+      "conservation_status": "",
       "biggest_threat": "Global warming",
       "distinctive_features": [
         "Bright yellow feathers on neck and ears"
@@ -447,7 +447,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:40.353638"
+    "last_updated": "2026-03-16T22:27:57.124310"
   },
   {
     "id": "Q47164",
@@ -459,13 +459,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "matches Wikidata\",\"Wikipedia indefinitely semi-protected pages\",\"Use American English from March 2026\",\"All Wikipedia articles written in American English\",\"Use dmy dates from December 2025\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"Pages using multiple image with unknown parameters\",\"Commons category link from Wikidata\",\"Good articles\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 25–29 taxon IDs\",\"Articles containi",
-      "ecology": "and habitat Toggle Distribution and habitat subsection 4.1 Migrations 5",
-      "behavior": "and",
-      "reproduction": "and growth 5.4 Mortality and health 6 Relationship with humans Toggle Relationship with humans subsection 6.1 Bites 6.2 Captivity 6.3 Tourism 7",
-      "conservation": "Toggle Conservation subsection 7.1 South Africa 7.2 Oceania 7.3 United States 7.4 Europe and the Mediterranean 8 See also 9 Notes 10 References Toggle References subsection 10.1 Sources 11 External links Toggle the table of contents Great white shark 102 languages Afrikaans Aragonés العربية مصرى Asturianu Azərbaycanca تۆرکجه Basa Bali Bikol Central Български भोजपुरी বাংলা Brezhoneg Bosanski Català Cebuano کوردی Corsu Čeština Cymraeg Dansk Deutsch ދިވެހިބަސް Ελληνικά Esperanto Español Eesti Euska",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": "with auto scaled images with unknown parameters Commons category link from Good articles Taxonbars with automatically added original combinations Taxonbars with 25–29 taxon IDs Articles containing video clips This page was last edited on 16 March 2026, at 20:53 &#160;(UTC) . Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of \\\"] = 1,\\n [\\\"Wikispecies\\\"] = 1,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-api-ext.codfw.main-86c97fbb9-m44jh\",\"timestamp\":\"20260316205402\",\"ttl\":14400,\"transientcontent\":true,\"expiry-source\":\"Module:Citation/CS1 (setTTL)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Great white shark\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Great_white_shark\",\"sameAs\":\"http:\\/\\/www.org\\/entity\\/Q129026\",\"mainEntity\":\"http:\\/\\/www."
     },
     "classification": {
       "kingdom": "Animalia",
@@ -491,13 +493,9 @@
       "habitat": "Temperate, coastal waters and open ocean",
       "locations": "Ocean",
       "group_behavior": "Solitary",
-      "conservation_status": "Critically Endangered",
+      "conservation_status": "",
       "biggest_threat": "Hunting and habitat degredation",
-      "distinctive_features": [
-        "Striped coat",
-        "Spotted coat",
-        "Distinctive mane"
-      ],
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
@@ -523,7 +521,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:42.888713"
+    "last_updated": "2026-03-16T22:27:59.721047"
   },
   {
     "id": "Q39709",
@@ -535,13 +533,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "matches Wikidata\",\"Articles needing additional references from October 2023\",\"All articles needing additional references\",\"Use dmy dates from June 2020\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from January 2017\",\"Articles with unsourced statements from February 2021\",\"Articles with unsourced statements from March 2013\",\"Pages using multiple image with auto scaled images\",\"Articles with unsourced statements from April 201",
-      "ecology": "and habitat 4 Ecology Toggle Ecology subsection 4.1 Diet 4.2 Behaviour 4.3 Life stages 4.3.1 Freshwater phase 4.3.2 Saltwater phases 4.4 Breeding 4.4.1 Hybridization 4.5 Beaver impact 5 Relationship to humans Toggle Relationship to humans subsection 5.1 Aquaculture 5.1.1 Controversy 5.1.2 Future prospects 6",
-      "behavior": "at sea, or are repeat spawners, can be much larger. An Atlantic salmon netted in 1960 in Scotland, in the estuary of the river Hope, weighed 49.44&#160;kg (109.0&#160;lb), the heaviest recorded in all available literature. Another netted in 1925 in Norway measured 160.65&#160;cm (63.25&#160;in) in length, the longest Atlantic salmon on record. &#91; 8 &#93; .mw-parser-output .tmulti .multiimageinner{display:flex;flex-direction:column}.mw-parser-output .tmulti .trow{display:flex;flex-direction:ro",
-      "reproduction": "4.4.1 Hybridization 4.5 Beaver impact 5 Relationship to humans Toggle Relationship to humans subsection 5.1 Aquaculture 5.1.1 Controversy 5.1.2 Future prospects 6",
-      "conservation": "Toggle Conservation subsection 6.1 Restoration efforts 6.2 NASCO 7 Legislation Toggle Legislation subsection 7.1 England and Wales 7.2 Scotland 7.3 United States 7.4 Canada 8 See also 9 Notes 10 References 11 External links Toggle the table of contents Atlantic salmon 70 languages Afrikaans Alemannisch Aragonés العربية مصرى Azərbaycanca Беларуская Български Brezhoneg Català Cebuano Čeština Kaszëbsczi Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Français Gaeilge Gale",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": ""
     },
     "classification": {
       "kingdom": "Animalia",
@@ -566,14 +566,10 @@
       "diet": "",
       "habitat": "",
       "locations": "",
-      "group_behavior": "Solitary",
-      "conservation_status": "Endangered",
-      "biggest_threat": "Poaching, Habitat loss",
-      "distinctive_features": [
-        "Spotted coat",
-        "Distinctive mane",
-        "Distinctive wings"
-      ],
+      "group_behavior": "",
+      "conservation_status": "",
+      "biggest_threat": "",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
@@ -585,7 +581,7 @@
       "lifestyle": "",
       "color": "",
       "skin_type": "",
-      "prey": "Lakes\",\"Fish of Greenland\",\"Fauna of Atlantic Canada\",\"Fauna of the Northeastern",
+      "prey": "",
       "slogan": "",
       "group": "",
       "number_of_species": "",
@@ -599,7 +595,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:45.325773"
+    "last_updated": "2026-03-16T22:28:02.379795"
   },
   {
     "id": "Q7785",
@@ -611,13 +607,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "is different from Wikidata\",\"Articles with 'species' microformats\",\"Articles containing potentially dated statements from June 2020\",\"All articles containing potentially dated statements\",\"Cite IUCN without doi\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 30–34 taxon IDs\",\"IUCN Red List least concern species\",\"Fauna listed on CITES Appendix I\",\"Chelonia\",\"Sea turtles\",\"Fauna of the Pantropical realm\",\"Fauna of Ascension Island\",\"Marine fauna of Northern Australia\",",
-      "ecology": "loss\",\"Animal taxa named by Carl Linnaeus\",\"Habitats Directive species\",\"Fauna of Christmas Island\"],\"wgPageViewLanguage\":\"en\",\"wgPageContentLanguage\":\"en\",\"wgPageContentModel\":\"wikitext\",\"wgRelevantPageName\":\"Green_sea_turtle\",\"wgRelevantArticleId\":2150513,\"wgTempUserName\":null,\"wgIsProbablyEditable\":true,\"wgRelevantPageIsProbablyEditable\":true,\"wgRestrictionEdit\":[],\"wgRestrictionMove\":[],\"wgRedirectedFrom\":\"Green_Sea_Turtle\",\"wgNoticeProject\":\"wikipedia\",\"wgFlaggedRevsParams\":{\"tags\":{\"status",
-      "behavior": "Toggle",
-      "reproduction": "5.4 Breathing and sleep 6 Physiology and sensory modalities 7 Unique characteristics and features 8 Importance to humans 9",
-      "conservation": "Toggle Conservation subsection 9.1 Threats 9.2 Global initiatives 9.3 Country-specific initiatives 10 Genetics 11 Gallery 12 See also 13 References 14 External links Toggle the table of contents Green sea turtle 69 languages العربية ܐܪܡܝܐ مصرى Asturianu Azərbaycanca Basa Bali Български বাংলা Brezhoneg Català Cebuano Čeština Cymraeg Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Føroyskt Français Gaeilge Galego ગુજરાતી עברית Hrvatski Magyar Հայերեն Bahasa Indonesia Íslenska It",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "of green turtles Chelonia mydas at a coastal foraging area in the Gulf of California, Mexico\" . Mar Ecol Prog Ser . 242 : 253– 265. Bibcode : 2002MEPS.242.253S . doi : 10.3354/meps242253 . ^ a b c d e f National Marine Fisheries Service and U.S. Fish and Wildlife Service. 1998. Recovery Plan for U.S. Pacific Populations of the East Pacific Green Turtle ( Chelonia mydas ). National Marine Fisheries Service, Silver Spring, MD. ^ \"Some Great Barrier Reef turtle populations produce nothing but females\" . 2018. ^ \"Coal-fired plant project threatens endangered sea turtles on Turkey's Mediterranean shores\" . bianet . 15 June 2020. ^ Nijman, Vincent (2015). \"Decades long open trade in protected marine turtles along java's south coast\" . Marine Turtle Newsletter &#8211; via ResearchGate. ^ William M. Denevan. \"James J. Parsons, 1915-1997\". in Patrick H. Artmstrong and Geoffrey J. Martin.",
+      "habitat": "refused to hear it, which meant that the bill did not go on to be heard by the Senate. &#91; 129 &#93; Country-specific initiatives [ edit ] At the Osaka Aquarium , profile photo of turtle resting on bottom In addition to management by global entities such as the IUCN and CITES , specific countries around the world have undertaken",
+      "hunting_diet": "sites. The most notable is Turtle Islands Wildlife Sanctuary , an UNESCO tentative site which encompasses an entire municipality and one of Southeast Asia's most important green sea turtle nesting sites. &#91; 131 &#93; Other notable sites include the UNESCO tentative site of El Nido-Taytay Management Resource Protected Area and the UNESCO World Heritage Site of Tubbataha Reefs Natural Park. The species is protected under Republic Act 9147 or the Wildlife Resources",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": "measures. Florida statutes (F.A.C. Rule 68E-1) restrict the take, possession, disturbance, mutilation, destruction, selling, transference, molestation, and harassment of marine turtles, nests or eggs. Protection is also afforded to marine turtle"
     },
     "classification": {
       "kingdom": "Animalia",
@@ -640,16 +638,12 @@
     },
     "ecology": {
       "diet": "",
-      "habitat": "",
-      "locations": "",
-      "group_behavior": "Solitary",
-      "conservation_status": "Critically Endangered",
-      "biggest_threat": "Poaching, Habitat loss",
-      "distinctive_features": [
-        "Spotted coat",
-        "Distinctive mane",
-        "Prominent horns"
-      ],
+      "habitat": "refused to hear it, which meant that the bill did not go on to be heard by the Senate. &#91; 129 &#93; Country-specific initiatives [ edit ] At the Osaka Aquarium , profile photo of turtle resting on bottom In addition to management by global entities such as the IUCN and CITES , specific countries around the world have undertaken",
+      "locations": "of green turtles Chelonia mydas at a coastal foraging area in the Gulf of California, Mexico\" . Mar Ecol Prog Ser . 242 : 253– 265. Bibcode : 2002MEPS.242.253S . doi : 10.3354/meps242253 . ^ a b c d e f National Marine Fisheries Service and U.S. Fish and Wildlife Service. 1998. Recovery Plan for U.S. Pacific Populations of the East Pacific Green Turtle ( Chelonia mydas ). National Marine Fisheries Service, Silver Spring, MD. ^ \"Some Great Barrier Reef turtle populations produce nothing but females\" . 2018. ^ \"Coal-fired plant project threatens endangered sea turtles on Turkey's Mediterranean shores\" . bianet . 15 June 2020. ^ Nijman, Vincent (2015). \"Decades long open trade in protected marine turtles along java's south coast\" . Marine Turtle Newsletter &#8211; via ResearchGate. ^ William M. Denevan. \"James J. Parsons, 1915-1997\". in Patrick H. Artmstrong and Geoffrey J. Martin.",
+      "group_behavior": "",
+      "conservation_status": "",
+      "biggest_threat": "",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
@@ -661,7 +655,7 @@
       "lifestyle": "",
       "color": "",
       "skin_type": "",
-      "prey": "strictly being seagrass, &#91; 9 &#93; not to the color of its carapace, which i",
+      "prey": "",
       "slogan": "",
       "group": "",
       "number_of_species": "",
@@ -675,7 +669,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:47.552339"
+    "last_updated": "2026-03-16T22:28:05.173443"
   },
   {
     "id": "Q189609",
@@ -687,13 +681,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "is different from Wikidata\",\"Wikipedia indefinitely semi-protected pages\",\"Use dmy dates from August 2021\",\"Articles with 'species' microformats\",\"Taxonbars with multiple manual Wikidata items\",\"IUCN Red List vulnerable species\",\"Fauna listed on CITES Appendix II\",\"Apex predators\",\"Elapidae\",\"Reptiles of Borneo\",\"National symbols of India\",\"Reptiles described in 1836\",\"Reptiles of Bangladesh\",\"Reptiles of Bhutan\",\"Reptiles of Brunei\",\"Reptiles of Cambodia\",\"Reptiles of Hong Kong\",\"Snakes of Indi",
-      "ecology": "and habitat 5 Behaviour and ecology Toggle Behaviour and ecology subsection 5.1 Diet 5.2 Antipredator",
-      "behavior": "5.3",
-      "reproduction": "6 Venom Toggle Venom subsection 6.1 Composition 6.2 Clinical management 7 Relationship with humans Toggle Relationship with humans subsection 7.1",
-      "conservation": "7.2 Cultural significance 8 References 9 External links Toggle the table of contents King cobra 79 languages العربية مصرى অসমীয়া Azərbaycanca تۆرکجه Basa Bali Bikol Central Беларуская (тарашкевіца) Беларуская Български বাংলা Català Cebuano Čeština Dansk Deutsch Esperanto Español Eesti Euskara فارسی Suomi Français Gaeilge עברית हिन्दी Hrvatski Magyar Հայերեն Bahasa Indonesia Íslenska Italiano 日本語 Jawa ქართული Қазақша ಕನ್ನಡ 한국어 Kurdî Lietuvių Latviešu മലയാളം Монгол मराठी Bahasa Melayu မြန်မာဘာသာ ",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": ""
     },
     "classification": {
       "kingdom": "Animalia",
@@ -718,8 +714,8 @@
       "diet": "Carnivore",
       "habitat": "Forest, shrublands, wetlands",
       "locations": "Asia",
-      "group_behavior": "Social",
-      "conservation_status": "Vulnerable",
+      "group_behavior": "",
+      "conservation_status": "",
       "biggest_threat": "Poaching, habitat loss",
       "distinctive_features": [
         "An expanding hood"
@@ -749,7 +745,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:49.802391"
+    "last_updated": "2026-03-16T22:28:07.648766"
   },
   {
     "id": "Q270238",
@@ -761,13 +757,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "matches Wikidata\",\"Good articles\",\"Articles needing cleanup from March 2026\",\"All pages needing cleanup\",\"Cleanup tagged articles with a reason field from March 2026\",\"Wikipedia pages needing cleanup from March 2026\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"All articles with unsourced statements\",\"Articles with unsourced statements from March 2026\",\"All articles that are too technical\",\"Wikipedia articles that are too technical from March 2026\"",
-      "ecology": "4 Biology Toggle Biology subsection 4.1 Ecology 4.1.1 As an invasive species 4.2 Breeding season 4.2.1 Choruses 4.2.2 Aggressive",
-      "behavior": "4.3 Life cycle 5 Relation to humans 6 References 7 External links Toggle the table of contents American bullfrog 48 languages Aragonés العربية مصرى Basa Bali Беларуская Български Brezhoneg Català Cebuano Čeština Чӑвашла Dansk Deutsch Ελληνικά Esperanto Español Eesti Euskara فارسی Suomi Võro Français Galego עברית Magyar Bahasa Indonesia Íslenska Italiano 日本語 한국어 Lietuvių Монгол Bahasa Melayu Nederlands Norsk bokmål Diné bizaad Polski Português Русский Simple English Slovenščina Svenska ไทย Türkçe",
-      "reproduction": "season 4.2.1 Choruses 4.2.2 Aggressive",
-      "conservation": "status Least Concern &#160;( IUCN 3.1 ) &#91; 1 &#93; Secure &#160;( NatureServe ) &#91; 2 &#93; Scientific classification Kingdom: Animalia Phylum: Chordata Class: Amphibia Order: Anura Family: Ranidae Genus: Lithobates Species: L.&#160;catesbeianus Binomial name Lithobates catesbeianus ( Shaw , 1802) Natural range – blue; Introduced range – red Synonyms List .mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output ",
-      "distribution": ""
+      "etymology": "",
+      "description": "",
+      "distribution": "",
+      "habitat": "",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "",
+      "threats": "",
+      "conservation": ""
     },
     "classification": {
       "kingdom": "Animalia",
@@ -792,14 +790,10 @@
       "diet": "",
       "habitat": "",
       "locations": "",
-      "group_behavior": "Solitary",
-      "conservation_status": "Vulnerable",
+      "group_behavior": "",
+      "conservation_status": "",
       "biggest_threat": "",
-      "distinctive_features": [
-        "Distinctive mane",
-        "Prominent horns",
-        "Distinctive wings"
-      ],
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
@@ -811,7 +805,7 @@
       "lifestyle": "",
       "color": "",
       "skin_type": "",
-      "prey": "to the California red-legged frog , and is considered to be a factor in the decl",
+      "prey": "",
       "slogan": "",
       "group": "",
       "number_of_species": "",
@@ -825,7 +819,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:52.120358"
+    "last_updated": "2026-03-16T22:28:10.295020"
   },
   {
     "id": "Q165980",
@@ -837,13 +831,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "matches Wikidata\",\"Use mdy dates from October 2021\",\"Use American English from October 2021\",\"All Wikipedia articles written in American English\",\"Articles with 'species' microformats\",\"Articles containing Latin-language text\",\"Articles containing potentially dated statements from 2022\",\"All articles containing potentially dated statements\",\"Articles containing potentially dated statements from 2017\",\"Articles with ibid from October 2024\",\"Commons category link is on Wikidata\",\"Taxonbars with au",
-      "ecology": "and habitat 8 Larval host plants 9 Adult food sources 10 Flight and migration 11 Interactions with predators Toggle Interactions with predators subsection 11.1 Types of predators 11.2 Aposematism 11.3 Mimicry 12 Human interaction Toggle Human interaction subsection 12.1 Captive rearing 13 Threats Toggle Threats subsection 13.1 Western monarch population 13.2 Eastern and midwestern monarch populations 13.2.1 Habitat loss due to herbicide use and genetically modified crops 13.2.2 Losses during mig",
-      "behavior": "and are often found far from milkweed plants as they seek a site for pupating. &#91; 39 &#93; A monarch caterpillar can travel up to 10 meters from its milkweed plant to find a safe place to pupate. &#91; 40 &#93; In a laboratory setting, the fourth- and fifth-instar caterpillar stages showed aggressive behavior with lower food availability. Attacked caterpillars were found to be attacked when feeding on milkweed leaves, and the caterpillars attacked when foraging for milkweed. &#91; 41 &#93; Th",
-      "reproduction": "Toggle Life cycle subsection 4.1 Egg 4.2 Larva 4.3 Pupa 4.4 Adult 4.5 Male 4.6 Female 5 Vision 6 Courtship and mating 7 Distribution and habitat 8 Larval host plants 9 Adult food sources 10 Flight and migration 11 Interactions with predators Toggle Interactions with predators subsection 11.1 Types of predators 11.2 Aposematism 11.3 Mimicry 12 Human interaction Toggle Human interaction subsection 12.1 Captive rearing 13 Threats Toggle Threats subsection 13.1 Western monarch population 13.2 Easter",
-      "conservation": "Toggle Threats subsection 13.1 Western monarch population 13.2 Eastern and midwestern monarch populations 13.2.1 Habitat loss due to herbicide use and genetically modified crops 13.2.2 Losses during migration 13.2.3 Importance of overwintering habitat 13.3 Parasites 13.4 Confusion of host plants 13.5 Climate 14 Conservation status 15 Conservation efforts Toggle Conservation efforts subsection 15.1 Federal actions 15.2 Other actions 15.2.1 State and local governments 15.2.2 National Cooperative H",
-      "distribution": ""
+      "etymology": "",
+      "description": "of Progress on Listing Actions\" (PDF) . Federal Register . 88 (122): 41560– 41580. Federal Register Document Number 2023-13577. Archived (PDF) from the original on June 27, 2023 . Retrieved September 29, 2024 . Ibid., Monarch Butterfly, p. 41570. ^ Ibid., Previous CNORs, p. 41561. \"We have been publishing CNORs since 1975. The most recent was published on May 3, 2022 (87 FR 26152). On September 21, 1983, we published guidance for assigning a listing priority number (LPN) for each candidate species (48 FR 43098). Using this guidance, we assign each candidate an LPN of 1 to 12, depending on the magnitude of",
+      "distribution": "of monarch butterflies in Canada over 16 years using citizen science data\" . FACETS . 4 (1): 238– 253. Bibcode : 2019Facet..4.238T . doi : 10.1139/facets-2018-0011 . hdl : 10150/633480 . ^ Obama, President Barack (June 20, 2014). \"Presidential Memorandum – Creating a Federal Strategy to Promote the Health of Honey Bees and Other Pollinators\" . Office of the Press Secretary . Washington, D.C.: The White Ho from October 2021 \\\"] = 1,\\n [\\\"Webarchive\\\"] = 3,\\n [\\\"Wikisource\\\"] = 1,\\n [\\\"Wikispecies\\\"] = 1,\\n [\\\"Wikt-lang\\\"] = 2,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-web.eqiad.main-8568574b87-594wk\",\"timestamp\":\"20260316094839\",\"ttl\":54000,\"transientcontent\":true,\"expiry-source\":\"Template:As of (#time)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Monarch butterfly\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Monarch_butterfly\",\"sameAs\":\"http:\\/\\/www.org\\/entity\\/Q212398\",\"mainEntity\":\"http:\\/\\/www.",
+      "habitat": "[ edit ] Area covered by monarchs ( D. plexippus , eastern migratory population) in their overwintering areas in Mexico between 1993 and 2018 The area of Mexican forest to which eastern and midwestern monarchs migrate reached its lowest level in two decades in 2013. The decline was expected to increase during the 2013–2014 season. Mexican environmental authorities continue to monitor illegal logging of the oyamel fir trees ; however, organized criminals have repeatedly crushed such efforts in the name of very short-term financial gain. &#91; 205 &#93; The oyamel is a major species of evergreen on which the overwintering butterflies spend a significant time during their winter diapa have included four primary aspects for planting designs that are intended to provide adequate on-site foraging opportunities for targeted pollinators. The targeted pollinators include bees, butterflies, and other beneficial insects.",
+      "hunting_diet": "",
+      "behavior": "",
+      "reproduction": "(adult) monarchs has not declined in the last two decades. &#91; 200 &#93; &#91; 201 &#93; &#91; 202 &#93; The lack of long-term declines in the numbers of breeding and migratory monarchs, yet the clear declines in overwintering numbers, suggests a growing disconnect exists between these life stages. One researcher has suggested that mortality from car strikes constitutes an increasing threat to migrating monarchs. &#91; 203 &#93; A study of road mortality in northern Mexico, published in 2019, showed very high mortality from just two \"hotspots\" each year, amounting to 200,000 monarchs killed. &#91; 204 &#93; Importance of overwintering",
+      "threats": "",
+      "conservation": "With Section 4(D) Rule for Monarch Butterfly and Designation of Critical"
     },
     "classification": {
       "kingdom": "Animalia",
@@ -869,7 +865,7 @@
       "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
       "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
       "group_behavior": "Group",
-      "conservation_status": "Endangered",
+      "conservation_status": "",
       "biggest_threat": "Habitat loss",
       "distinctive_features": [
         "Black, orange, and white pattern on wings"
@@ -885,7 +881,7 @@
       "lifestyle": "Diurnal",
       "color": "BlackWhiteOrange",
       "skin_type": "Scales",
-      "prey": "Toggle Threats subsection 13",
+      "prey": "",
       "slogan": "",
       "group": "Invertebrates",
       "number_of_species": "3",
@@ -899,7 +895,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:55.177143"
+    "last_updated": "2026-03-16T22:28:12.792725"
   },
   {
     "id": "Q7316",
@@ -911,13 +907,15 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
     "wikipedia_sections": {
-      "overview": "",
-      "description": "is different from Wikidata\",\"Wikipedia pending changes protected pages\",\"Use British English from June 2015\",\"All Wikipedia articles written in British English\",\"Articles with 'species' microformats\",\"All articles with unsourced statements\",\"Articles with unsourced statements from August 2021\",\"Wikipedia articles needing clarification from August 2021\",\"Commons category link is on Wikidata\",\"Taxonbars with 20–24 taxon IDs\",\"Articles containing video clips\",\"Honey bees\",\"Beekeeping\",\"Bees\",\"Extan",
-      "ecology": "Toggle Origin, systematics, and distribution subsection 2.1 Species 2.2 Micrapis 2.3 Megapis 2.4 Apis 2.4.1 Koschevnikov's honey bee 2.4.2 Philippine honey bee 2.4.3 Eastern honey bee 2.4.4 Western honey bee 2.4.5 Africanized honey bee 3 Living and fossil honey bees (Apini: Apis ) 4 Life cycle Toggle Life cycle subsection 4.1 Gallery 4.2 Winter survival 5 Pollination Toggle Pollination subsection 5.1 Claims of human dependency 6 Nutrition 7 Beekeeping Toggle Beekeeping subsection 7.1 Colony coll",
-      "behavior": "is considered to be a trait that predates the origin of the genus. Among the extant members of Apis , the more basal species make single, exposed combs, while the more recently evolved species nest in cavities and have multiple combs, which has greatly facilitated their domestication. Species [ edit ] While about 20,000 species of bees exist, &#91; 15 &#93; only eight extant species of honey bee are recognized, with a total of 43 subspecies , although historically seven to 11 species are recogni",
-      "reproduction": "Toggle Life cycle subsection 4.1 Gallery 4.2 Winter survival 5 Pollination Toggle Pollination subsection 5.1 Claims of human dependency 6 Nutrition 7 Beekeeping Toggle Beekeeping subsection 7.1 Colony collapse disorder 7.2 Parasites 7.2.1 Acarapis woodi 7.2.2 Galleria mellonella 7.2.3 Varroa mites 8 Bee products Toggle Bee products subsection 8.1 Honey 8.2 Beeswax 8.3 Bee bread 8.4 Bees as food 8.5 Propolis 8.6 Royal jelly 9 Sexes and castes Toggle Sexes and castes subsection 9.1 Drones 9.2 Work",
-      "conservation": "This is an accepted version of this page This is the latest accepted revision , reviewed on 16 March 2026 . Colonial flying insect .mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}@media print{body.ns-0 .mw-parser-output .hatnote{display:none!important}} For other uses, see Honey bee (disambiguation) . Honey bee Temporal range:",
-      "distribution": ""
+      "etymology": "",
+      "description": "but has extensive",
+      "distribution": "later converging. Given that A.&#160;florea is more widely distributed and A.&#160;andreniformis is considerably more aggressive, honey is, if at all, usually harvested from the former only. They are the earliest-diverging extant lineage of honey bees. &#91; 18 &#93; Apis florea have smaller wing spans than its sister species. &#91; 20 &#93; Apis florea are also completely yellow except the scutellum of workers, which is black. &#91; 20 &#93; Megapis [ edit ] Two species are recognized in the subgenus Megapis . They usually build single or a few exposed combs on high tree limbs, on cliffs, and sometimes on buildings. They can be very fierce. Periodically robbed of their honey by human \"honey hunters\", colonies are easily capable of stinging a human being to death if provoked. Apis dorsata , the giant honey bee, is native and widespread across most of South and Southeast Asia. A. d.",
+      "habitat": "is limited to the tropical evergreen forests of the Malay Peninsula , Borneo and Sumatra and they do not live in tropical evergreen rain forests which extend into Thailand, Myanmar, Cambodia and Vietnam. &#91; 23 &#93; Philippine honey bee [ edit ] Apis nigrocincta is a cavity-nesting species. The species has rust-coloured scapes , legs, and clypeuses , with reddish-tan hair colour that covers most of the body. &#91; 24 &#93; Eastern honey bee [ edit ] Apis cerana , the eastern honey bee proper, is the traditional honey bee of southern and eastern Asia. One of its subspecies, the Indian honey bee ( A.&#160;c.&#160;indica ), was domesticated and kept in hives in a fashion similar to A.&#160;mellifera , though on a more limited, regional scale. It has not been possible yet to resolve its relationship to the Bornean honey bee A.&#160;c. nuluensis and Apis nigrocincta from the Philippines to satisfaction; some researchers argue that these are indeed distinct species, but that A.",
+      "hunting_diet": "glands, and barbs on the sting. Under certain conditions (for example, if the colony becomes queenless), a worker may develop ovaries. Worker honey bees perform different",
+      "behavior": "from worker bees. In addition to the greater size of the queen, she has a functional set of ovaries, and a spermatheca, which stores and maintains sperm after she has mated. Apis queens practice polyandry , with one female mating with multiple males. The highest documented mating frequency for an Apis queen is in Apis nigrocincta , where queens mate with an extremely high number of males with observed numbers of different matings ranging from 42 to 69 drones per queen. &#91; 96 &#93; The sting of queens is not barbed like a worker's sting, and queens lack the glands that produce beeswax. Once mated, queens may lay up to 2,000 eggs per day. &#91; 91 &#93; They produce a variety of pheromones that regulate the behavior of workers and help swarms track the queen's location during the swarming. &#91; 91 &#93; Queen-worker conflict [ edit ] Main article: Worker policing When a fertile female worker produces drones, a conflict arises between her interests and those of the queen.",
+      "reproduction": "experiment for which the African honey bees were brought to Brazil in the first place has continued (though not as originally intended). Novel hybrid strains of domestic and re-domesticated Africanized honey bees combine high resilience to tropical conditions and good yields. They are popular among beekeepers in Brazil. &#91; 32 &#93; Living and fossil honey bees (Apini: Apis ) [ edit ] Tribe Apini Latreille &#91; 33 &#93; Genus Apis Linnaeus ( sensu lato ) henshawi species group († Priorapis Engel, † Synapis Cockerell) † A. vetusta Engel † A. henshawi Cockerell † A. petrefacta (Říha) † A. miocenica † A. miocenica Hong † A. \"longtibia\" Zhang † A. \"Miocene 1\" armbrusteri species group († Cascapis Engel) † A. armbrusteri Zeuner † A. nearctica , species novus florea species group ( Micrapis Ashmead) A. florea Fabricius A. andreniformis Smith dorsata species group ( Megapis Ashmead) † A. lithohermaea Engel A. dorsata Fabricius A.",
+      "threats": "are given a warning signal that takes the form of a \" wave \" that spreads as a ripple across a layer of bees densely packed on the surface of the comb when a threat is perceived and consists of bees momentarily arching their bodies and flicking their wings. &#91; 112 &#93; In cavity dwelling species such as Apis cerana , Apis mellifera , and Apis nigrocincta , entrances to these cavities are guarded and checked for intruders in incoming traffic. Another act of defense against nest invaders, particularly wasps, is \"body shaking\", a violent and pendulum-like swaying of the abdomen, performed by worker bees. &#91; 113 &#93; A 2020 study of Apis cerana in Vietnam found that they use feces and even human urine to defend their hives against raids by hornets ( Vespa soror ), a strategy not replicated by their European and North American counterparts, &#91; 114 &#93; though collection and use of feces in nest construction is well-known in stingless bees .",
+      "conservation": "against allergies from insect stings. &#91; 124 &#93; Bee venom products are marketed in many countries, but, as of 2018, there are no approved clinical uses for these products which carry various warnings for potential allergic reactions. &#91; 125 &#93; Competition [ edit ] Further information: Western honey bee §&#160;As an environmental threat With an increasing population of honey bees in specific areas due to beekeeping, Western honey bees (as an invasive species ) and native wild bees often have to compete for the limited"
     },
     "classification": {
       "kingdom": "Animalia",
@@ -942,14 +940,10 @@
       "diet": "Herbivore",
       "habitat": "Sheltered forests and meadows",
       "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
-      "group_behavior": "Solitary",
-      "conservation_status": "Endangered",
+      "group_behavior": "Pairs",
+      "conservation_status": "",
       "biggest_threat": "",
-      "distinctive_features": [
-        "Distinctive mane",
-        "Prominent horns",
-        "Distinctive wings"
-      ],
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
@@ -961,7 +955,7 @@
       "lifestyle": "",
       "color": "BrownYellowBlack",
       "skin_type": "Hair",
-      "prey": "Plains , usually preceding the colonists",
+      "prey": "",
       "slogan": "There are only 8 recognized species!",
       "group": "",
       "number_of_species": "8",
@@ -975,6 +969,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T19:50:58.172805"
+    "last_updated": "2026-03-16T22:28:15.813273"
   }
 ]

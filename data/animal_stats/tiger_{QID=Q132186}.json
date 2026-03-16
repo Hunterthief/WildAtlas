@@ -8,13 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikipedia_sections": {
-    "overview": "",
-    "description": "is different from Wikidata\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Wikipedia indefinitely move-protected pages\",\"Use dmy dates from May 2024\",\"Use British English from April 2020\",\"All Wikipedia articles written in British English\",\"Articles with 'species' microformats\",\"Articles containing Old French (842-ca. 1400)-language text\",\"Articles containing Latin-language text\",\"Articles containing Ancient Greek (to 1453)-language text\",\"Pages using multiple image with unkn",
-    "ecology": "and habitat Toggle Distribution and habitat subsection 4.1 Population density 5 Behaviour and ecology Toggle Behaviour and ecology subsection 5.1 Social spacing 5.2 Communication 5.3 Hunting and diet 5.4 Competitors 5.5",
-    "behavior": "and diet 5.4 Competitors 5.5",
-    "reproduction": "and life cycle 5.6 Health and diseases 6 Threats 7",
-    "conservation": "7 Conservation 8 Relationship with humans Toggle Relationship with humans subsection 8.1 Hunting 8.2 Attacks 8.3 Captivity 8.4 Cultural significance 9 See also 10 References Toggle References subsection 10.1 Bibliography 11 External links Toggle the table of contents Tiger 201 languages Acèh Адыгабзэ Afrikaans Alemannisch አማርኛ Aragonés Ænglisc Obolo अंगिका العربية الدارجة مصرى Asturianu Kotava Azərbaycanca تۆرکجه Башҡортса Basa Bali Batak Toba Bikol Central Беларуская (тарашкевіца) Беларуская Бъ",
-    "distribution": ""
+    "etymology": "",
+    "description": "",
+    "distribution": "",
+    "habitat": "",
+    "hunting_diet": "",
+    "behavior": "",
+    "reproduction": "",
+    "threats": "",
+    "conservation": ""
   },
   "classification": {
     "kingdom": "Animalia",
@@ -39,14 +41,10 @@
     "diet": "Carnivore",
     "habitat": "Dense tropical forest and mangroves",
     "locations": "Asia",
-    "group_behavior": "Solitary",
-    "conservation_status": "Endangered",
-    "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
-    "distinctive_features": [
-      "Striped coat",
-      "Spotted coat",
-      "Distinctive mane"
-    ],
+    "group_behavior": "",
+    "conservation_status": "",
+    "biggest_threat": "",
+    "distinctive_features": [],
     "population_trend": ""
   },
   "reproduction": {
@@ -58,7 +56,7 @@
     "lifestyle": "Solitary",
     "color": "BlackWhiteOrange",
     "skin_type": "Fur",
-    "prey": "7 Conservation 8 Relationship with humans Toggle Relationship with humans subsec",
+    "prey": "",
     "slogan": "The most numerous species of tiger!",
     "group": "",
     "number_of_species": "",
@@ -72,5 +70,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:50:28.659092"
+  "last_updated": "2026-03-16T22:27:44.710645"
 }

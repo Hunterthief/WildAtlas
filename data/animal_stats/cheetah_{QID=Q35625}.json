@@ -8,13 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "wikipedia_sections": {
-    "overview": "",
-    "description": "is different from Wikidata\",\"Good articles\",\"Wikipedia indefinitely semi-protected pages\",\"Use dmy dates from May 2024\",\"Use British English from May 2020\",\"All Wikipedia articles written in British English\",\"Articles with 'species' microformats\",\"Articles containing Urdu-language text\",\"Articles containing Hindi-language text\",\"Articles containing Sanskrit-language text\",\"Articles containing Greek-language text\",\"Articles containing Latin-language text\",\"Pages using multiple image with unknown ",
-    "ecology": "and habitat Toggle Distribution and habitat subsection 6.1 Historical range 6.2 Present distribution 7 Ecology and behaviour Toggle Ecology and behaviour subsection 7.1 Social organisation 7.2 Home ranges and territories 7.3 Communication 7.4 Diet and hunting 7.5",
-    "behavior": "7.5",
-    "reproduction": "and life cycle 7.6 Competition 8 Threats 9",
-    "conservation": "9 Conservation Toggle Conservation subsection 9.1 In Africa 9.2 In Asia 10 Interaction with humans Toggle Interaction with humans subsection 10.1 Taming 10.2 In captivity 10.3 Attacks on humans 10.4 In culture 11 See also 12 References 13 Further reading 14 External links Toggle the table of contents Cheetah 141 languages Afrikaans አማርኛ Aragonés Ænglisc العربية مصرى Asturianu Авар Kotava Azərbaycanca تۆرکجه Basa Bali Bikol Central Беларуская (тарашкевіца) Беларуская Български भोजपुरी বাংলা བོད་ཡ",
-    "distribution": ""
+    "etymology": "",
+    "description": "",
+    "distribution": "",
+    "habitat": "",
+    "hunting_diet": "",
+    "behavior": "",
+    "reproduction": "",
+    "threats": "",
+    "conservation": ""
   },
   "classification": {
     "kingdom": "Animalia",
@@ -40,7 +42,7 @@
     "habitat": "Open grassland",
     "locations": "Africa, Asia, Eurasia",
     "group_behavior": "Solitary/Pairs",
-    "conservation_status": "Critically Endangered",
+    "conservation_status": "",
     "biggest_threat": "Habitat loss",
     "distinctive_features": [
       "Yellowish fur covered in small black spots"
@@ -70,5 +72,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:50:30.879687"
+  "last_updated": "2026-03-16T22:27:46.927602"
 }

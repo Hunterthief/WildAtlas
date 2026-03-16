@@ -8,13 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
   "wikipedia_sections": {
-    "overview": "",
-    "description": "matches Wikidata\",\"Use dmy dates from September 2020\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"All articles with unsourced statements\",\"Articles with unsourced statements from August 2025\",\"Webarchive template wayback links\",\"Articles containing video clips\",\"African elephants\",\"Mammals of Sub-Saharan Africa\",\"EDGE species\",\"Animal species groups\",\"National symbols of the Central African Republic\",\"National symbols of Equatorial Guinea\",\"Nation",
-    "ecology": "and habitat 5",
-    "behavior": "and",
-    "reproduction": "6 Threats 7",
-    "conservation": "7 Conservation 8 In culture Toggle In culture subsection 8.1 As national symbols 9 See also 10 Notes 11 References 12 External links Toggle the table of contents African elephant 73 languages Afrikaans العربية مصرى Kotava Azərbaycanca Български বাংলা Brezhoneg Bosanski Català Cebuano کوردی Чӑвашла Cymraeg Deutsch Zazaki Ελληνικά Español Eesti Euskara فارسی Suomi Français Frysk Gaeilge Galego עברית हिन्दी Magyar Հայերեն Bahasa Indonesia Italiano 日本語 ქართული Қазақша 한국어 Лакку Latviešu Malagasy Māo",
-    "distribution": ""
+    "etymology": "",
+    "description": "",
+    "distribution": "",
+    "habitat": "",
+    "hunting_diet": "",
+    "behavior": "",
+    "reproduction": "",
+    "threats": "",
+    "conservation": ""
   },
   "classification": {
     "kingdom": "Animalia",
@@ -39,14 +41,10 @@
     "diet": "",
     "habitat": "",
     "locations": "",
-    "group_behavior": "Solitary",
-    "conservation_status": "Critically Endangered",
-    "biggest_threat": "Poaching, Habitat loss",
-    "distinctive_features": [
-      "Distinctive mane",
-      "Long trunk",
-      "Large tusks"
-    ],
+    "group_behavior": "",
+    "conservation_status": "",
+    "biggest_threat": "",
+    "distinctive_features": [],
     "population_trend": ""
   },
   "reproduction": {
@@ -58,7 +56,7 @@
     "lifestyle": "",
     "color": "",
     "skin_type": "",
-    "prey": "7 Conservation 8 In culture Toggle In culture subsection 8",
+    "prey": "",
     "slogan": "",
     "group": "",
     "number_of_species": "",
@@ -72,5 +70,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:50:33.079453"
+  "last_updated": "2026-03-16T22:27:49.466539"
 }

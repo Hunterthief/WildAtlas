@@ -8,13 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
   "wikipedia_sections": {
-    "overview": "",
-    "description": "matches Wikidata\",\"Wikipedia indefinitely semi-protected pages\",\"Use American English from March 2026\",\"All Wikipedia articles written in American English\",\"Use dmy dates from December 2025\",\"Articles with 'species' microformats\",\"Pages using multiple image with auto scaled images\",\"Pages using multiple image with unknown parameters\",\"Commons category link from Wikidata\",\"Good articles\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 25–29 taxon IDs\",\"Articles containi",
-    "ecology": "and habitat Toggle Distribution and habitat subsection 4.1 Migrations 5",
-    "behavior": "and",
-    "reproduction": "and growth 5.4 Mortality and health 6 Relationship with humans Toggle Relationship with humans subsection 6.1 Bites 6.2 Captivity 6.3 Tourism 7",
-    "conservation": "Toggle Conservation subsection 7.1 South Africa 7.2 Oceania 7.3 United States 7.4 Europe and the Mediterranean 8 See also 9 Notes 10 References Toggle References subsection 10.1 Sources 11 External links Toggle the table of contents Great white shark 102 languages Afrikaans Aragonés العربية مصرى Asturianu Azərbaycanca تۆرکجه Basa Bali Bikol Central Български भोजपुरी বাংলা Brezhoneg Bosanski Català Cebuano کوردی Corsu Čeština Cymraeg Dansk Deutsch ދިވެހިބަސް Ελληνικά Esperanto Español Eesti Euska",
-    "distribution": ""
+    "etymology": "",
+    "description": "",
+    "distribution": "",
+    "habitat": "",
+    "hunting_diet": "",
+    "behavior": "",
+    "reproduction": "",
+    "threats": "",
+    "conservation": "with auto scaled images with unknown parameters Commons category link from Good articles Taxonbars with automatically added original combinations Taxonbars with 25–29 taxon IDs Articles containing video clips This page was last edited on 16 March 2026, at 20:53 &#160;(UTC) . Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of \\\"] = 1,\\n [\\\"Wikispecies\\\"] = 1,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-api-ext.codfw.main-86c97fbb9-m44jh\",\"timestamp\":\"20260316205402\",\"ttl\":14400,\"transientcontent\":true,\"expiry-source\":\"Module:Citation/CS1 (setTTL)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Great white shark\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Great_white_shark\",\"sameAs\":\"http:\\/\\/www.org\\/entity\\/Q129026\",\"mainEntity\":\"http:\\/\\/www."
   },
   "classification": {
     "kingdom": "Animalia",
@@ -40,13 +42,9 @@
     "habitat": "Temperate, coastal waters and open ocean",
     "locations": "Ocean",
     "group_behavior": "Solitary",
-    "conservation_status": "Critically Endangered",
+    "conservation_status": "",
     "biggest_threat": "Hunting and habitat degredation",
-    "distinctive_features": [
-      "Striped coat",
-      "Spotted coat",
-      "Distinctive mane"
-    ],
+    "distinctive_features": [],
     "population_trend": ""
   },
   "reproduction": {
@@ -72,5 +70,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:50:42.888713"
+  "last_updated": "2026-03-16T22:27:59.721047"
 }

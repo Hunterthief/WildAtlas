@@ -8,13 +8,15 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
   "wikipedia_sections": {
-    "overview": "",
-    "description": "is different from Wikidata\",\"Wikipedia references cleanup from January 2026\",\"All articles needing references cleanup\",\"Articles covered by WikiProject Wikify from January 2026\",\"All articles covered by WikiProject Wikify\",\"Featured articles\",\"Wikipedia indefinitely semi-protected pages\",\"Use mdy dates from December 2024\",\"Articles with 'species' microformats\",\"Articles containing potentially dated statements from 2007\",\"All articles containing potentially dated statements\",\"All articles with fa",
-    "ecology": "4 Habitat 5",
-    "behavior": "6 Diet and feeding Toggle Diet and feeding subsection 6.1 Behavior 6.2 Fish 6.3 Birds 6.4 Mammals 6.5 Reptiles and other prey 6.6 Interspecific predatory relationships 7",
-    "reproduction": "8 Longevity and mortality 9 Relationship with humans Toggle Relationship with humans subsection 9.1 Population decline and recovery 9.2 Killing permits 9.3 In captivity 10 Cultural significance Toggle Cultural significance subsection 10.1 Role in Native American culture 10.2 National symbol of the United States 10.3 Popular culture 11 See also 12 References 13 Further reading Toggle Further reading subsection 13.1 Identification 14 External links Toggle External links subsection 14.1 Video links",
-    "conservation": "status Least Concern &#160;( IUCN 3.1 ) &#91; 2 &#93; CITES Appendix II &#8239; &#91; 3 &#93; Scientific classification Kingdom: Animalia Phylum: Chordata Class: Aves Order: Accipitriformes Family: Accipitridae Genus: Haliaeetus Species: H.&#160;leucocephalus Binomial name Haliaeetus leucocephalus ( Linnaeus , 1766 ) Subspecies H. l. leucocephalus – Southern bald eagle H. l. washingtoniensis – Northern bald eagle Bald eagle range .mw-parser-output .legend{page-break-inside:avoid;break-inside:avo",
-    "distribution": ""
+    "etymology": "",
+    "description": "",
+    "distribution": "",
+    "habitat": "",
+    "hunting_diet": "found in North America\"}",
+    "behavior": "",
+    "reproduction": "",
+    "threats": "",
+    "conservation": ""
   },
   "classification": {
     "kingdom": "Animalia",
@@ -39,8 +41,8 @@
     "diet": "Carnivore",
     "habitat": "Near forests",
     "locations": "North-America",
-    "group_behavior": "Solitary",
-    "conservation_status": "Endangered",
+    "group_behavior": "",
+    "conservation_status": "",
     "biggest_threat": "Pesticide use",
     "distinctive_features": [
       "The white plumage on the head"
@@ -70,5 +72,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T19:50:38.157369"
+  "last_updated": "2026-03-16T22:27:54.917101"
 }
