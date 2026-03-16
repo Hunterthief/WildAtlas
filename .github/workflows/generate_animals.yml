@@ -32,8 +32,7 @@ jobs:
 
       - name: Run generator
         env:
-          NINJA_API_KEY: ${{ secrets.NINJA_API_KEY }}
-          IUCN_API_KEY: ${{ secrets.IUCN_API_KEY }}
+          API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
         run: |
           cd generator
           if [ "${{ github.event.inputs.force_update }}" == "true" ]; then
