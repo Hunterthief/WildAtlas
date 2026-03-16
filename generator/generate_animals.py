@@ -7,8 +7,6 @@ Main entry point that orchestrates data generation from MULTIPLE sources:
 2. Wikidata SPARQL (secondary - structured data)
 3. IUCN Red List (conservation status & threats)
 4. Wikipedia + Regex (fallback - text extraction)
-
-This hybrid approach gives 90%+ accuracy vs 40-60% with regex alone.
 """
 
 import json
@@ -90,6 +88,7 @@ def initialize_animal_data(qid, name, sci):
                     "conservation_status": None, "biggest_threat": None, "distinctive_features": None,
                     "population_trend": None},
         "reproduction": {"gestation_period": None, "average_litter_size": None, "name_of_young": None},
+        "additional_info": {},
         "sources": [], "last_updated": None
     }
 
@@ -97,25 +96,55 @@ def initialize_animal_data(qid, name, sci):
 def merge_data(primary: Dict, secondary: Dict) -> Dict:
     """
     Merge secondary data into primary, filling in null values.
-    Primary data takes precedence.
+    API Ninjas data takes precedence for physical/ecology fields.
     """
     merged = primary.copy()
     
     for key, value in secondary.items():
         if key == "sources":
+            # Merge sources lists
             existing = merged.get("sources", [])
             for src in value:
                 if src not in existing:
                     existing.append(src)
             merged["sources"] = existing
-        elif isinstance(value, dict):
-            if key not in merged:
-                merged[key] = {}
+        elif key == "physical" and isinstance(value, dict):
+            # Merge physical stats - API Ninjas takes precedence
+            if "physical" not in merged:
+                merged["physical"] = {}
             for sub_key, sub_value in value.items():
-                if sub_value and (key not in merged or not merged[key].get(sub_key)):
-                    if isinstance(merged.get(key), dict):
-                        merged[key][sub_key] = sub_value
-        elif value and not merged.get(key):
+                if sub_value and sub_value != "None":
+                    merged["physical"][sub_key] = sub_value
+        elif key == "ecology" and isinstance(value, dict):
+            # Merge ecology - API Ninjas takes precedence
+            if "ecology" not in merged:
+                merged["ecology"] = {}
+            for sub_key, sub_value in value.items():
+                if sub_value and sub_value != "None":
+                    merged["ecology"][sub_key] = sub_value
+        elif key == "reproduction" and isinstance(value, dict):
+            # Merge reproduction - API Ninjas takes precedence
+            if "reproduction" not in merged:
+                merged["reproduction"] = {}
+            for sub_key, sub_value in value.items():
+                if sub_value and sub_value != "None":
+                    merged["reproduction"][sub_key] = sub_value
+        elif key == "additional_info" and isinstance(value, dict):
+            # Merge additional info
+            if "additional_info" not in merged:
+                merged["additional_info"] = {}
+            for sub_key, sub_value in value.items():
+                if sub_value and sub_value != "None":
+                    merged["additional_info"][sub_key] = sub_value
+        elif key == "classification" and isinstance(value, dict):
+            # Merge classification - keep both, prefer non-null
+            if "classification" not in merged:
+                merged["classification"] = {}
+            for sub_key, sub_value in value.items():
+                if sub_value and sub_value != "None":
+                    merged["classification"][sub_key] = sub_value
+        elif value and value != "None" and value != "" and not merged.get(key):
+            # Simple field - only set if primary is empty
             merged[key] = value
     
     return merged
@@ -136,15 +165,32 @@ def finalize_animal_data(data: Dict, animal_type: str) -> Dict:
     if animal_type in social_types and data["ecology"].get("group_behavior") == "Solitary":
         data["ecology"]["group_behavior"] = "Social"
     
-    # Filter out "sea" habitat for land animals
+    # Filter out "sea", "ocean", "lake" habitat for land animals
     land_types = ['feline', 'canine', 'bear', 'elephant', 'deer', 'bovine', 'equine', 
                   'rabbit', 'rodent', 'primate', 'giraffe', 'cheetah']
     if animal_type in land_types:
         habitat = data["ecology"].get("habitat", "")
         if habitat:
             habitats = [h.strip() for h in habitat.split(",")]
-            filtered = [h for h in habitats if h.lower() not in ['sea', 'ocean', 'marine']]
+            filtered = [h for h in habitats if h.lower() not in ['sea', 'ocean', 'marine', 'lake']]
             data["ecology"]["habitat"] = ", ".join(filtered) if filtered else habitat
+    
+    # Remove invalid distinctive features
+    invalid_features = {
+        'feline': ['mane', 'horn', 'antler', 'shell', 'fin'],
+        'elephant': ['mane', 'horn', 'shell', 'fin', 'wing'],
+        'canine': ['mane', 'horn', 'antler', 'shell', 'fin', 'wing'],
+        'frog': ['mane', 'horn', 'tail', 'fur', 'feather'],
+        'butterfly': ['fur', 'fin', 'shell', 'mane'],
+        'bee': ['fur', 'fin', 'shell', 'mane', 'tail'],
+    }
+    
+    if animal_type in invalid_features:
+        features = data["ecology"].get("distinctive_features", [])
+        if features:
+            filtered_features = [f for f in features 
+                               if f.lower() not in invalid_features[animal_type]]
+            data["ecology"]["distinctive_features"] = filtered_features if filtered_features else features
     
     # Clean up image URLs (remove trailing spaces)
     if data.get("image"):
@@ -212,8 +258,6 @@ def fetch_from_all_sources(name, sci, qid):
     2. Wikidata (structured)
     3. IUCN Red List (conservation data)
     4. Wikipedia + Regex (fallback)
-    
-    Returns merged data from all sources.
     """
     
     all_data = initialize_animal_data(qid, name, sci)
@@ -228,6 +272,8 @@ def fetch_from_all_sources(name, sci, qid):
                 all_data = merge_data(all_data, ninjas_data)
                 sources_used.append("API Ninjas")
                 print(" ✓ API Ninjas data received")
+            else:
+                print("   ⚠ No data from API Ninjas")
         except Exception as e:
             print(f" ⚠ API Ninjas error: {e}")
     
@@ -368,10 +414,6 @@ def fetch_from_all_sources(name, sci, qid):
 def generate(animals, force=False):
     """
     Main generation orchestration function.
-    
-    Args:
-        animals: List of animal dicts with name, scientific_name, qid
-        force: If True, regenerate even if cached
     """
     output = []
     
