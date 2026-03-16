@@ -711,7 +711,37 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
             data["sources"].append("iNaturalist")
     
     return data
+# ============================================================================
+# FILE NAMING & CACHING
+# ============================================================================
 
+def get_animal_filename(name, qid):
+    clean_name = name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
+    return f"{clean_name}_{{QID={qid}}}.json"
+
+def load_cache(qid, name=None):
+    """Load cached data from NEW path (repo root data/animal_stats/)"""
+    if name:
+        filename = get_animal_filename(name, qid)
+        # ✅ FIXED: Use ANIMAL_STATS_DIR (repo root)
+        f = ANIMAL_STATS_DIR / filename
+        if f.exists():
+            try:
+                with open(f, "r", encoding="utf-8") as fp:
+                    return json.load(fp)
+            except:
+                pass
+    return None
+
+def save_animal_file(data, name, qid):
+    """Save individual animal data to NEW path (repo root data/animal_stats/)"""
+    filename = get_animal_filename(name, qid)
+    # ✅ FIXED: Use ANIMAL_STATS_DIR (repo root)
+    filepath = ANIMAL_STATS_DIR / filename
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f" 💾 Saved: {filename}")
+    return filepath
 # ============================================================================
 # MAIN GENERATION
 # ============================================================================
