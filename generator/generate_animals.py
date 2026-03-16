@@ -4,19 +4,20 @@ import json, time, os, sys
 from datetime import datetime
 from pathlib import Path
 
-# Import modules
+# Add generator directory to Python path
 sys.path.insert(0, str(Path(__file__).parent))
+
+# Import modules
 from modules.api_ninjas import fetch_animal_data
-from fetchers import fetch_wikipedia_summary, fetch_wikipedia_full, fetch_inaturalist
-from extractors import (
-    extract_wikipedia_sections,
-    extract_stats_from_sections,
-    extract_diet_from_sections,
-    extract_reproduction_from_sections,
-    extract_conservation_from_sections,
-    extract_behavior_from_sections,
-    extract_additional_info_from_sections
-)
+from fetchers.wikipedia import fetch_wikipedia_summary, fetch_wikipedia_full
+from fetchers.inaturalist import fetch_inaturalist
+from extractors.sections import extract_wikipedia_sections
+from extractors.stats import extract_stats_from_sections
+from extractors.diet import extract_diet_from_sections
+from extractors.reproduction import extract_reproduction_from_sections
+from extractors.conservation import extract_conservation_from_sections
+from extractors.behavior import extract_behavior_from_sections
+from extractors.additional_info import extract_additional_info_from_sections
 
 # Setup paths
 REPO_ROOT = Path(__file__).parent.parent
