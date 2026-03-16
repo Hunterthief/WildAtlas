@@ -30,31 +30,25 @@ jobs:
         run: |
           pip install requests
 
-      - name: Debug Secrets
-        run: |
-          echo "🔍 Checking if API_NINJAS_KEY is set..."
-          if [ -n "${{ secrets.API_NINJAS_KEY }}" ]; then
-            echo "✅ API_NINJAS_KEY is set (length: ${{ secrets.API_NINJAS_KEY }})"
-          else
-            echo "❌ API_NINJAS_KEY is NOT set"
-          fi
-
       - name: Run generator
         env:
           API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
         run: |
           cd generator
-          echo "🔍 In script - API_NINJAS_KEY length: ${#API_NINJAS_KEY}"
-          if [ -n "$API_NINJAS_KEY" ]; then
-            echo "✅ API_NINJAS_KEY is available in environment"
-          else
-            echo "❌ API_NINJAS_KEY is NOT available in environment"
-          fi
           if [ "${{ github.event.inputs.force_update }}" == "true" ]; then
             python generate_animals.py --force
           else
             python generate_animals.py
           fi
+
+      - name: Debug - Show what was created
+        run: |
+          echo "=== Repo Root ==="
+          ls -la
+          echo "=== data/ directory ==="
+          ls -la data/ 2>/dev/null || echo "data/ not found"
+          echo "=== data/animal_stats/ ==="
+          ls -la data/animal_stats/ 2>/dev/null || echo "data/animal_stats/ not found"
 
       - name: Commit and push JSON
         env:
