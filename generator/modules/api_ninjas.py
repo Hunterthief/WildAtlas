@@ -5,14 +5,6 @@ API Ninjas Animals API Module
 Free API with pre-extracted animal facts.
 Documentation: https://api-ninjas.com/api/animals
 Free tier: 100 requests/month
-
-API returns structured data like:
-{
-  "name": "Cheetah",
-  "taxonomy": {...},
-  "locations": [...],
-  "characteristics": {...}
-}
 """
 
 import requests
@@ -20,23 +12,19 @@ import re
 from typing import Optional, Dict, Any, List
 
 API_NINJAS_ENDPOINT = "https://api.api-ninjas.com/v1/animals"
-DEFAULT_API_KEY = ""
 
 
-def fetch_animal_data(name: str, api_key: str = None) -> Optional[Dict[str, Any]]:
+def fetch_animal_data(name: str, api_key: str) -> Optional[Dict[str, Any]]:
     """
     Fetch animal data from API Ninjas.
     
     Args:
         name: Animal common name
-        api_key: API Ninjas API key (free at api-ninjas.com)
+        api_key: API Ninjas API key
     
     Returns:
         dict: Animal data or None
     """
-    
-    if not api_key:
-        api_key = DEFAULT_API_KEY
     
     if not api_key:
         print(" ⚠ API Ninjas: No API key provided")
@@ -53,18 +41,23 @@ def fetch_animal_data(name: str, api_key: str = None) -> Optional[Dict[str, Any]
         if response.status_code == 200:
             results = response.json()
             if results:
-                return parse_api_ninjas_result(results[0])
+                print(f"   ✓ Found {len(results)} result(s) for {name}")
+                return parse_api_ninjas_result(results[0], name)
+            else:
+                print(f"   ⚠ No results for {name}")
         elif response.status_code == 429:
-            print(" ⚠ API Ninjas: Rate limit exceeded (100/month)")
+            print(" ⚠ API Ninjas: Rate limit exceeded (100/month free tier)")
         elif response.status_code == 401:
             print(" ⚠ API Ninjas: Invalid API key")
+        else:
+            print(f" ⚠ API Ninjas: HTTP {response.status_code}")
     except Exception as e:
         print(f" ⚠ API Ninjas error: {e}")
     
     return None
 
 
-def parse_api_ninjas_result(data: Dict) -> Dict[str, Any]:
+def parse_api_ninjas_result(data: Dict, search_name: str) -> Dict[str, Any]:
     """
     Parse API Ninjas result into WildAtlas standardized format.
     Maps ALL API Ninjas fields to our data structure.
@@ -75,17 +68,14 @@ def parse_api_ninjas_result(data: Dict) -> Dict[str, Any]:
     locations = data.get("locations", [])
     
     # Parse weight string like "40kg - 65kg (88lbs - 140lbs)"
-    weight = parse_weight(chars.get("weight", ""))
+    weight = _parse_weight(chars.get("weight", ""))
     
     # Parse height string like "115cm - 136cm (45in - 53in)"
-    height = parse_height(chars.get("height", ""))
-    
-    # Parse length from various fields
-    length = parse_length(chars)
+    height = _parse_height(chars.get("height", ""))
     
     # Build comprehensive data structure
     return {
-        "name": data.get("name"),
+        "name": data.get("name", search_name),
         "scientific_name": taxonomy.get("scientific_name"),
         "common_names": [chars.get("common_name")] if chars.get("common_name") else [],
         "description": chars.get("slogan", ""),
@@ -100,12 +90,12 @@ def parse_api_ninjas_result(data: Dict) -> Dict[str, Any]:
             "genus": taxonomy.get("genus"),
             "species": taxonomy.get("scientific_name"),
         },
-        "animal_type": get_animal_type_from_taxonomy(taxonomy),
+        "animal_type": _get_animal_type_from_taxonomy(taxonomy),
         "young_name": chars.get("name_of_young"),
-        "group_name": get_group_name_from_behavior(chars.get("group_behavior")),
+        "group_name": _get_group_name_from_behavior(chars.get("group_behavior")),
         "physical": {
             "weight": weight,
-            "length": length,
+            "length": None,  # API Ninjas doesn't provide length
             "height": height,
             "top_speed": chars.get("top_speed"),
             "lifespan": chars.get("lifespan"),
@@ -139,8 +129,11 @@ def parse_api_ninjas_result(data: Dict) -> Dict[str, Any]:
     }
 
 
-def get_animal_type_from_taxonomy(taxonomy: Dict) -> str:
+def _get_animal_type_from_taxonomy(taxonomy: Dict) -> str:
     """Determine animal type from taxonomy classification"""
+    if not taxonomy:
+        return "default"
+    
     class_name = taxonomy.get("class", "").lower()
     order_name = taxonomy.get("order", "").lower()
     family_name = taxonomy.get("family", "").lower()
@@ -153,20 +146,41 @@ def get_animal_type_from_taxonomy(taxonomy: Dict) -> str:
                 return "canine"
             elif "ursidae" in family_name:
                 return "bear"
+        elif "proboscidea" in order_name:
+            return "elephant"
+        elif "giraffidae" in family_name:
+            return "giraffe"
         return "mammal"
     elif "aves" in class_name:
+        if "penguin" in taxonomy.get("scientific_name", "").lower():
+            return "penguin"
+        elif "accipitridae" in family_name:
+            return "raptor"
         return "bird"
     elif "reptilia" in class_name:
+        if "testudines" in order_name:
+            return "turtle"
+        elif "squamata" in order_name:
+            if "elapidae" in family_name:
+                return "snake"
         return "reptile"
     elif "amphibia" in class_name:
-        return "amphibian"
+        return "frog"
     elif "insecta" in class_name:
+        if "lepidoptera" in order_name:
+            return "butterfly"
+        elif "hymenoptera" in order_name:
+            return "bee"
         return "insect"
+    elif "chondrichthyes" in class_name:
+        return "shark"
+    elif "actinopterygii" in class_name:
+        return "fish"
     
     return "default"
 
 
-def get_group_name_from_behavior(behavior: str) -> str:
+def _get_group_name_from_behavior(behavior: str) -> str:
     """Map group behavior to group name"""
     if not behavior:
         return "population"
@@ -191,13 +205,13 @@ def get_group_name_from_behavior(behavior: str) -> str:
     return "population"
 
 
-def parse_weight(weight_str: str) -> Optional[str]:
+def _parse_weight(weight_str: str) -> Optional[str]:
     """Parse weight string like '40kg - 65kg (88lbs - 140lbs)'"""
     if not weight_str:
         return None
     
     # Extract kg values
-    kg_match = re.search(r'(\d+(?:\.\d+)?)\s*kg\s*-\s*(\d+(?:\.\d+)?)\s*kg', weight_str, re.I)
+    kg_match = re.search(r'(\d+(?:\.\d+)?)\s*kg\s*[-–]\s*(\d+(?:\.\d+)?)\s*kg', weight_str, re.I)
     if kg_match:
         return f"{kg_match.group(1)}–{kg_match.group(2)} kg"
     
@@ -206,16 +220,21 @@ def parse_weight(weight_str: str) -> Optional[str]:
     if kg_single:
         return f"{kg_single.group(1)} kg"
     
+    # Try lbs
+    lb_match = re.search(r'(\d+(?:\.\d+)?)\s*lbs?\s*[-–]\s*(\d+(?:\.\d+)?)\s*lbs?', weight_str, re.I)
+    if lb_match:
+        return f"{lb_match.group(1)}–{lb_match.group(2)} lbs"
+    
     return weight_str
 
 
-def parse_height(height_str: str) -> Optional[str]:
+def _parse_height(height_str: str) -> Optional[str]:
     """Parse height string like '115cm - 136cm (45in - 53in)'"""
     if not height_str:
         return None
     
     # Extract cm values
-    cm_match = re.search(r'(\d+(?:\.\d+)?)\s*cm\s*-\s*(\d+(?:\.\d+)?)\s*cm', height_str, re.I)
+    cm_match = re.search(r'(\d+(?:\.\d+)?)\s*cm\s*[-–]\s*(\d+(?:\.\d+)?)\s*cm', height_str, re.I)
     if cm_match:
         return f"{cm_match.group(1)}–{cm_match.group(2)} cm"
     
@@ -224,11 +243,9 @@ def parse_height(height_str: str) -> Optional[str]:
     if cm_single:
         return f"{cm_single.group(1)} cm"
     
+    # Try inches
+    in_match = re.search(r'(\d+(?:\.\d+)?)\s*in\s*[-–]\s*(\d+(?:\.\d+)?)\s*in', height_str, re.I)
+    if in_match:
+        return f"{in_match.group(1)}–{in_match.group(2)} inches"
+    
     return height_str
-
-
-def parse_length(chars: Dict) -> Optional[str]:
-    """Try to get length from various characteristic fields"""
-    # API Ninjas doesn't have explicit length field
-    # Could potentially extract from other fields if available
-    return None
