@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "savanna, river, lake, jungle",
+    "habitat": "wetland, marsh, desert, mountain",
     "locations": "Africa, South Africa, Egypt, Asia, India",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
@@ -42,14 +42,14 @@
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "1",
+    "average_litter_size": "Unknown",
     "name_of_young": "pup"
   },
   "additional_info": {
     "lifestyle": "Unknown",
     "color": "Unknown",
     "skin_type": "Unknown",
-    "prey": "Unknown",
+    "prey": "large wild hooved mammals as well as smaller animals, livestock, carrion , and garbage",
     "slogan": "Unknown",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:11:33.439043"
+  "last_updated": "2026-03-16T18:27:09.085859"
 }

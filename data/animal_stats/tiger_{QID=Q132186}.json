@@ -42,14 +42,14 @@
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "1",
+    "average_litter_size": "3",
     "name_of_young": "cub"
   },
   "additional_info": {
     "lifestyle": "Solitary",
     "color": "BlackWhiteOrange",
     "skin_type": "Fur",
-    "prey": "Unknown",
+    "prey": "7 Conservation 8 Relationship with humans Toggle Relationship with humans subsection 8",
     "slogan": "The most numerous species of tiger!",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:11:25.981408"
+  "last_updated": "2026-03-16T18:27:00.306599"
 }

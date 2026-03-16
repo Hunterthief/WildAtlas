@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "river, lake, pond, swamp",
+    "habitat": "swamp, pond, river, sea",
     "locations": "North America, United States, Canada, Europe, Asia",
     "group_behavior": "Solitary",
     "conservation_status": "Vulnerable",
@@ -42,14 +42,14 @@
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "1",
+    "average_litter_size": "Unknown",
     "name_of_young": "tadpole"
   },
   "additional_info": {
     "lifestyle": "Unknown",
     "color": "Unknown",
     "skin_type": "Unknown",
-    "prey": "Unknown",
+    "prey": "the young of several snakes, including the California endemic giant garter snake , a threatened spec",
     "slogan": "Unknown",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:11:49.881926"
+  "last_updated": "2026-03-16T18:27:29.746509"
 }

@@ -42,14 +42,14 @@
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "1",
+    "average_litter_size": "200",
     "name_of_young": "larva"
   },
   "additional_info": {
     "lifestyle": "Unknown",
     "color": "BrownYellowBlack",
     "skin_type": "Hair",
-    "prey": "Unknown",
+    "prey": "haemolymph",
     "slogan": "There are only 8 recognized species!",
     "group": "Unknown",
     "number_of_species": "8",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:11:55.447529"
+  "last_updated": "2026-03-16T18:27:37.325048"
 }

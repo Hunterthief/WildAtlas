@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "river, sea, temperate, coastal",
+    "habitat": "temperate, ocean, wetland, marsh",
     "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
@@ -42,14 +42,14 @@
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "1",
+    "average_litter_size": "Unknown",
     "name_of_young": "hatchling"
   },
   "additional_info": {
     "lifestyle": "Unknown",
     "color": "Unknown",
     "skin_type": "Unknown",
-    "prey": "Unknown",
+    "prey": "9",
     "slogan": "Unknown",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:11:45.131749"
+  "last_updated": "2026-03-16T18:27:23.326303"
 }

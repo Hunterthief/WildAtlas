@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "savanna, lake, sea, woodland",
+    "habitat": "rainforest, sea, savanna, lake",
     "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
@@ -42,14 +42,14 @@
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "1",
+    "average_litter_size": "Unknown",
     "name_of_young": "larva"
   },
   "additional_info": {
     "lifestyle": "Unknown",
     "color": "Unknown",
     "skin_type": "Unknown",
-    "prey": "Unknown",
+    "prey": "7 Conservation 8 In culture Toggle In culture subsection 8",
     "slogan": "Unknown",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:11:30.940722"
+  "last_updated": "2026-03-16T18:27:06.166005"
 }

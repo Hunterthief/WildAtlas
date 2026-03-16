@@ -40,7 +40,7 @@
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "1",
+    "average_litter_size": "Unknown",
     "name_of_young": "chick"
   },
   "additional_info": {
@@ -61,5 +61,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:11:35.954849"
+  "last_updated": "2026-03-16T18:27:11.906848"
 }

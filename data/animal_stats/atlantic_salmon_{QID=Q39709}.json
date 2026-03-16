@@ -28,7 +28,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "river, lake, stream, sea",
+    "habitat": "Pacific, ocean, stream, river",
     "locations": "North Atlantic, Canada, Alaska, United States, Europe",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
@@ -42,14 +42,14 @@
   },
   "reproduction": {
     "gestation_period": "Unknown",
-    "average_litter_size": "1",
+    "average_litter_size": "Unknown",
     "name_of_young": "fry"
   },
   "additional_info": {
     "lifestyle": "Unknown",
     "color": "Unknown",
     "skin_type": "Unknown",
-    "prey": "Unknown",
+    "prey": "plankton or fry from other fish species such as herring",
     "slogan": "Unknown",
     "group": "Unknown",
     "number_of_species": "Unknown",
@@ -63,5 +63,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:11:42.778793"
+  "last_updated": "2026-03-16T18:27:20.439432"
 }

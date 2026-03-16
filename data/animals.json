@@ -43,14 +43,14 @@
     },
     "reproduction": {
       "gestation_period": "Unknown",
-      "average_litter_size": "1",
+      "average_litter_size": "3",
       "name_of_young": "cub"
     },
     "additional_info": {
       "lifestyle": "Solitary",
       "color": "BlackWhiteOrange",
       "skin_type": "Fur",
-      "prey": "Unknown",
+      "prey": "7 Conservation 8 Relationship with humans Toggle Relationship with humans subsection 8",
       "slogan": "The most numerous species of tiger!",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -64,7 +64,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:25.981408"
+    "last_updated": "2026-03-16T18:27:00.306599"
   },
   {
     "id": "Q35625",
@@ -129,7 +129,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:28.788550"
+    "last_updated": "2026-03-16T18:27:02.803475"
   },
   {
     "id": "Q7372",
@@ -161,7 +161,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "savanna, lake, sea, woodland",
+      "habitat": "rainforest, sea, savanna, lake",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -175,14 +175,14 @@
     },
     "reproduction": {
       "gestation_period": "Unknown",
-      "average_litter_size": "1",
+      "average_litter_size": "Unknown",
       "name_of_young": "larva"
     },
     "additional_info": {
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "Unknown",
+      "prey": "7 Conservation 8 In culture Toggle In culture subsection 8",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -196,7 +196,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:30.940722"
+    "last_updated": "2026-03-16T18:27:06.166005"
   },
   {
     "id": "Q213537",
@@ -228,7 +228,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "savanna, river, lake, jungle",
+      "habitat": "wetland, marsh, desert, mountain",
       "locations": "Africa, South Africa, Egypt, Asia, India",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -242,14 +242,14 @@
     },
     "reproduction": {
       "gestation_period": "Unknown",
-      "average_litter_size": "1",
+      "average_litter_size": "Unknown",
       "name_of_young": "pup"
     },
     "additional_info": {
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "Unknown",
+      "prey": "large wild hooved mammals as well as smaller animals, livestock, carrion , and garbage",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -263,7 +263,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:33.439043"
+    "last_updated": "2026-03-16T18:27:09.085859"
   },
   {
     "id": "Q25319",
@@ -307,7 +307,7 @@
     },
     "reproduction": {
       "gestation_period": "Unknown",
-      "average_litter_size": "1",
+      "average_litter_size": "Unknown",
       "name_of_young": "chick"
     },
     "additional_info": {
@@ -328,7 +328,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:35.954849"
+    "last_updated": "2026-03-16T18:27:11.906848"
   },
   {
     "id": "Q43306",
@@ -393,7 +393,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:38.339764"
+    "last_updated": "2026-03-16T18:27:14.484385"
   },
   {
     "id": "Q47164",
@@ -460,7 +460,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:40.538282"
+    "last_updated": "2026-03-16T18:27:17.273528"
   },
   {
     "id": "Q39709",
@@ -492,7 +492,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, lake, stream, sea",
+      "habitat": "Pacific, ocean, stream, river",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -506,14 +506,14 @@
     },
     "reproduction": {
       "gestation_period": "Unknown",
-      "average_litter_size": "1",
+      "average_litter_size": "Unknown",
       "name_of_young": "fry"
     },
     "additional_info": {
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "Unknown",
+      "prey": "plankton or fry from other fish species such as herring",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -527,7 +527,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:42.778793"
+    "last_updated": "2026-03-16T18:27:20.439432"
   },
   {
     "id": "Q7785",
@@ -559,7 +559,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, sea, temperate, coastal",
+      "habitat": "temperate, ocean, wetland, marsh",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -573,14 +573,14 @@
     },
     "reproduction": {
       "gestation_period": "Unknown",
-      "average_litter_size": "1",
+      "average_litter_size": "Unknown",
       "name_of_young": "hatchling"
     },
     "additional_info": {
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "Unknown",
+      "prey": "9",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -594,7 +594,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:45.131749"
+    "last_updated": "2026-03-16T18:27:23.326303"
   },
   {
     "id": "Q189609",
@@ -659,7 +659,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:47.547869"
+    "last_updated": "2026-03-16T18:27:26.627702"
   },
   {
     "id": "Q270238",
@@ -691,7 +691,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "river, lake, pond, swamp",
+      "habitat": "swamp, pond, river, sea",
       "locations": "North America, United States, Canada, Europe, Asia",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -705,14 +705,14 @@
     },
     "reproduction": {
       "gestation_period": "Unknown",
-      "average_litter_size": "1",
+      "average_litter_size": "Unknown",
       "name_of_young": "tadpole"
     },
     "additional_info": {
       "lifestyle": "Unknown",
       "color": "Unknown",
       "skin_type": "Unknown",
-      "prey": "Unknown",
+      "prey": "the young of several snakes, including the California endemic giant garter snake , a threatened spec",
       "slogan": "Unknown",
       "group": "Unknown",
       "number_of_species": "Unknown",
@@ -726,7 +726,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:49.881926"
+    "last_updated": "2026-03-16T18:27:29.746509"
   },
   {
     "id": "Q165980",
@@ -777,7 +777,7 @@
       "lifestyle": "Diurnal",
       "color": "BlackWhiteOrange",
       "skin_type": "Scales",
-      "prey": "Unknown",
+      "prey": "Toggle Threats subsection 13",
       "slogan": "Unknown",
       "group": "Invertebrates",
       "number_of_species": "3",
@@ -791,7 +791,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:52.457422"
+    "last_updated": "2026-03-16T18:27:33.334904"
   },
   {
     "id": "Q7316",
@@ -837,14 +837,14 @@
     },
     "reproduction": {
       "gestation_period": "Unknown",
-      "average_litter_size": "1",
+      "average_litter_size": "200",
       "name_of_young": "larva"
     },
     "additional_info": {
       "lifestyle": "Unknown",
       "color": "BrownYellowBlack",
       "skin_type": "Hair",
-      "prey": "Unknown",
+      "prey": "haemolymph",
       "slogan": "There are only 8 recognized species!",
       "group": "Unknown",
       "number_of_species": "8",
@@ -858,6 +858,6 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T18:11:55.447529"
+    "last_updated": "2026-03-16T18:27:37.325048"
   }
 ]

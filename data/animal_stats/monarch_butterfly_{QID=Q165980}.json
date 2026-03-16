@@ -47,7 +47,7 @@
     "lifestyle": "Diurnal",
     "color": "BlackWhiteOrange",
     "skin_type": "Scales",
-    "prey": "Unknown",
+    "prey": "Toggle Threats subsection 13",
     "slogan": "Unknown",
     "group": "Invertebrates",
     "number_of_species": "3",
@@ -61,5 +61,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T18:11:52.457422"
+  "last_updated": "2026-03-16T18:27:33.334904"
 }
