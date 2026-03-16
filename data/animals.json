@@ -3,9 +3,7 @@
     "id": "Q132186",
     "name": "Tiger",
     "scientific_name": "Panthera tigris",
-    "common_names": [
-      "Bengal Tiger"
-    ],
+    "common_names": [],
     "description": "The most numerous species of tiger!",
     "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
@@ -58,7 +56,12 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:16.765650"
+    "last_updated": "2026-03-16T15:19:16.319947",
+    "additional_info": {
+      "lifestyle": "Solitary",
+      "color": "BlackWhiteOrange",
+      "skin_type": "Fur"
+    }
   },
   {
     "id": "Q7372",
@@ -90,7 +93,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "forest, savanna, woodland, tropical",
+      "habitat": "rainforest, tropical, woodland",
       "locations": "Africa, Sub-Saharan Africa, Kenya, Tanzania, Zimbabwe",
       "group_behavior": "Social",
       "conservation_status": "Critically Endangered",
@@ -118,7 +121,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T02:04:19.574534"
+    "last_updated": "2026-03-16T15:19:19.328801"
   },
   {
     "id": "Q213537",
@@ -150,7 +153,7 @@
     },
     "ecology": {
       "diet": "Insectivore",
-      "habitat": "forest, savanna, grassland, coastal",
+      "habitat": "wetland, desert, grassland",
       "locations": "North America, Eurasia, Europe, Asia, Russia",
       "group_behavior": "Social",
       "conservation_status": "Endangered",
@@ -178,14 +181,14 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T02:04:22.189895"
+    "last_updated": "2026-03-16T15:19:23.393364"
   },
   {
     "id": "Q25319",
     "name": "Bald Eagle",
     "scientific_name": "Haliaeetus leucocephalus",
     "common_names": [
-      "Bald Eagle"
+      "bald eagle"
     ],
     "description": "Bird of prey species of North America",
     "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
@@ -238,7 +241,12 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:23.885402"
+    "last_updated": "2026-03-16T15:19:24.875532",
+    "additional_info": {
+      "prey": "Fish, birds, and small mammals",
+      "color": "BrownYellowWhite",
+      "number_of_species": "1"
+    }
   },
   {
     "id": "Q43306",
@@ -298,7 +306,16 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:25.302835"
+    "last_updated": "2026-03-16T15:19:26.265710",
+    "additional_info": {
+      "prey": "Fish, Krill, Squid",
+      "lifestyle": "Diurnal",
+      "color": "YellowBlackWhiteOrange",
+      "skin_type": "Feathers",
+      "estimated_population": "200,000 breeding pairs",
+      "number_of_species": "1",
+      "age_of_sexual_maturity": "3 - 8 years"
+    }
   },
   {
     "id": "Q47164",
@@ -360,7 +377,16 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:27.091282"
+    "last_updated": "2026-03-16T15:19:28.138588",
+    "additional_info": {
+      "prey": "Seals, Sea Lions, Dolphins",
+      "lifestyle": "Diurnal",
+      "color": "GreyBlackWhite",
+      "skin_type": "Tough",
+      "estimated_population": "Unknown",
+      "number_of_species": "1",
+      "age_of_sexual_maturity": "17 years"
+    }
   },
   {
     "id": "Q39709",
@@ -392,7 +418,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "ocean, Atlantic, stream, coastal",
+      "habitat": "sea, Atlantic, river, coastal",
       "locations": "North Atlantic, Canada, Alaska, United States, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -420,7 +446,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T02:04:29.414315"
+    "last_updated": "2026-03-16T15:19:30.872296"
   },
   {
     "id": "Q7785",
@@ -452,7 +478,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "ocean, coral reef, coastal, wetland",
+      "habitat": "sea, wetland, marsh, river",
       "locations": "Atlantic, Pacific, Indian Ocean, Caribbean, Mediterranean",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -480,7 +506,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T02:04:31.811612"
+    "last_updated": "2026-03-16T15:19:33.190043"
   },
   {
     "id": "Q189609",
@@ -540,7 +566,15 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:33.463672"
+    "last_updated": "2026-03-16T15:19:34.602138",
+    "additional_info": {
+      "prey": "Lizards, birds, other snakes",
+      "lifestyle": "Diurnal",
+      "color": "BrownYellowBlackGreen",
+      "skin_type": "Scales",
+      "estimated_population": "Unknown",
+      "number_of_species": "20"
+    }
   },
   {
     "id": "Q270238",
@@ -572,7 +606,7 @@
     },
     "ecology": {
       "diet": "Omnivore",
-      "habitat": "swamp, coastal, river, tropical",
+      "habitat": "sea, river, tropical, coastal",
       "locations": "Asia, China, Indonesia, Japan, Europe",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -598,7 +632,7 @@
       "Wikipedia",
       "iNaturalist"
     ],
-    "last_updated": "2026-03-16T02:04:35.869333"
+    "last_updated": "2026-03-16T15:19:37.159886"
   },
   {
     "id": "Q165980",
@@ -658,7 +692,14 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:37.808240"
+    "last_updated": "2026-03-16T15:19:38.990555",
+    "additional_info": {
+      "lifestyle": "Diurnal",
+      "color": "BlackWhiteOrange",
+      "skin_type": "Scales",
+      "number_of_species": "3",
+      "age_of_sexual_maturity": "4-5 days after emerging from pupa"
+    }
   },
   {
     "id": "Q7316",
@@ -720,7 +761,12 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:39.519795"
+    "last_updated": "2026-03-16T15:19:40.909820",
+    "additional_info": {
+      "color": "BrownYellowBlack",
+      "skin_type": "Hair",
+      "number_of_species": "8"
+    }
   },
   {
     "id": "Q35625",
@@ -780,7 +826,17 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:40.881623"
+    "last_updated": "2026-03-16T15:19:42.318478",
+    "additional_info": {
+      "prey": "Gazelle, Wildebeest, Hare",
+      "lifestyle": "Diurnal",
+      "color": "BrownYellowBlackTan",
+      "skin_type": "Fur",
+      "estimated_population": "8,500",
+      "number_of_species": "5",
+      "age_of_sexual_maturity": "20 - 24 months",
+      "age_of_weaning": "3 months"
+    }
   },
   {
     "id": "Q14373",
@@ -840,7 +896,17 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:42.560506"
+    "last_updated": "2026-03-16T15:19:44.099934",
+    "additional_info": {
+      "prey": "Leaves, Fruits, Seeds",
+      "lifestyle": "Diurnal",
+      "color": "BrownRedBlackWhiteTan",
+      "skin_type": "Hair",
+      "estimated_population": "Stable",
+      "number_of_species": "9",
+      "age_of_sexual_maturity": "3.5 - 4.5 years",
+      "age_of_weaning": "13 months"
+    }
   },
   {
     "id": "Q33602",
@@ -900,6 +966,16 @@
       "API Ninjas",
       "Wikipedia"
     ],
-    "last_updated": "2026-03-16T02:04:43.978053"
+    "last_updated": "2026-03-16T15:19:46.172620",
+    "additional_info": {
+      "prey": "Seal, Walrus, Seabirds",
+      "lifestyle": "Diurnal",
+      "color": "YellowWhite",
+      "skin_type": "Fur",
+      "estimated_population": "20,000 - 25,000",
+      "number_of_species": "1",
+      "age_of_sexual_maturity": "3 - 5 years",
+      "age_of_weaning": "2 - 3 years"
+    }
   }
 ]
