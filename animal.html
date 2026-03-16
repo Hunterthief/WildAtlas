@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     
+    <!-- Google Model Viewer for 3D Models -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -135,8 +138,41 @@
 
             <!-- CENTER COLUMN -->
             <div class="center-column">
-                <div class="hero-image-wrapper" id="hero-image-wrapper">
+                <div class="hero-media-wrapper" id="hero-media-wrapper">
+                    
+                    <!-- 3D Model Viewer (Primary) -->
+                    <model-viewer 
+                        id="animal-3d-model"
+                        class="hero-3d-model"
+                        src=""
+                        alt="3D model of animal"
+                        auto-rotate
+                        camera-controls
+                        touch-action="pan-y"
+                        shadow-intensity="1"
+                        environment-image="neutral"
+                        exposure="1"
+                        style="display: none;"
+                    >
+                        <div class="model-viewer-loading" slot="progress-bar">
+                            <div class="loading-bar"></div>
+                        </div>
+                    </model-viewer>
+                    
+                    <!-- Wikipedia Image (Fallback) -->
                     <img id="animal-image" class="hero-image" src="" alt="Animal">
+                    
+                    <!-- 3D Toggle Button -->
+                    <button class="view-toggle" id="view-toggle" style="display: none;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                        <span id="view-toggle-text">View 3D Model</span>
+                    </button>
+                    
+                    <!-- Scroll Indicator -->
                     <div class="scroll-indicator" id="scroll-indicator">
                         <span>Scroll down</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -328,7 +364,7 @@
 
         <!-- Credits -->
         <section class="credits-section">
-            <p>Data sourced from Wikipedia, iNaturalist & API Ninjas</p>
+            <p>3D models from Sketchfab | Data from Wikipedia, iNaturalist & API Ninjas</p>
         </section>
 
     </main>
