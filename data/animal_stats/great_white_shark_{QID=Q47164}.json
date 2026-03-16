@@ -8,7 +8,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
   "wikipedia_sections": {
-    "etymology": "",
+    "etymology": "Great white shark - \",\" from December 2025\",\"\",\" with auto scaled images\",\" with unknown parameters\",\"Commons category link from \",\"Good articles\",\"Taxonbars with automatically added original combinations\",\"Taxonbars with 25–29 taxon IDs\",\" Cite IUCN without doi CS1 maint: DOI inactive as of September 2025 CS1 maint: article number as page number CS1 maint: deprecated archival service CS1 maint: url-status with auto scaled images with unknown parameters Commons category link from Good articles Taxonbars with automatically added original combinations Taxonbars with 25–29 taxon IDs Articles containing video clips This page was last edited on 16 March 2026, at 20:54 &#160;(UTC) . Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply.",
     "description": "",
     "distribution": "",
     "habitat": "",
@@ -16,7 +16,7 @@
     "behavior": "",
     "reproduction": "",
     "threats": "",
-    "conservation": "with auto scaled images with unknown parameters Commons category link from Good articles Taxonbars with automatically added original combinations Taxonbars with 25–29 taxon IDs Articles containing video clips This page was last edited on 16 March 2026, at 20:53 &#160;(UTC) . Text is available under the Creative Commons Attribution-ShareAlike 4.0 License ; additional terms may apply. By using this site, you agree to the Terms of \\\"] = 1,\\n [\\\"Wikispecies\\\"] = 1,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-api-ext.codfw.main-86c97fbb9-m44jh\",\"timestamp\":\"20260316205402\",\"ttl\":14400,\"transientcontent\":true,\"expiry-source\":\"Module:Citation/CS1 (setTTL)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Great white shark\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Great_white_shark\",\"sameAs\":\"http:\\/\\/www.org\\/entity\\/Q129026\",\"mainEntity\":\"http:\\/\\/www."
+    "conservation": ""
   },
   "classification": {
     "kingdom": "Animalia",
@@ -70,5 +70,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T22:27:59.721047"
+  "last_updated": "2026-03-16T22:34:36.305243"
 }

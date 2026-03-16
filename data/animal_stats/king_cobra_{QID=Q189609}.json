@@ -8,9 +8,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
   "wikipedia_sections": {
-    "etymology": "",
+    "etymology": "King cobra - \",\" from August 2021\",\"\",\"Taxonbars with multiple manual items\",\"IUCN Red List vulnerable species\",\"Fauna listed on CITES Appendix II\",\"Apex predators\",\"Elapidae\",\"Reptiles of Borneo\",\"National symbols of India\",\"Reptiles described in 1836\",\"Reptiles of Bangladesh\",\"Reptiles of Bhutan\",\"Reptiles of Brunei\",\"Reptiles of Cambodia\",\"Reptiles of Hong Kong\",\"Snakes of India\",\"Reptiles of Laos\",\"Reptiles of Nepal\",\"Reptiles of the Philippines\",\"Snakes of China\",\"Snakes of Indonesia\",\"Snakes of Malaysia\",\"Snakes of Myanmar\",\"Snakes of Singapore\",\"Snakes of Thailand\",\"Snakes of Vietnam\",\"Taxa named by Theodore Edward Cantor\"],\"wgPageViewLanguage\":\"en\",\"wgPageContentLanguage\":\"en\",\"wgPageContentModel\":\"wikitext\",\"wgRelevantPageName\":\"King_cobra\",\"wgRelevantArticleId\":168503,\"wgTemp fro.",
     "description": "",
-    "distribution": "",
+    "distribution": "Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.",
     "habitat": "",
     "hunting_diet": "",
     "behavior": "",
@@ -42,7 +42,7 @@
     "habitat": "Forest, shrublands, wetlands",
     "locations": "Asia",
     "group_behavior": "",
-    "conservation_status": "",
+    "conservation_status": "Vulnerable",
     "biggest_threat": "Poaching, habitat loss",
     "distinctive_features": [
       "An expanding hood"
@@ -72,5 +72,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T22:28:07.648766"
+  "last_updated": "2026-03-16T22:34:43.104800"
 }

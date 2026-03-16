@@ -8,7 +8,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikipedia_sections": {
-    "etymology": "",
+    "etymology": "Tiger - \",\"\",\" from May 2024\",\" from May 2024 \\\"] = 1,\\n [\\\"Wikijunior\\\"] = 1,\\n [\\\"Wikiquote-inline\\\"] = 1,\\n [\\\"Wikivoyage inline\\\"] = 1,\\n}\\narticle_whitelist = table#1 {\\n}\\nciteref_patterns = table#1 {\\n}\\n\"},\"cachereport\":{\"origin\":\"mw-web.eqiad.main-d6795c69-ghts8\",\"timestamp\":\"20260316200626\",\"ttl\":14400,\"transientcontent\":true,\"expiry-source\":\"Module:Portal_bar (setTTL)\"}}});}); {\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Article\",\"name\":\"Tiger\",\"url\":\"https:\\/\\/en.wikipedia.org\\/wiki\\/Tiger\",\"sameAs\":\"http:\\/\\/www..org\\/entity\\/Q19939\",\"mainEntity\":\"http:\\/\\/www..org\\/entity\\/Q19939\",\"author\":{\"@type\":\"Organization\",\"name\":\"Contributors to Wikimedia projects\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Wikimedia Foundation, Inc.",
     "description": "",
     "distribution": "",
     "habitat": "",
@@ -70,5 +70,5 @@
     "Wikipedia",
     "iNaturalist"
   ],
-  "last_updated": "2026-03-16T22:27:44.710645"
+  "last_updated": "2026-03-16T22:34:21.965122"
 }
