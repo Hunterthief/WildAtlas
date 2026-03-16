@@ -318,12 +318,12 @@ async function fetchAnimals() {
 // Organize animals by type into sections
 function organizeByType(animals) {
     const typeMappings = {
-        'mammal': [' mammal ', ' mammalia ', ' feline ', ' canine ', ' bear ', ' elephant ', ' primate ', ' whale ', ' deer ', ' bovine ', ' equine ', ' rabbit ', ' rodent ', ' bat ', ' giraffe ', ' cheetah '],
-        'bird': [' bird ', ' aves ', ' raptor ', ' owl ', ' penguin ', ' chicken ', 'duck ', ' goose ', ' swan ', ' eagle '],
-        'reptile': [' reptile ', ' reptilia ', ' snake ', ' lizard ', ' turtle ', ' crocodile '],
-        'fish': [' fish ', ' shark ', ' ray ', ' salmon '],
-        'amphibian': [' amphibian ', ' amphibia ', ' frog ', ' salamander '],
-        'insect': [' insect ', ' insecta ', ' butterfly ', ' bee ', ' ant ', ' spider ', ' crab ']
+        'mammal': ['mammal', 'mammalia', 'feline', 'canine', 'bear', 'elephant', 'primate', 'whale', 'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat', 'giraffe', 'cheetah'],
+        'bird': ['bird', 'aves', 'raptor', 'owl', 'penguin', 'chicken', 'duck', 'goose', 'swan', 'eagle'],
+        'reptile': ['reptile', 'reptilia', 'snake', 'lizard', 'turtle', 'crocodile'],
+        'fish': ['fish', 'shark', 'ray', 'salmon'],
+        'amphibian': ['amphibian', 'amphibia', 'frog', 'salamander'],
+        'insect': ['insect', 'insecta', 'butterfly', 'bee', 'ant', 'spider', 'crab']
     };
     
     // Clear all grids
@@ -395,12 +395,12 @@ function renderAnimalCard(animal, type) {
 // Filter animals across all sections
 function filterAnimals(query) {
     const typeMappings = {
-        'mammal': [' mammal ', ' mammalia ', ' feline ', ' canine ', ' bear ', ' elephant ', ' primate ', ' whale ', ' deer ', ' bovine ', ' equine ', ' rabbit ', ' rodent ', ' bat ', ' giraffe ', ' cheetah '],
-        'bird': [' bird ', ' aves ', ' raptor ', ' owl ', ' penguin ', ' chicken ', ' duck ', ' goose ', ' swan ', ' eagle '],
-        'reptile': [' reptile ', ' reptilia ', ' snake ', ' lizard ', ' turtle ', ' crocodile '],
-        'fish': [' fish ', ' shark ', ' ray ', ' salmon '],
-        'amphibian': [' amphibian ', ' amphibia ', ' frog ', ' salamander '],
-        'insect': [' insect ', ' insecta ', ' butterfly ', ' bee ', ' ant ', ' spider ', ' crab ']
+        'mammal': ['mammal', 'mammalia', 'feline', 'canine', 'bear', 'elephant', 'primate', 'whale', 'deer', 'bovine', 'equine', 'rabbit', 'rodent', 'bat', 'giraffe', 'cheetah'],
+        'bird': ['bird', 'aves', 'raptor', 'owl', 'penguin', 'chicken', 'duck', 'goose', 'swan', 'eagle'],
+        'reptile': ['reptile', 'reptilia', 'snake', 'lizard', 'turtle', 'crocodile'],
+        'fish': ['fish', 'shark', 'ray', 'salmon'],
+        'amphibian': ['amphibian', 'amphibia', 'frog', 'salamander'],
+        'insect': ['insect', 'insecta', 'butterfly', 'bee', 'ant', 'spider', 'crab']
     };
     
     if (!query) {
@@ -790,37 +790,37 @@ function getTimePeriod(animal) {
     let text = '';
     let width = '50%';
     
-    if (classType.includes(' mammal ') || animalType.includes(' cat ') || animalType.includes(' feline ') || 
-        animalType.includes(' dog ') || animalType.includes(' canine ') || animalType.includes(' elephant ') ||
-        animalType.includes(' wolf ') || animalType.includes(' tiger ')) {
+    if (classType.includes('mammal') || animalType.includes('cat') || animalType.includes('feline') || 
+        animalType.includes('dog') || animalType.includes('canine') || animalType.includes('elephant') ||
+        animalType.includes('wolf') || animalType.includes('tiger')) {
         millionsYears = 200;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '85%';
     }
-    else if (classType.includes(' aves ') || animalType.includes(' bird ') || animalType.includes(' eagle ') || 
-             animalType.includes(' penguin ') || animalType.includes(' raptor ')) {
+    else if (classType.includes('aves') || animalType.includes('bird') || animalType.includes('eagle') || 
+             animalType.includes('penguin') || animalType.includes('raptor')) {
         millionsYears = 150;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '75%';
     }
-    else if (classType.includes(' reptil ') || animalType.includes(' snake ') || animalType.includes(' turtle ') ||
-             animalType.includes(' cobra ')) {
+    else if (classType.includes('reptil') || animalType.includes('snake') || animalType.includes('turtle') ||
+             animalType.includes('cobra')) {
         millionsYears = 300;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '90%';
     }
-    else if (classType.includes(' fish ') || classType.includes(' chondrichthyes ') || classType.includes(' actinopterygii ') ||
+    else if (classType.includes('fish') || classType.includes('chondrichthyes') || classType.includes('actinopterygii') ||
              animalType.includes('shark') || animalType.includes('salmon')) {
         millionsYears = 500;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '95%';
     }
-    else if (classType.includes(' amphib ') || animalType.includes(' frog ')) {
+    else if (classType.includes('amphib') || animalType.includes('frog')) {
         millionsYears = 370;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '92%';
     }
-    else if (classType.includes(' insect ') || animalType.includes(' butterfly ') || animalType.includes(' bee ')) {
+    else if (classType.includes('insect') || animalType.includes('butterfly') || animalType.includes('bee')) {
         millionsYears = 400;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '93%';
@@ -930,7 +930,7 @@ function generateBehaviorText(animal, summary) {
     }
     
     if (summary) {
-        const behaviorKeywords = [' hunt ', ' feed ', ' live ', ' behavior ', ' social ', ' group ', ' solitary '];
+        const behaviorKeywords = ['hunt', 'feed', 'live', 'behavior', 'social', 'group', 'solitary'];
         const sentences = summary.split('.');
         for (const sentence of sentences) {
             if (behaviorKeywords.some(k => sentence.toLowerCase().includes(k))) {
@@ -1064,7 +1064,7 @@ function generateFeaturesFAQ(animal) {
 
 function generateDangerFAQ(animal) {
     const animalType = animal.animal_type?.toLowerCase() || '';
-    const dangerousTypes = [' feline ', ' canine ', ' bear ', ' shark ', ' snake ', ' crocodile ', ' raptor '];
+    const dangerousTypes = ['feline', 'canine', 'bear', 'shark', 'snake', 'crocodile', 'raptor'];
     
     if (dangerousTypes.includes(animalType)) {
         return `${animal.name} can be dangerous to humans if threatened or provoked. It is best to observe from a safe distance and never approach wild animals.`;
@@ -1137,7 +1137,7 @@ function getDietTypes(diet, animalType, summary) {
         summaryLower.includes('predator') ||
         summaryLower.includes('preys on') ||
         summaryLower.includes('hunts') ||
-        [' feline ', ' canine ', ' bear ', ' shark ', ' raptor ', ' snake ', ' crocodile '].includes(typeLower)) {
+        ['feline', 'canine', 'bear', 'shark', 'raptor', 'snake', 'crocodile'].includes(typeLower)) {
         types.push({ class: 'carnivore', icon: '🥩', title: 'Meat' });
     }
     
@@ -1147,7 +1147,7 @@ function getDietTypes(diet, animalType, summary) {
         summaryLower.includes('grazes') ||
         summaryLower.includes('foliage') ||
         summaryLower.includes('vegetation') ||
-        [' elephant ', ' bovine ', ' deer ', ' rabbit ', ' turtle '].includes(typeLower)) {
+        ['elephant', 'bovine', 'deer', 'rabbit', 'turtle'].includes(typeLower)) {
         types.push({ class: 'herbivore', icon: '🌿', title: 'Plants' });
     }
     
@@ -1157,7 +1157,7 @@ function getDietTypes(diet, animalType, summary) {
         summaryLower.includes('fish') ||
         summaryLower.includes('salmon') ||
         summaryLower.includes('marine') ||
-        [' shark ', ' eagle ', ' penguin ', ' bear ', ' seal ', ' otter '].includes(typeLower)) {
+        ['shark', 'eagle', 'penguin', 'bear', 'seal', 'otter'].includes(typeLower)) {
         types.push({ class: 'piscivore', icon: '🐟', title: 'Fish' });
     }
     
@@ -1166,7 +1166,7 @@ function getDietTypes(diet, animalType, summary) {
         summaryLower.includes('insects') ||
         summaryLower.includes('bugs') ||
         summaryLower.includes('arthropods') ||
-        [' frog ', ' bat ', ' spider ', ' lizard ', ' bird '].includes(typeLower)) {
+        ['frog', 'bat', 'spider', 'lizard', 'bird'].includes(typeLower)) {
         types.push({ class: 'insectivore', icon: '🐛', title: 'Insects' });
     }
     
@@ -1174,21 +1174,21 @@ function getDietTypes(diet, animalType, summary) {
     if (dietLower.includes('omnivore') || 
         summaryLower.includes('varied diet') ||
         summaryLower.includes('both plants and animals') ||
-        [' bear ', ' pig ', ' raccoon ', ' crow '].includes(typeLower)) {
+        ['bear', 'pig', 'raccoon', 'crow'].includes(typeLower)) {
         types.push({ class: 'omnivore', icon: '🍽️', title: 'Omnivore' });
     }
     
     // NECTARIVORE / NECTAR
     if (summaryLower.includes('nectar') ||
         summaryLower.includes('pollinator') ||
-        [' butterfly ', ' bee ', ' hummingbird '].includes(typeLower)) {
+        ['butterfly', 'bee', 'hummingbird'].includes(typeLower)) {
         types.push({ class: 'nectarivore', icon: '🌸', title: 'Nectar' });
     }
     
     // SCAVENGER
     if (summaryLower.includes('scavenger') ||
         summaryLower.includes('carrion') ||
-        [' vulture ', ' hyena '].includes(typeLower)) {
+        ['vulture', 'hyena'].includes(typeLower)) {
         types.push({ class: 'scavenger', icon: '🦴', title: 'Scavenger' });
     }
     
