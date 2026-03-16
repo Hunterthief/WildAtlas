@@ -1,420 +1,341 @@
 # generator/generate_animals.py
-"""
-WildAtlas Animal Data Generator
-
-Main entry point that orchestrates data generation from MULTIPLE sources:
-1. API Ninjas (primary - structured data with ALL fields)
-2. Wikidata SPARQL (secondary - structured data)
-3. IUCN Red List (conservation status & threats)
-4. Wikipedia + Regex (fallback - text extraction)
-"""
-
-import json
-import time
-import os
-import sys
+import requests, json, time, os, re
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Any, Optional, List
-
-# Import modular components
-from modules.fetchers import fetch_wikipedia_summary, fetch_wikipedia_full, fetch_inaturalist
-from modules.detectors import detect_animal_type, get_young_name, get_group_name
-from modules.cache import load_cache, save_cache
-
-# Import data source modules
-try:
-    from modules.api_ninjas import fetch_animal_data as fetch_api_ninjas
-    API_NINJAS_AVAILABLE = True
-except ImportError:
-    API_NINJAS_AVAILABLE = False
-    print(" ⚠ API Ninjas module not available")
-
-try:
-    from modules.wikidata_query import query_wikidata_animal
-    WIKIDATA_AVAILABLE = True
-except ImportError:
-    WIKIDATA_AVAILABLE = False
-    print(" ⚠ Wikidata module not available")
-
-# IUCN Red List API
-try:
-    from modules.iucn_redlist import fetch_iucn_data
-    IUCN_AVAILABLE = True
-except ImportError:
-    IUCN_AVAILABLE = False
-    print(" ⚠ IUCN module not available")
-
-# Import extractors from their sub-packages (fallback only)
-from modules.extractors.stats import (
-    extract_weight, extract_length, extract_height, extract_lifespan, extract_speed
-)
-from modules.extractors.ecology import (
-    extract_diet, extract_conservation, extract_locations,
-    extract_habitat, extract_features, extract_behavior, extract_threats
-)
-from modules.extractors.reproduction import (
-    extract_gestation, extract_litter_size
-)
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
 
 # Setup
 os.makedirs("data", exist_ok=True)
+os.makedirs("data/animal_stats", exist_ok=True)
 CONFIG_DIR = Path(__file__).parent / "config"
-CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
+session = requests.Session()
+retry = Retry(total=5, backoff_factor=2, status_forcelist=[429, 500, 502, 503, 504])
+session.mount("https://", HTTPAdapter(max_retries=retry))
+headers = {"User-Agent": "WildAtlasBot/1.0 (contact@example.com)", "Accept": "application/json"}
 
-# API Keys (set in environment or config)
-API_NINJAS_KEY = os.environ.get("API_NINJAS_KEY", "")
-IUCN_API_KEY = os.environ.get("IUCN_API_KEY", "")
+WIKI_API = "https://en.wikipedia.org/api/rest_v1/page/summary/"
+WIKI_MOBILE = "https://en.m.wikipedia.org/wiki/"
+INAT_API = "https://api.inaturalist.org/v1/taxa"
+NINJA_API = "https://api.api-ninjas.com/v1/animals"
 
+# ============================================================================
+# LOAD CONFIG FILES
+# ============================================================================
 
 def load_config(filename):
-    """Load configuration from JSON file"""
     config_path = CONFIG_DIR / filename
     if config_path.exists():
         with open(config_path, "r", encoding="utf-8") as f:
             return json.load(f)
     return {}
 
+ANIMAL_TYPES = load_config("animal_types.json")
+YOUNG_NAMES = load_config("young_names.json")
+GROUP_NAMES = load_config("group_names.json")
+LOCATIONS = load_config("locations.json")
+HABITATS = load_config("habitats.json")
+FEATURES = load_config("features.json")
+DIETS = load_config("diets.json")
 
-def initialize_animal_data(qid, name, sci):
-    """Initialize empty animal data structure"""
-    return {
-        "id": qid, "name": name, "scientific_name": sci, "common_names": [],
-        "description": None, "summary": None, "image": None, "wikipedia_url": None,
-        "classification": {f: None for f in CLASSIFICATION_FIELDS},
-        "animal_type": None, "young_name": None, "group_name": None,
-        "physical": {"weight": None, "length": None, "height": None, "top_speed": None, "lifespan": None},
-        "ecology": {"diet": None, "habitat": None, "locations": None, "group_behavior": None,
-                    "conservation_status": None, "biggest_threat": None, "distinctive_features": None,
-                    "population_trend": None},
-        "reproduction": {"gestation_period": None, "average_litter_size": None, "name_of_young": None},
-        "additional_info": {},
-        "sources": [], "last_updated": None
+# ============================================================================
+# NINJA API FETCHING
+# ============================================================================
+
+def fetch_ninja_animal(name):
+    try:
+        ninja_headers = {"X-Api-Key": os.environ.get("NINJA_API_KEY", "")}
+        r = session.get(f"{NINJA_API}?name={name.replace(' ', '%20')}", 
+                       headers={**headers, **ninja_headers}, timeout=30)
+        if r.status_code == 200:
+            data = r.json()
+            if data and len(data) > 0:
+                return data[0]
+    except Exception as e:
+        print(f" ⚠ Ninja API error: {e}")
+    return None
+
+# ============================================================================
+# ANIMAL TYPE DETECTION
+# ============================================================================
+
+def detect_animal_type(name, classification=None):
+    name_lower = name.lower()
+    priority_types = ["raptor", "owl", "duck", "goose", "swan", "chicken", "penguin",
+                     "shark", "ray", "salmon", "frog", "salamander", "snake", "lizard",
+                     "turtle", "crocodile", "butterfly", "bee", "ant", "spider", "crab",
+                     "feline", "canine", "bear", "elephant", "primate", "rodent",
+                     "bat", "whale", "deer", "bovine", "equine", "rabbit"]
+
+    for animal_type in priority_types:
+        config = ANIMAL_TYPES.get(animal_type, {})
+        keywords = config.get("keywords", [])
+        for keyword in keywords:
+            if keyword in name_lower:
+                return animal_type
+
+    if classification:
+        class_name = classification.get("class", "").lower()
+        order_name = classification.get("order", "").lower()
+        family_name = classification.get("family", "").lower()
+
+        if "mammalia" in class_name:
+            if "carnivora" in order_name:
+                if "felidae" in family_name or any(w in name_lower for w in ["cat", "tiger", "lion", "leopard", "cheetah", "jaguar"]):
+                    return "feline"
+                if "canidae" in family_name or any(w in name_lower for w in ["dog", "wolf", "fox", "jackal", "coyote"]):
+                    return "canine"
+                if "ursidae" in family_name or "bear" in name_lower:
+                    return "bear"
+            elif "proboscidea" in order_name or "elephant" in name_lower:
+                return "elephant"
+            elif "primates" in order_name:
+                return "primate"
+            elif "cetacea" in order_name:
+                return "whale"
+            elif "artiodactyla" in order_name:
+                if any(w in name_lower for w in ["deer", "elk", "moose"]):
+                    return "deer"
+                if any(w in name_lower for w in ["cow", "bison", "buffalo", "ox"]):
+                    return "bovine"
+                if any(w in name_lower for w in ["horse", "zebra", "donkey"]):
+                    return "equine"
+            elif "lagomorpha" in order_name:
+                return "rabbit"
+            elif "chiroptera" in order_name:
+                return "bat"
+            elif "rodentia" in order_name:
+                return "rodent"
+            return "mammal"
+        elif "aves" in class_name:
+            if any(w in name_lower for w in ["eagle", "hawk", "falcon", "vulture", "kite"]):
+                return "raptor"
+            if "owl" in name_lower:
+                return "owl"
+            if any(w in name_lower for w in ["duck", "mallard"]):
+                return "duck"
+            if "penguin" in name_lower:
+                return "penguin"
+            return "bird"
+        elif "actinopterygii" in class_name or "chondrichthyes" in class_name:
+            if any(w in name_lower for w in ["shark"]):
+                return "shark"
+            if any(w in name_lower for w in ["ray", "stingray", "manta"]):
+                return "ray"
+            if any(w in name_lower for w in ["salmon", "trout", "tuna"]):
+                return "salmon"
+            return "fish"
+        elif "amphibia" in class_name:
+            if any(w in name_lower for w in ["frog", "toad"]):
+                return "frog"
+            return "salamander"
+        elif "reptilia" in class_name:
+            if any(w in name_lower for w in ["snake", "cobra", "python", "viper"]):
+                return "snake"
+            if any(w in name_lower for w in ["turtle", "tortoise", "terrapin"]):
+                return "turtle"
+            return "reptile"
+        elif "insecta" in class_name:
+            if any(w in name_lower for w in ["butterfly", "moth"]):
+                return "butterfly"
+            if any(w in name_lower for w in ["bee", "wasp", "hornet"]):
+                return "bee"
+            if "ant" in name_lower:
+                return "ant"
+            return "insect"
+        elif "arachnida" in class_name:
+            return "spider"
+        elif "crustacea" in class_name:
+            return "crab"
+
+    return "default"
+
+def get_young_name(animal_type):
+    return YOUNG_NAMES.get(animal_type, YOUNG_NAMES.get("default", "young"))
+
+def get_group_name(animal_type):
+    return GROUP_NAMES.get(animal_type, GROUP_NAMES.get("default", "population"))
+
+# ============================================================================
+# WIKIPEDIA FETCHING
+# ============================================================================
+
+def fetch_wikipedia_summary(name):
+    try:
+        r = session.get(f"{WIKI_API}{name.replace(' ', '_')}", headers=headers, timeout=15)
+        if r.status_code == 200:
+            d = r.json()
+            return {
+                "summary": d.get("extract", "Unknown"),
+                "description": d.get("description", "Unknown"),
+                "image": d.get("thumbnail", {}).get("source", "").strip(),
+                "url": d.get("content_urls", {}).get("desktop", {}).get("page", "").strip()
+            }
+    except Exception as e:
+        print(f" ⚠ Wikipedia summary error: {e}")
+    return {"summary": "Unknown", "description": "Unknown", "image": "", "url": "Unknown"}
+
+# ============================================================================
+# FILE NAMING & CACHING
+# ============================================================================
+
+def get_animal_filename(name, qid):
+    clean_name = name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
+    return f"{clean_name}_{{QID={qid}}}.json"
+
+def load_cache(qid, name=None):
+    if name:
+        filename = get_animal_filename(name, qid)
+        f = f"data/animal_stats/{filename}"
+        if os.path.exists(f):
+            try:
+                with open(f, "r", encoding="utf-8") as fp:
+                    return json.load(fp)
+            except:
+                pass
+    return None
+
+def save_animal_file(data, name, qid):
+    filename = get_animal_filename(name, qid)
+    filepath = f"data/animal_stats/{filename}"
+    
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    
+    print(f" 💾 Saved: {filename}")
+    return filepath
+
+# ============================================================================
+# BUILD ANIMAL DATA (NO NULLS - ALL NINJA API FIELDS INCLUDED)
+# ============================================================================
+
+def build_animal_data(ninja_data, wiki_data, qid, animal_type):
+    data = {
+        "id": qid,
+        "name": ninja_data.get("name", "Unknown"),
+        "scientific_name": "Unknown",
+        "common_names": [],
+        "description": wiki_data.get("description", "Unknown"),
+        "summary": wiki_data.get("summary", "Unknown"),
+        "image": wiki_data.get("image", ""),
+        "wikipedia_url": wiki_data.get("url", "Unknown"),
+        "classification": {
+            "kingdom": "Unknown",
+            "phylum": "Unknown",
+            "class": "Unknown",
+            "order": "Unknown",
+            "family": "Unknown",
+            "genus": "Unknown",
+            "species": "Unknown"
+        },
+        "animal_type": animal_type,
+        "young_name": get_young_name(animal_type),
+        "group_name": get_group_name(animal_type),
+        "physical": {
+            "weight": "Unknown",
+            "length": "Unknown",
+            "height": "Unknown",
+            "top_speed": "Unknown",
+            "lifespan": "Unknown"
+        },
+        "ecology": {
+            "diet": "Unknown",
+            "habitat": "Unknown",
+            "locations": "Unknown",
+            "group_behavior": "Unknown",
+            "conservation_status": "Unknown",
+            "biggest_threat": "Unknown",
+            "distinctive_features": [],
+            "population_trend": "Unknown"
+        },
+        "reproduction": {
+            "gestation_period": "Unknown",
+            "average_litter_size": "Unknown",
+            "name_of_young": get_young_name(animal_type)
+        },
+        "additional_info": {
+            "lifestyle": "Unknown",
+            "color": "Unknown",
+            "skin_type": "Unknown",
+            "prey": "Unknown",
+            "slogan": "Unknown",
+            "group": "Unknown",
+            "number_of_species": "Unknown",
+            "estimated_population_size": "Unknown",
+            "age_of_sexual_maturity": "Unknown",
+            "age_of_weaning": "Unknown",
+            "most_distinctive_feature": "Unknown"
+        },
+        "sources": [],
+        "last_updated": datetime.now().isoformat()
     }
 
+    # ========== MERGE NINJA API DATA (ALL FIELDS) ==========
+    if ninja_data:
+        taxonomy = ninja_data.get("taxonomy", {})
+        if taxonomy:
+            data["classification"]["kingdom"] = taxonomy.get("kingdom", "Unknown")
+            data["classification"]["phylum"] = taxonomy.get("phylum", "Unknown")
+            data["classification"]["class"] = taxonomy.get("class", "Unknown")
+            data["classification"]["order"] = taxonomy.get("order", "Unknown")
+            data["classification"]["family"] = taxonomy.get("family", "Unknown")
+            data["classification"]["genus"] = taxonomy.get("genus", "Unknown")
+            data["scientific_name"] = taxonomy.get("scientific_name", data["scientific_name"])
+            data["classification"]["species"] = taxonomy.get("scientific_name", "Unknown")
 
-def merge_data(primary: Dict, secondary: Dict) -> Dict:
-    """
-    Merge secondary data into primary, filling in null values.
-    API Ninjas data takes precedence for physical/ecology fields.
-    """
-    merged = primary.copy()
-    
-    for key, value in secondary.items():
-        if key == "sources":
-            # Merge sources lists
-            existing = merged.get("sources", [])
-            for src in value:
-                if src not in existing:
-                    existing.append(src)
-            merged["sources"] = existing
-        elif key == "physical" and isinstance(value, dict):
-            # Merge physical stats - API Ninjas takes precedence
-            if "physical" not in merged:
-                merged["physical"] = {}
-            for sub_key, sub_value in value.items():
-                if sub_value and sub_value != "None":
-                    merged["physical"][sub_key] = sub_value
-        elif key == "ecology" and isinstance(value, dict):
-            # Merge ecology - API Ninjas takes precedence
-            if "ecology" not in merged:
-                merged["ecology"] = {}
-            for sub_key, sub_value in value.items():
-                if sub_value and sub_value != "None":
-                    merged["ecology"][sub_key] = sub_value
-        elif key == "reproduction" and isinstance(value, dict):
-            # Merge reproduction - API Ninjas takes precedence
-            if "reproduction" not in merged:
-                merged["reproduction"] = {}
-            for sub_key, sub_value in value.items():
-                if sub_value and sub_value != "None":
-                    merged["reproduction"][sub_key] = sub_value
-        elif key == "additional_info" and isinstance(value, dict):
-            # Merge additional info
-            if "additional_info" not in merged:
-                merged["additional_info"] = {}
-            for sub_key, sub_value in value.items():
-                if sub_value and sub_value != "None":
-                    merged["additional_info"][sub_key] = sub_value
-        elif key == "classification" and isinstance(value, dict):
-            # Merge classification - keep both, prefer non-null
-            if "classification" not in merged:
-                merged["classification"] = {}
-            for sub_key, sub_value in value.items():
-                if sub_value and sub_value != "None":
-                    merged["classification"][sub_key] = sub_value
-        elif value and value != "None" and value != "" and not merged.get(key):
-            # Simple field - only set if primary is empty
-            merged[key] = value
-    
-    return merged
+        locations = ninja_data.get("locations", [])
+        if locations and len(locations) > 0:
+            data["ecology"]["locations"] = ", ".join(locations)
+        
+        single_location = ninja_data.get("characteristics", {}).get("location", "")
+        if single_location and single_location != data["ecology"]["locations"]:
+            if data["ecology"]["locations"] == "Unknown":
+                data["ecology"]["locations"] = single_location
 
+        chars = ninja_data.get("characteristics", {})
+        if chars:
+            data["physical"]["weight"] = chars.get("weight", "Unknown")
+            data["physical"]["height"] = chars.get("height", "Unknown")
+            data["physical"]["top_speed"] = chars.get("top_speed", "Unknown")
+            data["physical"]["lifespan"] = chars.get("lifespan", "Unknown")
 
-def finalize_animal_data(data: Dict, animal_type: str) -> Dict:
-    """
-    Final cleanup and validation of animal data.
-    Ensures consistency across all fields.
-    """
-    
-    # Ensure name_of_young is set in reproduction from root young_name
-    if data.get("young_name") and not data["reproduction"].get("name_of_young"):
-        data["reproduction"]["name_of_young"] = data["young_name"]
-    
-    # Ensure group_behavior matches known social patterns
-    social_types = ['elephant', 'bee', 'ant', 'penguin', 'canine', 'whale', 'primate']
-    if animal_type in social_types and data["ecology"].get("group_behavior") == "Solitary":
-        data["ecology"]["group_behavior"] = "Social"
-    
-    # Filter out "sea", "ocean", "lake" habitat for land animals
-    land_types = ['feline', 'canine', 'bear', 'elephant', 'deer', 'bovine', 'equine', 
-                  'rabbit', 'rodent', 'primate', 'giraffe', 'cheetah']
-    if animal_type in land_types:
-        habitat = data["ecology"].get("habitat", "")
-        if habitat:
-            habitats = [h.strip() for h in habitat.split(",")]
-            filtered = [h for h in habitats if h.lower() not in ['sea', 'ocean', 'marine', 'lake']]
-            data["ecology"]["habitat"] = ", ".join(filtered) if filtered else habitat
-    
-    # Remove invalid distinctive features
-    invalid_features = {
-        'feline': ['mane', 'horn', 'antler', 'shell', 'fin'],
-        'elephant': ['mane', 'horn', 'shell', 'fin', 'wing'],
-        'canine': ['mane', 'horn', 'antler', 'shell', 'fin', 'wing'],
-        'frog': ['mane', 'horn', 'tail', 'fur', 'feather'],
-        'butterfly': ['fur', 'fin', 'shell', 'mane'],
-        'bee': ['fur', 'fin', 'shell', 'mane', 'tail'],
-    }
-    
-    if animal_type in invalid_features:
-        features = data["ecology"].get("distinctive_features", [])
-        if features:
-            filtered_features = [f for f in features 
-                               if f.lower() not in invalid_features[animal_type]]
-            data["ecology"]["distinctive_features"] = filtered_features if filtered_features else features
-    
-    # Clean up image URLs (remove trailing spaces)
-    if data.get("image"):
-        data["image"] = data["image"].strip()
-    
-    # Clean up Wikipedia URL
-    if data.get("wikipedia_url"):
-        data["wikipedia_url"] = data["wikipedia_url"].strip()
-    
-    # Ensure conservation_status has a value
-    if not data["ecology"].get("conservation_status"):
-        data["ecology"]["conservation_status"] = "Least Concern"
-    
+            data["ecology"]["diet"] = chars.get("diet", "Unknown")
+            data["ecology"]["habitat"] = chars.get("habitat", "Unknown")
+            data["ecology"]["group_behavior"] = chars.get("group_behavior", "Unknown")
+            data["ecology"]["biggest_threat"] = chars.get("biggest_threat", "Unknown")
+            data["ecology"]["estimated_population_size"] = chars.get("estimated_population_size", "Unknown")
+
+            data["reproduction"]["gestation_period"] = chars.get("gestation_period", "Unknown")
+            data["reproduction"]["average_litter_size"] = chars.get("average_litter_size", "Unknown")
+            data["reproduction"]["name_of_young"] = chars.get("name_of_young", get_young_name(animal_type))
+
+            data["additional_info"]["lifestyle"] = chars.get("lifestyle", "Unknown")
+            data["additional_info"]["color"] = chars.get("color", "Unknown")
+            data["additional_info"]["skin_type"] = chars.get("skin_type", "Unknown")
+            data["additional_info"]["prey"] = chars.get("prey", "Unknown")
+            data["additional_info"]["slogan"] = chars.get("slogan", "Unknown")
+            data["additional_info"]["group"] = chars.get("group", "Unknown")
+            data["additional_info"]["number_of_species"] = chars.get("number_of_species", "Unknown")
+            data["additional_info"]["age_of_sexual_maturity"] = chars.get("age_of_sexual_maturity", "Unknown")
+            data["additional_info"]["age_of_weaning"] = chars.get("age_of_weaning", "Unknown")
+            data["additional_info"]["most_distinctive_feature"] = chars.get("most_distinctive_feature", "Unknown")
+
+            distinct_feature = chars.get("most_distinctive_feature", "")
+            if distinct_feature and distinct_feature != "Unknown":
+                data["ecology"]["distinctive_features"] = [distinct_feature]
+
+    if ninja_data:
+        data["sources"].append("API Ninjas")
+    if wiki_data.get("summary") and wiki_data.get("summary") != "Unknown":
+        data["sources"].append("Wikipedia")
+
     return data
 
-
-def generate_model_links_file(animals):
-    """Generate model_links.json after animals.json is created"""
-    
-    model_links = {}
-    
-    # Known verified models (manually curated)
-    verified_keywords = {
-        'tiger': 'tiger-88b907577f274d2e930c521a4c988f24',
-        'elephant': 'african-elephant-5c5b5e5e5e5e5e5e5e5e5e5e',
-        'wolf': 'gray-wolf-88b907577f274d2e930c521a4c988f24',
-        'eagle': 'bald-eagle-88b907577f274d2e930c521a4c988f24',
-        'penguin': 'emperor-penguin-88b907577f274d2e930c521a4c988f24',
-        'shark': 'great-white-shark-88b907577f274d2e930c521a4c988f24',
-        'turtle': 'green-sea-turtle-88b907577f274d2e930c521a4c988f24',
-        'cobra': 'king-cobra-88b907577f274d2e930c521a4c988f24',
-        'butterfly': 'monarch-butterfly-88b907577f274d2e930c521a4c988f24',
-        'bee': 'honey-bee-88b907577f274d2e930c521a4c988f24',
-        'cheetah': 'cheetah-88b907577f274d2e930c521a4c988f24',
-        'giraffe': 'giraffe-88b907577f274d2e930c521a4c988f24',
-        'bear': 'polar-bear-88b907577f274d2e930c521a4c988f24',
-    }
-    
-    for animal in animals:
-        name = animal.get("name", "").lower()
-        model_url = ""
-        
-        # Match by keyword
-        for keyword, model_id in verified_keywords.items():
-            if keyword in name:
-                model_url = f"https://sketchfab.com/3d-models/{model_id}"
-                break
-        
-        model_links[name] = model_url
-    
-    # Save to data/model_links.json
-    repo_root = Path(__file__).parent.parent
-    model_links_path = repo_root / "data" / "model_links.json"
-    
-    with open(model_links_path, "w", encoding="utf-8") as f:
-        json.dump(model_links, f, indent=2, ensure_ascii=False)
-    
-    print(f"✅ Generated model_links.json with {len(model_links)} entries")
-
-
-def fetch_from_all_sources(name, sci, qid):
-    """
-    Fetch data from all available sources in priority order:
-    1. API Ninjas (most structured - ALL fields)
-    2. Wikidata (structured)
-    3. IUCN Red List (conservation data)
-    4. Wikipedia + Regex (fallback)
-    """
-    
-    all_data = initialize_animal_data(qid, name, sci)
-    sources_used = []
-    
-    # ========== 1. API NINJAS (Primary - ALL FIELDS) ==========
-    if API_NINJAS_AVAILABLE and API_NINJAS_KEY:
-        print(" 🍯 API Ninjas...")
-        try:
-            ninjas_data = fetch_api_ninjas(name, API_NINJAS_KEY)
-            if ninjas_data:
-                all_data = merge_data(all_data, ninjas_data)
-                sources_used.append("API Ninjas")
-                print(" ✓ API Ninjas data received")
-            else:
-                print("   ⚠ No data from API Ninjas")
-        except Exception as e:
-            print(f" ⚠ API Ninjas error: {e}")
-    
-    # ========== 2. WIKIDATA (Secondary) ==========
-    if WIKIDATA_AVAILABLE and qid:
-        print(" 📊 Wikidata...")
-        try:
-            wikidata = query_wikidata_animal(qid)
-            if wikidata:
-                if wikidata.get("physical"):
-                    for key, value in wikidata["physical"].items():
-                        if value and not all_data["physical"].get(key):
-                            all_data["physical"][key] = value
-                
-                if wikidata.get("description") and not all_data.get("description"):
-                    all_data["description"] = wikidata["description"]
-                
-                if wikidata.get("image") and not all_data.get("image"):
-                    all_data["image"] = wikidata["image"]
-                
-                sources_used.append("Wikidata")
-                print(" ✓ Wikidata data received")
-        except Exception as e:
-            print(f" ⚠ Wikidata error: {e}")
-    
-    # ========== 3. IUCN RED LIST (Conservation Data) ==========
-    if IUCN_AVAILABLE and IUCN_API_KEY and sci:
-        print(" 🌍 IUCN Red List...")
-        try:
-            iucn_data = fetch_iucn_data(sci, IUCN_API_KEY)
-            if iucn_data:
-                all_data = merge_data(all_data, iucn_data)
-                sources_used.append("IUCN Red List")
-                status = iucn_data.get("ecology", {}).get("conservation_status")
-                if status:
-                    print(f" ✓ Conservation: {status}")
-        except Exception as e:
-            print(f" ⚠ IUCN error: {e}")
-    
-    # ========== 4. WIKIPEDIA (Fallback + Images/Summary) ==========
-    print(" 📖 Wikipedia...")
-    try:
-        wiki = fetch_wikipedia_summary(name)
-        full = fetch_wikipedia_full(name)
-        all_text = wiki["summary"] + " " + full
-        
-        if wiki["summary"]:
-            all_data["summary"] = wiki["summary"]
-            if not all_data.get("description"):
-                all_data["description"] = wiki["description"]
-            if not all_data.get("image"):
-                all_data["image"] = wiki["image"]
-            all_data["wikipedia_url"] = wiki["url"]
-            sources_used.append("Wikipedia")
-        
-        # Detect animal type
-        animal_type = detect_animal_type(name, all_data["classification"])
-        all_data["animal_type"] = animal_type
-        
-        # Set young_name and group_name from animal type
-        all_data["young_name"] = get_young_name(animal_type)
-        all_data["group_name"] = get_group_name(animal_type)
-        print(f" ✓ Type: {animal_type}")
-        
-        # Use regex extractors ONLY for missing data
-        if not all_data["physical"]["weight"]:
-            all_data["physical"]["weight"] = extract_weight(all_text, animal_type)
-        if not all_data["physical"]["length"]:
-            all_data["physical"]["length"] = extract_length(all_text, animal_type)
-        if not all_data["physical"]["height"]:
-            all_data["physical"]["height"] = extract_height(all_text, animal_type)
-        if not all_data["physical"]["lifespan"]:
-            all_data["physical"]["lifespan"] = extract_lifespan(all_text, animal_type)
-        if not all_data["physical"]["top_speed"]:
-            all_data["physical"]["top_speed"] = extract_speed(all_text, animal_type)
-        
-        if not all_data["ecology"]["diet"]:
-            all_data["ecology"]["diet"] = extract_diet(all_text, animal_type)
-        if not all_data["ecology"]["conservation_status"]:
-            all_data["ecology"]["conservation_status"] = extract_conservation(all_text)
-        if not all_data["ecology"]["locations"]:
-            all_data["ecology"]["locations"] = extract_locations(all_text, animal_type)
-        if not all_data["ecology"]["habitat"]:
-            all_data["ecology"]["habitat"] = extract_habitat(all_text, animal_type)
-        if not all_data["ecology"]["distinctive_features"]:
-            all_data["ecology"]["distinctive_features"] = extract_features(all_text, animal_type)
-        if not all_data["ecology"]["group_behavior"]:
-            all_data["ecology"]["group_behavior"] = extract_behavior(all_text, animal_type)
-        if not all_data["ecology"]["biggest_threat"]:
-            all_data["ecology"]["biggest_threat"] = extract_threats(all_text)
-        
-        if not all_data["reproduction"]["gestation_period"]:
-            all_data["reproduction"]["gestation_period"] = extract_gestation(all_text, animal_type)
-        if not all_data["reproduction"]["average_litter_size"]:
-            all_data["reproduction"]["average_litter_size"] = extract_litter_size(all_text, animal_type)
-        
-        # Ensure name_of_young is set
-        if not all_data["reproduction"].get("name_of_young"):
-            all_data["reproduction"]["name_of_young"] = get_young_name(animal_type)
-        
-        print(" ✓ Wikipedia extraction complete")
-        
-    except Exception as e:
-        print(f" ⚠ Wikipedia error: {e}")
-    
-    # ========== 5. INATURALIST (Classification) ==========
-    if not all_data["classification"]["kingdom"]:
-        print(" 🔬 iNaturalist...")
-        try:
-            cl = fetch_inaturalist(sci)
-            if cl:
-                all_data["classification"] = cl
-                sources_used.append("iNaturalist")
-                print(" ✓ Classification complete")
-                
-                # Re-detect animal type with classification
-                animal_type = detect_animal_type(name, cl)
-                all_data["animal_type"] = animal_type
-                all_data["young_name"] = get_young_name(animal_type)
-                all_data["group_name"] = get_group_name(animal_type)
-                if not all_data["reproduction"].get("name_of_young"):
-                    all_data["reproduction"]["name_of_young"] = get_young_name(animal_type)
-        except Exception as e:
-            print(f" ⚠ iNaturalist error: {e}")
-    
-    # Update sources
-    for src in sources_used:
-        if src not in all_data["sources"]:
-            all_data["sources"].append(src)
-    
-    # ========== FINAL CLEANUP ==========
-    animal_type = all_data.get("animal_type", "default")
-    all_data = finalize_animal_data(all_data, animal_type)
-    
-    return all_data
-
+# ============================================================================
+# MAIN GENERATION
+# ============================================================================
 
 def generate(animals, force=False):
-    """
-    Main generation orchestration function.
-    """
     output = []
     
     for i, a in enumerate(animals):
@@ -423,42 +344,48 @@ def generate(animals, force=False):
         print(f"[{i+1}/{len(animals)}] {name} ({sci})")
         print(f"{'='*60}")
 
-        cached = load_cache(qid) if not force else None
+        cached = load_cache(qid, name) if not force else None
 
-        if cached:
+        if cached and not force:
             data = cached
-            data["sources"] = list(set(data.get("sources", [])))
             print(" 📦 Using cached data")
         else:
-            # Fetch from all sources
-            data = fetch_from_all_sources(name, sci, qid)
-            data["last_updated"] = datetime.now().isoformat()
-            save_cache(qid, data)
-        
+            print(" 🥷 Fetching from Ninja API...")
+            ninja_data = fetch_ninja_animal(name)
+            
+            if not ninja_data:
+                print(f" ⚠ No data from Ninja API for {name}, creating basic entry")
+                ninja_data = {
+                    "name": name,
+                    "taxonomy": {"scientific_name": sci},
+                    "locations": [],
+                    "characteristics": {}
+                }
+
+            print(" 📖 Fetching from Wikipedia...")
+            wiki_data = fetch_wikipedia_summary(name)
+            
+            animal_type = detect_animal_type(name, ninja_data.get("taxonomy", {}))
+            print(f" ✓ Type: {animal_type}")
+
+            data = build_animal_data(ninja_data, wiki_data, qid, animal_type)
+            save_animal_file(data, name, qid)
+
         output.append(data)
         print(f" ✅ {name} complete!")
-        print(f" 📚 Sources: {', '.join(data['sources'])}")
         time.sleep(1)
 
-    # ========== SAVE TO REPO ROOT data/ FOLDER ==========
-    repo_root = Path(__file__).parent.parent
-    repo_data_dir = repo_root / "data"
-    repo_data_dir.mkdir(exist_ok=True)
-    
-    output_path = repo_data_dir / "animals.json"
-    with open(output_path, "w", encoding="utf-8") as f:
+    with open("data/animals.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
-    # Generate model links file
-    generate_model_links_file(output)
-    
-    print(f"\n✅ Done! {len(output)} animals saved to {output_path}")
+    print(f"\n✅ Done! {len(output)} animals saved:")
+    print(f"   • Individual files: data/animal_stats/")
+    print(f"   • Combined file: data/animals.json")
     return output
 
-
-# Test animals
 TEST_ANIMALS = [
     {"name": "Tiger", "scientific_name": "Panthera tigris", "qid": "Q132186"},
+    {"name": "Cheetah", "scientific_name": "Acinonyx jubatus", "qid": "Q35625"},
     {"name": "African Elephant", "scientific_name": "Loxodonta africana", "qid": "Q7372"},
     {"name": "Gray Wolf", "scientific_name": "Canis lupus", "qid": "Q213537"},
     {"name": "Bald Eagle", "scientific_name": "Haliaeetus leucocephalus", "qid": "Q25319"},
@@ -470,12 +397,8 @@ TEST_ANIMALS = [
     {"name": "American Bullfrog", "scientific_name": "Lithobates catesbeianus", "qid": "Q270238"},
     {"name": "Monarch Butterfly", "scientific_name": "Danaus plexippus", "qid": "Q165980"},
     {"name": "Honey Bee", "scientific_name": "Apis mellifera", "qid": "Q7316"},
-    {"name": "Cheetah", "scientific_name": "Acinonyx jubatus", "qid": "Q35625"},
-    {"name": "Giraffe", "scientific_name": "Giraffa camelopardalis", "qid": "Q14373"},
-    {"name": "Polar Bear", "scientific_name": "Ursus maritimus", "qid": "Q33602"},
 ]
 
-
 if __name__ == "__main__":
-    force = "--force" in sys.argv
+    force = "--force" in os.sys.argv
     generate(TEST_ANIMALS, force)
