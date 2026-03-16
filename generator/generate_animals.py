@@ -3,7 +3,7 @@
 WildAtlas Animal Data Generator
 
 Main entry point that orchestrates data generation from MULTIPLE sources:
-1. API Ninjas (primary - structured data)
+1. API Ninjas (primary - structured data with ALL fields)
 2. Wikidata SPARQL (secondary - structured data)
 3. IUCN Red List (conservation status & threats)
 4. Wikipedia + Regex (fallback - text extraction)
@@ -24,7 +24,7 @@ from modules.fetchers import fetch_wikipedia_summary, fetch_wikipedia_full, fetc
 from modules.detectors import detect_animal_type, get_young_name, get_group_name
 from modules.cache import load_cache, save_cache
 
-# NEW: Import new data source modules
+# Import data source modules
 try:
     from modules.api_ninjas import fetch_animal_data as fetch_api_ninjas
     API_NINJAS_AVAILABLE = True
@@ -39,7 +39,7 @@ except ImportError:
     WIKIDATA_AVAILABLE = False
     print(" ⚠ Wikidata module not available")
 
-# NEW: IUCN Red List API
+# IUCN Red List API
 try:
     from modules.iucn_redlist import fetch_iucn_data
     IUCN_AVAILABLE = True
@@ -90,8 +90,6 @@ def initialize_animal_data(qid, name, sci):
                     "conservation_status": None, "biggest_threat": None, "distinctive_features": None,
                     "population_trend": None},
         "reproduction": {"gestation_period": None, "average_litter_size": None, "name_of_young": None},
-        "conservation": {"category": None, "published_year": None, "rationale": None, 
-                        "geographic_range": None, "conservation_actions": None},
         "sources": [], "last_updated": None
     }
 
@@ -129,16 +127,16 @@ def finalize_animal_data(data: Dict, animal_type: str) -> Dict:
     Ensures consistency across all fields.
     """
     
-    # FIX: Ensure name_of_young is set in reproduction from root young_name
+    # Ensure name_of_young is set in reproduction from root young_name
     if data.get("young_name") and not data["reproduction"].get("name_of_young"):
         data["reproduction"]["name_of_young"] = data["young_name"]
     
-    # FIX: Ensure group_behavior matches known social patterns
+    # Ensure group_behavior matches known social patterns
     social_types = ['elephant', 'bee', 'ant', 'penguin', 'canine', 'whale', 'primate']
     if animal_type in social_types and data["ecology"].get("group_behavior") == "Solitary":
         data["ecology"]["group_behavior"] = "Social"
     
-    # FIX: Filter out "sea" habitat for land animals
+    # Filter out "sea" habitat for land animals
     land_types = ['feline', 'canine', 'bear', 'elephant', 'deer', 'bovine', 'equine', 
                   'rabbit', 'rodent', 'primate', 'giraffe', 'cheetah']
     if animal_type in land_types:
@@ -148,49 +146,15 @@ def finalize_animal_data(data: Dict, animal_type: str) -> Dict:
             filtered = [h for h in habitats if h.lower() not in ['sea', 'ocean', 'marine']]
             data["ecology"]["habitat"] = ", ".join(filtered) if filtered else habitat
     
-    # FIX: Filter locations for known native ranges
-    location_filters = {
-        'bullfrog': ['asia', 'china', 'indonesia', 'japan', 'europe'],
-        'elephant': ['asia'] if 'african' in data.get("name", "").lower() else [],
-        'tiger': ['africa', 'americas'],
-        'penguin': ['asia', 'africa', 'north america', 'europe'],
-    }
-    
-    animal_key = animal_type.lower()
-    if animal_key in location_filters:
-        locations = data["ecology"].get("locations", "")
-        if locations:
-            loc_list = [loc.strip() for loc in locations.split(",")]
-            filtered_locs = [loc for loc in loc_list 
-                           if loc.lower() not in location_filters[animal_key]]
-            data["ecology"]["locations"] = ", ".join(filtered_locs) if filtered_locs else locations
-    
-    # FIX: Remove invalid distinctive features
-    invalid_features = {
-        'feline': ['mane', 'horn', 'antler', 'shell', 'fin'],
-        'elephant': ['mane', 'horn', 'shell', 'fin', 'wing'],
-        'canine': ['mane', 'horn', 'antler', 'shell', 'fin', 'wing'],
-        'frog': ['mane', 'horn', 'tail', 'fur', 'feather'],
-        'butterfly': ['fur', 'fin', 'shell', 'mane'],
-        'bee': ['fur', 'fin', 'shell', 'mane', 'tail'],
-    }
-    
-    if animal_key in invalid_features:
-        features = data["ecology"].get("distinctive_features", [])
-        if features:
-            filtered_features = [f for f in features 
-                               if f.lower() not in invalid_features[animal_key]]
-            data["ecology"]["distinctive_features"] = filtered_features if filtered_features else features
-    
-    # FIX: Clean up image URLs (remove trailing spaces)
+    # Clean up image URLs (remove trailing spaces)
     if data.get("image"):
         data["image"] = data["image"].strip()
     
-    # FIX: Clean up Wikipedia URL
+    # Clean up Wikipedia URL
     if data.get("wikipedia_url"):
         data["wikipedia_url"] = data["wikipedia_url"].strip()
     
-    # FIX: Ensure conservation_status has a value (fallback to Wikipedia extraction)
+    # Ensure conservation_status has a value
     if not data["ecology"].get("conservation_status"):
         data["ecology"]["conservation_status"] = "Least Concern"
     
@@ -244,7 +208,7 @@ def generate_model_links_file(animals):
 def fetch_from_all_sources(name, sci, qid):
     """
     Fetch data from all available sources in priority order:
-    1. API Ninjas (most structured)
+    1. API Ninjas (most structured - ALL fields)
     2. Wikidata (structured)
     3. IUCN Red List (conservation data)
     4. Wikipedia + Regex (fallback)
@@ -255,7 +219,7 @@ def fetch_from_all_sources(name, sci, qid):
     all_data = initialize_animal_data(qid, name, sci)
     sources_used = []
     
-    # ========== 1. API NINJAS (Primary) ==========
+    # ========== 1. API NINJAS (Primary - ALL FIELDS) ==========
     if API_NINJAS_AVAILABLE and API_NINJAS_KEY:
         print(" 🍯 API Ninjas...")
         try:
@@ -319,11 +283,11 @@ def fetch_from_all_sources(name, sci, qid):
             all_data["wikipedia_url"] = wiki["url"]
             sources_used.append("Wikipedia")
         
-        # Detect animal type EARLY so we can use it throughout
+        # Detect animal type
         animal_type = detect_animal_type(name, all_data["classification"])
         all_data["animal_type"] = animal_type
         
-        # ALWAYS set young_name and group_name from animal type
+        # Set young_name and group_name from animal type
         all_data["young_name"] = get_young_name(animal_type)
         all_data["group_name"] = get_group_name(animal_type)
         print(f" ✓ Type: {animal_type}")
@@ -360,7 +324,7 @@ def fetch_from_all_sources(name, sci, qid):
         if not all_data["reproduction"]["average_litter_size"]:
             all_data["reproduction"]["average_litter_size"] = extract_litter_size(all_text, animal_type)
         
-        # FIX: Ensure name_of_young is set from animal_type
+        # Ensure name_of_young is set
         if not all_data["reproduction"].get("name_of_young"):
             all_data["reproduction"]["name_of_young"] = get_young_name(animal_type)
         
@@ -368,7 +332,6 @@ def fetch_from_all_sources(name, sci, qid):
         
     except Exception as e:
         print(f" ⚠ Wikipedia error: {e}")
-        animal_type = all_data.get("animal_type", "default")
     
     # ========== 5. INATURALIST (Classification) ==========
     if not all_data["classification"]["kingdom"]:
