@@ -125,7 +125,10 @@ def clean_wikipedia_text(text):
         'url=', 'chapter=', 'edition=',
         'lang=', 'trans-', 's2cid=', 'bibcode=',
         'hdl=', 'jstor=', 'ssrn=',
-        '[edit]',
+        '[edit]', 'For other uses', 'disambiguation',
+        'Binomial name', 'Scientific classification',
+        'Kingdom:', 'Phylum:', 'Class:', 'Order:', 'Family:', 'Genus:', 'Species:',
+        'Conservation status', 'Appendix', 'Taxonbar',
     ]
     
     for garbage in garbage_strings:
@@ -151,11 +154,30 @@ def clean_wikipedia_text(text):
     for lang in lang_strings:
         text = text.replace(lang, ' ')
     
+    # Remove section headers like "== Etymology =="
+    text = re.sub(r'==[^=]+==', ' ', text)
+    
+    # Remove table markers and infobox content
+    text = re.sub(r'\{\|.*?\|\}', ' ', text, flags=re.DOTALL)
+    text = re.sub(r'\|-', ' ', text)
+    text = re.sub(r'!\s*\w+', ' ', text)
+    
+    # Remove citation templates
+    text = re.sub(r'\{\{cite[^}]*\}\}', ' ', text)
+    text = re.sub(r'\{\{harvnb[^}]*\}\}', ' ', text)
+    text = re.sub(r'\{\{sfn[^}]*\}\}', ' ', text)
+    text = re.sub(r'\{\{refn[^}]*\}\}', ' ', text)
+    text = re.sub(r'\{\{efn[^}]*\}\}', ' ', text)
+    
+    # Remove convert templates
+    text = re.sub(r'\{\{convert\|[^}]*\}\}', ' ', text)
+    text = re.sub(r'\{\{cvt\|[^}]*\}\}', ' ', text)
+    
+    # Remove long parentheticals (often citations)
+    text = re.sub(r'\([^)]{50,}\)', ' ', text)
+    
     # Clean up multiple spaces
     text = re.sub(r'\s+', ' ', text)
-    
-    # Remove remaining template artifacts
-    text = re.sub(r'\([^)]*\{[^}]*\}[^)]*\)', ' ', text)
     
     return text.strip()
 
@@ -188,14 +210,14 @@ def extract_wikipedia_sections(text):
     # Keywords for each section
     section_keywords = {
         "etymology": ['etymology', 'name', 'named', 'called', 'word', 'term', 'origin', 'latin', 'greek', 'persian', 'armenian', 'means', 'derives'],
-        "description": ['description', 'physical', 'appearance', 'characteristics', 'features', 'weighs', 'measures', 'length', 'size', 'large', 'small', 'fur', 'coat', 'stripes', 'spots', 'color', 'coloured', 'skull', 'teeth', 'claws', 'paws', 'tail', 'head'],
+        "description": ['description', 'physical', 'appearance', 'characteristics', 'features', 'weighs', 'measures', 'length', 'size', 'large', 'small', 'fur', 'coat', 'stripes', 'spots', 'color', 'coloured', 'skull', 'teeth', 'claws', 'paws', 'tail', 'head', 'body'],
         "distribution": ['distribution', 'range', 'found', 'native', 'lives', 'located', 'region', 'country', 'continent', 'asia', 'africa', 'europe', 'america', 'australia', 'russia', 'india', 'china', 'indonesia', 'sumatra', 'java', 'bali'],
         "habitat": ['habitat', 'environment', 'lives in', 'inhabits', 'forest', 'grassland', 'desert', 'mountain', 'ocean', 'river', 'tropical', 'temperate', 'mangrove', 'woodland'],
-        "hunting_diet": ['diet', 'eats', 'feeds', 'hunts', 'prey', 'predator', 'carnivore', 'herbivore', 'omnivore', 'food', 'feeding', 'kill', 'deer', 'boar', 'ungulate'],
-        "behavior": ['behavior', 'behaviour', 'social', 'solitary', 'group', 'pack', 'herd', 'territorial', 'active', 'nocturnal', 'diurnal', 'crepuscular', 'mark', 'territory', 'urine', 'scent'],
+        "hunting_diet": ['diet', 'eats', 'feeds', 'hunts', 'prey', 'predator', 'carnivore', 'herbivore', 'omnivore', 'food', 'feeding', 'kill', 'deer', 'boar', 'ungulate', 'attack'],
+        "behavior": ['behavior', 'behaviour', 'social', 'solitary', 'group', 'pack', 'herd', 'territorial', 'active', 'nocturnal', 'diurnal', 'crepuscular', 'mark', 'territory', 'urine', 'scent', 'communication'],
         "reproduction": ['reproduction', 'breeding', 'mating', 'gestation', 'pregnant', 'pregnancy', 'litter', 'cubs', 'young', 'offspring', 'eggs', 'lay', 'birth', 'wean', 'sexual maturity'],
-        "threats": ['threats', 'threatened', 'danger', 'predators', 'hunted', 'killed', 'poach', 'poaching', 'endangered', 'vulnerable', 'extinct', 'decline', 'decrease', 'loss'],
-        "conservation": ['conservation', 'protected', 'status', 'iucn', 'endangered', 'vulnerable', 'least concern', 'critically endangered', 'population', 'preserve', 'reserve', 'park', 'action plan', 'cites']
+        "threats": ['threats', 'threatened', 'danger', 'predators', 'hunted', 'killed', 'poach', 'poaching', 'endangered', 'vulnerable', 'extinct', 'decline', 'decrease', 'loss', 'destruction'],
+        "conservation": ['conservation', 'protected', 'status', 'iucn', 'endangered', 'vulnerable', 'least concern', 'critically endangered', 'population', 'preserve', 'reserve', 'park', 'action plan', 'cites', 'patrol']
     }
     
     current_section = "description"
@@ -209,7 +231,7 @@ def extract_wikipedia_sections(text):
             continue
         
         # Skip sentences with remaining template garbage
-        if any(garbage in sentence_lower for garbage in ['{{', '}}', '[[', ']]', 'cite', 'isbn', 'doi', 'pmid']):
+        if any(garbage in sentence_lower for garbage in ['{{', '}}', '[[', ']]', 'cite', 'isbn', 'doi', 'pmid', 'ref', 'http']):
             continue
         
         # Detect section changes based on keywords
@@ -244,7 +266,7 @@ def extract_wikipedia_sections(text):
     return sections
 
 def extract_stats_from_sections(sections):
-    """Extract physical stats from sections"""
+    """Extract physical stats from sections - ONLY if field is empty"""
     stats = {"weight": "", "length": "", "height": "", "lifespan": "", "top_speed": ""}
     
     all_text = ""
@@ -283,7 +305,7 @@ def extract_stats_from_sections(sections):
     return stats
 
 def extract_diet_from_sections(sections):
-    """Extract diet and prey from sections"""
+    """Extract diet and prey from sections - ONLY if field is empty"""
     diet = ""
     prey = ""
     
@@ -302,15 +324,27 @@ def extract_diet_from_sections(sections):
     elif any(w in all_text.lower() for w in ['omnivore', 'omnivorous', 'both plants and animals']):
         diet = "Omnivore"
     
-    # Prey items
-    m = re.search(r'(?:preys? on|feeds? on|hunts?|eats?|diet consists of|primary prey)[:\s]+([^.]{10,150})', all_text, re.I)
-    if m:
-        prey = m.group(1).strip()[:120]
+    # Prey items - look for actual prey animals, not threats
+    prey_patterns = [
+        r'preys? mainly on ([^.]{10,100})',
+        r'feeds? mainly on ([^.]{10,100})',
+        r'hunts? ([^.]{10,100})',
+        r'diet consists (?:mainly)?of ([^.]{10,100})',
+        r'(?:deer|wild boar|buffalo|sambar|gaur|ungulate|barasingha|wapiti|monkey|peafowl|porcupine|fish)',
+    ]
+    for pattern in prey_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            prey_text = m.group(0).strip()
+            # Make sure it's not about threats
+            if 'threat' not in prey_text.lower() and 'poach' not in prey_text.lower():
+                prey = prey_text[:100]
+                break
     
     return diet, prey
 
 def extract_reproduction_from_sections(sections):
-    """Extract reproduction data from sections"""
+    """Extract reproduction data from sections - ONLY if field is empty"""
     repro = {"gestation_period": "", "average_litter_size": "", "name_of_young": ""}
     
     all_text = ""
@@ -321,12 +355,12 @@ def extract_reproduction_from_sections(sections):
         return repro
     
     # Gestation
-    m = re.search(r'(?:gestation|pregnancy|incubation)\s*(?:period)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(days?|months?|weeks?)', all_text, re.I)
+    m = re.search(r'(?:gestation|pregnancy)\s*(?:period)?\s*(?:lasts?|is|of)?\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(days?|months?|weeks?)', all_text, re.I)
     if m:
         repro["gestation_period"] = f"{m.group(1)} {m.group(2)}"
     
     # Litter size
-    m = re.search(r'(?:litter|cubs?|young|offspring)\s*(?:size)?\s*(\d+(?:\s*[-–]\s*\d+)?)', all_text, re.I)
+    m = re.search(r'(?:litter|cubs?|young|offspring)\s*(?:size|consists of)?\s*(?:of|is)?\s*(?:usually|typically|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)', all_text, re.I)
     if m:
         repro["average_litter_size"] = m.group(1)
     
@@ -338,7 +372,7 @@ def extract_reproduction_from_sections(sections):
     return repro
 
 def extract_conservation_from_sections(sections):
-    """Extract conservation status and threats from sections"""
+    """Extract conservation status and threats from sections - ONLY if field is empty"""
     status = ""
     threats = []
     
@@ -353,18 +387,18 @@ def extract_conservation_from_sections(sections):
             status = s
             break
     
-    # Threats
-    if any(w in all_text.lower() for w in ['poach', 'illegal trade', 'body parts', 'fur trade', 'ivory', 'tiger bone']):
+    # Threats - look for actual threats, not conservation measures
+    if any(w in all_text.lower() for w in ['poach', 'illegal trade', 'body parts', 'fur trade', 'ivory', 'tiger bone', 'medicinal']):
         threats.append('Poaching')
-    if any(w in all_text.lower() for w in ['habitat loss', 'deforestation', 'habitat destruction', 'habitat fragmentation', 'logging']):
+    if any(w in all_text.lower() for w in ['habitat loss', 'habitat destruction', 'habitat fragmentation', 'deforestation', 'logging']):
         threats.append('Habitat loss')
-    if any(w in all_text.lower() for w in ['human-wildlife conflict', 'livestock', 'retaliation', 'persecution', 'killed by']):
+    if any(w in all_text.lower() for w in ['human-wildlife conflict', 'livestock', 'retaliation', 'attack', 'killed']):
         threats.append('Human-wildlife conflict')
     
     return status, ', '.join(threats[:3])
 
 def extract_behavior_from_sections(sections):
-    """Extract group behavior from sections"""
+    """Extract group behavior from sections - ONLY if field is empty"""
     all_text = ""
     for section_name, section_text in sections.items():
         all_text += section_text + " "
@@ -383,7 +417,7 @@ def extract_behavior_from_sections(sections):
     return ""
 
 def extract_additional_info_from_sections(sections):
-    """Extract ALL additional_info fields from sections"""
+    """Extract ALL additional_info fields from sections - ONLY if field is empty"""
     info = {
         "group": "",
         "number_of_species": "",
@@ -401,14 +435,18 @@ def extract_additional_info_from_sections(sections):
         return info
     
     # Group (Mammal, Bird, Fish, etc.)
-    m = re.search(r'is a (?:species of )?(mammal|bird|fish|reptile|amphibian|insect|invertebrate)', all_text, re.I)
+    m = re.search(r'is a (?:large )?(?:species of )?(mammal|bird|fish|reptile|amphibian|insect|invertebrate|cat|feline)', all_text, re.I)
     if m:
         info["group"] = m.group(1).capitalize()
     
     # Number of species
-    m = re.search(r'(\d+)\s*(?:species|subspecies)\s*(?:of|in|recognized|known)', all_text, re.I)
+    m = re.search(r'(?:nine|two|five|three|six|seven|eight|four|10|20|30)\s*(?:recent |living )?(?:sub)?species', all_text, re.I)
     if m:
-        info["number_of_species"] = m.group(1)
+        num_text = m.group(0)
+        # Extract the number
+        num_match = re.search(r'(nine|two|five|three|six|seven|eight|four|10|20|30|\d+)', num_text, re.I)
+        if num_match:
+            info["number_of_species"] = num_match.group(1)
     
     # Population
     m = re.search(r'(?:population|estimated|total)\s*(?:is|of|size)?\s*(?:about|around|approximately|over|under)?\s*(\d+(?:,\d+)*(?:\s*(?:million|billion|thousand))?)', all_text, re.I)
@@ -416,7 +454,7 @@ def extract_additional_info_from_sections(sections):
         info["estimated_population_size"] = m.group(1).strip()
     
     # Sexual maturity
-    m = re.search(r'(?:sexual maturity|mature)\s*(?:at|reached|occurs)?\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?)', all_text, re.I)
+    m = re.search(r'(?:sexually mature|sexual maturity|mature)\s*(?:at|reached|occurs|become)?\s*(?:around|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?)', all_text, re.I)
     if m:
         info["age_of_sexual_maturity"] = f"{m.group(1)} {m.group(2)}"
     
@@ -425,13 +463,21 @@ def extract_additional_info_from_sections(sections):
     if m:
         info["age_of_weaning"] = f"{m.group(1)} {m.group(2)}"
     
-    # Distinctive feature
-    m = re.search(r'(?:most distinctive|distinctive|characteristic|notable|unique)\s*(?:feature|characteristic|trait)?\s*(?:is|are)?\s*(?:the)?\s*([^.]{10,120})', all_text, re.I)
-    if m:
-        feature = m.group(1).strip()
-        feature = re.sub(r'^(?:the |its |their |a |an )', '', feature, flags=re.I)
-        if 10 < len(feature) < 150:
-            info["most_distinctive_feature"] = feature[:120]
+    # Distinctive feature - look for actual physical features, not genetics
+    feature_patterns = [
+        r'(?:most distinctive|distinctive|characteristic|notable|unique)\s*(?:feature|characteristic|trait|marking)?\s*(?:is|are)?\s*(?:the)?\s*([^.]{10,100})',
+        r'(?:marked with|has|features?|characterized by)\s*(?:distinctive )?([^.]{10,80}(?:stripes|spots|coat|fur|color|mane|tail|ears))',
+    ]
+    for pattern in feature_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            feature = m.group(1).strip()
+            # Make sure it's not about genetics or DNA
+            if 'dna' not in feature.lower() and 'mtdna' not in feature.lower() and 'haplotype' not in feature.lower() and 'gene' not in feature.lower():
+                feature = re.sub(r'^(?:the |its |their |a |an )', '', feature, flags=re.I)
+                if 10 < len(feature) < 150:
+                    info["most_distinctive_feature"] = feature[:120]
+                    break
     
     return info
 
@@ -480,7 +526,7 @@ def save_animal_file(data, name, qid):
         json.dump(data, f, indent=2, ensure_ascii=False)
     print(f" 💾 Saved: {filename}")
 
-# Build data from ALL sources
+# Build data from ALL sources - NINJA API FIRST, WIKIPEDIA ONLY AS FALLBACK
 def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_classification, qid, name, sci_name):
     ninja_chars = ninja_data.get("characteristics", {}) if ninja_data else {}
     ninja_taxonomy = ninja_data.get("taxonomy", {}) if ninja_data else {}
@@ -501,7 +547,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
     
     young_name = ninja_chars.get("name_of_young", "") or get_young_name(animal_type)
     
-    # Extract ALL possible data from Wikipedia sections
+    # Extract Wikipedia data (will only be used if Ninja API fields are empty)
     wiki_stats = extract_stats_from_sections(wiki_sections)
     wiki_diet, wiki_prey = extract_diet_from_sections(wiki_sections)
     wiki_repro = extract_reproduction_from_sections(wiki_sections)
@@ -509,6 +555,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
     wiki_behavior = extract_behavior_from_sections(wiki_sections)
     wiki_additional = extract_additional_info_from_sections(wiki_sections)
     
+    # Build data - NINJA API FIRST, Wikipedia ONLY as fallback for empty fields
     data = {
         "id": qid,
         "name": name,
@@ -533,7 +580,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
         "group_name": get_group_name(animal_type),
         "physical": {
             "weight": ninja_chars.get("weight", "") or wiki_stats.get("weight", ""),
-            "length": wiki_stats.get("length", ""),
+            "length": ninja_chars.get("length", "") or wiki_stats.get("length", ""),
             "height": ninja_chars.get("height", "") or wiki_stats.get("height", ""),
             "top_speed": ninja_chars.get("top_speed", "") or wiki_stats.get("top_speed", ""),
             "lifespan": ninja_chars.get("lifespan", "") or wiki_stats.get("lifespan", "")
@@ -543,7 +590,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
             "habitat": ninja_chars.get("habitat", "") or wiki_sections.get("habitat", ""),
             "locations": ", ".join(ninja_locations) if ninja_locations else wiki_sections.get("distribution", ""),
             "group_behavior": ninja_chars.get("group_behavior", "") or wiki_behavior,
-            "conservation_status": wiki_conservation_status,
+            "conservation_status": ninja_chars.get("conservation_status", "") or wiki_conservation_status,
             "biggest_threat": ninja_chars.get("biggest_threat", "") or wiki_threats,
             "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
             "population_trend": ""
