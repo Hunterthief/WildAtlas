@@ -248,28 +248,17 @@ function populateDetailPage(animal) {
         }).join('');
     }
     
-    // === CENTER COLUMN ===
-    
-    // Hero Image
-    const heroImage = document.getElementById('animal-image');
-    if (heroImage) {
-        heroImage.src = animal.image ? animal.image.trim() : '';
-        heroImage.alt = animal.name;
-        
-        // Hide image wrapper if no image
-        const imageWrapper = document.getElementById('hero-image-wrapper');
-        if (imageWrapper && !animal.image) {
-            imageWrapper.style.display = 'none';
-        }
-    }
-    setup3DModel(animal);
-    
-    // Hero Image (now handled by setup3DModel)
-    const heroImage = document.getElementById('animal-image');
-    if (heroImage && animal.image) {
-        heroImage.src = animal.image.trim();
-        heroImage.alt = animal.name;
-    }
+   // === CENTER COLUMN ===
+
+// Setup 3D Model FIRST (before image)
+setup3DModel(animal);
+
+// Hero Image (fallback if no 3D model)
+const heroImage = document.getElementById('animal-image');
+if (heroImage && animal.image) {
+    heroImage.src = animal.image.trim();
+    heroImage.alt = animal.name;
+}
     // === RIGHT SIDEBAR ===
     
     // Location with Map Dots
