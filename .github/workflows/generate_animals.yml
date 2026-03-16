@@ -29,17 +29,17 @@ jobs:
       - name: Install dependencies
         run: |
           pip install requests
-          pip install beautifulsoup4
 
       - name: Run generator
         env:
           NINJA_API_KEY: ${{ secrets.NINJA_API_KEY }}
           IUCN_API_KEY: ${{ secrets.IUCN_API_KEY }}
         run: |
+          cd generator
           if [ "${{ github.event.inputs.force_update }}" == "true" ]; then
-            python generator/generate_animals.py --force
+            python generate_animals.py --force
           else
-            python generator/generate_animals.py
+            python generate_animals.py
           fi
 
       - name: Commit and push JSON
