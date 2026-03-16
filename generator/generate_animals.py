@@ -73,45 +73,288 @@ def fetch_wikipedia_full(name):
         print(f" ⚠ Wikipedia full error: {e}")
     return ""
 
+def clean_wikipedia_text(text):
+    """Remove Wikipedia navigation garbage"""
+    if not text:
+        return ""
+    
+    text = re.sub(r'Toggle.*?subsection', '', text, flags=re.I)
+    text = re.sub(r'Toggle the table of contents', '', text, flags=re.I)
+    text = re.sub(r'\d+\s*languages', '', text, flags=re.I)
+    text = re.sub(r'Acèh|Адыгабзэ|Afrikaans|Alemannisch|العربية|مصرى|Asturianu|Azərbaycanca|Беларуская|Български|Català|Čeština|Dansk|Deutsch|Eesti|Ελληνικά|Español|Esperanto|Euskara|فارسی|Suomi|Français|עברית|हिन्दी|Hrvatski|Magyar|Bahasa|Íslenska|Italiano|日本語|ქართული|한국어|Latina|Lietuvių|Македонски|മലയാളം|मराठी|Nederlands|Norsk|Polski|Português|Română|Русский|Svenska|தமிழ்|తెలుగు|ไทย|Türkçe|Українська|اردو|Tiếng|中文', '', text, flags=re.I)
+    text = re.sub(r'Wikidata|Featured articles|Wikipedia.*?pages|Use.*?dates|All Wikipedia articles|Articles with.*?microformats|Articles containing.*?language text|Pages using.*?image|Short description', '', text, flags=re.I)
+    text = re.sub(r'\s+', ' ', text)
+    
+    return text.strip()
+
 def extract_wikipedia_sections(text):
-    """Extract Wikipedia sections like Overview, Description, Ecology, etc."""
+    """Extract Wikipedia sections with full text content under each header"""
     sections = {
-        "overview": "",
+        "etymology": "",
         "description": "",
-        "ecology": "",
+        "distribution": "",
+        "habitat": "",
+        "hunting_diet": "",
         "behavior": "",
         "reproduction": "",
-        "conservation": "",
-        "distribution": ""
+        "threats": "",
+        "conservation": ""
     }
     
     if not text:
         return sections
     
-    # Split by common section headers
+    text = clean_wikipedia_text(text)
+    
     section_patterns = [
-        (r'(?:Description|Physical description|Appearance)[:\s]+(.+?)(?=(?:Ecology|Behavior|Habitat|Distribution|Conservation|Reproduction|Etymology|Discovery|$))', "description"),
-        (r'(?:Ecology|Habitat|Range|Distribution)[:\s]+(.+?)(?=(?:Behavior|Reproduction|Conservation|Description|Etymology|$))', "ecology"),
-        (r'(?:Behavior|Social behavior|Hunting|Feeding)[:\s]+(.+?)(?=(?:Reproduction|Ecology|Conservation|Description|$))', "behavior"),
-        (r'(?:Reproduction|Breeding|Life cycle)[:\s]+(.+?)(?=(?:Behavior|Ecology|Conservation|Description|$))', "reproduction"),
-        (r'(?:Conservation|Status|Threats|Protection)[:\s]+(.+?)(?=(?:Reproduction|Behavior|Ecology|Description|$))', "conservation"),
+        (r'(?:Etymology|Name origin|Naming)[:\s]+(.+?)(?=(?:Description|Distribution|Habitat|Behaviour|Behavior|Ecology|Hunting|Reproduction|Threats|Conservation|References|$))', "etymology"),
+        (r'(?:Description|Physical description|Appearance|Characteristics)[:\s]+(.+?)(?=(?:Etymology|Distribution|Habitat|Behaviour|Behavior|Ecology|Hunting|Reproduction|Threats|Conservation|References|$))', "description"),
+        (r'(?:Distribution|Range|Geographic distribution)[:\s]+(.+?)(?=(?:Etymology|Description|Habitat|Behaviour|Behavior|Ecology|Hunting|Reproduction|Threats|Conservation|References|$))', "distribution"),
+        (r'(?:Habitat|Environment|Ecology)[:\s]+(.+?)(?=(?:Etymology|Description|Distribution|Behaviour|Behavior|Hunting|Reproduction|Threats|Conservation|References|$))', "habitat"),
+        (r'(?:Hunting and diet|Diet|Feeding|Prey|Hunting)[:\s]+(.+?)(?=(?:Etymology|Description|Distribution|Habitat|Behaviour|Behavior|Reproduction|Threats|Conservation|References|$))', "hunting_diet"),
+        (r'(?:Behaviour|Behavior|Social behavior|Social organisation|Social organization)[:\s]+(.+?)(?=(?:Etymology|Description|Distribution|Habitat|Hunting|Reproduction|Threats|Conservation|References|$))', "behavior"),
+        (r'(?:Reproduction|Breeding|Life cycle|Reproduction and life cycle)[:\s]+(.+?)(?=(?:Etymology|Description|Distribution|Habitat|Hunting|Behaviour|Behavior|Threats|Conservation|References|$))', "reproduction"),
+        (r'(?:Threats|Predators|Danger)[:\s]+(.+?)(?=(?:Etymology|Description|Distribution|Habitat|Hunting|Behaviour|Behavior|Reproduction|Conservation|References|$))', "threats"),
+        (r'(?:Conservation|Status|Protection|Conservation status)[:\s]+(.+?)(?=(?:Etymology|Description|Distribution|Habitat|Hunting|Behaviour|Behavior|Reproduction|Threats|References|$))', "conservation"),
     ]
     
     for pattern, section_name in section_patterns:
         match = re.search(pattern, text, re.I | re.DOTALL)
         if match:
             content = match.group(1).strip()
-            # Clean up and limit length
             content = re.sub(r'\s+', ' ', content)
-            sections[section_name] = content[:500] if len(content) > 500 else content
-    
-    # If no sections found, use first paragraph as overview
-    if not sections["overview"]:
-        first_para = re.search(r'^([^.]+\. [^.]+\. [^.]+\.)', text)
-        if first_para:
-            sections["overview"] = first_para.group(1).strip()
+            content = re.sub(r'\s*\.\s*\.', '.', content)
+            if len(content) > 1000:
+                content = content[:1000]
+                content = content.rsplit('.', 1)[0] + '.'
+            sections[section_name] = content
     
     return sections
+
+def extract_stats_from_sections(sections):
+    """Extract weight, height, length, lifespan, speed from sections"""
+    stats = {"weight": "", "length": "", "height": "", "lifespan": "", "top_speed": ""}
+    all_text = sections.get("description", "") + " " + sections.get("habitat", "")
+    
+    if not all_text:
+        return stats
+    
+    # Weight
+    m = re.search(r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|tonnes?|t|lbs?|pounds)', all_text, re.I)
+    if m:
+        stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+    
+    # Length
+    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:long|length|in length)', all_text, re.I)
+    if m:
+        stats["length"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+    
+    # Height
+    if 'shoulder' in all_text.lower() or 'stands' in all_text.lower():
+        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:tall|height|shoulder)', all_text, re.I)
+        if m:
+            stats["height"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+    
+    # Lifespan
+    m = re.search(r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)\s*(?:lifespan|life|old|age|in the wild)', all_text, re.I)
+    if m:
+        stats["lifespan"] = f"{m.group(1)} {m.group(2)}"
+    
+    # Speed
+    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)\s*(?:speed|top speed|maximum|can run)', all_text, re.I)
+    if m:
+        stats["top_speed"] = f"{m.group(1)} {m.group(2)}"
+    
+    return stats
+
+def extract_diet_from_sections(sections):
+    """Extract diet and prey from sections"""
+    diet = ""
+    prey = ""
+    
+    hunting_text = sections.get("hunting_diet", "")
+    if not hunting_text:
+        hunting_text = sections.get("description", "")
+    
+    if not hunting_text:
+        return diet, prey
+    
+    if any(w in hunting_text.lower() for w in ['carnivore', 'carnivorous', 'meat-eater', 'predator']):
+        diet = "Carnivore"
+    elif any(w in hunting_text.lower() for w in ['herbivore', 'herbivorous', 'plant-eater', 'grazes']):
+        diet = "Herbivore"
+    elif any(w in hunting_text.lower() for w in ['omnivore', 'omnivorous', 'both plants and animals']):
+        diet = "Omnivore"
+    
+    m = re.search(r'(?:preys? on|feeds? on|hunts?|eats?|diet consists of|primary prey)[:\s]+([^.]{10,150})', hunting_text, re.I)
+    if m:
+        prey = m.group(1).strip()[:120]
+    
+    return diet, prey
+
+def extract_reproduction_from_sections(sections):
+    """Extract reproduction data from sections"""
+    repro = {"gestation_period": "", "average_litter_size": "", "name_of_young": ""}
+    
+    repro_text = sections.get("reproduction", "")
+    if not repro_text:
+        repro_text = sections.get("behavior", "")
+    
+    if not repro_text:
+        return repro
+    
+    m = re.search(r'(?:gestation|pregnancy|incubation)\s*(?:period)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(days?|months?|weeks?)', repro_text, re.I)
+    if m:
+        repro["gestation_period"] = f"{m.group(1)} {m.group(2)}"
+    
+    m = re.search(r'(?:litter|cubs?|young|offspring)\s*(?:size)?\s*(\d+(?:\s*[-–]\s*\d+)?)', repro_text, re.I)
+    if m:
+        repro["average_litter_size"] = m.group(1)
+    
+    m = re.search(r'young\s*(?:are\s*)?(?:called|known as)?\s*(?:a|an)?\s*(\w+)', repro_text, re.I)
+    if m:
+        repro["name_of_young"] = m.group(1).lower()
+    
+    return repro
+
+def extract_conservation_from_sections(sections):
+    """Extract conservation status and threats from sections"""
+    status = ""
+    threats = []
+    
+    conservation_text = sections.get("conservation", "")
+    threats_text = sections.get("threats", "")
+    all_text = conservation_text + " " + threats_text
+    
+    if conservation_text:
+        statuses = ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Least Concern", "Data Deficient"]
+        for s in statuses:
+            if s.lower() in conservation_text.lower():
+                status = s
+                break
+    
+    if any(w in all_text.lower() for w in ['poach', 'illegal trade', 'body parts', 'fur trade', 'ivory']):
+        threats.append('Poaching')
+    if any(w in all_text.lower() for w in ['habitat loss', 'deforestation', 'habitat destruction']):
+        threats.append('Habitat loss')
+    if any(w in all_text.lower() for w in ['human-wildlife conflict', 'livestock', 'retaliation']):
+        threats.append('Human-wildlife conflict')
+    
+    return status, ', '.join(threats[:3])
+
+def extract_behavior_from_sections(sections):
+    """Extract group behavior from sections"""
+    behavior_text = sections.get("behavior", "")
+    if not behavior_text:
+        return ""
+    
+    t = behavior_text.lower()
+    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary']):
+        return "Solitary"
+    elif any(w in t for w in ['pack', 'herd', 'flock', 'colony', 'social', 'group']):
+        return "Social"
+    elif any(w in t for w in ['pair', 'mate', 'pairs']):
+        return "Pairs"
+    
+    return ""
+
+def extract_additional_info_from_sections(sections):
+    """Extract ALL additional_info fields from Wikipedia sections"""
+    info = {
+        "group": "",
+        "number_of_species": "",
+        "estimated_population_size": "",
+        "age_of_sexual_maturity": "",
+        "age_of_weaning": "",
+        "most_distinctive_feature": ""
+    }
+    
+    all_text = ""
+    for section_name, section_text in sections.items():
+        all_text += section_text + " "
+    
+    if not all_text:
+        return info
+    
+    # Group (Mammal, Bird, Fish, Reptile, etc.)
+    group_patterns = [
+        r'is a (?:species of )?(mammal|bird|fish|reptile|amphibian|insect|invertebrate)',
+        r'belongs to the (?:class|group|family of )?(mammals|birds|fish|reptiles|amphibians|insects)',
+        r'is the (?:largest|smallest|only|sole) (?:living|extant)? (mammal|bird|fish|reptile|amphibian|insect)',
+    ]
+    for pattern in group_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            info["group"] = m.group(1).capitalize()
+            break
+    
+    # Number of species
+    species_patterns = [
+        r'(?:\d+)\s*(?:species|subspecies)\s*(?:of|in|within|recognized|known)',
+        r'(?:there are|includes?|contains?|comprises?)\s*(\d+)\s*(?:species|subspecies)',
+        r'(?:about|around|approximately|over|more than|up to)\s*(\d+)\s*(?:species|subspecies)',
+        r'species\s*(?:count|number)?\s*(?:of|is)?\s*(\d+)',
+    ]
+    for pattern in species_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            info["number_of_species"] = m.group(1)
+            break
+    
+    # Estimated population size
+    population_patterns = [
+        r'(?:population|estimated|total)\s*(?:is|of|size)?\s*(?:about|around|approximately|over|under|more than|less than)?\s*(\d+(?:,\d+)*(?:\s*(?:million|billion|thousand))?)',
+        r'(?:\d+(?:,\d+)*)\s*(?:million|billion|thousand)\s*(?:individuals?|animals?|population)',
+        r'(?:wild population|remaining|left)\s*(?:is|are)?\s*(?:about|around|only)?\s*(\d+(?:,\d+)*(?:\s*(?:million|billion|thousand))?)',
+    ]
+    for pattern in population_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            info["estimated_population_size"] = m.group(1).strip()
+            break
+    
+    # Age of sexual maturity
+    maturity_patterns = [
+        r'(?:sexual maturity|mature|reproductively mature)\s*(?:at|reached|occurs|at age)?\s*(?:around|about|approximately)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?|weeks?)',
+        r'(?:reaches?|becomes?|attains?)\s*(?:sexual)?\s*(?:maturity|mature)\s*(?:at|by|around)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?)',
+        r'(?:at|by|around|about)\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?)\s*(?:of age|old)?\s*(?:sexual maturity|mature)',
+    ]
+    for pattern in maturity_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            info["age_of_sexual_maturity"] = f"{m.group(1)} {m.group(2)}"
+            break
+    
+    # Age of weaning
+    weaning_patterns = [
+        r'(?:weaned|weaning)\s*(?:at|occurs|age)?\s*(?:around|about|approximately)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?|weeks?)',
+        r'(?:young|cubs?|pups?|chicks?)\s*(?:are|is)?\s*(?:weaned)\s*(?:at|after|around)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?|weeks?)',
+        r'(?:independent|leave mother)\s*(?:at|after|around)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs|months?)',
+    ]
+    for pattern in weaning_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            info["age_of_weaning"] = f"{m.group(1)} {m.group(2)}"
+            break
+    
+    # Most distinctive feature
+    feature_patterns = [
+        r'(?:most distinctive|distinctive|characteristic|notable|unique|remarkable)\s*(?:feature|characteristic|trait)\s*(?:is|are|of|includes?)?\s*(?:the)?\s*([^.]{10,150})',
+        r'(?:easily recognized|easily identified|readily identified)\s*(?:by|from|through)\s*(?:its?|their?)?\s*([^.]{10,100})',
+        r'(?:known for|famous for|noted for|notable for)\s*(?:its?|their?)?\s*([^.]{10,100})',
+        r'(?:distinctive|characteristic|unique)\s*(?:is|are)\s*(?:the|its?|their?)?\s*([^.]{10,100})',
+    ]
+    for pattern in feature_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            feature = m.group(1).strip()
+            # Clean up
+            feature = re.sub(r'^(?:the |its |their |a |an )', '', feature, flags=re.I)
+            if len(feature) > 10 and len(feature) < 150:
+                info["most_distinctive_feature"] = feature[:120]
+                break
+    
+    return info
 
 # iNaturalist
 def fetch_inaturalist(sci_name):
@@ -145,122 +388,6 @@ def fetch_inaturalist(sci_name):
     except Exception as e:
         print(f" ⚠ iNaturalist error: {e}")
     return None
-
-# Extractors
-def extract_stats(text, animal_type):
-    stats = {"weight": "", "length": "", "height": "", "lifespan": "", "top_speed": ""}
-    if not text:
-        return stats
-    
-    # Weight
-    m = re.search(r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|tonnes?|t|lbs?|pounds)', text, re.I)
-    if m:
-        stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-    
-    # Length
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|cm|ft|feet)\s*(?:long|length)', text, re.I)
-    if m:
-        stats["length"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-    
-    # Height
-    if 'shoulder' in text.lower() or 'stands' in text.lower():
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|cm|ft|feet)\s*(?:tall|height|shoulder)', text, re.I)
-        if m:
-            stats["height"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-    
-    # Lifespan
-    m = re.search(r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)', text, re.I)
-    if m:
-        stats["lifespan"] = f"{m.group(1)} {m.group(2)}"
-    
-    # Speed
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)', text, re.I)
-    if m:
-        stats["top_speed"] = f"{m.group(1)} {m.group(2)}"
-    
-    return stats
-
-def extract_conservation(text):
-    if not text:
-        return ""
-    statuses = ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Least Concern"]
-    for s in statuses:
-        if s.lower() in text.lower():
-            return s
-    return ""
-
-def extract_features(text, animal_type):
-    if not text:
-        return []
-    features = []
-    text_lower = text.lower()
-    
-    common = {
-        "striped": "Striped coat", "stripe": "Striped coat",
-        "spotted": "Spotted coat", "spot": "Spotted coat",
-        "mane": "Distinctive mane", "trunk": "Long trunk",
-        "tusk": "Large tusks", "horn": "Prominent horns",
-        "wing": "Distinctive wings", "tail": "Long tail",
-        "fin": "Distinctive fins", "shell": "Protective shell",
-        "venom": "Venomous", "claw": "Sharp claws",
-        "fur": "Thick fur"
-    }
-    
-    for keyword, feature in common.items():
-        if keyword in text_lower and feature not in features:
-            features.append(feature)
-    
-    return features[:3]
-
-def extract_behavior(text):
-    if not text:
-        return ""
-    t = text.lower()
-    if any(w in t for w in ['solitary', 'alone', 'lives alone']):
-        return "Solitary"
-    elif any(w in t for w in ['pack', 'herd', 'flock', 'colony', 'social', 'group']):
-        return "Social"
-    elif any(w in t for w in ['pair', 'pairs', 'mate']):
-        return "Pairs"
-    return ""
-
-def extract_reproduction(text):
-    repro = {"gestation_period": "", "average_litter_size": ""}
-    if not text:
-        return repro
-    
-    # Gestation
-    m = re.search(r'(?:gestation|pregnancy)\s*(?:period)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(days?|months?|weeks?)', text, re.I)
-    if m:
-        repro["gestation_period"] = f"{m.group(1)} {m.group(2)}"
-    
-    # Litter
-    m = re.search(r'(?:litter|cubs?|young)\s*(?:size)?\s*(\d+(?:\s*[-–]\s*\d+)?)', text, re.I)
-    if m:
-        repro["average_litter_size"] = m.group(1)
-    
-    return repro
-
-def extract_threats(text):
-    if not text:
-        return ""
-    threats = []
-    t = text.lower()
-    if any(w in t for w in ['poach', 'illegal trade']):
-        threats.append('Poaching')
-    if any(w in t for w in ['habitat loss', 'deforestation']):
-        threats.append('Habitat loss')
-    if any(w in t for w in ['human-wildlife conflict', 'retaliation']):
-        threats.append('Human-wildlife conflict')
-    return ', '.join(threats[:3])
-
-def extract_prey(text):
-    if not text:
-        return ""
-    m = re.search(r'(?:preys? on|feeds? on|hunts?|eats?|diet)[:\s]+([^.]{10,100})', text, re.I)
-    if m:
-        return m.group(1).strip()[:80]
-    return ""
 
 # File operations
 def get_animal_filename(name, qid):
@@ -297,23 +424,25 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
     
     young_name = ninja_chars.get("name_of_young", "") or get_young_name(animal_type)
     
-    # Build data - Ninja API first, then fill gaps with Wikipedia/iNaturalist
+    # Extract ALL possible data from Wikipedia sections
+    wiki_stats = extract_stats_from_sections(wiki_sections)
+    wiki_diet, wiki_prey = extract_diet_from_sections(wiki_sections)
+    wiki_repro = extract_reproduction_from_sections(wiki_sections)
+    wiki_conservation_status, wiki_threats = extract_conservation_from_sections(wiki_sections)
+    wiki_behavior = extract_behavior_from_sections(wiki_sections)
+    wiki_additional = extract_additional_info_from_sections(wiki_sections)
+    
+    # Build data - Priority: Ninja API > Wikipedia sections > iNaturalist
     data = {
         "id": qid,
         "name": name,
         "scientific_name": sci_name,
         "common_names": [],
-        
-        # Wikipedia for summary/image
         "description": wiki_summary.get("description", "") if wiki_summary else "",
         "summary": wiki_summary.get("summary", "") if wiki_summary else "",
         "image": wiki_summary.get("image", "") if wiki_summary else "",
         "wikipedia_url": wiki_summary.get("url", "") if wiki_summary else "",
-        
-        # Wikipedia sections (like the Dimetrodon example)
         "wikipedia_sections": wiki_sections,
-        
-        # iNaturalist for classification (more accurate)
         "classification": {
             "kingdom": inat_classification.get("kingdom", "") if inat_classification else ninja_taxonomy.get("kingdom", ""),
             "phylum": inat_classification.get("phylum", "") if inat_classification else ninja_taxonomy.get("phylum", ""),
@@ -323,54 +452,44 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
             "genus": inat_classification.get("genus", "") if inat_classification else ninja_taxonomy.get("genus", ""),
             "species": inat_classification.get("species", "") if inat_classification else ninja_taxonomy.get("scientific_name", sci_name)
         },
-        
         "animal_type": animal_type,
         "young_name": young_name,
         "group_name": get_group_name(animal_type),
-        
-        # Physical - Ninja API primary
         "physical": {
-            "weight": ninja_chars.get("weight", ""),
-            "length": "",
-            "height": ninja_chars.get("height", ""),
-            "top_speed": ninja_chars.get("top_speed", ""),
-            "lifespan": ninja_chars.get("lifespan", "")
+            "weight": ninja_chars.get("weight", "") or wiki_stats.get("weight", ""),
+            "length": wiki_stats.get("length", ""),
+            "height": ninja_chars.get("height", "") or wiki_stats.get("height", ""),
+            "top_speed": ninja_chars.get("top_speed", "") or wiki_stats.get("top_speed", ""),
+            "lifespan": ninja_chars.get("lifespan", "") or wiki_stats.get("lifespan", "")
         },
-        
-        # Ecology - Ninja API primary
         "ecology": {
-            "diet": ninja_chars.get("diet", ""),
-            "habitat": ninja_chars.get("habitat", ""),
-            "locations": ", ".join(ninja_locations) if ninja_locations else "",
-            "group_behavior": ninja_chars.get("group_behavior", ""),
-            "conservation_status": "",
-            "biggest_threat": ninja_chars.get("biggest_threat", ""),
+            "diet": ninja_chars.get("diet", "") or wiki_diet,
+            "habitat": ninja_chars.get("habitat", "") or wiki_sections.get("habitat", ""),
+            "locations": ", ".join(ninja_locations) if ninja_locations else wiki_sections.get("distribution", ""),
+            "group_behavior": ninja_chars.get("group_behavior", "") or wiki_behavior,
+            "conservation_status": wiki_conservation_status,
+            "biggest_threat": ninja_chars.get("biggest_threat", "") or wiki_threats,
             "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
             "population_trend": ""
         },
-        
-        # Reproduction - Ninja API primary
         "reproduction": {
-            "gestation_period": ninja_chars.get("gestation_period", ""),
-            "average_litter_size": ninja_chars.get("average_litter_size", ""),
-            "name_of_young": young_name
+            "gestation_period": ninja_chars.get("gestation_period", "") or wiki_repro.get("gestation_period", ""),
+            "average_litter_size": ninja_chars.get("average_litter_size", "") or wiki_repro.get("average_litter_size", ""),
+            "name_of_young": ninja_chars.get("name_of_young", "") or wiki_repro.get("name_of_young", "") or young_name
         },
-        
-        # Additional Info - Ninja API primary
         "additional_info": {
             "lifestyle": ninja_chars.get("lifestyle", ""),
             "color": ninja_chars.get("color", ""),
             "skin_type": ninja_chars.get("skin_type", ""),
-            "prey": ninja_chars.get("prey", ""),
+            "prey": ninja_chars.get("prey", "") or wiki_prey,
             "slogan": ninja_chars.get("slogan", ""),
-            "group": ninja_chars.get("group", ""),
-            "number_of_species": ninja_chars.get("number_of_species", ""),
-            "estimated_population_size": ninja_chars.get("estimated_population_size", ""),
-            "age_of_sexual_maturity": ninja_chars.get("age_of_sexual_maturity", ""),
-            "age_of_weaning": ninja_chars.get("age_of_weaning", ""),
-            "most_distinctive_feature": ninja_chars.get("most_distinctive_feature", "")
+            "group": ninja_chars.get("group", "") or wiki_additional.get("group", ""),
+            "number_of_species": ninja_chars.get("number_of_species", "") or wiki_additional.get("number_of_species", ""),
+            "estimated_population_size": ninja_chars.get("estimated_population_size", "") or wiki_additional.get("estimated_population_size", ""),
+            "age_of_sexual_maturity": ninja_chars.get("age_of_sexual_maturity", "") or wiki_additional.get("age_of_sexual_maturity", ""),
+            "age_of_weaning": ninja_chars.get("age_of_weaning", "") or wiki_additional.get("age_of_weaning", ""),
+            "most_distinctive_feature": ninja_chars.get("most_distinctive_feature", "") or wiki_additional.get("most_distinctive_feature", "")
         },
-        
         "sources": [],
         "last_updated": datetime.now().isoformat()
     }
@@ -382,45 +501,6 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_c
         data["sources"].append("Wikipedia")
     if inat_classification:
         data["sources"].append("iNaturalist")
-    
-    # Fill gaps with Wikipedia extraction
-    if wiki_full:
-        if data["physical"]["weight"] == "":
-            stats = extract_stats(wiki_full, animal_type)
-            if stats["weight"]:
-                data["physical"]["weight"] = stats["weight"]
-        if data["physical"]["height"] == "":
-            stats = extract_stats(wiki_full, animal_type)
-            if stats["height"]:
-                data["physical"]["height"] = stats["height"]
-        if data["physical"]["length"] == "":
-            stats = extract_stats(wiki_full, animal_type)
-            if stats["length"]:
-                data["physical"]["length"] = stats["length"]
-        if data["ecology"]["conservation_status"] == "":
-            cons = extract_conservation(wiki_full)
-            if cons:
-                data["ecology"]["conservation_status"] = cons
-        if data["ecology"]["group_behavior"] == "":
-            behavior = extract_behavior(wiki_full)
-            if behavior:
-                data["ecology"]["group_behavior"] = behavior
-        if not data["ecology"]["distinctive_features"]:
-            features = extract_features(wiki_full, animal_type)
-            if features:
-                data["ecology"]["distinctive_features"] = features
-        if data["ecology"]["biggest_threat"] == "":
-            threats = extract_threats(wiki_full)
-            if threats:
-                data["ecology"]["biggest_threat"] = threats
-        if data["reproduction"]["gestation_period"] == "":
-            repro = extract_reproduction(wiki_full)
-            if repro["gestation_period"]:
-                data["reproduction"]["gestation_period"] = repro["gestation_period"]
-        if data["additional_info"]["prey"] == "":
-            prey = extract_prey(wiki_full)
-            if prey:
-                data["additional_info"]["prey"] = prey
     
     return data
 
