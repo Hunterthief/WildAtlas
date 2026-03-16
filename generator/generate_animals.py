@@ -62,46 +62,97 @@ def fetch_wikipedia_summary(name):
     return {"summary": "", "description": "", "image": "", "url": ""}
 
 def fetch_wikipedia_full(name):
+    """Fetch full Wikipedia article and clean it properly"""
     try:
         r = session.get(f"{WIKI_MOBILE}{name.replace(' ', '_')}", headers=headers, timeout=15)
         if r.status_code == 200:
-            text = re.sub(r'<[^>]+>', ' ', r.text)
-            text = re.sub(r'\s+', ' ', text).strip()
-            text = re.sub(r'\[\d+\]', '', text)
+            text = r.text
+            # Remove all HTML tags
+            text = re.sub(r'<[^>]+>', ' ', text)
+            # Remove JavaScript, templates, and wiki markup
+            text = re.sub(r'\{\{[^}]+\}\}', ' ', text)  # Templates
+            text = re.sub(r'\[\[[^]]+\]\]', lambda m: m.group(0).split('|')[-1].rstrip(']]'), text)  # Links
+            text = re.sub(r'\[\d+\]', '', text)  # Citations
+            text = re.sub(r'==[^=]+==', '', text)  # Section markers
+            text = re.sub(r'\s+', ' ', text)
+            text = text.strip()
             return text
     except Exception as e:
         print(f" ⚠ Wikipedia full error: {e}")
     return ""
 
 def clean_wikipedia_text(text):
-    """Remove Wikipedia navigation garbage"""
+    """Aggressively clean Wikipedia text of all garbage"""
     if not text:
         return ""
     
-    # Remove navigation boxes and templates
-    text = re.sub(r'Jump to content|Jump to navigation|Jump to search', '', text, flags=re.I)
-    text = re.sub(r'Toggle the table of contents', '', text, flags=re.I)
-    text = re.sub(r'\[\s*edit\s*\]', '', text, flags=re.I)
-    text = re.sub(r'From Wikipedia, the free encyclopedia', '', text, flags=re.I)
+    # Remove templates {{...}}
+    text = re.sub(r'\{\{[^}]*\}\}', ' ', text)
     
-    # Remove language list
-    text = re.sub(r'\d+\s*languages', '', text, flags=re.I)
+    # Remove references [1], [2], etc.
+    text = re.sub(r'\[\d+\]', '', text)
     
-    # Remove common Wikipedia navigation text
-    nav_text = r'Acèh|Адыгабзэ|Afrikaans|Alemannisch|العربية|مصرى|Asturianu|Авар|Azərbaycanca|Беларуская|Български|Brezhoneg|Bosanski|Català|Cebuano|Čeština|Cymraeg|Dansk|Deutsch|Eesti|Ελληνικά|Español|Esperanto|Euskara|فارسی|Suomi|Français|Frysk|Gaeilge|Galego|עברית|हिन्दी|Hrvatski|Magyar|Հայերեն|Bahasa|Íslenska|Italiano|日本語|Jawa|ქართული|Қазақша|한국어|Kurdî|Кыргызча|Latina|Lietuvių|Latviešu|Македонски|മലയാളം|मराठी|Bahasa|Malti|Nederlands|Norsk|Occitan|Polski|Português|Română|Русский|Sicilianu|Scots|Srpski|Svenska|Kiswahili|தமிழ்|తెలుగు|Тоҷикӣ|ไทย|Tagalog|Türkçe|Українська|اردو|Oʻzbekcha|Tiếng|Winaray|中文|Bân-lâm-gú|粵語'
-    text = re.sub(nav_text, '', text, flags=re.I)
+    # Remove wiki links [[...]] but keep text
+    def replace_link(m):
+        content = m.group(1)
+        if '|' in content:
+            return content.split('|')[-1]
+        return content
+    text = re.sub(r'\[\[([^]]+)\]\]', replace_link, text)
     
-    # Remove Wikipedia metadata
-    meta_text = r'Wikidata|Featured articles|Wikipedia.*?pages|Use.*?dates|All Wikipedia articles|Articles with.*?microformats|Articles containing.*?language text|Pages using.*?image|Short description|Disambiguation|Redirect|Main page|Contents|Current events|Random article|Donate|Contact'
-    text = re.sub(meta_text, '', text, flags=re.I)
+    # Remove HTML entities
+    text = re.sub(r'&[^;]+;', ' ', text)
+    
+    # Remove special wiki markup
+    text = re.sub(r"'''", '', text)
+    text = re.sub(r"''", '', text)
+    text = re.sub(r'\|', ' ', text)
+    
+    # Remove common garbage patterns
+    garbage_patterns = [
+        r'Jump to content', r'Jump to navigation', r'Jump to search',
+        r'From Wikipedia', r'free encyclopedia',
+        r'Wikidata', r'Featured article',
+        r'Use dmy dates', r'Use British English',
+        r'Short description', r'pp-semi', r'pp-move',
+        r'Speciesbox', r'fossil range', r'IUCN', r'CITES',
+        r'cite book', r'cite journal', r'cite web', r'cite news',
+        r'Reflist', r'References', r'Bibliography',
+        r'External links', r'See also',
+        r'Authority control', r'Portal bar',
+        r'Wikijunior', r'Wikiquote', r'Wikivoyage',
+        r'Category:', r'Cat:', r'Navbox',
+        r'clear', r'thumb', r'alt=', r'px',
+        r'File:', r'Image:', r'Gallery',
+        r'main\|', r'further\|', r'Redirect',
+        r'sfn\|', r'harvnb\|', r'ef name=',
+        r'access-date', r'archive-date', r'archive-url',
+        r'isbn', r'pmid', r'pmc', r'doi',
+        r'volume=', r'issue=', r'pages=', r'year=',
+        r'author=', r'title=', r'publisher=', r'location=',
+        r'url=', r'chapter=', r'edition=',
+        r'lang=', r'trans-', r's2cid=', r'bibcode=',
+        r'hdl=', r'jstor=', r'ssrn=',
+        r'{{', r'}}', r'[[', r']]', r'{{{', r'}}}',
+    ]
+    for pattern in garbage_patterns:
+        text = re.sub(pattern, ' ', text, flags=re.I)
+    
+    # Remove language names and navigation
+    lang_names = r'Acèh|Адыгабзэ|Afrikaans|Alemannisch|العربية|مصرى|Asturianu|Авар|Azərbaycanca|Беларуская|Български|Brezhoneg|Bosanski|Català|Cebuano|Čeština|Cymraeg|Dansk|Deutsch|Eesti|Ελληνικά|Español|Esperanto|Euskara|فارسی|Suomi|Français|Frysk|Gaeilge|Galego|עברית|हिन्दी|Hrvatski|Magyar|Հայերեն|Bahasa|Íslenska|Italiano|日本語|Jawa|ქართული|Қазақша|한국어|Kurdî|Кыргызча|Latina|Lietuvių|Latviešu|Македонски|മലയാളം|मराठी|Malti|Nederlands|Norsk|Occitan|Polski|Português|Română|Русский|Sicilianu|Scots|Srpski|Svenska|Kiswahili|தமிழ்|తెలుగు|Тоҷикӣ|ไทย|Tagalog|Türkçe|Українська|اردو|Oʻzbekcha|Tiếng|Winaray|中文|Bân-lâm-gú|粵語'
+    text = re.sub(lang_names, ' ', text, flags=re.I)
     
     # Clean up multiple spaces
     text = re.sub(r'\s+', ' ', text)
     
+    # Remove remaining template artifacts
+    text = re.sub(r'\([^)]*\{[^}]*\}[^)]*\)', ' ', text)
+    text = re.sub(r'\[edit\]', '', text, flags=re.I)
+    
     return text.strip()
 
 def extract_wikipedia_sections(text):
-    """Extract Wikipedia sections - works with mobile format"""
+    """Extract Wikipedia sections with proper cleaning"""
     sections = {
         "etymology": "",
         "description": "",
@@ -114,123 +165,148 @@ def extract_wikipedia_sections(text):
         "conservation": ""
     }
     
-    if not text:
+    if not text or len(text) < 500:
         return sections
     
     # Clean the text first
     text = clean_wikipedia_text(text)
     
-    if not text or len(text) < 100:
+    if len(text) < 500:
         return sections
     
-    # Split text into sentences for better parsing
+    # Split into sentences
     sentences = re.split(r'(?<=[.!?])\s+', text)
     
-    # Categorize sentences by keywords
-    etymology_keywords = ['etymology', 'name', 'called', 'named', 'word', 'term', 'origin', 'latin', 'greek', 'means']
-    description_keywords = ['description', 'physical', 'appearance', 'characteristics', 'features', 'looks', 'weighs', 'measures', 'length', 'size', 'large', 'small', 'fur', 'coat', 'stripes', 'spots', 'color', 'coloured']
-    distribution_keywords = ['distribution', 'range', 'found', 'native', 'lives', 'located', 'region', 'country', 'continent', 'asia', 'africa', 'europe', 'america', 'australia']
-    habitat_keywords = ['habitat', 'environment', 'lives in', 'inhabits', 'forest', 'grassland', 'desert', 'mountain', 'ocean', 'river', 'tropical', 'temperate']
-    diet_keywords = ['diet', 'eats', 'feeds', 'hunts', 'prey', 'predator', 'carnivore', 'herbivore', 'omnivore', 'food', 'feeding']
-    behavior_keywords = ['behavior', 'behaviour', 'social', 'solitary', 'group', 'pack', 'herd', 'territorial', 'active', 'nocturnal', 'diurnal']
-    reproduction_keywords = ['reproduction', 'breeding', 'mating', 'gestation', 'pregnant', 'pregnancy', 'litter', 'cubs', 'young', 'offspring', 'eggs', 'lay', 'birth']
-    threats_keywords = ['threats', 'threatened', 'danger', 'predators', 'hunted', 'killed', 'endangered', 'vulnerable', 'extinct', 'decline']
-    conservation_keywords = ['conservation', 'protected', 'status', 'IUCN', 'endangered', 'vulnerable', 'least concern', 'critically endangered', 'population', 'preserve']
+    # Keywords for each section
+    section_keywords = {
+        "etymology": ['etymology', 'name', 'named', 'called', 'word', 'term', 'origin', 'latin', 'greek', 'persian', 'armenian', 'means', 'derives'],
+        "description": ['description', 'physical', 'appearance', 'characteristics', 'features', 'weighs', 'measures', 'length', 'size', 'large', 'small', 'fur', 'coat', 'stripes', 'spots', 'color', 'coloured', 'skull', 'teeth', 'claws', 'paws', 'tail', 'head'],
+        "distribution": ['distribution', 'range', 'found', 'native', 'lives', 'located', 'region', 'country', 'continent', 'asia', 'africa', 'europe', 'america', 'australia', 'russia', 'india', 'china', 'indonesia', 'sumatra', 'java', 'bali'],
+        "habitat": ['habitat', 'environment', 'lives in', 'inhabits', 'forest', 'grassland', 'desert', 'mountain', 'ocean', 'river', 'tropical', 'temperate', 'mangrove', 'woodland'],
+        "hunting_diet": ['diet', 'eats', 'feeds', 'hunts', 'prey', 'predator', 'carnivore', 'herbivore', 'omnivore', 'food', 'feeding', 'kill', 'deer', 'boar', 'ungulate'],
+        "behavior": ['behavior', 'behaviour', 'social', 'solitary', 'group', 'pack', 'herd', 'territorial', 'active', 'nocturnal', 'diurnal', 'crepuscular', 'mark', 'territory', 'urine', 'scent'],
+        "reproduction": ['reproduction', 'breeding', 'mating', 'gestation', 'pregnant', 'pregnancy', 'litter', 'cubs', 'young', 'offspring', 'eggs', 'lay', 'birth', 'wean', 'sexual maturity'],
+        "threats": ['threats', 'threatened', 'danger', 'predators', 'hunted', 'killed', 'poach', 'poaching', 'endangered', 'vulnerable', 'extinct', 'decline', 'decrease', 'loss'],
+        "conservation": ['conservation', 'protected', 'status', 'iucn', 'endangered', 'vulnerable', 'least concern', 'critically endangered', 'population', 'preserve', 'reserve', 'park', 'action plan', 'cites']
+    }
     
-    current_section = "description"  # Default section
+    current_section = "description"
+    section_content = {k: [] for k in sections}
     
     for sentence in sentences:
         sentence_lower = sentence.lower().strip()
         
-        if len(sentence_lower) < 20:
+        # Skip very short sentences
+        if len(sentence_lower) < 30:
             continue
         
-        # Detect section changes
-        if any(kw in sentence_lower for kw in ['references', 'external links', 'see also', 'bibliography']):
-            break
+        # Skip sentences with remaining template garbage
+        if any(garbage in sentence_lower for garbage in ['{{', '}}', '[[', ']]', 'cite', 'isbn', 'doi', 'pmid']):
+            continue
         
-        # Assign sentence to appropriate section
-        if any(kw in sentence_lower for kw in etymology_keywords) and 'etymology' not in sections['etymology'].lower():
-            sections['etymology'] += sentence + ' '
-            current_section = 'etymology'
-        elif any(kw in sentence_lower for kw in conservation_keywords) and len(sections['conservation']) < 800:
-            sections['conservation'] += sentence + ' '
-            current_section = 'conservation'
-        elif any(kw in sentence_lower for kw in threats_keywords) and len(sections['threats']) < 800:
-            sections['threats'] += sentence + ' '
-            current_section = 'threats'
-        elif any(kw in sentence_lower for kw in reproduction_keywords) and len(sections['reproduction']) < 800:
-            sections['reproduction'] += sentence + ' '
-            current_section = 'reproduction'
-        elif any(kw in sentence_lower for kw in behavior_keywords) and len(sections['behavior']) < 800:
-            sections['behavior'] += sentence + ' '
-            current_section = 'behavior'
-        elif any(kw in sentence_lower for kw in diet_keywords) and len(sections['hunting_diet']) < 800:
-            sections['hunting_diet'] += sentence + ' '
-            current_section = 'hunting_diet'
-        elif any(kw in sentence_lower for kw in habitat_keywords) and len(sections['habitat']) < 800:
-            sections['habitat'] += sentence + ' '
-            current_section = 'habitat'
-        elif any(kw in sentence_lower for kw in distribution_keywords) and len(sections['distribution']) < 800:
-            sections['distribution'] += sentence + ' '
-            current_section = 'distribution'
-        elif any(kw in sentence_lower for kw in description_keywords) and len(sections['description']) < 800:
-            sections['description'] += sentence + ' '
-            current_section = 'description'
-        else:
-            # Assign to current section if it makes sense
-            if current_section and len(sections[current_section]) < 800:
-                sections[current_section] += sentence + ' '
+        # Detect section changes based on keywords
+        best_match = None
+        best_score = 0
+        
+        for section_name, keywords in section_keywords.items():
+            score = sum(1 for kw in keywords if kw in sentence_lower)
+            if score > best_score:
+                best_score = score
+                best_match = section_name
+        
+        # Assign to best matching section or current section
+        if best_match and best_score >= 1:
+            current_section = best_match
+        
+        # Add to section if not full (limit 500 chars per section)
+        if len(' '.join(section_content[current_section])) < 500:
+            section_content[current_section].append(sentence)
     
-    # Clean up sections
+    # Combine sentences for each section
     for key in sections:
-        content = sections[key].strip()
+        content = ' '.join(section_content[key]).strip()
         content = re.sub(r'\s+', ' ', content)
-        # Limit to 800 chars per section
-        if len(content) > 800:
-            content = content[:800]
+        # Clean up any remaining garbage
+        content = re.sub(r'\([^)]{50,}\)', '', content)  # Remove long parentheticals
+        content = content[:600]  # Limit length
+        if len(content) > 600:
             content = content.rsplit('.', 1)[0] + '.'
         sections[key] = content
     
     return sections
 
 def extract_stats_from_sections(sections):
-    """Extract weight, height, length, lifespan, speed from sections"""
+    """Extract physical stats from sections"""
     stats = {"weight": "", "length": "", "height": "", "lifespan": "", "top_speed": ""}
     
-    # Combine all sections for searching
     all_text = ""
     for section_name, section_text in sections.items():
         all_text += section_text + " "
     
+    # Also check summary
+    all_text += " "
+    
     if not all_text:
         return stats
     
-    # Weight
-    m = re.search(r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|tonnes?|t|lbs?|pounds)', all_text, re.I)
-    if m:
-        stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+    # Weight - look for kg/lbs patterns
+    weight_patterns = [
+        r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|tonnes?|t|lbs?|pounds)',
+        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms)\s*(?:weight|weigh)',
+        r'weight\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|lbs|pounds)',
+    ]
+    for pattern in weight_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+            break
     
     # Length
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:long|length|in length)', all_text, re.I)
-    if m:
-        stats["length"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+    length_patterns = [
+        r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:long|length|in length)',
+        r'length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|ft|feet)',
+    ]
+    for pattern in length_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            stats["length"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+            break
     
     # Height
     if 'shoulder' in all_text.lower() or 'stands' in all_text.lower():
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:tall|height|shoulder)', all_text, re.I)
-        if m:
-            stats["height"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+        height_patterns = [
+            r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:tall|height|shoulder)',
+            r'stands?\s*(?:about|around|up to)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|ft|feet)',
+        ]
+        for pattern in height_patterns:
+            m = re.search(pattern, all_text, re.I)
+            if m:
+                stats["height"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+                break
     
     # Lifespan
-    m = re.search(r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)\s*(?:lifespan|life|old|age|in the wild)', all_text, re.I)
-    if m:
-        stats["lifespan"] = f"{m.group(1)} {m.group(2)}"
+    lifespan_patterns = [
+        r'(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)\s*(?:lifespan|life|old|age|in the wild|in captivity)',
+        r'lifespan\s*(?:of|is)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)',
+        r'live\s*(?:for|up to|to)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)',
+    ]
+    for pattern in lifespan_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            stats["lifespan"] = f"{m.group(1)} {m.group(2)}"
+            break
     
     # Speed
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)\s*(?:speed|top speed|maximum|can run)', all_text, re.I)
-    if m:
-        stats["top_speed"] = f"{m.group(1)} {m.group(2)}"
+    speed_patterns = [
+        r'(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)\s*(?:speed|top speed|maximum|can run|sprint)',
+        r'speed\s*(?:of|up to)?\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)',
+        r'can\s*(?:run|reach|travel|sprint)\s*(?:up to)?\s*(\d+(?:[.,]\d+)?)\s*(km/h|kmph|mph|mi/h)',
+    ]
+    for pattern in speed_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            stats["top_speed"] = f"{m.group(1)} {m.group(2)}"
+            break
     
     return stats
 
@@ -246,16 +322,28 @@ def extract_diet_from_sections(sections):
     if not all_text:
         return diet, prey
     
-    if any(w in all_text.lower() for w in ['carnivore', 'carnivorous', 'meat-eater', 'predator']):
+    # Diet type
+    if any(w in all_text.lower() for w in ['carnivore', 'carnivorous', 'meat-eater', 'predator', 'predatory']):
         diet = "Carnivore"
-    elif any(w in all_text.lower() for w in ['herbivore', 'herbivorous', 'plant-eater', 'grazes']):
+    elif any(w in all_text.lower() for w in ['herbivore', 'herbivorous', 'plant-eater', 'grazes', 'browses']):
         diet = "Herbivore"
     elif any(w in all_text.lower() for w in ['omnivore', 'omnivorous', 'both plants and animals']):
         diet = "Omnivore"
     
-    m = re.search(r'(?:preys? on|feeds? on|hunts?|eats?|diet consists of|primary prey)[:\s]+([^.]{10,150})', all_text, re.I)
-    if m:
-        prey = m.group(1).strip()[:120]
+    # Prey items
+    prey_patterns = [
+        r'(?:preys? on|feeds? on|hunts?|eats?|diet consists of|primary prey)[:\s]+([^.]{10,150})',
+        r'(?:includes?|such as|mainly|primarily)[:\s]+([^.]{10,100})(?:,|\.|$)',
+        r'(?:deer|wild boar|buffalo|gazelle|antelope|ungulate|sambar|gaur)[^.]{0,80}',
+    ]
+    for pattern in prey_patterns:
+        m = re.search(pattern, all_text, re.I)
+        if m:
+            prey_text = m.group(0).strip()
+            prey_text = re.sub(r'^(?:It |They |The animal |This species )', '', prey_text, flags=re.I)
+            if 10 < len(prey_text) < 150:
+                prey = prey_text[:120]
+                break
     
     return diet, prey
 
@@ -270,14 +358,17 @@ def extract_reproduction_from_sections(sections):
     if not all_text:
         return repro
     
+    # Gestation
     m = re.search(r'(?:gestation|pregnancy|incubation)\s*(?:period)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(days?|months?|weeks?)', all_text, re.I)
     if m:
         repro["gestation_period"] = f"{m.group(1)} {m.group(2)}"
     
+    # Litter size
     m = re.search(r'(?:litter|cubs?|young|offspring)\s*(?:size)?\s*(\d+(?:\s*[-–]\s*\d+)?)', all_text, re.I)
     if m:
         repro["average_litter_size"] = m.group(1)
     
+    # Name of young
     m = re.search(r'young\s*(?:are\s*)?(?:called|known as)?\s*(?:a|an)?\s*(\w+)', all_text, re.I)
     if m:
         repro["name_of_young"] = m.group(1).lower()
@@ -293,20 +384,19 @@ def extract_conservation_from_sections(sections):
     for section_name, section_text in sections.items():
         all_text += section_text + " "
     
-    if not all_text:
-        return status, ', '.join(threats)
-    
+    # Conservation status
     statuses = ["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Least Concern", "Data Deficient"]
     for s in statuses:
         if s.lower() in all_text.lower():
             status = s
             break
     
-    if any(w in all_text.lower() for w in ['poach', 'illegal trade', 'body parts', 'fur trade', 'ivory']):
+    # Threats
+    if any(w in all_text.lower() for w in ['poach', 'illegal trade', 'body parts', 'fur trade', 'ivory', 'tiger bone']):
         threats.append('Poaching')
-    if any(w in all_text.lower() for w in ['habitat loss', 'deforestation', 'habitat destruction']):
+    if any(w in all_text.lower() for w in ['habitat loss', 'deforestation', 'habitat destruction', 'habitat fragmentation', 'logging']):
         threats.append('Habitat loss')
-    if any(w in all_text.lower() for w in ['human-wildlife conflict', 'livestock', 'retaliation']):
+    if any(w in all_text.lower() for w in ['human-wildlife conflict', 'livestock', 'retaliation', 'persecution', 'killed by']):
         threats.append('Human-wildlife conflict')
     
     return status, ', '.join(threats[:3])
@@ -321,11 +411,11 @@ def extract_behavior_from_sections(sections):
         return ""
     
     t = all_text.lower()
-    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary']):
+    if any(w in t for w in ['solitary', 'alone', 'lives alone', 'mostly solitary', 'lives singly']):
         return "Solitary"
-    elif any(w in t for w in ['pack', 'herd', 'flock', 'colony', 'social', 'group']):
+    elif any(w in t for w in ['pack', 'herd', 'flock', 'colony', 'social', 'group living', 'highly social']):
         return "Social"
-    elif any(w in t for w in ['pair', 'mate', 'pairs']):
+    elif any(w in t for w in ['pair', 'mate', 'pairs', 'family group']):
         return "Pairs"
     
     return ""
@@ -348,15 +438,15 @@ def extract_additional_info_from_sections(sections):
     if not all_text:
         return info
     
-    # Group
-    m = re.search(r'is a (?:species of )?(mammal|bird|fish|reptile|amphibian|insect)', all_text, re.I)
+    # Group (Mammal, Bird, Fish, etc.)
+    m = re.search(r'is a (?:species of )?(mammal|bird|fish|reptile|amphibian|insect|invertebrate)', all_text, re.I)
     if m:
         info["group"] = m.group(1).capitalize()
     
     # Number of species
-    m = re.search(r'(?:about|around|approximately|over|more than)?\s*(\d+)\s*(?:species|subspecies)\s*(?:of|in|recognized|known)', all_text, re.I)
+    m = re.search(r'(?:\d+)\s*(?:species|subspecies)\s*(?:of|in|recognized|known)', all_text, re.I)
     if m:
-        info["number_of_species"] = m.group(1)
+        info["number_of_species"] = m.group(0).split()[0]
     
     # Population
     m = re.search(r'(?:population|estimated|total)\s*(?:is|of|size)?\s*(?:about|around|approximately|over|under)?\s*(\d+(?:,\d+)*(?:\s*(?:million|billion|thousand))?)', all_text, re.I)
@@ -378,8 +468,8 @@ def extract_additional_info_from_sections(sections):
     if m:
         feature = m.group(1).strip()
         feature = re.sub(r'^(?:the |its |their |a |an )', '', feature, flags=re.I)
-        if len(feature) > 10:
-            info["most_distinctive_feature"] = feature[:100]
+        if 10 < len(feature) < 150:
+            info["most_distinctive_feature"] = feature[:120]
     
     return info
 
@@ -553,7 +643,8 @@ def generate(animals, force=False):
         wiki_full = fetch_wikipedia_full(name)
         wiki_sections = extract_wikipedia_sections(wiki_full)
         
-        print(f"   📋 Extracted {sum(len(v) for v in wiki_sections.values())} chars from Wikipedia sections")
+        filled_sections = sum(1 for v in wiki_sections.values() if v and len(v) > 20)
+        print(f"   📋 Extracted {filled_sections}/9 Wikipedia sections")
         
         print(" 🔬 Fetching from iNaturalist...")
         inat_classification = fetch_inaturalist(sci)
