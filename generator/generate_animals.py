@@ -38,9 +38,6 @@ def load_config(filename):
 
 YOUNG_NAMES = load_config("young_names.json")
 GROUP_NAMES = load_config("group_names.json")
-LOCATIONS = load_config("locations.json")
-HABITATS = load_config("habitats.json")
-FEATURES = load_config("features.json")
 
 def get_young_name(animal_type):
     return YOUNG_NAMES.get(animal_type, YOUNG_NAMES.get("default", "young"))
@@ -75,6 +72,46 @@ def fetch_wikipedia_full(name):
     except Exception as e:
         print(f" ⚠ Wikipedia full error: {e}")
     return ""
+
+def extract_wikipedia_sections(text):
+    """Extract Wikipedia sections like Overview, Description, Ecology, etc."""
+    sections = {
+        "overview": "",
+        "description": "",
+        "ecology": "",
+        "behavior": "",
+        "reproduction": "",
+        "conservation": "",
+        "distribution": ""
+    }
+    
+    if not text:
+        return sections
+    
+    # Split by common section headers
+    section_patterns = [
+        (r'(?:Description|Physical description|Appearance)[:\s]+(.+?)(?=(?:Ecology|Behavior|Habitat|Distribution|Conservation|Reproduction|Etymology|Discovery|$))', "description"),
+        (r'(?:Ecology|Habitat|Range|Distribution)[:\s]+(.+?)(?=(?:Behavior|Reproduction|Conservation|Description|Etymology|$))', "ecology"),
+        (r'(?:Behavior|Social behavior|Hunting|Feeding)[:\s]+(.+?)(?=(?:Reproduction|Ecology|Conservation|Description|$))', "behavior"),
+        (r'(?:Reproduction|Breeding|Life cycle)[:\s]+(.+?)(?=(?:Behavior|Ecology|Conservation|Description|$))', "reproduction"),
+        (r'(?:Conservation|Status|Threats|Protection)[:\s]+(.+?)(?=(?:Reproduction|Behavior|Ecology|Description|$))', "conservation"),
+    ]
+    
+    for pattern, section_name in section_patterns:
+        match = re.search(pattern, text, re.I | re.DOTALL)
+        if match:
+            content = match.group(1).strip()
+            # Clean up and limit length
+            content = re.sub(r'\s+', ' ', content)
+            sections[section_name] = content[:500] if len(content) > 500 else content
+    
+    # If no sections found, use first paragraph as overview
+    if not sections["overview"]:
+        first_para = re.search(r'^([^.]+\. [^.]+\. [^.]+\.)', text)
+        if first_para:
+            sections["overview"] = first_para.group(1).strip()
+    
+    return sections
 
 # iNaturalist
 def fetch_inaturalist(sci_name):
@@ -116,18 +153,18 @@ def extract_stats(text, animal_type):
         return stats
     
     # Weight
-    m = re.search(r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms)', text, re.I)
+    m = re.search(r'weighs?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|tonnes?|t|lbs?|pounds)', text, re.I)
     if m:
         stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
     
     # Length
-    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|cm)\s*(?:long|length)', text, re.I)
+    m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|cm|ft|feet)\s*(?:long|length)', text, re.I)
     if m:
         stats["length"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
     
     # Height
     if 'shoulder' in text.lower() or 'stands' in text.lower():
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|cm)\s*(?:tall|height|shoulder)', text, re.I)
+        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|cm|ft|feet)\s*(?:tall|height|shoulder)', text, re.I)
         if m:
             stats["height"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
     
@@ -238,7 +275,7 @@ def save_animal_file(data, name, qid):
     print(f" 💾 Saved: {filename}")
 
 # Build data from ALL sources
-def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, qid, name, sci_name):
+def build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_classification, qid, name, sci_name):
     # Get data from each source
     ninja_chars = ninja_data.get("characteristics", {}) if ninja_data else {}
     ninja_taxonomy = ninja_data.get("taxonomy", {}) if ninja_data else {}
@@ -272,6 +309,9 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
         "summary": wiki_summary.get("summary", "") if wiki_summary else "",
         "image": wiki_summary.get("image", "") if wiki_summary else "",
         "wikipedia_url": wiki_summary.get("url", "") if wiki_summary else "",
+        
+        # Wikipedia sections (like the Dimetrodon example)
+        "wikipedia_sections": wiki_sections,
         
         # iNaturalist for classification (more accurate)
         "classification": {
@@ -336,7 +376,7 @@ def build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, 
     }
     
     # Add sources
-    if ninja_
+    if ninja_data is not None:
         data["sources"].append("API Ninjas")
     if wiki_summary and wiki_summary.get("summary"):
         data["sources"].append("Wikipedia")
@@ -408,11 +448,12 @@ def generate(animals, force=False):
         print(" 📖 Fetching from Wikipedia...")
         wiki_summary = fetch_wikipedia_summary(name)
         wiki_full = fetch_wikipedia_full(name)
+        wiki_sections = extract_wikipedia_sections(wiki_full)
         
         print(" 🔬 Fetching from iNaturalist...")
         inat_classification = fetch_inaturalist(sci)
         
-        data = build_animal_data(ninja_data, wiki_summary, wiki_full, inat_classification, qid, name, sci)
+        data = build_animal_data(ninja_data, wiki_summary, wiki_full, wiki_sections, inat_classification, qid, name, sci)
         save_animal_file(data, name, qid)
         
         output.append(data)
