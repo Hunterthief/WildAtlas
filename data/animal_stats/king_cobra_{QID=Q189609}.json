@@ -6,7 +6,11 @@
   "description": "Group of venomous snakes from Asia",
   "summary": "The king cobra is a species complex of snakes endemic to Asia. With an average length of 3.18 to 4 m and a record length of 5.85 m (19.2 ft), it is the world's longest venomous snake and among the heaviest. Under the genus Ophiophagus, it is not phylogenetically a true cobra despite its common name and some resemblance. Spanning from the Indian subcontinent through Southeastern Asia to Southern China, the king cobra is widely distributed albeit not commonly seen.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
+  "eol_url": "",
+  "gbif_key": 183199546,
   "wikipedia_sections": {
     "etymology": "Under the genus Ophiophagus , it is not phylogenetically a true cobra despite its common name and some resemblance. Etymology The king cobra is also referred to by the common name \" hamadryad \", especially in older literature. Hamadryas hannah was the scientific name used by Danish naturalist Theodore Edward Cantor in 1836 who described four king cobra specimens , three captured in the Sundarbans and one in the vicinity of Kolkata . 4 The origin of the species name hannah was not specified during description and has long been uncertain, but may potentially refer to Hannah Sarah Wallich, the el",
     "description": "With an average length of 3.18 to 4 m (10.4 to 13.1 ft) and a record length of 5.85 m (19.2 ft), 2 it is the world's longest venomous snake and among the heaviest. 3 Typical threat display of this elapid includes neck-flap spreading, head raising, hissing and sometimes charging. This description was improperly done, leaving it a nomen nudum at the time. In 1837, Hermann Schlegel used the name Naja bungaroides for his description of the Australian broad-headed snake , which was later reclassified into Wagler's Hoplocephalus , and used the species name Naja bungarus for the king cobra.",
@@ -39,8 +43,8 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Forest, shrublands, wetlands",
-    "locations": "Asia",
+    "habitat": "66 67 Relationship with humans onservation In outheast Asia, the king cobra is threatened foremost by habitat destruction owing to deforestation and expansion of agricultural land. ropical onservation cience . \"he Hamadryad or ing obra aja hannah (antor)\" . he ournal of the Bombay atural History ociety . ^ Bhaisare, .; Ramanuj, V.; hankar, . G.; Vittala, M.; Goode, M.; Whitaker, R. L eglected ropical iseases . E.; Vos, Rutger A.; Guerreiro, I.; alvete, . \"he king cobra genome reveals dynamic gene evolution and adaptation in the snake venom system\" .",
+    "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
     "group_behavior": "",
     "conservation_status": "Vulnerable",
     "biggest_threat": "Poaching, habitat loss",
@@ -67,10 +71,33 @@
     "age_of_weaning": "",
     "most_distinctive_feature": "An expanding hood"
   },
+  "distribution": {
+    "countries": [
+      "Bangladesh",
+      "Bhutan",
+      "Cambodia",
+      "China",
+      "Hong Kong",
+      "India",
+      "Nepal",
+      "Singapore",
+      "Thailand",
+      "Viet Nam"
+    ],
+    "coordinates": {
+      "min_lat": 8.647457,
+      "max_lat": 27.84147,
+      "min_lon": 84.612784,
+      "max_lon": 116.32829,
+      "count": 50
+    },
+    "occurrence_count": 856
+  },
   "sources": [
     "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:23.965769"
+  "last_updated": "2026-03-16T23:55:16.718059"
 }

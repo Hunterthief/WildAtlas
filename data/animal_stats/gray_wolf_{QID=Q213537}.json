@@ -6,7 +6,11 @@
   "description": "Species of canine",
   "summary": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America. More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo, though grey wolves, as popularly understood, include only naturally occurring wild subspecies. The wolf is the largest wild extant member of the family Canidae, and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal, to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
+  "eol_url": "",
+  "gbif_key": 165635866,
   "wikipedia_sections": {
     "etymology": "Etymology : Wolf (name) The English \"wolf\" stems from the Old English wulf , which is itself derived from the Proto-Germanic wulfaz . The Proto-Indo-European root wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic lúkʷos ). 5 6 The name \"grey wolf\" refers to the greyish colour of the species. 7 Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names. Examples include Wulfhere (\"Wolf Army\"), Cynewulf (\"Royal Wolf\"), Cēnwulf (\"Bold Wolf\"), Wulfheard (\"Wolf-hard\"), Earnwulf (\"Eagle Wolf\"), Wulfstān (\"",
     "description": ", see Grey Wolf ( ) and Wolf ( ) . For the football club, see Wolverhampton Wanderers F.C. The wolf is the largest wild extant member of the family Canidae , and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal , to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
@@ -25,7 +29,7 @@
     "order": "Carnivora",
     "family": "Canidae",
     "genus": "Canis",
-    "species": "Canis familiaris"
+    "species": "Canis lupus"
   },
   "animal_type": "canine",
   "young_name": "pup",
@@ -39,8 +43,8 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "30 Although mating between golden jackals and wolves has never been observed, evidence of jackal-wolf hybridization was discovered through mitochondrial DNA analysis of jackals living in the Caucasus Mountains 30 and in Bulgaria. Wolves live in forests, inland wetlands , shrublands , grasslands (including Arctic tundra ), pastures , deserts, and rocky peaks on mountains. 78 Wolf interactions with American black bears are much rarer because of differences in habitat preferences. In wolves, the incubation period for rabies is eight to 21 days, and results in the host becoming agitated, deserting",
-    "locations": "Wolf Temporal range: Middle Pleistocene – present (400,000–0 YBP ) Eurasian wolf ( Canis lupus lupus ) at Polar Park in Bardu, Norway Least Concern ( 3.1 ) 1 II 2 a Animalia Chordata Mammalia Order: Carnivora Family: Canidae Genus: Canis Species: C. lupus Canis lupus Linnaeus , 1758 3 Subspecies See Subspecies of Canis lupus Global wolf range based on 's 2023 assessment. : wolves ), also known as the grey wolf or gray wolf , is a canine native to Eurasia and North America . More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo , though grey wolves, as pop",
+    "habitat": "30 Although mating between golden jackals and wolves has never been observed, evidence of jackal-wolf hybridization was discovered through mitochondrial A analysis of jackals living in the aucasus Mountains 30 and in Bulgaria. Wolves live in forests, inland wetlands , shrublands , grasslands (including Arctic tundra ), pastures , deserts, and rocky peaks on mountains. 78 Wolf interactions with American black bears are much rarer because of differences in habitat preferences. In wolves, the incubation period for rabies is eight to 21 days, and results in the host becoming agitated, deserting",
+    "locations": "Australia, Belgium, Canada, China, Costa Rica, Denmark, Egypt, Germany, Greece, India, Indonesia, Israel, Italy, Jamaica, Malaysia, Mexico, Norway, Philippines, Russian Federation, Sweden, Thailand, Türkiye, United States of America",
     "group_behavior": "Social",
     "conservation_status": "Least Concern",
     "biggest_threat": "Human-wildlife conflict",
@@ -65,10 +69,45 @@
     "age_of_weaning": "",
     "most_distinctive_feature": ""
   },
+  "distribution": {
+    "countries": [
+      "Australia",
+      "Belgium",
+      "Canada",
+      "China",
+      "Costa Rica",
+      "Denmark",
+      "Egypt",
+      "Germany",
+      "Greece",
+      "India",
+      "Indonesia",
+      "Israel",
+      "Italy",
+      "Jamaica",
+      "Malaysia",
+      "Mexico",
+      "Norway",
+      "Philippines",
+      "Russian Federation",
+      "Sweden",
+      "Thailand",
+      "Türkiye",
+      "United States of America"
+    ],
+    "coordinates": {
+      "min_lat": -28.294889,
+      "max_lat": 60.495512,
+      "min_lon": -116.559478,
+      "max_lon": 151.355139,
+      "count": 50
+    },
+    "occurrence_count": 198212
+  },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:09.270421"
+  "last_updated": "2026-03-16T23:54:44.462927"
 }

@@ -6,7 +6,11 @@
   "description": "Milkweed butterfly in the family Nymphalidae",
   "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
+  "eol_url": "",
+  "gbif_key": 177932834,
   "wikipedia_sections": {
     "etymology": "6 Other common names, depending on region, include milkweed , common tiger , wanderer , and black-veined brown . 7 It is among the most familiar of North American butterflies and an iconic pollinator , 8 although it is not an especially effective pollinator of milkweeds . Etymology [ edit ] The name monarch is believed to have been given in honor of King William III of England , as the butterfly's main color is that of the king's secondary title, Prince of Orange . 13 The monarch was originally described by Carl Linnaeus in his Systema Naturae of 1758 and placed in the genus Papilio .",
     "description": "plexippus on Tithonia flower D. plexippus Piedra Herrada, Mexico The monarch butterfly or simply monarch ( Danaus plexippus ) is a milkweed butterfly ( subfamily Danainae ) in the family Nymphalidae . 10 A Müllerian mimic , the viceroy butterfly , is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing. The Danai festivi formed one of the \"subgenera\", containing colorful species, as opposed to the Danai candidi , containing species with bright white wings.",
@@ -39,8 +43,8 @@
   },
   "ecology": {
     "diet": "Herbivore",
-    "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
-    "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
+    "habitat": "ea levels were higher, and the entire Amazonas lowland was a vast expanse of brackish swamp that offered limited butterfly habitat. 64 Male search and capture strategies may influence copulatory success, and human-induced changes to the habitat can influence monarch mating activity at overwintering sites. 79 Larval host plants [ edit ] Asclepias syriaca , common milkweed Asclepias viridis , green antelopehorn milkweed Asclepias asperula , antelope horns milkweed Asclepias curassavica , tropical milkweed he host plants used by the monarch caterpillar include: .mw-parser-output .div-col{margin",
+    "locations": "Australia, Colombia, Mexico, New Zealand, United States of America",
     "group_behavior": "Group",
     "conservation_status": "Vulnerable",
     "biggest_threat": "Habitat loss",
@@ -67,10 +71,28 @@
     "age_of_weaning": "",
     "most_distinctive_feature": "Black, orange, and white pattern on wings"
   },
+  "distribution": {
+    "countries": [
+      "Australia",
+      "Colombia",
+      "Mexico",
+      "New Zealand",
+      "United States of America"
+    ],
+    "coordinates": {
+      "min_lat": -37.866868,
+      "max_lat": 37.519265,
+      "min_lon": -157.855928,
+      "max_lon": 153.064852,
+      "count": 50
+    },
+    "occurrence_count": 748835
+  },
   "sources": [
     "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:28.941164"
+  "last_updated": "2026-03-16T23:55:27.743249"
 }

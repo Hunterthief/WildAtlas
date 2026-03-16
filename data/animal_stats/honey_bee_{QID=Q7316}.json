@@ -6,7 +6,11 @@
   "description": "Colonial flying insect",
   "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
+  "eol_url": "",
+  "gbif_key": 114902881,
   "wikipedia_sections": {
     "etymology": "beehives ) containing hexagonal cells made of secreted wax , 2 their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey , the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers , bears and human hunter-gatherers . Although honey bees represent only a small fraction of the roughly 20,000 known species of bees, they are the bee clade most familiar to humans and are also the most valuable beneficial insects to agriculture and horticulture.",
     "description": "Followed by segment at one-tenth speed. 22 Essentially restricted to the Himalayas , it differs little from the giant honey bee in appearance but has extensive behavioral adaptations that enable it to nest in the open at high altitudes despite low ambient temperatures. It is the largest living honey bee. Apis [ edit ] Western honey bee on a honeycomb Eastern Apis species include three or four species, including A. The genetics of the western honey bee ( A. Koschevnikov's honey bee [ edit ] Koschevnikov's honey bee ( Apis koschevnikovi ) is often referred to in the literature as the \"red bee of",
@@ -39,8 +43,8 @@
   },
   "ecology": {
     "diet": "Herbivore",
-    "habitat": "Sheltered forests and meadows",
-    "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
+    "habitat": "23 Its habitat is limited to the tropical evergreen forests of the Malay eninsula , Borneo and umatra and they do not live in tropical evergreen rain forests which extend into hailand, Myanmar, ambodia and Vietnam. 23 hilippine honey bee [ edit ] Apis nigrocincta is a cavity-nesting species. Many subspecies have adapted to the local geographic and climatic environments; in addition, breeds such as the Buckfast bee have been bred. mellifera subspecies is probably the product of a largely Early leistocene radiation aided by climate and habitat changes during the last ice age .",
+    "locations": "Argentina, Australia, Brazil, Canada, Chinese Taipei, Dominican Republic, Ecuador, Egypt, France, Greece, Grenada, Guatemala, Israel, Martinique, Mexico, New Caledonia, New Zealand, Peru, Portugal, Puerto Rico, Saint Vincent and the Grenadines, Spain, United States of America",
     "group_behavior": "Social",
     "conservation_status": "Vulnerable",
     "biggest_threat": "",
@@ -65,10 +69,46 @@
     "age_of_weaning": "",
     "most_distinctive_feature": ""
   },
+  "distribution": {
+    "countries": [
+      "Argentina",
+      "Australia",
+      "Brazil",
+      "Canada",
+      "Chinese Taipei",
+      "Dominican Republic",
+      "Ecuador",
+      "Egypt",
+      "France",
+      "Greece",
+      "Grenada",
+      "Guatemala",
+      "Israel",
+      "Martinique",
+      "Mexico",
+      "New Caledonia",
+      "New Zealand",
+      "Peru",
+      "Portugal",
+      "Puerto Rico",
+      "Saint Vincent and the Grenadines",
+      "Spain",
+      "United States of America"
+    ],
+    "coordinates": {
+      "min_lat": -43.577425,
+      "max_lat": 43.567205,
+      "min_lon": -119.716163,
+      "max_lon": 164.956147,
+      "count": 50
+    },
+    "occurrence_count": 1124010
+  },
   "sources": [
     "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:32.119372"
+  "last_updated": "2026-03-16T23:55:33.343933"
 }

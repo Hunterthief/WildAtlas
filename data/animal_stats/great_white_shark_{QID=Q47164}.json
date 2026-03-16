@@ -6,7 +6,11 @@
   "description": "Species of large lamniform shark",
   "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. The species is partially warm-blooded, an adaptation that allows it to remain active in colder waters.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
+  "eol_url": "",
+  "gbif_key": 314215150,
   "wikipedia_sections": {
     "etymology": "Etymology and naming The name 'great white shark' likely comes from the white underside exposed on beached sharks. The most common English names for the species include great white shark, white shark, and Australian variant white pointer. 6 7 These names refer to its white underside, which is noticeable in dead sharks lying upside down. 8 Colloquial use favours the name great white shark or simply great white, with great perhaps emphasizing the size and power of the species. Scientists typically use white shark, as no \"lesser white shark\" exists for comparison, 9 though some use white shark to",
     "description": "For the novel, see White Shark (novel) . It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. They may communicate and establish dominance hierarchies with body language . The species reproduces with pups hatching from eggs inside the female before being born live. 20 .mw-parser-output div.clade-gallery{display:table;margin:0 auto}.mw-parser-output div.clade-gallery>div{line-height:1.5em;padding:0.2em 0.4em;border:1px solid #a2a9b1}.mw-parser-output div.clade-gall",
@@ -39,8 +43,8 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Temperate, coastal waters and open ocean",
-    "locations": "Ocean",
+    "habitat": "White sharks inhabit tropical and temperate ocean waters around the world and can be found both along the coast and further out to sea. he authors conclude that \"sharks don't make 'mistakes' but instead continually explore their environments and routinely investigate novel objects as potential prey by biting them\". Western Australia implemented a shark cull program in 2013, but discontinued the following year in response to a recommendation by the Environmental rotection Authority . Environmental Biology of Fishes .",
+    "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
     "biggest_threat": "Hunting and habitat degredation",
@@ -65,10 +69,33 @@
     "age_of_weaning": "",
     "most_distinctive_feature": "gradual development of serrations over the next few million years"
   },
+  "distribution": {
+    "countries": [
+      "Australia",
+      "Canada",
+      "China",
+      "Greece",
+      "Indonesia",
+      "Montenegro",
+      "Netherlands",
+      "New Zealand",
+      "South Africa",
+      "United States of America"
+    ],
+    "coordinates": {
+      "min_lat": -50.500713,
+      "max_lat": 44.52273,
+      "min_lon": -122.500884,
+      "max_lon": 176.113362,
+      "count": 50
+    },
+    "occurrence_count": 18139
+  },
   "sources": [
     "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:16.494539"
+  "last_updated": "2026-03-16T23:55:00.873036"
 }

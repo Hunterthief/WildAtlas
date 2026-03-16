@@ -6,7 +6,11 @@
   "description": "Large flightless seabird endemic to Antarctica",
   "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
+  "eol_url": "",
+  "gbif_key": 177664975,
   "wikipedia_sections": {
     "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
     "description": "For the band, see Emperor Penguin (band) . The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg (49 to 99 lb). Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches. Like all species of penguin, the emperor is flightless, with a streamlined body, and wings stiffened and flattened into flippers for a marine habitat . 6 Description Adults with chicks Adult emperor penguins are 110–120 cm (43–47 in) in length, averaging 115 cm (45 in) according to Stoneho",
@@ -39,8 +43,8 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Compact sea-ice and ocean",
-    "locations": "Antarctica, Ocean",
+    "habitat": "12 Adaptations to cold he emperor penguin breeds in the coldest environment of any bird species; air temperatures may reach −40 ° (−40 °F), and wind speeds may reach 144 km/h (89 mph). his study predicted that by 2100 all 45 colonies of emperor penguins will be declining in numbers, mostly due to loss of habitat. 103 ultural references he species' unique life cycle in such a harsh environment has been described in print and visual media. ommunications Earth Environment . Bibcode : 2023omEE...4..273F .",
+    "locations": "Antarctica",
     "group_behavior": "Colony",
     "conservation_status": "Near Threatened",
     "biggest_threat": "Global warming",
@@ -67,10 +71,24 @@
     "age_of_weaning": "",
     "most_distinctive_feature": "Bright yellow feathers on neck and ears"
   },
+  "distribution": {
+    "countries": [
+      "Antarctica"
+    ],
+    "coordinates": {
+      "min_lat": -77.786996,
+      "max_lat": -67.0071,
+      "min_lon": -178.772833,
+      "max_lon": 169.40249,
+      "count": 50
+    },
+    "occurrence_count": 131628
+  },
   "sources": [
     "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:13.940274"
+  "last_updated": "2026-03-16T23:54:54.399157"
 }

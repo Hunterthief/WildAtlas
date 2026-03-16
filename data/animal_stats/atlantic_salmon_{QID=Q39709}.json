@@ -6,7 +6,11 @@
   "description": "Species of fish",
   "summary": "The Atlantic salmon is a species of ray-finned fish in the family Salmonidae. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon, growing up to 1 m (3.3 ft) in length. Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous, hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
+  "eol_url": "",
+  "gbif_key": 163302148,
   "wikipedia_sections": {
     "etymology": "salar is iteroparous , which means it can survive spawning and return to sea to repeat the process again in another year with 5–10% returning to the sea to spawn again. The different life stages of the fish are known by several different names in English; alevin , fry , parr and smolt . 4 Nomenclature [ edit ] The Atlantic salmon was given its scientific binomial name by Swedish zoologist and taxonomist Carl Linnaeus in 1758 . The name, Salmo salar , derives from the Latin salmo , meaning salmon , and salar , meaning leaper, according to M.",
     "description": "For other species, see Landlocked salmon ( ) . This article is about a particular species of fish. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon , growing up to 1 m (3.3 ft) in length. 2 When the mature fish re-enter rivers to spawn, they change in colour and appearance. Such individuals can grow to extremely large sizes, although they are rare. 6 citation needed Description [ edit ] In Québec , showing the kype characteristic of breeding males Atlantic salmon are the largest species in the genus Salmo .",
@@ -39,8 +43,8 @@
   },
   "ecology": {
     "diet": "",
-    "habitat": "It has thus long been the target of recreational and commercial fishing , and this, as well as habitat destruction , has impacted the population in some areas. They also undergo some endocrinological changes to adapt to osmotic differences between fresh water and seawater habitat. citation needed Wild salmon continued to disappear from many rivers during the twentieth century due to overfishing and habitat change. citation needed Egg and juvenile survival is dependent on habitat quality as Atlantic salmon are sensitive to ecological change.",
-    "locations": "Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Some populations of this fish only migrate to large lakes, and are \"landlocked\", spending their entire lives in freshwater. Such populations are found throughout the range of the species. Unlike Pacific species of salmon, S. 3 Although this is now a viable alternative to wild-caught fish, farming methods have attracted criticism from environmentalists. Later, the differently coloured smolts were found to be the same species.",
+    "habitat": "It has thus long been the target of recreational and commercial fishing , and this, as well as habitat destruction , has impacted the population in some areas. hey also undergo some endocrinological changes to adapt to osmotic differences between fresh water and seawater habitat. citation needed Wild salmon continued to disappear from many rivers during the twentieth century due to overfishing and habitat change. citation needed Egg and juvenile survival is dependent on habitat quality as Atlantic salmon are sensitive to ecological change.",
+    "locations": "Canada, France, Netherlands, United Kingdom of Great Britain and Northern Ireland, United States of America",
     "group_behavior": "Pairs",
     "conservation_status": "Near Threatened",
     "biggest_threat": "Habitat loss",
@@ -65,10 +69,27 @@
     "age_of_weaning": "",
     "most_distinctive_feature": "of breeding males Atlantic salmon are the largest species in the genus Salmo"
   },
+  "distribution": {
+    "countries": [
+      "Canada",
+      "France",
+      "Netherlands",
+      "United Kingdom of Great Britain and Northern Ireland",
+      "United States of America"
+    ],
+    "coordinates": {
+      "min_lat": 42.385017,
+      "max_lat": 54.900556,
+      "min_lon": -77.072428,
+      "max_lon": 5.95,
+      "count": 50
+    },
+    "occurrence_count": 1449203
+  },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:19.183483"
+  "last_updated": "2026-03-16T23:55:06.354019"
 }

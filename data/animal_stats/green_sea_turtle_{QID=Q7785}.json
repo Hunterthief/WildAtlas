@@ -6,7 +6,11 @@
   "description": "Species of large sea reptile",
   "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
+  "eol_url": "",
+  "gbif_key": 104105406,
   "wikipedia_sections": {
     "etymology": "7 8 The common name refers to the usually green fat found beneath its carapace , due to its diet strictly being seagrass, 9 not to the color of its carapace, which is olive to black. 13 The species was originally described by Carl Linnaeus in his landmark 1758 10th edition of Systema Naturae as Testudo mydas . 14 In 1868, Marie Firmin Bocourt named a particular species of sea turtle Chelonia agassizii , 15 16 in honor of Swiss-American zoologist Louis Agassiz . 17 This \"species\" was referred to as the \"black sea turtle\".",
     "description": "For the comic book character, see Green Turtle (comics) . For the synonym of the order Testudines, see Turtle . The dorsoventrally flattened body of C. mydas is covered by a large, teardrop-shaped carapace; it has a pair of large, paddle -like flippers . It is usually lightly colored, although in the eastern Pacific populations, parts of the carapace can be almost black. Unlike other members of its family, such as the hawksbill sea turtle , C. The carnivorous Eretmochelys (hawksbill), Caretta (loggerhead) and Lepidochelys (ridley) were assigned to the tribe Carettini .",
@@ -38,9 +42,9 @@
     "lifespan": ""
   },
   "ecology": {
-    "diet": "Carnivore",
-    "habitat": "In addition, real estate development often causes habitat loss by eliminating nesting beaches. Taxonomy [ edit ] The green sea turtle is a member of the tribe Cheloniini . Although the species is most abundant in tropical climates, green sea turtles can also be found in temperate climates , and individuals have been spotted as far north as Canada in the western Atlantic, and the Cimbrian peninsula in the east. Habitat [ edit ] Green sea turtle on Punaluu black sand beach of Big Island, Hawaii. Green sea turtles move across three habitat types, depending on their life stage .",
-    "locations": "Green sea turtles Temporal range: 0.21–0 Ma 1 PreꞒ Ꞓ O S D C P T J K Pg N At Moorea , French Polynesia Least Concern ( 3.1 ) 2 I 3 Animalia Chordata Reptilia Order: Testudines Suborder: Cryptodira Family: Cheloniidae Subfamily: Cheloniinae Genus: Chelonia Brongniart , 1800 Species: C. mydas Chelonia mydas ( Linnaeus , 1758 ) Synonyms 4 Species synonymy Testudo mydas Linnaeus, 1758 Testudo macropus Walbaum , 1782 ( nomen illegitimum ) Testudo viridis Schneider , 1783 Testudo japonica Thunberg , 1787 Testudo marina vulgaris Lacépède , 1788 Testudo viridisquamosa Lacépède, 1788 Testudo mydas macr",
+    "diet": "Herbivore",
+    "habitat": "In addition, real estate development often causes habitat loss by eliminating nesting beaches. axonomy [ edit ] he green sea turtle is a member of the tribe heloniini . Although the species is most abundant in tropical climates, green sea turtles can also be found in temperate climates , and individuals have been spotted as far north as anada in the western Atlantic, and the imbrian peninsula in the east. Habitat [ edit ] Green sea turtle on unaluu black sand beach of Big Island, Hawaii. Green sea turtles move across three habitat types, depending on their life stage .",
+    "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
     "group_behavior": "Pairs",
     "conservation_status": "Endangered",
     "biggest_threat": "Habitat loss",
@@ -65,10 +69,46 @@
     "age_of_weaning": "",
     "most_distinctive_feature": ""
   },
+  "distribution": {
+    "countries": [
+      "Australia",
+      "Bahamas",
+      "Barbados",
+      "Bonaire, Sint Eustatius and Saba",
+      "Brazil",
+      "Canada",
+      "Chinese Taipei",
+      "Cook Islands",
+      "Costa Rica",
+      "Ecuador",
+      "Egypt",
+      "Guadeloupe",
+      "Honduras",
+      "Martinique",
+      "Mexico",
+      "New Caledonia",
+      "New Zealand",
+      "Norfolk Island",
+      "Northern Mariana Islands",
+      "Oman",
+      "Philippines",
+      "Puerto Rico",
+      "United States of America",
+      "Virgin Islands (U.S.)"
+    ],
+    "coordinates": {
+      "min_lat": -31.034203,
+      "max_lat": 49.095935,
+      "min_lon": -159.798629,
+      "max_lon": 166.475121,
+      "count": 50
+    },
+    "occurrence_count": 252561
+  },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:21.600026"
+  "last_updated": "2026-03-16T23:55:11.883702"
 }

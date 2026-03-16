@@ -6,7 +6,11 @@
   "description": "Large feline of the genus Acinonyx",
   "summary": "The cheetah is a species of large feline and the only living member of the genus Acinonyx. An iconic pursuit predator, it is the fastest land animal, capable of running at 93 to 104 km/h ; it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
+  "eol_url": "",
+  "gbif_key": 104060849,
   "wikipedia_sections": {
     "etymology": "Etymology The vernacular name \"cheetah\" is derived from Hindustani Urdu : چیتا and Hindi : चीता ( ćītā ). 3 This in turn comes from Sanskrit : चित्रय ( Chitra-ya ) meaning 'variegated', 'adorned' or 'painted'. 4 In the past, the cheetah was often called \"hunting leopard\" because they could be tamed and used for coursing . 5 The generic name Acinonyx probably derives from the combination of two Greek words: ἀκίνητος ( akī́nētos ) meaning 'unmoved' or 'motionless', and ὄνυξ ( ónyx ) meaning 'nail' or 'hoof'.",
     "description": "The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m (3 ft 7 in and 4 ft 11 in). Adults weigh between 21 and 65 kg (46 and 143 lb). The cheetah was first scientifically described in the late 18th century. 6 A rough translation is \"immobile nails\", a reference to the cheetah's limited ability to retract its claws.",
@@ -39,8 +43,8 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Open grassland",
-    "locations": "Africa, Asia, Eurasia",
+    "habitat": "It lives in a variety of habitats such as savannahs in the erengeti , arid mountain ranges in the ahara , and hilly desert terrain. In central, northern and western Africa, it inhabits arid mountain ranges and valleys; in the harsh climate of the ahara, it prefers high mountains, which receive more rainfall than the surrounding desert. he vegetation and water resources in these mountains support antelopes. In Iran, it occurs in hilly terrain of deserts at elevations up to 2,000–3,000 m (6,600–9,800 ft), where annual precipitation is generally below 100 mm (3.9 in); the primary vegetation i",
+    "locations": "Botswana, Kenya, Malawi, Namibia, South Africa, Tanzania, United Republic of",
     "group_behavior": "Solitary/Pairs",
     "conservation_status": "Critically Endangered",
     "biggest_threat": "Habitat loss",
@@ -67,10 +71,29 @@
     "age_of_weaning": "3 months",
     "most_distinctive_feature": "Yellowish fur covered in small black spots"
   },
+  "distribution": {
+    "countries": [
+      "Botswana",
+      "Kenya",
+      "Malawi",
+      "Namibia",
+      "South Africa",
+      "Tanzania, United Republic of"
+    ],
+    "coordinates": {
+      "min_lat": -34.184019,
+      "max_lat": 1.59933,
+      "min_lon": 20.044896,
+      "max_lon": 38.388967,
+      "count": 50
+    },
+    "occurrence_count": 8340
+  },
   "sources": [
     "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:03.801755"
+  "last_updated": "2026-03-16T23:54:33.965032"
 }

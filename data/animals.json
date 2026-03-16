@@ -7,7 +7,11 @@
     "description": "Species of large cat",
     "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
+    "eol_url": "",
+    "gbif_key": 209806595,
     "wikipedia_sections": {
       "etymology": "Etymology The Old English tigras derives from Old French tigre , from Latin tigris , which was a borrowing from tigris ( Ancient Greek : τίγρις ). 4 Since ancient times, the word tigris has been suggested to originate from the Armenian or Persian word for 'arrow', which may also be the origin of the name for the river Tigris . 5 6 However, today, the names are thought to be homonyms , and the connection between the tiger and the river is doubted. 6 Taxonomy In 1758, Carl Linnaeus described the tiger in his work Systema Naturae and gave it the scientific name Felis tigris , as the genus Felis w",
       "description": ", see Tiger ( ) and Tigress ( ) . It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. His scientific description was based on descriptions by earlier naturalists such as Conrad Gessner and Ulisse Aldrovandi . 9 10 The validity of several tiger subspecies was questioned in 1999 as most putative subspecies were distinguished on the basis of fur length and colouration, striping patterns and body size of specimens in natural history museum collections that are not necessarily representative for the entire population.",
@@ -40,8 +44,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Dense tropical forest and mangroves",
-      "locations": "Asia",
+      "habitat": "57 59 his is supported by a Fourier analysis study showing that the striping patterns line up with their environment. 65 he tiger mainly lives in forest habitats and is highly adaptable. 67 n the Indian subcontinent, it inhabits mainly tropical and subtropical moist broadleaf forests , temperate broadleaf and mixed forests , tropical moist evergreen forests , tropical dry forests , alluvial plains and the mangrove forests of the undarbans . 68 In the Eastern Himalayas , it was documented in temperate forest up to an elevation of 4,200 m (13,800 ft) in Bhutan, of 3,630 m (11,910 ft) in the",
+      "locations": "Bangladesh, China, India, Indonesia, Nepal, Russian Federation, Thailand",
       "group_behavior": "",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -66,12 +70,32 @@
       "age_of_weaning": "",
       "most_distinctive_feature": "powerful, muscular body with a large head and paws, a long tail and orange fur"
     },
+    "distribution": {
+      "countries": [
+        "Bangladesh",
+        "China",
+        "India",
+        "Indonesia",
+        "Nepal",
+        "Russian Federation",
+        "Thailand"
+      ],
+      "coordinates": {
+        "min_lat": 0.462517,
+        "max_lat": 43.187619,
+        "min_lon": 74.266941,
+        "max_lon": 131.581417,
+        "count": 50
+      },
+      "occurrence_count": 5266
+    },
     "sources": [
       "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:01.697595"
+    "last_updated": "2026-03-16T23:54:28.905846"
   },
   {
     "id": "Q35625",
@@ -81,7 +105,11 @@
     "description": "Large feline of the genus Acinonyx",
     "summary": "The cheetah is a species of large feline and the only living member of the genus Acinonyx. An iconic pursuit predator, it is the fastest land animal, capable of running at 93 to 104 km/h ; it has evolved for speed, having powerful hindlimb muscles, long limbs and a flexible spine. The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Male_cheetah_facing_left_in_South_Africa.jpg/330px-Male_cheetah_facing_left_in_South_Africa.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
+    "eol_url": "",
+    "gbif_key": 104060849,
     "wikipedia_sections": {
       "etymology": "Etymology The vernacular name \"cheetah\" is derived from Hindustani Urdu : چیتا and Hindi : चीता ( ćītā ). 3 This in turn comes from Sanskrit : चित्रय ( Chitra-ya ) meaning 'variegated', 'adorned' or 'painted'. 4 In the past, the cheetah was often called \"hunting leopard\" because they could be tamed and used for coursing . 5 The generic name Acinonyx probably derives from the combination of two Greek words: ἀκίνητος ( akī́nētos ) meaning 'unmoved' or 'motionless', and ὄνυξ ( ónyx ) meaning 'nail' or 'hoof'.",
       "description": "The cheetah has a tawny to creamy white or pale buff fur that is marked with evenly spaced, solid black spots. The head is small and rounded, with a short snout and black tear-like facial streaks. It reaches 67–94 cm (2.20–3.08 ft) at the shoulder, and the head-and-body length is between 1.1 and 1.5 m (3 ft 7 in and 4 ft 11 in). Adults weigh between 21 and 65 kg (46 and 143 lb). The cheetah was first scientifically described in the late 18th century. 6 A rough translation is \"immobile nails\", a reference to the cheetah's limited ability to retract its claws.",
@@ -114,8 +142,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Open grassland",
-      "locations": "Africa, Asia, Eurasia",
+      "habitat": "It lives in a variety of habitats such as savannahs in the erengeti , arid mountain ranges in the ahara , and hilly desert terrain. In central, northern and western Africa, it inhabits arid mountain ranges and valleys; in the harsh climate of the ahara, it prefers high mountains, which receive more rainfall than the surrounding desert. he vegetation and water resources in these mountains support antelopes. In Iran, it occurs in hilly terrain of deserts at elevations up to 2,000–3,000 m (6,600–9,800 ft), where annual precipitation is generally below 100 mm (3.9 in); the primary vegetation i",
+      "locations": "Botswana, Kenya, Malawi, Namibia, South Africa, Tanzania, United Republic of",
       "group_behavior": "Solitary/Pairs",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Habitat loss",
@@ -142,12 +170,31 @@
       "age_of_weaning": "3 months",
       "most_distinctive_feature": "Yellowish fur covered in small black spots"
     },
+    "distribution": {
+      "countries": [
+        "Botswana",
+        "Kenya",
+        "Malawi",
+        "Namibia",
+        "South Africa",
+        "Tanzania, United Republic of"
+      ],
+      "coordinates": {
+        "min_lat": -34.184019,
+        "max_lat": 1.59933,
+        "min_lon": 20.044896,
+        "max_lon": 38.388967,
+        "count": 50
+      },
+      "occurrence_count": 8340
+    },
     "sources": [
       "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:03.801755"
+    "last_updated": "2026-03-16T23:54:33.965032"
   },
   {
     "id": "Q7372",
@@ -157,7 +204,11 @@
     "description": "Genus comprising two living elephant species",
     "summary": "African elephants are members of the genus Loxodonta comprising two living elephant species, the African bush elephant and the smaller African forest elephant. Both are social herbivores with grey skin. However, they differ in the size and colour of their tusks as well as the shape and size of their ears and skulls.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
+    "eol_url": "",
+    "gbif_key": 177683655,
     "wikipedia_sections": {
       "etymology": "The name refers to the lozenge-shaped enamel of their molar teeth. Etymology [ edit ] The name Loxodonta comes from the Ancient Greek words λοξός ( loxós, \"slanting\", \"crosswise\") and ὀδούς ( odoús , \"tooth\"), referring to the lozenge -shaped enamel of the molar teeth , which differs significantly from the rounded shape of the Asian elephant 's molar enamel. 2 Taxonomy and evolution [ edit ] The first scientific description of the African elephant was written in 1797 by Johann Friedrich Blumenbach , who proposed the scientific name Elephas africanus .",
       "description": "However, they differ in the size and colour of their tusks as well as the shape and size of their ears and skulls . 1 Elephas ( Loxodonta ) cyclotis was proposed by Paul Matschie in 1900, who described three African elephant zoological specimens from Cameroon whose skulls differed in shape from those of elephant skulls collected elsewhere in Africa. 9 10 11 12 13 In 1907, Richard Lydekker proposed six African elephant subspecies based on the different sizes and shapes of their ears. 16 † Loxodonta atlantica was proposed as Elephas atlanticus by Auguste Pomel in 1879 based on a skull and bones ",
@@ -189,9 +240,9 @@
       "lifespan": ""
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "2018, showing hybridization -facilitated introgressive gene flow from forest elephants into Palaeoloxodon . 21 Analysis of Chinese Palaeoloxodon mitogenomes suggests that this forest elephant ancestry was widely shared among Palaeoloxodon species. 31 Distribution and habitat [ edit ] African elephants are distributed in Sub-Saharan Africa , where they inhabit Sahelian scrubland and arid regions, tropical rainforests , mopane and miombo woodlands . Decrease of suitable habitat was the major cause for the decline of elephant populations until the 1950s.",
-      "locations": "African elephants Temporal range: Late Miocene – Present , 7–0 Ma PreꞒ Ꞓ O S D C P T J K Pg N African bush elephant bull in Kruger National Park African forest elephant in Nouabalé-Ndoki National Park Animalia Chordata Mammalia Order: Proboscidea Family: Elephantidae Tribe: Loxodontini Genus: Loxodonta Anonymous, 1827 1 Type species Elephas africana 1 Blumenbach, 1797 Species and subspecies L. africana ) and the smaller African forest elephant ( L. Fossil remains of Loxodonta species have been found in Africa , spanning from the Late Miocene (from around 7–6 million years ago) onwards.",
+      "diet": "Herbivore",
+      "habitat": "2018, showing hybridization -facilitated introgressive gene flow from forest elephants into alaeoloxodon . 21 Analysis of hinese alaeoloxodon mitogenomes suggests that this forest elephant ancestry was widely shared among alaeoloxodon species. 31 istribution and habitat [ edit ] African elephants are distributed in ub-aharan Africa , where they inhabit ahelian scrubland and arid regions, tropical rainforests , mopane and miombo woodlands . ecrease of suitable habitat was the major cause for the decline of elephant populations until the 1950s.",
+      "locations": "Botswana, Burkina Faso, Ghana, Kenya, Namibia, Niger, Rwanda, South Africa, Tanzania, United Republic of, Uganda, Zambia, Zimbabwe",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -216,12 +267,36 @@
       "age_of_weaning": "",
       "most_distinctive_feature": ""
     },
+    "distribution": {
+      "countries": [
+        "Botswana",
+        "Burkina Faso",
+        "Ghana",
+        "Kenya",
+        "Namibia",
+        "Niger",
+        "Rwanda",
+        "South Africa",
+        "Tanzania, United Republic of",
+        "Uganda",
+        "Zambia",
+        "Zimbabwe"
+      ],
+      "coordinates": {
+        "min_lat": -33.562833,
+        "max_lat": 9.281961,
+        "min_lon": -1.90394,
+        "max_lon": 38.084716,
+        "count": 50
+      },
+      "occurrence_count": 22565
+    },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:06.306378"
+    "last_updated": "2026-03-16T23:54:39.041179"
   },
   {
     "id": "Q213537",
@@ -231,7 +306,11 @@
     "description": "Species of canine",
     "summary": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America. More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo, though grey wolves, as popularly understood, include only naturally occurring wild subspecies. The wolf is the largest wild extant member of the family Canidae, and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal, to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
+    "eol_url": "",
+    "gbif_key": 165635866,
     "wikipedia_sections": {
       "etymology": "Etymology : Wolf (name) The English \"wolf\" stems from the Old English wulf , which is itself derived from the Proto-Germanic wulfaz . The Proto-Indo-European root wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic lúkʷos ). 5 6 The name \"grey wolf\" refers to the greyish colour of the species. 7 Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names. Examples include Wulfhere (\"Wolf Army\"), Cynewulf (\"Royal Wolf\"), Cēnwulf (\"Bold Wolf\"), Wulfheard (\"Wolf-hard\"), Earnwulf (\"Eagle Wolf\"), Wulfstān (\"",
       "description": ", see Grey Wolf ( ) and Wolf ( ) . For the football club, see Wolverhampton Wanderers F.C. The wolf is the largest wild extant member of the family Canidae , and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal , to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
@@ -250,7 +329,7 @@
       "order": "Carnivora",
       "family": "Canidae",
       "genus": "Canis",
-      "species": "Canis familiaris"
+      "species": "Canis lupus"
     },
     "animal_type": "canine",
     "young_name": "pup",
@@ -264,8 +343,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "30 Although mating between golden jackals and wolves has never been observed, evidence of jackal-wolf hybridization was discovered through mitochondrial DNA analysis of jackals living in the Caucasus Mountains 30 and in Bulgaria. Wolves live in forests, inland wetlands , shrublands , grasslands (including Arctic tundra ), pastures , deserts, and rocky peaks on mountains. 78 Wolf interactions with American black bears are much rarer because of differences in habitat preferences. In wolves, the incubation period for rabies is eight to 21 days, and results in the host becoming agitated, deserting",
-      "locations": "Wolf Temporal range: Middle Pleistocene – present (400,000–0 YBP ) Eurasian wolf ( Canis lupus lupus ) at Polar Park in Bardu, Norway Least Concern ( 3.1 ) 1 II 2 a Animalia Chordata Mammalia Order: Carnivora Family: Canidae Genus: Canis Species: C. lupus Canis lupus Linnaeus , 1758 3 Subspecies See Subspecies of Canis lupus Global wolf range based on 's 2023 assessment. : wolves ), also known as the grey wolf or gray wolf , is a canine native to Eurasia and North America . More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo , though grey wolves, as pop",
+      "habitat": "30 Although mating between golden jackals and wolves has never been observed, evidence of jackal-wolf hybridization was discovered through mitochondrial A analysis of jackals living in the aucasus Mountains 30 and in Bulgaria. Wolves live in forests, inland wetlands , shrublands , grasslands (including Arctic tundra ), pastures , deserts, and rocky peaks on mountains. 78 Wolf interactions with American black bears are much rarer because of differences in habitat preferences. In wolves, the incubation period for rabies is eight to 21 days, and results in the host becoming agitated, deserting",
+      "locations": "Australia, Belgium, Canada, China, Costa Rica, Denmark, Egypt, Germany, Greece, India, Indonesia, Israel, Italy, Jamaica, Malaysia, Mexico, Norway, Philippines, Russian Federation, Sweden, Thailand, Türkiye, United States of America",
       "group_behavior": "Social",
       "conservation_status": "Least Concern",
       "biggest_threat": "Human-wildlife conflict",
@@ -290,12 +369,47 @@
       "age_of_weaning": "",
       "most_distinctive_feature": ""
     },
+    "distribution": {
+      "countries": [
+        "Australia",
+        "Belgium",
+        "Canada",
+        "China",
+        "Costa Rica",
+        "Denmark",
+        "Egypt",
+        "Germany",
+        "Greece",
+        "India",
+        "Indonesia",
+        "Israel",
+        "Italy",
+        "Jamaica",
+        "Malaysia",
+        "Mexico",
+        "Norway",
+        "Philippines",
+        "Russian Federation",
+        "Sweden",
+        "Thailand",
+        "Türkiye",
+        "United States of America"
+      ],
+      "coordinates": {
+        "min_lat": -28.294889,
+        "max_lat": 60.495512,
+        "min_lon": -116.559478,
+        "max_lon": 151.355139,
+        "count": 50
+      },
+      "occurrence_count": 198212
+    },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:09.270421"
+    "last_updated": "2026-03-16T23:54:44.462927"
   },
   {
     "id": "Q25319",
@@ -305,7 +419,11 @@
     "description": "Bird of prey species of North America",
     "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
+    "eol_url": "",
+    "gbif_key": 116903464,
     "wikipedia_sections": {
       "etymology": "Bald eagles are not bald in the literal sense; the name derives from an older meaning of the word, \"white-headed\". 4 The genus name is Neo-Latin : Haliaeetus , 5 and the specific name, leucocephalus , is Latinized 6 and ( κεφαλή , kephalḗ , ' head ' ). 7 8 The bald eagle was one of the many species originally described by Carl Linnaeus in his 18th-century work Systema Naturae , under the name Falco leucocephalus . 25 Of intermediate size, 117 migrant bald eagles in Glacier National Park were found to average 4.22 kg (9.3 lb) but this was mostly (possibly post-dispersal) juvenile eagles, with s",
       "description": "\"American eagle\" redirects here. Please help improve it by removing low-quality or irrelevant citations or redistributing those citations so there are fewer than four in a row. washingtoniensis – Northern bald eagle Bald eagle range .mw-parser-output .legend{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .legend-color{display:inline-block;min-width:1.25em;height:1.25em;line-height:1.25;margin:1px 0;text-align:center;border:1px solid black;background-color:transparent;color:black}.mw-parser-output .legend-text{} Breeding resident Breeding summer visitor Winter visitor On mi",
@@ -338,8 +456,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Near forests",
-      "locations": "North-America",
+      "habitat": "ccupying varied habitats from the bayous of Louisiana to the onoran esert and the eastern deciduous forests of Quebec and ew England , northern birds are migratory , while southern birds are resident, remaining on their breeding territory all year. Habitat In flight during a licensed performance in ntario , anada uring training at the anadian Raptor onservancy he bald eagle occurs during its breeding season in virtually any kind of American wetland habitat such as seacoasts , rivers , large lakes or marshes or other large bodies of open water with an abundance of fish .",
+      "locations": "Canada, United States of America",
       "group_behavior": "Pairs",
       "conservation_status": "Endangered",
       "biggest_threat": "Pesticide use",
@@ -366,12 +484,27 @@
       "age_of_weaning": "",
       "most_distinctive_feature": "The white plumage on the head"
     },
+    "distribution": {
+      "countries": [
+        "Canada",
+        "United States of America"
+      ],
+      "coordinates": {
+        "min_lat": 25.43792,
+        "max_lat": 51.283605,
+        "min_lon": -123.267463,
+        "max_lon": -72.481989,
+        "count": 50
+      },
+      "occurrence_count": 7774987
+    },
     "sources": [
       "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:11.717567"
+    "last_updated": "2026-03-16T23:54:49.424716"
   },
   {
     "id": "Q43306",
@@ -381,7 +514,11 @@
     "description": "Large flightless seabird endemic to Antarctica",
     "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
+    "eol_url": "",
+    "gbif_key": 177664975,
     "wikipedia_sections": {
       "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
       "description": "For the band, see Emperor Penguin (band) . The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg (49 to 99 lb). Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches. Like all species of penguin, the emperor is flightless, with a streamlined body, and wings stiffened and flattened into flippers for a marine habitat . 6 Description Adults with chicks Adult emperor penguins are 110–120 cm (43–47 in) in length, averaging 115 cm (45 in) according to Stoneho",
@@ -414,8 +551,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Compact sea-ice and ocean",
-      "locations": "Antarctica, Ocean",
+      "habitat": "12 Adaptations to cold he emperor penguin breeds in the coldest environment of any bird species; air temperatures may reach −40 ° (−40 °F), and wind speeds may reach 144 km/h (89 mph). his study predicted that by 2100 all 45 colonies of emperor penguins will be declining in numbers, mostly due to loss of habitat. 103 ultural references he species' unique life cycle in such a harsh environment has been described in print and visual media. ommunications Earth Environment . Bibcode : 2023omEE...4..273F .",
+      "locations": "Antarctica",
       "group_behavior": "Colony",
       "conservation_status": "Near Threatened",
       "biggest_threat": "Global warming",
@@ -442,12 +579,26 @@
       "age_of_weaning": "",
       "most_distinctive_feature": "Bright yellow feathers on neck and ears"
     },
+    "distribution": {
+      "countries": [
+        "Antarctica"
+      ],
+      "coordinates": {
+        "min_lat": -77.786996,
+        "max_lat": -67.0071,
+        "min_lon": -178.772833,
+        "max_lon": 169.40249,
+        "count": 50
+      },
+      "occurrence_count": 131628
+    },
     "sources": [
       "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:13.940274"
+    "last_updated": "2026-03-16T23:54:54.399157"
   },
   {
     "id": "Q47164",
@@ -457,7 +608,11 @@
     "description": "Species of large lamniform shark",
     "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. The species is partially warm-blooded, an adaptation that allows it to remain active in colder waters.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
+    "eol_url": "",
+    "gbif_key": 314215150,
     "wikipedia_sections": {
       "etymology": "Etymology and naming The name 'great white shark' likely comes from the white underside exposed on beached sharks. The most common English names for the species include great white shark, white shark, and Australian variant white pointer. 6 7 These names refer to its white underside, which is noticeable in dead sharks lying upside down. 8 Colloquial use favours the name great white shark or simply great white, with great perhaps emphasizing the size and power of the species. Scientists typically use white shark, as no \"lesser white shark\" exists for comparison, 9 though some use white shark to",
       "description": "For the novel, see White Shark (novel) . It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. They may communicate and establish dominance hierarchies with body language . The species reproduces with pups hatching from eggs inside the female before being born live. 20 .mw-parser-output div.clade-gallery{display:table;margin:0 auto}.mw-parser-output div.clade-gallery>div{line-height:1.5em;padding:0.2em 0.4em;border:1px solid #a2a9b1}.mw-parser-output div.clade-gall",
@@ -490,8 +645,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Temperate, coastal waters and open ocean",
-      "locations": "Ocean",
+      "habitat": "White sharks inhabit tropical and temperate ocean waters around the world and can be found both along the coast and further out to sea. he authors conclude that \"sharks don't make 'mistakes' but instead continually explore their environments and routinely investigate novel objects as potential prey by biting them\". Western Australia implemented a shark cull program in 2013, but discontinued the following year in response to a recommendation by the Environmental rotection Authority . Environmental Biology of Fishes .",
+      "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Hunting and habitat degredation",
@@ -516,12 +671,35 @@
       "age_of_weaning": "",
       "most_distinctive_feature": "gradual development of serrations over the next few million years"
     },
+    "distribution": {
+      "countries": [
+        "Australia",
+        "Canada",
+        "China",
+        "Greece",
+        "Indonesia",
+        "Montenegro",
+        "Netherlands",
+        "New Zealand",
+        "South Africa",
+        "United States of America"
+      ],
+      "coordinates": {
+        "min_lat": -50.500713,
+        "max_lat": 44.52273,
+        "min_lon": -122.500884,
+        "max_lon": 176.113362,
+        "count": 50
+      },
+      "occurrence_count": 18139
+    },
     "sources": [
       "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:16.494539"
+    "last_updated": "2026-03-16T23:55:00.873036"
   },
   {
     "id": "Q39709",
@@ -531,7 +709,11 @@
     "description": "Species of fish",
     "summary": "The Atlantic salmon is a species of ray-finned fish in the family Salmonidae. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon, growing up to 1 m (3.3 ft) in length. Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous, hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
+    "eol_url": "",
+    "gbif_key": 163302148,
     "wikipedia_sections": {
       "etymology": "salar is iteroparous , which means it can survive spawning and return to sea to repeat the process again in another year with 5–10% returning to the sea to spawn again. The different life stages of the fish are known by several different names in English; alevin , fry , parr and smolt . 4 Nomenclature [ edit ] The Atlantic salmon was given its scientific binomial name by Swedish zoologist and taxonomist Carl Linnaeus in 1758 . The name, Salmo salar , derives from the Latin salmo , meaning salmon , and salar , meaning leaper, according to M.",
       "description": "For other species, see Landlocked salmon ( ) . This article is about a particular species of fish. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon , growing up to 1 m (3.3 ft) in length. 2 When the mature fish re-enter rivers to spawn, they change in colour and appearance. Such individuals can grow to extremely large sizes, although they are rare. 6 citation needed Description [ edit ] In Québec , showing the kype characteristic of breeding males Atlantic salmon are the largest species in the genus Salmo .",
@@ -564,8 +746,8 @@
     },
     "ecology": {
       "diet": "",
-      "habitat": "It has thus long been the target of recreational and commercial fishing , and this, as well as habitat destruction , has impacted the population in some areas. They also undergo some endocrinological changes to adapt to osmotic differences between fresh water and seawater habitat. citation needed Wild salmon continued to disappear from many rivers during the twentieth century due to overfishing and habitat change. citation needed Egg and juvenile survival is dependent on habitat quality as Atlantic salmon are sensitive to ecological change.",
-      "locations": "Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Some populations of this fish only migrate to large lakes, and are \"landlocked\", spending their entire lives in freshwater. Such populations are found throughout the range of the species. Unlike Pacific species of salmon, S. 3 Although this is now a viable alternative to wild-caught fish, farming methods have attracted criticism from environmentalists. Later, the differently coloured smolts were found to be the same species.",
+      "habitat": "It has thus long been the target of recreational and commercial fishing , and this, as well as habitat destruction , has impacted the population in some areas. hey also undergo some endocrinological changes to adapt to osmotic differences between fresh water and seawater habitat. citation needed Wild salmon continued to disappear from many rivers during the twentieth century due to overfishing and habitat change. citation needed Egg and juvenile survival is dependent on habitat quality as Atlantic salmon are sensitive to ecological change.",
+      "locations": "Canada, France, Netherlands, United Kingdom of Great Britain and Northern Ireland, United States of America",
       "group_behavior": "Pairs",
       "conservation_status": "Near Threatened",
       "biggest_threat": "Habitat loss",
@@ -590,12 +772,29 @@
       "age_of_weaning": "",
       "most_distinctive_feature": "of breeding males Atlantic salmon are the largest species in the genus Salmo"
     },
+    "distribution": {
+      "countries": [
+        "Canada",
+        "France",
+        "Netherlands",
+        "United Kingdom of Great Britain and Northern Ireland",
+        "United States of America"
+      ],
+      "coordinates": {
+        "min_lat": 42.385017,
+        "max_lat": 54.900556,
+        "min_lon": -77.072428,
+        "max_lon": 5.95,
+        "count": 50
+      },
+      "occurrence_count": 1449203
+    },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:19.183483"
+    "last_updated": "2026-03-16T23:55:06.354019"
   },
   {
     "id": "Q7785",
@@ -605,7 +804,11 @@
     "description": "Species of large sea reptile",
     "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
+    "eol_url": "",
+    "gbif_key": 104105406,
     "wikipedia_sections": {
       "etymology": "7 8 The common name refers to the usually green fat found beneath its carapace , due to its diet strictly being seagrass, 9 not to the color of its carapace, which is olive to black. 13 The species was originally described by Carl Linnaeus in his landmark 1758 10th edition of Systema Naturae as Testudo mydas . 14 In 1868, Marie Firmin Bocourt named a particular species of sea turtle Chelonia agassizii , 15 16 in honor of Swiss-American zoologist Louis Agassiz . 17 This \"species\" was referred to as the \"black sea turtle\".",
       "description": "For the comic book character, see Green Turtle (comics) . For the synonym of the order Testudines, see Turtle . The dorsoventrally flattened body of C. mydas is covered by a large, teardrop-shaped carapace; it has a pair of large, paddle -like flippers . It is usually lightly colored, although in the eastern Pacific populations, parts of the carapace can be almost black. Unlike other members of its family, such as the hawksbill sea turtle , C. The carnivorous Eretmochelys (hawksbill), Caretta (loggerhead) and Lepidochelys (ridley) were assigned to the tribe Carettini .",
@@ -637,9 +840,9 @@
       "lifespan": ""
     },
     "ecology": {
-      "diet": "Carnivore",
-      "habitat": "In addition, real estate development often causes habitat loss by eliminating nesting beaches. Taxonomy [ edit ] The green sea turtle is a member of the tribe Cheloniini . Although the species is most abundant in tropical climates, green sea turtles can also be found in temperate climates , and individuals have been spotted as far north as Canada in the western Atlantic, and the Cimbrian peninsula in the east. Habitat [ edit ] Green sea turtle on Punaluu black sand beach of Big Island, Hawaii. Green sea turtles move across three habitat types, depending on their life stage .",
-      "locations": "Green sea turtles Temporal range: 0.21–0 Ma 1 PreꞒ Ꞓ O S D C P T J K Pg N At Moorea , French Polynesia Least Concern ( 3.1 ) 2 I 3 Animalia Chordata Reptilia Order: Testudines Suborder: Cryptodira Family: Cheloniidae Subfamily: Cheloniinae Genus: Chelonia Brongniart , 1800 Species: C. mydas Chelonia mydas ( Linnaeus , 1758 ) Synonyms 4 Species synonymy Testudo mydas Linnaeus, 1758 Testudo macropus Walbaum , 1782 ( nomen illegitimum ) Testudo viridis Schneider , 1783 Testudo japonica Thunberg , 1787 Testudo marina vulgaris Lacépède , 1788 Testudo viridisquamosa Lacépède, 1788 Testudo mydas macr",
+      "diet": "Herbivore",
+      "habitat": "In addition, real estate development often causes habitat loss by eliminating nesting beaches. axonomy [ edit ] he green sea turtle is a member of the tribe heloniini . Although the species is most abundant in tropical climates, green sea turtles can also be found in temperate climates , and individuals have been spotted as far north as anada in the western Atlantic, and the imbrian peninsula in the east. Habitat [ edit ] Green sea turtle on unaluu black sand beach of Big Island, Hawaii. Green sea turtles move across three habitat types, depending on their life stage .",
+      "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
       "group_behavior": "Pairs",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss",
@@ -664,12 +867,48 @@
       "age_of_weaning": "",
       "most_distinctive_feature": ""
     },
+    "distribution": {
+      "countries": [
+        "Australia",
+        "Bahamas",
+        "Barbados",
+        "Bonaire, Sint Eustatius and Saba",
+        "Brazil",
+        "Canada",
+        "Chinese Taipei",
+        "Cook Islands",
+        "Costa Rica",
+        "Ecuador",
+        "Egypt",
+        "Guadeloupe",
+        "Honduras",
+        "Martinique",
+        "Mexico",
+        "New Caledonia",
+        "New Zealand",
+        "Norfolk Island",
+        "Northern Mariana Islands",
+        "Oman",
+        "Philippines",
+        "Puerto Rico",
+        "United States of America",
+        "Virgin Islands (U.S.)"
+      ],
+      "coordinates": {
+        "min_lat": -31.034203,
+        "max_lat": 49.095935,
+        "min_lon": -159.798629,
+        "max_lon": 166.475121,
+        "count": 50
+      },
+      "occurrence_count": 252561
+    },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:21.600026"
+    "last_updated": "2026-03-16T23:55:11.883702"
   },
   {
     "id": "Q189609",
@@ -679,7 +918,11 @@
     "description": "Group of venomous snakes from Asia",
     "summary": "The king cobra is a species complex of snakes endemic to Asia. With an average length of 3.18 to 4 m and a record length of 5.85 m (19.2 ft), it is the world's longest venomous snake and among the heaviest. Under the genus Ophiophagus, it is not phylogenetically a true cobra despite its common name and some resemblance. Spanning from the Indian subcontinent through Southeastern Asia to Southern China, the king cobra is widely distributed albeit not commonly seen.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg/330px-12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
+    "eol_url": "",
+    "gbif_key": 183199546,
     "wikipedia_sections": {
       "etymology": "Under the genus Ophiophagus , it is not phylogenetically a true cobra despite its common name and some resemblance. Etymology The king cobra is also referred to by the common name \" hamadryad \", especially in older literature. Hamadryas hannah was the scientific name used by Danish naturalist Theodore Edward Cantor in 1836 who described four king cobra specimens , three captured in the Sundarbans and one in the vicinity of Kolkata . 4 The origin of the species name hannah was not specified during description and has long been uncertain, but may potentially refer to Hannah Sarah Wallich, the el",
       "description": "With an average length of 3.18 to 4 m (10.4 to 13.1 ft) and a record length of 5.85 m (19.2 ft), 2 it is the world's longest venomous snake and among the heaviest. 3 Typical threat display of this elapid includes neck-flap spreading, head raising, hissing and sometimes charging. This description was improperly done, leaving it a nomen nudum at the time. In 1837, Hermann Schlegel used the name Naja bungaroides for his description of the Australian broad-headed snake , which was later reclassified into Wagler's Hoplocephalus , and used the species name Naja bungarus for the king cobra.",
@@ -712,8 +955,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Forest, shrublands, wetlands",
-      "locations": "Asia",
+      "habitat": "66 67 Relationship with humans onservation In outheast Asia, the king cobra is threatened foremost by habitat destruction owing to deforestation and expansion of agricultural land. ropical onservation cience . \"he Hamadryad or ing obra aja hannah (antor)\" . he ournal of the Bombay atural History ociety . ^ Bhaisare, .; Ramanuj, V.; hankar, . G.; Vittala, M.; Goode, M.; Whitaker, R. L eglected ropical iseases . E.; Vos, Rutger A.; Guerreiro, I.; alvete, . \"he king cobra genome reveals dynamic gene evolution and adaptation in the snake venom system\" .",
+      "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
       "group_behavior": "",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Poaching, habitat loss",
@@ -740,12 +983,35 @@
       "age_of_weaning": "",
       "most_distinctive_feature": "An expanding hood"
     },
+    "distribution": {
+      "countries": [
+        "Bangladesh",
+        "Bhutan",
+        "Cambodia",
+        "China",
+        "Hong Kong",
+        "India",
+        "Nepal",
+        "Singapore",
+        "Thailand",
+        "Viet Nam"
+      ],
+      "coordinates": {
+        "min_lat": 8.647457,
+        "max_lat": 27.84147,
+        "min_lon": 84.612784,
+        "max_lon": 116.32829,
+        "count": 50
+      },
+      "occurrence_count": 856
+    },
     "sources": [
       "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:23.965769"
+    "last_updated": "2026-03-16T23:55:16.718059"
   },
   {
     "id": "Q270238",
@@ -755,7 +1021,11 @@
     "description": "Species of amphibian",
     "summary": "The American bullfrog, often simply known as the bullfrog in Canada and the United States, is a large true frog native to eastern North America. It typically inhabits large permanent water bodies such as swamps, ponds, and lakes. Bullfrogs can also be found in manmade habitats such as pools, koi ponds, canals, ditches and culverts. The bullfrog gets its name from the sound the male makes during the breeding season, which sounds similar to a bull bellowing. They are generalist carnivores, consuming a wide variety of prey. In turn, they are eaten by predators such as alligators, snakes, and birds.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
+    "eol_url": "",
+    "gbif_key": 159514608,
     "wikipedia_sections": {
       "etymology": "The bullfrog gets its name from the sound the male makes during the breeding season , which sounds similar to a bull bellowing. Taxonomy [ edit ] The specific name , catesbeiana ( feminine ) or catesbeianus (masculine), is in honor of English naturalist Mark Catesby . 3 Some authorities use the scientific name , Lithobates catesbeiana , 4 although others prefer Rana catesbeiana . 5 6 7 8 A 2016 phylogenetic study of Lithobates and Rana , using mitochondrial and nuclear sequences , recovered the American bullfrog as part of a basal clade of Lithobates , more derived only than L.",
       "description": "The following cladogram is based on this study's phylogenetic tree : 9 10 body.skin-vector-2022 .mw-parser-output div.clade,body.skin-minerva .mw-parser-output div.clade{overflow-x:auto;overflow-y:hidden}body.skin-minerva .mw-parser-output div.clade p{font-size:inherit}.mw-parser-output table.clade{border-spacing:0;margin:0;font-size:100%;line-height:100%;border-collapse:separate;width:auto;display:table}.mw-parser-output table.clade table.clade{width:100%;line-height:inherit}.mw-parser-output table.clade td.clade-label{min-width:0.2em;width:0.2em;padding:0.1em 0.25em;vertical-align:bottom;tex",
@@ -788,8 +1058,8 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "It typically inhabits large permanent water bodies such as swamps , ponds , and lakes . 29 Cannibalism has been observed in bullfrog populations in resource-limited environments. 53 The significance of forelimb sexual dimorphism allow males to remain in amplexus with the female for longer durations increasing their chance at reproductive success in the highly competitive mating environment. American bullfrog tadpoles have also \"showed a preference for habitats containing structure.\" 61 This may reflect a lesser number of predators in these locations.",
-      "locations": "For the Asian bullfrog, see Banded bullfrog . The specific problem is: Redundant/repetitive information. Please help improve this article if you can. Bullfrogs can also be found in manmade habitats such as pools, koi ponds , canals , ditches and culverts . The bullfrog is large and is commonly eaten throughout its range, especially in the southern United States where they are plentiful. Their use as a food source has led to bullfrogs being introduced outside of their native range. Bullfrogs have been introduced into the Western United States , South America , Western Europe , China , Japan , S",
+      "habitat": "It typically inhabits large permanent water bodies such as swamps , ponds , and lakes . 29 annibalism has been observed in bullfrog populations in resource-limited environments. 53 he significance of forelimb sexual dimorphism allow males to remain in amplexus with the female for longer durations increasing their chance at reproductive success in the highly competitive mating environment. American bullfrog tadpoles have also \"showed a preference for habitats containing structure.\" 61 his may reflect a lesser number of predators in these locations.",
+      "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
       "group_behavior": "",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Human-wildlife conflict",
@@ -814,12 +1084,31 @@
       "age_of_weaning": "",
       "most_distinctive_feature": ""
     },
+    "distribution": {
+      "countries": [
+        "Argentina",
+        "Belgium",
+        "Colombia",
+        "Dominican Republic",
+        "Japan",
+        "Mexico",
+        "United States of America"
+      ],
+      "coordinates": {
+        "min_lat": 19.660895,
+        "max_lat": 51.14126,
+        "min_lon": -157.91153,
+        "max_lon": 4.99305,
+        "count": 50
+      },
+      "occurrence_count": 147451
+    },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:26.291353"
+    "last_updated": "2026-03-16T23:55:22.100863"
   },
   {
     "id": "Q165980",
@@ -829,7 +1118,11 @@
     "description": "Milkweed butterfly in the family Nymphalidae",
     "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
+    "eol_url": "",
+    "gbif_key": 177932834,
     "wikipedia_sections": {
       "etymology": "6 Other common names, depending on region, include milkweed , common tiger , wanderer , and black-veined brown . 7 It is among the most familiar of North American butterflies and an iconic pollinator , 8 although it is not an especially effective pollinator of milkweeds . Etymology [ edit ] The name monarch is believed to have been given in honor of King William III of England , as the butterfly's main color is that of the king's secondary title, Prince of Orange . 13 The monarch was originally described by Carl Linnaeus in his Systema Naturae of 1758 and placed in the genus Papilio .",
       "description": "plexippus on Tithonia flower D. plexippus Piedra Herrada, Mexico The monarch butterfly or simply monarch ( Danaus plexippus ) is a milkweed butterfly ( subfamily Danainae ) in the family Nymphalidae . 10 A Müllerian mimic , the viceroy butterfly , is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing. The Danai festivi formed one of the \"subgenera\", containing colorful species, as opposed to the Danai candidi , containing species with bright white wings.",
@@ -862,8 +1155,8 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
-      "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
+      "habitat": "ea levels were higher, and the entire Amazonas lowland was a vast expanse of brackish swamp that offered limited butterfly habitat. 64 Male search and capture strategies may influence copulatory success, and human-induced changes to the habitat can influence monarch mating activity at overwintering sites. 79 Larval host plants [ edit ] Asclepias syriaca , common milkweed Asclepias viridis , green antelopehorn milkweed Asclepias asperula , antelope horns milkweed Asclepias curassavica , tropical milkweed he host plants used by the monarch caterpillar include: .mw-parser-output .div-col{margin",
+      "locations": "Australia, Colombia, Mexico, New Zealand, United States of America",
       "group_behavior": "Group",
       "conservation_status": "Vulnerable",
       "biggest_threat": "Habitat loss",
@@ -890,12 +1183,30 @@
       "age_of_weaning": "",
       "most_distinctive_feature": "Black, orange, and white pattern on wings"
     },
+    "distribution": {
+      "countries": [
+        "Australia",
+        "Colombia",
+        "Mexico",
+        "New Zealand",
+        "United States of America"
+      ],
+      "coordinates": {
+        "min_lat": -37.866868,
+        "max_lat": 37.519265,
+        "min_lon": -157.855928,
+        "max_lon": 153.064852,
+        "count": 50
+      },
+      "occurrence_count": 748835
+    },
     "sources": [
       "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:28.941164"
+    "last_updated": "2026-03-16T23:55:27.743249"
   },
   {
     "id": "Q7316",
@@ -905,7 +1216,11 @@
     "description": "Colonial flying insect",
     "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
+    "images": [],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
+    "eol_url": "",
+    "gbif_key": 114902881,
     "wikipedia_sections": {
       "etymology": "beehives ) containing hexagonal cells made of secreted wax , 2 their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey , the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers , bears and human hunter-gatherers . Although honey bees represent only a small fraction of the roughly 20,000 known species of bees, they are the bee clade most familiar to humans and are also the most valuable beneficial insects to agriculture and horticulture.",
       "description": "Followed by segment at one-tenth speed. 22 Essentially restricted to the Himalayas , it differs little from the giant honey bee in appearance but has extensive behavioral adaptations that enable it to nest in the open at high altitudes despite low ambient temperatures. It is the largest living honey bee. Apis [ edit ] Western honey bee on a honeycomb Eastern Apis species include three or four species, including A. The genetics of the western honey bee ( A. Koschevnikov's honey bee [ edit ] Koschevnikov's honey bee ( Apis koschevnikovi ) is often referred to in the literature as the \"red bee of",
@@ -938,8 +1253,8 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "Sheltered forests and meadows",
-      "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
+      "habitat": "23 Its habitat is limited to the tropical evergreen forests of the Malay eninsula , Borneo and umatra and they do not live in tropical evergreen rain forests which extend into hailand, Myanmar, ambodia and Vietnam. 23 hilippine honey bee [ edit ] Apis nigrocincta is a cavity-nesting species. Many subspecies have adapted to the local geographic and climatic environments; in addition, breeds such as the Buckfast bee have been bred. mellifera subspecies is probably the product of a largely Early leistocene radiation aided by climate and habitat changes during the last ice age .",
+      "locations": "Argentina, Australia, Brazil, Canada, Chinese Taipei, Dominican Republic, Ecuador, Egypt, France, Greece, Grenada, Guatemala, Israel, Martinique, Mexico, New Caledonia, New Zealand, Peru, Portugal, Puerto Rico, Saint Vincent and the Grenadines, Spain, United States of America",
       "group_behavior": "Social",
       "conservation_status": "Vulnerable",
       "biggest_threat": "",
@@ -964,11 +1279,47 @@
       "age_of_weaning": "",
       "most_distinctive_feature": ""
     },
+    "distribution": {
+      "countries": [
+        "Argentina",
+        "Australia",
+        "Brazil",
+        "Canada",
+        "Chinese Taipei",
+        "Dominican Republic",
+        "Ecuador",
+        "Egypt",
+        "France",
+        "Greece",
+        "Grenada",
+        "Guatemala",
+        "Israel",
+        "Martinique",
+        "Mexico",
+        "New Caledonia",
+        "New Zealand",
+        "Peru",
+        "Portugal",
+        "Puerto Rico",
+        "Saint Vincent and the Grenadines",
+        "Spain",
+        "United States of America"
+      ],
+      "coordinates": {
+        "min_lat": -43.577425,
+        "max_lat": 43.567205,
+        "min_lon": -119.716163,
+        "max_lon": 164.956147,
+        "count": 50
+      },
+      "occurrence_count": 1124010
+    },
     "sources": [
       "API Ninjas",
       "Wikipedia",
-      "iNaturalist"
+      "iNaturalist",
+      "GBIF"
     ],
-    "last_updated": "2026-03-16T23:41:32.119372"
+    "last_updated": "2026-03-16T23:55:33.343933"
   }
 ]

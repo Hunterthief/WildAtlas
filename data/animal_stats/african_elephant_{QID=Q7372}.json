@@ -6,7 +6,11 @@
   "description": "Genus comprising two living elephant species",
   "summary": "African elephants are members of the genus Loxodonta comprising two living elephant species, the African bush elephant and the smaller African forest elephant. Both are social herbivores with grey skin. However, they differ in the size and colour of their tusks as well as the shape and size of their ears and skulls.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
+  "eol_url": "",
+  "gbif_key": 177683655,
   "wikipedia_sections": {
     "etymology": "The name refers to the lozenge-shaped enamel of their molar teeth. Etymology [ edit ] The name Loxodonta comes from the Ancient Greek words λοξός ( loxós, \"slanting\", \"crosswise\") and ὀδούς ( odoús , \"tooth\"), referring to the lozenge -shaped enamel of the molar teeth , which differs significantly from the rounded shape of the Asian elephant 's molar enamel. 2 Taxonomy and evolution [ edit ] The first scientific description of the African elephant was written in 1797 by Johann Friedrich Blumenbach , who proposed the scientific name Elephas africanus .",
     "description": "However, they differ in the size and colour of their tusks as well as the shape and size of their ears and skulls . 1 Elephas ( Loxodonta ) cyclotis was proposed by Paul Matschie in 1900, who described three African elephant zoological specimens from Cameroon whose skulls differed in shape from those of elephant skulls collected elsewhere in Africa. 9 10 11 12 13 In 1907, Richard Lydekker proposed six African elephant subspecies based on the different sizes and shapes of their ears. 16 † Loxodonta atlantica was proposed as Elephas atlanticus by Auguste Pomel in 1879 based on a skull and bones ",
@@ -38,9 +42,9 @@
     "lifespan": ""
   },
   "ecology": {
-    "diet": "Carnivore",
-    "habitat": "2018, showing hybridization -facilitated introgressive gene flow from forest elephants into Palaeoloxodon . 21 Analysis of Chinese Palaeoloxodon mitogenomes suggests that this forest elephant ancestry was widely shared among Palaeoloxodon species. 31 Distribution and habitat [ edit ] African elephants are distributed in Sub-Saharan Africa , where they inhabit Sahelian scrubland and arid regions, tropical rainforests , mopane and miombo woodlands . Decrease of suitable habitat was the major cause for the decline of elephant populations until the 1950s.",
-    "locations": "African elephants Temporal range: Late Miocene – Present , 7–0 Ma PreꞒ Ꞓ O S D C P T J K Pg N African bush elephant bull in Kruger National Park African forest elephant in Nouabalé-Ndoki National Park Animalia Chordata Mammalia Order: Proboscidea Family: Elephantidae Tribe: Loxodontini Genus: Loxodonta Anonymous, 1827 1 Type species Elephas africana 1 Blumenbach, 1797 Species and subspecies L. africana ) and the smaller African forest elephant ( L. Fossil remains of Loxodonta species have been found in Africa , spanning from the Late Miocene (from around 7–6 million years ago) onwards.",
+    "diet": "Herbivore",
+    "habitat": "2018, showing hybridization -facilitated introgressive gene flow from forest elephants into alaeoloxodon . 21 Analysis of hinese alaeoloxodon mitogenomes suggests that this forest elephant ancestry was widely shared among alaeoloxodon species. 31 istribution and habitat [ edit ] African elephants are distributed in ub-aharan Africa , where they inhabit ahelian scrubland and arid regions, tropical rainforests , mopane and miombo woodlands . ecrease of suitable habitat was the major cause for the decline of elephant populations until the 1950s.",
+    "locations": "Botswana, Burkina Faso, Ghana, Kenya, Namibia, Niger, Rwanda, South Africa, Tanzania, United Republic of, Uganda, Zambia, Zimbabwe",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
     "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -65,10 +69,34 @@
     "age_of_weaning": "",
     "most_distinctive_feature": ""
   },
+  "distribution": {
+    "countries": [
+      "Botswana",
+      "Burkina Faso",
+      "Ghana",
+      "Kenya",
+      "Namibia",
+      "Niger",
+      "Rwanda",
+      "South Africa",
+      "Tanzania, United Republic of",
+      "Uganda",
+      "Zambia",
+      "Zimbabwe"
+    ],
+    "coordinates": {
+      "min_lat": -33.562833,
+      "max_lat": 9.281961,
+      "min_lon": -1.90394,
+      "max_lon": 38.084716,
+      "count": 50
+    },
+    "occurrence_count": 22565
+  },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:06.306378"
+  "last_updated": "2026-03-16T23:54:39.041179"
 }

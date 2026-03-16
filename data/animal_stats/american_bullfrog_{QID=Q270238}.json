@@ -6,7 +6,11 @@
   "description": "Species of amphibian",
   "summary": "The American bullfrog, often simply known as the bullfrog in Canada and the United States, is a large true frog native to eastern North America. It typically inhabits large permanent water bodies such as swamps, ponds, and lakes. Bullfrogs can also be found in manmade habitats such as pools, koi ponds, canals, ditches and culverts. The bullfrog gets its name from the sound the male makes during the breeding season, which sounds similar to a bull bellowing. They are generalist carnivores, consuming a wide variety of prey. In turn, they are eaten by predators such as alligators, snakes, and birds.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
+  "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
+  "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
+  "eol_url": "",
+  "gbif_key": 159514608,
   "wikipedia_sections": {
     "etymology": "The bullfrog gets its name from the sound the male makes during the breeding season , which sounds similar to a bull bellowing. Taxonomy [ edit ] The specific name , catesbeiana ( feminine ) or catesbeianus (masculine), is in honor of English naturalist Mark Catesby . 3 Some authorities use the scientific name , Lithobates catesbeiana , 4 although others prefer Rana catesbeiana . 5 6 7 8 A 2016 phylogenetic study of Lithobates and Rana , using mitochondrial and nuclear sequences , recovered the American bullfrog as part of a basal clade of Lithobates , more derived only than L.",
     "description": "The following cladogram is based on this study's phylogenetic tree : 9 10 body.skin-vector-2022 .mw-parser-output div.clade,body.skin-minerva .mw-parser-output div.clade{overflow-x:auto;overflow-y:hidden}body.skin-minerva .mw-parser-output div.clade p{font-size:inherit}.mw-parser-output table.clade{border-spacing:0;margin:0;font-size:100%;line-height:100%;border-collapse:separate;width:auto;display:table}.mw-parser-output table.clade table.clade{width:100%;line-height:inherit}.mw-parser-output table.clade td.clade-label{min-width:0.2em;width:0.2em;padding:0.1em 0.25em;vertical-align:bottom;tex",
@@ -39,8 +43,8 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "It typically inhabits large permanent water bodies such as swamps , ponds , and lakes . 29 Cannibalism has been observed in bullfrog populations in resource-limited environments. 53 The significance of forelimb sexual dimorphism allow males to remain in amplexus with the female for longer durations increasing their chance at reproductive success in the highly competitive mating environment. American bullfrog tadpoles have also \"showed a preference for habitats containing structure.\" 61 This may reflect a lesser number of predators in these locations.",
-    "locations": "For the Asian bullfrog, see Banded bullfrog . The specific problem is: Redundant/repetitive information. Please help improve this article if you can. Bullfrogs can also be found in manmade habitats such as pools, koi ponds , canals , ditches and culverts . The bullfrog is large and is commonly eaten throughout its range, especially in the southern United States where they are plentiful. Their use as a food source has led to bullfrogs being introduced outside of their native range. Bullfrogs have been introduced into the Western United States , South America , Western Europe , China , Japan , S",
+    "habitat": "It typically inhabits large permanent water bodies such as swamps , ponds , and lakes . 29 annibalism has been observed in bullfrog populations in resource-limited environments. 53 he significance of forelimb sexual dimorphism allow males to remain in amplexus with the female for longer durations increasing their chance at reproductive success in the highly competitive mating environment. American bullfrog tadpoles have also \"showed a preference for habitats containing structure.\" 61 his may reflect a lesser number of predators in these locations.",
+    "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
     "group_behavior": "",
     "conservation_status": "Vulnerable",
     "biggest_threat": "Human-wildlife conflict",
@@ -65,10 +69,29 @@
     "age_of_weaning": "",
     "most_distinctive_feature": ""
   },
+  "distribution": {
+    "countries": [
+      "Argentina",
+      "Belgium",
+      "Colombia",
+      "Dominican Republic",
+      "Japan",
+      "Mexico",
+      "United States of America"
+    ],
+    "coordinates": {
+      "min_lat": 19.660895,
+      "max_lat": 51.14126,
+      "min_lon": -157.91153,
+      "max_lon": 4.99305,
+      "count": 50
+    },
+    "occurrence_count": 147451
+  },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
-    "iNaturalist"
+    "iNaturalist",
+    "GBIF"
   ],
-  "last_updated": "2026-03-16T23:41:26.291353"
+  "last_updated": "2026-03-16T23:55:22.100863"
 }
