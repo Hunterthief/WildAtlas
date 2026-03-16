@@ -9,7 +9,7 @@ on:
       force_update:
         description: 'Force re-fetch all data'
         required: false
-        default: 'false'
+        default: 'true'
 
 jobs:
   generate:
@@ -31,22 +31,19 @@ jobs:
         run: |
           pip install requests
 
-      - name: Clean up old data directory
+      - name: Clean up ALL old data directories
         run: |
-          echo "🧹 Cleaning up old generator/data/ directory..."
+          echo "🧹 Cleaning up old data directories..."
           rm -rf generator/data/
-          echo "✅ Old directory removed"
+          rm -rf data/
+          echo "✅ Old directories removed"
 
-      - name: Run generator
+      - name: Run generator (ALWAYS FORCE)
         env:
           API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
         run: |
           cd generator
-          if [ "${{ github.event.inputs.force_update }}" == "true" ]; then
-            python generate_animals.py --force
-          else
-            python generate_animals.py
-          fi
+          python generate_animals.py --force
 
       - name: Debug - Show what was created
         run: |
@@ -54,17 +51,20 @@ jobs:
           ls -la
           echo "=== data/ directory ==="
           ls -la data/ 2>/dev/null || echo "data/ not found"
-          echo "=== data/animal_stats/ (first 10 files) ==="
-          ls data/animal_stats/ 2>/dev/null | head -10 || echo "data/animal_stats/ not found"
+          echo "=== data/animal_stats/ file count ==="
+          ls data/animal_stats/ 2>/dev/null | wc -l || echo "0"
           echo "=== generator/data/ (should not exist) ==="
-          ls generator/data/ 2>/dev/null || echo "generator/data/ does not exist (good!)"
+          ls generator/data/ 2>/dev/null && echo "ERROR: Old directory still exists!" || echo "✅ generator/data/ does not exist (good!)"
 
-      - name: Commit and push JSON
+      - name: Pull latest changes before push
         env:
           MY_PAT: ${{ secrets.MY_PAT }}
         run: |
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
+          
+          echo "🔄 Pulling latest changes..."
+          git pull --rebase https://$MY_PAT@github.com/${{ github.repository }} main || echo "No remote changes to pull"
           
           echo "📊 Git status:"
           git status
