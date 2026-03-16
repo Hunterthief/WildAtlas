@@ -6,13 +6,22 @@ Enhances taxonomy, conservation status, images, and more
 import requests
 from typing import Dict, Any, Optional
 
-WIKIDATA_ENDPOINT = "https://www.wikidata.org/wiki/Special:EntityData/"
+# FIXED: Correct Wikidata API endpoint
+WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 
 def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
     """Fetch data from Wikidata using QID"""
     try:
+        # FIXED: Use /entity/ endpoint, not /wiki/Special:EntityData/
         url = f"{WIKIDATA_ENDPOINT}{qid}.json"
-        response = requests.get(url, timeout=10)
+        
+        # Add User-Agent header (required by Wikidata)
+        headers = {
+            "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)",
+            "Accept": "application/json"
+        }
+        
+        response = requests.get(url, headers=headers, timeout=10)
         response.raise_for_status()
         data = response.json()
         return data.get("entities", {}).get(qid, {})
@@ -34,19 +43,13 @@ def extract_taxonomy(wikidata: Dict[str, Any]) -> Dict[str, str]:
     
     claims = wikidata.get("claims", {})
     
-    # Taxon name mappings (P225 = taxon name, P171 = parent taxon)
+    # P225 = taxon name
     taxon_name = claims.get("P225", [])
     if taxon_name:
         taxonomy["species"] = taxon_name[0].get("mainsnak", {}).get("datavalue", {}).get("value", "")
     
-    # Parent taxon chain
-    parent_taxon = claims.get("P171", [])
-    for claim in parent_taxon[:7]:  # Max 7 levels
-        value = claim.get("mainsnak", {}).get("datavalue", {}).get("value", {})
-        if isinstance(value, dict):
-            name = value.get("id", "")
-            # Could fetch each parent's name, but for now use ID
-            # In production, you'd resolve each QID to name
+    # P171 = parent taxon (simplified - just return empty for now)
+    # Full implementation would resolve each parent QID
     
     return taxonomy
 
@@ -88,7 +91,6 @@ def extract_images(wikidata: Dict[str, Any]) -> list:
     for claim in image_claims[:3]:  # Max 3 images
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
-            # Convert to Wikimedia Commons URL
             url = f"https://commons.wikimedia.org/wiki/File:{filename}"
             images.append(url)
     
@@ -97,15 +99,14 @@ def extract_images(wikidata: Dict[str, Any]) -> list:
 def extract_common_names(wikidata: Dict[str, Any]) -> list:
     """Extract common names from Wikidata labels"""
     names = []
-    
-    # Get labels in different languages
     labels = wikidata.get("labels", {})
+    
     for lang, label_data in labels.items():
         name = label_data.get("value", "")
-        if lang != "en" and name:  # Exclude English (already have main name)
+        if lang != "en" and name:
             names.append({"name": name, "language": lang})
     
-    return names[:10]  # Max 10 common names
+    return names[:10]
 
 def extract_population(wikidata: Dict[str, Any]) -> str:
     """Extract population estimate from Wikidata"""
