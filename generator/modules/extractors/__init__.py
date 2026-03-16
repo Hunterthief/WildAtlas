@@ -1,21 +1,18 @@
-# generator/modules/extractors/__init__.py
-"""
-Extractors Package
-
-All data extraction functions organized by category.
-Each sub-module can be edited independently without affecting others.
-"""
-
-from .stats import extract_weight, extract_length, extract_height, extract_lifespan, extract_speed
-from .ecology import (
-    extract_diet, extract_conservation, extract_locations,
-    extract_habitat, extract_features, extract_behavior, extract_threats
-)
-from .reproduction import extract_gestation, extract_litter_size
+# generator/extractors/__init__.py
+from .sections import extract_wikipedia_sections
+from .stats import extract_stats_from_sections
+from .diet import extract_diet_from_sections
+from .reproduction import extract_reproduction_from_sections
+from .conservation import extract_conservation_from_sections
+from .behavior import extract_behavior_from_sections
+from .additional_info import extract_additional_info_from_sections
 
 __all__ = [
-    'extract_weight', 'extract_length', 'extract_height', 'extract_lifespan', 'extract_speed',
-    'extract_diet', 'extract_conservation', 'extract_locations',
-    'extract_habitat', 'extract_features', 'extract_behavior', 'extract_threats',
-    'extract_gestation', 'extract_litter_size'
+    'extract_wikipedia_sections',
+    'extract_stats_from_sections',
+    'extract_diet_from_sections',
+    'extract_reproduction_from_sections',
+    'extract_conservation_from_sections',
+    'extract_behavior_from_sections',
+    'extract_additional_info_from_sections'
 ]
