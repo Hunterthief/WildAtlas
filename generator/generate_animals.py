@@ -203,10 +203,16 @@ def _extract_conservation_from_wikipedia_sections(wiki_sections: Dict[str, str])
 # BUILD ANIMAL DATA
 # =============================================================================
 def build_animal_data(
-    name: str,
-    sci_name: str,
+    ninja_data: Dict[str, Any],
+    wiki_data: Dict[str, Any],
+    wiki_sections: Dict[str, str],
+    inat_classification: Dict[str, Any],
+    wikidata_enhanced: Dict[str, Any],
+    gbif_data: Dict[str, Any],
+    eol_data: Dict[str, Any],
     qid: str,
-    force: bool = False
+    name: str,
+    sci_name: str
 ) -> Dict[str, Any]:
     """Build complete animal data with proper source priority"""
     
