@@ -20,7 +20,7 @@ sys.path.insert(0, str(GENERATOR_DIR))
 # IMPORTS - Data Fetchers
 # =============================================================================
 from modules.fetchers.api_ninjas import fetch_animal_data
-from modules.fetchers.wikipedia import fetch_wikipedia_summary, fetch_wikipedia_full
+from modules.fetchers.wikipedia import fetch_wikipedia_data, fetch_wikipedia_sections, fetch_wikipedia_infobox
 from modules.fetchers.inaturalist import fetch_inaturalist
 from modules.fetchers.wikidata import fetch_wikidata_properties
 from modules.fetchers.gbif_distribution import extract_gbif_all
@@ -578,10 +578,10 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
             ninja_data = {"characteristics": {}, "taxonomy": {}, "locations": []}
 
         print(" 📖 Fetching from Wikipedia...")
-        wiki_summary = fetch_wikipedia_summary(name)
-        wiki_full = fetch_wikipedia_full(name)
-        wiki_sections = extract_wikipedia_sections(wiki_full)
-        
+        wiki_data = fetch_wikipedia_data(name)
+        wiki_sections = wiki_data.get('sections', {})
+        wiki_infobox = wiki_data.get('infobox', {})
+
         filled_sections = sum(1 for v in wiki_sections.values() if v and len(v) > 20)
         print(f"   ✅ Extracted {filled_sections}/9 Wikipedia sections")
         
