@@ -54,7 +54,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-  "eol_url": "https://eol.org/pages/46559751",
+  "eol_url": "",
   "gbif_key": 314215150,
   "wikipedia_sections": {
     "etymology": "Etymology and naming The name 'great white shark' likely comes from the white underside exposed on beached sharks. The most common English names for the species include great white shark, white shark, and Australian variant white pointer. 6 7 These names refer to its white underside, which is noticeable in dead sharks lying upside down. 8 Colloquial use favours the name great white shark or simply great white, with great perhaps emphasizing the size and power of the species. Scientists typically use white shark, as no \"lesser white shark\" exists for comparison, 9 though some use white shark to",
@@ -141,8 +141,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-17T01:12:05.932630"
+  "last_updated": "2026-03-17T19:57:17.611208"
 }

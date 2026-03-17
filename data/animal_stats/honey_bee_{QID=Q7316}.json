@@ -54,7 +54,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-  "eol_url": "https://eol.org/pages/1045608",
+  "eol_url": "",
   "gbif_key": 114902881,
   "wikipedia_sections": {
     "etymology": "beehives ) containing hexagonal cells made of secreted wax , 2 their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey , the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers , bears and human hunter-gatherers . Although honey bees represent only a small fraction of the roughly 20,000 known species of bees, they are the bee clade most familiar to humans and are also the most valuable beneficial insects to agriculture and horticulture.",
@@ -154,8 +154,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-17T01:13:54.153787"
+  "last_updated": "2026-03-17T19:58:50.237075"
 }

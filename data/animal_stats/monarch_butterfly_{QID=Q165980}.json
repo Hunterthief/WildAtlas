@@ -54,7 +54,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
   "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-  "eol_url": "https://eol.org/pages/4090155",
+  "eol_url": "",
   "gbif_key": 177932834,
   "wikipedia_sections": {
     "etymology": "6 Other common names, depending on region, include milkweed , common tiger , wanderer , and black-veined brown . 7 It is among the most familiar of North American butterflies and an iconic pollinator , 8 although it is not an especially effective pollinator of milkweeds . Etymology [ edit ] The name monarch is believed to have been given in honor of King William III of England , as the butterfly's main color is that of the king's secondary title, Prince of Orange . 13 The monarch was originally described by Carl Linnaeus in his Systema Naturae of 1758 and placed in the genus Papilio .",
@@ -64,7 +64,7 @@
     "hunting_diet": "31 During their development, both larvae and their milkweed hosts are vulnerable to weather extremes, predators, parasites, and diseases; commonly fewer than 10% of monarch eggs and caterpillars survive. 24 21–22 Egg [ edit ] Sequential stages of monarch development - an egg, five caterpillars, and a chrysalis on common milkweed leaves Egg Monarch butterfly flying around narrowleaf milkweed , depositing an egg. Played a second time at half speed. 24 21 The offspring's consumption of milkweed benefits health and helps defend them against predators.",
     "behavior": "The genome provides researchers insights into migratory behavior, the circadian clock, juvenile hormone pathways, and microRNAs that are differentially expressed between summer and migratory monarchs. 41 This demonstrates the aggressive behavior of monarch caterpillars due to the availability of milkweed. Pupa [ edit ] A caterpillar metamorphosing into a pupa Chrysalis To prepare for the pupal or chrysalis stage, the caterpillar chooses a safe place for pupation, where it spins a silk pad on a downward-facing horizontal surface.",
     "reproduction": "The egg is derived from materials ingested as a larva and from the spermatophores received from males during mating. 32 Female monarchs lay eggs singly, most often on the underside of a young leaf of a milkweed plant during the spring and summer. 33 Females secrete a small amount of glue to attach their eggs directly to the plant. They typically lay 300 to 500 eggs over a two- to five-week period. During the breeding season, adults reach sexual maturity in 4–5 days. However, the migrating generation does not reach maturity until overwintering is complete.",
-    "threats": "109 This is thought to adversely affect migration patterns and to cause a dramatic buildup of the dangerous parasite, Ophryocystis elektroscirrha . 178 The frequent media reports of monarch declines have encouraged many homeowners to attempt to rear as many monarchs as possible in their homes and then release them to the wild to \"boost the monarch population\". Some individuals, such as one in Linn County, Iowa , have reared thousands of monarchs at the same time. 179 Some monarch scientists do not condone the practice of rearing \"large\" numbers of monarchs in captivity for release into the wil",
+    "threats": "109 This is thought to adversely affect migration patterns and to cause a dramatic buildup of the dangerous parasite, Ophryocystis elektroscirrha . 179 The frequent media reports of monarch declines have encouraged many homeowners to attempt to rear as many monarchs as possible in their homes and then release them to the wild to \"boost the monarch population\". Some individuals, such as one in Linn County, Iowa , have reared thousands of monarchs at the same time. 180 Some monarch scientists do not condone the practice of rearing \"large\" numbers of monarchs in captivity for release into the wil",
     "conservation": "The eastern North American monarch population is notable for its annual southward late-summer/autumn instinctive migration from the northern and central United States and southern Canada to Florida and Mexico. 6 During the fall migration, monarchs cover thousands of miles, with a corresponding multigenerational return north in spring. Some researchers believe the southern monarch separated from the monarch's population some two million years ago, at the end of the Pliocene . tobagi Austin Hobart Clark, 1941 − Tobago The population level of the white morph in Oahu is nearing 10%."
   },
   "classification": {
@@ -131,15 +131,14 @@
       "max_lon": 153.064852,
       "count": 50
     },
-    "occurrence_count": 748835
+    "occurrence_count": 748836
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-17T01:13:45.397063"
+  "last_updated": "2026-03-17T19:58:34.278496"
 }

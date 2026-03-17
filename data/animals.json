@@ -54,7 +54,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "https://eol.org/pages/1253183",
+    "eol_url": "",
     "gbif_key": 209806595,
     "wikipedia_sections": {
       "etymology": "Etymology The Old English tigras derives from Old French tigre , from Latin tigris , which was a borrowing from tigris ( Ancient Greek : τίγρις ). 4 Since ancient times, the word tigris has been suggested to originate from the Armenian or Persian word for 'arrow', which may also be the origin of the name for the river Tigris . 5 6 However, today, the names are thought to be homonyms , and the connection between the tiger and the river is doubted. 6 Taxonomy In 1758, Carl Linnaeus described the tiger in his work Systema Naturae and gave it the scientific name Felis tigris , as the genus Felis w",
@@ -138,10 +138,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:11:25.381924"
+    "last_updated": "2026-03-17T19:55:45.756041"
   },
   {
     "id": "Q35625",
@@ -198,7 +197,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "https://eol.org/pages/1271375",
+    "eol_url": "",
     "gbif_key": 104060849,
     "wikipedia_sections": {
       "etymology": "Etymology The vernacular name \"cheetah\" is derived from Hindustani Urdu : چیتا and Hindi : चीता ( ćītā ). 3 This in turn comes from Sanskrit : चित्रय ( Chitra-ya ) meaning 'variegated', 'adorned' or 'painted'. 4 In the past, the cheetah was often called \"hunting leopard\" because they could be tamed and used for coursing . 5 The generic name Acinonyx probably derives from the combination of two Greek words: ἀκίνητος ( akī́nētos ) meaning 'unmoved' or 'motionless', and ὄνυξ ( ónyx ) meaning 'nail' or 'hoof'.",
@@ -283,10 +282,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:11:31.950843"
+    "last_updated": "2026-03-17T19:56:00.606592"
   },
   {
     "id": "Q7372",
@@ -342,7 +340,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "https://eol.org/pages/55636404",
+    "eol_url": "",
     "gbif_key": 177683655,
     "wikipedia_sections": {
       "etymology": "The name refers to the lozenge-shaped enamel of their molar teeth. Etymology [ edit ] The name Loxodonta comes from the Ancient Greek words λοξός ( loxós, \"slanting\", \"crosswise\") and ὀδούς ( odoús , \"tooth\"), referring to the lozenge -shaped enamel of the molar teeth , which differs significantly from the rounded shape of the Asian elephant 's molar enamel. 2 Taxonomy and evolution [ edit ] The first scientific description of the African elephant was written in 1797 by Johann Friedrich Blumenbach , who proposed the scientific name Elephas africanus .",
@@ -430,10 +428,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:11:37.027429"
+    "last_updated": "2026-03-17T19:56:15.278247"
   },
   {
     "id": "Q213537",
@@ -441,56 +438,56 @@
     "scientific_name": "Canis lupus",
     "common_names": [
       {
-        "name": "Ulrich von Hassell",
-        "language": "aa"
+        "name": "Wolf",
+        "language": "de"
       },
       {
-        "name": "Ulrich von Hassell",
-        "language": "ace"
+        "name": "Абгаду",
+        "language": "ab"
       },
       {
-        "name": "Ulrich von Hassell",
+        "name": "wolf",
         "language": "af"
       },
       {
-        "name": "Ulrich von Hassell",
-        "language": "ak"
-      },
-      {
-        "name": "Ulrich von Hassell",
+        "name": "Canis lupus",
         "language": "an"
       },
       {
-        "name": "اولريش فون هاسل",
-        "language": "arz"
+        "name": "Ƿulf",
+        "language": "ang"
       },
       {
-        "name": "Ulrich von Hassell",
+        "name": "ذئب رمادي",
+        "language": "ar"
+      },
+      {
+        "name": "Canis lupus",
         "language": "ast"
       },
       {
-        "name": "Ulrich von Hassell",
-        "language": "atj"
+        "name": "БацӀ",
+        "language": "av"
       },
       {
-        "name": "Ulrich von Hassell",
-        "language": "bar"
+        "name": "adi canavar",
+        "language": "az"
       },
       {
-        "name": "Улрих фон Хасел",
-        "language": "bg"
+        "name": "Бүре",
+        "language": "ba"
       }
     ],
-    "description": "German diplomat and resistance fighter against National Socialism (1881–1944)",
+    "description": "species of mammal",
     "summary": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America. More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo, though grey wolves, as popularly understood, include only naturally occurring wild subspecies. The wolf is the largest wild extant member of the family Canidae, and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal, to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Ulrich von Hassell.jpg"
+      "https://commons.wikimedia.org/wiki/File:Eurasian wolf 2.jpg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-    "eol_url": "https://eol.org/pages/1268606",
-    "gbif_key": 165635866,
+    "eol_url": "",
+    "gbif_key": 162653743,
     "wikipedia_sections": {
       "etymology": "Etymology : Wolf (name) The English \"wolf\" stems from the Old English wulf , which is itself derived from the Proto-Germanic wulfaz . The Proto-Indo-European root wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic lúkʷos ). 5 6 The name \"grey wolf\" refers to the greyish colour of the species. 7 Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names. Examples include Wulfhere (\"Wolf Army\"), Cynewulf (\"Royal Wolf\"), Cēnwulf (\"Bold Wolf\"), Wulfheard (\"Wolf-hard\"), Earnwulf (\"Eagle Wolf\"), Wulfstān (\"",
       "description": ", see Grey Wolf ( ) and Wolf ( ) . For the football club, see Wolverhampton Wanderers F.C. The wolf is the largest wild extant member of the family Canidae , and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal , to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
@@ -582,16 +579,15 @@
         "max_lon": 151.355139,
         "count": 50
       },
-      "occurrence_count": 198212
+      "occurrence_count": 198217
     },
     "sources": [
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:11:43.006072"
+    "last_updated": "2026-03-17T19:56:31.231595"
   },
   {
     "id": "Q25319",
@@ -648,7 +644,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "https://eol.org/pages/1228132",
+    "eol_url": "",
     "gbif_key": 116903464,
     "wikipedia_sections": {
       "etymology": "Bald eagles are not bald in the literal sense; the name derives from an older meaning of the word, \"white-headed\". 4 The genus name is Neo-Latin : Haliaeetus , 5 and the specific name, leucocephalus , is Latinized 6 and ( κεφαλή , kephalḗ , ' head ' ). 7 8 The bald eagle was one of the many species originally described by Carl Linnaeus in his 18th-century work Systema Naturae , under the name Falco leucocephalus . 25 Of intermediate size, 117 migrant bald eagles in Glacier National Park were found to average 4.22 kg (9.3 lb) but this was mostly (possibly post-dispersal) juvenile eagles, with s",
@@ -729,10 +725,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:11:49.739012"
+    "last_updated": "2026-03-17T19:56:46.686486"
   },
   {
     "id": "Q43306",
@@ -790,7 +785,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
     "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-    "eol_url": "https://eol.org/pages/45512074",
+    "eol_url": "",
     "gbif_key": 177664975,
     "wikipedia_sections": {
       "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
@@ -870,10 +865,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:11:58.375354"
+    "last_updated": "2026-03-17T19:57:02.145902"
   },
   {
     "id": "Q47164",
@@ -931,7 +925,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-    "eol_url": "https://eol.org/pages/46559751",
+    "eol_url": "",
     "gbif_key": 314215150,
     "wikipedia_sections": {
       "etymology": "Etymology and naming The name 'great white shark' likely comes from the white underside exposed on beached sharks. The most common English names for the species include great white shark, white shark, and Australian variant white pointer. 6 7 These names refer to its white underside, which is noticeable in dead sharks lying upside down. 8 Colloquial use favours the name great white shark or simply great white, with great perhaps emphasizing the size and power of the species. Scientists typically use white shark, as no \"lesser white shark\" exists for comparison, 9 though some use white shark to",
@@ -1018,10 +1012,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:12:05.932630"
+    "last_updated": "2026-03-17T19:57:17.611208"
   },
   {
     "id": "Q39709",
@@ -1154,7 +1147,7 @@
         "max_lon": 5.95,
         "count": 50
       },
-      "occurrence_count": 1449203
+      "occurrence_count": 1451204
     },
     "sources": [
       "Wikipedia",
@@ -1162,7 +1155,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-17T01:12:24.427059"
+    "last_updated": "2026-03-17T19:57:33.552584"
   },
   {
     "id": "Q7785",
@@ -1170,51 +1163,53 @@
     "scientific_name": "Chelonia mydas",
     "common_names": [
       {
-        "name": "Commonwealth",
-        "language": "fr"
+        "name": "Le̍k hái-ku",
+        "language": "nan"
       },
       {
-        "name": "Commonwealth delle nazioni",
-        "language": "it"
+        "name": "绿蠵龟",
+        "language": "zh-hans"
       },
       {
-        "name": "Commonwealth of Nations",
-        "language": "en-ca"
+        "name": "綠蠵龜",
+        "language": "zh-hant"
       },
       {
-        "name": "Commonwealth of Nations",
-        "language": "en-gb"
+        "name": "綠蠵龜",
+        "language": "zh-hk"
       },
       {
-        "name": "Gemenebes van Nasies",
-        "language": "af"
+        "name": "绿蠵龟",
+        "language": "zh-cn"
       },
       {
-        "name": "Mancomunidat de Nacions",
-        "language": "an"
+        "name": "绿蠵龟",
+        "language": "zh-sg"
       },
       {
-        "name": "Þēodacynewīse",
-        "language": "ang"
+        "name": "綠蠵龜",
+        "language": "zh-tw"
       },
       {
-        "name": "دول الكومنولث",
-        "language": "ar"
+        "name": "Жашыл ташбака",
+        "language": "ky"
       },
       {
-        "name": "كومونويلث الامم",
-        "language": "arz"
+        "name": "Bulus Ijem",
+        "language": "jv"
       },
       {
-        "name": "Mancomunidá de Naciones",
-        "language": "ast"
+        "name": "Chelonia mydas",
+        "language": "eu"
       }
     ],
-    "description": "political association of mostly former British Empire territories",
+    "description": "species of sea turtle",
     "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Marlborough House.jpg"
+      "https://commons.wikimedia.org/wiki/File:Green sea turtle (Chelonia mydas) Moorea.jpg",
+      "https://commons.wikimedia.org/wiki/File:Hawaii turtle 2.JPG",
+      "https://commons.wikimedia.org/wiki/File:202304 Green turtle.svg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
@@ -1320,7 +1315,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-17T01:12:50.056938"
+    "last_updated": "2026-03-17T19:57:48.800548"
   },
   {
     "id": "Q189609",
@@ -1377,8 +1372,8 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-    "eol_url": "https://eol.org/pages/1055746",
-    "gbif_key": 177669293,
+    "eol_url": "",
+    "gbif_key": 183199546,
     "wikipedia_sections": {
       "etymology": "Under the genus Ophiophagus , it is not phylogenetically a true cobra despite its common name and some resemblance. Etymology The king cobra is also referred to by the common name \" hamadryad \", especially in older literature. Hamadryas hannah was the scientific name used by Danish naturalist Theodore Edward Cantor in 1836 who described four king cobra specimens , three captured in the Sundarbans and one in the vicinity of Kolkata . 4 The origin of the species name hannah was not specified during description and has long been uncertain, but may potentially refer to Hannah Sarah Wallich, the el",
       "description": "With an average length of 3.18 to 4 m (10.4 to 13.1 ft) and a record length of 5.85 m (19.2 ft), 2 it is the world's longest venomous snake and among the heaviest. 3 Typical threat display of this elapid includes neck-flap spreading, head raising, hissing and sometimes charging. This description was improperly done, leaving it a nomen nudum at the time. In 1837, Hermann Schlegel used the name Naja bungaroides for his description of the Australian broad-headed snake , which was later reclassified into Wagler's Hoplocephalus , and used the species name Naja bungarus for the king cobra.",
@@ -1466,10 +1461,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:13:08.757402"
+    "last_updated": "2026-03-17T19:58:09.555933"
   },
   {
     "id": "Q270238",
@@ -1526,7 +1520,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/330963",
     "gbif_key": 159514608,
     "wikipedia_sections": {
       "etymology": "The bullfrog gets its name from the sound the male makes during the breeding season , which sounds similar to a bull bellowing. Taxonomy [ edit ] The specific name , catesbeiana ( feminine ) or catesbeianus (masculine), is in honor of English naturalist Mark Catesby . 3 Some authorities use the scientific name , Lithobates catesbeiana , 4 although others prefer Rana catesbeiana . 5 6 7 8 A 2016 phylogenetic study of Lithobates and Rana , using mitochondrial and nuclear sequences , recovered the American bullfrog as part of a basal clade of Lithobates , more derived only than L.",
@@ -1609,9 +1603,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T01:13:25.190810"
+    "last_updated": "2026-03-17T19:58:18.816098"
   },
   {
     "id": "Q165980",
@@ -1669,7 +1664,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-    "eol_url": "https://eol.org/pages/4090155",
+    "eol_url": "",
     "gbif_key": 177932834,
     "wikipedia_sections": {
       "etymology": "6 Other common names, depending on region, include milkweed , common tiger , wanderer , and black-veined brown . 7 It is among the most familiar of North American butterflies and an iconic pollinator , 8 although it is not an especially effective pollinator of milkweeds . Etymology [ edit ] The name monarch is believed to have been given in honor of King William III of England , as the butterfly's main color is that of the king's secondary title, Prince of Orange . 13 The monarch was originally described by Carl Linnaeus in his Systema Naturae of 1758 and placed in the genus Papilio .",
@@ -1679,7 +1674,7 @@
       "hunting_diet": "31 During their development, both larvae and their milkweed hosts are vulnerable to weather extremes, predators, parasites, and diseases; commonly fewer than 10% of monarch eggs and caterpillars survive. 24 21–22 Egg [ edit ] Sequential stages of monarch development - an egg, five caterpillars, and a chrysalis on common milkweed leaves Egg Monarch butterfly flying around narrowleaf milkweed , depositing an egg. Played a second time at half speed. 24 21 The offspring's consumption of milkweed benefits health and helps defend them against predators.",
       "behavior": "The genome provides researchers insights into migratory behavior, the circadian clock, juvenile hormone pathways, and microRNAs that are differentially expressed between summer and migratory monarchs. 41 This demonstrates the aggressive behavior of monarch caterpillars due to the availability of milkweed. Pupa [ edit ] A caterpillar metamorphosing into a pupa Chrysalis To prepare for the pupal or chrysalis stage, the caterpillar chooses a safe place for pupation, where it spins a silk pad on a downward-facing horizontal surface.",
       "reproduction": "The egg is derived from materials ingested as a larva and from the spermatophores received from males during mating. 32 Female monarchs lay eggs singly, most often on the underside of a young leaf of a milkweed plant during the spring and summer. 33 Females secrete a small amount of glue to attach their eggs directly to the plant. They typically lay 300 to 500 eggs over a two- to five-week period. During the breeding season, adults reach sexual maturity in 4–5 days. However, the migrating generation does not reach maturity until overwintering is complete.",
-      "threats": "109 This is thought to adversely affect migration patterns and to cause a dramatic buildup of the dangerous parasite, Ophryocystis elektroscirrha . 178 The frequent media reports of monarch declines have encouraged many homeowners to attempt to rear as many monarchs as possible in their homes and then release them to the wild to \"boost the monarch population\". Some individuals, such as one in Linn County, Iowa , have reared thousands of monarchs at the same time. 179 Some monarch scientists do not condone the practice of rearing \"large\" numbers of monarchs in captivity for release into the wil",
+      "threats": "109 This is thought to adversely affect migration patterns and to cause a dramatic buildup of the dangerous parasite, Ophryocystis elektroscirrha . 179 The frequent media reports of monarch declines have encouraged many homeowners to attempt to rear as many monarchs as possible in their homes and then release them to the wild to \"boost the monarch population\". Some individuals, such as one in Linn County, Iowa , have reared thousands of monarchs at the same time. 180 Some monarch scientists do not condone the practice of rearing \"large\" numbers of monarchs in captivity for release into the wil",
       "conservation": "The eastern North American monarch population is notable for its annual southward late-summer/autumn instinctive migration from the northern and central United States and southern Canada to Florida and Mexico. 6 During the fall migration, monarchs cover thousands of miles, with a corresponding multigenerational return north in spring. Some researchers believe the southern monarch separated from the monarch's population some two million years ago, at the end of the Pliocene . tobagi Austin Hobart Clark, 1941 − Tobago The population level of the white morph in Oahu is nearing 10%."
     },
     "classification": {
@@ -1746,17 +1741,16 @@
         "max_lon": 153.064852,
         "count": 50
       },
-      "occurrence_count": 748835
+      "occurrence_count": 748836
     },
     "sources": [
       "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:13:45.397063"
+    "last_updated": "2026-03-17T19:58:34.278496"
   },
   {
     "id": "Q7316",
@@ -1814,7 +1808,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-    "eol_url": "https://eol.org/pages/1045608",
+    "eol_url": "",
     "gbif_key": 114902881,
     "wikipedia_sections": {
       "etymology": "beehives ) containing hexagonal cells made of secreted wax , 2 their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey , the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers , bears and human hunter-gatherers . Although honey bees represent only a small fraction of the roughly 20,000 known species of bees, they are the bee clade most familiar to humans and are also the most valuable beneficial insects to agriculture and horticulture.",
@@ -1914,9 +1908,8 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T01:13:54.153787"
+    "last_updated": "2026-03-17T19:58:50.237075"
   }
 ]

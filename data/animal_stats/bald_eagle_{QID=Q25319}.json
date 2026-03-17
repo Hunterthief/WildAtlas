@@ -53,7 +53,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-  "eol_url": "https://eol.org/pages/1228132",
+  "eol_url": "",
   "gbif_key": 116903464,
   "wikipedia_sections": {
     "etymology": "Bald eagles are not bald in the literal sense; the name derives from an older meaning of the word, \"white-headed\". 4 The genus name is Neo-Latin : Haliaeetus , 5 and the specific name, leucocephalus , is Latinized 6 and ( κεφαλή , kephalḗ , ' head ' ). 7 8 The bald eagle was one of the many species originally described by Carl Linnaeus in his 18th-century work Systema Naturae , under the name Falco leucocephalus . 25 Of intermediate size, 117 migrant bald eagles in Glacier National Park were found to average 4.22 kg (9.3 lb) but this was mostly (possibly post-dispersal) juvenile eagles, with s",
@@ -134,8 +134,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-17T01:11:49.739012"
+  "last_updated": "2026-03-17T19:56:46.686486"
 }

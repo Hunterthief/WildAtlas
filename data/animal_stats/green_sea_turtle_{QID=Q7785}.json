@@ -4,51 +4,53 @@
   "scientific_name": "Chelonia mydas",
   "common_names": [
     {
-      "name": "Commonwealth",
-      "language": "fr"
+      "name": "Le̍k hái-ku",
+      "language": "nan"
     },
     {
-      "name": "Commonwealth delle nazioni",
-      "language": "it"
+      "name": "绿蠵龟",
+      "language": "zh-hans"
     },
     {
-      "name": "Commonwealth of Nations",
-      "language": "en-ca"
+      "name": "綠蠵龜",
+      "language": "zh-hant"
     },
     {
-      "name": "Commonwealth of Nations",
-      "language": "en-gb"
+      "name": "綠蠵龜",
+      "language": "zh-hk"
     },
     {
-      "name": "Gemenebes van Nasies",
-      "language": "af"
+      "name": "绿蠵龟",
+      "language": "zh-cn"
     },
     {
-      "name": "Mancomunidat de Nacions",
-      "language": "an"
+      "name": "绿蠵龟",
+      "language": "zh-sg"
     },
     {
-      "name": "Þēodacynewīse",
-      "language": "ang"
+      "name": "綠蠵龜",
+      "language": "zh-tw"
     },
     {
-      "name": "دول الكومنولث",
-      "language": "ar"
+      "name": "Жашыл ташбака",
+      "language": "ky"
     },
     {
-      "name": "كومونويلث الامم",
-      "language": "arz"
+      "name": "Bulus Ijem",
+      "language": "jv"
     },
     {
-      "name": "Mancomunidá de Naciones",
-      "language": "ast"
+      "name": "Chelonia mydas",
+      "language": "eu"
     }
   ],
-  "description": "political association of mostly former British Empire territories",
+  "description": "species of sea turtle",
   "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Marlborough House.jpg"
+    "https://commons.wikimedia.org/wiki/File:Green sea turtle (Chelonia mydas) Moorea.jpg",
+    "https://commons.wikimedia.org/wiki/File:Hawaii turtle 2.JPG",
+    "https://commons.wikimedia.org/wiki/File:202304 Green turtle.svg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
@@ -154,5 +156,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-17T01:12:50.056938"
+  "last_updated": "2026-03-17T19:57:48.800548"
 }
