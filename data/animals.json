@@ -54,7 +54,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "https://eol.org/pages/1253183",
+    "eol_url": "",
     "gbif_key": 209806595,
     "wikipedia_sections": {
       "etymology": "Etymology The Old English tigras derives from Old French tigre , from Latin tigris , which was a borrowing from tigris ( Ancient Greek : τίγρις ). 4 Since ancient times, the word tigris has been suggested to originate from the Armenian or Persian word for 'arrow', which may also be the origin of the name for the river Tigris . 5 6 However, today, the names are thought to be homonyms , and the connection between the tiger and the river is doubted. 6 Taxonomy In 1758, Carl Linnaeus described the tiger in his work Systema Naturae and gave it the scientific name Felis tigris , as the genus Felis w",
@@ -138,10 +138,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T00:12:42.339212"
+    "last_updated": "2026-03-17T00:28:58.962778"
   },
   {
     "id": "Q35625",
@@ -198,7 +197,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "https://eol.org/pages/1271375",
+    "eol_url": "",
     "gbif_key": 104060849,
     "wikipedia_sections": {
       "etymology": "Etymology The vernacular name \"cheetah\" is derived from Hindustani Urdu : چیتا and Hindi : चीता ( ćītā ). 3 This in turn comes from Sanskrit : चित्रय ( Chitra-ya ) meaning 'variegated', 'adorned' or 'painted'. 4 In the past, the cheetah was often called \"hunting leopard\" because they could be tamed and used for coursing . 5 The generic name Acinonyx probably derives from the combination of two Greek words: ἀκίνητος ( akī́nētos ) meaning 'unmoved' or 'motionless', and ὄνυξ ( ónyx ) meaning 'nail' or 'hoof'.",
@@ -283,10 +282,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T00:12:49.966725"
+    "last_updated": "2026-03-17T00:29:13.546027"
   },
   {
     "id": "Q7372",
@@ -342,7 +340,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "https://eol.org/pages/55636404",
+    "eol_url": "",
     "gbif_key": 177683655,
     "wikipedia_sections": {
       "etymology": "The name refers to the lozenge-shaped enamel of their molar teeth. Etymology [ edit ] The name Loxodonta comes from the Ancient Greek words λοξός ( loxós, \"slanting\", \"crosswise\") and ὀδούς ( odoús , \"tooth\"), referring to the lozenge -shaped enamel of the molar teeth , which differs significantly from the rounded shape of the Asian elephant 's molar enamel. 2 Taxonomy and evolution [ edit ] The first scientific description of the African elephant was written in 1797 by Johann Friedrich Blumenbach , who proposed the scientific name Elephas africanus .",
@@ -430,10 +428,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T00:12:58.793221"
+    "last_updated": "2026-03-17T00:29:27.949708"
   },
   {
     "id": "Q213537",
@@ -591,7 +588,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:13:13.824274"
+    "last_updated": "2026-03-17T00:29:33.046036"
   },
   {
     "id": "Q25319",
@@ -732,7 +729,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:13:22.193436"
+    "last_updated": "2026-03-17T00:29:38.526156"
   },
   {
     "id": "Q43306",
@@ -872,7 +869,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-17T00:13:39.869021"
+    "last_updated": "2026-03-17T00:29:53.299695"
   },
   {
     "id": "Q47164",
@@ -1020,7 +1017,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:13:50.565969"
+    "last_updated": "2026-03-17T00:30:05.402882"
   },
   {
     "id": "Q39709",
@@ -1078,7 +1075,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "https://eol.org/pages/46563143",
+    "eol_url": "",
     "gbif_key": 163302148,
     "wikipedia_sections": {
       "etymology": "salar is iteroparous , which means it can survive spawning and return to sea to repeat the process again in another year with 5–10% returning to the sea to spawn again. The different life stages of the fish are known by several different names in English; alevin , fry , parr and smolt . 4 Nomenclature [ edit ] The Atlantic salmon was given its scientific binomial name by Swedish zoologist and taxonomist Carl Linnaeus in 1758 . The name, Salmo salar , derives from the Latin salmo , meaning salmon , and salar , meaning leaper, according to M.",
@@ -1159,10 +1156,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T00:14:04.851582"
+    "last_updated": "2026-03-17T00:30:20.788011"
   },
   {
     "id": "Q7785",
@@ -1321,7 +1317,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:14:17.795561"
+    "last_updated": "2026-03-17T00:30:28.043739"
   },
   {
     "id": "Q189609",
@@ -1470,7 +1466,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:14:24.087631"
+    "last_updated": "2026-03-17T00:30:33.115645"
   },
   {
     "id": "Q270238",
@@ -1613,7 +1609,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:14:36.995349"
+    "last_updated": "2026-03-17T00:30:37.973970"
   },
   {
     "id": "Q165980",
@@ -1758,7 +1754,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:14:52.166475"
+    "last_updated": "2026-03-17T00:30:44.846237"
   },
   {
     "id": "Q7316",
@@ -1919,6 +1915,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:15:04.080953"
+    "last_updated": "2026-03-17T00:30:57.214393"
   }
 ]
