@@ -3,6 +3,7 @@
 Physical stats extraction module - MAIN
 Combines all individual stat extractors with animal_name parameter
 """
+import re  # ← ADD THIS LINE
 from typing import Dict, Any
 
 from .weight import extract_weight_from_sections
