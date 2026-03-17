@@ -1,7 +1,7 @@
 # generator/modules/extractors/weight.py
 """
-Weight extraction module - V3 PRODUCTION
-Comprehensive patterns based on Wikipedia analysis
+Weight extraction module - V4 ENHANCED
+Based on actual Wikipedia section analysis from WildAtlas data
 """
 import re
 from typing import Dict, Optional, List, Tuple
@@ -36,36 +36,38 @@ def _is_valid_weight(value: str, animal_name: str = "") -> bool:
     
     animal_lower = animal_name.lower() if animal_name else ""
     
-    # Animal-specific validation ranges (kg)
+    # Animal-specific validation ranges (kg) - EXPANDED based on actual data
     validation_rules = {
-        'elephant': (1000, 12000),      # African elephant 2-6 tonnes
-        'wolf': (15, 120),               # Gray wolf 30-80 kg
-        'bee': (0.00005, 0.005),         # Honey bee ~0.1g
-        'butterfly': (0.00005, 0.01),    # Monarch ~0.5g
-        'frog': (0.05, 3),               # Bullfrog 0.1-0.8 kg
-        'shark': (200, 15000),           # Great white 1-2 tonnes
-        'turtle': (30, 500),             # Sea turtle 68-190 kg
-        'salmon': (1, 60),               # Atlantic salmon 3-15 kg
+        'elephant': (500, 12000),       # African elephant 2-6 tonnes (forest elephants smaller)
+        'wolf': (10, 120),               # Gray wolf 30-80 kg (some subspecies smaller)
+        'bee': (0.00001, 0.5),           # Honey bee ~0.1g
+        'butterfly': (0.00001, 0.05),    # Monarch ~0.5g
+        'frog': (0.01, 5),               # Bullfrog 0.1-0.8 kg
+        'shark': (50, 15000),            # Great white 1-2 tonnes (some sharks smaller)
+        'turtle': (10, 900),             # Sea turtle 68-190 kg
+        'salmon': (0.5, 60),             # Atlantic salmon 3-15 kg
         'eagle': (0.5, 20),              # Bald eagle 3-6 kg
-        'penguin': (10, 60),             # Emperor 22-45 kg
-        'snake': (0.5, 25),              # King cobra up to 10 kg
-        'cobra': (0.5, 25),
-        'cheetah': (15, 80),             # Cheetah 21-65 kg
-        'tiger': (80, 400),              # Tiger 140-300 kg
-        'cat': (2, 300),                 # General feline
-        'bird': (0.01, 20),              # General bird
-        'fish': (0.01, 5000),            # General fish
-        'reptile': (0.01, 1000),         # General reptile
-        'amphibian': (0.001, 10),        # General amphibian
-        'insect': (0.00001, 0.1),        # General insect
+        'penguin': (5, 60),              # Emperor 22-45 kg
+        'snake': (0.1, 25),              # King cobra up to 10 kg
+        'cobra': (0.1, 25),
+        'cheetah': (10, 80),             # Cheetah 21-65 kg
+        'tiger': (50, 400),              # Tiger 140-300 kg
+        'cat': (1, 300),                 # General feline
+        'bird': (0.001, 20),             # General bird
+        'fish': (0.001, 5000),           # General fish
+        'reptile': (0.001, 1000),        # General reptile
+        'amphibian': (0.0001, 10),       # General amphibian
+        'insect': (0.000001, 0.5),       # General insect
+        'feline': (1, 400),              # All cats
+        'canine': (1, 120),              # All dogs/wolves
     }
     
     for keyword, (min_kg, max_kg) in validation_rules.items():
         if keyword in animal_lower:
             return min_kg <= kg <= max_kg
     
-    # Default: accept reasonable animal weights (1g to 10 tonnes)
-    return 0.001 <= kg <= 10000
+    # Default: accept reasonable animal weights (0.1g to 10 tonnes)
+    return 0.0001 <= kg <= 10000
 
 
 def _is_tusk_or_trunk_weight(text: str) -> bool:
@@ -89,14 +91,12 @@ def _is_population_or_count(text: str) -> bool:
 def _is_length_measurement(text: str) -> bool:
     """Check if measurement is about length, not weight"""
     text_lower = text.lower()
-    # Only flag if NO weight keywords present
     weight_keywords = ["weigh", "weight", "mass", "heavy", "kg", "kilogram", "tonne", "ton", "lb", "pound", "gram", "g"]
     length_keywords = ["length", "long", "tall", "height", "meter", "foot", "inch", "cm", "mm", "span", "wing"]
     
     has_weight = any(kw in text_lower for kw in weight_keywords)
     has_length = any(kw in text_lower for kw in length_keywords)
     
-    # Only reject if it's clearly about length with no weight context
     return has_length and not has_weight
 
 
@@ -113,7 +113,7 @@ def _is_nest_or_object_weight(text: str) -> bool:
 def _extract_and_validate(match, text: str, animal_name: str) -> Optional[str]:
     """Process a regex match and validate it"""
     groups = match.groups()
-    match_context = text[max(0, match.start()-250):match.end()+250]
+    match_context = text[max(0, match.start()-300):match.end()+300]
     
     # Skip invalid contexts
     if _is_tusk_or_trunk_weight(match_context):
@@ -141,15 +141,16 @@ def _extract_and_validate(match, text: str, animal_name: str) -> Optional[str]:
 
 def _get_section_priority(sections: Dict[str, str]) -> List[Tuple[str, str]]:
     """Get sections in priority order for weight extraction"""
+    # Based on actual WildAtlas Wikipedia section analysis
     priority_order = [
-        "description",      # Most likely to have clean weight data
+        "description",      # MOST IMPORTANT - Cheetah, Penguin have weight here
         "summary",          # Often has key stats
-        "etymology",        # Sometimes has measurements
-        "hunting_diet",     # Diet sections often mention weight
-        "behavior",         # Behavior can include weight
+        "hunting_diet",     # Diet sections often mention prey/weight
+        "behavior",         # Can include size/weight info
         "habitat",          # Sometimes has size info
+        "reproduction",     # King Cobra weight found here!
         "distribution",     # Less likely but possible
-        "reproduction",     # Can have weight info
+        "etymology",        # Rare but possible
         "threats",          # Rare but possible
         "conservation",     # Least likely
     ]
@@ -181,44 +182,54 @@ def extract_weight_from_sections(sections: Dict[str, str], animal_name: str = ""
     prioritized_sections = _get_section_priority(sections)
     
     # Comprehensive weight patterns (ordered by specificity)
+    # Based on actual Wikipedia patterns found in WildAtlas data
     weight_patterns = [
-        # Pattern 1: "weighs between X and Y kg" (MOST SPECIFIC)
+        # Pattern 1: "weigh between X and Y kg" - Cheetah uses this!
+        r'(?:adults?|males?|females?|species|it|they|average|bulls?|cows?)?\s*weigh\s*(?:between|from|about|around|up to|typically|normally|approximately)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds|grams?|g)\b',
+        
+        # Pattern 2: "weighs between X and Y kg" - Most common
         r'(?:adults?|males?|females?|species|it|they|average|bulls?|cows?)?\s*weighs?\s*(?:between|from|about|around|up to|typically|normally|approximately)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds|grams?|g)\b',
         
-        # Pattern 2: "weigh X to Y kg"
-        r'weigh\s*(?:between|from|about|around)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
-        
-        # Pattern 3: "weight of X to Y kg"
-        r'weight\s*(?:of|is|ranges from|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
+        # Pattern 3: "weighing from X to Y kg" - Penguin uses this!
+        r'weighing\s*(?:from|between|about|around)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
         
         # Pattern 4: "weighing X to Y kg"
         r'weighing\s*(?:between|from|about|around)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
         
-        # Pattern 5: "body mass/weight X to Y kg"
+        # Pattern 5: "weight of X to Y kg"
+        r'weight\s*(?:of|is|ranges from|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
+        
+        # Pattern 6: "weight ranges from X to Y kg"
+        r'weight\s*ranges?\s*(?:from)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
+        
+        # Pattern 7: "body mass/weight X to Y kg"
         r'(?:body\s*)?(?:mass|weight)\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
         
-        # Pattern 6: "ranges from X to Y kg"
+        # Pattern 8: "ranges from X to Y kg"
         r'ranges?\s*(?:from)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
         
-        # Pattern 7: "X-Y kg" with weight context before
+        # Pattern 9: "X-Y kg" with weight context before
         r'(?:weighs?|weight|mass|about|around|approximately)\s*(\d+(?:[.,]\d+)?)\s*[–-]\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
         
-        # Pattern 8: "up to X kg"
+        # Pattern 10: "up to X kg"
         r'(?:weighs?|weight|up to|reaching|maximum|can reach)\s*(?:up to|about|around)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
         
-        # Pattern 9: "average X kg"
+        # Pattern 11: "weighed up to X kg" - King Cobra uses this!
+        r'weighed\s*(?:up to|about|around)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
+        
+        # Pattern 12: "average X kg"
         r'(?:average|averages?|typically)\s*(?:weighs?|weight|of|is)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
         
-        # Pattern 10: "X kg" single value with weight context
+        # Pattern 13: "X kg" single value with weight context
         r'(?:weighs?|weight|about|around|approximately|average)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms?|tonnes?|tons?|t|lbs?|pounds)\b',
         
-        # Pattern 11: Standalone "X to Y tonnes" (for elephants, sharks)
+        # Pattern 14: Standalone "X to Y tonnes" (for elephants, sharks)
         r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(tonnes?|tons?|t)\b',
         
-        # Pattern 12: Standalone "X to Y lbs"
+        # Pattern 15: Standalone "X to Y lbs"
         r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(lbs?|pounds)\b',
         
-        # Pattern 13: "X grams" for small animals
+        # Pattern 16: "X grams" for small animals
         r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)?\s*(\d+(?:[.,]\d+)?)?\s*(grams?|g)\b',
     ]
     
@@ -290,6 +301,7 @@ def extract_weight_from_sections(sections: Dict[str, str], animal_name: str = ""
         patterns = [
             r'(?:snakes?|cobras?|adults?)\s*(?:weigh|weight|weighing)\s*(?:up to|about|around)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms)',
             r'weighs?\s*(?:up to|about)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms)',
+            r'weighed\s*(?:up to|about)?\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms)',
         ]
         for pattern in patterns:
             m = re.search(pattern, clean_all, re.I)
@@ -357,7 +369,7 @@ def extract_weight_from_sections(sections: Dict[str, str], animal_name: str = ""
             if m:
                 return f"{m.group(1)}–{m.group(2)} {m.group(3)}"
     
-    # Cheetah/Cat - look for kg patterns
+    # Cheetah/Cat/Feline - look for kg patterns
     if "cheetah" in animal_lower or "tiger" in animal_lower or "cat" in animal_lower or "feline" in animal_lower:
         patterns = [
             r'(?:cheetahs?|tigers?|cats?|adults?|males?|females?)\s*(?:weigh|weight|weighing)\s*(?:between|from|about)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(kg|kilograms|lbs?|pounds)',
