@@ -91,7 +91,7 @@
     "habitat": "White sharks inhabit tropical and temperate ocean waters around the world and can be found both along the coast and further out to sea. he authors conclude that \"sharks don't make 'mistakes' but instead continually explore their environments and routinely investigate novel objects as potential prey by biting them\". Western Australia implemented a shark cull program in 2013, but discontinued the following year in response to a recommendation by the Environmental rotection Authority . Environmental Biology of Fishes .",
     "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
     "group_behavior": "Solitary",
-    "conservation_status": "Unknown",
+    "conservation_status": "Critically Endangered",
     "biggest_threat": "Hunting and habitat degredation",
     "distinctive_features": [],
     "population_trend": ""
@@ -144,5 +144,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:34:49.201432"
+  "last_updated": "2026-03-17T00:46:44.833232"
 }
