@@ -28,7 +28,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests
+          cd generator
+          pip install -r requirements.txt  # ✅ FIXED - reads all dependencies
 
       - name: Run generator
         env:
