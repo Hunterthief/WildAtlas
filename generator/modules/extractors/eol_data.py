@@ -1,6 +1,6 @@
 # generator/modules/extractors/eol_data.py
 """
-Encyclopedia of Life Extractor - No API Key Required (Basic)
+Encyclopedia of Life Extractor - No API Key Required
 Gets additional biological data
 """
 import requests
@@ -13,17 +13,24 @@ def search_eol(scientific_name: str) -> Optional[str]:
     try:
         url = f"{EOL_API}/search/1.0.json"
         params = {"q": scientific_name, "page": 1}
-        response = requests.get(url, params=params, timeout=10)
+        
+        # FIXED: Add User-Agent header (required by EOL)
+        headers = {
+            "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)",
+            "Accept": "application/json"
+        }
+        
+        response = requests.get(url, params=params, headers=headers, timeout=10)
         response.raise_for_status()
         data = response.json()
         
         if data.get("results"):
-            # Find exact match
+            # Find exact match first
             for result in data["results"]:
                 if result.get("scientificName", "").lower() == scientific_name.lower():
-                    return result.get("id")
+                    return str(result.get("id"))
             # Return first result if no exact match
-            return data["results"][0].get("id")
+            return str(data["results"][0].get("id"))
         return None
     except Exception as e:
         print(f"   ⚠ EOL search failed: {e}")
@@ -34,7 +41,13 @@ def fetch_eol_data(page_id: str) -> Optional[Dict[str, Any]]:
     try:
         url = f"{EOL_API}/pages/{page_id}.json"
         params = {"images": 1, "subjects": 1}
-        response = requests.get(url, params=params, timeout=10)
+        
+        headers = {
+            "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)",
+            "Accept": "application/json"
+        }
+        
+        response = requests.get(url, params=params, headers=headers, timeout=10)
         response.raise_for_status()
         return response.json()
     except Exception as e:
@@ -76,7 +89,7 @@ def extract_images_eol(eol_data: Dict[str, Any]) -> list:
     images = []
     data_objects = eol_data.get("dataObjects", [])
     
-    for obj in data_objects[:5]:  # Max 5 images
+    for obj in data_objects[:5]:
         if obj.get("dataType") == "http://purl.org/dc/dcmitype/StillImage":
             url = obj.get("dataURL", "")
             if url:
