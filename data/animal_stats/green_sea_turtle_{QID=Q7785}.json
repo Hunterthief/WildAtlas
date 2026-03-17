@@ -89,7 +89,7 @@
   "ecology": {
     "diet": "Herbivore",
     "habitat": "In addition, real estate development often causes habitat loss by eliminating nesting beaches. axonomy [ edit ] he green sea turtle is a member of the tribe heloniini . Although the species is most abundant in tropical climates, green sea turtles can also be found in temperate climates , and individuals have been spotted as far north as anada in the western Atlantic, and the imbrian peninsula in the east. Habitat [ edit ] Green sea turtle on unaluu black sand beach of Big Island, Hawaii. Green sea turtles move across three habitat types, depending on their life stage .",
-    "locations": "Green sea turtles 0.21–0 Ma 1 g At Moorea , French olynesia Least oncern ( 3.1 ) 2 I 3 hordata rder: estudines uborder: ryptodira heloniidae ubfamily: heloniinae helonia Brongniart , 1800 pecies: . mydas helonia mydas ( Linnaeus , 1758 ) ynonyms 4 pecies synonymy estudo mydas Linnaeus, 1758 estudo macropus Walbaum , 1782 ( nomen illegitimum ) estudo viridis chneider , 1783 estudo japonica hunberg , 1787 estudo marina vulgaris Lacépède , 1788 estudo viridisquamosa Lacépède, 1788 estudo mydas macr",
+    "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
     "group_behavior": "Pairs",
     "conservation_status": "Endangered",
     "biggest_threat": "Habitat loss",
@@ -115,15 +115,47 @@
     "most_distinctive_feature": ""
   },
   "distribution": {
-    "countries": [],
-    "coordinates": {},
-    "occurrence_count": 0
+    "countries": [
+      "Australia",
+      "Bahamas",
+      "Barbados",
+      "Bonaire, Sint Eustatius and Saba",
+      "Brazil",
+      "Canada",
+      "Chinese Taipei",
+      "Cook Islands",
+      "Costa Rica",
+      "Ecuador",
+      "Egypt",
+      "Guadeloupe",
+      "Honduras",
+      "Martinique",
+      "Mexico",
+      "New Caledonia",
+      "New Zealand",
+      "Norfolk Island",
+      "Northern Mariana Islands",
+      "Oman",
+      "Philippines",
+      "Puerto Rico",
+      "United States of America",
+      "Virgin Islands (U.S.)"
+    ],
+    "coordinates": {
+      "min_lat": -31.034203,
+      "max_lat": 49.095935,
+      "min_lon": -159.798629,
+      "max_lon": 166.475121,
+      "count": 50
+    },
+    "occurrence_count": 252561
   },
   "sources": [
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
+    "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T20:05:15.463738"
+  "last_updated": "2026-03-17T20:08:09.659725"
 }
