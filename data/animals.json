@@ -141,7 +141,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:33:20.460501"
+    "last_updated": "2026-03-17T20:56:47.366627"
   },
   {
     "id": "Q35625",
@@ -286,7 +286,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:33:24.864990"
+    "last_updated": "2026-03-17T20:56:53.290013"
   },
   {
     "id": "Q7372",
@@ -433,7 +433,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:33:29.395079"
+    "last_updated": "2026-03-17T20:56:58.607211"
   },
   {
     "id": "Q213537",
@@ -591,7 +591,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:33:35.343248"
+    "last_updated": "2026-03-17T20:57:04.958604"
   },
   {
     "id": "Q25319",
@@ -732,7 +732,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:33:40.166900"
+    "last_updated": "2026-03-17T20:57:10.997029"
   },
   {
     "id": "Q43306",
@@ -873,7 +873,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:33:45.688008"
+    "last_updated": "2026-03-17T20:57:17.712285"
   },
   {
     "id": "Q47164",
@@ -1021,7 +1021,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:33:51.120008"
+    "last_updated": "2026-03-17T20:57:25.210250"
   },
   {
     "id": "Q39709",
@@ -1163,7 +1163,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:33:57.422386"
+    "last_updated": "2026-03-17T20:57:40.078566"
   },
   {
     "id": "Q7785",
@@ -1324,7 +1324,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:34:02.820940"
+    "last_updated": "2026-03-17T20:57:52.016392"
   },
   {
     "id": "Q189609",
@@ -1382,7 +1382,7 @@
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
     "eol_url": "https://eol.org/pages/1055746",
-    "gbif_key": 177669293,
+    "gbif_key": 183199546,
     "wikipedia_sections": {
       "etymology": "Under the genus Ophiophagus , it is not phylogenetically a true cobra despite its common name and some resemblance. Etymology The king cobra is also referred to by the common name \" hamadryad \", especially in older literature. Hamadryas hannah was the scientific name used by Danish naturalist Theodore Edward Cantor in 1836 who described four king cobra specimens , three captured in the Sundarbans and one in the vicinity of Kolkata . 4 The origin of the species name hannah was not specified during description and has long been uncertain, but may potentially refer to Hannah Sarah Wallich, the el",
       "description": "With an average length of 3.18 to 4 m (10.4 to 13.1 ft) and a record length of 5.85 m (19.2 ft), 2 it is the world's longest venomous snake and among the heaviest. 3 Typical threat display of this elapid includes neck-flap spreading, head raising, hissing and sometimes charging. This description was improperly done, leaving it a nomen nudum at the time. In 1837, Hermann Schlegel used the name Naja bungaroides for his description of the Australian broad-headed snake , which was later reclassified into Wagler's Hoplocephalus , and used the species name Naja bungarus for the king cobra.",
@@ -1473,7 +1473,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:34:07.189661"
+    "last_updated": "2026-03-17T20:57:59.501929"
   },
   {
     "id": "Q270238",
@@ -1616,7 +1616,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:34:12.179280"
+    "last_updated": "2026-03-17T20:58:11.107633"
   },
   {
     "id": "Q165980",
@@ -1761,7 +1761,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:34:17.454812"
+    "last_updated": "2026-03-17T20:58:20.974861"
   },
   {
     "id": "Q7316",
@@ -1922,6 +1922,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:34:23.499991"
+    "last_updated": "2026-03-17T20:58:30.387185"
   }
 ]
