@@ -23,7 +23,7 @@ from fetchers.inaturalist import fetch_inaturalist
 # IMPORTS - Wikipedia Extractors
 # =============================================================================
 from modules.extractors.sections import extract_wikipedia_sections
-from modules.extractors.stats import extract_stats_from_sections
+from modules.extractors.stats import extract_stats_from_sections, extract_stats_with_context
 from modules.extractors.diet import extract_diet_from_sections
 from modules.extractors.reproduction import extract_reproduction_from_sections
 from modules.extractors.conservation import extract_conservation_from_sections
@@ -31,7 +31,7 @@ from modules.extractors.behavior import extract_behavior_from_sections
 from modules.extractors.additional_info import extract_additional_info_from_sections
 
 # =============================================================================
-# IMPORTS - Free No-Key Enhancers (NEW)
+# IMPORTS - Free No-Key Enhancers
 # =============================================================================
 from modules.extractors.wikidata_enhancer import extract_wikidata_all
 from modules.extractors.gbif_distribution import extract_gbif_all
@@ -236,7 +236,8 @@ def build_animal_data(
     # =============================================================================
     # WIKIPEDIA EXTRACTIONS (Fallback)
     # =============================================================================
-    wiki_stats = extract_stats_from_sections(wiki_sections)
+    # Use enhanced stats extraction with animal name for better validation
+    wiki_stats = extract_stats_with_context(wiki_sections, name, sci_name)
     wiki_diet, wiki_prey = extract_diet_from_sections(wiki_sections)
     wiki_repro = extract_reproduction_from_sections(wiki_sections)
     wiki_conservation_status, wiki_threats = extract_conservation_from_sections(wiki_sections)
@@ -286,10 +287,22 @@ def build_animal_data(
     # PHYSICAL DATA - Priority: Ninja > Wikipedia > EOL
     # =============================================================================
     physical = {
-        "weight": ninja_chars.get("weight", "") or wiki_stats.get("weight", ""),
-        "length": ninja_chars.get("length", "") or wiki_stats.get("length", ""),
-        "height": ninja_chars.get("height", "") or wiki_stats.get("height", ""),
-        "top_speed": ninja_chars.get("top_speed", "") or wiki_stats.get("top_speed", ""),
+        "weight": get_first_non_empty(
+            ninja_chars.get("weight", ""),
+            wiki_stats.get("weight", "")
+        ),
+        "length": get_first_non_empty(
+            ninja_chars.get("length", ""),
+            wiki_stats.get("length", "")
+        ),
+        "height": get_first_non_empty(
+            ninja_chars.get("height", ""),
+            wiki_stats.get("height", "")
+        ),
+        "top_speed": get_first_non_empty(
+            ninja_chars.get("top_speed", ""),
+            wiki_stats.get("top_speed", "")
+        ),
         "lifespan": get_first_non_empty(
             ninja_chars.get("lifespan", ""),
             eol_data.get("life_expectancy", ""),
