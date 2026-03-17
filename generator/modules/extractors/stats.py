@@ -1,7 +1,7 @@
 # generator/modules/extractors/stats.py
 """Physical stats extraction module - IMPROVED"""
 import re
-from typing import Dict, str, Any
+from typing import Dict, Any  # ← FIXED: Removed 'str' from imports
 
 
 def extract_stats_from_sections(sections: Dict[str, str]) -> Dict[str, str]:
@@ -144,32 +144,5 @@ def extract_stats_from_sections(sections: Dict[str, str]) -> Dict[str, str]:
         if m:
             stats["top_speed"] = f"{m.group(1)} {m.group(2)}"
             break
-    
-    return stats
-
-
-def extract_stats_with_context(sections: Dict[str, str], animal_name: str = "") -> Dict[str, str]:
-    """Enhanced extraction with animal-specific context"""
-    stats = extract_stats_from_sections(sections)
-    
-    # Combine all text for context-aware extraction
-    all_text = " ".join(sections.values())
-    all_text = re.sub(r'\[\d+\]', '', all_text)
-    
-    # Animal-specific fallbacks
-    if animal_name:
-        name_lower = animal_name.lower()
-        
-        # If no weight found, try species-specific patterns
-        if not stats["weight"]:
-            if "elephant" in name_lower:
-                m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(tonnes?|tons|kg)', all_text, re.I)
-                if m:
-                    stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-            
-            if "whale" in name_lower or "shark" in name_lower:
-                m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(tonnes?|tons|kg|pounds|lbs)', all_text, re.I)
-                if m:
-                    stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
     
     return stats
