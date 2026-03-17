@@ -54,7 +54,7 @@
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
   "eol_url": "https://eol.org/pages/1055746",
-  "gbif_key": 177669293,
+  "gbif_key": 183199546,
   "wikipedia_sections": {
     "etymology": "Under the genus Ophiophagus , it is not phylogenetically a true cobra despite its common name and some resemblance. Etymology The king cobra is also referred to by the common name \" hamadryad \", especially in older literature. Hamadryas hannah was the scientific name used by Danish naturalist Theodore Edward Cantor in 1836 who described four king cobra specimens , three captured in the Sundarbans and one in the vicinity of Kolkata . 4 The origin of the species name hannah was not specified during description and has long been uncertain, but may potentially refer to Hannah Sarah Wallich, the el",
     "description": "With an average length of 3.18 to 4 m (10.4 to 13.1 ft) and a record length of 5.85 m (19.2 ft), 2 it is the world's longest venomous snake and among the heaviest. 3 Typical threat display of this elapid includes neck-flap spreading, head raising, hissing and sometimes charging. This description was improperly done, leaving it a nomen nudum at the time. In 1837, Hermann Schlegel used the name Naja bungaroides for his description of the Australian broad-headed snake , which was later reclassified into Wagler's Hoplocephalus , and used the species name Naja bungarus for the king cobra.",
@@ -145,5 +145,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T21:36:31.463311"
+  "last_updated": "2026-03-17T22:00:45.209308"
 }
