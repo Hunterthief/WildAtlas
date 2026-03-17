@@ -274,15 +274,27 @@ def build_animal_data(
             if key != "species":
                 classification[key] = ninja_taxonomy.get(key, "")
     
+
     # =============================================================================
-    # CONSERVATION STATUS - Priority: Wikidata > Ninja > Wikipedia
-    # =============================================================================
-    conservation_status = (
-        wikidata_enhanced.get("conservation", {}).get("status", "") or
-        ninja_chars.get("conservation_status", "") or
-        wiki_conservation_status or
-        _extract_conservation_from_wikipedia_sections(wiki_sections)
-    )
+# CONSERVATION STATUS - Priority: Wikidata > Wikipedia > Ninja > Fallback Extract
+# =============================================================================
+def get_first_non_empty(*values):
+    """Return first non-empty string from values"""
+    for v in values:
+        if v and isinstance(v, str) and v.strip():
+            return v
+    return ""
+
+conservation_status = get_first_non_empty(
+    wikidata_enhanced.get("conservation", {}).get("status"),
+    wiki_conservation_status,
+    ninja_chars.get("conservation_status"),
+    _extract_conservation_from_wikipedia_sections(wiki_sections)
+)
+
+# Only mark as "Unknown" if ALL sources are empty
+if not conservation_status:
+    conservation_status = "Unknown"
     
     # =============================================================================
     # PHYSICAL DATA - Priority: Ninja > Wikipedia > EOL
