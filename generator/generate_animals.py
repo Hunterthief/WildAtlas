@@ -418,7 +418,7 @@ def generate(animals, force=False):
         # WIKIDATA (NEW - No API Key)
         # ---------------------------------------------------------------------
         print(" 📊 Fetching from Wikidata...")
-        wikidata_enhanced = extract_wikidata_all(qid)
+        wikidata_enhanced = extract_wikidata_all(qid, sci)
         if wikidata_enhanced:
             sources_count = len(wikidata_enhanced.get("sources", []))
             print(f"   ✅ Got Wikidata enhancements")
