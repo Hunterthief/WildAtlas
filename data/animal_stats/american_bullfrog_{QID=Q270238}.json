@@ -81,7 +81,7 @@
   "physical": {
     "weight": "",
     "length": "",
-    "height": "9.8–19.7 ft",
+    "height": "",
     "top_speed": "",
     "lifespan": ""
   },
@@ -139,5 +139,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T19:58:18.816098"
+  "last_updated": "2026-03-17T20:05:30.909510"
 }

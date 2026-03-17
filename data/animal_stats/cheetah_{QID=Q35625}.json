@@ -53,7 +53,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1271375",
   "gbif_key": 104060849,
   "wikipedia_sections": {
     "etymology": "Etymology The vernacular name \"cheetah\" is derived from Hindustani Urdu : چیتا and Hindi : चीता ( ćītā ). 3 This in turn comes from Sanskrit : चित्रय ( Chitra-ya ) meaning 'variegated', 'adorned' or 'painted'. 4 In the past, the cheetah was often called \"hunting leopard\" because they could be tamed and used for coursing . 5 The generic name Acinonyx probably derives from the combination of two Greek words: ἀκίνητος ( akī́nētos ) meaning 'unmoved' or 'motionless', and ὄνυξ ( ónyx ) meaning 'nail' or 'hoof'.",
@@ -80,7 +80,7 @@
   "group_name": "streak",
   "physical": {
     "weight": "40kg - 65kg (88lbs - 140lbs)",
-    "length": "1.1–1.5 m",
+    "length": "",
     "height": "115cm - 136cm (45in - 53in)",
     "top_speed": "70 mph",
     "lifespan": "10 - 12 years"
@@ -138,7 +138,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-17T19:56:00.606592"
+  "last_updated": "2026-03-17T20:04:01.834570"
 }

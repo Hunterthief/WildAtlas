@@ -54,7 +54,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1253183",
     "gbif_key": 209806595,
     "wikipedia_sections": {
       "etymology": "Etymology The Old English tigras derives from Old French tigre , from Latin tigris , which was a borrowing from tigris ( Ancient Greek : τίγρις ). 4 Since ancient times, the word tigris has been suggested to originate from the Armenian or Persian word for 'arrow', which may also be the origin of the name for the river Tigris . 5 6 However, today, the names are thought to be homonyms , and the connection between the tiger and the river is doubted. 6 Taxonomy In 1758, Carl Linnaeus described the tiger in his work Systema Naturae and gave it the scientific name Felis tigris , as the genus Felis w",
@@ -138,9 +138,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:55:45.756041"
+    "last_updated": "2026-03-17T20:03:55.810214"
   },
   {
     "id": "Q35625",
@@ -197,7 +198,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1271375",
     "gbif_key": 104060849,
     "wikipedia_sections": {
       "etymology": "Etymology The vernacular name \"cheetah\" is derived from Hindustani Urdu : چیتا and Hindi : चीता ( ćītā ). 3 This in turn comes from Sanskrit : चित्रय ( Chitra-ya ) meaning 'variegated', 'adorned' or 'painted'. 4 In the past, the cheetah was often called \"hunting leopard\" because they could be tamed and used for coursing . 5 The generic name Acinonyx probably derives from the combination of two Greek words: ἀκίνητος ( akī́nētos ) meaning 'unmoved' or 'motionless', and ὄνυξ ( ónyx ) meaning 'nail' or 'hoof'.",
@@ -224,7 +225,7 @@
     "group_name": "streak",
     "physical": {
       "weight": "40kg - 65kg (88lbs - 140lbs)",
-      "length": "1.1–1.5 m",
+      "length": "",
       "height": "115cm - 136cm (45in - 53in)",
       "top_speed": "70 mph",
       "lifespan": "10 - 12 years"
@@ -282,9 +283,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:56:00.606592"
+    "last_updated": "2026-03-17T20:04:01.834570"
   },
   {
     "id": "Q7372",
@@ -340,7 +342,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/55636404",
     "gbif_key": 177683655,
     "wikipedia_sections": {
       "etymology": "The name refers to the lozenge-shaped enamel of their molar teeth. Etymology [ edit ] The name Loxodonta comes from the Ancient Greek words λοξός ( loxós, \"slanting\", \"crosswise\") and ὀδούς ( odoús , \"tooth\"), referring to the lozenge -shaped enamel of the molar teeth , which differs significantly from the rounded shape of the Asian elephant 's molar enamel. 2 Taxonomy and evolution [ edit ] The first scientific description of the African elephant was written in 1797 by Johann Friedrich Blumenbach , who proposed the scientific name Elephas africanus .",
@@ -366,9 +368,9 @@
     "young_name": "calf",
     "group_name": "herd",
     "physical": {
-      "weight": "23–45 kg",
-      "length": "7–0 M",
-      "height": "5–8 ft",
+      "weight": "",
+      "length": "",
+      "height": "",
       "top_speed": "",
       "lifespan": ""
     },
@@ -428,9 +430,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:56:15.278247"
+    "last_updated": "2026-03-17T20:04:07.181109"
   },
   {
     "id": "Q213537",
@@ -486,8 +489,8 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-    "eol_url": "",
-    "gbif_key": 162653743,
+    "eol_url": "https://eol.org/pages/1268606",
+    "gbif_key": 165635866,
     "wikipedia_sections": {
       "etymology": "Etymology : Wolf (name) The English \"wolf\" stems from the Old English wulf , which is itself derived from the Proto-Germanic wulfaz . The Proto-Indo-European root wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic lúkʷos ). 5 6 The name \"grey wolf\" refers to the greyish colour of the species. 7 Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names. Examples include Wulfhere (\"Wolf Army\"), Cynewulf (\"Royal Wolf\"), Cēnwulf (\"Bold Wolf\"), Wulfheard (\"Wolf-hard\"), Earnwulf (\"Eagle Wolf\"), Wulfstān (\"",
       "description": ", see Grey Wolf ( ) and Wolf ( ) . For the football club, see Wolverhampton Wanderers F.C. The wolf is the largest wild extant member of the family Canidae , and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal , to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
@@ -513,8 +516,8 @@
     "group_name": "pack",
     "physical": {
       "weight": "",
-      "length": "200,000–250,000 in",
-      "height": "200,000–250,000 in",
+      "length": "",
+      "height": "",
       "top_speed": "",
       "lifespan": ""
     },
@@ -585,9 +588,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:56:31.231595"
+    "last_updated": "2026-03-17T20:04:14.849654"
   },
   {
     "id": "Q25319",
@@ -644,7 +648,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1228132",
     "gbif_key": 116903464,
     "wikipedia_sections": {
       "etymology": "Bald eagles are not bald in the literal sense; the name derives from an older meaning of the word, \"white-headed\". 4 The genus name is Neo-Latin : Haliaeetus , 5 and the specific name, leucocephalus , is Latinized 6 and ( κεφαλή , kephalḗ , ' head ' ). 7 8 The bald eagle was one of the many species originally described by Carl Linnaeus in his 18th-century work Systema Naturae , under the name Falco leucocephalus . 25 Of intermediate size, 117 migrant bald eagles in Glacier National Park were found to average 4.22 kg (9.3 lb) but this was mostly (possibly post-dispersal) juvenile eagles, with s",
@@ -671,7 +675,7 @@
     "group_name": "population",
     "physical": {
       "weight": "6.6-14lbs",
-      "length": "4 m",
+      "length": "",
       "height": "28-38 inches",
       "top_speed": "100 mph",
       "lifespan": "15-20 years in the wild"
@@ -725,9 +729,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:56:46.686486"
+    "last_updated": "2026-03-17T20:04:26.726743"
   },
   {
     "id": "Q43306",
@@ -785,7 +790,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
     "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/45512074",
     "gbif_key": 177664975,
     "wikipedia_sections": {
       "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
@@ -865,9 +870,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:57:02.145902"
+    "last_updated": "2026-03-17T20:04:34.439333"
   },
   {
     "id": "Q47164",
@@ -925,7 +931,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46559751",
     "gbif_key": 314215150,
     "wikipedia_sections": {
       "etymology": "Etymology and naming The name 'great white shark' likely comes from the white underside exposed on beached sharks. The most common English names for the species include great white shark, white shark, and Australian variant white pointer. 6 7 These names refer to its white underside, which is noticeable in dead sharks lying upside down. 8 Colloquial use favours the name great white shark or simply great white, with great perhaps emphasizing the size and power of the species. Scientists typically use white shark, as no \"lesser white shark\" exists for comparison, 9 though some use white shark to",
@@ -953,7 +959,7 @@
     "physical": {
       "weight": "1,110kg - 2,240kg (2,450lbs - 4,938lbs)",
       "length": "5.5m - 8m (18ft - 26ft)",
-      "height": "5–0 M",
+      "height": "",
       "top_speed": "15 mph",
       "lifespan": "30 - 40 years"
     },
@@ -1012,9 +1018,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:57:17.611208"
+    "last_updated": "2026-03-17T20:04:43.932011"
   },
   {
     "id": "Q39709",
@@ -1072,7 +1079,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46563143",
     "gbif_key": 163302148,
     "wikipedia_sections": {
       "etymology": "salar is iteroparous , which means it can survive spawning and return to sea to repeat the process again in another year with 5–10% returning to the sea to spawn again. The different life stages of the fish are known by several different names in English; alevin , fry , parr and smolt . 4 Nomenclature [ edit ] The Atlantic salmon was given its scientific binomial name by Swedish zoologist and taxonomist Carl Linnaeus in 1758 . The name, Salmo salar , derives from the Latin salmo , meaning salmon , and salar , meaning leaper, according to M.",
@@ -1099,7 +1106,7 @@
     "group_name": "population",
     "physical": {
       "weight": "",
-      "length": "1 m",
+      "length": "",
       "height": "",
       "top_speed": "",
       "lifespan": ""
@@ -1153,9 +1160,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:57:33.552584"
+    "last_updated": "2026-03-17T20:04:54.203915"
   },
   {
     "id": "Q7785",
@@ -1213,7 +1221,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46559469",
     "gbif_key": 104105406,
     "wikipedia_sections": {
       "etymology": "7 8 The common name refers to the usually green fat found beneath its carapace , due to its diet strictly being seagrass, 9 not to the color of its carapace, which is olive to black. 13 The species was originally described by Carl Linnaeus in his landmark 1758 10th edition of Systema Naturae as Testudo mydas . 14 In 1868, Marie Firmin Bocourt named a particular species of sea turtle Chelonia agassizii , 15 16 in honor of Swiss-American zoologist Louis Agassiz . 17 This \"species\" was referred to as the \"black sea turtle\".",
@@ -1240,15 +1248,15 @@
     "group_name": "population",
     "physical": {
       "weight": "",
-      "length": "0.21–0 M",
-      "height": "0.21–0 M",
+      "length": "",
+      "height": "",
       "top_speed": "3 km/h",
       "lifespan": ""
     },
     "ecology": {
       "diet": "Herbivore",
       "habitat": "In addition, real estate development often causes habitat loss by eliminating nesting beaches. axonomy [ edit ] he green sea turtle is a member of the tribe heloniini . Although the species is most abundant in tropical climates, green sea turtles can also be found in temperate climates , and individuals have been spotted as far north as anada in the western Atlantic, and the imbrian peninsula in the east. Habitat [ edit ] Green sea turtle on unaluu black sand beach of Big Island, Hawaii. Green sea turtles move across three habitat types, depending on their life stage .",
-      "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
+      "locations": "Green sea turtles 0.21–0 Ma 1 g At Moorea , French olynesia Least oncern ( 3.1 ) 2 I 3 hordata rder: estudines uborder: ryptodira heloniidae ubfamily: heloniinae helonia Brongniart , 1800 pecies: . mydas helonia mydas ( Linnaeus , 1758 ) ynonyms 4 pecies synonymy estudo mydas Linnaeus, 1758 estudo macropus Walbaum , 1782 ( nomen illegitimum ) estudo viridis chneider , 1783 estudo japonica hunberg , 1787 estudo marina vulgaris Lacépède , 1788 estudo viridisquamosa Lacépède, 1788 estudo mydas macr",
       "group_behavior": "Pairs",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss",
@@ -1274,48 +1282,17 @@
       "most_distinctive_feature": ""
     },
     "distribution": {
-      "countries": [
-        "Australia",
-        "Bahamas",
-        "Barbados",
-        "Bonaire, Sint Eustatius and Saba",
-        "Brazil",
-        "Canada",
-        "Chinese Taipei",
-        "Cook Islands",
-        "Costa Rica",
-        "Ecuador",
-        "Egypt",
-        "Guadeloupe",
-        "Honduras",
-        "Martinique",
-        "Mexico",
-        "New Caledonia",
-        "New Zealand",
-        "Norfolk Island",
-        "Northern Mariana Islands",
-        "Oman",
-        "Philippines",
-        "Puerto Rico",
-        "United States of America",
-        "Virgin Islands (U.S.)"
-      ],
-      "coordinates": {
-        "min_lat": -31.034203,
-        "max_lat": 49.095935,
-        "min_lon": -159.798629,
-        "max_lon": 166.475121,
-        "count": 50
-      },
-      "occurrence_count": 252561
+      "countries": [],
+      "coordinates": {},
+      "occurrence_count": 0
     },
     "sources": [
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:57:48.800548"
+    "last_updated": "2026-03-17T20:05:15.463738"
   },
   {
     "id": "Q189609",
@@ -1372,7 +1349,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1055746",
     "gbif_key": 183199546,
     "wikipedia_sections": {
       "etymology": "Under the genus Ophiophagus , it is not phylogenetically a true cobra despite its common name and some resemblance. Etymology The king cobra is also referred to by the common name \" hamadryad \", especially in older literature. Hamadryas hannah was the scientific name used by Danish naturalist Theodore Edward Cantor in 1836 who described four king cobra specimens , three captured in the Sundarbans and one in the vicinity of Kolkata . 4 The origin of the species name hannah was not specified during description and has long been uncertain, but may potentially refer to Hannah Sarah Wallich, the el",
@@ -1398,9 +1375,9 @@
     "young_name": "Hatchlings",
     "group_name": "population",
     "physical": {
-      "weight": "10–kg 22",
-      "length": "3.18–4 m",
-      "height": "10.4–13.1 ft",
+      "weight": "",
+      "length": "",
+      "height": "",
       "top_speed": "12 mph",
       "lifespan": "About 20 years"
     },
@@ -1461,9 +1438,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:58:09.555933"
+    "last_updated": "2026-03-17T20:05:24.674890"
   },
   {
     "id": "Q270238",
@@ -1548,7 +1526,7 @@
     "physical": {
       "weight": "",
       "length": "",
-      "height": "9.8–19.7 ft",
+      "height": "",
       "top_speed": "",
       "lifespan": ""
     },
@@ -1606,7 +1584,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T19:58:18.816098"
+    "last_updated": "2026-03-17T20:05:30.909510"
   },
   {
     "id": "Q165980",
@@ -1664,7 +1642,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/4090155",
     "gbif_key": 177932834,
     "wikipedia_sections": {
       "etymology": "6 Other common names, depending on region, include milkweed , common tiger , wanderer , and black-veined brown . 7 It is among the most familiar of North American butterflies and an iconic pollinator , 8 although it is not an especially effective pollinator of milkweeds . Etymology [ edit ] The name monarch is believed to have been given in honor of King William III of England , as the butterfly's main color is that of the king's secondary title, Prince of Orange . 13 The monarch was originally described by Carl Linnaeus in his Systema Naturae of 1758 and placed in the genus Papilio .",
@@ -1691,8 +1669,8 @@
     "group_name": "population",
     "physical": {
       "weight": "0.25 - 0.75 grams",
-      "length": "8.9–10.2 cm",
-      "height": "3.5–4.0 in",
+      "length": "",
+      "height": "",
       "top_speed": "12 mph",
       "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
     },
@@ -1748,9 +1726,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:58:34.278496"
+    "last_updated": "2026-03-17T20:05:40.558389"
   },
   {
     "id": "Q7316",
@@ -1808,7 +1787,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1045608",
     "gbif_key": 114902881,
     "wikipedia_sections": {
       "etymology": "beehives ) containing hexagonal cells made of secreted wax , 2 their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey , the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers , bears and human hunter-gatherers . Although honey bees represent only a small fraction of the roughly 20,000 known species of bees, they are the bee clade most familiar to humans and are also the most valuable beneficial insects to agriculture and horticulture.",
@@ -1908,8 +1887,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T19:58:50.237075"
+    "last_updated": "2026-03-17T20:05:48.416533"
   }
 ]

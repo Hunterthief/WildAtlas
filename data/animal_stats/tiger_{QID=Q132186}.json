@@ -53,7 +53,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1253183",
   "gbif_key": 209806595,
   "wikipedia_sections": {
     "etymology": "Etymology The Old English tigras derives from Old French tigre , from Latin tigris , which was a borrowing from tigris ( Ancient Greek : τίγρις ). 4 Since ancient times, the word tigris has been suggested to originate from the Armenian or Persian word for 'arrow', which may also be the origin of the name for the river Tigris . 5 6 However, today, the names are thought to be homonyms , and the connection between the tiger and the river is doubted. 6 Taxonomy In 1758, Carl Linnaeus described the tiger in his work Systema Naturae and gave it the scientific name Felis tigris , as the genus Felis w",
@@ -137,7 +137,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-17T19:55:45.756041"
+  "last_updated": "2026-03-17T20:03:55.810214"
 }

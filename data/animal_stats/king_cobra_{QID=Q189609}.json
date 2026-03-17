@@ -53,7 +53,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1055746",
   "gbif_key": 183199546,
   "wikipedia_sections": {
     "etymology": "Under the genus Ophiophagus , it is not phylogenetically a true cobra despite its common name and some resemblance. Etymology The king cobra is also referred to by the common name \" hamadryad \", especially in older literature. Hamadryas hannah was the scientific name used by Danish naturalist Theodore Edward Cantor in 1836 who described four king cobra specimens , three captured in the Sundarbans and one in the vicinity of Kolkata . 4 The origin of the species name hannah was not specified during description and has long been uncertain, but may potentially refer to Hannah Sarah Wallich, the el",
@@ -79,9 +79,9 @@
   "young_name": "Hatchlings",
   "group_name": "population",
   "physical": {
-    "weight": "10–kg 22",
-    "length": "3.18–4 m",
-    "height": "10.4–13.1 ft",
+    "weight": "",
+    "length": "",
+    "height": "",
     "top_speed": "12 mph",
     "lifespan": "About 20 years"
   },
@@ -142,7 +142,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-17T19:58:09.555933"
+  "last_updated": "2026-03-17T20:05:24.674890"
 }

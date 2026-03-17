@@ -52,7 +52,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/55636404",
   "gbif_key": 177683655,
   "wikipedia_sections": {
     "etymology": "The name refers to the lozenge-shaped enamel of their molar teeth. Etymology [ edit ] The name Loxodonta comes from the Ancient Greek words λοξός ( loxós, \"slanting\", \"crosswise\") and ὀδούς ( odoús , \"tooth\"), referring to the lozenge -shaped enamel of the molar teeth , which differs significantly from the rounded shape of the Asian elephant 's molar enamel. 2 Taxonomy and evolution [ edit ] The first scientific description of the African elephant was written in 1797 by Johann Friedrich Blumenbach , who proposed the scientific name Elephas africanus .",
@@ -78,9 +78,9 @@
   "young_name": "calf",
   "group_name": "herd",
   "physical": {
-    "weight": "23–45 kg",
-    "length": "7–0 M",
-    "height": "5–8 ft",
+    "weight": "",
+    "length": "",
+    "height": "",
     "top_speed": "",
     "lifespan": ""
   },
@@ -140,7 +140,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-17T19:56:15.278247"
+  "last_updated": "2026-03-17T20:04:07.181109"
 }

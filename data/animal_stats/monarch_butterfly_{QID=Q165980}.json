@@ -54,7 +54,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
   "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/4090155",
   "gbif_key": 177932834,
   "wikipedia_sections": {
     "etymology": "6 Other common names, depending on region, include milkweed , common tiger , wanderer , and black-veined brown . 7 It is among the most familiar of North American butterflies and an iconic pollinator , 8 although it is not an especially effective pollinator of milkweeds . Etymology [ edit ] The name monarch is believed to have been given in honor of King William III of England , as the butterfly's main color is that of the king's secondary title, Prince of Orange . 13 The monarch was originally described by Carl Linnaeus in his Systema Naturae of 1758 and placed in the genus Papilio .",
@@ -81,8 +81,8 @@
   "group_name": "population",
   "physical": {
     "weight": "0.25 - 0.75 grams",
-    "length": "8.9–10.2 cm",
-    "height": "3.5–4.0 in",
+    "length": "",
+    "height": "",
     "top_speed": "12 mph",
     "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
   },
@@ -138,7 +138,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-17T19:58:34.278496"
+  "last_updated": "2026-03-17T20:05:40.558389"
 }
