@@ -1,6 +1,5 @@
 """
 Wikipedia Extractors - All text extraction from Wikipedia sections
-Flat structure - all extractors at same level
 """
 
 from .sections import extract_wikipedia_sections
