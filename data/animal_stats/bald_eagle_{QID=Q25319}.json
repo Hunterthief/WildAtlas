@@ -2,14 +2,57 @@
   "id": "Q25319",
   "name": "Bald Eagle",
   "scientific_name": "Haliaeetus leucocephalus",
-  "common_names": [],
-  "description": "Bird of prey species of North America",
+  "common_names": [
+    {
+      "name": "奥胡斯",
+      "language": "zh"
+    },
+    {
+      "name": "Aarhus",
+      "language": "pl"
+    },
+    {
+      "name": "Aarhus",
+      "language": "eu"
+    },
+    {
+      "name": "Aarhus",
+      "language": "bs"
+    },
+    {
+      "name": "Aarhus",
+      "language": "rup"
+    },
+    {
+      "name": "Aarhus",
+      "language": "vo"
+    },
+    {
+      "name": "Aarhus",
+      "language": "es"
+    },
+    {
+      "name": "Aarhus",
+      "language": "mi"
+    },
+    {
+      "name": "Aarhus",
+      "language": "oc"
+    },
+    {
+      "name": "Aarhus",
+      "language": "hu"
+    }
+  ],
+  "description": "city in Central Denmark Region",
   "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:Århus city trafikhavn.jpg"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1228132",
   "gbif_key": 116903464,
   "wikipedia_sections": {
     "etymology": "Bald eagles are not bald in the literal sense; the name derives from an older meaning of the word, \"white-headed\". 4 The genus name is Neo-Latin : Haliaeetus , 5 and the specific name, leucocephalus , is Latinized 6 and ( κεφαλή , kephalḗ , ' head ' ). 7 8 The bald eagle was one of the many species originally described by Carl Linnaeus in his 18th-century work Systema Naturae , under the name Falco leucocephalus . 25 Of intermediate size, 117 migrant bald eagles in Glacier National Park were found to average 4.22 kg (9.3 lb) but this was mostly (possibly post-dispersal) juvenile eagles, with s",
@@ -51,7 +94,7 @@
     "distinctive_features": [
       "The white plumage on the head"
     ],
-    "population_trend": ""
+    "population_trend": "269022"
   },
   "reproduction": {
     "gestation_period": "",
@@ -66,7 +109,7 @@
     "slogan": "",
     "group": "",
     "number_of_species": "1",
-    "estimated_population_size": "",
+    "estimated_population_size": "269022",
     "age_of_sexual_maturity": "",
     "age_of_weaning": "",
     "most_distinctive_feature": "The white plumage on the head"
@@ -89,7 +132,9 @@
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:54:49.424716"
+  "last_updated": "2026-03-17T00:00:50.334895"
 }

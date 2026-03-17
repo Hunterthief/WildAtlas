@@ -2,14 +2,57 @@
   "id": "Q7316",
   "name": "Honey Bee",
   "scientific_name": "Apis mellifera",
-  "common_names": [],
-  "description": "Colonial flying insect",
+  "common_names": [
+    {
+      "name": "Emperor Xian of Han",
+      "language": "en-ca"
+    },
+    {
+      "name": "Emperor Xian of Han",
+      "language": "en-gb"
+    },
+    {
+      "name": "Emperador Xian de Han",
+      "language": "ca"
+    },
+    {
+      "name": "Han Xiandi",
+      "language": "de"
+    },
+    {
+      "name": "Han Xiandi",
+      "language": "fr"
+    },
+    {
+      "name": "Kaisar Xian dari Han",
+      "language": "id"
+    },
+    {
+      "name": "献帝",
+      "language": "ja"
+    },
+    {
+      "name": "후한 헌제",
+      "language": "ko"
+    },
+    {
+      "name": "Han Xiandi",
+      "language": "nl"
+    },
+    {
+      "name": "Han Xiandi",
+      "language": "pl"
+    }
+  ],
+  "description": "Emperor of the Han dynasty from 189 to 220",
   "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:Death of Consort Dong.png"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1045608",
   "gbif_key": 114902881,
   "wikipedia_sections": {
     "etymology": "beehives ) containing hexagonal cells made of secreted wax , 2 their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey , the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers , bears and human hunter-gatherers . Although honey bees represent only a small fraction of the roughly 20,000 known species of bees, they are the bee clade most familiar to humans and are also the most valuable beneficial insects to agriculture and horticulture.",
@@ -108,7 +151,9 @@
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:55:33.343933"
+  "last_updated": "2026-03-17T00:01:44.055086"
 }

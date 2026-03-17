@@ -2,14 +2,57 @@
   "id": "Q165980",
   "name": "Monarch Butterfly",
   "scientific_name": "Danaus plexippus",
-  "common_names": [],
-  "description": "Milkweed butterfly in the family Nymphalidae",
+  "common_names": [
+    {
+      "name": "维也纳大学",
+      "language": "zh-hans"
+    },
+    {
+      "name": "維也納大學",
+      "language": "zh-hant"
+    },
+    {
+      "name": "維也納大學",
+      "language": "zh-hk"
+    },
+    {
+      "name": "维也纳大学",
+      "language": "zh-cn"
+    },
+    {
+      "name": "维也纳大学",
+      "language": "zh-sg"
+    },
+    {
+      "name": "維也納大學",
+      "language": "zh-tw"
+    },
+    {
+      "name": "Uniwersytet Wiedeński",
+      "language": "pl"
+    },
+    {
+      "name": "Vienako Unibertsitatea",
+      "language": "eu"
+    },
+    {
+      "name": "Bečki univerzitet",
+      "language": "bs"
+    },
+    {
+      "name": "Universidad de Viena",
+      "language": "es"
+    }
+  ],
+  "description": "public university in Vienna, Austria",
   "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:Wien - Universität (2).JPG"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
   "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/4090155",
   "gbif_key": 177932834,
   "wikipedia_sections": {
     "etymology": "6 Other common names, depending on region, include milkweed , common tiger , wanderer , and black-veined brown . 7 It is among the most familiar of North American butterflies and an iconic pollinator , 8 although it is not an especially effective pollinator of milkweeds . Etymology [ edit ] The name monarch is believed to have been given in honor of King William III of England , as the butterfly's main color is that of the king's secondary title, Prince of Orange . 13 The monarch was originally described by Carl Linnaeus in his Systema Naturae of 1758 and placed in the genus Papilio .",
@@ -92,7 +135,9 @@
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:55:27.743249"
+  "last_updated": "2026-03-17T00:01:34.405757"
 }

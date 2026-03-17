@@ -2,15 +2,58 @@
   "id": "Q213537",
   "name": "Gray Wolf",
   "scientific_name": "Canis lupus",
-  "common_names": [],
-  "description": "Species of canine",
+  "common_names": [
+    {
+      "name": "Ulrich von Hassell",
+      "language": "aa"
+    },
+    {
+      "name": "Ulrich von Hassell",
+      "language": "ace"
+    },
+    {
+      "name": "Ulrich von Hassell",
+      "language": "af"
+    },
+    {
+      "name": "Ulrich von Hassell",
+      "language": "ak"
+    },
+    {
+      "name": "Ulrich von Hassell",
+      "language": "an"
+    },
+    {
+      "name": "اولريش فون هاسل",
+      "language": "arz"
+    },
+    {
+      "name": "Ulrich von Hassell",
+      "language": "ast"
+    },
+    {
+      "name": "Ulrich von Hassell",
+      "language": "atj"
+    },
+    {
+      "name": "Ulrich von Hassell",
+      "language": "bar"
+    },
+    {
+      "name": "Улрих фон Хасел",
+      "language": "bg"
+    }
+  ],
+  "description": "German diplomat and resistance fighter against National Socialism (1881–1944)",
   "summary": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America. More than thirty subspecies of Canis lupus have been recognized, including the dog and dingo, though grey wolves, as popularly understood, include only naturally occurring wild subspecies. The wolf is the largest wild extant member of the family Canidae, and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal, to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:Ulrich von Hassell.jpg"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-  "eol_url": "",
-  "gbif_key": 165635866,
+  "eol_url": "https://eol.org/pages/1268606",
+  "gbif_key": 162653743,
   "wikipedia_sections": {
     "etymology": "Etymology : Wolf (name) The English \"wolf\" stems from the Old English wulf , which is itself derived from the Proto-Germanic wulfaz . The Proto-Indo-European root wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic lúkʷos ). 5 6 The name \"grey wolf\" refers to the greyish colour of the species. 7 Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names. Examples include Wulfhere (\"Wolf Army\"), Cynewulf (\"Royal Wolf\"), Cēnwulf (\"Bold Wolf\"), Wulfheard (\"Wolf-hard\"), Earnwulf (\"Eagle Wolf\"), Wulfstān (\"",
     "description": ", see Grey Wolf ( ) and Wolf ( ) . For the football club, see Wolverhampton Wanderers F.C. The wolf is the largest wild extant member of the family Canidae , and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal , to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
@@ -18,7 +61,7 @@
     "habitat": "30 Although mating between golden jackals and wolves has never been observed, evidence of jackal-wolf hybridization was discovered through mitochondrial DNA analysis of jackals living in the Caucasus Mountains 30 and in Bulgaria. Wolves live in forests, inland wetlands , shrublands , grasslands (including Arctic tundra ), pastures , deserts, and rocky peaks on mountains. 78 Wolf interactions with American black bears are much rarer because of differences in habitat preferences. In wolves, the incubation period for rabies is eight to 21 days, and results in the host becoming agitated, deserting",
     "hunting_diet": "Offspring may leave to form their own packs on the onset of sexual maturity and in response to competition for food within the pack. A carnivore , the wolf is an apex predator that feeds on large wild hooved mammals as well as smaller animals, livestock, carrion , and garbage. Although the fear of wolves exists in many human societies, the majority of recorded attacks on people have been attributed to animals suffering from rabies . Wolf attacks on humans are rare because wolves are relatively few, live away from people, and have developed a fear of humans because of their experiences with hun",
     "behavior": "Of all members of the genus Canis , the wolf is most specialized for cooperative game hunting , as demonstrated by its physical adaptations to tackling large prey, its more social nature , and its highly advanced expressive behaviour , including individual or group howling . Wolves are also territorial , and fights over territory are among the principal causes of mortality. Single wolves or mated pairs typically have higher success rates in hunting than do large packs. Pathogens and parasites, notably the rabies virus , may infect wolves.",
-    "reproduction": "It travels in nuclear families , consisting of a mated pair accompanied by their offspring. In the rare cases where other wolves are adopted, the adoptee is almost invariably an immature animal of one to three years old, and unlikely to compete for breeding rights with the mated pair. This usually occurs between the months of February and May. 112 Reproduction : Canine reproduction Korean wolves mating in the Tama Zoological Park , Japan Wolves are monogamous , mated pairs usually remaining together for life.",
+    "reproduction": "It travels in nuclear families , consisting of a mated pair accompanied by their offspring. In the rare cases where other wolves are adopted, the adoptee is almost invariably an immature animal of one to three years old, and unlikely to compete for breeding rights with the mated pair. This usually occurs between the months of February and May. 111 Reproduction : Canine reproduction Korean wolves mating in the Tama Zoological Park , Japan Wolves are monogamous , mated pairs usually remaining together for life.",
     "threats": "Compared with modern wolves, some Pleistocene wolves showed an increase in tooth breakage similar to that seen in the extinct dire wolf . 21 An extinct Late Pleistocene wolf may have been the ancestor of the dog, 25 18 with the dog's similarity to the extant wolf being the result of genetic admixture between the two. 18 The dingo, Basenji , Tibetan Mastiff and Chinese indigenous breeds are basal members of the domestic dog clade. 27 The common ancestor of the coyote and the wolf is admixed with a ghost population of an extinct unidentified canid.",
     "conservation": "The global wild grey wolf population is estimated to be between 200,000 and 250,000 individuals as of 2026 4 and has been assessed as Least Concern by the International Union for Conservation of Nature ( ). 12 Studies using paleogenomic techniques reveal that the modern wolf and the dog are sister taxa , as modern wolves are not closely related to the population of wolves that was first domesticated . 18 Genomic studies suggest modern wolves and dogs descend from a common ancestral wolf population."
   },
@@ -107,7 +150,9 @@
   "sources": [
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:54:44.462927"
+  "last_updated": "2026-03-17T00:00:44.815534"
 }

@@ -2,14 +2,55 @@
   "id": "Q43306",
   "name": "Emperor Penguin",
   "scientific_name": "Aptenodytes forsteri",
-  "common_names": [],
-  "description": "Large flightless seabird endemic to Antarctica",
+  "common_names": [
+    {
+      "name": "200 v. Chr.",
+      "language": "lb"
+    },
+    {
+      "name": "前200年",
+      "language": "zh"
+    },
+    {
+      "name": "200 p.n.e.",
+      "language": "pl"
+    },
+    {
+      "name": "K. a. 200",
+      "language": "eu"
+    },
+    {
+      "name": "200 kñ",
+      "language": "qu"
+    },
+    {
+      "name": "200 p.n.e.",
+      "language": "bs"
+    },
+    {
+      "name": "Mil. av. 200",
+      "language": "uz"
+    },
+    {
+      "name": "200 a. C.",
+      "language": "es"
+    },
+    {
+      "name": "200 b.K.",
+      "language": "vo"
+    },
+    {
+      "name": "-200",
+      "language": "oc"
+    }
+  ],
+  "description": "year",
   "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
   "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
   "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/45512074",
   "gbif_key": 177664975,
   "wikipedia_sections": {
     "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
@@ -88,7 +129,9 @@
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:54:54.399157"
+  "last_updated": "2026-03-17T00:00:55.843308"
 }

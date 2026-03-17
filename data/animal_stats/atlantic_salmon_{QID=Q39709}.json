@@ -2,14 +2,57 @@
   "id": "Q39709",
   "name": "Atlantic Salmon",
   "scientific_name": "Salmo salar",
-  "common_names": [],
-  "description": "Species of fish",
+  "common_names": [
+    {
+      "name": "德梅因",
+      "language": "zh"
+    },
+    {
+      "name": "Des Moines",
+      "language": "pl"
+    },
+    {
+      "name": "Des Moines",
+      "language": "eu"
+    },
+    {
+      "name": "Des Moines",
+      "language": "qu"
+    },
+    {
+      "name": "Des Moines",
+      "language": "gd"
+    },
+    {
+      "name": "Des Moines",
+      "language": "bs"
+    },
+    {
+      "name": "Des Moines",
+      "language": "vo"
+    },
+    {
+      "name": "Des Moines",
+      "language": "es"
+    },
+    {
+      "name": "டி மொயின்",
+      "language": "ta"
+    },
+    {
+      "name": "Des Moines",
+      "language": "af"
+    }
+  ],
+  "description": "capital city of Iowa, United States",
   "summary": "The Atlantic salmon is a species of ray-finned fish in the family Salmonidae. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon, growing up to 1 m (3.3 ft) in length. Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous, hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:Des Moines skyline.jpg"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
   "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/46563143",
   "gbif_key": 163302148,
   "wikipedia_sections": {
     "etymology": "salar is iteroparous , which means it can survive spawning and return to sea to repeat the process again in another year with 5–10% returning to the sea to spawn again. The different life stages of the fish are known by several different names in English; alevin , fry , parr and smolt . 4 Nomenclature [ edit ] The Atlantic salmon was given its scientific binomial name by Swedish zoologist and taxonomist Carl Linnaeus in 1758 . The name, Salmo salar , derives from the Latin salmo , meaning salmon , and salar , meaning leaper, according to M.",
@@ -49,7 +92,7 @@
     "conservation_status": "Near Threatened",
     "biggest_threat": "Habitat loss",
     "distinctive_features": [],
-    "population_trend": ""
+    "population_trend": "203433"
   },
   "reproduction": {
     "gestation_period": "",
@@ -64,7 +107,7 @@
     "slogan": "",
     "group": "",
     "number_of_species": "",
-    "estimated_population_size": "",
+    "estimated_population_size": "203433",
     "age_of_sexual_maturity": "",
     "age_of_weaning": "",
     "most_distinctive_feature": "of breeding males Atlantic salmon are the largest species in the genus Salmo"
@@ -89,7 +132,9 @@
   "sources": [
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:55:06.354019"
+  "last_updated": "2026-03-17T00:01:08.474490"
 }

@@ -2,14 +2,57 @@
   "id": "Q7372",
   "name": "African Elephant",
   "scientific_name": "Loxodonta africana",
-  "common_names": [],
-  "description": "Genus comprising two living elephant species",
+  "common_names": [
+    {
+      "name": "requins",
+      "language": "fr"
+    },
+    {
+      "name": "squali",
+      "language": "it"
+    },
+    {
+      "name": "Rinkin",
+      "language": "br"
+    },
+    {
+      "name": "shark",
+      "language": "en-ca"
+    },
+    {
+      "name": "shark",
+      "language": "en-gb"
+    },
+    {
+      "name": "Selachimorpha",
+      "language": "an"
+    },
+    {
+      "name": "Sǣhund",
+      "language": "ang"
+    },
+    {
+      "name": "قرش",
+      "language": "ar"
+    },
+    {
+      "name": "Selachimorpha",
+      "language": "ast"
+    },
+    {
+      "name": "köpəkbalığı",
+      "language": "az"
+    }
+  ],
+  "description": "clade of predatory cartilaginous fish (Chondrichthyes)",
   "summary": "African elephants are members of the genus Loxodonta comprising two living elephant species, the African bush elephant and the smaller African forest elephant. Both are social herbivores with grey skin. However, they differ in the size and colour of their tusks as well as the shape and size of their ears and skulls.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg/330px-African_Elephant_%28Loxodonta_africana%29_male_%2817289351322%29.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:Great white shark south africa.jpg"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/55636404",
   "gbif_key": 177683655,
   "wikipedia_sections": {
     "etymology": "The name refers to the lozenge-shaped enamel of their molar teeth. Etymology [ edit ] The name Loxodonta comes from the Ancient Greek words λοξός ( loxós, \"slanting\", \"crosswise\") and ὀδούς ( odoús , \"tooth\"), referring to the lozenge -shaped enamel of the molar teeth , which differs significantly from the rounded shape of the Asian elephant 's molar enamel. 2 Taxonomy and evolution [ edit ] The first scientific description of the African elephant was written in 1797 by Johann Friedrich Blumenbach , who proposed the scientific name Elephas africanus .",
@@ -96,7 +139,9 @@
   "sources": [
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:54:39.041179"
+  "last_updated": "2026-03-17T00:00:36.233977"
 }

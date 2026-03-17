@@ -2,14 +2,57 @@
   "id": "Q132186",
   "name": "Tiger",
   "scientific_name": "Panthera tigris",
-  "common_names": [],
-  "description": "Species of large cat",
+  "common_names": [
+    {
+      "name": "Entrevernes",
+      "language": "de"
+    },
+    {
+      "name": "Entrevernes",
+      "language": "ca"
+    },
+    {
+      "name": "Entrevernes",
+      "language": "ceb"
+    },
+    {
+      "name": "Entrevernes",
+      "language": "es"
+    },
+    {
+      "name": "Entrevernes",
+      "language": "eu"
+    },
+    {
+      "name": "Entrevernes",
+      "language": "fr"
+    },
+    {
+      "name": "Entrevernes",
+      "language": "it"
+    },
+    {
+      "name": "Entrevernes",
+      "language": "la"
+    },
+    {
+      "name": "Entrevernes",
+      "language": "lmo"
+    },
+    {
+      "name": "Entrevernes",
+      "language": "ms"
+    }
+  ],
+  "description": "commune in Haute-Savoie, France",
   "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:Entrevernes et Doussard.jpg"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1253183",
   "gbif_key": 209806595,
   "wikipedia_sections": {
     "etymology": "Etymology The Old English tigras derives from Old French tigre , from Latin tigris , which was a borrowing from tigris ( Ancient Greek : τίγρις ). 4 Since ancient times, the word tigris has been suggested to originate from the Armenian or Persian word for 'arrow', which may also be the origin of the name for the river Tigris . 5 6 However, today, the names are thought to be homonyms , and the connection between the tiger and the river is doubted. 6 Taxonomy In 1758, Carl Linnaeus described the tiger in his work Systema Naturae and gave it the scientific name Felis tigris , as the genus Felis w",
@@ -49,7 +92,7 @@
     "conservation_status": "Endangered",
     "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
     "distinctive_features": [],
-    "population_trend": ""
+    "population_trend": "217"
   },
   "reproduction": {
     "gestation_period": "",
@@ -64,7 +107,7 @@
     "slogan": "The most numerous species of tiger!",
     "group": "",
     "number_of_species": "nine",
-    "estimated_population_size": "",
+    "estimated_population_size": "217",
     "age_of_sexual_maturity": "",
     "age_of_weaning": "",
     "most_distinctive_feature": "powerful, muscular body with a large head and paws, a long tail and orange fur"
@@ -92,7 +135,9 @@
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:54:28.905846"
+  "last_updated": "2026-03-17T00:00:23.484700"
 }

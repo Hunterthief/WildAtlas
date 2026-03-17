@@ -2,14 +2,57 @@
   "id": "Q47164",
   "name": "Great White Shark",
   "scientific_name": "Carcharodon carcharias",
-  "common_names": [],
-  "description": "Species of large lamniform shark",
+  "common_names": [
+    {
+      "name": "圣莫尼卡",
+      "language": "zh"
+    },
+    {
+      "name": "Santa Monica",
+      "language": "eu"
+    },
+    {
+      "name": "Santa Monica",
+      "language": "pl"
+    },
+    {
+      "name": "Santa Mónica",
+      "language": "es"
+    },
+    {
+      "name": "Santa Monica",
+      "language": "vo"
+    },
+    {
+      "name": "சாந்தா மொனிக்கா",
+      "language": "ta"
+    },
+    {
+      "name": "Santa Monica",
+      "language": "sw"
+    },
+    {
+      "name": "Santa Monica",
+      "language": "et"
+    },
+    {
+      "name": "سانٹا مونیکا",
+      "language": "pnb"
+    },
+    {
+      "name": "Santa Monica",
+      "language": "sv"
+    }
+  ],
+  "description": "beachfront city in Los Angeles County, California, United States",
   "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. The species is partially warm-blooded, an adaptation that allows it to remain active in colder waters.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:Ocean Avenue.jpg"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/46559751",
   "gbif_key": 314215150,
   "wikipedia_sections": {
     "etymology": "Etymology and naming The name 'great white shark' likely comes from the white underside exposed on beached sharks. The most common English names for the species include great white shark, white shark, and Australian variant white pointer. 6 7 These names refer to its white underside, which is noticeable in dead sharks lying upside down. 8 Colloquial use favours the name great white shark or simply great white, with great perhaps emphasizing the size and power of the species. Scientists typically use white shark, as no \"lesser white shark\" exists for comparison, 9 though some use white shark to",
@@ -49,7 +92,7 @@
     "conservation_status": "Critically Endangered",
     "biggest_threat": "Hunting and habitat degredation",
     "distinctive_features": [],
-    "population_trend": ""
+    "population_trend": "84084"
   },
   "reproduction": {
     "gestation_period": "",
@@ -95,7 +138,9 @@
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:55:00.873036"
+  "last_updated": "2026-03-17T00:01:01.916155"
 }

@@ -2,14 +2,57 @@
   "id": "Q7785",
   "name": "Green Sea Turtle",
   "scientific_name": "Chelonia mydas",
-  "common_names": [],
-  "description": "Species of large sea reptile",
+  "common_names": [
+    {
+      "name": "Commonwealth",
+      "language": "fr"
+    },
+    {
+      "name": "Commonwealth delle nazioni",
+      "language": "it"
+    },
+    {
+      "name": "Commonwealth of Nations",
+      "language": "en-ca"
+    },
+    {
+      "name": "Commonwealth of Nations",
+      "language": "en-gb"
+    },
+    {
+      "name": "Gemenebes van Nasies",
+      "language": "af"
+    },
+    {
+      "name": "Mancomunidat de Nacions",
+      "language": "an"
+    },
+    {
+      "name": "Þēodacynewīse",
+      "language": "ang"
+    },
+    {
+      "name": "دول الكومنولث",
+      "language": "ar"
+    },
+    {
+      "name": "كومونويلث الامم",
+      "language": "arz"
+    },
+    {
+      "name": "Mancomunidá de Naciones",
+      "language": "ast"
+    }
+  ],
+  "description": "political association of mostly former British Empire territories",
   "summary": "The green sea turtle, also known as the green turtle, black sea turtle, and Pacific green turtle, is a species of large sea turtle of the family Cheloniidae. It is the only species in the genus Chelonia. Its range extends throughout tropical and subtropical seas around the world, with two distinct populations in the Atlantic and Pacific Oceans, but it is also found in the Indian Ocean. The common name refers to the usually green fat found beneath its carapace, due to its diet strictly being seagrass, not to the color of its carapace, which is olive to black.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:Marlborough House.jpg"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/46559469",
   "gbif_key": 104105406,
   "wikipedia_sections": {
     "etymology": "7 8 The common name refers to the usually green fat found beneath its carapace , due to its diet strictly being seagrass, 9 not to the color of its carapace, which is olive to black. 13 The species was originally described by Carl Linnaeus in his landmark 1758 10th edition of Systema Naturae as Testudo mydas . 14 In 1868, Marie Firmin Bocourt named a particular species of sea turtle Chelonia agassizii , 15 16 in honor of Swiss-American zoologist Louis Agassiz . 17 This \"species\" was referred to as the \"black sea turtle\".",
@@ -108,7 +151,9 @@
   "sources": [
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "Wikidata",
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:55:11.883702"
+  "last_updated": "2026-03-17T00:01:14.879910"
 }

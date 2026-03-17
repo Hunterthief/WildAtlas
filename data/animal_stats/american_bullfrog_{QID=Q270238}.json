@@ -9,7 +9,7 @@
   "images": [],
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
   "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/330963",
   "gbif_key": 159514608,
   "wikipedia_sections": {
     "etymology": "The bullfrog gets its name from the sound the male makes during the breeding season , which sounds similar to a bull bellowing. Taxonomy [ edit ] The specific name , catesbeiana ( feminine ) or catesbeianus (masculine), is in honor of English naturalist Mark Catesby . 3 Some authorities use the scientific name , Lithobates catesbeiana , 4 although others prefer Rana catesbeiana . 5 6 7 8 A 2016 phylogenetic study of Lithobates and Rana , using mitochondrial and nuclear sequences , recovered the American bullfrog as part of a basal clade of Lithobates , more derived only than L.",
@@ -91,7 +91,8 @@
   "sources": [
     "Wikipedia",
     "iNaturalist",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-16T23:55:22.100863"
+  "last_updated": "2026-03-17T00:01:26.654324"
 }
