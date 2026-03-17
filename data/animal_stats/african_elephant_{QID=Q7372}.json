@@ -78,9 +78,9 @@
   "young_name": "calf",
   "group_name": "herd",
   "physical": {
-    "weight": "",
-    "length": "",
-    "height": "",
+    "weight": "23–45 kg",
+    "length": "7–0 M",
+    "height": "5–8 ft",
     "top_speed": "",
     "lifespan": ""
   },
@@ -143,5 +143,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:59:17.364078"
+  "last_updated": "2026-03-17T01:11:37.027429"
 }

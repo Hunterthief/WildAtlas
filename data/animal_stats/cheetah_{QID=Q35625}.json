@@ -80,7 +80,7 @@
   "group_name": "streak",
   "physical": {
     "weight": "40kg - 65kg (88lbs - 140lbs)",
-    "length": "",
+    "length": "1.1–1.5 m",
     "height": "115cm - 136cm (45in - 53in)",
     "top_speed": "70 mph",
     "lifespan": "10 - 12 years"
@@ -141,5 +141,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:59:12.424432"
+  "last_updated": "2026-03-17T01:11:31.950843"
 }

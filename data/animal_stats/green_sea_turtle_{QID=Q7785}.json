@@ -52,7 +52,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Green_sea_turtle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-  "eol_url": "https://eol.org/pages/46559469",
+  "eol_url": "",
   "gbif_key": 104105406,
   "wikipedia_sections": {
     "etymology": "7 8 The common name refers to the usually green fat found beneath its carapace , due to its diet strictly being seagrass, 9 not to the color of its carapace, which is olive to black. 13 The species was originally described by Carl Linnaeus in his landmark 1758 10th edition of Systema Naturae as Testudo mydas . 14 In 1868, Marie Firmin Bocourt named a particular species of sea turtle Chelonia agassizii , 15 16 in honor of Swiss-American zoologist Louis Agassiz . 17 This \"species\" was referred to as the \"black sea turtle\".",
@@ -79,9 +79,9 @@
   "group_name": "population",
   "physical": {
     "weight": "",
-    "length": "",
-    "height": "",
-    "top_speed": "",
+    "length": "0.21–0 M",
+    "height": "0.21–0 M",
+    "top_speed": "3 km/h",
     "lifespan": ""
   },
   "ecology": {
@@ -152,8 +152,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-17T01:00:01.984429"
+  "last_updated": "2026-03-17T01:12:50.056938"
 }

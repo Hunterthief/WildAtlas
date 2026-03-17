@@ -81,8 +81,8 @@
   "group_name": "population",
   "physical": {
     "weight": "0.25 - 0.75 grams",
-    "length": "",
-    "height": "",
+    "length": "8.9–10.2 cm",
+    "height": "3.5–4.0 in",
     "top_speed": "12 mph",
     "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
   },
@@ -141,5 +141,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T01:00:20.750330"
+  "last_updated": "2026-03-17T01:13:45.397063"
 }
