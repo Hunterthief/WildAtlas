@@ -1,4 +1,4 @@
-# generator/modules/extractors/gbif_distribution.py
+# generator/modules/fetchers/gbif_distribution.py
 """
 GBIF Distribution Extractor - No API Key Required
 Gets clean location and distribution data
