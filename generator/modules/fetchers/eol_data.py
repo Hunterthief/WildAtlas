@@ -1,4 +1,4 @@
-# generator/modules/extractors/eol_data.py
+# generator/modules/fetchers/eol_data.py
 """
 Encyclopedia of Life Extractor - No API Key Required
 Gets additional biological data
