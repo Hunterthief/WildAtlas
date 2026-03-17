@@ -3,7 +3,7 @@
 Physical stats extraction module - MAIN
 Combines all individual stat extractors with animal_name parameter
 """
-import re  # ← ADD THIS LINE
+import re  # ← Keep this at the top
 from typing import Dict, Any
 
 from .weight import extract_weight_from_sections
@@ -30,7 +30,7 @@ def extract_stats_with_context(sections: Dict[str, str], animal_name: str = "", 
     
     # Combine all text for context-aware extraction
     all_text = " ".join(sections.values())
-    all_text = re.sub(r'\[\d+\]', '', all_text)
+    all_text = re.sub(r'\[\d+\]', '', all_text)  # ← Now this works!
     
     # Animal-specific fallbacks for large animals
     if animal_name:
@@ -38,27 +38,25 @@ def extract_stats_with_context(sections: Dict[str, str], animal_name: str = "", 
         
         # Elephants - look for tonne patterns (body weight, not tusks)
         if "elephant" in name_lower and not stats["weight"]:
-            import re
+            # import re  ← REMOVE THIS!
             m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(tonnes?|tons)', all_text, re.I)
             if m:
-                # Verify it's not about tusks
                 match_context = all_text[max(0, m.start()-150):m.end()+150]
                 if "tusk" not in match_context.lower() and "ivory" not in match_context.lower():
                     stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
         
         # Whales/Sharks - look for tonne patterns
         if any(x in name_lower for x in ["whale", "shark"]) and not stats["weight"]:
-            import re
+            # import re  ← REMOVE THIS!
             m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(tonnes?|tons|kg|kilograms)', all_text, re.I)
             if m:
                 stats["weight"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
         
         # Snakes - look for meter length patterns
         if any(x in name_lower for x in ["snake", "cobra", "python"]) and not stats["length"]:
-            import re
+            # import re  ← REMOVE THIS!
             m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to)\s*(\d+(?:[.,]\d+)?)\s*(m|metres|meters)', all_text, re.I)
             if m:
-                # Verify it's not temporal range
                 match_context = all_text[max(0, m.start()-150):m.end()+150]
                 if "temporal" not in match_context.lower() and "ma" not in match_context.lower():
                     stats["length"] = f"{m.group(1)}–{m.group(2)} {m.group(3)}"
