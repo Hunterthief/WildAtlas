@@ -95,10 +95,8 @@ def clean_wikipedia_text(text: str) -> str:
     if not text:
         return ""
     
-    # Remove citation markers like [1], [25], etc.
     text = re.sub(r'\[\d+\]', '', text)
     
-    # Remove common infobox artifacts
     artifacts = [
         "Temporal range:", "PreꞒ", "Ꞓ", "O", "S", "D", "C", "P", "T", "J", "K", "Pg", "N",
         "Animalia", "Chordata", "Mammalia", "Aves", "Reptilia", "Amphibia",
@@ -110,10 +108,8 @@ def clean_wikipedia_text(text: str) -> str:
     for artifact in artifacts:
         text = text.replace(artifact, "")
     
-    # Clean up extra whitespace
     text = ' '.join(text.split())
     
-    # Remove if too short after cleaning
     if len(text) < 20:
         return ""
     
@@ -121,7 +117,6 @@ def clean_wikipedia_text(text: str) -> str:
 
 def extract_clean_habitat(wiki_sections: Dict[str, str], gbif_data: Dict[str, Any]) -> str:
     """Extract clean habitat from multiple sources"""
-    # Priority: GBIF > Cleaned Wikipedia > Raw Wikipedia
     if gbif_data and gbif_data.get("habitat"):
         return gbif_data.get("habitat", "")
     
@@ -130,7 +125,6 @@ def extract_clean_habitat(wiki_sections: Dict[str, str], gbif_data: Dict[str, An
 
 def extract_clean_locations(wiki_sections: Dict[str, str], gbif_data: Dict[str, Any], ninja_locations: List[str]) -> str:
     """Extract clean location data from multiple sources"""
-    # Priority: GBIF countries > Ninja locations > Cleaned Wikipedia
     if gbif_data and gbif_data.get("countries"):
         return ", ".join(gbif_data.get("countries", []))
     
@@ -149,28 +143,30 @@ def fix_diet_based_on_taxonomy(diet: str, classification: Dict[str, str]) -> str
     family = classification.get("family", "").lower()
     order = classification.get("order", "").lower()
     
-    # Elephants are herbivores, not carnivores
     if "elephantidae" in family and "carnivore" in diet_lower:
         return "Herbivore"
     
-    # All turtles in Cheloniidae are not carnivores (green sea turtle is herbivore)
     if "cheloniidae" in family and "carnivore" in diet_lower:
         return "Herbivore"
     
-    # Most primates are omnivores
     if "primates" in order and "carnivore" in diet_lower:
         return "Omnivore"
     
     return diet
 
+def get_first_non_empty(*values) -> str:
+    """Return first non-empty string from values"""
+    for v in values:
+        if v and isinstance(v, str) and v.strip():
+            return v
+    return ""
+
 def _extract_conservation_from_wikipedia_sections(wiki_sections: Dict[str, str]) -> str:
     """Extract conservation status from Wikipedia sections"""
-    # Check conservation section first
     conservation_text = wiki_sections.get("conservation", "").lower()
     threats_text = wiki_sections.get("threats", "").lower()
     distribution_text = wiki_sections.get("distribution", "").lower()
     
-    # IUCN status patterns
     status_patterns = [
         (r"critically endangered", "Critically Endangered"),
         (r"endangered", "Endangered"),
@@ -190,7 +186,6 @@ def _extract_conservation_from_wikipedia_sections(wiki_sections: Dict[str, str])
         (r"red list.*?vulnerable", "Vulnerable"),
     ]
     
-    # Search all relevant sections
     for text in [conservation_text, threats_text, distribution_text]:
         for pattern, status in status_patterns:
             if re.search(pattern, text):
@@ -274,27 +269,18 @@ def build_animal_data(
             if key != "species":
                 classification[key] = ninja_taxonomy.get(key, "")
     
-
     # =============================================================================
-# CONSERVATION STATUS - Priority: Wikidata > Wikipedia > Ninja > Fallback Extract
-# =============================================================================
-def get_first_non_empty(*values):
-    """Return first non-empty string from values"""
-    for v in values:
-        if v and isinstance(v, str) and v.strip():
-            return v
-    return ""
-
-conservation_status = get_first_non_empty(
-    wikidata_enhanced.get("conservation", {}).get("status"),
-    wiki_conservation_status,
-    ninja_chars.get("conservation_status"),
-    _extract_conservation_from_wikipedia_sections(wiki_sections)
-)
-
-# Only mark as "Unknown" if ALL sources are empty
-if not conservation_status:
-    conservation_status = "Unknown"
+    # CONSERVATION STATUS - Priority: Wikidata > Wikipedia > Ninja > Fallback
+    # =============================================================================
+    conservation_status = get_first_non_empty(
+        wikidata_enhanced.get("conservation", {}).get("status"),
+        wiki_conservation_status,
+        ninja_chars.get("conservation_status"),
+        _extract_conservation_from_wikipedia_sections(wiki_sections)
+    )
+    
+    if not conservation_status:
+        conservation_status = "Unknown"
     
     # =============================================================================
     # PHYSICAL DATA - Priority: Ninja > Wikipedia > EOL
@@ -304,9 +290,9 @@ if not conservation_status:
         "length": ninja_chars.get("length", "") or wiki_stats.get("length", ""),
         "height": ninja_chars.get("height", "") or wiki_stats.get("height", ""),
         "top_speed": ninja_chars.get("top_speed", "") or wiki_stats.get("top_speed", ""),
-        "lifespan": (
-            ninja_chars.get("lifespan", "") or 
-            eol_data.get("life_expectancy", "") or 
+        "lifespan": get_first_non_empty(
+            ninja_chars.get("lifespan", ""),
+            eol_data.get("life_expectancy", ""),
             wiki_stats.get("lifespan", "")
         )
     }
@@ -314,16 +300,31 @@ if not conservation_status:
     # =============================================================================
     # ECOLOGY - Multi-source merge with cleaning
     # =============================================================================
-    diet = ninja_chars.get("diet", "") or wiki_diet or eol_data.get("trophic_level", "")
+    diet = get_first_non_empty(
+        ninja_chars.get("diet", ""),
+        wiki_diet,
+        eol_data.get("trophic_level", "")
+    )
     diet = fix_diet_based_on_taxonomy(diet, classification)
     
     ecology = {
         "diet": diet,
-        "habitat": extract_clean_habitat(wiki_sections, gbif_data) or ninja_chars.get("habitat", ""),
-        "locations": extract_clean_locations(wiki_sections, gbif_data, ninja_locations),
-        "group_behavior": ninja_chars.get("group_behavior", "") or wiki_behavior,
+        "habitat": get_first_non_empty(
+            extract_clean_habitat(wiki_sections, gbif_data),
+            ninja_chars.get("habitat", "")
+        ),
+        "locations": get_first_non_empty(
+            extract_clean_locations(wiki_sections, gbif_data, ninja_locations),
+        ),
+        "group_behavior": get_first_non_empty(
+            ninja_chars.get("group_behavior", ""),
+            wiki_behavior
+        ),
         "conservation_status": conservation_status,
-        "biggest_threat": ninja_chars.get("biggest_threat", "") or wiki_threats,
+        "biggest_threat": get_first_non_empty(
+            ninja_chars.get("biggest_threat", ""),
+            wiki_threats
+        ),
         "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
         "population_trend": wikidata_enhanced.get("population", "")
     }
@@ -332,9 +333,19 @@ if not conservation_status:
     # REPRODUCTION - Priority: Ninja > Wikipedia
     # =============================================================================
     reproduction = {
-        "gestation_period": ninja_chars.get("gestation_period", "") or wiki_repro.get("gestation_period", ""),
-        "average_litter_size": ninja_chars.get("average_litter_size", "") or wiki_repro.get("average_litter_size", ""),
-        "name_of_young": ninja_chars.get("name_of_young", "") or wiki_repro.get("name_of_young", "") or young_name
+        "gestation_period": get_first_non_empty(
+            ninja_chars.get("gestation_period", ""),
+            wiki_repro.get("gestation_period", "")
+        ),
+        "average_litter_size": get_first_non_empty(
+            ninja_chars.get("average_litter_size", ""),
+            wiki_repro.get("average_litter_size", "")
+        ),
+        "name_of_young": get_first_non_empty(
+            ninja_chars.get("name_of_young", ""),
+            wiki_repro.get("name_of_young", ""),
+            young_name
+        )
     }
     
     # =============================================================================
@@ -344,18 +355,36 @@ if not conservation_status:
         "lifestyle": ninja_chars.get("lifestyle", ""),
         "color": ninja_chars.get("color", ""),
         "skin_type": ninja_chars.get("skin_type", ""),
-        "prey": ninja_chars.get("prey", "") or wiki_prey,
+        "prey": get_first_non_empty(
+            ninja_chars.get("prey", ""),
+            wiki_prey
+        ),
         "slogan": ninja_chars.get("slogan", ""),
-        "group": ninja_chars.get("group", "") or wiki_additional.get("group", ""),
-        "number_of_species": ninja_chars.get("number_of_species", "") or wiki_additional.get("number_of_species", ""),
-        "estimated_population_size": (
-            ninja_chars.get("estimated_population_size", "") or 
-            wikidata_enhanced.get("population", "") or
+        "group": get_first_non_empty(
+            ninja_chars.get("group", ""),
+            wiki_additional.get("group", "")
+        ),
+        "number_of_species": get_first_non_empty(
+            ninja_chars.get("number_of_species", ""),
+            wiki_additional.get("number_of_species", "")
+        ),
+        "estimated_population_size": get_first_non_empty(
+            ninja_chars.get("estimated_population_size", ""),
+            wikidata_enhanced.get("population", ""),
             wiki_additional.get("estimated_population_size", "")
         ),
-        "age_of_sexual_maturity": ninja_chars.get("age_of_sexual_maturity", "") or wiki_additional.get("age_of_sexual_maturity", ""),
-        "age_of_weaning": ninja_chars.get("age_of_weaning", "") or wiki_additional.get("age_of_weaning", ""),
-        "most_distinctive_feature": ninja_chars.get("most_distinctive_feature", "") or wiki_additional.get("most_distinctive_feature", "")
+        "age_of_sexual_maturity": get_first_non_empty(
+            ninja_chars.get("age_of_sexual_maturity", ""),
+            wiki_additional.get("age_of_sexual_maturity", "")
+        ),
+        "age_of_weaning": get_first_non_empty(
+            ninja_chars.get("age_of_weaning", ""),
+            wiki_additional.get("age_of_weaning", "")
+        ),
+        "most_distinctive_feature": get_first_non_empty(
+            ninja_chars.get("most_distinctive_feature", ""),
+            wiki_additional.get("most_distinctive_feature", "")
+        )
     }
     
     # =============================================================================
@@ -366,7 +395,10 @@ if not conservation_status:
         "name": name,
         "scientific_name": sci_name,
         "common_names": wikidata_enhanced.get("common_names", []),
-        "description": wikidata_enhanced.get("description", "") or (wiki_summary.get("description", "") if wiki_summary else ""),
+        "description": get_first_non_empty(
+            wikidata_enhanced.get("description", ""),
+            wiki_summary.get("description", "") if wiki_summary else ""
+        ),
         "summary": wiki_summary.get("summary", "") if wiki_summary else "",
         "image": wiki_summary.get("image", "") if wiki_summary else "",
         "images": wikidata_enhanced.get("images", []) + eol_data.get("images", []),
@@ -427,9 +459,6 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         print(f"[{i+1}/{total}] {name} ({sci})")
         print(f"{'='*70}")
 
-        # ---------------------------------------------------------------------
-        # API NINJAS
-        # ---------------------------------------------------------------------
         print(" 🥷 Fetching from Ninja API...")
         ninja_data = fetch_animal_data(name, ninja_api_key)
         
@@ -440,9 +469,6 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
             print(f"   ⚠ No data from Ninja API for {name}")
             ninja_data = {"characteristics": {}, "taxonomy": {}, "locations": []}
 
-        # ---------------------------------------------------------------------
-        # WIKIPEDIA
-        # ---------------------------------------------------------------------
         print(" 📖 Fetching from Wikipedia...")
         wiki_summary = fetch_wikipedia_summary(name)
         wiki_full = fetch_wikipedia_full(name)
@@ -451,9 +477,6 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         filled_sections = sum(1 for v in wiki_sections.values() if v and len(v) > 20)
         print(f"   ✅ Extracted {filled_sections}/9 Wikipedia sections")
         
-        # ---------------------------------------------------------------------
-        # INATURALIST
-        # ---------------------------------------------------------------------
         print(" 🔬 Fetching from iNaturalist...")
         inat_classification = fetch_inaturalist(sci)
         if inat_classification:
@@ -461,9 +484,6 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         else:
             print(f"   ⚠ No classification from iNaturalist")
         
-        # ---------------------------------------------------------------------
-        # WIKIDATA (NEW - No API Key)
-        # ---------------------------------------------------------------------
         print(" 📊 Fetching from Wikidata...")
         wikidata_enhanced = extract_wikidata_all(qid, sci)
         if wikidata_enhanced:
@@ -474,11 +494,8 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
             print(f"   ⚠ No data from Wikidata")
             wikidata_enhanced = {}
         
-        time.sleep(0.3)  # Rate limiting
+        time.sleep(0.3)
         
-        # ---------------------------------------------------------------------
-        # GBIF (NEW - No API Key)
-        # ---------------------------------------------------------------------
         print(" 🌍 Fetching from GBIF...")
         gbif_data = extract_gbif_all(sci)
         if gbif_data and gbif_data.get("countries"):
@@ -486,11 +503,8 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         else:
             print(f"   ⚠ Limited GBIF data")
         
-        time.sleep(0.3)  # Rate limiting
+        time.sleep(0.3)
         
-        # ---------------------------------------------------------------------
-        # EOL (NEW - No API Key)
-        # ---------------------------------------------------------------------
         print(" 📚 Fetching from EOL...")
         eol_data = extract_eol_all(sci)
         if eol_data and eol_data.get("page_id"):
@@ -498,11 +512,8 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         else:
             print(f"   ⚠ No data from EOL")
         
-        time.sleep(0.3)  # Rate limiting
+        time.sleep(0.3)
         
-        # ---------------------------------------------------------------------
-        # BUILD & SAVE
-        # ---------------------------------------------------------------------
         data = build_animal_data(
             ninja_data, 
             wiki_summary, 
@@ -520,11 +531,8 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         output.append(data)
         
         print(f" ✅ {name} complete! Sources: {', '.join(data['sources'])}")
-        time.sleep(0.5)  # Rate limiting between animals
+        time.sleep(0.5)
 
-    # ---------------------------------------------------------------------
-    # SAVE COMBINED FILE
-    # ---------------------------------------------------------------------
     with open(DATA_DIR / "animals.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
