@@ -141,7 +141,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:45:53.040412"
+    "last_updated": "2026-03-17T00:59:07.177389"
   },
   {
     "id": "Q35625",
@@ -286,7 +286,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:46:04.138702"
+    "last_updated": "2026-03-17T00:59:12.424432"
   },
   {
     "id": "Q7372",
@@ -433,7 +433,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:46:10.219948"
+    "last_updated": "2026-03-17T00:59:17.364078"
   },
   {
     "id": "Q213537",
@@ -490,7 +490,7 @@
     "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
     "eol_url": "https://eol.org/pages/1268606",
-    "gbif_key": 165635866,
+    "gbif_key": 162653743,
     "wikipedia_sections": {
       "etymology": "Etymology : Wolf (name) The English \"wolf\" stems from the Old English wulf , which is itself derived from the Proto-Germanic wulfaz . The Proto-Indo-European root wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic lúkʷos ). 5 6 The name \"grey wolf\" refers to the greyish colour of the species. 7 Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names. Examples include Wulfhere (\"Wolf Army\"), Cynewulf (\"Royal Wolf\"), Cēnwulf (\"Bold Wolf\"), Wulfheard (\"Wolf-hard\"), Earnwulf (\"Eagle Wolf\"), Wulfstān (\"",
       "description": ", see Grey Wolf ( ) and Wolf ( ) . For the football club, see Wolverhampton Wanderers F.C. The wolf is the largest wild extant member of the family Canidae , and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal , to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
@@ -591,7 +591,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:46:19.977836"
+    "last_updated": "2026-03-17T00:59:26.547772"
   },
   {
     "id": "Q25319",
@@ -732,7 +732,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:46:25.206290"
+    "last_updated": "2026-03-17T00:59:33.381842"
   },
   {
     "id": "Q43306",
@@ -873,7 +873,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:46:32.965896"
+    "last_updated": "2026-03-17T00:59:40.125513"
   },
   {
     "id": "Q47164",
@@ -1021,7 +1021,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:46:44.833232"
+    "last_updated": "2026-03-17T00:59:46.743244"
   },
   {
     "id": "Q39709",
@@ -1163,7 +1163,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:46:53.286971"
+    "last_updated": "2026-03-17T00:59:55.651001"
   },
   {
     "id": "Q7785",
@@ -1322,7 +1322,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:46:59.146925"
+    "last_updated": "2026-03-17T01:00:01.984429"
   },
   {
     "id": "Q189609",
@@ -1406,7 +1406,7 @@
     "group_name": "population",
     "physical": {
       "weight": "",
-      "length": "",
+      "length": "3.18–4 m",
       "height": "",
       "top_speed": "12 mph",
       "lifespan": "About 20 years"
@@ -1471,7 +1471,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:47:06.974361"
+    "last_updated": "2026-03-17T01:00:07.353512"
   },
   {
     "id": "Q270238",
@@ -1614,7 +1614,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:47:12.334592"
+    "last_updated": "2026-03-17T01:00:13.393325"
   },
   {
     "id": "Q165980",
@@ -1759,7 +1759,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:47:17.730507"
+    "last_updated": "2026-03-17T01:00:20.750330"
   },
   {
     "id": "Q7316",
@@ -1920,6 +1920,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:47:38.119741"
+    "last_updated": "2026-03-17T01:00:28.829305"
   }
 ]

@@ -80,7 +80,7 @@
   "group_name": "population",
   "physical": {
     "weight": "",
-    "length": "",
+    "length": "3.18–4 m",
     "height": "",
     "top_speed": "12 mph",
     "lifespan": "About 20 years"
@@ -145,5 +145,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:47:06.974361"
+  "last_updated": "2026-03-17T01:00:07.353512"
 }
