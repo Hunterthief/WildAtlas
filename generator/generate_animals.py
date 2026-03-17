@@ -3,9 +3,10 @@
 Main Generator - Orchestrates all fetchers and extractors
 Sources: API Ninjas, Wikipedia, iNaturalist, Wikidata, GBIF, EOL
 """
-import json, time, os, sys
+import json, time, os, sys, re
 from datetime import datetime
 from pathlib import Path
+from typing import Dict, Any, List
 
 # Add generator directory to Python path (CRITICAL for GitHub Actions)
 GENERATOR_DIR = Path(__file__).parent
@@ -51,7 +52,7 @@ CONFIG_DIR = GENERATOR_DIR / "config"
 # =============================================================================
 # CONFIG LOADING
 # =============================================================================
-def load_config(filename):
+def load_config(filename: str) -> Dict[str, Any]:
     """Load JSON config file if it exists"""
     config_path = CONFIG_DIR / filename
     if config_path.exists():
@@ -62,23 +63,23 @@ def load_config(filename):
 YOUNG_NAMES = load_config("young_names.json")
 GROUP_NAMES = load_config("group_names.json")
 
-def get_young_name(animal_type):
+def get_young_name(animal_type: str) -> str:
     """Get young animal name based on type"""
     return YOUNG_NAMES.get(animal_type, YOUNG_NAMES.get("default", "young"))
 
-def get_group_name(animal_type):
+def get_group_name(animal_type: str) -> str:
     """Get group name based on type"""
     return GROUP_NAMES.get(animal_type, GROUP_NAMES.get("default", "population"))
 
 # =============================================================================
 # FILE OPERATIONS
 # =============================================================================
-def get_animal_filename(name, qid):
+def get_animal_filename(name: str, qid: str) -> str:
     """Generate clean filename for animal data"""
     clean_name = name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
     return f"{clean_name}_{{QID={qid}}}.json"
 
-def save_animal_file(data, name, qid):
+def save_animal_file(data: Dict[str, Any], name: str, qid: str) -> None:
     """Save animal data to JSON file"""
     filename = get_animal_filename(name, qid)
     filepath = ANIMAL_STATS_DIR / filename
@@ -89,13 +90,12 @@ def save_animal_file(data, name, qid):
 # =============================================================================
 # DATA CLEANING HELPERS
 # =============================================================================
-def clean_wikipedia_text(text):
+def clean_wikipedia_text(text: str) -> str:
     """Clean messy Wikipedia text - remove citations, infobox artifacts, etc."""
     if not text:
         return ""
     
     # Remove citation markers like [1], [25], etc.
-    import re
     text = re.sub(r'\[\d+\]', '', text)
     
     # Remove common infobox artifacts
@@ -119,16 +119,16 @@ def clean_wikipedia_text(text):
     
     return text.strip()
 
-def extract_clean_habitat(wiki_sections, gbif_data):
+def extract_clean_habitat(wiki_sections: Dict[str, str], gbif_data: Dict[str, Any]) -> str:
     """Extract clean habitat from multiple sources"""
     # Priority: GBIF > Cleaned Wikipedia > Raw Wikipedia
     if gbif_data and gbif_data.get("habitat"):
-        return gbif_data.get("habitat")
+        return gbif_data.get("habitat", "")
     
     habitat = wiki_sections.get("habitat", "")
     return clean_wikipedia_text(habitat)
 
-def extract_clean_locations(wiki_sections, gbif_data, ninja_locations):
+def extract_clean_locations(wiki_sections: Dict[str, str], gbif_data: Dict[str, Any], ninja_locations: List[str]) -> str:
     """Extract clean location data from multiple sources"""
     # Priority: GBIF countries > Ninja locations > Cleaned Wikipedia
     if gbif_data and gbif_data.get("countries"):
@@ -140,7 +140,7 @@ def extract_clean_locations(wiki_sections, gbif_data, ninja_locations):
     distribution = wiki_sections.get("distribution", "")
     return clean_wikipedia_text(distribution)
 
-def fix_diet_based_on_taxonomy(diet, classification):
+def fix_diet_based_on_taxonomy(diet: str, classification: Dict[str, str]) -> str:
     """Fix obvious diet errors based on taxonomy"""
     if not diet:
         return diet
@@ -155,7 +155,6 @@ def fix_diet_based_on_taxonomy(diet, classification):
     
     # All turtles in Cheloniidae are not carnivores (green sea turtle is herbivore)
     if "cheloniidae" in family and "carnivore" in diet_lower:
-        # Green sea turtles are herbivores as adults
         return "Herbivore"
     
     # Most primates are omnivores
@@ -163,12 +162,9 @@ def fix_diet_based_on_taxonomy(diet, classification):
         return "Omnivore"
     
     return diet
-   # Add to generate_animals.py (before build_animal_data function)
 
 def _extract_conservation_from_wikipedia_sections(wiki_sections: Dict[str, str]) -> str:
     """Extract conservation status from Wikipedia sections"""
-    import re
-    
     # Check conservation section first
     conservation_text = wiki_sections.get("conservation", "").lower()
     threats_text = wiki_sections.get("threats", "").lower()
@@ -201,21 +197,22 @@ def _extract_conservation_from_wikipedia_sections(wiki_sections: Dict[str, str])
                 return status
     
     return ""
+
 # =============================================================================
 # BUILD ANIMAL DATA
 # =============================================================================
 def build_animal_data(
-    ninja_data, 
-    wiki_summary, 
-    wiki_sections, 
-    inat_classification,
-    wikidata_enhanced,
-    gbif_data,
-    eol_data,
-    qid, 
-    name, 
-    sci_name
-):
+    ninja_data: Dict[str, Any], 
+    wiki_summary: Dict[str, Any], 
+    wiki_sections: Dict[str, str], 
+    inat_classification: Dict[str, str],
+    wikidata_enhanced: Dict[str, Any],
+    gbif_data: Dict[str, Any],
+    eol_data: Dict[str, Any],
+    qid: str, 
+    name: str, 
+    sci_name: str
+) -> Dict[str, Any]:
     """Build comprehensive animal data from all sources"""
     
     ninja_chars = ninja_data.get("characteristics", {}) if ninja_data else {}
@@ -280,12 +277,12 @@ def build_animal_data(
     # =============================================================================
     # CONSERVATION STATUS - Priority: Wikidata > Ninja > Wikipedia
     # =============================================================================
-     conservation_status = (
-    wikidata_enhanced.get("conservation", {}).get("status", "") or
-    ninja_chars.get("conservation_status", "") or
-    wiki_conservation_status or
-    _extract_conservation_from_wikipedia_sections(wiki_sections)  # ← New fallback
-)
+    conservation_status = (
+        wikidata_enhanced.get("conservation", {}).get("status", "") or
+        ninja_chars.get("conservation_status", "") or
+        wiki_conservation_status or
+        _extract_conservation_from_wikipedia_sections(wiki_sections)
+    )
     
     # =============================================================================
     # PHYSICAL DATA - Priority: Ninja > Wikipedia > EOL
@@ -308,18 +305,16 @@ def build_animal_data(
     diet = ninja_chars.get("diet", "") or wiki_diet or eol_data.get("trophic_level", "")
     diet = fix_diet_based_on_taxonomy(diet, classification)
     
-    # In the ecology section of build_animal_data():
-
-ecology = {
-    "diet": diet,
-    "habitat": extract_clean_habitat(wiki_sections, gbif_data) or ninja_chars.get("habitat", ""),
-    "locations": extract_clean_locations(wiki_sections, gbif_data, ninja_locations),
-    "group_behavior": ninja_chars.get("group_behavior", "") or wiki_behavior,
-    "conservation_status": conservation_status,  # ← Now with proper fallback
-    "biggest_threat": ninja_chars.get("biggest_threat", "") or wiki_threats,
-    "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
-    "population_trend": wikidata_enhanced.get("population", "")
-}
+    ecology = {
+        "diet": diet,
+        "habitat": extract_clean_habitat(wiki_sections, gbif_data) or ninja_chars.get("habitat", ""),
+        "locations": extract_clean_locations(wiki_sections, gbif_data, ninja_locations),
+        "group_behavior": ninja_chars.get("group_behavior", "") or wiki_behavior,
+        "conservation_status": conservation_status,
+        "biggest_threat": ninja_chars.get("biggest_threat", "") or wiki_threats,
+        "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
+        "population_trend": wikidata_enhanced.get("population", "")
+    }
     
     # =============================================================================
     # REPRODUCTION - Priority: Ninja > Wikipedia
@@ -359,7 +354,7 @@ ecology = {
         "name": name,
         "scientific_name": sci_name,
         "common_names": wikidata_enhanced.get("common_names", []),
-        "description": wikidata_enhanced.get("description", "") or wiki_summary.get("description", "") if wiki_summary else "",
+        "description": wikidata_enhanced.get("description", "") or (wiki_summary.get("description", "") if wiki_summary else ""),
         "summary": wiki_summary.get("summary", "") if wiki_summary else "",
         "image": wiki_summary.get("image", "") if wiki_summary else "",
         "images": wikidata_enhanced.get("images", []) + eol_data.get("images", []),
@@ -406,7 +401,7 @@ ecology = {
 # =============================================================================
 # MAIN GENERATION
 # =============================================================================
-def generate(animals, force=False):
+def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[str, Any]]:
     """Generate animal data from all sources"""
     output = []
     ninja_api_key = os.environ.get("API_NINJAS_KEY", "")
@@ -460,7 +455,6 @@ def generate(animals, force=False):
         print(" 📊 Fetching from Wikidata...")
         wikidata_enhanced = extract_wikidata_all(qid, sci)
         if wikidata_enhanced:
-            sources_count = len(wikidata_enhanced.get("sources", []))
             print(f"   ✅ Got Wikidata enhancements")
             if wikidata_enhanced.get("conservation", {}).get("status"):
                 print(f"      🏷 Conservation: {wikidata_enhanced['conservation']['status']}")
