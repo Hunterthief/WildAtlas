@@ -54,7 +54,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
   "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/45512074",
   "gbif_key": 177664975,
   "wikipedia_sections": {
     "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
@@ -134,7 +134,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-17T00:29:53.299695"
+  "last_updated": "2026-03-17T00:34:43.428236"
 }

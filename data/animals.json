@@ -54,7 +54,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1253183",
     "gbif_key": 209806595,
     "wikipedia_sections": {
       "etymology": "Etymology The Old English tigras derives from Old French tigre , from Latin tigris , which was a borrowing from tigris ( Ancient Greek : τίγρις ). 4 Since ancient times, the word tigris has been suggested to originate from the Armenian or Persian word for 'arrow', which may also be the origin of the name for the river Tigris . 5 6 However, today, the names are thought to be homonyms , and the connection between the tiger and the river is doubted. 6 Taxonomy In 1758, Carl Linnaeus described the tiger in his work Systema Naturae and gave it the scientific name Felis tigris , as the genus Felis w",
@@ -138,9 +138,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T00:28:58.962778"
+    "last_updated": "2026-03-17T00:34:17.865380"
   },
   {
     "id": "Q35625",
@@ -197,7 +198,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1271375",
     "gbif_key": 104060849,
     "wikipedia_sections": {
       "etymology": "Etymology The vernacular name \"cheetah\" is derived from Hindustani Urdu : چیتا and Hindi : चीता ( ćītā ). 3 This in turn comes from Sanskrit : चित्रय ( Chitra-ya ) meaning 'variegated', 'adorned' or 'painted'. 4 In the past, the cheetah was often called \"hunting leopard\" because they could be tamed and used for coursing . 5 The generic name Acinonyx probably derives from the combination of two Greek words: ἀκίνητος ( akī́nētos ) meaning 'unmoved' or 'motionless', and ὄνυξ ( ónyx ) meaning 'nail' or 'hoof'.",
@@ -282,9 +283,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T00:29:13.546027"
+    "last_updated": "2026-03-17T00:34:22.967574"
   },
   {
     "id": "Q7372",
@@ -340,7 +342,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/55636404",
     "gbif_key": 177683655,
     "wikipedia_sections": {
       "etymology": "The name refers to the lozenge-shaped enamel of their molar teeth. Etymology [ edit ] The name Loxodonta comes from the Ancient Greek words λοξός ( loxós, \"slanting\", \"crosswise\") and ὀδούς ( odoús , \"tooth\"), referring to the lozenge -shaped enamel of the molar teeth , which differs significantly from the rounded shape of the Asian elephant 's molar enamel. 2 Taxonomy and evolution [ edit ] The first scientific description of the African elephant was written in 1797 by Johann Friedrich Blumenbach , who proposed the scientific name Elephas africanus .",
@@ -428,9 +430,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T00:29:27.949708"
+    "last_updated": "2026-03-17T00:34:27.484526"
   },
   {
     "id": "Q213537",
@@ -588,7 +591,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:29:33.046036"
+    "last_updated": "2026-03-17T00:34:32.951004"
   },
   {
     "id": "Q25319",
@@ -729,7 +732,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:29:38.526156"
+    "last_updated": "2026-03-17T00:34:38.335657"
   },
   {
     "id": "Q43306",
@@ -787,7 +790,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
     "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/45512074",
     "gbif_key": 177664975,
     "wikipedia_sections": {
       "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
@@ -867,9 +870,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T00:29:53.299695"
+    "last_updated": "2026-03-17T00:34:43.428236"
   },
   {
     "id": "Q47164",
@@ -1017,7 +1021,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:30:05.402882"
+    "last_updated": "2026-03-17T00:34:49.201432"
   },
   {
     "id": "Q39709",
@@ -1075,7 +1079,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46563143",
     "gbif_key": 163302148,
     "wikipedia_sections": {
       "etymology": "salar is iteroparous , which means it can survive spawning and return to sea to repeat the process again in another year with 5–10% returning to the sea to spawn again. The different life stages of the fish are known by several different names in English; alevin , fry , parr and smolt . 4 Nomenclature [ edit ] The Atlantic salmon was given its scientific binomial name by Swedish zoologist and taxonomist Carl Linnaeus in 1758 . The name, Salmo salar , derives from the Latin salmo , meaning salmon , and salar , meaning leaper, according to M.",
@@ -1156,9 +1160,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-17T00:30:20.788011"
+    "last_updated": "2026-03-17T00:34:55.970911"
   },
   {
     "id": "Q7785",
@@ -1317,7 +1322,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:30:28.043739"
+    "last_updated": "2026-03-17T00:35:02.154817"
   },
   {
     "id": "Q189609",
@@ -1466,7 +1471,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:30:33.115645"
+    "last_updated": "2026-03-17T00:35:07.511046"
   },
   {
     "id": "Q270238",
@@ -1609,7 +1614,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:30:37.973970"
+    "last_updated": "2026-03-17T00:35:12.609737"
   },
   {
     "id": "Q165980",
@@ -1754,7 +1759,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:30:44.846237"
+    "last_updated": "2026-03-17T00:35:17.591252"
   },
   {
     "id": "Q7316",
@@ -1915,6 +1920,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:30:57.214393"
+    "last_updated": "2026-03-17T00:35:23.325110"
   }
 ]
