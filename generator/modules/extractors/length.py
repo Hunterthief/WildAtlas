@@ -110,4 +110,21 @@ def extract_length_from_sections(sections: Dict[str, str], animal_name: str = ""
     
     # Snake specific
     if any(x in animal_lower for x in ["snake", "cobra", "python"]):
-        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres|meters)', clean_text,
+        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres|meters)', clean_text, re.I)
+        if m:
+            context = clean_text[max(0, m.start()-150):m.end()+150]
+            if not _is_temporal_range(context):
+                return f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+    
+    # Fish specific
+    if any(x in animal_lower for x in ["salmon", "shark", "fish"]):
+        m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)?\s*(\d+(?:[.,]\d+)?)?\s*(m|metres|meters|cm)\s*(?:long|length)', clean_text, re.I)
+        if m:
+            context = clean_text[max(0, m.start()-150):m.end()+150]
+            if not _is_temporal_range(context):
+                if m.group(2):
+                    return f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+                else:
+                    return f"{m.group(1)} {m.group(3)}"
+    
+    return ""
