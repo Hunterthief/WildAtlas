@@ -197,22 +197,111 @@ def _extract_conservation_from_wikipedia_sections(wiki_sections: Dict[str, str])
 # BUILD ANIMAL DATA
 # =============================================================================
 def build_animal_data(
-    ninja_data: Dict[str, Any], 
-    wiki_summary: Dict[str, Any], 
-    wiki_sections: Dict[str, str], 
-    inat_classification: Dict[str, str],
-    wikidata_enhanced: Dict[str, Any],
-    gbif_data: Dict[str, Any],
-    eol_data: Dict[str, Any],
-    qid: str, 
-    name: str, 
-    sci_name: str
+    name: str,
+    sci_name: str,
+    qid: str,
+    force: bool = False
 ) -> Dict[str, Any]:
-    """Build comprehensive animal data from all sources"""
+    """Build complete animal data with proper source priority"""
     
-    ninja_chars = ninja_data.get("characteristics", {}) if ninja_data else {}
-    ninja_taxonomy = ninja_data.get("taxonomy", {}) if ninja_data else {}
-    ninja_locations = ninja_data.get("locations", []) if ninja_data else []
+    print(f"======================================================================")
+    print(f"[{current}/{total}] {name} ({sci_name})")
+    print(f"======================================================================")
+    
+    # ===== Fetch from all sources =====
+    
+    # 1. API Ninjas (already working)
+    print(" 🥷 Fetching from Ninja API...")
+    ninja_data = fetch_from_ninja_api(name)
+    
+    # 2. Wikipedia (NEW - with infobox)
+    print(" 📖 Fetching from Wikipedia...")
+    wiki_data = fetch_wikipedia_data(name)  # Now returns sections + infobox
+    wiki_sections = wiki_data.get('sections', {})
+    wiki_infobox = wiki_data.get('infobox', {})
+    
+    # 3. Wikidata (NEW - with P2067 mass)
+    print(" 📊 Fetching from Wikidata...")
+    wikidata_data = fetch_wikidata_properties(qid) if qid else {}
+    
+    # 4. Other sources (iNaturalist, GBIF, EOL) - unchanged
+    print(" 🔬 Fetching from iNaturalist...")
+    inat_data = fetch_inaturalist(sci_name)
+    
+    print(" 🌍 Fetching from GBIF...")
+    gbif_data = fetch_gbif(sci_name)
+    
+    print(" 📚 Fetching from EOL...")
+    eol_data = fetch_eol(sci_name)
+    
+    # ===== Extract stats with proper priority =====
+    print(" 📊 Extracting physical stats...")
+    
+    # Prepare API Ninjas physical data
+    api_ninjas_physical = {}
+    if ninja_data:
+        physical = ninja_data.get('physical', {})
+        api_ninjas_physical = {
+            'weight': physical.get('weight', ''),
+            'length': physical.get('length', ''),
+            'height': physical.get('height', ''),
+            'lifespan': physical.get('lifespan', ''),
+            'top_speed': physical.get('top_speed', ''),
+        }
+    
+    # Extract with priority: Infobox > Wikidata > API Ninjas > Text
+    physical_stats = extract_stats_with_context(
+        sections=wiki_sections,
+        animal_name=name,
+        scientific_name=sci_name,
+        infobox_data=wiki_infobox,
+        wikidata_data=wikidata_data,
+        api_ninjas_data=api_ninjas_physical
+    )
+    
+    # ===== Build final data structure =====
+    data = {
+        'id': qid,
+        'name': name,
+        'scientific_name': sci_name,
+        'physical': physical_stats,
+        'sources': build_sources_list(
+            has_ninja=bool(ninja_data),
+            has_wiki=bool(wiki_data),
+            has_wikidata=bool(wikidata_data),
+            has_inat=bool(inat_data),
+            has_gbif=bool(gbif_data),
+            has_eol=bool(eol_data)
+        ),
+        # ... rest of data structure
+    }
+    
+    return data
+
+
+def build_sources_list(
+    has_ninja: bool = False,
+    has_wiki: bool = False,
+    has_wikidata: bool = False,
+    has_inat: bool = False,
+    has_gbif: bool = False,
+    has_eol: bool = False
+) -> list:
+    """Build list of data sources used"""
+    sources = []
+    if has_ninja:
+        sources.append("API Ninjas")
+    if has_wiki:
+        sources.append("Wikipedia")
+    if has_wikidata:
+        sources.append("Wikidata")
+    if has_inat:
+        sources.append("iNaturalist")
+    if has_gbif:
+        sources.append("GBIF")
+    if has_eol:
+        sources.append("EOL")
+    return sources
     
     # =============================================================================
     # ANIMAL TYPE DETECTION
