@@ -5,51 +5,52 @@
     "scientific_name": "Panthera tigris",
     "common_names": [
       {
-        "name": "Entrevernes",
-        "language": "de"
-      },
-      {
-        "name": "Entrevernes",
-        "language": "ca"
-      },
-      {
-        "name": "Entrevernes",
-        "language": "ceb"
-      },
-      {
-        "name": "Entrevernes",
+        "name": "tigre",
         "language": "es"
       },
       {
-        "name": "Entrevernes",
-        "language": "eu"
+        "name": "ببر",
+        "language": "ar"
       },
       {
-        "name": "Entrevernes",
-        "language": "fr"
+        "name": "Panthera tigris",
+        "language": "ast"
       },
       {
-        "name": "Entrevernes",
-        "language": "it"
+        "name": "тигър",
+        "language": "bg"
       },
       {
-        "name": "Entrevernes",
-        "language": "la"
+        "name": "বাঘ",
+        "language": "bn"
       },
       {
-        "name": "Entrevernes",
-        "language": "lmo"
+        "name": "tigre",
+        "language": "ca"
       },
       {
-        "name": "Entrevernes",
-        "language": "ms"
+        "name": "tygr",
+        "language": "cs"
+      },
+      {
+        "name": "tiger",
+        "language": "da"
+      },
+      {
+        "name": "Tiger",
+        "language": "de"
+      },
+      {
+        "name": "ببر",
+        "language": "fa"
       }
     ],
-    "description": "commune in Haute-Savoie, France",
+    "description": "species of big cat",
     "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Entrevernes et Doussard.jpg"
+      "https://commons.wikimedia.org/wiki/File:Adult male Royal Bengal tiger.jpg",
+      "https://commons.wikimedia.org/wiki/File:Bengal tiger (Panthera tigris tigris) female 3.jpg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
@@ -90,10 +91,10 @@
       "habitat": "57 59 his is supported by a Fourier analysis study showing that the striping patterns line up with their environment. 65 he tiger mainly lives in forest habitats and is highly adaptable. 67 n the Indian subcontinent, it inhabits mainly tropical and subtropical moist broadleaf forests , temperate broadleaf and mixed forests , tropical moist evergreen forests , tropical dry forests , alluvial plains and the mangrove forests of the undarbans . 68 In the Eastern Himalayas , it was documented in temperate forest up to an elevation of 4,200 m (13,800 ft) in Bhutan, of 3,630 m (11,910 ft) in the",
       "locations": "Bangladesh, China, India, Indonesia, Nepal, Russian Federation, Thailand",
       "group_behavior": "",
-      "conservation_status": "Endangered",
+      "conservation_status": "Unknown",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
       "distinctive_features": [],
-      "population_trend": "217"
+      "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
@@ -108,7 +109,7 @@
       "slogan": "The most numerous species of tiger!",
       "group": "",
       "number_of_species": "nine",
-      "estimated_population_size": "217",
+      "estimated_population_size": "",
       "age_of_sexual_maturity": "",
       "age_of_weaning": "",
       "most_distinctive_feature": "powerful, muscular body with a large head and paws, a long tail and orange fur"
@@ -140,7 +141,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:00:23.484700"
+    "last_updated": "2026-03-17T00:12:42.339212"
   },
   {
     "id": "Q35625",
@@ -285,7 +286,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:00:29.714907"
+    "last_updated": "2026-03-17T00:12:49.966725"
   },
   {
     "id": "Q7372",
@@ -432,7 +433,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:00:36.233977"
+    "last_updated": "2026-03-17T00:12:58.793221"
   },
   {
     "id": "Q213537",
@@ -489,7 +490,7 @@
     "wikipedia_url": "https://en.wikipedia.org/wiki/Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
     "eol_url": "https://eol.org/pages/1268606",
-    "gbif_key": 162653743,
+    "gbif_key": 165635866,
     "wikipedia_sections": {
       "etymology": "Etymology : Wolf (name) The English \"wolf\" stems from the Old English wulf , which is itself derived from the Proto-Germanic wulfaz . The Proto-Indo-European root wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic lúkʷos ). 5 6 The name \"grey wolf\" refers to the greyish colour of the species. 7 Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names. Examples include Wulfhere (\"Wolf Army\"), Cynewulf (\"Royal Wolf\"), Cēnwulf (\"Bold Wolf\"), Wulfheard (\"Wolf-hard\"), Earnwulf (\"Eagle Wolf\"), Wulfstān (\"",
       "description": ", see Grey Wolf ( ) and Wolf ( ) . For the football club, see Wolverhampton Wanderers F.C. The wolf is the largest wild extant member of the family Canidae , and is further distinguished from other Canis species by its less pointed ears and muzzle, as well as a shorter torso and a longer tail. The wolf is nonetheless related closely enough to smaller Canis species, such as the coyote and the golden jackal , to produce fertile hybrids with them. The wolf's fur is usually mottled white, brown, grey, and black, although subspecies in the arctic region may be nearly all white.",
@@ -590,7 +591,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:00:44.815534"
+    "last_updated": "2026-03-17T00:13:13.824274"
   },
   {
     "id": "Q25319",
@@ -598,51 +599,52 @@
     "scientific_name": "Haliaeetus leucocephalus",
     "common_names": [
       {
-        "name": "奥胡斯",
-        "language": "zh"
+        "name": "白头海雕",
+        "language": "zh-hans"
       },
       {
-        "name": "Aarhus",
-        "language": "pl"
+        "name": "白頭海鵰",
+        "language": "zh-hant"
       },
       {
-        "name": "Aarhus",
+        "name": "白頭海鵰",
+        "language": "zh-hk"
+      },
+      {
+        "name": "白头海雕",
+        "language": "zh-cn"
+      },
+      {
+        "name": "白头海雕",
+        "language": "zh-sg"
+      },
+      {
+        "name": "白頭海鵰",
+        "language": "zh-tw"
+      },
+      {
+        "name": "itsas arrano buruzuri",
         "language": "eu"
       },
       {
-        "name": "Aarhus",
+        "name": "bielik amerykański",
+        "language": "pl"
+      },
+      {
+        "name": "Bjeloglavi orao",
         "language": "bs"
       },
       {
-        "name": "Aarhus",
-        "language": "rup"
-      },
-      {
-        "name": "Aarhus",
-        "language": "vo"
-      },
-      {
-        "name": "Aarhus",
+        "name": "Haliaeetus leucocephalus",
         "language": "es"
-      },
-      {
-        "name": "Aarhus",
-        "language": "mi"
-      },
-      {
-        "name": "Aarhus",
-        "language": "oc"
-      },
-      {
-        "name": "Aarhus",
-        "language": "hu"
       }
     ],
-    "description": "city in Central Denmark Region",
+    "description": "species of bird of prey found in North America",
     "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Århus city trafikhavn.jpg"
+      "https://commons.wikimedia.org/wiki/File:Bald Eagle (Haliaeetus leucocephalus) Kachemak Bay, Alaska.jpg",
+      "https://commons.wikimedia.org/wiki/File:Juvenile Bald Eagle, Conowingo Dam, Susquehanna River, MD 2016-01-03.jpg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
@@ -683,12 +685,12 @@
       "habitat": "ccupying varied habitats from the bayous of Louisiana to the onoran esert and the eastern deciduous forests of Quebec and ew England , northern birds are migratory , while southern birds are resident, remaining on their breeding territory all year. Habitat In flight during a licensed performance in ntario , anada uring training at the anadian Raptor onservancy he bald eagle occurs during its breeding season in virtually any kind of American wetland habitat such as seacoasts , rivers , large lakes or marshes or other large bodies of open water with an abundance of fish .",
       "locations": "Canada, United States of America",
       "group_behavior": "Pairs",
-      "conservation_status": "Endangered",
+      "conservation_status": "Unknown",
       "biggest_threat": "Pesticide use",
       "distinctive_features": [
         "The white plumage on the head"
       ],
-      "population_trend": "269022"
+      "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
@@ -703,7 +705,7 @@
       "slogan": "",
       "group": "",
       "number_of_species": "1",
-      "estimated_population_size": "269022",
+      "estimated_population_size": "",
       "age_of_sexual_maturity": "",
       "age_of_weaning": "",
       "most_distinctive_feature": "The white plumage on the head"
@@ -730,7 +732,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:00:50.334895"
+    "last_updated": "2026-03-17T00:13:22.193436"
   },
   {
     "id": "Q43306",
@@ -738,53 +740,57 @@
     "scientific_name": "Aptenodytes forsteri",
     "common_names": [
       {
-        "name": "200 v. Chr.",
+        "name": "Keeserpinguin",
         "language": "lb"
       },
       {
-        "name": "前200年",
-        "language": "zh"
+        "name": "皇帝企鹅",
+        "language": "zh-hans"
       },
       {
-        "name": "200 p.n.e.",
+        "name": "皇帝企鵝",
+        "language": "zh-hant"
+      },
+      {
+        "name": "皇帝企鵝",
+        "language": "zh-hk"
+      },
+      {
+        "name": "帝企鹅",
+        "language": "zh-cn"
+      },
+      {
+        "name": "皇帝企鹅",
+        "language": "zh-sg"
+      },
+      {
+        "name": "帝企鵝",
+        "language": "zh-tw"
+      },
+      {
+        "name": "pingwin cesarski",
         "language": "pl"
       },
       {
-        "name": "K. a. 200",
+        "name": "Aptenodytes forsteri",
         "language": "eu"
       },
       {
-        "name": "200 kñ",
-        "language": "qu"
-      },
-      {
-        "name": "200 p.n.e.",
-        "language": "bs"
-      },
-      {
-        "name": "Mil. av. 200",
-        "language": "uz"
-      },
-      {
-        "name": "200 a. C.",
+        "name": "Aptenodytes forsteri",
         "language": "es"
-      },
-      {
-        "name": "200 b.K.",
-        "language": "vo"
-      },
-      {
-        "name": "-200",
-        "language": "oc"
       }
     ],
-    "description": "year",
+    "description": "large flightless seabird endemic to Antarctica",
     "summary": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 100 cm (39 in) in length and weighing from 22 to 45 kg. Feathers of the head and back are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/330px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg",
-    "images": [],
+    "images": [
+      "https://commons.wikimedia.org/wiki/File:Aptenodytes forsteri -Snow Hill Island, Antarctica -adults and juvenile-8.jpg",
+      "https://commons.wikimedia.org/wiki/File:Penguin in Antarctica jumping out of the water.jpg",
+      "https://commons.wikimedia.org/wiki/File:Penguin diving statistics.svg"
+    ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_penguin",
     "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-    "eol_url": "https://eol.org/pages/45512074",
+    "eol_url": "",
     "gbif_key": 177664975,
     "wikipedia_sections": {
       "etymology": "Taxonomy Emperor penguins were described in 1844 by English zoologist George Robert Gray , who created the generic name from Ancient Greek word elements, ἀ-πτηνο-δύτης [a-ptēno-dytēs], \"without-wings-diver\". Its specific name is in honour of the German naturalist Johann Reinhold Forster , who accompanied Captain James Cook on his second voyage and officially named five other penguin species. 2 Forster may have been the first person to see emperor penguins in 1773–74, when he recorded a sighting of what he believed was the similar king penguin ( A.",
@@ -821,7 +827,7 @@
       "habitat": "12 Adaptations to cold he emperor penguin breeds in the coldest environment of any bird species; air temperatures may reach −40 ° (−40 °F), and wind speeds may reach 144 km/h (89 mph). his study predicted that by 2100 all 45 colonies of emperor penguins will be declining in numbers, mostly due to loss of habitat. 103 ultural references he species' unique life cycle in such a harsh environment has been described in print and visual media. ommunications Earth Environment . Bibcode : 2023omEE...4..273F .",
       "locations": "Antarctica",
       "group_behavior": "Colony",
-      "conservation_status": "Near Threatened",
+      "conservation_status": "Unknown",
       "biggest_threat": "Global warming",
       "distinctive_features": [
         "Bright yellow feathers on neck and ears"
@@ -864,10 +870,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-17T00:00:55.843308"
+    "last_updated": "2026-03-17T00:13:39.869021"
   },
   {
     "id": "Q47164",
@@ -875,51 +880,53 @@
     "scientific_name": "Carcharodon carcharias",
     "common_names": [
       {
-        "name": "圣莫尼卡",
-        "language": "zh"
+        "name": "大白鲨",
+        "language": "zh-hans"
       },
       {
-        "name": "Santa Monica",
+        "name": "大白鯊",
+        "language": "zh-hant"
+      },
+      {
+        "name": "大白鯊",
+        "language": "zh-hk"
+      },
+      {
+        "name": "大白鲨",
+        "language": "zh-cn"
+      },
+      {
+        "name": "大白鲨",
+        "language": "zh-sg"
+      },
+      {
+        "name": "食人鯊",
+        "language": "zh-tw"
+      },
+      {
+        "name": "Hiu putih",
+        "language": "jv"
+      },
+      {
+        "name": "Marrazo zuri",
         "language": "eu"
       },
       {
-        "name": "Santa Monica",
+        "name": "żarłacz biały",
         "language": "pl"
       },
       {
-        "name": "Santa Mónica",
-        "language": "es"
-      },
-      {
-        "name": "Santa Monica",
-        "language": "vo"
-      },
-      {
-        "name": "சாந்தா மொனிக்கா",
-        "language": "ta"
-      },
-      {
-        "name": "Santa Monica",
-        "language": "sw"
-      },
-      {
-        "name": "Santa Monica",
-        "language": "et"
-      },
-      {
-        "name": "سانٹا مونیکا",
-        "language": "pnb"
-      },
-      {
-        "name": "Santa Monica",
-        "language": "sv"
+        "name": "Velika bijela ajkula",
+        "language": "bs"
       }
     ],
-    "description": "beachfront city in Los Angeles County, California, United States",
+    "description": "species of large lamniform shark",
     "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. The species is partially warm-blooded, an adaptation that allows it to remain active in colder waters.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Ocean Avenue.jpg"
+      "https://commons.wikimedia.org/wiki/File:Great white shark.jpg",
+      "https://commons.wikimedia.org/wiki/File:202410 Great white shark.svg",
+      "https://commons.wikimedia.org/wiki/File:White shark.jpg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
@@ -960,10 +967,10 @@
       "habitat": "White sharks inhabit tropical and temperate ocean waters around the world and can be found both along the coast and further out to sea. he authors conclude that \"sharks don't make 'mistakes' but instead continually explore their environments and routinely investigate novel objects as potential prey by biting them\". Western Australia implemented a shark cull program in 2013, but discontinued the following year in response to a recommendation by the Environmental rotection Authority . Environmental Biology of Fishes .",
       "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
       "group_behavior": "Solitary",
-      "conservation_status": "Critically Endangered",
+      "conservation_status": "Unknown",
       "biggest_threat": "Hunting and habitat degredation",
       "distinctive_features": [],
-      "population_trend": "84084"
+      "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
@@ -1013,7 +1020,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:01:01.916155"
+    "last_updated": "2026-03-17T00:13:50.565969"
   },
   {
     "id": "Q39709",
@@ -1021,51 +1028,53 @@
     "scientific_name": "Salmo salar",
     "common_names": [
       {
-        "name": "德梅因",
-        "language": "zh"
+        "name": "大西洋鲑",
+        "language": "zh-hans"
       },
       {
-        "name": "Des Moines",
-        "language": "pl"
+        "name": "大西洋鮭",
+        "language": "zh-hant"
       },
       {
-        "name": "Des Moines",
+        "name": "大西洋鮭",
+        "language": "zh-hk"
+      },
+      {
+        "name": "大西洋鲑",
+        "language": "zh-cn"
+      },
+      {
+        "name": "大西洋鲑",
+        "language": "zh-sg"
+      },
+      {
+        "name": "大西洋鮭",
+        "language": "zh-tw"
+      },
+      {
+        "name": "Lachs",
+        "language": "gsw"
+      },
+      {
+        "name": "Atlantic salmon",
+        "language": "pam"
+      },
+      {
+        "name": "Izokin",
         "language": "eu"
       },
       {
-        "name": "Des Moines",
-        "language": "qu"
-      },
-      {
-        "name": "Des Moines",
-        "language": "gd"
-      },
-      {
-        "name": "Des Moines",
-        "language": "bs"
-      },
-      {
-        "name": "Des Moines",
-        "language": "vo"
-      },
-      {
-        "name": "Des Moines",
-        "language": "es"
-      },
-      {
-        "name": "டி மொயின்",
-        "language": "ta"
-      },
-      {
-        "name": "Des Moines",
-        "language": "af"
+        "name": "łosoś szlachetny",
+        "language": "pl"
       }
     ],
-    "description": "capital city of Iowa, United States",
+    "description": "species of fish",
     "summary": "The Atlantic salmon is a species of ray-finned fish in the family Salmonidae. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon, growing up to 1 m (3.3 ft) in length. Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous, hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Des Moines skyline.jpg"
+      "https://commons.wikimedia.org/wiki/File:Atlantischer Lachs.jpg",
+      "https://commons.wikimedia.org/wiki/File:Atlantic salmon fish.jpg",
+      "https://commons.wikimedia.org/wiki/File:202409 Atlantic Salmon.svg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
@@ -1106,10 +1115,10 @@
       "habitat": "It has thus long been the target of recreational and commercial fishing , and this, as well as habitat destruction , has impacted the population in some areas. hey also undergo some endocrinological changes to adapt to osmotic differences between fresh water and seawater habitat. citation needed Wild salmon continued to disappear from many rivers during the twentieth century due to overfishing and habitat change. citation needed Egg and juvenile survival is dependent on habitat quality as Atlantic salmon are sensitive to ecological change.",
       "locations": "Canada, France, Netherlands, United Kingdom of Great Britain and Northern Ireland, United States of America",
       "group_behavior": "Pairs",
-      "conservation_status": "Near Threatened",
+      "conservation_status": "Unknown",
       "biggest_threat": "Habitat loss",
       "distinctive_features": [],
-      "population_trend": "203433"
+      "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
@@ -1124,7 +1133,7 @@
       "slogan": "",
       "group": "",
       "number_of_species": "",
-      "estimated_population_size": "203433",
+      "estimated_population_size": "",
       "age_of_sexual_maturity": "",
       "age_of_weaning": "",
       "most_distinctive_feature": "of breeding males Atlantic salmon are the largest species in the genus Salmo"
@@ -1153,7 +1162,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:01:08.474490"
+    "last_updated": "2026-03-17T00:14:04.851582"
   },
   {
     "id": "Q7785",
@@ -1312,7 +1321,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:01:14.879910"
+    "last_updated": "2026-03-17T00:14:17.795561"
   },
   {
     "id": "Q189609",
@@ -1370,7 +1379,7 @@
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
     "eol_url": "https://eol.org/pages/1055746",
-    "gbif_key": 177669293,
+    "gbif_key": 183199546,
     "wikipedia_sections": {
       "etymology": "Under the genus Ophiophagus , it is not phylogenetically a true cobra despite its common name and some resemblance. Etymology The king cobra is also referred to by the common name \" hamadryad \", especially in older literature. Hamadryas hannah was the scientific name used by Danish naturalist Theodore Edward Cantor in 1836 who described four king cobra specimens , three captured in the Sundarbans and one in the vicinity of Kolkata . 4 The origin of the species name hannah was not specified during description and has long been uncertain, but may potentially refer to Hannah Sarah Wallich, the el",
       "description": "With an average length of 3.18 to 4 m (10.4 to 13.1 ft) and a record length of 5.85 m (19.2 ft), 2 it is the world's longest venomous snake and among the heaviest. 3 Typical threat display of this elapid includes neck-flap spreading, head raising, hissing and sometimes charging. This description was improperly done, leaving it a nomen nudum at the time. In 1837, Hermann Schlegel used the name Naja bungaroides for his description of the Australian broad-headed snake , which was later reclassified into Wagler's Hoplocephalus , and used the species name Naja bungarus for the king cobra.",
@@ -1461,17 +1470,61 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:01:20.668847"
+    "last_updated": "2026-03-17T00:14:24.087631"
   },
   {
     "id": "Q270238",
     "name": "American Bullfrog",
     "scientific_name": "Lithobates catesbeianus",
-    "common_names": [],
-    "description": "Species of amphibian",
+    "common_names": [
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "ceb"
+      },
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "sv"
+      },
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "war"
+      },
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "de"
+      },
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "it"
+      },
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "es"
+      },
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "fr"
+      },
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "bg"
+      },
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "ru"
+      },
+      {
+        "name": "Lithobates catesbeianus",
+        "language": "nl"
+      }
+    ],
+    "description": "species of amphibian",
     "summary": "The American bullfrog, often simply known as the bullfrog in Canada and the United States, is a large true frog native to eastern North America. It typically inhabits large permanent water bodies such as swamps, ponds, and lakes. Bullfrogs can also be found in manmade habitats such as pools, koi ponds, canals, ditches and culverts. The bullfrog gets its name from the sound the male makes during the breeding season, which sounds similar to a bull bellowing. They are generalist carnivores, consuming a wide variety of prey. In turn, they are eaten by predators such as alligators, snakes, and birds.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
-    "images": [],
+    "images": [
+      "https://commons.wikimedia.org/wiki/File:American Bullfrog on a Lily Pad (7915817936).jpg",
+      "https://commons.wikimedia.org/wiki/File:202312 American bullfrog.svg"
+    ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
     "eol_url": "https://eol.org/pages/330963",
@@ -1511,7 +1564,7 @@
       "habitat": "It typically inhabits large permanent water bodies such as swamps , ponds , and lakes . 29 annibalism has been observed in bullfrog populations in resource-limited environments. 53 he significance of forelimb sexual dimorphism allow males to remain in amplexus with the female for longer durations increasing their chance at reproductive success in the highly competitive mating environment. American bullfrog tadpoles have also \"showed a preference for habitats containing structure.\" 61 his may reflect a lesser number of predators in these locations.",
       "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
       "group_behavior": "",
-      "conservation_status": "Vulnerable",
+      "conservation_status": "Unknown",
       "biggest_threat": "Human-wildlife conflict",
       "distinctive_features": [],
       "population_trend": ""
@@ -1556,10 +1609,11 @@
     "sources": [
       "Wikipedia",
       "iNaturalist",
+      "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:01:26.654324"
+    "last_updated": "2026-03-17T00:14:36.995349"
   },
   {
     "id": "Q165980",
@@ -1567,51 +1621,53 @@
     "scientific_name": "Danaus plexippus",
     "common_names": [
       {
-        "name": "维也纳大学",
+        "name": "黑脉金斑蝶",
         "language": "zh-hans"
       },
       {
-        "name": "維也納大學",
+        "name": "帝王斑蝶",
         "language": "zh-hant"
       },
       {
-        "name": "維也納大學",
+        "name": "帝王斑蝶",
         "language": "zh-hk"
       },
       {
-        "name": "维也纳大学",
+        "name": "黑脉金斑蝶",
         "language": "zh-cn"
       },
       {
-        "name": "维也纳大学",
+        "name": "君主斑蝶",
         "language": "zh-sg"
       },
       {
-        "name": "維也納大學",
+        "name": "帝王斑蝶",
         "language": "zh-tw"
       },
       {
-        "name": "Uniwersytet Wiedeński",
+        "name": "Danaus plexippus",
         "language": "pl"
       },
       {
-        "name": "Vienako Unibertsitatea",
-        "language": "eu"
+        "name": "Quetzalpāpalōtl",
+        "language": "nah"
       },
       {
-        "name": "Bečki univerzitet",
-        "language": "bs"
+        "name": "דנאית מלכותית",
+        "language": "he"
       },
       {
-        "name": "Universidad de Viena",
-        "language": "es"
+        "name": "monarque (papillon)",
+        "language": "fr"
       }
     ],
-    "description": "public university in Vienna, Austria",
+    "description": "milkweed butterfly in the family Nymphalidae",
     "summary": "The monarch butterfly or simply monarch is a milkweed butterfly in the family Nymphalidae. Other common names, depending on region, include milkweed, common tiger, wanderer, and black-veined brown. It is among the most familiar of North American butterflies and an iconic pollinator, although it is not an especially effective pollinator of milkweeds. Its wings feature an easily recognizable black, orange, and white pattern, with a wingspan of 8.9–10.2 cm (3.5–4.0 in). A Müllerian mimic, the viceroy butterfly, is similar in color and pattern, but is markedly smaller and has an extra black stripe across each hindwing.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg/330px-Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Wien - Universität (2).JPG"
+      "https://commons.wikimedia.org/wiki/File:Danaus plexippus MHNT femelle.jpg",
+      "https://commons.wikimedia.org/wiki/File:Danaus plexippus MHNT.jpg",
+      "https://commons.wikimedia.org/wiki/File:Monarch caterpillar (23229).jpg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
@@ -1652,7 +1708,7 @@
       "habitat": "ea levels were higher, and the entire Amazonas lowland was a vast expanse of brackish swamp that offered limited butterfly habitat. 64 Male search and capture strategies may influence copulatory success, and human-induced changes to the habitat can influence monarch mating activity at overwintering sites. 79 Larval host plants [ edit ] Asclepias syriaca , common milkweed Asclepias viridis , green antelopehorn milkweed Asclepias asperula , antelope horns milkweed Asclepias curassavica , tropical milkweed he host plants used by the monarch caterpillar include: .mw-parser-output .div-col{margin",
       "locations": "Australia, Colombia, Mexico, New Zealand, United States of America",
       "group_behavior": "Group",
-      "conservation_status": "Vulnerable",
+      "conservation_status": "Unknown",
       "biggest_threat": "Habitat loss",
       "distinctive_features": [
         "Black, orange, and white pattern on wings"
@@ -1702,7 +1758,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:01:34.405757"
+    "last_updated": "2026-03-17T00:14:52.166475"
   },
   {
     "id": "Q7316",
@@ -1710,51 +1766,53 @@
     "scientific_name": "Apis mellifera",
     "common_names": [
       {
-        "name": "Emperor Xian of Han",
-        "language": "en-ca"
+        "name": "西方蜜蜂",
+        "language": "zh"
       },
       {
-        "name": "Emperor Xian of Han",
-        "language": "en-gb"
+        "name": "erle arrunt",
+        "language": "eu"
       },
       {
-        "name": "Emperador Xian de Han",
-        "language": "ca"
-      },
-      {
-        "name": "Han Xiandi",
-        "language": "de"
-      },
-      {
-        "name": "Han Xiandi",
-        "language": "fr"
-      },
-      {
-        "name": "Kaisar Xian dari Han",
-        "language": "id"
-      },
-      {
-        "name": "献帝",
-        "language": "ja"
-      },
-      {
-        "name": "후한 헌제",
-        "language": "ko"
-      },
-      {
-        "name": "Han Xiandi",
-        "language": "nl"
-      },
-      {
-        "name": "Han Xiandi",
+        "name": "pszczoła miodna",
         "language": "pl"
+      },
+      {
+        "name": "Alghina",
+        "language": "rup"
+      },
+      {
+        "name": "Apis mellifera",
+        "language": "es"
+      },
+      {
+        "name": "Heuningby",
+        "language": "af"
+      },
+      {
+        "name": "Apis mellifera",
+        "language": "oc"
+      },
+      {
+        "name": "Lebah Eropah",
+        "language": "ms"
+      },
+      {
+        "name": "házi méh",
+        "language": "hu"
+      },
+      {
+        "name": "meemesilane",
+        "language": "et"
       }
     ],
-    "description": "Emperor of the Han dynasty from 189 to 220",
+    "description": "species of insect",
     "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Death of Consort Dong.png"
+      "https://commons.wikimedia.org/wiki/File:Apis mellifera Tanzania.jpg",
+      "https://commons.wikimedia.org/wiki/File:Apis mellifera flying.jpg",
+      "https://commons.wikimedia.org/wiki/File:202203 western honey bee.svg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
@@ -1861,6 +1919,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T00:01:44.055086"
+    "last_updated": "2026-03-17T00:15:04.080953"
   }
 ]

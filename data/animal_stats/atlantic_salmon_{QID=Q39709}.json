@@ -4,51 +4,53 @@
   "scientific_name": "Salmo salar",
   "common_names": [
     {
-      "name": "德梅因",
-      "language": "zh"
+      "name": "大西洋鲑",
+      "language": "zh-hans"
     },
     {
-      "name": "Des Moines",
-      "language": "pl"
+      "name": "大西洋鮭",
+      "language": "zh-hant"
     },
     {
-      "name": "Des Moines",
+      "name": "大西洋鮭",
+      "language": "zh-hk"
+    },
+    {
+      "name": "大西洋鲑",
+      "language": "zh-cn"
+    },
+    {
+      "name": "大西洋鲑",
+      "language": "zh-sg"
+    },
+    {
+      "name": "大西洋鮭",
+      "language": "zh-tw"
+    },
+    {
+      "name": "Lachs",
+      "language": "gsw"
+    },
+    {
+      "name": "Atlantic salmon",
+      "language": "pam"
+    },
+    {
+      "name": "Izokin",
       "language": "eu"
     },
     {
-      "name": "Des Moines",
-      "language": "qu"
-    },
-    {
-      "name": "Des Moines",
-      "language": "gd"
-    },
-    {
-      "name": "Des Moines",
-      "language": "bs"
-    },
-    {
-      "name": "Des Moines",
-      "language": "vo"
-    },
-    {
-      "name": "Des Moines",
-      "language": "es"
-    },
-    {
-      "name": "டி மொயின்",
-      "language": "ta"
-    },
-    {
-      "name": "Des Moines",
-      "language": "af"
+      "name": "łosoś szlachetny",
+      "language": "pl"
     }
   ],
-  "description": "capital city of Iowa, United States",
+  "description": "species of fish",
   "summary": "The Atlantic salmon is a species of ray-finned fish in the family Salmonidae. It is the third largest of the Salmonidae, behind Siberian taimen and Pacific Chinook salmon, growing up to 1 m (3.3 ft) in length. Atlantic salmon are found in the northern Atlantic Ocean and in rivers that flow into it. Most populations are anadromous, hatching in streams and rivers but moving out to sea as they grow where they mature, after which the adults seasonally move upstream again to spawn.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wst_atlantischer_lachs_stoer_001.jpg/330px-Wst_atlantischer_lachs_stoer_001.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Des Moines skyline.jpg"
+    "https://commons.wikimedia.org/wiki/File:Atlantischer Lachs.jpg",
+    "https://commons.wikimedia.org/wiki/File:Atlantic salmon fish.jpg",
+    "https://commons.wikimedia.org/wiki/File:202409 Atlantic Salmon.svg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_salmon",
   "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
@@ -89,10 +91,10 @@
     "habitat": "It has thus long been the target of recreational and commercial fishing , and this, as well as habitat destruction , has impacted the population in some areas. hey also undergo some endocrinological changes to adapt to osmotic differences between fresh water and seawater habitat. citation needed Wild salmon continued to disappear from many rivers during the twentieth century due to overfishing and habitat change. citation needed Egg and juvenile survival is dependent on habitat quality as Atlantic salmon are sensitive to ecological change.",
     "locations": "Canada, France, Netherlands, United Kingdom of Great Britain and Northern Ireland, United States of America",
     "group_behavior": "Pairs",
-    "conservation_status": "Near Threatened",
+    "conservation_status": "Unknown",
     "biggest_threat": "Habitat loss",
     "distinctive_features": [],
-    "population_trend": "203433"
+    "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "",
@@ -107,7 +109,7 @@
     "slogan": "",
     "group": "",
     "number_of_species": "",
-    "estimated_population_size": "203433",
+    "estimated_population_size": "",
     "age_of_sexual_maturity": "",
     "age_of_weaning": "",
     "most_distinctive_feature": "of breeding males Atlantic salmon are the largest species in the genus Salmo"
@@ -136,5 +138,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:01:08.474490"
+  "last_updated": "2026-03-17T00:14:04.851582"
 }

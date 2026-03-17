@@ -4,51 +4,52 @@
   "scientific_name": "Haliaeetus leucocephalus",
   "common_names": [
     {
-      "name": "奥胡斯",
-      "language": "zh"
+      "name": "白头海雕",
+      "language": "zh-hans"
     },
     {
-      "name": "Aarhus",
-      "language": "pl"
+      "name": "白頭海鵰",
+      "language": "zh-hant"
     },
     {
-      "name": "Aarhus",
+      "name": "白頭海鵰",
+      "language": "zh-hk"
+    },
+    {
+      "name": "白头海雕",
+      "language": "zh-cn"
+    },
+    {
+      "name": "白头海雕",
+      "language": "zh-sg"
+    },
+    {
+      "name": "白頭海鵰",
+      "language": "zh-tw"
+    },
+    {
+      "name": "itsas arrano buruzuri",
       "language": "eu"
     },
     {
-      "name": "Aarhus",
+      "name": "bielik amerykański",
+      "language": "pl"
+    },
+    {
+      "name": "Bjeloglavi orao",
       "language": "bs"
     },
     {
-      "name": "Aarhus",
-      "language": "rup"
-    },
-    {
-      "name": "Aarhus",
-      "language": "vo"
-    },
-    {
-      "name": "Aarhus",
+      "name": "Haliaeetus leucocephalus",
       "language": "es"
-    },
-    {
-      "name": "Aarhus",
-      "language": "mi"
-    },
-    {
-      "name": "Aarhus",
-      "language": "oc"
-    },
-    {
-      "name": "Aarhus",
-      "language": "hu"
     }
   ],
-  "description": "city in Central Denmark Region",
+  "description": "species of bird of prey found in North America",
   "summary": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle in the Palearctic. Its range includes most of Canada and Alaska, all of the contiguous United States, and northern Mexico. It is found near large bodies of open water with an abundant food supply and old-growth trees for nesting.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg/330px-Bald_eagle_about_to_fly_in_Alaska_%282016%29.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Århus city trafikhavn.jpg"
+    "https://commons.wikimedia.org/wiki/File:Bald Eagle (Haliaeetus leucocephalus) Kachemak Bay, Alaska.jpg",
+    "https://commons.wikimedia.org/wiki/File:Juvenile Bald Eagle, Conowingo Dam, Susquehanna River, MD 2016-01-03.jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
@@ -89,12 +90,12 @@
     "habitat": "ccupying varied habitats from the bayous of Louisiana to the onoran esert and the eastern deciduous forests of Quebec and ew England , northern birds are migratory , while southern birds are resident, remaining on their breeding territory all year. Habitat In flight during a licensed performance in ntario , anada uring training at the anadian Raptor onservancy he bald eagle occurs during its breeding season in virtually any kind of American wetland habitat such as seacoasts , rivers , large lakes or marshes or other large bodies of open water with an abundance of fish .",
     "locations": "Canada, United States of America",
     "group_behavior": "Pairs",
-    "conservation_status": "Endangered",
+    "conservation_status": "Unknown",
     "biggest_threat": "Pesticide use",
     "distinctive_features": [
       "The white plumage on the head"
     ],
-    "population_trend": "269022"
+    "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "",
@@ -109,7 +110,7 @@
     "slogan": "",
     "group": "",
     "number_of_species": "1",
-    "estimated_population_size": "269022",
+    "estimated_population_size": "",
     "age_of_sexual_maturity": "",
     "age_of_weaning": "",
     "most_distinctive_feature": "The white plumage on the head"
@@ -136,5 +137,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:00:50.334895"
+  "last_updated": "2026-03-17T00:13:22.193436"
 }

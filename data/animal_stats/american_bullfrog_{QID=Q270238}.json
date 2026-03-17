@@ -2,11 +2,55 @@
   "id": "Q270238",
   "name": "American Bullfrog",
   "scientific_name": "Lithobates catesbeianus",
-  "common_names": [],
-  "description": "Species of amphibian",
+  "common_names": [
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "ceb"
+    },
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "sv"
+    },
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "war"
+    },
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "de"
+    },
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "it"
+    },
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "es"
+    },
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "fr"
+    },
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "bg"
+    },
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "ru"
+    },
+    {
+      "name": "Lithobates catesbeianus",
+      "language": "nl"
+    }
+  ],
+  "description": "species of amphibian",
   "summary": "The American bullfrog, often simply known as the bullfrog in Canada and the United States, is a large true frog native to eastern North America. It typically inhabits large permanent water bodies such as swamps, ponds, and lakes. Bullfrogs can also be found in manmade habitats such as pools, koi ponds, canals, ditches and culverts. The bullfrog gets its name from the sound the male makes during the breeding season, which sounds similar to a bull bellowing. They are generalist carnivores, consuming a wide variety of prey. In turn, they are eaten by predators such as alligators, snakes, and birds.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/North-American-bullfrog1.jpg/330px-North-American-bullfrog1.jpg",
-  "images": [],
+  "images": [
+    "https://commons.wikimedia.org/wiki/File:American Bullfrog on a Lily Pad (7915817936).jpg",
+    "https://commons.wikimedia.org/wiki/File:202312 American bullfrog.svg"
+  ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_bullfrog",
   "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
   "eol_url": "https://eol.org/pages/330963",
@@ -46,7 +90,7 @@
     "habitat": "It typically inhabits large permanent water bodies such as swamps , ponds , and lakes . 29 annibalism has been observed in bullfrog populations in resource-limited environments. 53 he significance of forelimb sexual dimorphism allow males to remain in amplexus with the female for longer durations increasing their chance at reproductive success in the highly competitive mating environment. American bullfrog tadpoles have also \"showed a preference for habitats containing structure.\" 61 his may reflect a lesser number of predators in these locations.",
     "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
     "group_behavior": "",
-    "conservation_status": "Vulnerable",
+    "conservation_status": "Unknown",
     "biggest_threat": "Human-wildlife conflict",
     "distinctive_features": [],
     "population_trend": ""
@@ -91,8 +135,9 @@
   "sources": [
     "Wikipedia",
     "iNaturalist",
+    "Wikidata",
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:01:26.654324"
+  "last_updated": "2026-03-17T00:14:36.995349"
 }

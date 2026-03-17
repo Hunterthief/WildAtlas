@@ -4,51 +4,53 @@
   "scientific_name": "Apis mellifera",
   "common_names": [
     {
-      "name": "Emperor Xian of Han",
-      "language": "en-ca"
+      "name": "西方蜜蜂",
+      "language": "zh"
     },
     {
-      "name": "Emperor Xian of Han",
-      "language": "en-gb"
+      "name": "erle arrunt",
+      "language": "eu"
     },
     {
-      "name": "Emperador Xian de Han",
-      "language": "ca"
-    },
-    {
-      "name": "Han Xiandi",
-      "language": "de"
-    },
-    {
-      "name": "Han Xiandi",
-      "language": "fr"
-    },
-    {
-      "name": "Kaisar Xian dari Han",
-      "language": "id"
-    },
-    {
-      "name": "献帝",
-      "language": "ja"
-    },
-    {
-      "name": "후한 헌제",
-      "language": "ko"
-    },
-    {
-      "name": "Han Xiandi",
-      "language": "nl"
-    },
-    {
-      "name": "Han Xiandi",
+      "name": "pszczoła miodna",
       "language": "pl"
+    },
+    {
+      "name": "Alghina",
+      "language": "rup"
+    },
+    {
+      "name": "Apis mellifera",
+      "language": "es"
+    },
+    {
+      "name": "Heuningby",
+      "language": "af"
+    },
+    {
+      "name": "Apis mellifera",
+      "language": "oc"
+    },
+    {
+      "name": "Lebah Eropah",
+      "language": "ms"
+    },
+    {
+      "name": "házi méh",
+      "language": "hu"
+    },
+    {
+      "name": "meemesilane",
+      "language": "et"
     }
   ],
-  "description": "Emperor of the Han dynasty from 189 to 220",
+  "description": "species of insect",
   "summary": "A honey bee is a eusocial flying insect from the genus Apis of the largest bee family, Apidae. Honey bees are known for their construction of perennial nests within cavities containing hexagonal cells made of secreted wax, their large colony sizes, and their routine regurgitation of digested carbohydrates as surplus food storage in the form of honey, the lattermost of which distinguishes their hives as a prized foraging target of many mellivorous animals including honey badgers, bears and human hunter-gatherers.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/The_Lone_Pollinator.jpg/330px-The_Lone_Pollinator.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Death of Consort Dong.png"
+    "https://commons.wikimedia.org/wiki/File:Apis mellifera Tanzania.jpg",
+    "https://commons.wikimedia.org/wiki/File:Apis mellifera flying.jpg",
+    "https://commons.wikimedia.org/wiki/File:202203 western honey bee.svg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
@@ -155,5 +157,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:01:44.055086"
+  "last_updated": "2026-03-17T00:15:04.080953"
 }

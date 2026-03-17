@@ -4,51 +4,53 @@
   "scientific_name": "Carcharodon carcharias",
   "common_names": [
     {
-      "name": "圣莫尼卡",
-      "language": "zh"
+      "name": "大白鲨",
+      "language": "zh-hans"
     },
     {
-      "name": "Santa Monica",
+      "name": "大白鯊",
+      "language": "zh-hant"
+    },
+    {
+      "name": "大白鯊",
+      "language": "zh-hk"
+    },
+    {
+      "name": "大白鲨",
+      "language": "zh-cn"
+    },
+    {
+      "name": "大白鲨",
+      "language": "zh-sg"
+    },
+    {
+      "name": "食人鯊",
+      "language": "zh-tw"
+    },
+    {
+      "name": "Hiu putih",
+      "language": "jv"
+    },
+    {
+      "name": "Marrazo zuri",
       "language": "eu"
     },
     {
-      "name": "Santa Monica",
+      "name": "żarłacz biały",
       "language": "pl"
     },
     {
-      "name": "Santa Mónica",
-      "language": "es"
-    },
-    {
-      "name": "Santa Monica",
-      "language": "vo"
-    },
-    {
-      "name": "சாந்தா மொனிக்கா",
-      "language": "ta"
-    },
-    {
-      "name": "Santa Monica",
-      "language": "sw"
-    },
-    {
-      "name": "Santa Monica",
-      "language": "et"
-    },
-    {
-      "name": "سانٹا مونیکا",
-      "language": "pnb"
-    },
-    {
-      "name": "Santa Monica",
-      "language": "sv"
+      "name": "Velika bijela ajkula",
+      "language": "bs"
     }
   ],
-  "description": "beachfront city in Los Angeles County, California, United States",
+  "description": "species of large lamniform shark",
   "summary": "The great white shark, also known as the white shark, white pointer, or great white, is a large shark. It is closely related to the mako sharks, the porbeagle, and the salmon shark. It is a robustly built species with a grayish upperside and a white underside. The white shark is one of the largest living shark and fish species, being smaller than the whale shark and basking shark. It has about 300 triangular, serrated teeth that are continuously replaced. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy. The species is partially warm-blooded, an adaptation that allows it to remain active in colder waters.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/White_shark.jpg/330px-White_shark.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Ocean Avenue.jpg"
+    "https://commons.wikimedia.org/wiki/File:Great white shark.jpg",
+    "https://commons.wikimedia.org/wiki/File:202410 Great white shark.svg",
+    "https://commons.wikimedia.org/wiki/File:White shark.jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_white_shark",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
@@ -89,10 +91,10 @@
     "habitat": "White sharks inhabit tropical and temperate ocean waters around the world and can be found both along the coast and further out to sea. he authors conclude that \"sharks don't make 'mistakes' but instead continually explore their environments and routinely investigate novel objects as potential prey by biting them\". Western Australia implemented a shark cull program in 2013, but discontinued the following year in response to a recommendation by the Environmental rotection Authority . Environmental Biology of Fishes .",
     "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
     "group_behavior": "Solitary",
-    "conservation_status": "Critically Endangered",
+    "conservation_status": "Unknown",
     "biggest_threat": "Hunting and habitat degredation",
     "distinctive_features": [],
-    "population_trend": "84084"
+    "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "",
@@ -142,5 +144,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:01:01.916155"
+  "last_updated": "2026-03-17T00:13:50.565969"
 }

@@ -4,51 +4,52 @@
   "scientific_name": "Panthera tigris",
   "common_names": [
     {
-      "name": "Entrevernes",
-      "language": "de"
-    },
-    {
-      "name": "Entrevernes",
-      "language": "ca"
-    },
-    {
-      "name": "Entrevernes",
-      "language": "ceb"
-    },
-    {
-      "name": "Entrevernes",
+      "name": "tigre",
       "language": "es"
     },
     {
-      "name": "Entrevernes",
-      "language": "eu"
+      "name": "ببر",
+      "language": "ar"
     },
     {
-      "name": "Entrevernes",
-      "language": "fr"
+      "name": "Panthera tigris",
+      "language": "ast"
     },
     {
-      "name": "Entrevernes",
-      "language": "it"
+      "name": "тигър",
+      "language": "bg"
     },
     {
-      "name": "Entrevernes",
-      "language": "la"
+      "name": "বাঘ",
+      "language": "bn"
     },
     {
-      "name": "Entrevernes",
-      "language": "lmo"
+      "name": "tigre",
+      "language": "ca"
     },
     {
-      "name": "Entrevernes",
-      "language": "ms"
+      "name": "tygr",
+      "language": "cs"
+    },
+    {
+      "name": "tiger",
+      "language": "da"
+    },
+    {
+      "name": "Tiger",
+      "language": "de"
+    },
+    {
+      "name": "ببر",
+      "language": "fa"
     }
   ],
-  "description": "commune in Haute-Savoie, France",
+  "description": "species of big cat",
   "summary": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg/330px-Bengal_tiger_%28Panthera_tigris_tigris%29_female_3_crop.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Entrevernes et Doussard.jpg"
+    "https://commons.wikimedia.org/wiki/File:Adult male Royal Bengal tiger.jpg",
+    "https://commons.wikimedia.org/wiki/File:Bengal tiger (Panthera tigris tigris) female 3.jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
@@ -89,10 +90,10 @@
     "habitat": "57 59 his is supported by a Fourier analysis study showing that the striping patterns line up with their environment. 65 he tiger mainly lives in forest habitats and is highly adaptable. 67 n the Indian subcontinent, it inhabits mainly tropical and subtropical moist broadleaf forests , temperate broadleaf and mixed forests , tropical moist evergreen forests , tropical dry forests , alluvial plains and the mangrove forests of the undarbans . 68 In the Eastern Himalayas , it was documented in temperate forest up to an elevation of 4,200 m (13,800 ft) in Bhutan, of 3,630 m (11,910 ft) in the",
     "locations": "Bangladesh, China, India, Indonesia, Nepal, Russian Federation, Thailand",
     "group_behavior": "",
-    "conservation_status": "Endangered",
+    "conservation_status": "Unknown",
     "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
     "distinctive_features": [],
-    "population_trend": "217"
+    "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "",
@@ -107,7 +108,7 @@
     "slogan": "The most numerous species of tiger!",
     "group": "",
     "number_of_species": "nine",
-    "estimated_population_size": "217",
+    "estimated_population_size": "",
     "age_of_sexual_maturity": "",
     "age_of_weaning": "",
     "most_distinctive_feature": "powerful, muscular body with a large head and paws, a long tail and orange fur"
@@ -139,5 +140,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T00:00:23.484700"
+  "last_updated": "2026-03-17T00:12:42.339212"
 }
