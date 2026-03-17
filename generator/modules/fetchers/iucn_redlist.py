@@ -1,4 +1,4 @@
-# generator/modules/iucn_redlist.py
+# generator/modules/fetchers/iucn_redlist.py
 """
 IUCN Red List API Module
 
