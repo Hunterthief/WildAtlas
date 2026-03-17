@@ -1,42 +1,48 @@
-# generator/generate_animals.py
-"""
-Main Generator - Orchestrates all fetchers and extractors
-Sources: API Ninjas, Wikipedia, iNaturalist, Wikidata, GBIF, EOL
-"""
-import json, time, os, sys, re
+# =============================================================================
+# IMPORTS - Standard Library
+# =============================================================================
+import json
+import time
+import os
+import sys
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any, List
 
-# Add generator directory to Python path (CRITICAL for GitHub Actions)
+# =============================================================================
+# PATH SETUP (CRITICAL for GitHub Actions)
+# =============================================================================
 GENERATOR_DIR = Path(__file__).parent
 sys.path.insert(0, str(GENERATOR_DIR))
 
 # =============================================================================
-# IMPORTS - Core Data Sources
+# IMPORTS - Data Fetchers
 # =============================================================================
-from modules.api_ninjas import fetch_animal_data
-from fetchers.wikipedia import fetch_wikipedia_summary, fetch_wikipedia_full
-from fetchers.inaturalist import fetch_inaturalist
+from modules.fetchers.api_ninjas import fetch_animal_data
+from modules.fetchers.wikipedia import fetch_wikipedia_summary, fetch_wikipedia_full
+from modules.fetchers.inaturalist import fetch_inaturalist
+from modules.fetchers.wikidata import fetch_wikidata_properties
+from modules.fetchers.gbif_distribution import fetch_gbif_distribution
+from modules.fetchers.eol_data import fetch_eol_data
+from modules.fetchers.iucn_redlist import fetch_iucn_status
 
 # =============================================================================
 # IMPORTS - Wikipedia Extractors
 # =============================================================================
 from modules.extractors.sections import extract_wikipedia_sections
-from modules.extractors.stats import extract_stats_from_sections, extract_stats_with_context
-from modules.extractors.diet import extract_diet_from_sections
+from modules.extractors.weight import extract_weight_from_sections
+from modules.extractors.length import extract_length_from_sections
+from modules.extractors.height import extract_height_from_sections
+from modules.extractors.lifespan import extract_lifespan_from_sections
+from modules.extractors.speed import extract_speed_from_sections
 from modules.extractors.reproduction import extract_reproduction_from_sections
-from modules.extractors.conservation import extract_conservation_from_sections
+from modules.extractors.diet import extract_diet_from_sections
 from modules.extractors.behavior import extract_behavior_from_sections
+from modules.extractors.conservation import extract_conservation_from_sections
 from modules.extractors.additional_info import extract_additional_info_from_sections
-
-# =============================================================================
-# IMPORTS - Free No-Key Enhancers
-# =============================================================================
+from modules.extractors.stats import extract_stats_from_sections, extract_stats_with_context
 from modules.extractors.wikidata_enhancer import extract_wikidata_all
-from modules.extractors.gbif_distribution import extract_gbif_all
-from modules.extractors.eol_data import extract_eol_all
-
 # =============================================================================
 # SETUP PATHS
 # =============================================================================
