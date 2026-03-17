@@ -79,8 +79,8 @@
   "young_name": "Hatchlings",
   "group_name": "population",
   "physical": {
-    "weight": "",
-    "length": "",
+    "weight": "10 kg",
+    "length": "3.18–4 m",
     "height": "",
     "top_speed": "12 mph",
     "lifespan": "About 20 years"
@@ -145,5 +145,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-17T20:20:42.452278"
+  "last_updated": "2026-03-17T20:34:07.189661"
 }

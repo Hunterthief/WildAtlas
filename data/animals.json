@@ -141,7 +141,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:19:47.196505"
+    "last_updated": "2026-03-17T20:33:20.460501"
   },
   {
     "id": "Q35625",
@@ -286,7 +286,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:19:52.403275"
+    "last_updated": "2026-03-17T20:33:24.864990"
   },
   {
     "id": "Q7372",
@@ -433,7 +433,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:19:57.317226"
+    "last_updated": "2026-03-17T20:33:29.395079"
   },
   {
     "id": "Q213537",
@@ -591,7 +591,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:03.338144"
+    "last_updated": "2026-03-17T20:33:35.343248"
   },
   {
     "id": "Q25319",
@@ -675,7 +675,7 @@
     "group_name": "population",
     "physical": {
       "weight": "6.6-14lbs",
-      "length": "",
+      "length": "4 m",
       "height": "28-38 inches",
       "top_speed": "100 mph",
       "lifespan": "15-20 years in the wild"
@@ -732,7 +732,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:09.073034"
+    "last_updated": "2026-03-17T20:33:40.166900"
   },
   {
     "id": "Q43306",
@@ -873,7 +873,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:15.102852"
+    "last_updated": "2026-03-17T20:33:45.688008"
   },
   {
     "id": "Q47164",
@@ -1021,7 +1021,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:21.102893"
+    "last_updated": "2026-03-17T20:33:51.120008"
   },
   {
     "id": "Q39709",
@@ -1106,7 +1106,7 @@
     "group_name": "population",
     "physical": {
       "weight": "",
-      "length": "",
+      "length": "1 m",
       "height": "",
       "top_speed": "",
       "lifespan": ""
@@ -1163,7 +1163,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:27.132514"
+    "last_updated": "2026-03-17T20:33:57.422386"
   },
   {
     "id": "Q7785",
@@ -1324,7 +1324,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:33.483747"
+    "last_updated": "2026-03-17T20:34:02.820940"
   },
   {
     "id": "Q189609",
@@ -1407,8 +1407,8 @@
     "young_name": "Hatchlings",
     "group_name": "population",
     "physical": {
-      "weight": "",
-      "length": "",
+      "weight": "10 kg",
+      "length": "3.18–4 m",
       "height": "",
       "top_speed": "12 mph",
       "lifespan": "About 20 years"
@@ -1473,7 +1473,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:42.452278"
+    "last_updated": "2026-03-17T20:34:07.189661"
   },
   {
     "id": "Q270238",
@@ -1616,7 +1616,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:47.909978"
+    "last_updated": "2026-03-17T20:34:12.179280"
   },
   {
     "id": "Q165980",
@@ -1761,7 +1761,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:53.649949"
+    "last_updated": "2026-03-17T20:34:17.454812"
   },
   {
     "id": "Q7316",
@@ -1922,6 +1922,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-17T20:20:59.835386"
+    "last_updated": "2026-03-17T20:34:23.499991"
   }
 ]
