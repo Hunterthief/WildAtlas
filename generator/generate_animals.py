@@ -163,7 +163,44 @@ def fix_diet_based_on_taxonomy(diet, classification):
         return "Omnivore"
     
     return diet
+   # Add to generate_animals.py (before build_animal_data function)
 
+def _extract_conservation_from_wikipedia_sections(wiki_sections: Dict[str, str]) -> str:
+    """Extract conservation status from Wikipedia sections"""
+    import re
+    
+    # Check conservation section first
+    conservation_text = wiki_sections.get("conservation", "").lower()
+    threats_text = wiki_sections.get("threats", "").lower()
+    distribution_text = wiki_sections.get("distribution", "").lower()
+    
+    # IUCN status patterns
+    status_patterns = [
+        (r"critically endangered", "Critically Endangered"),
+        (r"endangered", "Endangered"),
+        (r"vulnerable", "Vulnerable"),
+        (r"near threatened", "Near Threatened"),
+        (r"least concern", "Least Concern"),
+        (r"data deficient", "Data Deficient"),
+        (r"extinct in the wild", "Extinct in the Wild"),
+        (r"extinct", "Extinct"),
+        (r"iucn.*?critically endangered", "Critically Endangered"),
+        (r"iucn.*?endangered", "Endangered"),
+        (r"iucn.*?vulnerable", "Vulnerable"),
+        (r"iucn.*?near threatened", "Near Threatened"),
+        (r"iucn.*?least concern", "Least Concern"),
+        (r"red list.*?critically endangered", "Critically Endangered"),
+        (r"red list.*?endangered", "Endangered"),
+        (r"red list.*?vulnerable", "Vulnerable"),
+    ]
+    
+    # Search all relevant sections
+    for text in [conservation_text, threats_text, distribution_text]:
+        for pattern, status in status_patterns:
+            if re.search(pattern, text):
+                return status
+    
+    return ""
 # =============================================================================
 # BUILD ANIMAL DATA
 # =============================================================================
@@ -243,11 +280,12 @@ def build_animal_data(
     # =============================================================================
     # CONSERVATION STATUS - Priority: Wikidata > Ninja > Wikipedia
     # =============================================================================
-    conservation_status = (
-        wikidata_enhanced.get("conservation", {}).get("status", "") or
-        ninja_chars.get("conservation_status", "") or
-        wiki_conservation_status
-    )
+     conservation_status = (
+    wikidata_enhanced.get("conservation", {}).get("status", "") or
+    ninja_chars.get("conservation_status", "") or
+    wiki_conservation_status or
+    _extract_conservation_from_wikipedia_sections(wiki_sections)  # ← New fallback
+)
     
     # =============================================================================
     # PHYSICAL DATA - Priority: Ninja > Wikipedia > EOL
@@ -270,16 +308,18 @@ def build_animal_data(
     diet = ninja_chars.get("diet", "") or wiki_diet or eol_data.get("trophic_level", "")
     diet = fix_diet_based_on_taxonomy(diet, classification)
     
-    ecology = {
-        "diet": diet,
-        "habitat": extract_clean_habitat(wiki_sections, gbif_data) or ninja_chars.get("habitat", ""),
-        "locations": extract_clean_locations(wiki_sections, gbif_data, ninja_locations),
-        "group_behavior": ninja_chars.get("group_behavior", "") or wiki_behavior,
-        "conservation_status": conservation_status,
-        "biggest_threat": ninja_chars.get("biggest_threat", "") or wiki_threats,
-        "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
-        "population_trend": wikidata_enhanced.get("population", "")
-    }
+    # In the ecology section of build_animal_data():
+
+ecology = {
+    "diet": diet,
+    "habitat": extract_clean_habitat(wiki_sections, gbif_data) or ninja_chars.get("habitat", ""),
+    "locations": extract_clean_locations(wiki_sections, gbif_data, ninja_locations),
+    "group_behavior": ninja_chars.get("group_behavior", "") or wiki_behavior,
+    "conservation_status": conservation_status,  # ← Now with proper fallback
+    "biggest_threat": ninja_chars.get("biggest_threat", "") or wiki_threats,
+    "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
+    "population_trend": wikidata_enhanced.get("population", "")
+}
     
     # =============================================================================
     # REPRODUCTION - Priority: Ninja > Wikipedia
