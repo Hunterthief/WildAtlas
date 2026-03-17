@@ -33,17 +33,29 @@ def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
         return None
 
 def _is_animal_entity(entity: Dict[str, Any]) -> bool:
-    """Check if Wikidata entity is an animal (not place, person, etc.)"""
+    """Check if Wikidata entity is actually an animal"""
     if not entity:
         return False
     
     claims = entity.get("claims", {})
     
-    # P31 = instance of
+    # P31 = instance of - check for animal-related QIDs
     instance_of = claims.get("P31", [])
     
     # Animal QIDs (taxon, species, etc.)
-    animal_qids = ["Q729", "Q16521", "Q190887", "Q14959704", "Q7432", "Q10878"]
+    animal_qids = [
+        "Q729",      # taxon
+        "Q16521",    # taxon name
+        "Q190887",   # species
+        "Q14959704", # animal taxon
+        "Q7432",     # animal
+        "Q10878",    # mammal
+        "Q25313",    # bird
+        "Q25306",    # fish
+        "Q25303",    # reptile
+        "Q25308",    # amphibian
+        "Q25311",    # insect
+    ]
     
     for claim in instance_of:
         qid = claim.get("mainsnak", {}).get("datavalue", {}).get("value", {}).get("id", "")
@@ -54,19 +66,28 @@ def _is_animal_entity(entity: Dict[str, Any]) -> bool:
     descriptions = entity.get("descriptions", {})
     en_desc = descriptions.get("en", {}).get("value", "").lower()
     
-    animal_keywords = ["species", "animal", "mammal", "bird", "fish", "reptile", "amphibian", "insect", "cat", "dog", "elephant", "wolf", "tiger", "shark", "turtle", "snake", "frog", "butterfly", "bee", "penguin", "eagle", "cheetah", "salmon", "cobra"]
+    # Must have animal keywords
+    animal_keywords = [
+        "species of", "animal", "mammal", "bird", "fish", "reptile", 
+        "amphibian", "insect", "cat", "dog", "elephant", "wolf", 
+        "tiger", "shark", "turtle", "snake", "frog", "butterfly", 
+        "bee", "penguin", "eagle", "cheetah", "salmon", "cobra",
+        "feline", "canine", "bear", "whale", "dolphin"
+    ]
     
-    for keyword in animal_keywords:
-        if keyword in en_desc:
-            return True
+    has_animal_keyword = any(kw in en_desc for kw in animal_keywords)
     
-    # If description mentions commune, city, person, etc. - reject
-    reject_keywords = ["commune", "city", "town", "village", "person", "politician", "university", "year", "plant", "emperor of", "dynasty"]
-    for keyword in reject_keywords:
-        if keyword in en_desc:
-            return False
+    # Reject if has non-animal keywords
+    reject_keywords = [
+        "commune", "city", "town", "village", "person", "politician", 
+        "university", "year", "plant", "emperor of", "dynasty",
+        "fish (clade)", "sharks", "commonwealth", "diplomat",
+        "merganser", "butterfly (university)", "bee (emperor)"
+    ]
     
-    return True
+    has_reject_keyword = any(kw in en_desc for kw in reject_keywords)
+    
+    return has_animal_keyword and not has_reject_keyword
 
 def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
     """Search Wikidata for QID by scientific name"""
