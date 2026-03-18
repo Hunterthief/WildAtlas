@@ -228,7 +228,7 @@ def build_animal_data(
     
     # 2. Wikipedia (NEW - with infobox)
     print(" 📖 Fetching from Wikipedia...")
-    wiki_data = fetch_wikipedia_data(name)  # Now returns sections + infobox
+    wiki_data = fetch_wikipedia_data(name)
     wiki_sections = wiki_data.get('sections', {})
     wiki_infobox = wiki_data.get('infobox', {})
     
