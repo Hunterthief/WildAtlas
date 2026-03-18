@@ -204,8 +204,8 @@ def _extract_conservation_from_wikipedia_sections(wiki_sections: Dict[str, str])
 # =============================================================================
 def build_animal_data(
     ninja_data: Dict[str, Any],
-    wiki_data: Dict[str, Any],
     wiki_sections: Dict[str, str],
+    wiki_infobox: Dict[str, str],
     inat_classification: Dict[str, Any],
     wikidata_enhanced: Dict[str, Any],
     gbif_data: Dict[str, Any],
@@ -217,7 +217,7 @@ def build_animal_data(
     """Build complete animal data with proper source priority"""
     
     print(f"======================================================================")
-    print(f"[{current}/{total}] {name} ({sci_name})")
+    print(f"Building data for: {name} ({sci_name})")
     print(f"======================================================================")
     
     # ===== Fetch from all sources =====
@@ -252,13 +252,13 @@ def build_animal_data(
     # Prepare API Ninjas physical data
     api_ninjas_physical = {}
     if ninja_data:
-        physical = ninja_data.get('physical', {})
+        chars = ninja_data.get('characteristics', {})
         api_ninjas_physical = {
-            'weight': physical.get('weight', ''),
-            'length': physical.get('length', ''),
-            'height': physical.get('height', ''),
-            'lifespan': physical.get('lifespan', ''),
-            'top_speed': physical.get('top_speed', ''),
+            'weight': chars.get('weight', ''),
+            'length': chars.get('length', ''),
+            'height': chars.get('height', ''),
+            'lifespan': chars.get('lifespan', ''),
+            'top_speed': chars.get('top_speed', ''),
         }
     
     # Extract with priority: Infobox > Wikidata > API Ninjas > Text
@@ -267,7 +267,7 @@ def build_animal_data(
         animal_name=name,
         scientific_name=sci_name,
         infobox_data=wiki_infobox,
-        wikidata_data=wikidata_data,
+        wikidata_data=wikidata_enhanced,
         api_ninjas_data=api_ninjas_physical
     )
     
@@ -559,6 +559,9 @@ def build_sources_list(
 # =============================================================================
 # MAIN GENERATION
 # =============================================================================
+# =============================================================================
+# MAIN GENERATION
+# =============================================================================
 def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[str, Any]]:
     """Generate animal data from all sources"""
     output = []
@@ -573,6 +576,7 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         print(f"[{i+1}/{total}] {name} ({sci})")
         print(f"{'='*70}")
 
+        # ===== API Ninjas =====
         print(" 🥷 Fetching from Ninja API...")
         ninja_data = fetch_animal_data(name, ninja_api_key)
         
@@ -583,14 +587,16 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
             print(f"   ⚠ No data from Ninja API for {name}")
             ninja_data = {"characteristics": {}, "taxonomy": {}, "locations": []}
 
+        # ===== Wikipedia (FIXED) =====
         print(" 📖 Fetching from Wikipedia...")
-        wiki_data = fetch_wikipedia_data(name)
+        wiki_data = fetch_wikipedia_data(name)  # ← FIXED: Use fetch_wikipedia_data
         wiki_sections = wiki_data.get('sections', {})
         wiki_infobox = wiki_data.get('infobox', {})
-
-        filled_sections = sum(1 for v in wiki_sections.values() if v and len(v) > 20)
-        print(f"   ✅ Extracted {filled_sections}/9 Wikipedia sections")
         
+        filled_sections = sum(1 for v in wiki_sections.values() if v and len(v) > 20)
+        print(f"   ✅ Extracted {filled_sections} Wikipedia sections")
+        
+        # ===== iNaturalist =====
         print(" 🔬 Fetching from iNaturalist...")
         inat_classification = fetch_inaturalist(sci)
         if inat_classification:
@@ -598,6 +604,7 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         else:
             print(f"   ⚠ No classification from iNaturalist")
         
+        # ===== Wikidata =====
         print(" 📊 Fetching from Wikidata...")
         wikidata_enhanced = extract_wikidata_all(qid, sci)
         if wikidata_enhanced:
@@ -610,6 +617,7 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         
         time.sleep(0.3)
         
+        # ===== GBIF =====
         print(" 🌍 Fetching from GBIF...")
         gbif_data = extract_gbif_all(sci)
         if gbif_data and gbif_data.get("countries"):
@@ -619,6 +627,7 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         
         time.sleep(0.3)
         
+        # ===== EOL =====
         print(" 📚 Fetching from EOL...")
         eol_data = extract_eol_all(sci)
         if eol_data and eol_data.get("page_id"):
@@ -628,17 +637,18 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         
         time.sleep(0.3)
         
+        # ===== Build Animal Data (FIXED) =====
         data = build_animal_data(
-            ninja_data, 
-            wiki_summary, 
-            wiki_sections, 
-            inat_classification,
-            wikidata_enhanced,
-            gbif_data,
-            eol_data,
-            qid, 
-            name, 
-            sci
+            ninja_data=ninja_data,
+            wiki_sections=wiki_sections,
+            wiki_infobox=wiki_infobox,
+            inat_classification=inat_classification,
+            wikidata_enhanced=wikidata_enhanced,
+            gbif_data=gbif_data,
+            eol_data=eol_data,
+            qid=qid,
+            name=name,
+            sci_name=sci
         )
         
         save_animal_file(data, name, qid)
