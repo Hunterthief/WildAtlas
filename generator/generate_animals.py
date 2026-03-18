@@ -43,6 +43,7 @@ from modules.extractors.conservation import extract_conservation_from_sections
 from modules.extractors.additional_info import extract_additional_info_from_sections
 from modules.extractors.stats import extract_stats_from_sections, extract_stats_with_context
 from modules.extractors.wikidata_enhancer import extract_wikidata_all
+
 # =============================================================================
 # SETUP PATHS
 # =============================================================================
@@ -214,37 +215,11 @@ def build_animal_data(
     name: str,
     sci_name: str
 ) -> Dict[str, Any]:
-    """Build complete animal data with proper source priority"""
+    """Build complete animal data from fetched sources - NO fetching here!"""
     
     print(f"======================================================================")
     print(f"Building data for: {name} ({sci_name})")
     print(f"======================================================================")
-    
-    # ===== Fetch from all sources =====
-    
-    # 1. API Ninjas (already working)
-    print(" 🥷 Fetching from Ninja API...")
-    ninja_data = fetch_from_ninja_api(name)
-    
-    # 2. Wikipedia (NEW - with infobox)
-    print(" 📖 Fetching from Wikipedia...")
-    wiki_data = fetch_wikipedia_data(name)
-    wiki_sections = wiki_data.get('sections', {})
-    wiki_infobox = wiki_data.get('infobox', {})
-    
-    # 3. Wikidata (NEW - with P2067 mass)
-    print(" 📊 Fetching from Wikidata...")
-    wikidata_data = fetch_wikidata_properties(qid) if qid else {}
-    
-    # 4. Other sources (iNaturalist, GBIF, EOL) - unchanged
-    print(" 🔬 Fetching from iNaturalist...")
-    inat_data = fetch_inaturalist(sci_name)
-    
-    print(" 🌍 Fetching from GBIF...")
-    gbif_data = fetch_gbif(sci_name)
-    
-    print(" 📚 Fetching from EOL...")
-    eol_data = fetch_eol(sci_name)
     
     # ===== Extract stats with proper priority =====
     print(" 📊 Extracting physical stats...")
@@ -271,55 +246,9 @@ def build_animal_data(
         api_ninjas_data=api_ninjas_physical
     )
     
-    # ===== Build final data structure =====
-    data = {
-        'id': qid,
-        'name': name,
-        'scientific_name': sci_name,
-        'physical': physical_stats,
-        'sources': build_sources_list(
-            has_ninja=bool(ninja_data),
-            has_wiki=bool(wiki_data),
-            has_wikidata=bool(wikidata_data),
-            has_inat=bool(inat_data),
-            has_gbif=bool(gbif_data),
-            has_eol=bool(eol_data)
-        ),
-        # ... rest of data structure
-    }
-    
-    return data
-
-
-def build_sources_list(
-    has_ninja: bool = False,
-    has_wiki: bool = False,
-    has_wikidata: bool = False,
-    has_inat: bool = False,
-    has_gbif: bool = False,
-    has_eol: bool = False
-) -> list:
-    """Build list of data sources used"""
-    sources = []
-    if has_ninja:
-        sources.append("API Ninjas")
-    if has_wiki:
-        sources.append("Wikipedia")
-    if has_wikidata:
-        sources.append("Wikidata")
-    if has_inat:
-        sources.append("iNaturalist")
-    if has_gbif:
-        sources.append("GBIF")
-    if has_eol:
-        sources.append("EOL")
-    return sources
-    
-    # =============================================================================
-    # ANIMAL TYPE DETECTION
-    # =============================================================================
+    # ===== Animal Type Detection =====
     animal_type = "default"
-    taxonomy_to_use = inat_classification if inat_classification else ninja_taxonomy
+    taxonomy_to_use = inat_classification if inat_classification else {}
     
     if taxonomy_to_use:
         family = taxonomy_to_use.get("family", "").lower()
@@ -332,12 +261,9 @@ def build_sources_list(
         elif "elephantidae" in family:
             animal_type = "elephant"
     
-    young_name = ninja_chars.get("name_of_young", "") or get_young_name(animal_type)
+    young_name = get_young_name(animal_type)
     
-    # =============================================================================
-    # WIKIPEDIA EXTRACTIONS (Fallback)
-    # =============================================================================
-    # Use enhanced stats extraction with animal name for better validation
+    # ===== Wikipedia Extractions (Fallback) =====
     wiki_stats = extract_stats_with_context(wiki_sections, name, sci_name)
     wiki_diet, wiki_prey = extract_diet_from_sections(wiki_sections)
     wiki_repro = extract_reproduction_from_sections(wiki_sections)
@@ -345,9 +271,7 @@ def build_sources_list(
     wiki_behavior = extract_behavior_from_sections(wiki_sections)
     wiki_additional = extract_additional_info_from_sections(wiki_sections)
     
-    # =============================================================================
-    # CLASSIFICATION - Priority: iNaturalist > Wikidata > Ninja > Wikipedia
-    # =============================================================================
+    # ===== Classification - Priority: iNaturalist > Wikidata > Ninja =====
     classification = {
         "kingdom": "",
         "phylum": "",
@@ -357,6 +281,9 @@ def build_sources_list(
         "genus": "",
         "species": sci_name
     }
+    
+    ninja_chars = ninja_data.get("characteristics", {}) if ninja_data else {}
+    ninja_taxonomy = ninja_data.get("taxonomy", {}) if ninja_data else {}
     
     if inat_classification:
         for key in classification.keys():
@@ -371,9 +298,7 @@ def build_sources_list(
             if key != "species":
                 classification[key] = ninja_taxonomy.get(key, "")
     
-    # =============================================================================
-    # CONSERVATION STATUS - Priority: Wikidata > Wikipedia > Ninja > Fallback
-    # =============================================================================
+    # ===== Conservation Status - Priority: Wikidata > Wikipedia > Ninja =====
     conservation_status = get_first_non_empty(
         wikidata_enhanced.get("conservation", {}).get("status"),
         wiki_conservation_status,
@@ -384,9 +309,7 @@ def build_sources_list(
     if not conservation_status:
         conservation_status = "Unknown"
     
-    # =============================================================================
-    # PHYSICAL DATA - Priority: Ninja > Wikipedia > EOL
-    # =============================================================================
+    # ===== Physical Data - Priority: Ninja > Wikipedia > EOL =====
     physical = {
         "weight": get_first_non_empty(
             ninja_chars.get("weight", ""),
@@ -411,15 +334,15 @@ def build_sources_list(
         )
     }
     
-    # =============================================================================
-    # ECOLOGY - Multi-source merge with cleaning
-    # =============================================================================
+    # ===== Ecology - Multi-source merge with cleaning =====
     diet = get_first_non_empty(
         ninja_chars.get("diet", ""),
         wiki_diet,
         eol_data.get("trophic_level", "")
     )
     diet = fix_diet_based_on_taxonomy(diet, classification)
+    
+    ninja_locations = ninja_data.get("locations", []) if ninja_data else []
     
     ecology = {
         "diet": diet,
@@ -443,9 +366,7 @@ def build_sources_list(
         "population_trend": wikidata_enhanced.get("population", "")
     }
     
-    # =============================================================================
-    # REPRODUCTION - Priority: Ninja > Wikipedia
-    # =============================================================================
+    # ===== Reproduction - Priority: Ninja > Wikipedia =====
     reproduction = {
         "gestation_period": get_first_non_empty(
             ninja_chars.get("gestation_period", ""),
@@ -462,9 +383,7 @@ def build_sources_list(
         )
     }
     
-    # =============================================================================
-    # ADDITIONAL INFO - Multi-source merge
-    # =============================================================================
+    # ===== Additional Info - Multi-source merge =====
     additional_info = {
         "lifestyle": ninja_chars.get("lifestyle", ""),
         "color": ninja_chars.get("color", ""),
@@ -501,9 +420,9 @@ def build_sources_list(
         )
     }
     
-    # =============================================================================
-    # BUILD FINAL DATA STRUCTURE
-    # =============================================================================
+    # ===== Build Final Data Structure =====
+    wiki_summary = {}  # Not used anymore with new fetcher
+    
     data = {
         "id": qid,
         "name": name,
@@ -538,12 +457,10 @@ def build_sources_list(
         "last_updated": datetime.now().isoformat()
     }
     
-    # =============================================================================
-    # TRACK SOURCES
-    # =============================================================================
+    # ===== Track Sources =====
     if ninja_data is not None and ninja_data.get("characteristics"):
         data["sources"].append("API Ninjas")
-    if wiki_summary and wiki_summary.get("summary"):
+    if wiki_sections:
         data["sources"].append("Wikipedia")
     if inat_classification:
         data["sources"].append("iNaturalist")
@@ -556,9 +473,32 @@ def build_sources_list(
     
     return data
 
-# =============================================================================
-# MAIN GENERATION
-# =============================================================================
+
+def build_sources_list(
+    has_ninja: bool = False,
+    has_wiki: bool = False,
+    has_wikidata: bool = False,
+    has_inat: bool = False,
+    has_gbif: bool = False,
+    has_eol: bool = False
+) -> list:
+    """Build list of data sources used"""
+    sources = []
+    if has_ninja:
+        sources.append("API Ninjas")
+    if has_wiki:
+        sources.append("Wikipedia")
+    if has_wikidata:
+        sources.append("Wikidata")
+    if has_inat:
+        sources.append("iNaturalist")
+    if has_gbif:
+        sources.append("GBIF")
+    if has_eol:
+        sources.append("EOL")
+    return sources
+
+
 # =============================================================================
 # MAIN GENERATION
 # =============================================================================
@@ -587,9 +527,9 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
             print(f"   ⚠ No data from Ninja API for {name}")
             ninja_data = {"characteristics": {}, "taxonomy": {}, "locations": []}
 
-        # ===== Wikipedia (FIXED) =====
+        # ===== Wikipedia =====
         print(" 📖 Fetching from Wikipedia...")
-        wiki_data = fetch_wikipedia_data(name)  # ← FIXED: Use fetch_wikipedia_data
+        wiki_data = fetch_wikipedia_data(name)
         wiki_sections = wiki_data.get('sections', {})
         wiki_infobox = wiki_data.get('infobox', {})
         
@@ -637,7 +577,7 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         
         time.sleep(0.3)
         
-        # ===== Build Animal Data (FIXED) =====
+        # ===== Build Animal Data =====
         data = build_animal_data(
             ninja_data=ninja_data,
             wiki_sections=wiki_sections,
@@ -666,6 +606,7 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
     print(f"{'='*70}")
     
     return output
+
 
 # =============================================================================
 # TEST ANIMALS
