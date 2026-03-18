@@ -25,7 +25,7 @@ from modules.fetchers.inaturalist import fetch_inaturalist
 from modules.fetchers.wikidata import fetch_wikidata_properties
 from modules.fetchers.gbif_distribution import extract_gbif_all
 from modules.fetchers.eol_data import extract_eol_all
-from modules.fetchers.iucn_redlist import fetch_iucn_status
+from modules.fetchers.iucn_redlist import fetch_iucn_data
 
 # =============================================================================
 # IMPORTS - Wikipedia Extractors
