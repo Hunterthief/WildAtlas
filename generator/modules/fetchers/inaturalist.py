@@ -5,6 +5,7 @@ import time
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
+# FIXED: Removed trailing spaces
 INAT_API = "https://api.inaturalist.org/v1/taxa"
 
 CLASSIFICATION_FIELDS = ["kingdom", "phylum", "class", "order", "family", "genus", "species"]
