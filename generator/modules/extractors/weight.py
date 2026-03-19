@@ -109,7 +109,19 @@ def _is_nest_or_object_weight(text: str) -> bool:
     ]
     return any(kw in text_lower for kw in object_keywords)
 
+def _is_colony_weight(text: str) -> bool:
+    """Check if weight is about colony/hive (not individual)"""
+    text_lower = text.lower()
+    colony_keywords = [
+        "colony", "hive", "colony weight", "hive weight",
+        "workers", "colony of", "hive of", "per colony"
+    ]
+    return any(kw in text_lower for kw in colony_keywords)
 
+
+# Then add this check to _extract_and_validate():
+if _is_colony_weight(match_context):
+    return None
 def _extract_and_validate(match, text: str, animal_name: str) -> Optional[str]:
     """Process a regex match and validate it"""
     groups = match.groups()
