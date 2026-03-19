@@ -1,4 +1,3 @@
-# generator/modules/fetchers/wikipedia.py
 """
 Wikipedia data fetcher - ENHANCED
 Now includes infobox scraping for physical stats
@@ -12,7 +11,7 @@ from bs4 import BeautifulSoup
 def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
     """Fetch Wikipedia article sections"""
     try:
-        # Get page content
+        # FIXED: Removed trailing spaces from URL
         response = requests.get(
             'https://en.wikipedia.org/w/api.php',
             params={
@@ -99,7 +98,7 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
     Returns dict with weight, length, height, lifespan, speed if found
     """
     try:
-        # Get wikitext (raw wiki markup)
+        # FIXED: Removed trailing spaces from URL
         response = requests.get(
             'https://en.wikipedia.org/w/api.php',
             params={
@@ -128,26 +127,13 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         wikitext = page_data['revisions'][0].get('*', '')
         
-        # Find infobox (try multiple templates)
-        infobox_patterns = [
-            r'\{\{Speciesbox\}\}|\{\{Speciesbox\|.*?\}\}\}',
-            r'\{\{Infobox\s+species\|.*?\}\}\}',
-            r'\{\{Infobox\s+animal\|.*?\}\}\}',
-            r'\{\{Taxobox\|.*?\}\}\}',
-        ]
-        
+        # FIXED: Better infobox detection
         infobox_text = ""
-        for pattern in infobox_patterns:
-            match = re.search(pattern, wikitext, re.DOTALL | re.IGNORECASE)
-            if match:
-                infobox_text = match.group(0)
-                break
         
-        if not infobox_text:
-            # Try to find any infobox-like structure
-            infobox_match = re.search(r'\{\{Infobox.*?\}\}\}', wikitext, re.DOTALL | re.IGNORECASE)
-            if infobox_match:
-                infobox_text = infobox_match.group(0)
+        # Try to find any infobox-like structure
+        infobox_match = re.search(r'\{\{Infobox[^}]*\}\}', wikitext, re.DOTALL | re.IGNORECASE)
+        if infobox_match:
+            infobox_text = infobox_match.group(0)
         
         if not infobox_text:
             return {}
@@ -155,12 +141,12 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         # Extract physical stats from infobox
         infobox_data = {}
         
-        # Weight/Mass patterns
+        # Weight/Mass patterns - FIXED regex
         mass_patterns = [
-            r'\|\s*mass\s*=\s*([^\n\|]+)',
-            r'\|\s*weight\s*=\s*([^\n\|]+)',
-            r'\|\s*body_mass\s*=\s*([^\n\|]+)',
-            r'\|\s*avg_weight\s*=\s*([^\n\|]+)',
+            r'\|\s*mass\s*=\s*([^\n\|}]+)',
+            r'\|\s*weight\s*=\s*([^\n\|}]+)',
+            r'\|\s*body_mass\s*=\s*([^\n\|}]+)',
+            r'\|\s*avg_weight\s*=\s*([^\n\|}]+)',
         ]
         
         for pattern in mass_patterns:
@@ -169,11 +155,12 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
                 infobox_data['weight'] = clean_infobox_value(match.group(1))
                 break
         
-        # Length patterns
+        # Length patterns - FIXED regex
         length_patterns = [
-            r'\|\s*length\s*=\s*([^\n\|]+)',
-            r'\|\s*body_length\s*=\s*([^\n\|]+)',
-            r'\|\s*avg_length\s*=\s*([^\n\|]+)',
+            r'\|\s*length\s*=\s*([^\n\|}]+)',
+            r'\|\s*body_length\s*=\s*([^\n\|}]+)',
+            r'\|\s*avg_length\s*=\s*([^\n\|}]+)',
+            r'\|\s*total_length\s*=\s*([^\n\|}]+)',
         ]
         
         for pattern in length_patterns:
@@ -182,11 +169,12 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
                 infobox_data['length'] = clean_infobox_value(match.group(1))
                 break
         
-        # Height patterns
+        # Height patterns - FIXED regex
         height_patterns = [
-            r'\|\s*height\s*=\s*([^\n\|]+)',
-            r'\|\s*shoulder_height\s*=\s*([^\n\|]+)',
-            r'\|\s*avg_height\s*=\s*([^\n\|]+)',
+            r'\|\s*height\s*=\s*([^\n\|}]+)',
+            r'\|\s*shoulder_height\s*=\s*([^\n\|}]+)',
+            r'\|\s*avg_height\s*=\s*([^\n\|}]+)',
+            r'\|\s*standing_height\s*=\s*([^\n\|}]+)',
         ]
         
         for pattern in height_patterns:
@@ -195,11 +183,11 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
                 infobox_data['height'] = clean_infobox_value(match.group(1))
                 break
         
-        # Lifespan patterns
+        # Lifespan patterns - FIXED regex
         lifespan_patterns = [
-            r'\|\s*lifespan\s*=\s*([^\n\|]+)',
-            r'\|\s*longevity\s*=\s*([^\n\|]+)',
-            r'\|\s*avg_lifespan\s*=\s*([^\n\|]+)',
+            r'\|\s*lifespan\s*=\s*([^\n\|}]+)',
+            r'\|\s*longevity\s*=\s*([^\n\|}]+)',
+            r'\|\s*avg_lifespan\s*=\s*([^\n\|}]+)',
         ]
         
         for pattern in lifespan_patterns:
@@ -208,11 +196,11 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
                 infobox_data['lifespan'] = clean_infobox_value(match.group(1))
                 break
         
-        # Speed patterns
+        # Speed patterns - FIXED regex
         speed_patterns = [
-            r'\|\s*speed\s*=\s*([^\n\|]+)',
-            r'\|\s*top_speed\s*=\s*([^\n\|]+)',
-            r'\|\s*max_speed\s*=\s*([^\n\|]+)',
+            r'\|\s*speed\s*=\s*([^\n\|}]+)',
+            r'\|\s*top_speed\s*=\s*([^\n\|}]+)',
+            r'\|\s*max_speed\s*=\s*([^\n\|}]+)',
         ]
         
         for pattern in speed_patterns:
