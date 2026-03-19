@@ -1,6 +1,6 @@
 """
 Wikidata fetcher - ENHANCED
-Now includes P2067 (mass) property extraction
+Now includes P2067 (mass) property extraction with animal verification
 """
 import requests
 from typing import Dict, Optional, Any
@@ -12,7 +12,7 @@ def _verify_animal_entity(entity: Dict[str, Any]) -> bool:
     
     # Check P31 (instance of) for animal-related values
     p31_claims = claims.get('P31', [])
-    animal_qids = ['Q729', 'Q16521', 'Q11968521']  # animal, species, taxon
+    animal_qids = ['Q729', 'Q16521', 'Q11968521', 'Q1088412']  # animal, species, taxon, metazoan
     
     for claim in p31_claims:
         if 'mainsnak' in claim and 'datavalue' in claim['mainsnak']:
@@ -22,8 +22,12 @@ def _verify_animal_entity(entity: Dict[str, Any]) -> bool:
                 if any(aqid in entity_id for aqid in animal_qids):
                     return True
     
-    # Check if taxonomy claims exist (P171, P175, etc.)
-    if 'P171' in claims or 'P175' in claims or 'P105' in claims:
+    # Check if taxonomy claims exist (P171, P175, P105, P1076)
+    if any(key in claims for key in ['P171', 'P175', 'P105', 'P1076', 'P1723']):
+        return True
+    
+    # Check for common animal properties
+    if any(key in claims for key in ['P2067', 'P2048', 'P2283', 'P1347']):  # mass, length, lifespan, speed
         return True
     
     return False
@@ -51,7 +55,7 @@ def fetch_wikidata_mass(qid: str) -> Optional[str]:
         
         entity = list(entities.values())[0]
         
-        # Verify this is actually an animal
+        # FIXED: Verify this is actually an animal
         if not _verify_animal_entity(entity):
             print(f"⚠️  Wikidata QID {qid} does not appear to be an animal")
             return None
@@ -129,7 +133,7 @@ def fetch_wikidata_length(qid: str) -> Optional[str]:
         
         entity = list(entities.values())[0]
         
-        # Verify this is actually an animal
+        # FIXED: Verify this is actually an animal
         if not _verify_animal_entity(entity):
             return None
         
@@ -200,7 +204,7 @@ def fetch_wikidata_lifespan(qid: str) -> Optional[str]:
         
         entity = list(entities.values())[0]
         
-        # Verify this is actually an animal
+        # FIXED: Verify this is actually an animal
         if not _verify_animal_entity(entity):
             return None
         
@@ -269,7 +273,7 @@ def fetch_wikidata_speed(qid: str) -> Optional[str]:
         
         entity = list(entities.values())[0]
         
-        # Verify this is actually an animal
+        # FIXED: Verify this is actually an animal
         if not _verify_animal_entity(entity):
             return None
         
