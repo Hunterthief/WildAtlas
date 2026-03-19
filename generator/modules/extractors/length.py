@@ -1,4 +1,3 @@
-# generator/modules/extractors/length.py
 """
 Length extraction module - IMPROVED
 Better filtering of temporal ranges vs actual length
@@ -27,8 +26,33 @@ def _is_valid_length(value: str, animal_name: str = "") -> bool:
         # Reject impossible lengths
         if num < 0.001:  # Too small
             return False
-        if num > 50:  # No animal is 50m+ (except whales)
-            animal_lower = animal_name.lower() if animal_name else ""
+        
+        # Species-specific max lengths (in meters)
+        animal_lower = animal_name.lower() if animal_name else ""
+        max_lengths = {
+            'turtle': 3.0,  # Green sea turtle max ~1.5m
+            'eagle': 1.5,  # Bald eagle ~1m
+            'wolf': 2.0,  # Gray wolf ~1.6m
+            'salmon': 1.5,  # Atlantic salmon ~1m
+            'bee': 0.05,  # Honey bee ~2.5cm
+            'butterfly': 0.15,  # Monarch ~10cm
+            'frog': 0.3,  # Bullfrog ~20cm
+            'cobra': 6.0,  # King cobra ~5.5m
+            'shark': 7.0,  # Great white ~6m
+            'elephant': 7.0,  # African elephant ~6-7m total
+            'penguin': 1.5,  # Emperor ~1.2m
+            'cheetah': 2.0,  # Cheetah ~1.5m
+            'tiger': 4.0,  # Tiger ~3.3m
+        }
+        
+        for keyword, max_len in max_lengths.items():
+            if keyword in animal_lower:
+                if num > max_len:
+                    return False
+                break
+        
+        # Default max for non-whale/shark animals
+        if num > 50:
             if "whale" not in animal_lower and "shark" not in animal_lower:
                 return False
         
@@ -46,6 +70,28 @@ def _is_temporal_range(text: str) -> bool:
         "0.21–0", "7–0", "5–0"
     ]
     return any(kw in text_lower for kw in temporal_keywords)
+
+
+def _has_negative_context(text: str) -> bool:
+    """Check if length is about wrong body part or object"""
+    text_lower = text.lower()
+    # Reject these contexts
+    reject_keywords = [
+        'nest', 'nests', 'egg', 'tail', 'wingspan', 'wing span',
+        'colony', 'hive', 'population', 'temporal', 'range',
+        'smolt', 'parr', 'juvenile', 'larva', 'hatchling'
+    ]
+    # Accept these contexts
+    accept_keywords = [
+        'body length', 'total length', 'snout-to-vent', 'head-body',
+        'measures', 'adult', 'length of'
+    ]
+    
+    has_reject = any(kw in text_lower for kw in reject_keywords)
+    has_accept = any(kw in text_lower for kw in accept_keywords)
+    
+    # Reject if has negative context without positive context
+    return has_reject and not has_accept
 
 
 def extract_length_from_sections(sections: Dict[str, str], animal_name: str = "") -> str:
@@ -96,6 +142,10 @@ def extract_length_from_sections(sections: Dict[str, str], animal_name: str = ""
             if _is_temporal_range(match_context):
                 continue
             
+            # Skip negative contexts (nests, tails, etc.)
+            if _has_negative_context(match_context):
+                continue
+            
             if len(groups) >= 3 and groups[0] and groups[1] and groups[2]:
                 candidate = f"{groups[0]}–{groups[1]} {groups[2]}"
                 if _is_valid_length(candidate, animal_name):
@@ -113,7 +163,7 @@ def extract_length_from_sections(sections: Dict[str, str], animal_name: str = ""
         m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres|meters)', clean_text, re.I)
         if m:
             context = clean_text[max(0, m.start()-150):m.end()+150]
-            if not _is_temporal_range(context):
+            if not _is_temporal_range(context) and not _has_negative_context(context):
                 return f"{m.group(1)}–{m.group(2)} {m.group(3)}"
     
     # Fish specific
@@ -121,7 +171,7 @@ def extract_length_from_sections(sections: Dict[str, str], animal_name: str = ""
         m = re.search(r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)?\s*(\d+(?:[.,]\d+)?)?\s*(m|metres|meters|cm)\s*(?:long|length)', clean_text, re.I)
         if m:
             context = clean_text[max(0, m.start()-150):m.end()+150]
-            if not _is_temporal_range(context):
+            if not _is_temporal_range(context) and not _has_negative_context(context):
                 if m.group(2):
                     return f"{m.group(1)}–{m.group(2)} {m.group(3)}"
                 else:
