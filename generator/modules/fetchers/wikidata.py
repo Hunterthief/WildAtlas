@@ -1,4 +1,3 @@
-# generator/modules/fetchers/wikidata.py
 """
 Wikidata fetcher - ENHANCED
 Now includes P2067 (mass) property extraction
@@ -7,12 +6,36 @@ import requests
 from typing import Dict, Optional, Any
 
 
+def _verify_animal_entity(entity: Dict[str, Any]) -> bool:
+    """Verify this Wikidata entity is actually an animal"""
+    claims = entity.get('claims', {})
+    
+    # Check P31 (instance of) for animal-related values
+    p31_claims = claims.get('P31', [])
+    animal_qids = ['Q729', 'Q16521', 'Q11968521']  # animal, species, taxon
+    
+    for claim in p31_claims:
+        if 'mainsnak' in claim and 'datavalue' in claim['mainsnak']:
+            value = claim['mainsnak']['datavalue'].get('value', {})
+            if isinstance(value, dict):
+                entity_id = value.get('id', '')
+                if any(aqid in entity_id for aqid in animal_qids):
+                    return True
+    
+    # Check if taxonomy claims exist (P171, P175, etc.)
+    if 'P171' in claims or 'P175' in claims or 'P105' in claims:
+        return True
+    
+    return False
+
+
 def fetch_wikidata_mass(qid: str) -> Optional[str]:
     """
     Fetch mass from Wikidata property P2067
     Returns formatted weight string or None
     """
     try:
+        # FIXED: Removed spaces in URL
         response = requests.get(
             f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
             headers={'User-Agent': 'WildAtlas/1.0'}
@@ -27,6 +50,12 @@ def fetch_wikidata_mass(qid: str) -> Optional[str]:
             return None
         
         entity = list(entities.values())[0]
+        
+        # Verify this is actually an animal
+        if not _verify_animal_entity(entity):
+            print(f"⚠️  Wikidata QID {qid} does not appear to be an animal")
+            return None
+        
         claims = entity.get('claims', {})
         
         # P2067 = mass
@@ -69,13 +98,6 @@ def fetch_wikidata_mass(qid: str) -> Optional[str]:
             
             unit_short = unit_map.get(unit, 'kg')
             
-            # Check for qualifiers (min/max values)
-            qualifiers = claim.get('qualifiers', {})
-            
-            # P1545 = series ordinal (sometimes indicates min/max)
-            # P1311 = point in time
-            
-            # For now, return single value
             return f"{amount} {unit_short}"
         
         return None
@@ -91,6 +113,7 @@ def fetch_wikidata_length(qid: str) -> Optional[str]:
     Returns formatted length string or None
     """
     try:
+        # FIXED: Removed spaces in URL
         response = requests.get(
             f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
             headers={'User-Agent': 'WildAtlas/1.0'}
@@ -105,6 +128,11 @@ def fetch_wikidata_length(qid: str) -> Optional[str]:
             return None
         
         entity = list(entities.values())[0]
+        
+        # Verify this is actually an animal
+        if not _verify_animal_entity(entity):
+            return None
+        
         claims = entity.get('claims', {})
         
         # P2048 = height/length
@@ -156,6 +184,7 @@ def fetch_wikidata_lifespan(qid: str) -> Optional[str]:
     Returns formatted lifespan string or None
     """
     try:
+        # FIXED: Removed spaces in URL
         response = requests.get(
             f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
             headers={'User-Agent': 'WildAtlas/1.0'}
@@ -170,6 +199,11 @@ def fetch_wikidata_lifespan(qid: str) -> Optional[str]:
             return None
         
         entity = list(entities.values())[0]
+        
+        # Verify this is actually an animal
+        if not _verify_animal_entity(entity):
+            return None
+        
         claims = entity.get('claims', {})
         
         # P2283 = lifespan
@@ -219,6 +253,7 @@ def fetch_wikidata_speed(qid: str) -> Optional[str]:
     Returns formatted speed string or None
     """
     try:
+        # FIXED: Removed spaces in URL
         response = requests.get(
             f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
             headers={'User-Agent': 'WildAtlas/1.0'}
@@ -233,6 +268,11 @@ def fetch_wikidata_speed(qid: str) -> Optional[str]:
             return None
         
         entity = list(entities.values())[0]
+        
+        # Verify this is actually an animal
+        if not _verify_animal_entity(entity):
+            return None
+        
         claims = entity.get('claims', {})
         
         # P1347 = top speed
