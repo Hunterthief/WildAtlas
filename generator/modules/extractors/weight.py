@@ -1,6 +1,6 @@
 # generator/modules/extractors/weight.py
 """
-Weight extraction module - V5 ELEPHANT-OPTIMIZED
+Weight extraction module - V6 ELEPHANT-OPTIMIZED
 Based on actual Wikipedia article analysis
 """
 import re
@@ -109,8 +109,9 @@ def _is_nest_or_object_weight(text: str) -> bool:
     ]
     return any(kw in text_lower for kw in object_keywords)
 
+
 def _is_colony_weight(text: str) -> bool:
-    """Check if weight is about colony/hive (not individual)"""
+    """Check if weight is about colony/hive (not individual bee)"""
     text_lower = text.lower()
     colony_keywords = [
         "colony", "hive", "colony weight", "hive weight",
@@ -119,9 +120,6 @@ def _is_colony_weight(text: str) -> bool:
     return any(kw in text_lower for kw in colony_keywords)
 
 
-# Then add this check to _extract_and_validate():
-if _is_colony_weight(match_context):
-    return None
 def _extract_and_validate(match, text: str, animal_name: str) -> Optional[str]:
     """Process a regex match and validate it"""
     groups = match.groups()
@@ -135,6 +133,8 @@ def _extract_and_validate(match, text: str, animal_name: str) -> Optional[str]:
     if _is_length_measurement(match_context):
         return None
     if _is_nest_or_object_weight(match_context):
+        return None
+    if _is_colony_weight(match_context):
         return None
     
     # Build candidate string
