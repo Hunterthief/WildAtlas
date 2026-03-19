@@ -294,10 +294,18 @@ def build_animal_data(
     }
     save_debug_log(name, qid, debug_data)
     
-    # ===== Extract stats with proper priority =====
+    # ===== Wikipedia Extractions (MUST HAPPEN FIRST) =====
     print_debug_header("EXTRACTOR INPUTS & OUTPUTS", "-")
     
     print("\n📊 Physical Stats Extraction:")
+    
+    # Extract ALL Wikipedia data FIRST before using it
+    wiki_stats = extract_stats_with_context(wiki_sections, name, sci_name)
+    wiki_diet, wiki_prey = extract_diet_from_sections(wiki_sections)
+    wiki_repro = extract_reproduction_from_sections(wiki_sections)
+    wiki_conservation_status, wiki_threats = extract_conservation_from_sections(wiki_sections)
+    wiki_behavior = extract_behavior_from_sections(wiki_sections)
+    wiki_additional = extract_additional_info_from_sections(wiki_sections)
     
     # Prepare API Ninjas physical data
     api_ninjas_physical = {}
@@ -417,6 +425,7 @@ def build_animal_data(
     print(f"\n📋 Classification: {classification}")
     
     # ===== Conservation Status - Priority: Wikidata > Wikipedia > Ninja =====
+    # NOW wiki_conservation_status is defined!
     conservation_status = get_first_non_empty(
         wikidata_enhanced.get("conservation", {}).get("status"),
         wiki_conservation_status,
@@ -433,24 +442,24 @@ def build_animal_data(
     physical = {
         "weight": get_first_non_empty(
             ninja_chars.get("weight", ""),
-            wiki_stats.get("weight", "") if (wiki_stats := extract_stats_with_context(wiki_sections, name, sci_name)) else ""
+            wiki_stats.get("weight", "")
         ),
         "length": get_first_non_empty(
             ninja_chars.get("length", ""),
-            wiki_stats.get("length", "") if 'wiki_stats' in locals() else ""
+            wiki_stats.get("length", "")
         ),
         "height": get_first_non_empty(
             ninja_chars.get("height", ""),
-            wiki_stats.get("height", "") if 'wiki_stats' in locals() else ""
+            wiki_stats.get("height", "")
         ),
         "top_speed": get_first_non_empty(
             ninja_chars.get("top_speed", ""),
-            wiki_stats.get("top_speed", "") if 'wiki_stats' in locals() else ""
+            wiki_stats.get("top_speed", "")
         ),
         "lifespan": get_first_non_empty(
             ninja_chars.get("lifespan", ""),
             eol_data.get("life_expectancy", ""),
-            wiki_stats.get("lifespan", "") if 'wiki_stats' in locals() else ""
+            wiki_stats.get("lifespan", "")
         )
     }
     
@@ -459,7 +468,7 @@ def build_animal_data(
     # ===== Ecology - Multi-source merge with cleaning =====
     diet = get_first_non_empty(
         ninja_chars.get("diet", ""),
-        wiki_diet if (wiki_diet := extract_diet_from_sections(wiki_sections)[0]) else "",
+        wiki_diet,
         eol_data.get("trophic_level", "")
     )
     diet = fix_diet_based_on_taxonomy(diet, classification)
@@ -477,12 +486,12 @@ def build_animal_data(
         ),
         "group_behavior": get_first_non_empty(
             ninja_chars.get("group_behavior", ""),
-            wiki_behavior if (wiki_behavior := extract_behavior_from_sections(wiki_sections)) else ""
+            wiki_behavior
         ),
         "conservation_status": conservation_status,
         "biggest_threat": get_first_non_empty(
             ninja_chars.get("biggest_threat", ""),
-            wiki_threats if (wiki_threats := extract_conservation_from_sections(wiki_sections)[1]) else ""
+            wiki_threats
         ),
         "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
         "population_trend": wikidata_enhanced.get("population", "")
@@ -494,15 +503,15 @@ def build_animal_data(
     reproduction = {
         "gestation_period": get_first_non_empty(
             ninja_chars.get("gestation_period", ""),
-            wiki_repro.get("gestation_period", "") if (wiki_repro := extract_reproduction_from_sections(wiki_sections)) else ""
+            wiki_repro.get("gestation_period", "")
         ),
         "average_litter_size": get_first_non_empty(
             ninja_chars.get("average_litter_size", ""),
-            wiki_repro.get("average_litter_size", "") if 'wiki_repro' in locals() else ""
+            wiki_repro.get("average_litter_size", "")
         ),
         "name_of_young": get_first_non_empty(
             ninja_chars.get("name_of_young", ""),
-            wiki_repro.get("name_of_young", "") if 'wiki_repro' in locals() else "",
+            wiki_repro.get("name_of_young", ""),
             young_name
         )
     }
@@ -516,33 +525,33 @@ def build_animal_data(
         "skin_type": ninja_chars.get("skin_type", ""),
         "prey": get_first_non_empty(
             ninja_chars.get("prey", ""),
-            wiki_prey if (wiki_prey := extract_diet_from_sections(wiki_sections)[1]) else ""
+            wiki_prey
         ),
         "slogan": ninja_chars.get("slogan", ""),
         "group": get_first_non_empty(
             ninja_chars.get("group", ""),
-            wiki_additional.get("group", "") if (wiki_additional := extract_additional_info_from_sections(wiki_sections)) else ""
+            wiki_additional.get("group", "")
         ),
         "number_of_species": get_first_non_empty(
             ninja_chars.get("number_of_species", ""),
-            wiki_additional.get("number_of_species", "") if 'wiki_additional' in locals() else ""
+            wiki_additional.get("number_of_species", "")
         ),
         "estimated_population_size": get_first_non_empty(
             ninja_chars.get("estimated_population_size", ""),
             wikidata_enhanced.get("population", ""),
-            wiki_additional.get("estimated_population_size", "") if 'wiki_additional' in locals() else ""
+            wiki_additional.get("estimated_population_size", "")
         ),
         "age_of_sexual_maturity": get_first_non_empty(
             ninja_chars.get("age_of_sexual_maturity", ""),
-            wiki_additional.get("age_of_sexual_maturity", "") if 'wiki_additional' in locals() else ""
+            wiki_additional.get("age_of_sexual_maturity", "")
         ),
         "age_of_weaning": get_first_non_empty(
             ninja_chars.get("age_of_weaning", ""),
-            wiki_additional.get("age_of_weaning", "") if 'wiki_additional' in locals() else ""
+            wiki_additional.get("age_of_weaning", "")
         ),
         "most_distinctive_feature": get_first_non_empty(
             ninja_chars.get("most_distinctive_feature", ""),
-            wiki_additional.get("most_distinctive_feature", "") if 'wiki_additional' in locals() else ""
+            wiki_additional.get("most_distinctive_feature", "")
         )
     }
     
