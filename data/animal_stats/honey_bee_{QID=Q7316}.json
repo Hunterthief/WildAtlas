@@ -55,7 +55,7 @@
   "wikipedia_url": "",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
   "eol_url": "https://eol.org/pages/1045608",
-  "gbif_key": 114902881,
+  "gbif_key": 114090926,
   "wikipedia_sections": {
     "etymology_and_name": " The genus name Apis is Latin for \"bee\".[5][6] Although modern dictionaries may refer to Apis as either honey bee or honeybee, entomologist Robert Snodgrass asserts that correct usage requires two words, i.e., honey bee, because it is a kind or type of bee. It is incorrect to run the two words together, as in dragonfly or butterfly, which are appropriate because dragonflies and butterflies are not flies.[7] Honey bee, not honeybee, is the listed common name in the Integrated Taxonomic Information System, the Entomological Society of America Common Names of Insects Database, and the Tree of Life Web Project.[8][9][10]",
     "origin,_systematics,_and_distribution": " All honey bees are nectarivorous pollinators native to mainland Afro-Eurasia,[12][13] but human migrations and colonizations to the New World since the Age of Discovery have been responsible for the introduction of multiple subspecies of the western honey bee into South America (early 16th century), North America (early 17th century) and Australia (early 19th century), resulting in the current cosmopolitan distribution of honey bees in all continents except Antarctica.[12] Honey bees appear to have their center of origin in South and Southeast Asia (including the Philippines), as all the extant species except Apis mellifera are native to that region. Notably, living representatives of the earliest lineages to diverge (Apis florea and Apis andreniformis) have their center of origin there.[13] The first Apis bees appear in the fossil record at the Eocene–Oligocene boundary (34 mya), in European deposits. The origin of these prehistoric honey bees does not necessarily indicate Europe as the place of origin of the genus, only that the bees were present in Europe by that time. Few fossil deposits are known from South Asia, the suspected region of honey bee origin, and fewer still have been thoroughly studied. No Apis species existed in the New World during human times before the introduction of A. mellifera by Europeans. Only one fossil species is documented from the New World, Apis nearctica, known from a single 14 million-year-old specimen from Nevada.[14] The close relatives of modern honey bees—e.g., bumblebees and stingless bees—are also social to some degree, and social behavior is considered to be a trait that predates the origin of the genus. Among the extant members of Apis, the more basal species make single, exposed combs, while the more recently evolved species nest in cavities and have multiple combs, which has greatly facilitated their domestication.",
@@ -186,7 +186,7 @@
       "max_lon": 164.956147,
       "count": 50
     },
-    "occurrence_count": 1124048
+    "occurrence_count": 1124356
   },
   "sources": [
     "API Ninjas",
@@ -196,5 +196,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-18T00:23:13.938957"
+  "last_updated": "2026-03-19T21:49:09.545567"
 }
