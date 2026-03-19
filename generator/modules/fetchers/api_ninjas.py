@@ -1,9 +1,8 @@
-# generator/modules/fetchers/api_ninjas.py
 """
 API Ninjas Animals API Module
 
 Free API with pre-extracted animal facts.
-Documentation: https://api-ninjas.com/api/animals  
+Documentation: https://api-ninjas.com/api/animals    
 Free tier: 100 requests/month
 """
 
