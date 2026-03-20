@@ -48,8 +48,8 @@
   "summary": "",
   "image": "",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Bald Eagle (Haliaeetus leucocephalus) Kachemak Bay, Alaska.jpg",
-    "https://commons.wikimedia.org/wiki/File:Juvenile Bald Eagle, Conowingo Dam, Susquehanna River, MD 2016-01-03.jpg"
+    "https://commons.wikimedia.org/wiki/File:Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+    "https://commons.wikimedia.org/wiki/File:Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg"
   ],
   "wikipedia_url": "",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
@@ -156,5 +156,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:56:23.603622"
+  "last_updated": "2026-03-20T02:02:05.229610"
 }

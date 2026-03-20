@@ -49,8 +49,8 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Adult male Royal Bengal tiger.jpg",
-      "https://commons.wikimedia.org/wiki/File:Bengal tiger (Panthera tigris tigris) female 3.jpg"
+      "https://commons.wikimedia.org/wiki/File:Adult_male_Royal_Bengal_tiger.jpg",
+      "https://commons.wikimedia.org/wiki/File:Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
@@ -159,7 +159,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:55:56.339526"
+    "last_updated": "2026-03-20T02:01:40.377395"
   },
   {
     "id": "Q35625",
@@ -211,8 +211,8 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Ginger Plant vs.jpg",
-      "https://commons.wikimedia.org/wiki/File:Koeh-146-no text.jpg"
+      "https://commons.wikimedia.org/wiki/File:Ginger_Plant_vs.jpg",
+      "https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
@@ -327,7 +327,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:56:02.316934"
+    "last_updated": "2026-03-20T02:01:46.219893"
   },
   {
     "id": "Q7372",
@@ -379,7 +379,7 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Great white shark south africa.jpg"
+      "https://commons.wikimedia.org/wiki/File:Great_white_shark_south_africa.jpg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
@@ -487,7 +487,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:56:08.092701"
+    "last_updated": "2026-03-20T02:01:51.170396"
   },
   {
     "id": "Q213537",
@@ -539,7 +539,7 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Eurasian wolf 2.jpg"
+      "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
@@ -661,7 +661,7 @@
         "max_lon": 151.355139,
         "count": 50
       },
-      "occurrence_count": 199044
+      "occurrence_count": 198911
     },
     "sources": [
       "Wikipedia",
@@ -670,7 +670,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:56:15.251187"
+    "last_updated": "2026-03-20T02:01:57.268180"
   },
   {
     "id": "Q25319",
@@ -722,8 +722,8 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Bald Eagle (Haliaeetus leucocephalus) Kachemak Bay, Alaska.jpg",
-      "https://commons.wikimedia.org/wiki/File:Juvenile Bald Eagle, Conowingo Dam, Susquehanna River, MD 2016-01-03.jpg"
+      "https://commons.wikimedia.org/wiki/File:Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+      "https://commons.wikimedia.org/wiki/File:Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
@@ -830,7 +830,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:56:23.603622"
+    "last_updated": "2026-03-20T02:02:05.229610"
   },
   {
     "id": "Q43306",
@@ -882,9 +882,9 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Aptenodytes forsteri -Snow Hill Island, Antarctica -adults and juvenile-8.jpg",
-      "https://commons.wikimedia.org/wiki/File:Penguin in Antarctica jumping out of the water.jpg",
-      "https://commons.wikimedia.org/wiki/File:Penguin diving statistics.svg"
+      "https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+      "https://commons.wikimedia.org/wiki/File:Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
+      "https://commons.wikimedia.org/wiki/File:Penguin_diving_statistics.svg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
@@ -980,7 +980,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:56:30.071814"
+    "last_updated": "2026-03-20T02:02:10.638680"
   },
   {
     "id": "Q47164",
@@ -1032,9 +1032,9 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Great white shark.jpg",
-      "https://commons.wikimedia.org/wiki/File:202410 Great white shark.svg",
-      "https://commons.wikimedia.org/wiki/File:White shark.jpg"
+      "https://commons.wikimedia.org/wiki/File:Great_white_shark.jpg",
+      "https://commons.wikimedia.org/wiki/File:202410_Great_white_shark.svg",
+      "https://commons.wikimedia.org/wiki/File:White_shark.jpg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
@@ -1141,7 +1141,7 @@
         "max_lon": 176.113362,
         "count": 50
       },
-      "occurrence_count": 18139
+      "occurrence_count": 18135
     },
     "sources": [
       "API Ninjas",
@@ -1151,7 +1151,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:56:36.857458"
+    "last_updated": "2026-03-20T02:02:16.201514"
   },
   {
     "id": "Q39709",
@@ -1203,9 +1203,9 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Atlantischer Lachs.jpg",
-      "https://commons.wikimedia.org/wiki/File:Atlantic salmon fish.jpg",
-      "https://commons.wikimedia.org/wiki/File:202409 Atlantic Salmon.svg"
+      "https://commons.wikimedia.org/wiki/File:Atlantischer_Lachs.jpg",
+      "https://commons.wikimedia.org/wiki/File:Atlantic_salmon_fish.jpg",
+      "https://commons.wikimedia.org/wiki/File:202409_Atlantic_Salmon.svg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
@@ -1311,7 +1311,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:56:44.797627"
+    "last_updated": "2026-03-20T02:02:22.728429"
   },
   {
     "id": "Q7785",
@@ -1363,9 +1363,9 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Green sea turtle (Chelonia mydas) Moorea.jpg",
-      "https://commons.wikimedia.org/wiki/File:Hawaii turtle 2.JPG",
-      "https://commons.wikimedia.org/wiki/File:202304 Green turtle.svg"
+      "https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+      "https://commons.wikimedia.org/wiki/File:Hawaii_turtle_2.JPG",
+      "https://commons.wikimedia.org/wiki/File:202304_Green_turtle.svg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
@@ -1478,7 +1478,7 @@
         "max_lon": 166.475121,
         "count": 50
       },
-      "occurrence_count": 252562
+      "occurrence_count": 252400
     },
     "sources": [
       "Wikipedia",
@@ -1487,7 +1487,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:56:53.698010"
+    "last_updated": "2026-03-20T02:02:30.999696"
   },
   {
     "id": "Q189609",
@@ -1539,8 +1539,8 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Merganser (53630992394).jpg",
-      "https://commons.wikimedia.org/wiki/File:Red-breasted merganser female in CP (40744).jpg"
+      "https://commons.wikimedia.org/wiki/File:Merganser_(53630992394).jpg",
+      "https://commons.wikimedia.org/wiki/File:Red-breasted_merganser_female_in_CP_(40744).jpg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
@@ -1634,7 +1634,7 @@
         "max_lon": 116.32829,
         "count": 50
       },
-      "occurrence_count": 856
+      "occurrence_count": 855
     },
     "sources": [
       "API Ninjas",
@@ -1644,7 +1644,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:56:59.272860"
+    "last_updated": "2026-03-20T02:02:35.850461"
   },
   {
     "id": "Q270238",
@@ -1696,8 +1696,8 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:American Bullfrog on a Lily Pad (7915817936).jpg",
-      "https://commons.wikimedia.org/wiki/File:202312 American bullfrog.svg"
+      "https://commons.wikimedia.org/wiki/File:American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
+      "https://commons.wikimedia.org/wiki/File:202312_American_bullfrog.svg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
@@ -1791,7 +1791,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:57:05.474975"
+    "last_updated": "2026-03-20T02:02:40.996559"
   },
   {
     "id": "Q165980",
@@ -1843,9 +1843,9 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Danaus plexippus MHNT femelle.jpg",
-      "https://commons.wikimedia.org/wiki/File:Danaus plexippus MHNT.jpg",
-      "https://commons.wikimedia.org/wiki/File:Monarch caterpillar (23229).jpg"
+      "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT_femelle.jpg",
+      "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT.jpg",
+      "https://commons.wikimedia.org/wiki/File:Monarch_caterpillar_(23229).jpg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
@@ -1955,7 +1955,7 @@
         "max_lon": 153.064852,
         "count": 50
       },
-      "occurrence_count": 748846
+      "occurrence_count": 748826
     },
     "sources": [
       "API Ninjas",
@@ -1965,7 +1965,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:57:21.793222"
+    "last_updated": "2026-03-20T02:02:56.205108"
   },
   {
     "id": "Q7316",
@@ -2017,9 +2017,9 @@
     "summary": "",
     "image": "",
     "images": [
-      "https://commons.wikimedia.org/wiki/File:Apis mellifera Tanzania.jpg",
-      "https://commons.wikimedia.org/wiki/File:Apis mellifera flying.jpg",
-      "https://commons.wikimedia.org/wiki/File:202203 western honey bee.svg"
+      "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Tanzania.jpg",
+      "https://commons.wikimedia.org/wiki/File:Apis_mellifera_flying.jpg",
+      "https://commons.wikimedia.org/wiki/File:202203_western_honey_bee.svg"
     ],
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
@@ -2155,7 +2155,7 @@
         "max_lon": 164.956147,
         "count": 50
       },
-      "occurrence_count": 1124359
+      "occurrence_count": 1124348
     },
     "sources": [
       "API Ninjas",
@@ -2165,6 +2165,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:57:31.105430"
+    "last_updated": "2026-03-20T02:03:04.183227"
   }
 ]

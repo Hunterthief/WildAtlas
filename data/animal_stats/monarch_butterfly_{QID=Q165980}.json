@@ -48,9 +48,9 @@
   "summary": "",
   "image": "",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Danaus plexippus MHNT femelle.jpg",
-    "https://commons.wikimedia.org/wiki/File:Danaus plexippus MHNT.jpg",
-    "https://commons.wikimedia.org/wiki/File:Monarch caterpillar (23229).jpg"
+    "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT_femelle.jpg",
+    "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT.jpg",
+    "https://commons.wikimedia.org/wiki/File:Monarch_caterpillar_(23229).jpg"
   ],
   "wikipedia_url": "",
   "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
@@ -160,7 +160,7 @@
       "max_lon": 153.064852,
       "count": 50
     },
-    "occurrence_count": 748846
+    "occurrence_count": 748826
   },
   "sources": [
     "API Ninjas",
@@ -170,5 +170,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:57:21.793222"
+  "last_updated": "2026-03-20T02:02:56.205108"
 }

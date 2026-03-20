@@ -48,9 +48,9 @@
   "summary": "",
   "image": "",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Green sea turtle (Chelonia mydas) Moorea.jpg",
-    "https://commons.wikimedia.org/wiki/File:Hawaii turtle 2.JPG",
-    "https://commons.wikimedia.org/wiki/File:202304 Green turtle.svg"
+    "https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+    "https://commons.wikimedia.org/wiki/File:Hawaii_turtle_2.JPG",
+    "https://commons.wikimedia.org/wiki/File:202304_Green_turtle.svg"
   ],
   "wikipedia_url": "",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
@@ -163,7 +163,7 @@
       "max_lon": 166.475121,
       "count": 50
     },
-    "occurrence_count": 252562
+    "occurrence_count": 252400
   },
   "sources": [
     "Wikipedia",
@@ -172,5 +172,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:56:53.698010"
+  "last_updated": "2026-03-20T02:02:30.999696"
 }

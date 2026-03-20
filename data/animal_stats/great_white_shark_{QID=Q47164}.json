@@ -48,9 +48,9 @@
   "summary": "",
   "image": "",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Great white shark.jpg",
-    "https://commons.wikimedia.org/wiki/File:202410 Great white shark.svg",
-    "https://commons.wikimedia.org/wiki/File:White shark.jpg"
+    "https://commons.wikimedia.org/wiki/File:Great_white_shark.jpg",
+    "https://commons.wikimedia.org/wiki/File:202410_Great_white_shark.svg",
+    "https://commons.wikimedia.org/wiki/File:White_shark.jpg"
   ],
   "wikipedia_url": "",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
@@ -157,7 +157,7 @@
       "max_lon": 176.113362,
       "count": 50
     },
-    "occurrence_count": 18139
+    "occurrence_count": 18135
   },
   "sources": [
     "API Ninjas",
@@ -167,5 +167,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:56:36.857458"
+  "last_updated": "2026-03-20T02:02:16.201514"
 }

@@ -48,9 +48,9 @@
   "summary": "",
   "image": "",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Apis mellifera Tanzania.jpg",
-    "https://commons.wikimedia.org/wiki/File:Apis mellifera flying.jpg",
-    "https://commons.wikimedia.org/wiki/File:202203 western honey bee.svg"
+    "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Tanzania.jpg",
+    "https://commons.wikimedia.org/wiki/File:Apis_mellifera_flying.jpg",
+    "https://commons.wikimedia.org/wiki/File:202203_western_honey_bee.svg"
   ],
   "wikipedia_url": "",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
@@ -186,7 +186,7 @@
       "max_lon": 164.956147,
       "count": 50
     },
-    "occurrence_count": 1124359
+    "occurrence_count": 1124348
   },
   "sources": [
     "API Ninjas",
@@ -196,5 +196,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:57:31.105430"
+  "last_updated": "2026-03-20T02:03:04.183227"
 }

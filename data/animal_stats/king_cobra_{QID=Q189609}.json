@@ -48,8 +48,8 @@
   "summary": "",
   "image": "",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Merganser (53630992394).jpg",
-    "https://commons.wikimedia.org/wiki/File:Red-breasted merganser female in CP (40744).jpg"
+    "https://commons.wikimedia.org/wiki/File:Merganser_(53630992394).jpg",
+    "https://commons.wikimedia.org/wiki/File:Red-breasted_merganser_female_in_CP_(40744).jpg"
   ],
   "wikipedia_url": "",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
@@ -143,7 +143,7 @@
       "max_lon": 116.32829,
       "count": 50
     },
-    "occurrence_count": 856
+    "occurrence_count": 855
   },
   "sources": [
     "API Ninjas",
@@ -153,5 +153,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:56:59.272860"
+  "last_updated": "2026-03-20T02:02:35.850461"
 }

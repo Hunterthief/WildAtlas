@@ -48,7 +48,7 @@
   "summary": "",
   "image": "",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Eurasian wolf 2.jpg"
+    "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg"
   ],
   "wikipedia_url": "",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
@@ -170,7 +170,7 @@
       "max_lon": 151.355139,
       "count": 50
     },
-    "occurrence_count": 199044
+    "occurrence_count": 198911
   },
   "sources": [
     "Wikipedia",
@@ -179,5 +179,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:56:15.251187"
+  "last_updated": "2026-03-20T02:01:57.268180"
 }
