@@ -185,7 +185,7 @@
             <!-- RIGHT SIDEBAR -->
             <aside class="sidebar right-sidebar">
                 
-                <!-- Location with Map -->
+                <!-- Location with Map - UPDATED FOR DISTRIBUTION IMAGE -->
                 <div class="info-card" id="location-card">
                     <div class="stat-card-header">
                         <svg class="stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -195,12 +195,17 @@
                         Location & Distribution
                     </div>
                     <div class="location-content">
-                        <div class="location-map" id="location-map">
-                            <div class="world-map-container">
-                                <img src="data/world.svg" alt="World Map" class="world-map-svg" id="world-map">
-                                <div id="location-dots"></div>
-                            </div>
+                        <!-- Distribution Image Container (shown if available) -->
+                        <div class="distribution-image-container" id="distribution-image-container" style="display: none;">
+                            <img id="distribution-image" class="distribution-image" src="" alt="Distribution Map">
                         </div>
+                        
+                        <!-- World Map Container (shown if no distribution image) -->
+                        <div class="world-map-container" id="world-map-container">
+                            <img src="data/world.svg" alt="World Map" class="world-map-svg" id="world-map">
+                            <div id="location-dots"></div>
+                        </div>
+                        
                         <p class="location-text" id="location-text">-</p>
                     </div>
                 </div>
