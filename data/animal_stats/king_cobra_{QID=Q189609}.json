@@ -51,7 +51,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1055746",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -66,7 +66,7 @@
   "group_name": "Solitary",
   "physical": {
     "weight": "10 kg",
-    "length": "",
+    "length": "3.18–4 m",
     "height": "",
     "top_speed": "12 mph",
     "lifespan": "About 20 years"
@@ -126,7 +126,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T15:13:40.473708"
+  "last_updated": "2026-03-20T15:52:04.599409"
 }

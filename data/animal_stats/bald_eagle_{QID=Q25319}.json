@@ -51,7 +51,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1228132",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -66,7 +66,7 @@
   "group_name": "flock",
   "physical": {
     "weight": "6.6-14lbs",
-    "length": "",
+    "length": "51.5–69 cm",
     "height": "28-38 inches",
     "top_speed": "100 mph",
     "lifespan": "15-20 years in the wild"
@@ -118,7 +118,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T15:12:28.033936"
+  "last_updated": "2026-03-20T15:51:13.121793"
 }
