@@ -1,7 +1,7 @@
 """
-Height extraction module - PRODUCTION v13
-FIXED: Wolf + mammals work + elephant works + fish/snakes/insects rejected
-Key: More patterns + smart validation
+Height extraction module - PRODUCTION v14
+FIXED: Reject migration distance, snake length, insect measurements
+Key: Stricter taxon rejection + better context validation
 """
 import re
 from typing import Dict, Any, Optional, List, Tuple
@@ -13,7 +13,7 @@ from typing import Dict, Any, Optional, List, Tuple
 ANIMAL_HEIGHT_RANGES = {
     # Mammals (shoulder/standing height in meters)
     'felidae': (0.3, 1.5),
-    'canidae': (0.2, 1.2),      # Wolves: 20cm-1.2m
+    'canidae': (0.2, 1.2),
     'elephantidae': (2.0, 4.5),
     'ursidae': (0.6, 3.0),
     'giraffidae': (3.0, 6.0),
@@ -34,48 +34,77 @@ ANIMAL_HEIGHT_RANGES = {
     'aves_medium': (0.2, 1.0),
     'aves_small': (0.05, 0.3),
     
-    # Reptiles (turtles have carapace height, crocodiles have body height)
+    # Reptiles (turtles have carapace height, snakes DON'T have height)
     'testudinidae': (0.1, 1.5),
     'cheloniidae': (0.1, 1.5),
     'crocodylidae': (0.3, 1.0),
+    # NO SNAKES - they use length only!
     
     # Amphibians (frogs have body length/height)
     'ranidae': (0.05, 0.3),
     'anura': (0.05, 0.3),
     'caudata': (0.05, 0.5),
     
-    # Fish - use length/body depth (we'll allow body depth only)
-    'lamnidae': (0.3, 1.5),
+    # Fish - use length/body depth (reject as height)
+    # NO FISH - they use length
     
     # Insects - use length/wingspan (reject height)
-    'insecta': (0.001, 0.15),
+    # NO INSECTS - they use length/wingspan
 }
+
+# Animal types that DON'T have meaningful height (use length instead)
+NO_HEIGHT_TAXA = [
+    'squamata',      # Snakes/lizards - use length
+    'serpentes',     # Snakes specifically
+    'elapidae',      # Cobras
+    'viperidae',     # Vipers
+    'pythonidae',    # Pythons
+    'colubridae',    # Colubrid snakes
+    'actinopterygii', # Ray-finned fish
+    'chondrichthyes', # Cartilaginous fish (sharks)
+    'insecta',       # Insects
+    'hymenoptera',   # Bees/wasps
+    'lepidoptera',   # Butterflies/moths
+    'coleoptera',    # Beetles
+    'diptera',       # Flies
+    'arthropoda',    # All arthropods (includes insects)
+]
 
 
 # =============================================================================
 # VALIDATION FUNCTIONS
 # =============================================================================
 def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str, str] = None) -> bool:
-    """Validate height value makes biological sense"""
+    """
+    Validate height value makes biological sense
+    CRITICAL: Rejects fish/snakes/insects/migration distances
+    """
     if not value or len(value) < 2:
         return False
     
     value_lower = value.lower()
     
-    # REJECT contexts
+    # ========================================================================
+    # REJECT contexts (expanded to catch migration/distance)
+    # ========================================================================
     reject_contexts = [
         'water depth', 'dive depth', 'diving depth', 'ocean depth',
         'migration distance', 'migration range', 'travel distance',
         'temporal range', 'million years', 'population size',
         'elevation', 'altitude', 'above sea',
-        'wingspan', 'wing span', 'forewing', 'hindwing'
+        'wingspan', 'wing span', 'forewing', 'hindwing',
+        'migrate', 'migratory', 'nesting', 'breeding ground',
+        'range:', 'distributed', 'found from', 'occurs from',
+        'distance of', 'distance to', 'away from'
     ]
     
     for context in reject_contexts:
         if context in value_lower:
             return False
     
+    # ========================================================================
     # Extract and validate numeric values
+    # ========================================================================
     numbers = re.findall(r'(\d+(?:[.,]?\d+)?)', value)
     if not numbers:
         return False
@@ -88,24 +117,18 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
             genus = classification.get('genus', '').lower()
             order = classification.get('order', '').lower()
             class_name = classification.get('class', '').lower()
+            phylum = classification.get('phylum', '').lower()
             
-            # REJECT: Insects (>5cm)
-            if 'insecta' in class_name or 'hymenoptera' in order or 'lepidoptera' in order:
-                if max_num > 5:
-                    return False
+            # ====================================================================
+            # CRITICAL REJECT: Animals that DON'T have height
+            # ====================================================================
+            for taxon in NO_HEIGHT_TAXA:
+                if taxon in phylum or taxon in class_name or taxon in order or taxon in family:
+                    return False  # These animals use length, not height
             
-            # REJECT: Snakes (>1m)
-            if 'squamata' in order:
-                if 'elapidae' in family or 'viperidae' in family or 'pythonidae' in family:
-                    if max_num > 1.0:
-                        return False
-            
-            # REJECT: Fish (>2m)
-            if 'actinopterygii' in class_name or 'chondrichthyes' in class_name:
-                if max_num > 2.0:
-                    return False
-            
-            # Animal-type specific validation
+            # ====================================================================
+            # Animal-type specific validation (ACCEPT legitimate ranges)
+            # ====================================================================
             expected_range = None
             
             for key, range_val in ANIMAL_HEIGHT_RANGES.items():
@@ -126,12 +149,21 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
             if expected_range:
                 value_in_meters = max_num / 100 if max_num > 10 else max_num
                 
+                # Allow 3x margin
                 if value_in_meters > expected_range[1] * 3:
                     return False
                 if value_in_meters < expected_range[0] / 10:
                     return False
         
-        if max_num > 500 or max_num < 0.001:
+        # ====================================================================
+        # General sanity checks
+        # ====================================================================
+        # REJECT: Too large (nothing is 500+ meters tall)
+        if max_num > 500:
+            return False
+        
+        # REJECT: Too small
+        if max_num < 0.001:
             return False
         
         return True
@@ -141,24 +173,31 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
 
 
 def _has_height_context(text: str, classification: Dict[str, str] = None) -> bool:
-    """Check if text has height-related context"""
+    """
+    Check if text has height-related context
+    CRITICAL: Rejects migration/distance/nesting contexts
+    """
     text_lower = text.lower()
     
+    # POSITIVE indicators (height-related)
     height_keywords = [
         'height', 'tall', 'shoulder', 'stand', 'standing', 'stood',
         'at the shoulder', 'shoulder height', 'body height',
         'upright', 'high', 'body depth',
         'males are', 'females are', 'male', 'female',
         'bulls', 'cows', 'mature', 'adult', 'fully grown',
-        'terrestrial', 'elephant', 'reaching', 'measuring', 'wolf'
+        'terrestrial', 'elephant', 'reaching', 'measuring'
     ]
     
+    # REJECT keywords (expanded to catch migration/distance)
     reject_keywords = [
         'water depth', 'dive depth', 'diving depth', 'ocean depth',
-        'migration distance', 'travel distance',
+        'migration', 'migrate', 'migratory', 'migrates',
         'elevation', 'altitude', 'above sea', 'sea level',
         'wingspan', 'wing span',
-        'temporal range', 'million years', 'population size'
+        'temporal range', 'million years', 'population size',
+        'nesting', 'breeding ground', 'range:', 'distributed',
+        'found from', 'occurs from', 'distance', 'away from'
     ]
     
     has_height = any(kw in text_lower for kw in height_keywords)
@@ -171,11 +210,11 @@ def _has_height_context(text: str, classification: Dict[str, str] = None) -> boo
 
 
 # =============================================================================
-# PATTERN DEFINITIONS - Comprehensive for all mammals
+# PATTERN DEFINITIONS - Conservative, height-specific only
 # =============================================================================
 HEIGHT_PATTERNS = [
     # =========================================================================
-    # TIER 1: Elephant-Specific Patterns (HIGHEST PRIORITY)
+    # TIER 1: Shoulder Height (Mammals ONLY - most reliable)
     # =========================================================================
     {
         'pattern': r'(?:males?|bulls?)\s+(?:are|is)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)\s*(?:\([^)]*\))?\s*(?:tall\s*)?(?:at\s+the\s+shoulder)',
@@ -209,7 +248,7 @@ HEIGHT_PATTERNS = [
     },
     
     # =========================================================================
-    # TIER 2: General Standing Height (Large Mammals, Birds, Wolves)
+    # TIER 2: Standing Height (Mammals, Birds)
     # =========================================================================
     {
         'pattern': r'stands?\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)\s*(?:tall)?',
@@ -222,16 +261,9 @@ HEIGHT_PATTERNS = [
         'format': 'range'
     },
     {
-        # Wolf pattern: "are 29-50 cm at the shoulder"
         'pattern': r'(?:are|is)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)\s+at\s+the\s+shoulder',
         'priority': 2,
         'format': 'range'
-    },
-    {
-        # Wolf pattern: "X cm tall at shoulder"
-        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|m)\s+tall\s+at\s+(?:the\s+)?shoulder',
-        'priority': 2,
-        'format': 'single'
     },
     
     # =========================================================================
@@ -239,11 +271,6 @@ HEIGHT_PATTERNS = [
     # =========================================================================
     {
         'pattern': r'reaches?\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)\s*(?:tall|high)?',
-        'priority': 3,
-        'format': 'range'
-    },
-    {
-        'pattern': r'measur(?:ing|es)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)\s*(?:tall|height|high)?',
         'priority': 3,
         'format': 'range'
     },
@@ -255,39 +282,6 @@ HEIGHT_PATTERNS = [
         'pattern': r'height\s+(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)',
         'priority': 4,
         'format': 'range'
-    },
-    {
-        # "X cm in height"
-        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|m)\s+in\s+height',
-        'priority': 4,
-        'format': 'single'
-    },
-    
-    # =========================================================================
-    # TIER 5: Body Depth (Fish/Sharks)
-    # =========================================================================
-    {
-        'pattern': r'body\s+depth\s+(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)',
-        'priority': 5,
-        'format': 'range'
-    },
-    
-    # =========================================================================
-    # TIER 6: Single Value Height
-    # =========================================================================
-    {
-        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)\s+(?:tall|height|standing|high)',
-        'priority': 6,
-        'format': 'single'
-    },
-    
-    # =========================================================================
-    # TIER 7: "Up to" Maximum Height
-    # =========================================================================
-    {
-        'pattern': r'up\s+to\s+(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|height|high)?',
-        'priority': 7,
-        'format': 'single'
     },
 ]
 
@@ -321,6 +315,17 @@ def extract_height_from_sections(
     """Extract height from Wikipedia sections"""
     if not sections:
         return ""
+    
+    # CRITICAL: Check if animal type should NOT have height
+    if classification:
+        family = classification.get('family', '').lower()
+        order = classification.get('order', '').lower()
+        class_name = classification.get('class', '').lower()
+        phylum = classification.get('phylum', '').lower()
+        
+        for taxon in NO_HEIGHT_TAXA:
+            if taxon in phylum or taxon in class_name or taxon in order or taxon in family:
+                return ""  # Snakes, fish, insects don't have height
     
     for section_name in SECTION_PRIORITY:
         if section_name in sections and sections[section_name]:
