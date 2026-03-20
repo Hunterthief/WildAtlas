@@ -65,7 +65,7 @@
   "group_name": "herd",
   "physical": {
     "weight": "",
-    "length": "2.47–2.73 m",
+    "length": "7–6 m",
     "height": "2.47–2.73 m",
     "top_speed": "",
     "lifespan": ""
@@ -127,5 +127,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:50:54.131061"
+  "last_updated": "2026-03-20T15:54:43.869735"
 }

@@ -67,7 +67,7 @@
   "group_name": "colony",
   "physical": {
     "weight": "",
-    "length": "",
+    "length": "34 m",
     "height": "",
     "top_speed": "",
     "lifespan": ""
@@ -141,5 +141,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:52:39.427911"
+  "last_updated": "2026-03-20T15:55:50.610521"
 }
