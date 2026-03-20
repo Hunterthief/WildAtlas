@@ -1,6 +1,6 @@
 """
-Height extraction module - IMPROVED
-Better pattern matching for shoulder/standing height
+Height extraction module - FIXED
+Based on analysis of 13 animal Wikipedia articles
 """
 import re
 from typing import Dict, Any, Optional
@@ -9,48 +9,26 @@ from typing import Dict, Any, Optional
 def _is_valid_height(value: str, animal_name: str = "") -> bool:
     """Validate height value makes sense"""
     try:
-        match = re.search(r'(\d+(?:[.,]\d+)?)', value)
-        if not match:
+        # Extract all numbers from value
+        numbers = re.findall(r'(\d+(?:[.,]?\d+)?)', value)
+        if not numbers:
             return False
         
-        num = float(match.group(1).replace(',', ''))
+        # Get the largest number (likely the max height)
+        max_num = max(float(n.replace(',', '').replace('.', '')) for n in numbers if n)
         
         # Reject temporal ranges
-        if "ma" in value.lower() or "m.y." in value.lower():
+        value_lower = value.lower()
+        if "ma" in value_lower or "million years" in value_lower or "temporal" in value_lower:
             return False
         
-        # Reject population numbers
-        if num > 10000:
+        # Reject population numbers (too large)
+        if max_num > 10000:
             return False
         
-        # Reject very small values
-        if num < 0.01:
+        # Reject very small values (likely not height)
+        if max_num < 0.1:
             return False
-        
-        # Species-specific validation
-        animal_lower = animal_name.lower() if animal_name else ""
-        
-        # Max heights by animal type (in meters)
-        max_heights = {
-            'elephant': 4.5,
-            'giraffe': 6.0,
-            'wolf': 1.2,
-            'eagle': 1.2,
-            'penguin': 1.5,
-            'turtle': 1.0,
-            'snake': 0.5,
-            'frog': 0.3,
-            'bee': 0.05,
-            'butterfly': 0.15,
-            'salmon': 0.5,
-            'shark': 2.0,
-        }
-        
-        for keyword, max_h in max_heights.items():
-            if keyword in animal_lower:
-                if num > max_h * 10:  # Allow some margin for unit conversion errors
-                    return False
-                break
         
         return True
     except:
@@ -60,8 +38,18 @@ def _is_valid_height(value: str, animal_name: str = "") -> bool:
 def _has_height_context(text: str) -> bool:
     """Check if text has height-related context"""
     text_lower = text.lower()
-    height_keywords = ['height', 'tall', 'shoulder', 'stand', 'at the', 'standing']
-    reject_keywords = ['temporal', 'range', 'population', 'ma ', 'million years', 'nest', 'colony']
+    
+    # Positive indicators
+    height_keywords = [
+        'height', 'tall', 'shoulder', 'stand', 'standing', 'measures',
+        'at the shoulder', 'shoulder height', 'body length', 'total length'
+    ]
+    
+    # Negative indicators (reject these)
+    reject_keywords = [
+        'temporal', 'range:', 'population', 'million years', 'ma ',
+        'nest height', 'colony', 'elevation', 'altitude'
+    ]
     
     has_height = any(kw in text_lower for kw in height_keywords)
     has_reject = any(kw in text_lower for kw in reject_keywords)
@@ -69,68 +57,103 @@ def _has_height_context(text: str) -> bool:
     return has_height and not has_reject
 
 
-def _is_temporal_range(text: str) -> bool:
-    """Check if value is a temporal range (not height)"""
-    text_lower = text.lower()
-    return "temporal" in text_lower or "range" in text_lower
-
-
 def extract_height_from_sections(sections: Dict[str, str], animal_name: str = "") -> str:
     """Extract height from Wikipedia sections"""
-    all_text = " ".join(sections.values())
     
-    if not all_text or len(all_text) < 50:
+    # Priority sections for height data (based on log analysis)
+    priority_sections = [
+        'description',
+        'characteristics', 
+        'size',
+        'anatomy',
+        'appearance',
+        'appearance_and_anatomy',
+        'physical_description'
+    ]
+    
+    # First, search priority sections
+    for section_name in priority_sections:
+        if section_name in sections and sections[section_name]:
+            text = sections[section_name]
+            result = _extract_height_from_text(text, animal_name)
+            if result:
+                return result
+    
+    # If not found, search all sections
+    all_text = " ".join(sections.values())
+    return _extract_height_from_text(all_text, animal_name)
+
+
+def _extract_height_from_text(text: str, animal_name: str = "") -> str:
+    """Extract height from text content"""
+    
+    if not text or len(text) < 50:
         return ""
     
     # Clean text
-    clean_text = re.sub(r'\[\d+\]', '', all_text)
+    clean_text = re.sub(r'\[\d+\]', '', text)
     clean_text = re.sub(r'\s+', ' ', clean_text)
     
-    # IMPROVED: More comprehensive height patterns
+    # Get context window for validation
+    text_lower = clean_text.lower()
+    
+    # IMPROVED: More flexible patterns based on actual Wikipedia formats
     height_patterns = [
-        # "reaches 67–94 cm at the shoulder"
-        r'reaches?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s*(?:at the shoulder|shoulder height|at shoulder)',
+        # Pattern 1: "reaches X–Y cm at the shoulder" (Tiger, Wolf format)
+        r'reaches?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft|inches|in)\s*(?:at the shoulder|shoulder height|tall)?',
         
-        # "stands 100 to 200 cm tall at the shoulder"
-        r'stands?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s*(?:tall|at the shoulder|shoulder height)',
+        # Pattern 2: "stands X to Y meters tall" (Elephant format)
+        r'stands?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft|inches|in)\s*(?:tall|at the shoulder)?',
         
-        # "shoulder height of 100-200 cm"
-        r'shoulder\s*height\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        # Pattern 3: "X–Y cm (A–B in) tall" (Common format)
+        r'(\d+(?:[.,]\d+)?)\s*(cm|m)\s*(?:–|-)\s*(\d+(?:[.,]\d+)?)\s*(cm|m|in|ft)\s*(?:tall|height|standing|long)?',
         
-        # "28-38 inches" (Bald Eagle) - with context
-        r'(\d+(?:[.,]\d+)?)\s*(?:-|–|to)\s*(\d+(?:[.,]\d+)?)\s*(in|inches|ft|feet)\s*(?:tall|height|standing)',
+        # Pattern 4: "measuring X to Y" (General format)
+        r'measur(?:ing|es)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft|inches|in)',
         
-        # "100cm - 120cm" (Emperor Penguin format)
-        r'(\d+(?:[.,]\d+)?)\s*(cm|m)\s*(?:-|–|to)\s*(\d+(?:[.,]\d+)?)\s*(cm|m|in|ft)',
+        # Pattern 5: "shoulder height of X–Y" (Explicit)
+        r'shoulder\s*height\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft|inches|in)',
         
-        # "measuring X to Y meters tall"
-        r'measur(?:ing|es)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:tall|height)',
+        # Pattern 6: "X cm tall" (Single value)
+        r'(\d+(?:[.,]\d+)?)\s*(cm|m|feet|ft|inches|in)\s*(?:tall|height|standing)',
         
-        # "X meters tall" (single value)
-        r'(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet)\s*(?:tall|height|standing)',
+        # Pattern 7: "up to X meters" (Max height)
+        r'up\s*to\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft|inches|in)\s*(?:tall|height)?',
+        
+        # Pattern 8: "between X and Y" (Range format)
+        r'between\s*(\d+(?:[.,]\d+)?)\s*(?:and|-|–)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft|inches|in)\s*(?:tall|height)?',
     ]
     
     for pattern in height_patterns:
-        m = re.search(pattern, clean_text, re.I)
-        if m:
+        matches = re.finditer(pattern, clean_text, re.I)
+        for m in matches:
             groups = m.groups()
-            match_context = clean_text[max(0, m.start()-150):m.end()+150]
+            
+            # Get context around match for validation
+            start = max(0, m.start() - 100)
+            end = min(len(clean_text), m.end() + 100)
+            match_context = clean_text[start:end]
+            
+            # Skip if context suggests this is NOT height
+            if not _has_height_context(match_context):
+                continue
             
             # Skip temporal ranges
-            if _is_temporal_range(match_context):
+            if "temporal" in match_context.lower() or "million years" in match_context.lower():
                 continue
             
-            # Skip negative contexts (nests, colonies)
-            if _has_height_context(match_context) == False:
-                continue
-            
-            if len(groups) >= 3 and groups[0] and groups[1] and groups[2]:
-                candidate = f"{groups[0]}–{groups[1]} {groups[2]}"
-                if _is_valid_height(candidate, animal_name):
-                    return candidate
+            # Build result based on groups
+            if len(groups) >= 3 and groups[0] and groups[2]:
+                # Has range: X–Y unit
+                candidate = f"{groups[0]}–{groups[1]} {groups[2]}" if groups[1] else f"{groups[0]} {groups[2]}"
             elif len(groups) >= 2 and groups[0] and groups[1]:
+                # Single value: X unit
                 candidate = f"{groups[0]} {groups[1]}"
-                if _is_valid_height(candidate, animal_name):
-                    return candidate
+            else:
+                continue
+            
+            # Validate and return
+            if _is_valid_height(candidate, animal_name):
+                return candidate
     
     return ""
