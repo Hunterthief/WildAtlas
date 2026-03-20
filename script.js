@@ -718,14 +718,76 @@ function scrollToOverview() {
 }
 
 // ============================================
-// Location Map Functions
+// Location Map Functions - UPDATED FOR DISTRIBUTION IMAGES
 // ============================================
+function setupLocationMap(animal) {
+    const locationCard = document.getElementById('location-card');
+    const locationText = document.getElementById('location-text');
+    const distributionImageContainer = document.getElementById('distribution-image-container');
+    const distributionImage = document.getElementById('distribution-image');
+    const worldMapContainer = document.getElementById('world-map-container');
+    const locationDots = document.getElementById('location-dots');
+    const worldMap = document.getElementById('world-map');
+    
+    if (!locationText || !animal.ecology?.locations) {
+        if (locationCard) locationCard.style.display = 'none';
+        return;
+    }
+    
+    // Set location text
+    locationText.textContent = animal.ecology.locations;
+    
+    // Check if distribution image is available
+    const distributionImageUrl = animal.distribution_image || '';
+    
+    if (distributionImageUrl && distributionImageUrl.trim()) {
+        // ✅ HAS DISTRIBUTION IMAGE - Show it, hide world map + markers
+        console.log(`🗺️ Using distribution map for ${animal.name}`);
+        
+        distributionImage.src = distributionImageUrl.trim();
+        distributionImage.alt = `${animal.name} distribution map`;
+        
+        // Add error handler for distribution image
+        distributionImage.onerror = function() {
+            console.warn(`⚠️ Distribution image failed for ${animal.name}, falling back to world map`);
+            distributionImageContainer.style.display = 'none';
+            worldMapContainer.style.display = 'block';
+            addLocationDots(animal.ecology.locations);
+        };
+        
+        distributionImage.onload = function() {
+            console.log(`✅ Distribution map loaded for ${animal.name}`);
+        };
+        
+        distributionImageContainer.style.display = 'block';
+        worldMapContainer.style.display = 'none';
+        
+        // Clear any existing dots (not needed for distribution image)
+        locationDots.innerHTML = '';
+        
+    } else {
+        // ❌ NO DISTRIBUTION IMAGE - Use world map with markers
+        console.log(`🌍 Using world map with markers for ${animal.name}`);
+        
+        distributionImageContainer.style.display = 'none';
+        worldMapContainer.style.display = 'block';
+        
+        // Wait for world map to load before adding dots
+        if (worldMap && worldMap.complete) {
+            addLocationDots(animal.ecology.locations);
+        } else if (worldMap) {
+            worldMap.addEventListener('load', () => {
+                addLocationDots(animal.ecology.locations);
+            });
+        }
+    }
+}
+
 function addLocationDots(locationsString) {
     const dotsContainer = document.getElementById('location-dots');
     if (!dotsContainer || !locationsString) return;
     
     dotsContainer.innerHTML = '';
-    
     const locations = locationsString.toLowerCase().split(',').map(l => l.trim());
     const addedDots = new Set();
     
@@ -735,14 +797,12 @@ function addLocationDots(locationsString) {
             const dotKey = `${coords.x}-${coords.y}`;
             if (!addedDots.has(dotKey)) {
                 addedDots.add(dotKey);
-                
                 const dot = document.createElement('div');
                 dot.className = 'location-dot';
                 dot.style.left = coords.x + '%';
                 dot.style.top = coords.y + '%';
                 dot.setAttribute('data-label', location);
                 dot.setAttribute('title', location);
-                
                 dotsContainer.appendChild(dot);
             }
         }
@@ -751,17 +811,14 @@ function addLocationDots(locationsString) {
 
 function findLocationCoordinates(location) {
     const loc = location.toLowerCase().trim();
-    
     if (locationCoordinates[loc]) {
         return locationCoordinates[loc];
     }
-    
     for (const key in locationCoordinates) {
         if (loc.includes(key) || key.includes(loc)) {
             return locationCoordinates[key];
         }
     }
-    
     if (loc.includes('asia') || loc.includes('east')) return locationCoordinates['asia'];
     if (loc.includes('america') || loc.includes('usa') || loc.includes('us') || loc.includes('united states')) {
         return locationCoordinates['north america'];
@@ -774,10 +831,8 @@ function findLocationCoordinates(location) {
     if (loc.includes('china')) return locationCoordinates['china'];
     if (loc.includes('russia')) return locationCoordinates['russia'];
     if (loc.includes('indonesia')) return locationCoordinates['indonesia'];
-    
     return null;
 }
-
 // ============================================
 // Time Period Functions
 // ============================================
