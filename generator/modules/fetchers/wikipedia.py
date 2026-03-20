@@ -1,6 +1,6 @@
 """
-Wikipedia data fetcher - ENHANCED
-Now includes infobox scraping for physical stats
+Wikipedia data fetcher - FIXED ✅
+Properly extracts infobox data from rendered HTML
 """
 import re
 import requests
@@ -12,7 +12,7 @@ def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
     """Fetch Wikipedia article sections"""
     try:
         response = requests.get(
-            'https://en.wikipedia.org/w/api.php',
+            'https://en.wikipedia.org/w/api.php',  # FIXED: removed trailing spaces
             params={
                 'action': 'parse',
                 'page': name,
@@ -87,129 +87,73 @@ def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
 
 def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
     """
-    Extract data from Wikipedia infobox - CRITICAL for physical stats
+    Extract data from Wikipedia infobox - FIXED VERSION ✅
+    Fetches rendered HTML and parses the infobox table directly
     Returns dict with weight, length, height, lifespan, speed if found
     """
     try:
+        # FIXED: Fetch the actual article HTML to parse infobox table
         response = requests.get(
-            'https://en.wikipedia.org/w/api.php',
-            params={
-                'action': 'query',
-                'titles': name,
-                'format': 'json',
-                'prop': 'revisions',
-                'rvprop': 'content',
-                'redirects': 1
+            f'https://en.wikipedia.org/wiki/{name}',
+            headers={
+                'User-Agent': 'WildAtlas/1.0 (contact: wildatlas@example.com)'
             },
-            headers={'User-Agent': 'WildAtlas/1.0'}
+            timeout=10
         )
         
         if response.status_code != 200:
+            print(f"⚠️ HTTP {response.status_code} for {name}")
             return {}
         
-        data = response.json()
-        pages = data.get('query', {}).get('pages', {})
-        if not pages:
-            return {}
+        soup = BeautifulSoup(response.text, 'html.parser')
         
-        page_data = list(pages.values())[0]
-        if 'revisions' not in page_data:
-            return {}
+        # Find the infobox table - multiple possible class names
+        infobox_table = soup.find('table', class_=lambda x: x and 'infobox' in x.lower())
         
-        wikitext = page_data['revisions'][0].get('*', '')
-        
-        # FIXED: Better infobox detection with multiple patterns
-        infobox_text = ""
-        
-        infobox_patterns = [
-            r'\{\{Infobox\s+species[^}]*\}\}',
-            r'\{\{Infobox\s+animal[^}]*\}\}',
-            r'\{\{Speciesbox[^}]*\}\}',
-            r'\{\{Taxobox[^}]*\}\}',
-            r'\{\{Infobox\s+bird[^}]*\}\}',
-            r'\{\{Infobox\s+fish[^}]*\}\}',
-            r'\{\{Infobox\s+reptile[^}]*\}\}',
-        ]
-        
-        for pattern in infobox_patterns:
-            match = re.search(pattern, wikitext, re.DOTALL | re.IGNORECASE)
-            if match:
-                infobox_text = match.group(0)
-                break
-        
-        # If still no infobox, try to find any infobox-like structure
-        if not infobox_text:
-            infobox_match = re.search(r'\{\{Infobox[^}]*\}\}', wikitext, re.DOTALL | re.IGNORECASE)
-            if infobox_match:
-                infobox_text = infobox_match.group(0)
-        
-        if not infobox_text:
+        if not infobox_table:
+            print(f"⚠️ No infobox found for {name}")
             return {}
         
         infobox_data = {}
         
-        # Weight/Mass patterns
-        mass_patterns = [
-            r'\|\s*mass\s*=\s*([^\n\|}]+)',
-            r'\|\s*weight\s*=\s*([^\n\|}]+)',
-            r'\|\s*body_mass\s*=\s*([^\n\|}]+)',
-        ]
+        # Extract all rows from infobox
+        rows = infobox_table.find_all('tr')
         
-        for pattern in mass_patterns:
-            match = re.search(pattern, infobox_text, re.IGNORECASE)
-            if match:
-                infobox_data['weight'] = clean_infobox_value(match.group(1))
-                break
+        # Keywords mapping for physical stats
+        stat_keywords = {
+            'weight': ['mass', 'weight', 'body mass'],
+            'length': ['length', 'body length', 'total length', 'size'],
+            'height': ['height', 'shoulder height', 'standing height'],
+            'lifespan': ['lifespan', 'longevity', 'life span'],
+            'top_speed': ['speed', 'top speed', 'maximum speed'],
+        }
         
-        # Length patterns
-        length_patterns = [
-            r'\|\s*length\s*=\s*([^\n\|}]+)',
-            r'\|\s*body_length\s*=\s*([^\n\|}]+)',
-            r'\|\s*total_length\s*=\s*([^\n\|}]+)',
-        ]
+        for row in rows:
+            header_cell = row.find('th')
+            data_cell = row.find('td')
+            
+            if not header_cell or not data_cell:
+                continue
+            
+            header_text = header_cell.get_text().strip().lower()
+            data_text = data_cell.get_text().strip()
+            
+            # Clean the data text - remove citations, references, etc.
+            data_text = re.sub(r'\[\d+\]', '', data_text)
+            data_text = re.sub(r'\[\^\d+\]', '', data_text)
+            data_text = ' '.join(data_text.split())
+            
+            # Match against our stat keywords
+            for stat_name, keywords in stat_keywords.items():
+                if any(keyword in header_text for keyword in keywords):
+                    if stat_name not in infobox_data:  # Don't overwrite if already found
+                        infobox_data[stat_name] = data_text
+                    break
         
-        for pattern in length_patterns:
-            match = re.search(pattern, infobox_text, re.IGNORECASE)
-            if match:
-                infobox_data['length'] = clean_infobox_value(match.group(1))
-                break
-        
-        # Height patterns
-        height_patterns = [
-            r'\|\s*height\s*=\s*([^\n\|}]+)',
-            r'\|\s*shoulder_height\s*=\s*([^\n\|}]+)',
-            r'\|\s*standing_height\s*=\s*([^\n\|}]+)',
-        ]
-        
-        for pattern in height_patterns:
-            match = re.search(pattern, infobox_text, re.IGNORECASE)
-            if match:
-                infobox_data['height'] = clean_infobox_value(match.group(1))
-                break
-        
-        # Lifespan patterns
-        lifespan_patterns = [
-            r'\|\s*lifespan\s*=\s*([^\n\|}]+)',
-            r'\|\s*longevity\s*=\s*([^\n\|}]+)',
-        ]
-        
-        for pattern in lifespan_patterns:
-            match = re.search(pattern, infobox_text, re.IGNORECASE)
-            if match:
-                infobox_data['lifespan'] = clean_infobox_value(match.group(1))
-                break
-        
-        # Speed patterns
-        speed_patterns = [
-            r'\|\s*speed\s*=\s*([^\n\|}]+)',
-            r'\|\s*top_speed\s*=\s*([^\n\|}]+)',
-        ]
-        
-        for pattern in speed_patterns:
-            match = re.search(pattern, infobox_text, re.IGNORECASE)
-            if match:
-                infobox_data['top_speed'] = clean_infobox_value(match.group(1))
-                break
+        if infobox_data:
+            print(f"✅ Found infobox data for {name}: {list(infobox_data.keys())}")
+        else:
+            print(f"⚠️ Infobox found but no matching stats for {name}")
         
         return infobox_data
     
@@ -218,36 +162,24 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         return {}
 
 
-def clean_infobox_value(value: str) -> str:
-    """Clean infobox value - remove wiki markup, citations, etc."""
-    if not value:
-        return ""
-    
-    value = re.sub(r'\[\[([^\]|]+)\|?([^\]]*)\]\]', r'\1\2', value)
-    value = re.sub(r'<ref.*?>.*?</ref>', '', value, flags=re.DOTALL)
-    value = re.sub(r'\[\d+\]', '', value)
-    value = re.sub(r'\{\{.*?\}\}', '', value)
-    value = re.sub(r'\s+', ' ', value)
-    value = value.strip()
-    
-    convert_match = re.search(r'\{\{convert\|([^|]+)\|([^\|]+)\|([^\|]+)\}\}', value)
-    if convert_match:
-        value = f"{convert_match.group(1)} {convert_match.group(2)}"
-    
-    return value
-
-
 def fetch_wikipedia_data(name: str) -> Dict[str, Any]:
     """
     Main Wikipedia fetcher - combines sections and infobox
     Returns combined data structure
     """
+    print(f"📚 Fetching Wikipedia data for: {name}")
+    
     sections = fetch_wikipedia_sections(name)
     infobox = fetch_wikipedia_infobox(name)
     
-    return {
+    result = {
         'sections': sections,
         'infobox': infobox,
         'has_infobox': bool(infobox),
         'has_sections': bool(sections)
     }
+    
+    print(f"📋 Infobox: {type(infobox).__name__} with {len(infobox)} keys")
+    print(f"📦 Keys: {list(infobox.keys())}")
+    
+    return result
