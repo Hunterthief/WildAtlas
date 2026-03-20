@@ -71,7 +71,7 @@ def _filename_to_direct_url(filename: str) -> str:
     hash1 = md5_hash[0]
     hash2 = md5_hash[0:2]
     
-    # Build direct URL (NO SPACES ANYWHERE)
+    # FIXED: NO SPACES IN URL
     direct_url = f"https://upload.wikimedia.org/wikipedia/commons/{hash1}/{hash2}/{filename}"
     
     return direct_url
