@@ -66,7 +66,7 @@
   "group_name": "group",
   "physical": {
     "weight": "5–175 g",
-    "length": "",
+    "length": "6 in",
     "height": "",
     "top_speed": "",
     "lifespan": "16 years"
@@ -122,5 +122,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T14:11:47.985354"
+  "last_updated": "2026-03-20T14:28:11.085636"
 }

@@ -67,7 +67,7 @@
   "group_name": "school",
   "physical": {
     "weight": "3.6–5.4 kg",
-    "length": "",
+    "length": "1 m",
     "height": "",
     "top_speed": "",
     "lifespan": ""
@@ -120,5 +120,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T14:10:47.942825"
+  "last_updated": "2026-03-20T14:27:25.082219"
 }

@@ -66,7 +66,7 @@
   "group_name": "Mammal",
   "physical": {
     "weight": "40kg - 65kg (88lbs - 140lbs)",
-    "length": "",
+    "length": "60–80 cm",
     "height": "115cm - 136cm (45in - 53in)",
     "top_speed": "70 mph",
     "lifespan": "10 - 12 years"
@@ -124,5 +124,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T14:08:47.920650"
+  "last_updated": "2026-03-20T14:25:49.208921"
 }

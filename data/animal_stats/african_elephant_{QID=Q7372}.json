@@ -65,7 +65,7 @@
   "group_name": "herd",
   "physical": {
     "weight": "",
-    "length": "",
+    "length": "30 m",
     "height": "2.47–2.73 m",
     "top_speed": "",
     "lifespan": ""
@@ -126,5 +126,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T14:09:06.328587"
+  "last_updated": "2026-03-20T14:26:12.442667"
 }
