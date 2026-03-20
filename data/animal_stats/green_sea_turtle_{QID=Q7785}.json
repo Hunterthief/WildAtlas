@@ -52,7 +52,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-  "eol_url": "https://eol.org/pages/46559469",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -138,8 +138,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T11:28:34.683943"
+  "last_updated": "2026-03-20T11:37:02.325878"
 }

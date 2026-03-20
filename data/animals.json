@@ -52,7 +52,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "https://eol.org/pages/1253183",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -122,10 +122,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:27:20.868701"
+    "last_updated": "2026-03-20T11:34:37.414997"
   },
   {
     "id": "Q35625",
@@ -180,7 +179,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "https://eol.org/pages/1271375",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -251,10 +250,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:27:27.325717"
+    "last_updated": "2026-03-20T11:34:53.014551"
   },
   {
     "id": "Q7372",
@@ -308,7 +306,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "https://eol.org/pages/55636404",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -382,10 +380,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:27:33.370874"
+    "last_updated": "2026-03-20T11:35:11.186456"
   },
   {
     "id": "Q213537",
@@ -454,7 +451,7 @@
     "group_name": "pack",
     "physical": {
       "weight": "",
-      "length": "29–50 cm",
+      "length": "",
       "height": "29–50 cm",
       "top_speed": "",
       "lifespan": ""
@@ -527,7 +524,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T11:27:42.641607"
+    "last_updated": "2026-03-20T11:35:26.730737"
   },
   {
     "id": "Q25319",
@@ -582,7 +579,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "https://eol.org/pages/1228132",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -649,10 +646,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:27:51.097898"
+    "last_updated": "2026-03-20T11:35:43.556644"
   },
   {
     "id": "Q43306",
@@ -777,7 +773,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T11:28:05.835519"
+    "last_updated": "2026-03-20T11:36:03.083590"
   },
   {
     "id": "Q47164",
@@ -833,7 +829,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-    "eol_url": "https://eol.org/pages/46559751",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -906,10 +902,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:28:13.371718"
+    "last_updated": "2026-03-20T11:36:24.906745"
   },
   {
     "id": "Q39709",
@@ -1034,7 +1029,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T11:28:21.507106"
+    "last_updated": "2026-03-20T11:36:40.232129"
   },
   {
     "id": "Q7785",
@@ -1090,7 +1085,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-    "eol_url": "https://eol.org/pages/46559469",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1176,10 +1171,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:28:34.683943"
+    "last_updated": "2026-03-20T11:37:02.325878"
   },
   {
     "id": "Q189609",
@@ -1234,7 +1228,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-    "eol_url": "https://eol.org/pages/1055746",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1309,10 +1303,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:28:40.519892"
+    "last_updated": "2026-03-20T11:37:16.923745"
   },
   {
     "id": "Q270238",
@@ -1367,7 +1360,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-    "eol_url": "https://eol.org/pages/330963",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1436,10 +1429,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:28:47.973700"
+    "last_updated": "2026-03-20T11:37:36.046209"
   },
   {
     "id": "Q165980",
@@ -1495,7 +1487,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-    "eol_url": "https://eol.org/pages/4090155",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1565,10 +1557,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:29:01.060328"
+    "last_updated": "2026-03-20T11:37:57.612962"
   },
   {
     "id": "Q7316",
@@ -1624,7 +1615,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-    "eol_url": "https://eol.org/pages/1045608",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1703,16 +1694,15 @@
         "max_lon": 164.956147,
         "count": 50
       },
-      "occurrence_count": 1123845
+      "occurrence_count": 1124383
     },
     "sources": [
       "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:29:10.475700"
+    "last_updated": "2026-03-20T11:38:14.396306"
   }
 ]

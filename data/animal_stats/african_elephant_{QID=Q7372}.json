@@ -50,7 +50,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-  "eol_url": "https://eol.org/pages/55636404",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -124,8 +124,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T11:27:33.370874"
+  "last_updated": "2026-03-20T11:35:11.186456"
 }
