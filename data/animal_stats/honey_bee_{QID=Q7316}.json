@@ -50,10 +50,9 @@
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/9/99/Apis_mellifera_flying.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg"
+    "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg"
   ],
-  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg",
+  "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
   "eol_url": "https://eol.org/pages/1045608",
@@ -145,5 +144,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T23:38:05.388664"
+  "last_updated": "2026-03-20T23:51:10.126388"
 }

@@ -48,13 +48,12 @@
   "description": "species of mammal",
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/e/e1/Indian_wolf_(Canis_lupus_pallipes)_distribution.png"
+    "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg"
   ],
-  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Indian_wolf_(Canis_lupus_pallipes)_distribution.png",
+  "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1268606",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -133,13 +132,14 @@
       "max_lon": 151.355139,
       "count": 50
     },
-    "occurrence_count": 199414
+    "occurrence_count": 199412
   },
   "sources": [
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T23:35:55.397294"
+  "last_updated": "2026-03-20T23:50:09.256569"
 }
