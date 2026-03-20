@@ -1,6 +1,6 @@
 """
-Length extraction module - PRODUCTION v5
-Fixed: Better shoulder rejection, cheetah/elephant patterns, bee mm support
+Length extraction module - PRODUCTION v6
+Fixed: Wolf shoulder rejection, cheetah body length, bee mm patterns
 Based on analysis of 13 animal Wikipedia articles
 """
 import re
@@ -104,6 +104,14 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
             if expected_range:
                 value_in_meters = max_num / 100 if max_num > 10 else max_num
                 
+                # SPECIAL: For cats (felidae), reject >3m as it's likely total length with tail
+                if 'felidae' in family and value_in_meters > 3.0:
+                    return False
+                
+                # SPECIAL: For wolves/dogs (canidae), reject <0.5m as it's likely shoulder height
+                if 'canidae' in family and value_in_meters < 0.5:
+                    return False
+                
                 # Allow 5x margin for unit conversion errors
                 if value_in_meters > expected_range[1] * 5:
                     return False
@@ -117,7 +125,7 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
 
 
 def _has_length_context(text: str, animal_name: str = "") -> bool:
-    """Check if text has length-related context - REJECT shoulder height"""
+    """Check if text has length-related context - AGGRESSIVE shoulder rejection"""
     text_lower = text.lower()
     
     # POSITIVE indicators (length-related)
@@ -129,21 +137,25 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         'typically', 'average', 'usually', 'about'
     ]
     
-    # REJECT keywords - EXPANDED shoulder rejection
+    # REJECT keywords - AGGRESSIVE shoulder/distribution rejection
     reject_keywords = [
         'temporal range', 'million years', 'ma ', 'mya',
         'wingspan', 'wing span', 'wing length',
         'egg length', 'nest length', 'colony length',
         'population size',
         'at the shoulder', 'shoulder height', 'shoulder',
-        'tall at the shoulder', 'height at shoulder'
+        'tall at the shoulder', 'height at shoulder',
+        'stands.*shoulder', 'shoulder.*tall',
+        'distribution', 'range:', 'migrat'  # Reject distribution/range text
     ]
     
-    # CRITICAL: Check for shoulder context more aggressively
+    # CRITICAL: Check for shoulder context aggressively
     if 'shoulder' in text_lower:
-        # If text mentions shoulder, it's likely height not length
-        if any(kw in text_lower for kw in ['at the', 'tall', 'height', 'stands']):
-            return False
+        return False  # Always reject shoulder mentions for length
+    
+    # CRITICAL: Check for distribution/range context
+    if any(kw in text_lower for kw in ['distribution', 'range:', 'found from', 'occurs from']):
+        return False
     
     # SPECIAL: For butterflies/bees/eagles, reject wingspan as "length"
     animal_lower = animal_name.lower() if animal_name else ""
@@ -183,22 +195,16 @@ SECTION_PRIORITY = [
 # =============================================================================
 LENGTH_PATTERNS = [
     # =========================================================================
-    # TIER 1: Explicit Length Statements (Most Reliable)
+    # TIER 1: Explicit Body Length Statements (Most Reliable)
     # =========================================================================
     {
-        # "body length of 1.5–2.5 m"
+        # "body length of 1.5–2.5 m" - PREFER this over total length
         'pattern': r'body\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
         'priority': 1,
         'format': 'range'
     },
     {
-        # "total length of 1.5–2.5 m"
-        'pattern': r'total\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
-        'priority': 1,
-        'format': 'range'
-    },
-    {
-        # "head-and-body length of 1.5–2.5 m"
+        # "head-and-body length of 1.5–2.5 m" - PREFER this for cats
         'pattern': r'(?:head-and-body|head\s*and\s*body|head-body)\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
         'priority': 1,
         'format': 'range'
@@ -217,132 +223,148 @@ LENGTH_PATTERNS = [
     },
     
     # =========================================================================
-    # TIER 2: Measurement Statements
+    # TIER 2: Total Length (Lower priority - may include tail for some animals)
+    # =========================================================================
+    {
+        # "total length of 1.5–2.5 m"
+        'pattern': r'total\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'priority': 2,
+        'format': 'range'
+    },
+    
+    # =========================================================================
+    # TIER 3: Measurement Statements
     # =========================================================================
     {
         # "measuring 1.5–2.5 m in length"
         'pattern': r'measur(?:ing|es)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s*(?:in length|long)?',
-        'priority': 2,
+        'priority': 3,
         'format': 'range'
     },
     {
         # "reaching 1.5–2.5 m in length"
         'pattern': r'reach(?:ing|es)?\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s*(?:in length|long)?',
-        'priority': 2,
+        'priority': 3,
         'format': 'range'
     },
     {
         # "grows to 1.5–2.5 m"
         'pattern': r'grows?\s+(?:to|up to|reaching)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
-        'priority': 2,
+        'priority': 3,
         'format': 'range'
     },
     
     # =========================================================================
-    # TIER 3: Simple Length Patterns
+    # TIER 4: Simple Length Patterns
     # =========================================================================
     {
         # "1.5–2.5 m in length"
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s+(?:in length|long|length)',
-        'priority': 3,
+        'priority': 4,
         'format': 'range'
     },
     {
         # "length of 1.5–2.5 m"
         'pattern': r'length\s+(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
-        'priority': 3,
+        'priority': 4,
         'format': 'range'
     },
     {
         # "average length of 1.5–2.5 m"
         'pattern': r'average\s*length\s+(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
-        'priority': 3,
+        'priority': 4,
         'format': 'range'
     },
     
     # =========================================================================
-    # TIER 4: Single Value Length
+    # TIER 5: Single Value Length
     # =========================================================================
     {
         # "up to 2.5 m"
         'pattern': r'(?:up to|reaching|to)\s+(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s*(?:in length|long)?',
-        'priority': 4,
+        'priority': 5,
         'format': 'single'
     },
     {
         # "2.5 m long"
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s+long',
-        'priority': 4,
+        'priority': 5,
         'format': 'single'
     },
     
     # =========================================================================
-    # TIER 5: Snake-Specific Patterns (often no "length" keyword)
+    # TIER 6: Snake-Specific Patterns (often no "length" keyword)
     # =========================================================================
     {
         # "reaches 3-4 m" (snakes often omit "length")
         'pattern': r'reaches?\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)',
-        'priority': 5,
+        'priority': 6,
         'format': 'range'
     },
     {
         # "typically 3-4 m" (snakes)
         'pattern': r'typically\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)',
-        'priority': 5,
+        'priority': 6,
         'format': 'range'
     },
     
     # =========================================================================
-    # TIER 6: Turtle/Frog Specific
+    # TIER 7: Turtle/Frog Specific
     # =========================================================================
     {
         # "80-120 cm carapace" (turtles)
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?)\s+carapace',
-        'priority': 6,
+        'priority': 7,
         'format': 'range'
     },
     {
         # "9-15 cm long" (frogs)
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?)\s+long',
-        'priority': 6,
+        'priority': 7,
         'format': 'range'
     },
     
     # =========================================================================
-    # TIER 7: Small Animals (Bees, Insects) - IMPROVED mm support
+    # TIER 8: Small Animals (Bees, Insects) - IMPROVED mm support
     # =========================================================================
     {
         # "10-15 mm long" (bees)
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(mm)\s+long',
-        'priority': 7,
+        'priority': 8,
         'format': 'range'
     },
     {
-        # "about 12 mm" (bees)
-        'pattern': r'(?:about|approximately|around)\s+(\d+(?:[.,]\d+)?)\s*(mm)\s+(?:long|in length)',
-        'priority': 7,
+        # "about 12 mm" (bees) - NO "long" keyword required
+        'pattern': r'(?:about|approximately|around)\s+(\d+(?:[.,]\d+)?)\s*(mm)',
+        'priority': 8,
         'format': 'single'
     },
     {
         # "12 mm in length" (bees)
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(mm)\s+in\s+length',
-        'priority': 7,
+        'priority': 8,
         'format': 'single'
     },
     {
         # "measures 12 mm" (bees)
         'pattern': r'measur(?:es|ing)\s+(\d+(?:[.,]\d+)?)\s*(mm)',
-        'priority': 7,
+        'priority': 8,
         'format': 'single'
+    },
+    {
+        # "10–15 mm" (bees) - Simple mm range without "long"
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(mm)',
+        'priority': 8,
+        'format': 'range'
     },
     
     # =========================================================================
-    # TIER 8: Fallback Patterns
+    # TIER 9: Fallback Patterns
     # =========================================================================
     {
         # "X cm" in description sections (small animals)
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|mm)\s+(?:long|length)',
-        'priority': 8,
+        'priority': 9,
         'format': 'single'
     },
 ]
