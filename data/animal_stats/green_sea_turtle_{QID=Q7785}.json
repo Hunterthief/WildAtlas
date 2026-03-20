@@ -52,6 +52,7 @@
     "https://upload.wikimedia.org/wikipedia/commons/b/bb/Hawaii_turtle_2.JPG",
     "https://upload.wikimedia.org/wikipedia/commons/4/4e/202304_Green_turtle.svg"
   ],
+  "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
   "eol_url": "",
@@ -143,5 +144,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T22:17:37.735930"
+  "last_updated": "2026-03-20T22:30:38.004186"
 }

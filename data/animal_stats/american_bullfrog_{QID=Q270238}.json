@@ -52,6 +52,7 @@
     "https://upload.wikimedia.org/wikipedia/commons/b/b9/202312_American_bullfrog.svg",
     "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lithobates_catesbeianus_distribution_cutted.png"
   ],
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lithobates_catesbeianus_distribution_cutted.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
   "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
   "eol_url": "",
@@ -125,5 +126,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T22:18:08.848667"
+  "last_updated": "2026-03-20T22:31:08.783367"
 }

@@ -52,6 +52,7 @@
     "https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/4/4c/Penguin_diving_statistics.svg"
   ],
+  "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
   "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
   "eol_url": "",
@@ -122,5 +123,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T22:16:47.648465"
+  "last_updated": "2026-03-20T22:29:49.051823"
 }

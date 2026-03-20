@@ -51,6 +51,7 @@
     "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/a/a9/Present_distribution_of_the_gray_wolf_subspecies_-_Eurasian_wolf_(Canis_lupus_lupus)_updated.png"
   ],
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Present_distribution_of_the_gray_wolf_subspecies_-_Eurasian_wolf_(Canis_lupus_lupus)_updated.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
   "eol_url": "",
@@ -140,5 +141,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T22:16:13.894074"
+  "last_updated": "2026-03-20T22:29:16.144767"
 }

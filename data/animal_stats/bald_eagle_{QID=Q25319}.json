@@ -52,6 +52,7 @@
     "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/b/b1/Distribution_H._leucocephalus-he.png"
   ],
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Distribution_H._leucocephalus-he.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
   "eol_url": "",
@@ -123,5 +124,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T22:16:30.658252"
+  "last_updated": "2026-03-20T22:29:32.747828"
 }

@@ -52,6 +52,7 @@
     "https://upload.wikimedia.org/wikipedia/commons/8/85/202410_Great_white_shark.svg",
     "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
   ],
+  "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
   "eol_url": "",
@@ -130,5 +131,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T22:17:04.561059"
+  "last_updated": "2026-03-20T22:30:05.677010"
 }

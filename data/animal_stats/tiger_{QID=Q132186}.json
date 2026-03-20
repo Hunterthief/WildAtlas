@@ -52,6 +52,7 @@
     "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/8/8d/Panthera_tigris_sumatrae_distribution_map-ar.png"
   ],
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Panthera_tigris_sumatrae_distribution_map-ar.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
   "eol_url": "",
@@ -126,5 +127,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T22:15:25.782968"
+  "last_updated": "2026-03-20T22:28:28.385345"
 }
