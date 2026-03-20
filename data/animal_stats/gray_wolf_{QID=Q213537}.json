@@ -50,7 +50,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-  "eol_url": "https://eol.org/pages/1268606",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -65,7 +65,7 @@
   "group_name": "pack",
   "physical": {
     "weight": "",
-    "length": "",
+    "length": "29–50 cm",
     "height": "29–50 cm",
     "top_speed": "",
     "lifespan": ""
@@ -129,14 +129,13 @@
       "max_lon": 151.355139,
       "count": 50
     },
-    "occurrence_count": 199052
+    "occurrence_count": 199053
   },
   "sources": [
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T05:23:33.879835"
+  "last_updated": "2026-03-20T11:13:08.775060"
 }

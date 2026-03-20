@@ -52,7 +52,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
   "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-  "eol_url": "https://eol.org/pages/45512074",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -67,7 +67,7 @@
   "group_name": "Bird",
   "physical": {
     "weight": "22kg - 45kg (49lbs - 99lbs)",
-    "length": "",
+    "length": "1.5 m",
     "height": "100cm - 120cm (39in - 47in)",
     "top_speed": "15 mph",
     "lifespan": "15 - 50 years"
@@ -118,8 +118,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T05:23:49.210987"
+  "last_updated": "2026-03-20T11:13:48.434742"
 }
