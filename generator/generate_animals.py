@@ -405,6 +405,9 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     
     # Set primary image (first valid image)
     primary_image = unique_images[0] if unique_images else ""
+    
+    # NEW: Get distribution image from wikidata_enh
+    distribution_image = wikidata_enh.get("distribution_image", "")
 
     # =============================================================================
     # Construct Final Object
@@ -419,6 +422,8 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         # Single 'image' field for frontend
         "image": primary_image,
         "images": unique_images,
+        # NEW: Distribution image field
+        "distribution_image": distribution_image,
         # FIXED: No spaces in URLs
         "wikipedia_url": f"https://en.wikipedia.org/wiki/{name.replace(' ', '_')}",
         "wikidata_url": f"https://www.wikidata.org/wiki/{qid}",
@@ -483,6 +488,12 @@ def print_data_table(final_data: Dict, debug: DebugSummary) -> None:
     d = final_data['distribution']
     print(f"   {'Distribution':<20} | {'Countries':<22} | {len(d['countries'])} countries{'':<24} | GBIF")
     print(f"   {'Distribution':<20} | {'Occurrences':<22} | {d['occurrence_count']}{'':<30} | GBIF")
+    
+    # Print distribution image status
+    if final_data.get('distribution_image'):
+        print(f"   {'Distribution':<20} | {'Map Image':<22} | ✅ Available{'':<22} | Wikidata")
+    else:
+        print(f"   {'Distribution':<20} | {'Map Image':<22} | ❌ Not found{'':<22} | -")
 
 # =============================================================================
 # MAIN GENERATION LOOP
