@@ -40,7 +40,7 @@ def _is_valid_weight(value: str, animal_name: str = "") -> bool:
     validation_rules = {
         'elephant': (500, 12000),       # African elephant 2-6 tonnes (forest elephants smaller)
         'wolf': (10, 120),               # Gray wolf 30-80 kg
-        'bee': (0.00001, 0.5),           # Honey bee ~0.1g
+        'bee': (0.00001, 0.5),           # Honey bee ~0.1g (NOT colony!)
         'butterfly': (0.00001, 0.05),    # Monarch ~0.5g
         'frog': (0.01, 5),               # Bullfrog 0.1-0.8 kg
         'shark': (50, 15000),            # Great white 1-2 tonnes
@@ -115,7 +115,8 @@ def _is_colony_weight(text: str) -> bool:
     text_lower = text.lower()
     colony_keywords = [
         "colony", "hive", "colony weight", "hive weight",
-        "workers", "colony of", "hive of", "per colony"
+        "workers", "colony of", "hive of", "per colony",
+        "392", "hundreds of grams"  # Specific to honey bee colony weights
     ]
     return any(kw in text_lower for kw in colony_keywords)
 
@@ -329,18 +330,20 @@ def extract_weight_from_sections(sections: Dict[str, str], animal_name: str = ""
             if m:
                 return f"{m.group(1)} {m.group(2)}"
     
-    # Bee/Butterfly - look for gram patterns
+    # Bee/Butterfly - look for gram patterns (NOT colony weights!)
     if "bee" in animal_lower or "butterfly" in animal_lower:
         patterns = [
-            r'(?:bees?|butterflies?|adults?|workers?)\s*(?:weigh|weight|weighing)\s*(?:between|from|about)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)?\s*(\d+(?:[.,]\d+)?)?\s*(grams?|g)',
-            r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)?\s*(\d+(?:[.,]\d+)?)?\s*(grams?|g)',
+            r'(?:individual|worker|single)\s*(?:bee|butterfly)\s*(?:weighs?|weight|weighing)\s*(?:between|from|about)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)?\s*(\d+(?:[.,]\d+)?)?\s*(grams?|g)',
+            r'(?:bee|butterfly)\s*(?:weighs?|weight|weighing)\s*(?:about|approximately|around)?\s*(\d+(?:[.,]\d+)?)\s*(grams?|g)',
         ]
         for pattern in patterns:
             m = re.search(pattern, clean_all, re.I)
             if m:
-                if m.group(2) and m.group(2) != m.group(1):
-                    return f"{m.group(1)}–{m.group(2)} {m.group(3)}"
-                return f"{m.group(1)} {m.group(3)}"
+                context = clean_all[max(0, m.start()-200):m.end()+200]
+                if not _is_colony_weight(context):
+                    if m.group(2) and m.group(2) != m.group(1):
+                        return f"{m.group(1)}–{m.group(2)} {m.group(3)}"
+                    return f"{m.group(1)} {m.group(2) if m.group(2) else m.group(1)}"
     
     # Frog/Amphibian - look for gram or kg patterns
     if "frog" in animal_lower or "toad" in animal_lower:
