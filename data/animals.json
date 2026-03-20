@@ -52,7 +52,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1253183",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -122,9 +122,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T12:53:33.751600"
+    "last_updated": "2026-03-20T13:04:42.933810"
   },
   {
     "id": "Q35625",
@@ -179,7 +180,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1271375",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -250,9 +251,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T12:53:49.510761"
+    "last_updated": "2026-03-20T13:04:51.724703"
   },
   {
     "id": "Q7372",
@@ -382,7 +384,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:54:03.847019"
+    "last_updated": "2026-03-20T13:05:06.666635"
   },
   {
     "id": "Q213537",
@@ -523,7 +525,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:54:19.873131"
+    "last_updated": "2026-03-20T13:05:22.729509"
   },
   {
     "id": "Q25319",
@@ -578,7 +580,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1228132",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -645,9 +647,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T12:54:36.489751"
+    "last_updated": "2026-03-20T13:05:30.319499"
   },
   {
     "id": "Q43306",
@@ -771,7 +774,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:55:01.025863"
+    "last_updated": "2026-03-20T13:05:45.079650"
   },
   {
     "id": "Q47164",
@@ -902,7 +905,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:55:16.462816"
+    "last_updated": "2026-03-20T13:06:00.072788"
   },
   {
     "id": "Q39709",
@@ -958,7 +961,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46563143",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1024,9 +1027,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T12:55:32.167074"
+    "last_updated": "2026-03-20T13:06:18.809602"
   },
   {
     "id": "Q7785",
@@ -1170,7 +1174,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:55:48.000421"
+    "last_updated": "2026-03-20T13:06:34.613398"
   },
   {
     "id": "Q189609",
@@ -1302,7 +1306,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:56:02.308085"
+    "last_updated": "2026-03-20T13:06:49.359533"
   },
   {
     "id": "Q270238",
@@ -1428,7 +1432,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:56:21.682776"
+    "last_updated": "2026-03-20T13:07:03.762578"
   },
   {
     "id": "Q165980",
@@ -1556,7 +1560,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:56:42.543477"
+    "last_updated": "2026-03-20T13:07:24.414205"
   },
   {
     "id": "Q7316",
@@ -1700,6 +1704,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:56:59.408618"
+    "last_updated": "2026-03-20T13:07:40.505494"
   }
 ]
