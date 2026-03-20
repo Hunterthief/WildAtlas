@@ -22,12 +22,11 @@ sys.path.insert(0, str(GENERATOR_DIR))
 from modules.fetchers.api_ninjas import fetch_animal_data
 from modules.fetchers.wikipedia import fetch_wikipedia_data
 from modules.fetchers.inaturalist import fetch_inaturalist
-from modules.fetchers.wikidata import extract_wikidata_all
 from modules.fetchers.gbif_distribution import extract_gbif_all
 from modules.fetchers.eol_data import extract_eol_all
 
 # =============================================================================
-# IMPORTS - Extractors
+# IMPORTS - Extractors (including Wikidata)
 # =============================================================================
 from modules.extractors.stats import extract_stats_with_context
 from modules.extractors.weight import extract_weight_from_sections
@@ -40,7 +39,7 @@ from modules.extractors.diet import extract_diet_from_sections
 from modules.extractors.behavior import extract_behavior_from_sections
 from modules.extractors.conservation import extract_conservation_from_sections
 from modules.extractors.additional_info import extract_additional_info_from_sections
-
+from modules.extractors.wikidata_enhancer import extract_wikidata_all  # ← FIXED: Was in fetchers, should be extractors
 # =============================================================================
 # SETUP PATHS
 # =============================================================================
