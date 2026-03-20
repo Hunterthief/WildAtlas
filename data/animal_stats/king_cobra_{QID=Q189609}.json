@@ -46,14 +46,14 @@
   ],
   "summary": "species of bird",
   "description": "species of bird",
-  "image": "https://commons.wikimedia.org/wiki/File:Merganser_(53630992394).jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/M/Me/Merganser_(53630992394).jpg/800px-Merganser_(53630992394).jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Merganser_(53630992394).jpg",
-    "https://commons.wikimedia.org/wiki/File:Red-breasted_merganser_female_in_CP_(40744).jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/M/Me/Merganser_(53630992394).jpg/800px-Merganser_(53630992394).jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/R/Re/Red-breasted_merganser_female_in_CP_(40744).jpg/800px-Red-breasted_merganser_female_in_CP_(40744).jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1055746",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -128,7 +128,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T20:39:00.524275"
+  "last_updated": "2026-03-20T20:58:55.909325"
 }

@@ -46,15 +46,15 @@
   ],
   "summary": "large flightless seabird endemic to Antarctica",
   "description": "large flightless seabird endemic to Antarctica",
-  "image": "https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ap/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg/800px-Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
-    "https://commons.wikimedia.org/wiki/File:Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
-    "https://commons.wikimedia.org/wiki/File:Penguin_diving_statistics.svg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ap/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg/800px-Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/P/Pe/Penguin_in_Antarctica_jumping_out_of_the_water.jpg/800px-Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/P/Pe/Penguin_diving_statistics.svg/800px-Penguin_diving_statistics.svg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
   "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/45512074",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -120,7 +120,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T20:38:03.893853"
+  "last_updated": "2026-03-20T20:58:28.657904"
 }

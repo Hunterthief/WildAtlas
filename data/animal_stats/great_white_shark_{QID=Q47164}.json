@@ -46,15 +46,15 @@
   ],
   "summary": "species of large lamniform shark",
   "description": "species of large lamniform shark",
-  "image": "https://commons.wikimedia.org/wiki/File:Great_white_shark.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gr/Great_white_shark.jpg/800px-Great_white_shark.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Great_white_shark.jpg",
-    "https://commons.wikimedia.org/wiki/File:202410_Great_white_shark.svg",
-    "https://commons.wikimedia.org/wiki/File:White_shark.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gr/Great_white_shark.jpg/800px-Great_white_shark.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/202410_Great_white_shark.svg/800px-202410_Great_white_shark.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/W/Wh/White_shark.jpg/800px-White_shark.jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/46559751",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -127,7 +127,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T20:38:18.407683"
+  "last_updated": "2026-03-20T20:58:34.861380"
 }

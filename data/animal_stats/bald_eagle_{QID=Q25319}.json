@@ -46,14 +46,14 @@
   ],
   "summary": "species of bird of prey found in North America",
   "description": "species of bird of prey found in North America",
-  "image": "https://commons.wikimedia.org/wiki/File:Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/B/Ba/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg/800px-Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
-    "https://commons.wikimedia.org/wiki/File:Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/B/Ba/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg/800px-Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/J/Ju/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg/800px-Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1228132",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -120,7 +120,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T20:37:49.460525"
+  "last_updated": "2026-03-20T20:58:22.182589"
 }

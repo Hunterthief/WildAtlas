@@ -46,14 +46,14 @@
   ],
   "summary": "plant species",
   "description": "plant species",
-  "image": "https://commons.wikimedia.org/wiki/File:Ginger_Plant_vs.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gi/Ginger_Plant_vs.jpg/800px-Ginger_Plant_vs.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Ginger_Plant_vs.jpg",
-    "https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gi/Ginger_Plant_vs.jpg/800px-Ginger_Plant_vs.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/K/Ko/Koeh-146-no_text.jpg/800px-Koeh-146-no_text.jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1271375",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -124,7 +124,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T20:37:06.412442"
+  "last_updated": "2026-03-20T20:57:59.022311"
 }

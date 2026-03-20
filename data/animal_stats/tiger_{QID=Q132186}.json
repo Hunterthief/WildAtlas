@@ -46,10 +46,10 @@
   ],
   "summary": "species of big cat",
   "description": "species of big cat",
-  "image": "https://commons.wikimedia.org/wiki/File:Adult_male_Royal_Bengal_tiger.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ad/Adult_male_Royal_Bengal_tiger.jpg/800px-Adult_male_Royal_Bengal_tiger.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Adult_male_Royal_Bengal_tiger.jpg",
-    "https://commons.wikimedia.org/wiki/File:Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ad/Adult_male_Royal_Bengal_tiger.jpg/800px-Adult_male_Royal_Bengal_tiger.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/B/Be/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg/800px-Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
@@ -126,5 +126,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T20:36:52.079739"
+  "last_updated": "2026-03-20T20:57:47.475829"
 }

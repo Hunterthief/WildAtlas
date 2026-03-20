@@ -46,15 +46,15 @@
   ],
   "summary": "species of insect",
   "description": "species of insect",
-  "image": "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Tanzania.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ap/Apis_mellifera_Tanzania.jpg/800px-Apis_mellifera_Tanzania.jpg",
   "images": [
-    "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Tanzania.jpg",
-    "https://commons.wikimedia.org/wiki/File:Apis_mellifera_flying.jpg",
-    "https://commons.wikimedia.org/wiki/File:202203_western_honey_bee.svg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ap/Apis_mellifera_Tanzania.jpg/800px-Apis_mellifera_Tanzania.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ap/Apis_mellifera_flying.jpg/800px-Apis_mellifera_flying.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/202203_western_honey_bee.svg/800px-202203_western_honey_bee.svg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1045608",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -140,7 +140,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T20:39:44.451504"
+  "last_updated": "2026-03-20T20:59:21.946907"
 }
