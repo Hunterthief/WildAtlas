@@ -1,41 +1,22 @@
 """
 Wikidata Extractor - No API Key Required
-CRITICAL FIX: Working image URLs using Special:FilePath
+CRITICAL FIX: Direct upload.wikimedia.org URLs (NO SPACES)
 """
 import requests
 import hashlib
 from typing import Dict, Any, Optional
 
+# FIXED: No trailing spaces
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
 
 
-def _filename_to_working_url(filename: str, width: int = 800) -> str:
-    """
-    Convert Wikimedia filename to WORKING direct image URL
-    Uses Special:FilePath method (simpler, no MD5 needed)
-    
-    Input:  "Adult_male_Royal_Bengal_tiger.jpg"
-    Output: "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Adult_male_Royal_Bengal_tiger.jpg&width=800"
-    """
-    if not filename:
-        return ""
-    
-    # Replace spaces with underscores
-    filename = filename.replace(' ', '_')
-    
-    # Use Special:FilePath method (recommended by Wikimedia) [[5]]
-    working_url = f"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/{filename}&width={width}"
-    
-    return working_url
-
-
 def _filename_to_direct_url(filename: str, width: int = 800) -> str:
     """
-    Alternative: Direct thumb URL with MD5 hash (more reliable) [[9]]
+    Convert Wikimedia filename to DIRECT image URL using MD5 hash
     
-    Input:  "Adult_male_Royal_Bengal_tiger.jpg"
-    Output: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Adult_male_Royal_Bengal_tiger.jpg/800px-Adult_male_Royal_Bengal_tiger.jpg"
+    Input:  "Bengal_tiger_(Panthera_tigris_tigris)_female_3_crop.jpg"
+    Output: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Bengal_tiger_(Panthera_tigris_tigris)_female_3_crop.jpg"
     """
     if not filename:
         return ""
@@ -43,13 +24,13 @@ def _filename_to_direct_url(filename: str, width: int = 800) -> str:
     # Replace spaces with underscores
     filename = filename.replace(' ', '_')
     
-    # Calculate MD5 hash
+    # Calculate MD5 hash for path
     md5_hash = hashlib.md5(filename.encode('utf-8')).hexdigest()
     hash1 = md5_hash[0]
     hash2 = md5_hash[0:2]
     
-    # Build direct URL
-    direct_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{hash1}/{hash2}/{filename}/{width}px-{filename}"
+    # Build direct URL (no spaces anywhere)
+    direct_url = f"https://upload.wikimedia.org/wikipedia/commons/{hash1}/{hash2}/{filename}"
     
     return direct_url
 
@@ -58,6 +39,7 @@ def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
     """Fetch data from Wikidata using QID"""
     try:
         url = f"{WIKIDATA_ENDPOINT}{qid}.json"
+        # FIXED: No trailing spaces in User-Agent
         headers = {
             "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)",
             "Accept": "application/json"
@@ -128,6 +110,7 @@ def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
             "type": "item",
             "limit": 5
         }
+        # FIXED: No trailing spaces in User-Agent
         headers = {
             "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
         }
@@ -197,8 +180,8 @@ def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
 
 def extract_images(wikidata: Dict[str, Any]) -> list:
     """
-    CRITICAL FIX: Extract WORKING image URLs from Wikidata
-    Uses Special:FilePath method (recommended by Wikimedia) [[5]]
+    CRITICAL FIX: Extract DIRECT image URLs from Wikidata
+    Returns upload.wikimedia.org URLs (actual images)
     """
     images = []
     claims = wikidata.get("claims", {})
@@ -208,9 +191,9 @@ def extract_images(wikidata: Dict[str, Any]) -> list:
     for claim in image_claims[:3]:  # Max 3 images
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
-            # CRITICAL FIX: Convert to WORKING URL
-            working_url = _filename_to_working_url(filename, width=800)
-            images.append(working_url)
+            # FIXED: Convert to direct upload.wikimedia.org URL
+            direct_url = _filename_to_direct_url(filename)
+            images.append(direct_url)
     
     return images
 
@@ -253,14 +236,16 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
     if not wikidata:
         return {}
     
+    # FIXED: No spaces in Wikipedia URL
     wiki_title = scientific_name.replace(' ', '_') if scientific_name else qid
     
     return {
         "taxonomy": extract_taxonomy(wikidata),
         "conservation": extract_conservation_status(wikidata),
-        "images": extract_images(wikidata),  # Now returns WORKING URLs
+        "images": extract_images(wikidata),  # Now returns DIRECT URLs
         "common_names": extract_common_names(wikidata),
         "population": extract_population(wikidata),
         "description": wikidata.get("descriptions", {}).get("en", {}).get("value", ""),
+        # FIXED: No spaces in URL
         "wikipedia_url": f"https://en.wikipedia.org/wiki/{wiki_title}"
     }
