@@ -1,7 +1,7 @@
 """
-Length extraction module - PRODUCTION v12
-Fixed: Cheetah 4-7m still getting through, Elephant 30cm wrong, Eagle 11cm too small, Butterfly 1.2m wingspan, Wolf empty, Bee empty
-Based on analysis of 13 animal Wikipedia articles from WildAtlas
+Length extraction module - PRODUCTION v13
+Fixed: Cheetah head-body matching, Elephant trunk length, Eagle body length, Butterfly body, Wolf body, Bee mm
+Based on analysis of 13 animal Wikipedia articles from WildAtlas + 10 additional articles
 """
 import re
 from typing import Dict, Optional, List, Tuple, Any
@@ -12,14 +12,14 @@ from typing import Dict, Optional, List, Tuple, Any
 # =============================================================================
 ANIMAL_LENGTH_RANGES = {
     # Mammals (body length in meters, NOT including tail unless specified)
-    'felidae': (0.7, 2.2),        # Cats body length (tiger ~1.7-2.2m, cheetah ~1.1-1.5m)
-    'canidae': (0.8, 1.6),        # Dogs/Wolves body length (NOT shoulder height)
-    'elephantidae': (5.0, 7.5),   # Elephants total length with trunk
+    'felidae': (0.7, 2.5),        # Cats body length (tiger ~1.7-2.5m, cheetah ~1.1-1.5m)
+    'canidae': (0.7, 1.8),        # Dogs/Wolves body length (NOT shoulder height)
+    'elephantidae': (4.5, 7.5),   # Elephants total length with trunk
     'ursidae': (1.0, 3.0),        # Bears
     'giraffidae': (3.5, 6.0),     # Giraffes
     
     # Birds (body length, NOT wingspan)
-    'accipitridae': (0.6, 1.2),   # Eagles body length (70-120cm)
+    'accipitridae': (0.5, 1.3),   # Eagles body length (70-120cm)
     'spheniscidae': (0.7, 1.3),   # Penguins
     'anatidae': (0.4, 1.8),       # Ducks/Geese
     
@@ -37,9 +37,9 @@ ANIMAL_LENGTH_RANGES = {
     'ranidae': (0.06, 0.20),      # Frogs (6-20cm)
     
     # Insects (body length, NOT wingspan)
-    'hymenoptera': (0.01, 0.025), # Bees (10-25mm)
-    'lepidoptera': (0.03, 0.06),  # Butterflies body (3-6cm)
-    'apidae': (0.01, 0.025),      # Honey bees specifically
+    'hymenoptera': (0.008, 0.03), # Bees (8-30mm)
+    'lepidoptera': (0.02, 0.08),  # Butterflies body (2-8cm)
+    'apidae': (0.008, 0.03),      # Honey bees specifically
     'nymphalidae': (0.03, 0.06),  # Monarch butterfly family
 }
 
@@ -119,10 +119,10 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
                 elif 'in' in value_lower or 'inch' in value_lower:
                     value_in_meters = max_num * 0.0254
                 
-                # CRITICAL FIX #1: For cats (felidae), reject >2.5m as it's likely total length with tail
+                # CRITICAL FIX #1: For cats (felidae), reject >3m as it's likely total length with tail
                 # Cheetah 4-7m is WRONG (includes tail), body length is ~1.2m
                 if 'felidae' in family:
-                    if value_in_meters > 2.5:
+                    if value_in_meters > 3.0:
                         return False
                     # Also reject if range starts >3m (definitely includes tail)
                     if primary_num > 3.0:
@@ -147,7 +147,7 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
                 # CRITICAL FIX #4: For birds, reject if too small or too large (wingspan)
                 # Eagle body length is 70-100cm, NOT 11cm or 2m+
                 if 'aves' in class_name:
-                    if value_in_meters < 0.2:  # <20cm is too small for most birds
+                    if value_in_meters < 0.15:  # <15cm is too small for most birds
                         return False
                     if value_in_meters > 1.5:  # >1.5m is likely wingspan
                         return False
@@ -157,22 +157,22 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
                 if 'lepidoptera' in order or 'nymphalidae' in family:
                     if value_in_meters > 0.10:  # >10cm is likely wingspan
                         return False
-                    if value_in_meters < 0.02:  # <2cm is too small
+                    if value_in_meters < 0.015:  # <1.5cm is too small
                         return False
                 
                 # CRITICAL FIX #6: For insects, validate mm range properly
                 if 'insecta' in class_name:
                     if value_in_meters > 0.15:  # >15cm is too big for most insects
                         return False
-                    # Bees should be 10-25mm
+                    # Bees should be 8-30mm
                     if 'hymenoptera' in order or 'apidae' in family:
-                        if value_in_meters < 0.005 or value_in_meters > 0.03:
+                        if value_in_meters < 0.005 or value_in_meters > 0.035:
                             return False
                 
-                # Allow 2x margin for unit conversion errors (tighter validation)
-                if value_in_meters > expected_range[1] * 2:
+                # Allow 2.5x margin for unit conversion errors (slightly more flexible)
+                if value_in_meters > expected_range[1] * 2.5:
                     return False
-                if value_in_meters < expected_range[0] / 3:
+                if value_in_meters < expected_range[0] / 4:
                     return False
         
         return True
@@ -182,7 +182,7 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
 
 
 def _has_length_context(text: str, animal_name: str = "") -> bool:
-    """Check if text has length-related context - AGGRESSIVE shoulder/wingspan/tail rejection"""
+    """Check if text has length-related context - SMART shoulder/wingspan/tail rejection"""
     text_lower = text.lower()
     
     # POSITIVE indicators (length-related)
@@ -194,22 +194,26 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         'typically', 'average', 'usually', 'about', 'approximately', 'between'
     ]
     
-    # REJECT keywords - AGGRESSIVE shoulder/distribution/wingspan rejection
+    # REJECT keywords - shoulder/distribution/wingspan rejection
     reject_keywords = [
         'temporal range', 'million years', 'ma ', 'mya',
         'wingspan', 'wing span', 'wing length', 'wing spread',
         'egg length', 'nest length', 'colony length',
         'population size', 'range size',
-        'at the shoulder', 'shoulder height', 'shoulder',
+        'at the shoulder', 'shoulder height',
         'tall at the shoulder', 'height at shoulder',
         'stands.*shoulder', 'shoulder.*tall', 'shoulder.*high',
         'distribution', 'range:', 'migrat', 'found from',
         'occurs from', 'native to', 'habitat', 'geographic'
     ]
     
-    # CRITICAL: Check for shoulder context aggressively
+    # CRITICAL: Check for shoulder context - but only if no "length" keyword
     if 'shoulder' in text_lower:
-        return False  # Always reject shoulder mentions for length
+        if 'length' not in text_lower:
+            return False
+        # If both shoulder AND length present, check if it's shoulder height
+        if 'shoulder height' in text_lower or 'at the shoulder' in text_lower:
+            return False
     
     # CRITICAL: Check for distribution/range context
     if any(kw in text_lower for kw in ['distribution', 'range:', 'found from', 'occurs from', 'native to', 'geographic']):
@@ -248,12 +252,12 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
             if 'length' in text_lower:
                 if 'wing length' in text_lower or 'length of the wing' in text_lower:
                     return False
-        # CRITICAL FIX: Reject if value too small (<20cm) or too large (>1.5m)
+        # CRITICAL FIX: Reject if value too small (<15cm) or too large (>1.5m)
         bird_values = re.findall(r'(\d+[.,]?\d*)\s*(?:cm|m|metres?|meters?)', text_lower)
         for val in bird_values:
             try:
                 num = float(val.replace(',', ''))
-                if 'cm' in text_lower and num < 20:  # <20cm too small
+                if 'cm' in text_lower and num < 15:  # <15cm too small
                     return False
                 if 'm' in text_lower and num > 1.5:  # >1.5m likely wingspan
                     return False
@@ -270,20 +274,20 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         # CRITICAL FIX: Reject "total length" that mentions tail
         if 'total length' in text_lower and 'tail' in text_lower:
             return False
-        # CRITICAL FIX: Reject any value >3m for cats (includes tail)
+        # CRITICAL FIX: Reject any value >3.5m for cats (includes tail)
         if 'total length' in text_lower:
             large_values = re.findall(r'(\d+[.,]?\d*)\s*(?:m|metres?|meters?)', text_lower)
             for val in large_values:
                 try:
-                    if float(val.replace(',', '')) > 3.0:
+                    if float(val.replace(',', '')) > 3.5:
                         return False  # Likely includes tail
                 except:
                     pass
-        # CRITICAL FIX: Even without "total length" keyword, reject >3m for cats
+        # CRITICAL FIX: Even without "total length" keyword, reject >3.5m for cats
         all_meter_values = re.findall(r'(\d+[.,]?\d*)\s*(?:m|metres?|meters?)(?!\s*m)', text_lower)
         for val in all_meter_values:
             try:
-                if float(val.replace(',', '')) > 3.0:
+                if float(val.replace(',', '')) > 3.5:
                     if 'head' not in text_lower and 'body' not in text_lower:
                         return False  # Large value without head-body context
             except:
@@ -296,7 +300,7 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         if shoulder_values:
             if 'shoulder' in text_lower or 'height' in text_lower:
                 return False
-            if 'length' not in text_lower:
+            if 'length' not in text_lower and 'trunk' not in text_lower:
                 return False
         # CRITICAL FIX: Reject very small values (<1m) - likely tusk/trunk diameter
         small_values = re.findall(r'(\d+[.,]?\d*)\s*(?:cm|metres?|meters?)', text_lower)
@@ -353,11 +357,14 @@ SECTION_PRIORITY = [
     'dimensions',
     'measurements',
     'physical_description_and_measurements',
+    'biology',
+    'behaviour',
+    'behavior',
 ]
 
 
 # =============================================================================
-# PATTERN DEFINITIONS - FIXED for all 13 animals
+# PATTERN DEFINITIONS - FIXED for all 13 animals based on actual Wikipedia text
 # =============================================================================
 LENGTH_PATTERNS = [
     # =========================================================================
@@ -371,12 +378,12 @@ LENGTH_PATTERNS = [
     },
     {
         # "head-and-body length of/between 1.5–2.5 m" - HIGHEST PRIORITY for cats/mammals
-        'pattern': r'(?:head-and-body|head\s*and\s*body|head-body|head\s*to\s*body)\s*length\s*(?:of|is)?\s*(?:between\s+)?(\d+(?:[.,]\d+)?)\s+(?:and|to|-|–)\s+(\d+(?:[.,]\d+)?)\s+(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'pattern': r'(?:head[-\s]*and[-\s]*body|head[-\s]*body)\s*length\s*(?:of|is)?\s*(?:between\s+)?(\d+(?:[.,]\d+)?)\s+(?:and|to|-|–)\s+(\d+(?:[.,]\d+)?)\s+(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
         'priority': 1,
         'format': 'range'
     },
     {
-        # "head-body length between X and Y m" - alternative format (cheetah specific)
+        # "head-body length between X and Y m" - cheetah specific format
         'pattern': r'head[-\s]*body\s*length\s+(?:is\s+)?between\s+(\d+(?:[.,]\d+)?)\s+and\s+(\d+(?:[.,]\d+)?)\s+(m|metres?|meters?|cm|centimetres?|ft|feet)',
         'priority': 1,
         'format': 'range'
@@ -575,6 +582,12 @@ LENGTH_PATTERNS = [
         # "mm in length" (bees - fallback)
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(mm)\s+in\s+length',
         'priority': 8,
+        'format': 'single'
+    },
+    {
+        # "X mm" for bees (very simple fallback)
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(mm)',
+        'priority': 9,
         'format': 'single'
     },
     
