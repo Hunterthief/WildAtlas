@@ -67,7 +67,7 @@
   "group_name": "Invertebrates",
   "physical": {
     "weight": "0.25 - 0.75 grams",
-    "length": "",
+    "length": "1.2 m",
     "height": "",
     "top_speed": "12 mph",
     "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
@@ -125,5 +125,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T13:48:04.087380"
+  "last_updated": "2026-03-20T13:56:51.217910"
 }
