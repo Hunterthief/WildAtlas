@@ -1,7 +1,7 @@
 """
-Wikipedia data fetcher - PROFESSIONAL VERSION ✅
-Uses Wikidata API for structured data (not regex scraping)
-Sources: Wikidata, DBPedia, Wikipedia API
+Wikipedia data fetcher - CLEAN VERSION ✅
+Focuses on Wikipedia sections ONLY
+Wikidata properties handled by separate wikidata.py module
 """
 import re
 import requests
@@ -9,190 +9,13 @@ from typing import Dict, Optional, List, Any
 from bs4 import BeautifulSoup
 
 
-# =============================================================================
-# WIKIDATA PROPERTY MAPPINGS FOR ANIMALS
-# =============================================================================
-WIKIDATA_PROPERTIES = {
-    'weight': ['P2067'],      # mass
-    'length': ['P2048'],      # height/length
-    'height': ['P2048'],      # height
-    'lifespan': ['P2250'],    # longevity
-    'top_speed': ['P6137'],   # maximum speed
-    'diet': ['P1009'],        # diet
-    'habitat': ['P1009'],     # habitat
-}
-
-
-def fetch_wikidata_properties(qid: str) -> Dict[str, str]:
-    """
-    Fetch structured physical stats from Wikidata API
-    This is RELIABLE - no regex parsing needed!
-    """
-    if not qid or not qid.startswith('Q'):
-        print(f"⚠️ Invalid QID: {qid}")
-        return {}
-    
-    try:
-        url = f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json'
-        print(f"🔗 Fetching Wikidata: {url}")
-        
-        response = requests.get(
-            url,
-            headers={'User-Agent': 'WildAtlas/1.0 (contact: wildatlas@example.com)'},
-            timeout=10
-        )
-        
-        if response.status_code != 200:
-            print(f"⚠️ HTTP {response.status_code} from Wikidata")
-            return {}
-        
-        data = response.json()
-        entity = data.get('entities', {}).get(qid, {})
-        claims = entity.get('claims', {})
-        
-        wikidata_stats = {}
-        
-        # Extract mass (weight) - P2067
-        if 'P2067' in claims:
-            for claim in claims['P2067']:
-                mainsnak = claim.get('mainsnak', {})
-                datavalue = mainsnak.get('datavalue', {})
-                value = datavalue.get('value', {})
-                amount = value.get('amount', '')
-                unit = value.get('unit', '')
-                
-                if amount:
-                    amount = amount.lstrip('+')
-                    if 'kilogram' in unit:
-                        wikidata_stats['weight'] = f"{amount} kg"
-                    elif 'gram' in unit:
-                        wikidata_stats['weight'] = f"{float(amount)/1000} kg"
-                    elif 'pound' in unit:
-                        wikidata_stats['weight'] = f"{amount} lb"
-                    else:
-                        wikidata_stats['weight'] = f"{amount}"
-                    print(f"   ✅ Wikidata weight: {wikidata_stats['weight']}")
-                    break
-        
-        # Extract height/length - P2048
-        if 'P2048' in claims:
-            for claim in claims['P2048']:
-                mainsnak = claim.get('mainsnak', {})
-                datavalue = mainsnak.get('datavalue', {})
-                value = datavalue.get('value', {})
-                amount = value.get('amount', '').lstrip('+')
-                unit = value.get('unit', '')
-                
-                if amount:
-                    if 'meter' in unit:
-                        wikidata_stats['length'] = f"{amount} m"
-                    elif 'centimeter' in unit:
-                        wikidata_stats['length'] = f"{float(amount)/100} m"
-                    elif 'foot' in unit:
-                        wikidata_stats['length'] = f"{amount} ft"
-                    else:
-                        wikidata_stats['length'] = f"{amount}"
-                    print(f"   ✅ Wikidata length: {wikidata_stats['length']}")
-                    break
-        
-        # Extract lifespan - P2250
-        if 'P2250' in claims:
-            for claim in claims['P2250']:
-                mainsnak = claim.get('mainsnak', {})
-                datavalue = mainsnak.get('datavalue', {})
-                value = datavalue.get('value', {})
-                amount = value.get('amount', '').lstrip('+')
-                unit = value.get('unit', '')
-                
-                if amount:
-                    if 'year' in unit:
-                        wikidata_stats['lifespan'] = f"{amount} years"
-                    else:
-                        wikidata_stats['lifespan'] = f"{amount}"
-                    print(f"   ✅ Wikidata lifespan: {wikidata_stats['lifespan']}")
-                    break
-        
-        # Extract speed - P6137
-        if 'P6137' in claims:
-            for claim in claims['P6137']:
-                mainsnak = claim.get('mainsnak', {})
-                datavalue = mainsnak.get('datavalue', {})
-                value = datavalue.get('value', {})
-                amount = value.get('amount', '').lstrip('+')
-                unit = value.get('unit', '')
-                
-                if amount:
-                    if 'kilometre' in unit:
-                        wikidata_stats['top_speed'] = f"{amount} km/h"
-                    elif 'mile' in unit:
-                        wikidata_stats['top_speed'] = f"{amount} mph"
-                    else:
-                        wikidata_stats['top_speed'] = f"{amount}"
-                    print(f"   ✅ Wikidata speed: {wikidata_stats['top_speed']}")
-                    break
-        
-        print(f"✅ Wikidata: Found {len(wikidata_stats)} physical stats")
-        return wikidata_stats
-    
-    except Exception as e:
-        print(f"❌ Error fetching Wikidata: {e}")
-        return {}
-
-
-def fetch_dbpedia_properties(name: str) -> Dict[str, str]:
-    """
-    Fetch physical stats from DBPedia (structured Wikipedia data)
-    DBPedia extracts infobox data into a queryable database
-    """
-    try:
-        resource_name = name.replace(' ', '_')
-        url = f'http://dbpedia.org/data/{resource_name}.json'
-        print(f"🔗 Fetching DBPedia: {url}")
-        
-        response = requests.get(
-            url,
-            headers={'User-Agent': 'WildAtlas/1.0 (contact: wildatlas@example.com)'},
-            timeout=10
-        )
-        
-        if response.status_code != 200:
-            print(f"⚠️ HTTP {response.status_code} from DBPedia")
-            return {}
-        
-        data = response.json()
-        resource_key = f'http://dbpedia.org/resource/{resource_name}'
-        resource_data = data.get(resource_key, {})
-        
-        dbpedia_stats = {}
-        
-        property_mappings = {
-            'http://dbpedia.org/ontology/mass': 'weight',
-            'http://dbpedia.org/ontology/length': 'length',
-            'http://dbpedia.org/ontology/height': 'height',
-            'http://dbpedia.org/ontology/lifespan': 'lifespan',
-            'http://dbpedia.org/ontology/speed': 'top_speed',
-        }
-        
-        for dbpedia_prop, our_key in property_mappings.items():
-            if dbpedia_prop in resource_data:
-                values = resource_data[dbpedia_prop]
-                if values:
-                    value = values[0].get('value', '')
-                    if value:
-                        dbpedia_stats[our_key] = str(value)
-                        print(f"   ✅ DBPedia {our_key}: {value}")
-        
-        print(f"✅ DBPedia: Found {len(dbpedia_stats)} physical stats")
-        return dbpedia_stats
-    
-    except Exception as e:
-        print(f"❌ Error fetching DBPedia: {e}")
-        return {}
-
-
 def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
-    """Fetch Wikipedia article sections"""
+    """
+    Fetch Wikipedia article sections via API
+    Returns cleaned sections mapped to standard keys
+    """
     try:
+        # FIXED: No trailing spaces in URL
         response = requests.get(
             'https://en.wikipedia.org/w/api.php',
             params={
@@ -218,11 +41,13 @@ def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
         sections = {}
         parse_data = data.get('parse', {})
         
+        # Get section list
         sections_list = parse_data.get('sections', [])
         for section in sections_list:
             section_title = section.get('anchor', '').lower().replace(' ', '_')
             sections[section_title] = ""
         
+        # Parse HTML content
         html_content = parse_data.get('text', {}).get('*', '')
         if html_content:
             soup = BeautifulSoup(html_content, 'html.parser')
@@ -241,6 +66,7 @@ def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
                         else:
                             sections[current_section] += ' ' + text
         
+        # Clean and map sections to standard keys
         cleaned_sections = {}
         for key, value in sections.items():
             key = re.sub(r'[\[\]\d]', '', key)
@@ -271,63 +97,68 @@ def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
         return {}
 
 
-def fetch_wikipedia_infobox(name: str, qid: str = None) -> Dict[str, str]:
+def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
     """
-    PROFESSIONAL VERSION: Uses Wikidata + DBPedia instead of regex scraping
-    Priority: Wikidata > DBPedia > Wikipedia text (fallback only)
+    Fetch physical stats from Wikipedia infobox (simple parsing)
+    Returns empty dict if not found - Wikidata is primary source for stats
     """
-    print(f"\n📊 Fetching structured physical stats for: {name}")
-    
-    infobox_data = {}
-    
-    # ===== PRIORITY 1: Wikidata (Most Reliable) =====
-    print("\n🔍 PRIORITY 1: Wikidata API...")
-    if qid:
-        wikidata_stats = fetch_wikidata_properties(qid)
-        infobox_data.update(wikidata_stats)
-    
-    # ===== PRIORITY 2: DBPedia (Structured Wikipedia) =====
-    if not infobox_data:
-        print("\n🔍 PRIORITY 2: DBPedia...")
-        dbpedia_stats = fetch_dbpedia_properties(name)
-        infobox_data.update(dbpedia_stats)
-    
-    # ===== PRIORITY 3: Wikipedia sections (Fallback only) =====
-    if not infobox_data:
-        print("\n🔍 PRIORITY 3: Wikipedia sections (fallback)...")
-        sections = fetch_wikipedia_sections(name)
+    try:
+        # FIXED: No trailing spaces in URL
+        url = f'https://en.wikipedia.org/wiki/{name.replace(" ", "_")}'
         
-        if 'physical_characteristics' in sections:
-            text = sections['physical_characteristics']
-            conservative_patterns = {
-                'weight': r'(?:weighs?|weight|mass)[:\s]+([0-9]+\s*(?:kg|lb))',
-                'length': r'(?:length|measures?)[:\s]+([0-9]+\s*(?:m|cm|ft))',
-                'lifespan': r'(?:lifespan|longevity)[:\s]+([0-9]+\s*years?)',
-            }
-            
-            for stat_name, pattern in conservative_patterns.items():
-                match = re.search(pattern, text, re.IGNORECASE)
-                if match:
-                    infobox_data[stat_name] = match.group(1).strip()
-                    print(f"   ✅ From text: {stat_name} = {infobox_data[stat_name]}")
+        response = requests.get(
+            url,
+            headers={
+                'User-Agent': 'WildAtlas/1.0 (contact: wildatlas@example.com)'
+            },
+            timeout=10
+        )
+        
+        if response.status_code != 200:
+            return {}
+        
+        soup = BeautifulSoup(response.text, 'html.parser')
+        infobox_data = {}
+        
+        # Find infobox table
+        infobox_table = soup.find('table', class_=lambda x: x and 'infobox' in str(x).lower())
+        
+        if not infobox_table:
+            return {}
+        
+        # Get all text from infobox
+        all_text = infobox_table.get_text()
+        
+        # Simple patterns for physical stats (fallback only)
+        patterns = {
+            'weight': r'(?:mass|weight)[:\s]+([0-9][0-9,\s.\-–]*\s*(?:kg|lb))',
+            'length': r'(?:length)[:\s]+([0-9][0-9,\s.\-–]*\s*(?:m|cm|ft))',
+            'lifespan': r'(?:lifespan|longevity)[:\s]+([0-9][0-9,\s.\-–]*\s*(?:years?))',
+        }
+        
+        for stat_name, pattern in patterns.items():
+            match = re.search(pattern, all_text, re.IGNORECASE)
+            if match:
+                infobox_data[stat_name] = match.group(1).strip()
+        
+        return infobox_data
     
-    print(f"\n✅ TOTAL: Found {len(infobox_data)} physical stats")
-    print(f"📦 Keys: {list(infobox_data.keys())}")
-    print(f"🎯 Data: {infobox_data}")
-    
-    return infobox_data
+    except Exception as e:
+        print(f"❌ Error fetching Wikipedia infobox: {e}")
+        return {}
 
 
-def fetch_wikipedia_data(name: str, qid: str = None) -> Dict[str, Any]:
+def fetch_wikipedia_data(name: str) -> Dict[str, Any]:
     """
-    Main fetcher - uses structured data sources
+    Main Wikipedia fetcher - returns sections and infobox data
+    Note: For physical stats, use fetch_wikidata_properties() from wikidata.py
     """
     print(f"\n{'='*80}")
-    print(f"📚 Fetching data for: {name} (QID: {qid})")
+    print(f"📚 Fetching Wikipedia data for: {name}")
     print(f"{'='*80}")
     
     sections = fetch_wikipedia_sections(name)
-    infobox = fetch_wikipedia_infobox(name, qid)
+    infobox = fetch_wikipedia_infobox(name)
     
     result = {
         'sections': sections,
@@ -336,22 +167,23 @@ def fetch_wikipedia_data(name: str, qid: str = None) -> Dict[str, Any]:
         'has_sections': bool(sections)
     }
     
-    print(f"\n📋 FINAL Infobox: {type(infobox).__name__} with {len(infobox)} keys")
-    print(f"📦 Final Keys: {list(infobox.keys())}")
+    print(f"\n📋 Wikipedia Infobox: {type(infobox).__name__} with {len(infobox)} keys")
+    print(f"📦 Keys: {list(infobox.keys())}")
     print(f"{'='*80}\n")
     
     return result
 
 
 if __name__ == "__main__":
-    test_animals = [
-        {"name": "Tiger", "qid": "Q132186"},
-        {"name": "Lion", "qid": "Q140"},
-        {"name": "African Bush Elephant", "qid": "Q7372"},
-    ]
+    # Test the fetcher
+    test_animals = ["Tiger", "Lion", "African Bush Elephant"]
     
     for animal in test_animals:
-        data = fetch_wikipedia_data(animal["name"], animal["qid"])
-        print(f"\n🎯 FINAL RESULT for {animal['name']}:")
+        print(f"\n{'='*80}")
+        print(f"Testing: {animal}")
+        print('='*80)
+        data = fetch_wikipedia_data(animal)
+        print(f"\n🎯 FINAL RESULT for {animal}:")
         print(f"   Infobox: {data['infobox']}")
+        print(f"   Sections: {list(data['sections'].keys())}")
         print(f"\n\n")
