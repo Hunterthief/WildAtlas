@@ -1,14 +1,57 @@
 """
 Wikidata Extractor - No API Key Required
-Enhances taxonomy, conservation status, images, and more
-CRITICAL FIX: Direct image URLs ✅
+CRITICAL FIX: Working image URLs using Special:FilePath
 """
 import requests
+import hashlib
 from typing import Dict, Any, Optional
 
-# FIXED: No trailing spaces
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
+
+
+def _filename_to_working_url(filename: str, width: int = 800) -> str:
+    """
+    Convert Wikimedia filename to WORKING direct image URL
+    Uses Special:FilePath method (simpler, no MD5 needed)
+    
+    Input:  "Adult_male_Royal_Bengal_tiger.jpg"
+    Output: "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Adult_male_Royal_Bengal_tiger.jpg&width=800"
+    """
+    if not filename:
+        return ""
+    
+    # Replace spaces with underscores
+    filename = filename.replace(' ', '_')
+    
+    # Use Special:FilePath method (recommended by Wikimedia) [[5]]
+    working_url = f"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/{filename}&width={width}"
+    
+    return working_url
+
+
+def _filename_to_direct_url(filename: str, width: int = 800) -> str:
+    """
+    Alternative: Direct thumb URL with MD5 hash (more reliable) [[9]]
+    
+    Input:  "Adult_male_Royal_Bengal_tiger.jpg"
+    Output: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Adult_male_Royal_Bengal_tiger.jpg/800px-Adult_male_Royal_Bengal_tiger.jpg"
+    """
+    if not filename:
+        return ""
+    
+    # Replace spaces with underscores
+    filename = filename.replace(' ', '_')
+    
+    # Calculate MD5 hash
+    md5_hash = hashlib.md5(filename.encode('utf-8')).hexdigest()
+    hash1 = md5_hash[0]
+    hash2 = md5_hash[0:2]
+    
+    # Build direct URL
+    direct_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{hash1}/{hash2}/{filename}/{width}px-{filename}"
+    
+    return direct_url
 
 
 def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
@@ -105,33 +148,6 @@ def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
         return None
 
 
-def _convert_filename_to_direct_url(filename: str) -> str:
-    """
-    CRITICAL FIX: Convert Wikimedia filename to DIRECT image URL
-    
-    Input:  "Adult_male_Royal_Bengal_tiger.jpg"
-    Output: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Adult_male_Royal_Bengal_tiger.jpg/800px-Adult_male_Royal_Bengal_tiger.jpg"
-    """
-    if not filename:
-        return ""
-    
-    # Replace spaces with underscores
-    filename = filename.replace(' ', '_')
-    
-    # Get hash path (first char and first two chars of filename)
-    clean_name = filename.split('.')[0]
-    if len(clean_name) >= 2:
-        hash1 = clean_name[0]
-        hash2 = clean_name[:2]
-        
-        # Build DIRECT image URL (800px width for good quality)
-        direct_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{hash1}/{hash2}/{filename}/800px-{filename}"
-        return direct_url
-    
-    # Fallback
-    return f"https://upload.wikimedia.org/wikipedia/commons/{filename}"
-
-
 def extract_taxonomy(wikidata: Dict[str, Any]) -> Dict[str, str]:
     """Extract taxonomic classification from Wikidata"""
     taxonomy = {
@@ -181,9 +197,8 @@ def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
 
 def extract_images(wikidata: Dict[str, Any]) -> list:
     """
-    CRITICAL FIX: Extract DIRECT image URLs from Wikidata
-    
-    Returns upload.wikimedia.org URLs (actual images), NOT commons.wikimedia.org page URLs
+    CRITICAL FIX: Extract WORKING image URLs from Wikidata
+    Uses Special:FilePath method (recommended by Wikimedia) [[5]]
     """
     images = []
     claims = wikidata.get("claims", {})
@@ -193,9 +208,9 @@ def extract_images(wikidata: Dict[str, Any]) -> list:
     for claim in image_claims[:3]:  # Max 3 images
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
-            # CRITICAL FIX: Convert to DIRECT image URL
-            direct_url = _convert_filename_to_direct_url(filename)
-            images.append(direct_url)
+            # CRITICAL FIX: Convert to WORKING URL
+            working_url = _filename_to_working_url(filename, width=800)
+            images.append(working_url)
     
     return images
 
@@ -243,7 +258,7 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
     return {
         "taxonomy": extract_taxonomy(wikidata),
         "conservation": extract_conservation_status(wikidata),
-        "images": extract_images(wikidata),  # Now returns DIRECT URLs
+        "images": extract_images(wikidata),  # Now returns WORKING URLs
         "common_names": extract_common_names(wikidata),
         "population": extract_population(wikidata),
         "description": wikidata.get("descriptions", {}).get("en", {}).get("value", ""),
