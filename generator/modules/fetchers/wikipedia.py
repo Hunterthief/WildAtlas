@@ -127,13 +127,33 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         wikitext = page_data['revisions'][0].get('*', '')
         
-        # FIXED: Better infobox detection
+        # FIXED: Better infobox detection - handle nested templates
         infobox_text = ""
         
-        # Try to find any infobox-like structure
-        infobox_match = re.search(r'\{\{Infobox[^}]*\}\}', wikitext, re.DOTALL | re.IGNORECASE)
-        if infobox_match:
-            infobox_text = infobox_match.group(0)
+        # Try multiple infobox patterns
+        infobox_patterns = [
+            r'\{\{Infobox\s+species[^}]*\}\}',
+            r'\{\{Infobox\s+animal[^}]*\}\}',
+            r'\{\{Speciesbox[^}]*\}\}',
+            r'\{\{Taxobox[^}]*\}\}',
+            r'\{\{Infobox[^}]*?\}\}\}',  # Match nested closing braces
+        ]
+        
+        for pattern in infobox_patterns:
+            infobox_match = re.search(pattern, wikitext, re.DOTALL | re.IGNORECASE)
+            if infobox_match:
+                infobox_text = infobox_match.group(0)
+                break
+        
+        # If still no infobox, try to find any infobox-like structure
+        if not infobox_text:
+            # Look for lines starting with | that contain physical stats
+            stat_lines = []
+            for line in wikitext.split('\n'):
+                if line.strip().startswith('|') and any(stat in line.lower() for stat in ['weight', 'length', 'mass', 'height']):
+                    stat_lines.append(line)
+            if stat_lines:
+                infobox_text = '\n'.join(stat_lines)
         
         if not infobox_text:
             return {}
@@ -143,10 +163,10 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         # Weight/Mass patterns - FIXED regex
         mass_patterns = [
-            r'\|\s*mass\s*=\s*([^\n\|}]+)',
-            r'\|\s*weight\s*=\s*([^\n\|}]+)',
-            r'\|\s*body_mass\s*=\s*([^\n\|}]+)',
-            r'\|\s*avg_weight\s*=\s*([^\n\|}]+)',
+            r'\|\s*mass\s*=\s*([^\n\|]+)',
+            r'\|\s*weight\s*=\s*([^\n\|]+)',
+            r'\|\s*body_mass\s*=\s*([^\n\|]+)',
+            r'\|\s*avg_weight\s*=\s*([^\n\|]+)',
         ]
         
         for pattern in mass_patterns:
@@ -157,10 +177,10 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         # Length patterns - FIXED regex
         length_patterns = [
-            r'\|\s*length\s*=\s*([^\n\|}]+)',
-            r'\|\s*body_length\s*=\s*([^\n\|}]+)',
-            r'\|\s*avg_length\s*=\s*([^\n\|}]+)',
-            r'\|\s*total_length\s*=\s*([^\n\|}]+)',
+            r'\|\s*length\s*=\s*([^\n\|]+)',
+            r'\|\s*body_length\s*=\s*([^\n\|]+)',
+            r'\|\s*avg_length\s*=\s*([^\n\|]+)',
+            r'\|\s*total_length\s*=\s*([^\n\|]+)',
         ]
         
         for pattern in length_patterns:
@@ -171,10 +191,10 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         # Height patterns - FIXED regex
         height_patterns = [
-            r'\|\s*height\s*=\s*([^\n\|}]+)',
-            r'\|\s*shoulder_height\s*=\s*([^\n\|}]+)',
-            r'\|\s*avg_height\s*=\s*([^\n\|}]+)',
-            r'\|\s*standing_height\s*=\s*([^\n\|}]+)',
+            r'\|\s*height\s*=\s*([^\n\|]+)',
+            r'\|\s*shoulder_height\s*=\s*([^\n\|]+)',
+            r'\|\s*avg_height\s*=\s*([^\n\|]+)',
+            r'\|\s*standing_height\s*=\s*([^\n\|]+)',
         ]
         
         for pattern in height_patterns:
@@ -185,9 +205,9 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         # Lifespan patterns - FIXED regex
         lifespan_patterns = [
-            r'\|\s*lifespan\s*=\s*([^\n\|}]+)',
-            r'\|\s*longevity\s*=\s*([^\n\|}]+)',
-            r'\|\s*avg_lifespan\s*=\s*([^\n\|}]+)',
+            r'\|\s*lifespan\s*=\s*([^\n\|]+)',
+            r'\|\s*longevity\s*=\s*([^\n\|]+)',
+            r'\|\s*avg_lifespan\s*=\s*([^\n\|]+)',
         ]
         
         for pattern in lifespan_patterns:
@@ -198,9 +218,9 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         # Speed patterns - FIXED regex
         speed_patterns = [
-            r'\|\s*speed\s*=\s*([^\n\|}]+)',
-            r'\|\s*top_speed\s*=\s*([^\n\|}]+)',
-            r'\|\s*max_speed\s*=\s*([^\n\|}]+)',
+            r'\|\s*speed\s*=\s*([^\n\|]+)',
+            r'\|\s*top_speed\s*=\s*([^\n\|]+)',
+            r'\|\s*max_speed\s*=\s*([^\n\|]+)',
         ]
         
         for pattern in speed_patterns:
