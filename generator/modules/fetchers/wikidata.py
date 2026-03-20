@@ -1,179 +1,257 @@
+# generator/modules/extractors/wikidata_enhancer.py
 """
-Wikidata fetcher - OPTIMIZED ✅
-Single API call for all properties
-ALL URL SPACES FIXED
+Wikidata Extractor - No API Key Required
+Enhances taxonomy, conservation status, images, and more
+ALL URL SPACES FIXED + Spaces replaced with underscores ✅
 """
 import requests
-from typing import Dict, Optional, Any
+from typing import Dict, Any, Optional
+
+# FIXED: No trailing spaces in URLs
+WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
+WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
 
 
-def _verify_animal_entity(entity: Dict[str, Any]) -> bool:
-    """Verify this Wikidata entity is actually an animal"""
-    claims = entity.get('claims', {})
-    
-    # Check P31 (instance of) for animal-related values
-    p31_claims = claims.get('P31', [])
-    animal_qids = ['Q729', 'Q16521', 'Q11968521', 'Q1088412']
-    
-    for claim in p31_claims:
-        if 'mainsnak' in claim and 'datavalue' in claim['mainsnak']:
-            value = claim['mainsnak']['datavalue'].get('value', {})
-            if isinstance(value, dict):
-                entity_id = value.get('id', '')
-                if any(aqid in entity_id for aqid in animal_qids):
-                    return True
-    
-    # Check if taxonomy claims exist
-    if any(key in claims for key in ['P171', 'P175', 'P105', 'P1076']):
-        return True
-    
-    # Check for common animal properties
-    if any(key in claims for key in ['P2067', 'P2048', 'P2283', 'P6137']):
-        return True
-    
-    return False
-
-
-def _extract_quantity_value(claim: Dict[str, Any], unit_map: Dict[str, str], default_unit: str) -> Optional[str]:
-    """Extract quantity value from a Wikidata claim"""
-    mainsnak = claim.get('mainsnak', {})
-    if mainsnak.get('snaktype') != 'value':
-        return None
-    
-    datavalue = mainsnak.get('datavalue', {})
-    value = datavalue.get('value', {})
-    
-    amount = value.get('amount', '').lstrip('+')
-    unit = value.get('unit', '')
-    
-    unit_short = unit_map.get(unit, default_unit)
-    
-    return f"{amount} {unit_short}" if amount else None
-
-
-def fetch_wikidata_properties(qid: str) -> Dict[str, Optional[str]]:
-    """
-    Fetch ALL physical properties from Wikidata in ONE API call ✅
-    Returns dict with weight, length, lifespan, top_speed
-    """
-    if not qid or not qid.startswith('Q'):
-        print(f"⚠️ Invalid QID: {qid}")
-        return {}
-    
+def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
+    """Fetch data from Wikidata using QID"""
     try:
-        print(f"🔗 Fetching Wikidata: {qid}")
-        
-        # FIXED: No spaces in URL
-        response = requests.get(
-            f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
-            headers={'User-Agent': 'WildAtlas/1.0 (contact: wildatlas@example.com)'},
-            timeout=10
-        )
-        
-        if response.status_code != 200:
-            print(f"⚠️ HTTP {response.status_code} from Wikidata")
-            return {}
-        
+        url = f"{WIKIDATA_ENDPOINT}{qid}.json"
+        headers = {
+            "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)",
+            "Accept": "application/json"
+        }
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
         data = response.json()
-        entities = data.get('entities', {})
-        if not entities:
-            return {}
+        entity = data.get("entities", {}).get(qid, {})
         
-        entity = list(entities.values())[0]
+        # Verify this is actually an animal
+        if not _is_animal_entity(entity):
+            print(f"   ⚠ QID {qid} is not an animal, searching by name...")
+            return None
         
-        # Verify this is an animal
-        if not _verify_animal_entity(entity):
-            print(f"⚠️ Wikidata QID {qid} does not appear to be an animal")
-            return {}
-        
-        claims = entity.get('claims', {})
-        result = {}
-        
-        # ===== Weight (P2067 - mass) =====
-        if 'P2067' in claims:
-            unit_map = {
-                'http://www.wikidata.org/entity/Q11573': 'kg',
-                'http://www.wikidata.org/entity/Q191118': 'g',
-                'http://www.wikidata.org/entity/Q1009905': 'tonnes',
-                'http://www.wikidata.org/entity/Q103207': 'lb',
-            }
-            for claim in claims['P2067']:
-                value = _extract_quantity_value(claim, unit_map, 'kg')
-                if value:
-                    result['weight'] = value
-                    print(f"   ✅ Weight: {value}")
-                    break
-        
-        # ===== Length (P2048 - height/length) =====
-        if 'P2048' in claims:
-            unit_map = {
-                'http://www.wikidata.org/entity/Q828224': 'm',
-                'http://www.wikidata.org/entity/Q174728': 'cm',
-                'http://www.wikidata.org/entity/Q2112654': 'mm',
-                'http://www.wikidata.org/entity/Q3710': 'ft',
-            }
-            for claim in claims['P2048']:
-                value = _extract_quantity_value(claim, unit_map, 'm')
-                if value:
-                    result['length'] = value
-                    print(f"   ✅ Length: {value}")
-                    break
-        
-        # ===== Lifespan (P2283 - life expectancy) =====
-        if 'P2283' in claims:
-            unit_map = {
-                'http://www.wikidata.org/entity/Q573': 'years',
-                'http://www.wikidata.org/entity/Q5151': 'months',
-            }
-            for claim in claims['P2283']:
-                value = _extract_quantity_value(claim, unit_map, 'years')
-                if value:
-                    result['lifespan'] = value
-                    print(f"   ✅ Lifespan: {value}")
-                    break
-        
-        # ===== Top Speed (P6137 - maximum speed) =====
-        if 'P6137' in claims:
-            unit_map = {
-                'http://www.wikidata.org/entity/Q828224': 'm/s',
-                'http://www.wikidata.org/entity/Q484640': 'km/h',
-                'http://www.wikidata.org/entity/Q827583': 'mph',
-            }
-            for claim in claims['P6137']:
-                value = _extract_quantity_value(claim, unit_map, 'km/h')
-                if value:
-                    result['top_speed'] = value
-                    print(f"   ✅ Speed: {value}")
-                    break
-        
-        print(f"✅ Wikidata: Found {len(result)} physical stats")
-        return result
-    
+        return entity
     except Exception as e:
-        print(f"❌ Error fetching Wikidata: {e}")
+        print(f"   ⚠ Wikidata fetch failed: {e}")
+        return None
+
+
+def _is_animal_entity(entity: Dict[str, Any]) -> bool:
+    """Check if Wikidata entity is actually an animal"""
+    if not entity:
+        return False
+    
+    claims = entity.get("claims", {})
+    
+    # P31 = instance of - check for animal-related QIDs
+    instance_of = claims.get("P31", [])
+    
+    # Animal QIDs (taxon, species, etc.)
+    animal_qids = [
+        "Q729",      # taxon
+        "Q16521",    # taxon name
+        "Q190887",   # species
+        "Q14959704", # animal taxon
+        "Q7432",     # animal
+        "Q10878",    # mammal
+        "Q25313",    # bird
+        "Q25306",    # fish
+        "Q25303",    # reptile
+        "Q25308",    # amphibian
+        "Q25311",    # insect
+    ]
+    
+    for claim in instance_of:
+        qid = claim.get("mainsnak", {}).get("datavalue", {}).get("value", {}).get("id", "")
+        if qid in animal_qids:
+            return True
+    
+    # Check description for animal keywords
+    descriptions = entity.get("descriptions", {})
+    en_desc = descriptions.get("en", {}).get("value", "").lower()
+    
+    # Must have animal keywords
+    animal_keywords = [
+        "species of", "animal", "mammal", "bird", "fish", "reptile", 
+        "amphibian", "insect", "cat", "dog", "elephant", "wolf", 
+        "tiger", "shark", "turtle", "snake", "frog", "butterfly", 
+        "bee", "penguin", "eagle", "cheetah", "salmon", "cobra",
+        "feline", "canine", "bear", "whale", "dolphin"
+    ]
+    
+    has_animal_keyword = any(kw in en_desc for kw in animal_keywords)
+    
+    # Reject if has non-animal keywords
+    reject_keywords = [
+        "commune", "city", "town", "village", "person", "politician", 
+        "university", "year", "plant", "emperor of", "dynasty",
+        "fish (clade)", "sharks", "commonwealth", "diplomat",
+        "merganser", "butterfly (university)", "bee (emperor)"
+    ]
+    
+    has_reject_keyword = any(kw in en_desc for kw in reject_keywords)
+    
+    return has_animal_keyword and not has_reject_keyword
+
+
+def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
+    """Search Wikidata for QID by scientific name"""
+    try:
+        url = WIKIDATA_SEARCH
+        params = {
+            "action": "wbsearchentities",
+            "format": "json",
+            "language": "en",
+            "search": scientific_name,
+            "type": "item",
+            "limit": 5
+        }
+        headers = {
+            "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
+        }
+        response = requests.get(url, params=params, headers=headers, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+        
+        results = data.get("search", [])
+        for result in results:
+            qid = result.get("id", "")
+            # Fetch full entity to verify it's an animal
+            entity = fetch_wikidata(qid)
+            if entity and _is_animal_entity(entity):
+                return qid
+        
+        return None
+    except Exception as e:
+        print(f"   ⚠ Wikidata search failed: {e}")
+        return None
+
+
+def extract_taxonomy(wikidata: Dict[str, Any]) -> Dict[str, str]:
+    """Extract taxonomic classification from Wikidata"""
+    taxonomy = {
+        "kingdom": "",
+        "phylum": "",
+        "class": "",
+        "order": "",
+        "family": "",
+        "genus": "",
+        "species": ""
+    }
+    
+    if not wikidata:
+        return taxonomy
+    
+    claims = wikidata.get("claims", {})
+    
+    # P225 = taxon name
+    taxon_name = claims.get("P225", [])
+    if taxon_name:
+        taxonomy["species"] = taxon_name[0].get("mainsnak", {}).get("datavalue", {}).get("value", "")
+    
+    return taxonomy
+
+
+def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
+    """Extract IUCN conservation status from Wikidata"""
+    if not wikidata:
+        return {"status": None, "status_id": None}
+    
+    claims = wikidata.get("claims", {})
+    status_claims = claims.get("P141", [])
+    
+    status_map = {
+        "Q75807": "Least Concern",
+        "Q192072": "Near Threatened",
+        "Q192076": "Vulnerable",
+        "Q192078": "Endangered",
+        "Q192082": "Critically Endangered",
+        "Q23037168": "Extinct in the Wild",
+        "Q192086": "Extinct",
+        "Q873109": "Data Deficient",
+        "Q873116": "Not Evaluated"
+    }
+    
+    if status_claims:
+        status_id = status_claims[0].get("mainsnak", {}).get("datavalue", {}).get("value", {}).get("id", "")
+        status = status_map.get(status_id)
+        if status:
+            return {"status": status, "status_id": status_id}
+    
+    return {"status": None, "status_id": None}
+
+
+def extract_images(wikidata: Dict[str, Any]) -> list:
+    """
+    Extract image URLs from Wikidata - FIXED ✅
+    Replaces spaces with underscores in filenames
+    """
+    images = []
+    claims = wikidata.get("claims", {})
+    
+    # P18 = image
+    image_claims = claims.get("P18", [])
+    for claim in image_claims[:3]:  # Max 3 images
+        filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
+        if filename:
+            # FIXED: Replace spaces with underscores in filename
+            filename = filename.replace(' ', '_')
+            # FIXED: No spaces in URL
+            url = f"https://commons.wikimedia.org/wiki/File:{filename}"
+            images.append(url)
+    
+    return images
+
+
+def extract_common_names(wikidata: Dict[str, Any]) -> list:
+    """Extract common names from Wikidata labels"""
+    names = []
+    labels = wikidata.get("labels", {})
+    
+    for lang, label_data in labels.items():
+        name = label_data.get("value", "")
+        if lang != "en" and name:
+            names.append({"name": name, "language": lang})
+    
+    return names[:10]
+
+
+def extract_population(wikidata: Dict[str, Any]) -> str:
+    """Extract population estimate from Wikidata"""
+    claims = wikidata.get("claims", {})
+    
+    # P1082 = population
+    pop_claims = claims.get("P1082", [])
+    if pop_claims:
+        amount = pop_claims[0].get("mainsnak", {}).get("datavalue", {}).get("value", {}).get("amount", "")
+        if amount:
+            return amount.lstrip("+")
+    
+    return ""
+
+
+def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
+    """Main function - fetch all Wikidata enhancements with fallback search"""
+    wikidata = fetch_wikidata(qid)
+    
+    # If QID failed or returned non-animal, try searching by scientific name
+    if not wikidata and scientific_name:
+        print(f"   🔍 Searching Wikidata for: {scientific_name}")
+        new_qid = search_wikidata_by_name(scientific_name)
+        if new_qid:
+            print(f"   ✅ Found QID: {new_qid}")
+            wikidata = fetch_wikidata(new_qid)
+    
+    if not wikidata:
         return {}
-
-
-# Keep individual functions for backward compatibility
-def fetch_wikidata_mass(qid: str) -> Optional[str]:
-    """Fetch mass from Wikidata property P2067"""
-    result = fetch_wikidata_properties(qid)
-    return result.get('weight')
-
-
-def fetch_wikidata_length(qid: str) -> Optional[str]:
-    """Fetch length from Wikidata property P2048"""
-    result = fetch_wikidata_properties(qid)
-    return result.get('length')
-
-
-def fetch_wikidata_lifespan(qid: str) -> Optional[str]:
-    """Fetch lifespan from Wikidata property P2283"""
-    result = fetch_wikidata_properties(qid)
-    return result.get('lifespan')
-
-
-def fetch_wikidata_speed(qid: str) -> Optional[str]:
-    """Fetch top speed from Wikidata property P6137"""
-    result = fetch_wikidata_properties(qid)
-    return result.get('top_speed')
+    
+    return {
+        "taxonomy": extract_taxonomy(wikidata),
+        "conservation": extract_conservation_status(wikidata),
+        "images": extract_images(wikidata),
+        "common_names": extract_common_names(wikidata),
+        "population": extract_population(wikidata),
+        "description": wikidata.get("descriptions", {}).get("en", {}).get("value", ""),
+        # FIXED: No spaces in URL
+        "wikipedia_url": f"https://en.wikipedia.org/wiki/{qid}"
+    }
