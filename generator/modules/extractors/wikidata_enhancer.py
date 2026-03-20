@@ -17,7 +17,10 @@ SUBSPECIES_KEYWORDS = [
     'sumatrae', 'altaica', 'amoyensis', 'corbetti', 'jacksoni',
     'virgata', 'sondaica', 'balica', 'tigris', 'leo', 'persica',
     'africanus', 'asiaticus', 'bengalensis', 'indicus', 'lupus',
-    'subspecies', 'subsp', 'ssp'
+    'subspecies', 'subsp', 'ssp', 'italicus', 'pardus', 'melas',
+    'oncilla', 'tigrina', 'jubatus', 'salar', 'mydas', 'catesbeianus',
+    'plexippus', 'mellifera', 'leucocephalus', 'forsteri', 'carcharias',
+    'hannah', 'ophiophagus'
 ]
 
 # Language suffixes to reject (e.g., -ar.png, -he.png, -fr.png)
@@ -27,14 +30,19 @@ LANGUAGE_SUFFIXES = [
     '-th', '-vi', '-id', '-ms', '-tl', '-uk', '-cs', '-sk', '-hu',
     '-ro', '-bg', '-hr', '-sr', '-sl', '-et', '-lv', '-lt', '-fi',
     '-sv', '-no', '-da', '-is', '-ga', '-cy', '-mt', '-eu', '-ca',
-    '-gl', '-ast', '-oc', '-br', '-gd', '-gv', '-kw', '-lb', '-rm'
+    '-gl', '-ast', '-oc', '-br', '-gd', '-gv', '-kw', '-lb', '-rm',
+    '-cz', '-cn', '-tw', '-hk', '-sg'
 ]
 
 # Reject keywords for distribution maps
 DISTRIBUTION_REJECT_KEYWORDS = [
     'historical', 'history', 'old', 'ancient', 'former',
-    'plo', '2009', '2010', '2011', '2012', '2013', '2014', '2015',
-    'early', 'late', 'century', 'past', 'previous'
+    'plo', '2000', '2001', '2002', '2003', '2004', '2005',
+    '2006', '2007', '2008', '2009', '2010', '2011', '2012',
+    '2013', '2014', '2015', '2016', '2017', '2018', '2019',
+    '2020', '2021', '2022', '2023', '2024', '2025',
+    'early', 'late', 'century', 'past', 'previous',
+    'grid_map', 'grid', 'cutted', 'without_borders'
 ]
 
 
@@ -74,7 +82,7 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     
     Accept: Tiger_distribution.png
     Accept: Apis_mellifera_distribution_map.svg
-    Reject: Panthera_tigris_sumatrae_distribution_map-ar.png
+    Reject: Panthera_tigris_tigris_distribution_map_2.png
     Reject: Historical_tiger_distribution_PLoS_2009.png
     """
     filename_lower = filename.lower()
@@ -82,6 +90,12 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     
     # FIXED: Must contain "distribution" (no need for "map")
     if 'distribution' not in filename_lower:
+        return False
+    
+    # FIXED: Reject non-image files (PDF, etc.)
+    if not (filename_lower.endswith('.png') or filename_lower.endswith('.jpg') or 
+            filename_lower.endswith('.jpeg') or filename_lower.endswith('.svg')):
+        print(f"   ⚠️  Rejecting distribution map (not an image file): {filename}")
         return False
     
     # Check for reject keywords first (historical, years, etc.)
@@ -100,9 +114,11 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
             return False
     
     # Check if filename contains subspecies keywords
+    # FIXED: Reject if subspecies keyword is in filename but NOT the main animal name
     for subspecies in SUBSPECIES_KEYWORDS:
         if subspecies in filename_lower:
-            # Allow if it's part of the main animal name (e.g., "gray_wolf" contains "wolf")
+            # Check if this subspecies is NOT part of the common animal name
+            # e.g., "tigris" in filename but "tiger" doesn't contain "tigris" → REJECT
             if subspecies not in animal_lower:
                 print(f"   ⚠️  Rejecting distribution map (subspecies '{subspecies}'): {filename}")
                 return False
