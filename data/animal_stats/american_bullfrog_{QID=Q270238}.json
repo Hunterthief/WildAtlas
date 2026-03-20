@@ -67,7 +67,7 @@
   "physical": {
     "weight": "5–175 g",
     "length": "",
-    "height": "0.5–1.0 m",
+    "height": "",
     "top_speed": "",
     "lifespan": "16 years"
   },
@@ -123,5 +123,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T04:23:25.002680"
+  "last_updated": "2026-03-20T04:30:10.125918"
 }

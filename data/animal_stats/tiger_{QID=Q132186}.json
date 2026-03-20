@@ -67,7 +67,7 @@
   "physical": {
     "weight": "140kg - 300kg (309lbs - 660lbs)",
     "length": "2.4m - 3.3m (6.8ft - 11ft)",
-    "height": "0.8–1.1 m",
+    "height": "",
     "top_speed": "60 mph",
     "lifespan": "18 - 25 years"
   },
@@ -124,5 +124,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T04:22:26.230429"
+  "last_updated": "2026-03-20T04:29:12.762311"
 }
