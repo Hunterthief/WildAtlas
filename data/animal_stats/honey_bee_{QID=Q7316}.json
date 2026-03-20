@@ -119,7 +119,7 @@
   "young_name": "young",
   "group_name": "population",
   "physical": {
-    "weight": "392 G",
+    "weight": "",
     "length": "",
     "height": "",
     "top_speed": "",
@@ -144,7 +144,7 @@
     "lifestyle": "",
     "color": "BrownYellowBlack",
     "skin_type": "Hair",
-    "prey": "fish",
+    "prey": "seal",
     "slogan": "There are only 8 recognized species!",
     "group": "",
     "number_of_species": "8",
@@ -196,5 +196,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-19T23:44:07.142331"
+  "last_updated": "2026-03-20T00:05:19.041370"
 }

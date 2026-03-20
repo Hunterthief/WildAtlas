@@ -136,7 +136,7 @@
     "lifestyle": "Diurnal",
     "color": "BlackWhiteOrange",
     "skin_type": "Scales",
-    "prey": "Fish",
+    "prey": "bird",
     "slogan": "",
     "group": "Invertebrates",
     "number_of_species": "3",
@@ -170,5 +170,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-19T23:43:54.951270"
+  "last_updated": "2026-03-20T00:05:09.172973"
 }

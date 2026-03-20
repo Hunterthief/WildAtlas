@@ -159,7 +159,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:42:10.972751"
+    "last_updated": "2026-03-20T00:03:55.288907"
   },
   {
     "id": "Q35625",
@@ -327,7 +327,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:42:20.410204"
+    "last_updated": "2026-03-20T00:04:00.808001"
   },
   {
     "id": "Q7372",
@@ -447,7 +447,7 @@
       "lifestyle": "",
       "color": "",
       "skin_type": "",
-      "prey": "",
+      "prey": "dolphin",
       "slogan": "",
       "group": "",
       "number_of_species": "two",
@@ -487,7 +487,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:42:26.628971"
+    "last_updated": "2026-03-20T00:04:05.437924"
   },
   {
     "id": "Q213537",
@@ -670,7 +670,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:42:36.156191"
+    "last_updated": "2026-03-20T00:04:11.259565"
   },
   {
     "id": "Q25319",
@@ -830,7 +830,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:42:46.612555"
+    "last_updated": "2026-03-20T00:04:18.610290"
   },
   {
     "id": "Q43306",
@@ -980,7 +980,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:42:54.896859"
+    "last_updated": "2026-03-20T00:04:23.777653"
   },
   {
     "id": "Q47164",
@@ -1151,7 +1151,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:43:03.693965"
+    "last_updated": "2026-03-20T00:04:29.533426"
   },
   {
     "id": "Q39709",
@@ -1311,7 +1311,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:43:14.037263"
+    "last_updated": "2026-03-20T00:04:36.479551"
   },
   {
     "id": "Q7785",
@@ -1487,7 +1487,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:43:24.961027"
+    "last_updated": "2026-03-20T00:04:44.438670"
   },
   {
     "id": "Q189609",
@@ -1644,7 +1644,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:43:31.553941"
+    "last_updated": "2026-03-20T00:04:49.097965"
   },
   {
     "id": "Q270238",
@@ -1756,7 +1756,7 @@
       "lifestyle": "",
       "color": "",
       "skin_type": "",
-      "prey": "fish",
+      "prey": "snake",
       "slogan": "",
       "group": "",
       "number_of_species": "two",
@@ -1791,7 +1791,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:43:38.006280"
+    "last_updated": "2026-03-20T00:04:54.308748"
   },
   {
     "id": "Q165980",
@@ -1931,7 +1931,7 @@
       "lifestyle": "Diurnal",
       "color": "BlackWhiteOrange",
       "skin_type": "Scales",
-      "prey": "Fish",
+      "prey": "bird",
       "slogan": "",
       "group": "Invertebrates",
       "number_of_species": "3",
@@ -1965,7 +1965,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:43:54.951270"
+    "last_updated": "2026-03-20T00:05:09.172973"
   },
   {
     "id": "Q7316",
@@ -2088,7 +2088,7 @@
     "young_name": "young",
     "group_name": "population",
     "physical": {
-      "weight": "392 G",
+      "weight": "",
       "length": "",
       "height": "",
       "top_speed": "",
@@ -2113,7 +2113,7 @@
       "lifestyle": "",
       "color": "BrownYellowBlack",
       "skin_type": "Hair",
-      "prey": "fish",
+      "prey": "seal",
       "slogan": "There are only 8 recognized species!",
       "group": "",
       "number_of_species": "8",
@@ -2165,6 +2165,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-19T23:44:07.142331"
+    "last_updated": "2026-03-20T00:05:19.041370"
   }
 ]
