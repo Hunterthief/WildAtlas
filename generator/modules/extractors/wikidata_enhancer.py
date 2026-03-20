@@ -1,7 +1,7 @@
 """
 Wikidata Extractor - No API Key Required
 CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
-ALL TRAILING SPACES REMOVED
+ALL TRAILING SPACES REMOVED + Subspecies Filter
 """
 import requests
 import hashlib
@@ -11,6 +11,13 @@ from typing import Dict, Any, Optional, List
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
 WIKIMEDIA_COMMONS = "https://commons.wikimedia.org/w/api.php"
+
+# Subspecies keywords to filter out (we want general species maps only)
+SUBSPECIES_KEYWORDS = [
+    'sumatrae', 'altaica', 'amoyensis', 'corbetti', 'jacksoni',
+    'virgata', 'sondaica', 'balica', 'tigris', 'leo', 'persica',
+    'africanus', 'asiaticus', 'bengalensis', 'indicus'
+]
 
 
 def _filename_to_direct_url(filename: str) -> str:
@@ -23,7 +30,7 @@ def _filename_to_direct_url(filename: str) -> str:
     if not filename:
         return ""
     
-    # FIXED: Remove "File:" prefix if present
+    # Remove "File:" prefix if present
     filename = filename.replace('File:', '')
     
     # Replace spaces with underscores
@@ -32,7 +39,7 @@ def _filename_to_direct_url(filename: str) -> str:
     # Strip any trailing/leading whitespace
     filename = filename.strip()
     
-    # Calculate MD5 hash for path (from clean filename)
+    # Calculate MD5 hash for path
     md5_hash = hashlib.md5(filename.encode('utf-8')).hexdigest()
     hash1 = md5_hash[0]
     hash2 = md5_hash[0:2]
@@ -43,19 +50,48 @@ def _filename_to_direct_url(filename: str) -> str:
     return direct_url
 
 
+def _is_general_distribution_map(filename: str, animal_name: str) -> bool:
+    """
+    Check if this is a general species distribution map (not subspecies-specific)
+    
+    Prefer: Tiger_distribution.png
+    Reject: Panthera_tigris_sumatrae_distribution_map-ar.png
+    """
+    filename_lower = filename.lower()
+    animal_lower = animal_name.lower().replace(' ', '_')
+    
+    # Check if filename contains subspecies keywords
+    for subspecies in SUBSPECIES_KEYWORDS:
+        if subspecies in filename_lower:
+            return False
+    
+    # Prefer filenames that match the common animal name
+    if animal_lower in filename_lower:
+        return True
+    
+    # Accept if it has "distribution" but no subspecies keywords
+    if 'distribution' in filename_lower:
+        return True
+    
+    return False
+
+
 def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional[str]:
     """
     Search Wikimedia Commons for distribution map images
+    Prefers general species maps over subspecies-specific ones
     
     Example: https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png
     """
     try:
-        # Try multiple search queries
+        # Try multiple search queries - general name first
         search_queries = [
             f"{animal_name} distribution",
+            f"{animal_name} range",
             f"{scientific_name} distribution",
-            f"{animal_name} range map",
         ]
+        
+        best_match = None
         
         for query in search_queries:
             params = {
@@ -64,9 +100,8 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
                 "list": "search",
                 "srsearch": f"{query}",
                 "srnamespace": 6,  # File namespace
-                "srlimit": 10
+                "srlimit": 20
             }
-            # FIXED: No trailing spaces in User-Agent
             headers = {
                 "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
             }
@@ -79,15 +114,24 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
                 
                 for result in results:
                     filename = result.get("title", "")
-                    # FIXED: Only accept files with "distribution" in name (not "File:")
                     filename_clean = filename.replace('File:', '').strip()
+                    
+                    # Must have "distribution" in name
                     if filename_clean and "distribution" in filename_clean.lower():
-                        # Convert to direct URL
-                        direct_url = _filename_to_direct_url(filename)
-                        # FIXED: Strip trailing spaces from URL
-                        direct_url = direct_url.strip()
-                        print(f"   ✅ Found distribution map: {filename_clean}")
-                        return direct_url
+                        # Check if it's a general map (not subspecies-specific)
+                        if _is_general_distribution_map(filename_clean, animal_name):
+                            direct_url = _filename_to_direct_url(filename)
+                            direct_url = direct_url.strip()
+                            print(f"   ✅ Found distribution map: {filename_clean}")
+                            return direct_url
+                        elif best_match is None:
+                            # Keep as fallback if no general map found
+                            best_match = _filename_to_direct_url(filename).strip()
+        
+        # Return fallback if no general map found
+        if best_match:
+            print(f"   ⚠️  Using subspecies map (no general map found): {best_match}")
+            return best_match
     
     except Exception as e:
         print(f"   Distribution map search failed: {e}")
@@ -99,7 +143,6 @@ def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
     """Fetch data from Wikidata using QID"""
     try:
         url = f"{WIKIDATA_ENDPOINT}{qid}.json"
-        # FIXED: No trailing spaces in User-Agent
         headers = {
             "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)",
             "Accept": "application/json"
@@ -170,7 +213,6 @@ def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
             "type": "item",
             "limit": 5
         }
-        # FIXED: No trailing spaces in User-Agent
         headers = {
             "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
         }
@@ -240,14 +282,9 @@ def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
 
 def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_name: str = "") -> Dict[str, List[str]]:
     """
-    CRITICAL FIX: Extract DIRECT image URLs from Wikidata
+    Extract DIRECT image URLs from Wikidata
     Separates regular photos from distribution maps
-    NO TRAILING SPACES IN URLs
-    
-    Returns: {
-        "photos": [...],
-        "distribution": [...]
-    }
+    Filters out subspecies-specific distribution maps
     """
     result = {
         "photos": [],
@@ -261,18 +298,15 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
     for claim in image_claims[:5]:
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
-            # FIXED: Remove "File:" prefix
             filename_clean = filename.replace('File:', '').strip()
+            direct_url = _filename_to_direct_url(filename).strip()
             
-            # Convert to direct URL
-            direct_url = _filename_to_direct_url(filename)
-            # FIXED: Strip ALL trailing spaces from URL
-            direct_url = direct_url.strip()
-            
-            # FIXED: Filter by "distribution" keyword
+            # Check if it's a distribution map
             if "distribution" in filename_clean.lower() or "range_map" in filename_clean.lower():
-                result["distribution"].append(direct_url)
-                print(f"   Distribution image: {filename_clean}")
+                # Only add if it's a general species map (not subspecies-specific)
+                if _is_general_distribution_map(filename_clean, animal_name):
+                    result["distribution"].append(direct_url)
+                    print(f"   Distribution image: {filename_clean}")
             else:
                 result["photos"].append(direct_url)
     
@@ -323,7 +357,7 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
     if not wikidata:
         return {}
     
-    # FIXED: Extract images with distribution filtering
+    # Extract images with distribution filtering
     image_data = extract_images(wikidata, scientific_name, scientific_name)
     
     # Combine photos and distribution for "images" array
@@ -332,11 +366,10 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
     # Primary image is first photo (not distribution map)
     primary_image = image_data["photos"][0] if image_data["photos"] else (image_data["distribution"][0] if image_data["distribution"] else "")
     
-    # FIXED: Strip trailing spaces
+    # Strip trailing spaces
     primary_image = primary_image.strip()
     all_images = [img.strip() for img in all_images if img.strip()]
     
-    # FIXED: No spaces in Wikipedia URL
     wiki_title = scientific_name.replace(' ', '_') if scientific_name else qid
     
     return {
