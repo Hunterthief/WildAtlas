@@ -46,9 +46,9 @@
   ],
   "summary": "species of mammal",
   "description": "species of mammal",
-  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Eurasian_wolf_2.jpg&width=800",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
   "images": [
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Eurasian_wolf_2.jpg&width=800"
+    "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
@@ -139,5 +139,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:21:42.192462"
+  "last_updated": "2026-03-20T21:41:11.355734"
 }

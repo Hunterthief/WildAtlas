@@ -46,11 +46,11 @@
   ],
   "summary": "species of fish",
   "description": "species of fish",
-  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Atlantischer_Lachs.jpg&width=800",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
   "images": [
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Atlantischer_Lachs.jpg&width=800",
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Atlantic_salmon_fish.jpg&width=800",
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/202409_Atlantic_Salmon.svg&width=800"
+    "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
   "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
@@ -122,5 +122,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:22:47.152825"
+  "last_updated": "2026-03-20T21:42:14.191274"
 }

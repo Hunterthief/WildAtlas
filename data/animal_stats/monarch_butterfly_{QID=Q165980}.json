@@ -46,15 +46,15 @@
   ],
   "summary": "milkweed butterfly in the family Nymphalidae",
   "description": "milkweed butterfly in the family Nymphalidae",
-  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Danaus_plexippus_MHNT_femelle.jpg&width=800",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
   "images": [
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Danaus_plexippus_MHNT_femelle.jpg&width=800",
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Danaus_plexippus_MHNT.jpg&width=800",
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Monarch_caterpillar_(23229).jpg&width=800"
+    "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/e/e4/Danaus_plexippus_MHNT.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/9/90/Monarch_caterpillar_(23229).jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
   "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-  "eol_url": "https://eol.org/pages/4090155",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -124,8 +124,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T21:23:46.656083"
+  "last_updated": "2026-03-20T21:43:10.300723"
 }

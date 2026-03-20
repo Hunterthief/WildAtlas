@@ -46,11 +46,11 @@
   ],
   "summary": "large flightless seabird endemic to Antarctica",
   "description": "large flightless seabird endemic to Antarctica",
-  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg&width=800",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
   "images": [
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg&width=800",
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Penguin_in_Antarctica_jumping_out_of_the_water.jpg&width=800",
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Penguin_diving_statistics.svg&width=800"
+    "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Penguin_diving_statistics.svg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
   "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
@@ -122,5 +122,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:22:17.045923"
+  "last_updated": "2026-03-20T21:41:45.390913"
 }

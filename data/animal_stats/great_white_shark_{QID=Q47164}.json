@@ -46,11 +46,11 @@
   ],
   "summary": "species of large lamniform shark",
   "description": "species of large lamniform shark",
-  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Great_white_shark.jpg&width=800",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Great_white_shark.jpg",
   "images": [
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Great_white_shark.jpg&width=800",
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/202410_Great_white_shark.svg&width=800",
-    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/White_shark.jpg&width=800"
+    "https://upload.wikimedia.org/wikipedia/commons/4/4b/Great_white_shark.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/8/85/202410_Great_white_shark.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
@@ -129,5 +129,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:22:32.553623"
+  "last_updated": "2026-03-20T21:42:00.031745"
 }
