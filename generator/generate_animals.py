@@ -23,7 +23,7 @@ from modules.fetchers.api_ninjas import fetch_animal_data
 from modules.fetchers.wikipedia import fetch_wikipedia_data
 from modules.fetchers.inaturalist import fetch_inaturalist
 from modules.fetchers.gbif_distribution import extract_gbif_all
-from modules.fetchers.eol_data import extract_eol_data
+from modules.fetchers.eol_data import extract_eol_all  # ✅ Fixed: was 'extract_eol_data'
 
 # =============================================================================
 # IMPORTS - Extractors (including Wikidata)
