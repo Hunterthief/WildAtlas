@@ -50,9 +50,9 @@
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/e/e4/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
     "https://upload.wikimedia.org/wikipedia/commons/b/b9/202312_American_bullfrog.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lithobates_catesbeianus_distribution_cutted.png"
+    "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png"
   ],
-  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lithobates_catesbeianus_distribution_cutted.png",
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
   "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
   "eol_url": "https://eol.org/pages/330963",
@@ -127,5 +127,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T23:04:02.606814"
+  "last_updated": "2026-03-20T23:15:39.099924"
 }

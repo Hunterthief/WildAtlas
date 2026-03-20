@@ -56,7 +56,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Panthera_tigris_tigris_distribution_map_2.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "https://eol.org/pages/1253183",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -126,10 +126,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T23:02:47.012898"
+    "last_updated": "2026-03-20T23:14:09.282434"
   },
   {
     "id": "Q35625",
@@ -260,7 +259,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:02:54.106836"
+    "last_updated": "2026-03-20T23:14:17.452518"
   },
   {
     "id": "Q7372",
@@ -395,7 +394,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:02:59.462240"
+    "last_updated": "2026-03-20T23:14:25.046074"
   },
   {
     "id": "Q213537",
@@ -448,9 +447,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/7/71/Distribution_Canis_Lupus_Italicus.png"
+      "https://upload.wikimedia.org/wikipedia/commons/d/dc/Canis_lupus_cristaldii_distribution_(1900).png"
     ],
-    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/7/71/Distribution_Canis_Lupus_Italicus.png",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Canis_lupus_cristaldii_distribution_(1900).png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
     "eol_url": "https://eol.org/pages/1268606",
@@ -541,7 +540,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:03:10.569841"
+    "last_updated": "2026-03-20T23:14:34.526639"
   },
   {
     "id": "Q25319",
@@ -670,7 +669,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:03:18.116929"
+    "last_updated": "2026-03-20T23:14:41.907370"
   },
   {
     "id": "Q43306",
@@ -798,7 +797,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:03:25.580044"
+    "last_updated": "2026-03-20T23:14:49.407522"
   },
   {
     "id": "Q47164",
@@ -935,7 +934,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:03:33.209788"
+    "last_updated": "2026-03-20T23:15:00.829101"
   },
   {
     "id": "Q39709",
@@ -990,9 +989,9 @@
       "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/d/df/Salmo_salar_CZ_distribution_grid_map_2006.png"
+      "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg"
     ],
-    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Salmo_salar_CZ_distribution_grid_map_2006.png",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
     "eol_url": "https://eol.org/pages/46563143",
@@ -1064,7 +1063,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:03:41.071412"
+    "last_updated": "2026-03-20T23:15:08.254913"
   },
   {
     "id": "Q7785",
@@ -1123,7 +1122,7 @@
     "distribution_image": "",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-    "eol_url": "https://eol.org/pages/46559469",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1210,10 +1209,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T23:03:49.735327"
+    "last_updated": "2026-03-20T23:15:25.825951"
   },
   {
     "id": "Q189609",
@@ -1350,7 +1348,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:03:55.627411"
+    "last_updated": "2026-03-20T23:15:31.794912"
   },
   {
     "id": "Q270238",
@@ -1404,9 +1402,9 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/e/e4/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
       "https://upload.wikimedia.org/wikipedia/commons/b/b9/202312_American_bullfrog.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lithobates_catesbeianus_distribution_cutted.png"
+      "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png"
     ],
-    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lithobates_catesbeianus_distribution_cutted.png",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
     "eol_url": "https://eol.org/pages/330963",
@@ -1481,7 +1479,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:04:02.606814"
+    "last_updated": "2026-03-20T23:15:39.099924"
   },
   {
     "id": "Q165980",
@@ -1614,7 +1612,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:04:10.606464"
+    "last_updated": "2026-03-20T23:15:47.530730"
   },
   {
     "id": "Q7316",
@@ -1763,6 +1761,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T23:04:18.687994"
+    "last_updated": "2026-03-20T23:15:58.106725"
   }
 ]

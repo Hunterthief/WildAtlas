@@ -51,9 +51,9 @@
     "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/d/df/Salmo_salar_CZ_distribution_grid_map_2006.png"
+    "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg"
   ],
-  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Salmo_salar_CZ_distribution_grid_map_2006.png",
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
   "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
   "eol_url": "https://eol.org/pages/46563143",
@@ -125,5 +125,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T23:03:41.071412"
+  "last_updated": "2026-03-20T23:15:08.254913"
 }
