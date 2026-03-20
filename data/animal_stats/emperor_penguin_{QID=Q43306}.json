@@ -98,7 +98,7 @@
   "ecology": {
     "diet": "Carnivore",
     "habitat": "he emperor penguin has a circumpolar distribution in the Antarctic almost exclusively between the 66° and 77° south latitudes. It almost always breeds on stable pack ice near the coast and up to 18 km (11 mi) offshore. Breeding colonies are usually in areas where ice cliffs and icebergs provide some protection from the wind. hree land colonies have been reported: one (now disappeared) on a shingle spit at the ion Islands on the Antarctic eninsula, one on a headland at aylor Glacier in Victoria Land, and most recently one at Amundsen Bay. ince 2009, a number of colonies have been reported on shelf ice rather than sea ice, in some cases moving to the shelf in years when sea ice forms late. he northernmost breeding population is on now Hill Island, near the northern tip of the eninsula. Individual vagrants have been seen on Heard Island, outh Georgia, and occasionally in ew Zealand. he furthest north a vagrant has been recorded was in enmark, Western Australia in ovember 2024. his individual, which is believed to have originated from eastern Antarctica, was encountered by a group of surfers shortly after it arrived in enmark, and was taken in by conservationists at the epartment of Biodiversity, onservation and Attractions to have its condition evaluated. In 2009, the total population of emperor penguins was estimated to be at around 595,000 adult birds, in 46 known colonies spread around the Antarctic and sub-Antarctic; around 35% of the known population lives north of the Antarctic ircle. Major breeding colonies were located at ape Washington, oulman Island in Victoria Land, Halley Bay, ape olbeck, and ibble Glacier. olonies are known to fluctuate over time, often breaking into \"suburbs\" which move apart from the parent group, and some have been known to disappear entirely. he ape rozier colony on the Ross ea shrank drastically between the first visits by the iscovery Expedition in 1902–03 and the later visits by the erra ova Expedition in 1910–11; it was reduced to a few hundred birds, and may have come close to extinction due to changes in the position of the ice shelf. By the 1960s it had rebounded dramatically, but by 2009 was again reduced to a small population of around 300.",
-    "locations": "Antarctica",
+    "locations": "Antarctica, Ocean",
     "group_behavior": "Colony",
     "conservation_status": "Endangered",
     "biggest_threat": "Global warming",
@@ -126,25 +126,16 @@
     "most_distinctive_feature": "Bright yellow feathers on neck and ears"
   },
   "distribution": {
-    "countries": [
-      "Antarctica"
-    ],
-    "coordinates": {
-      "min_lat": -77.786996,
-      "max_lat": -67.0071,
-      "min_lon": -178.772833,
-      "max_lon": 169.40249,
-      "count": 50
-    },
-    "occurrence_count": 131628
+    "countries": [],
+    "coordinates": {},
+    "occurrence_count": 0
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:18:23.182728"
+  "last_updated": "2026-03-20T01:24:53.267773"
 }

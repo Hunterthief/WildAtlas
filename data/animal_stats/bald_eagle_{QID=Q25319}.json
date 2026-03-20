@@ -107,7 +107,7 @@
   "ecology": {
     "diet": "Carnivore",
     "habitat": "he bald eagle occurs during its breeding season in virtually any kind of American wetland habitat such as seacoasts, rivers, large lakes or marshes or other large bodies of open water with an abundance of fish. tudies have shown a preference for bodies of water with a circumference greater than 11 km (7 mi), and lakes with an area greater than 10 km2 (4 sq mi) are optimal for breeding bald eagles. he bald eagle typically requires old-growth and mature stands of coniferous or hardwood trees for perching, roosting, and nesting. ree species reportedly is less important to the eagle pair than the tree's height, composition and location. erhaps of paramount importance for this species is an abundance of comparatively large trees surrounding the body of water. elected trees must have good visibility, be over 20 m (66 ft) tall, an open structure, and proximity to prey. If nesting trees are in standing water such as in a mangrove swamp, the nest can be located fairly low, at as low as 6 m (20 ft) above the ground. In a more typical tree standing on dry ground, nests may be located from 16 to 38 m (52 to 125 ft) in height. In hesapeake Bay, nesting trees averaged 82 cm (32 in) in diameter and 28 m (92 ft) in total height, while in Florida, the average nesting tree stands 23 m (75 ft) high and is 23 cm (9.1 in) in diameter. rees used for nesting in the Greater Yellowstone area average 27 m (89 ft) high. rees or forest used for nesting should have a canopy cover of no more than 60%, and no less than 20%, and be in close proximity to water. Most nests have been found within 200 m (660 ft) of open water. he greatest distance from open water recorded for a bald eagle nest was over 3 km (1.9 mi), in Florida. Bald eagle nests are often very large in order to compensate for size of the birds. he largest recorded nest was found in Florida in 1963, and was measured at 2.9 m (9.5 ft) wide and 6.1 m (20 ft) deep. In Florida, nesting habitats often consist of mangrove swamps, the shorelines of lakes and rivers, pinelands, seasonally flooded flatwoods, hardwood swamps, and open prairies and pastureland with scattered tall trees. Favored nesting trees in Florida are slash pines (inus elliottii), longleaf pines (. palustris), loblolly pines (. taeda) and cypress trees, but for the southern coastal areas where mangroves are usually used. In Wyoming, groves of mature cottonwoods or tall pines found along streams and rivers are typical bald eagle nesting habitats. Wyoming eagles may inhabit habitat types ranging from large, old-growth stands of ponderosa pines (inus ponderosa) to narrow strips of riparian trees surrounded by rangeland. In outheast Alaska, itka spruce (icea sitchensis) provided 78% of the nesting trees used by eagles, followed by hemlocks (suga) at 20%. Increasingly, eagles nest near human-made reservoirs stocked with fish. he bald eagle is usually quite sensitive to human activity while nesting, and is found most commonly in areas with minimal human disturbance. It chooses sites more than 1.2 km (0.75 mi) from low-density human disturbance and more than 1.8 km (1.1 mi) from medium- to high-density human disturbance. However, bald eagles will occasionally nest in large estuaries or secluded groves within major cities, such as Hardtack Island on the Willamette River in ortland, regon, or ohn Heinz ational Wildlife Refuge at inicum in hiladelphia, ennsylvania, which are surrounded by a great quantity of human activity. Even more contrary to the usual sensitivity to disturbance, a family of bald eagles moved to the Harlem neighborhood in ew York ity in 2010. While wintering, bald eagles tend to be less habitat and disturbance sensitive. hey will commonly congregate at spots with plentiful perches and waters with plentiful prey and (in northern climes) partially unfrozen waters. Alternately, non-breeding or wintering bald eagles, particularly in areas with a lack of human disturbance, spend their time in various upland, terrestrial habitats sometimes quite far away from waterways. In the northern half of orth America (especially the interior portion), this terrestrial inhabitance by bald eagles tends to be especially prevalent because unfrozen water may not be accessible. Upland wintering habitats often consist of open habitats with concentrations of medium-sized mammals, such as prairies, meadows or tundra, or open forests with regular carrion access.",
-    "locations": "Canada, United States of America",
+    "locations": "North-America",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
     "biggest_threat": "Pesticide use",
@@ -135,26 +135,16 @@
     "most_distinctive_feature": "The white plumage on the head"
   },
   "distribution": {
-    "countries": [
-      "Canada",
-      "United States of America"
-    ],
-    "coordinates": {
-      "min_lat": 25.43792,
-      "max_lat": 51.283605,
-      "min_lon": -123.267463,
-      "max_lon": -72.481989,
-      "count": 50
-    },
-    "occurrence_count": 7774987
+    "countries": [],
+    "coordinates": {},
+    "occurrence_count": 0
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:18:15.893619"
+  "last_updated": "2026-03-20T01:24:32.511552"
 }

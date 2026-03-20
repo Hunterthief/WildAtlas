@@ -118,7 +118,7 @@
   "ecology": {
     "diet": "Herbivore",
     "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
-    "locations": "Australia, Colombia, Mexico, New Zealand, United States of America",
+    "locations": "Africa, Asia, Central-America, Europe, North-America, Oceania, South-America",
     "group_behavior": "Group",
     "conservation_status": "Endangered",
     "biggest_threat": "Habitat loss",
@@ -146,29 +146,16 @@
     "most_distinctive_feature": "Black, orange, and white pattern on wings"
   },
   "distribution": {
-    "countries": [
-      "Australia",
-      "Colombia",
-      "Mexico",
-      "New Zealand",
-      "United States of America"
-    ],
-    "coordinates": {
-      "min_lat": -37.866868,
-      "max_lat": 37.519265,
-      "min_lon": -157.855928,
-      "max_lon": 153.064852,
-      "count": 50
-    },
-    "occurrence_count": 748846
+    "countries": [],
+    "coordinates": {},
+    "occurrence_count": 0
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:19:35.920918"
+  "last_updated": "2026-03-20T01:26:12.221759"
 }
