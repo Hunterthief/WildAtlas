@@ -1,7 +1,7 @@
 """
 Wikidata Extractor - No API Key Required
 CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
-STRICT PATTERN: Only {animal_name}_distribution.png accepted
+Fetches distribution maps from Wikipedia articles correctly
 """
 import requests
 import hashlib
@@ -30,7 +30,7 @@ DISTRIBUTION_REJECT_KEYWORDS = [
     'historical', 'history', 'old', 'ancient', 'former',
     'plo', 'early', 'late', 'century', 'past', 'previous',
     'grid_map', 'grid', 'cutted', 'without_borders',
-    'subspecies', 'range', 'map', '202', '201', '200', '199', '198'
+    'subspecies', '202', '201', '200', '199', '198'
 ]
 
 
@@ -68,17 +68,17 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     """
     Check if this is a valid distribution map
     
-    ACCEPT ONLY:
+    ACCEPT:
     - Tiger_distribution.png
     - Tiger_distribution.svg
     - Tiger_distribution.jpg
+    - tiger_distribution.png (lowercase)
     
     REJECT:
-    - Panthera_tigris_distribution.png (scientific name)
+    - Panthera_tigris_distribution.png (scientific name only)
     - Panthera_tigris_tigris_distribution.png (subspecies)
     - Tiger_distribution_2022.png (has year)
     - Tiger_distribution_map-ar.png (language suffix)
-    - Distribution_Canis_Lupus_Italicus.png (multi-name)
     """
     filename_lower = filename.lower()
     animal_lower = animal_name.lower().replace(' ', '_')
@@ -95,47 +95,56 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     # Remove extension for pattern matching
     filename_no_ext = filename_lower.rsplit('.', 1)[0]
     
-    # STRICT PATTERN: Must be exactly "{animal_name}_distribution"
-    # Example: "tiger_distribution" for animal_name "Tiger"
-    expected_pattern = f"{animal_lower}_distribution"
+    # Check for reject keywords first
+    for reject_kw in DISTRIBUTION_REJECT_KEYWORDS:
+        if reject_kw in filename_no_ext:
+            print(f"   ⚠️  Rejecting distribution map (contains '{reject_kw}'): {filename}")
+            return False
     
-    # Check if filename matches the exact pattern
+    # Check for language suffixes
+    for lang_suffix in LANGUAGE_SUFFIXES:
+        if filename_lower.endswith(lang_suffix + '.png') or \
+           filename_lower.endswith(lang_suffix + '.svg') or \
+           filename_lower.endswith(lang_suffix + '.jpg'):
+            print(f"   ⚠️  Rejecting distribution map (language suffix '{lang_suffix}'): {filename}")
+            return False
+    
+    # ACCEPT if filename contains animal name + distribution
+    # Example: "tiger_distribution" contains "tiger" and "distribution"
+    if animal_lower in filename_no_ext and 'distribution' in filename_no_ext:
+        return True
+    
+    # Also accept if it's just "{animal}_distribution" exactly
+    expected_pattern = f"{animal_lower}_distribution"
     if filename_no_ext == expected_pattern:
         return True
     
-    # Also accept "{animal_lower}_distribution_map" (without numbers/suffixes)
-    if filename_no_ext == f"{animal_lower}_distribution_map":
-        # But reject if it has language suffixes or numbers
-        for lang_suffix in LANGUAGE_SUFFIXES:
-            if filename_lower.endswith(lang_suffix + '.png') or \
-               filename_lower.endswith(lang_suffix + '.svg'):
-                return False
-        return True
-    
-    # REJECT everything else (scientific names, multi-names, etc.)
-    print(f"   ⚠️  Rejecting distribution map (wrong pattern): {filename}")
-    print(f"      Expected: {expected_pattern}")
-    print(f"      Got: {filename_no_ext}")
+    # REJECT everything else
+    print(f"   ⚠️  Rejecting distribution map (doesn't match animal name): {filename}")
+    print(f"      Animal: {animal_lower}")
+    print(f"      Filename: {filename_no_ext}")
     return False
 
 
-def _get_wikipedia_images(animal_name: str) -> List[str]:
+def _get_distribution_from_wikipedia(animal_name: str) -> Optional[str]:
     """
-    Get all images from Wikipedia article including distribution maps
+    Get distribution map directly from Wikipedia article
     
-    Example: https://en.wikipedia.org/wiki/Tiger
-    Returns list of direct image URLs
+    Process:
+    1. Get all images from Wikipedia article (e.g., https://en.wikipedia.org/wiki/Tiger)
+    2. Find images with "distribution" in filename
+    3. Get direct upload.wikimedia.org URL
+    
+    Example: https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png
     """
-    images = []
-    
     try:
-        # Get page images from Wikipedia API
+        # Step 1: Get all images from Wikipedia article
         params = {
             "action": "query",
             "format": "json",
             "titles": animal_name,
             "prop": "images",
-            "imlimit": "50"
+            "imlimit": "100"
         }
         headers = {
             "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
@@ -143,74 +152,81 @@ def _get_wikipedia_images(animal_name: str) -> List[str]:
         
         response = requests.get(WIKIPEDIA_API, params=params, headers=headers, timeout=10)
         
-        if response.status_code == 200:
-            data = response.json()
-            pages = data.get("query", {}).get("pages", {})
+        if response.status_code != 200:
+            return None
+        
+        data = response.json()
+        pages = data.get("query", {}).get("pages", {})
+        
+        # Find the valid page (not -1 which means page not found)
+        page_data = None
+        for page_id, page_info in pages.items():
+            if page_id != "-1":
+                page_data = page_info
+                break
+        
+        if not page_data:
+            return None
+        
+        images_list = page_data.get("images", [])
+        
+        # Step 2: Find images with "distribution" in filename
+        distribution_files = []
+        for img in images_list:
+            filename = img.get("title", "")
+            if filename and 'distribution' in filename.lower():
+                distribution_files.append(filename)
+        
+        if not distribution_files:
+            return None
+        
+        # Step 3: Validate and get direct URL for first valid distribution map
+        for filename in distribution_files:
+            filename_clean = filename.replace('File:', '').strip()
             
-            for page_id, page_data in pages.items():
-                if page_id == "-1":
-                    continue
-                    
-                images_list = page_data.get("images", [])
-                for img in images_list:
-                    filename = img.get("title", "")
-                    if filename:
-                        # Convert to direct URL
-                        direct_url = _filename_to_direct_url(filename)
-                        images.append(direct_url)
+            if _is_valid_distribution_map(filename_clean, animal_name):
+                # Get direct upload.wikimedia.org URL
+                direct_url = _filename_to_direct_url(filename_clean)
+                print(f"   ✅ Found distribution map: {filename_clean}")
+                return direct_url
+        
+        return None
     
     except Exception as e:
-        print(f"   ⚠️  Wikipedia image fetch failed: {e}")
-    
-    return images
+        print(f"   ⚠️  Wikipedia distribution fetch failed: {e}")
+        return None
 
 
-def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional[str]:
+def _search_distribution_on_commons(animal_name: str) -> Optional[str]:
     """
-    Search Wikimedia Commons AND Wikipedia for distribution map images
-    
-    Priority:
-    1. Wikipedia article images (most likely to have correct distribution map)
-    2. Wikimedia Commons search
+    Search Wikimedia Commons for distribution map as fallback
     
     Example: https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png
     """
-    # PRIORITY 1: Get images from Wikipedia article
-    print(f"   📖 Searching Wikipedia article for distribution map...")
-    wiki_images = _get_wikipedia_images(animal_name)
-    
-    for img_url in wiki_images:
-        # Extract filename from URL
-        filename = img_url.split('/')[-1]
-        filename_clean = filename.replace('File:', '').strip()
+    try:
+        search_queries = [
+            f"{animal_name} distribution",
+            f"{animal_name.replace(' ', '_')}_distribution",
+        ]
         
-        if 'distribution' in filename_clean.lower():
-            if _is_valid_distribution_map(filename_clean, animal_name):
-                print(f"   ✅ Found distribution map in Wikipedia: {filename_clean}")
-                return img_url
-    
-    # PRIORITY 2: Search Wikimedia Commons
-    print(f"   🔍 Searching Wikimedia Commons for distribution map...")
-    search_queries = [
-        f"{animal_name} distribution",
-    ]
-    
-    for query in search_queries:
-        params = {
-            "action": "query",
-            "format": "json",
-            "list": "search",
-            "srsearch": f"{query}",
-            "srnamespace": 6,  # File namespace
-            "srlimit": 20
-        }
-        headers = {
-            "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
-        }
-        
-        response = requests.get(WIKIMEDIA_COMMONS, params=params, headers=headers, timeout=10)
-        
-        if response.status_code == 200:
+        for query in search_queries:
+            params = {
+                "action": "query",
+                "format": "json",
+                "list": "search",
+                "srsearch": f"{query}",
+                "srnamespace": 6,  # File namespace
+                "srlimit": 20
+            }
+            headers = {
+                "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
+            }
+            
+            response = requests.get(WIKIMEDIA_COMMONS, params=params, headers=headers, timeout=10)
+            
+            if response.status_code != 200:
+                continue
+            
             data = response.json()
             results = data.get("query", {}).get("search", [])
             
@@ -218,13 +234,16 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
                 filename = result.get("title", "")
                 filename_clean = filename.replace('File:', '').strip()
                 
-                if filename_clean and "distribution" in filename_clean.lower():
-                    if _is_valid_distribution_map(filename_clean, animal_name):
-                        direct_url = _filename_to_direct_url(filename)
-                        print(f"   ✅ Found distribution map: {filename_clean}")
-                        return direct_url
+                if filename_clean and _is_valid_distribution_map(filename_clean, animal_name):
+                    direct_url = _filename_to_direct_url(filename_clean)
+                    print(f"   ✅ Found distribution map on Commons: {filename_clean}")
+                    return direct_url
+        
+        return None
     
-    return None
+    except Exception as e:
+        print(f"   ⚠️  Commons search failed: {e}")
+        return None
 
 
 def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
@@ -395,9 +414,17 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
             else:
                 result["photos"].append(direct_url)
     
-    # If no distribution image from Wikidata, search Wikipedia and Commons
+    # If no distribution image from Wikidata, search Wikipedia article
     if not result["distribution"] and animal_name:
-        dist_map = _search_distribution_map(animal_name, scientific_name)
+        print(f"   📖 Searching Wikipedia article for distribution map...")
+        dist_map = _get_distribution_from_wikipedia(animal_name)
+        if dist_map:
+            result["distribution"].append(dist_map)
+    
+    # Fallback: Search Wikimedia Commons
+    if not result["distribution"] and animal_name:
+        print(f"   🔍 Searching Wikimedia Commons for distribution map...")
+        dist_map = _search_distribution_on_commons(animal_name)
         if dist_map:
             result["distribution"].append(dist_map)
     
