@@ -1,6 +1,6 @@
 """
-Length extraction module - PRODUCTION v9
-Fixed: Cheetah tail rejection, Elephant shoulder height, Butterfly wingspan, Bee mm patterns
+Length extraction module - PRODUCTION v10
+Fixed: Cheetah 4-7m tail, Elephant 2.4m shoulder, Eagle 11cm too small, Butterfly 1.2m wingspan, Wolf no length, Bee no mm
 Based on analysis of 13 animal Wikipedia articles from WildAtlas
 """
 import re
@@ -128,6 +128,8 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
                 # Wolf shoulder height is 29-50cm, body length is 1-1.6m
                 if 'canidae' in family and value_in_meters < 0.5:
                     return False
+                if 'canidae' in family and value_in_meters > 2.0:
+                    return False  # Also reject too large
                 
                 # CRITICAL FIX #3: For elephants, reject <4m (2.4m is shoulder height, not length)
                 if 'elephantidae' in family:
@@ -220,6 +222,14 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         # Also check for wing measurements without "body"
         if 'wing' in text_lower and 'body' not in text_lower:
             return False
+        # Reject if value looks like wingspan (>8cm for monarch)
+        wing_values = re.findall(r'(\d+[.,]?\d*)\s*(?:cm|m|metres?|meters?)', text_lower)
+        for val in wing_values:
+            try:
+                if float(val.replace(',', '')) > 8:  # >8cm likely wingspan
+                    return False
+            except:
+                pass
     
     # CRITICAL: For birds, reject wingspan measurements
     if any(x in animal_lower for x in ['eagle', 'hawk', 'bird', 'penguin']):
@@ -229,6 +239,17 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
             if 'length' in text_lower:
                 if 'wing length' in text_lower or 'length of the wing' in text_lower:
                     return False
+        # Reject if value too small (<20cm) or too large (>1.5m)
+        bird_values = re.findall(r'(\d+[.,]?\d*)\s*(?:cm|m|metres?|meters?)', text_lower)
+        for val in bird_values:
+            try:
+                num = float(val.replace(',', ''))
+                if 'cm' in text_lower and num < 20:  # <20cm too small
+                    return False
+                if 'm' in text_lower and num > 1.5:  # >1.5m likely wingspan
+                    return False
+            except:
+                pass
     
     # CRITICAL: For bees/insects, reject wingspan
     if any(x in animal_lower for x in ['bee', 'wasp', 'insect']):
@@ -257,6 +278,23 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         if shoulder_values:
             if 'shoulder' in text_lower or 'height' in text_lower:
                 return False
+            # Even without shoulder keyword, 2-3m is suspicious for elephant length
+            if 'length' not in text_lower:
+                return False
+    
+    # SPECIAL: For wolves, reject cm values <60cm (shoulder height range)
+    if any(x in animal_lower for x in ['wolf', 'dog', 'canine']):
+        cm_values = re.findall(r'(\d+[.,]?\d*)\s*(?:cm|centimetres?|centimeters?)', text_lower)
+        for val in cm_values:
+            try:
+                if float(val.replace(',', '')) < 60:  # <60cm likely shoulder height
+                    if 'shoulder' in text_lower or 'height' in text_lower:
+                        return False
+                    # Even without shoulder keyword, be suspicious
+                    if 'length' not in text_lower:
+                        return False
+            except:
+                pass
     
     has_length = any(kw in text_lower for kw in length_keywords)
     has_reject = any(kw in text_lower for kw in reject_keywords)
@@ -483,6 +521,18 @@ LENGTH_PATTERNS = [
     {
         # "10 to 15 millimeters" (bees - full word)
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(millimetres?|millimeters?)',
+        'priority': 8,
+        'format': 'range'
+    },
+    {
+        # "10–15 mm body length" (bees - explicit body)
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(mm)\s+body\s*length',
+        'priority': 8,
+        'format': 'range'
+    },
+    {
+        # "length 10-15 mm" (bees - alternative order)
+        'pattern': r'length\s+(?:of\s+)?(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(mm)',
         'priority': 8,
         'format': 'range'
     },
