@@ -39,7 +39,8 @@ from modules.extractors.diet import extract_diet_from_sections
 from modules.extractors.behavior import extract_behavior_from_sections
 from modules.extractors.conservation import extract_conservation_from_sections
 from modules.extractors.additional_info import extract_additional_info_from_sections
-from modules.extractors.wikidata_enhancer import extract_wikidata_all  # ← FIXED: Was in fetchers, should be extractors
+from modules.extractors.wikidata_enhancer import extract_wikidata_all
+
 # =============================================================================
 # SETUP PATHS
 # =============================================================================
@@ -52,53 +53,78 @@ os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(ANIMAL_STATS_DIR, exist_ok=True)
 os.makedirs(DEBUG_DIR, exist_ok=True)
 
-CONFIG_DIR = GENERATOR_DIR / "config"
-
-# =============================================================================
-# CONFIG LOADING
-# =============================================================================
-def load_config(filename: str) -> Dict[str, Any]:
-    config_path = CONFIG_DIR / filename
-    if config_path.exists():
-        with open(config_path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {}
-
-YOUNG_NAMES = load_config("young_names.json")
-GROUP_NAMES = load_config("group_names.json")
-
-def get_young_name(animal_type: str) -> str:
-    return YOUNG_NAMES.get(animal_type, YOUNG_NAMES.get("default", "young"))
-
-def get_group_name(animal_type: str) -> str:
-    return GROUP_NAMES.get(animal_type, GROUP_NAMES.get("default", "population"))
-
 # =============================================================================
 # HELPER FUNCTIONS
 # =============================================================================
 def get_first_non_empty(*values) -> str:
+    """Return first non-empty string from values"""
     for v in values:
         if v and isinstance(v, str) and v.strip():
             return v.strip()
     return ""
 
 def clean_wikipedia_text(text: str) -> str:
-    if not text: return ""
+    """Clean messy Wikipedia text"""
+    if not text: 
+        return ""
     text = re.sub(r'\[\d+\]', '', text)
     text = ' '.join(text.split())
     return text.strip() if len(text) > 20 else ""
 
 def fix_diet_based_on_taxonomy(diet: str, classification: Dict[str, str]) -> str:
-    if not diet: return diet
+    """Fix obvious diet errors based on taxonomy"""
+    if not diet: 
+        return diet
     diet_lower = diet.lower()
     family = classification.get("family", "").lower()
-    if "elephantidae" in family and "carnivore" in diet_lower: return "Herbivore"
-    if "cheloniidae" in family and "carnivore" in diet_lower: return "Herbivore"
+    if "elephantidae" in family and "carnivore" in diet_lower: 
+        return "Herbivore"
+    if "cheloniidae" in family and "carnivore" in diet_lower: 
+        return "Herbivore"
     return diet
 
 def get_animal_filename(name: str, qid: str) -> str:
+    """Generate clean filename for animal data"""
     clean_name = name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
     return f"{clean_name}_{{QID={qid}}}.json"
+
+def get_young_name(animal_type: str, ninja_data: Dict) -> str:
+    """Get young animal name - priority: Ninja > Extracted > Fallback"""
+    ninja_young = ninja_data.get("characteristics", {}).get("name_of_young", "")
+    if ninja_young:
+        return ninja_young
+    
+    # Fallback based on type
+    fallbacks = {
+        "feline": "cub",
+        "canine": "pup", 
+        "bear": "cub",
+        "elephant": "calf",
+        "bird": "chick",
+        "fish": "fry",
+        "reptile": "hatchling",
+        "amphibian": "tadpole",
+        "insect": "larva"
+    }
+    return fallbacks.get(animal_type, "young")
+
+def get_group_name(animal_type: str, ninja_data: Dict) -> str:
+    """Get group name - priority: Ninja > Fallback"""
+    ninja_group = ninja_data.get("characteristics", {}).get("group", "")
+    if ninja_group:
+        return ninja_group
+    
+    # Fallback based on type
+    fallbacks = {
+        "feline": "pride",
+        "canine": "pack",
+        "bear": "sleuth",
+        "elephant": "herd",
+        "bird": "flock",
+        "fish": "school",
+        "insect": "colony"
+    }
+    return fallbacks.get(animal_type, "group")
 
 # =============================================================================
 # DEBUG SUMMARY CLASS
@@ -181,8 +207,10 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     ninja_locs = ninja_data.get("locations", []) if ninja_data else []
 
     # 2. Perform Extractions (Intermediate Step)
+    wiki_stats = extract_stats_with_context(wiki_sections, name, sci_name)
+    
     debug.extractions["physical_stats"] = {
-        "wiki_raw": extract_stats_with_context(wiki_sections, name, sci_name),
+        "wiki_raw": wiki_stats,
         "ninja_raw": {k: ninja_chars.get(k, "") for k in ['weight', 'length', 'height', 'lifespan', 'top_speed']}
     }
 
@@ -197,35 +225,69 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         "habitat": {"wiki": wiki_sections.get("habitat", "")[:100], "gbif": gbif_data.get("habitat", "")},
         "conservation": {"wiki": wiki_cons_status, "wikidata": wikidata_enh.get("conservation", {}).get("status")}
     }
+    
+    debug.extractions["reproduction"] = {
+        "gestation": {"wiki": wiki_repro.get("gestation_period", ""), "ninja": ninja_chars.get("gestation_period", "")},
+        "litter_size": {"wiki": wiki_repro.get("average_litter_size", ""), "ninja": ninja_chars.get("average_litter_size", "")},
+        "young_name": {"wiki": wiki_repro.get("name_of_young", ""), "ninja": ninja_chars.get("name_of_young", "")}
+    }
 
     # 3. Determine Animal Type
     animal_type = "default"
     taxonomy_to_use = inat_class if inat_class else {}
     if taxonomy_to_use:
         family = taxonomy_to_use.get("family", "").lower()
-        if "felidae" in family: animal_type = "feline"
-        elif "canidae" in family: animal_type = "canine"
-        elif "ursidae" in family: animal_type = "bear"
-        elif "elephantidae" in family: animal_type = "elephant"
+        order = taxonomy_to_use.get("order", "").lower()
+        class_name = taxonomy_to_use.get("class", "").lower()
+        
+        if "felidae" in family: 
+            animal_type = "feline"
+        elif "canidae" in family: 
+            animal_type = "canine"
+        elif "ursidae" in family: 
+            animal_type = "bear"
+        elif "elephantidae" in family: 
+            animal_type = "elephant"
+        elif "aves" in class_name:
+            animal_type = "bird"
+        elif "reptilia" in class_name:
+            animal_type = "reptile"
+        elif "amphibia" in class_name:
+            animal_type = "amphibian"
+        elif "insecta" in class_name:
+            animal_type = "insect"
+        elif "actinopterygii" in class_name or "chondrichthyes" in class_name:
+            animal_type = "fish"
 
     # 4. Build Classification
     classification = {"kingdom": "", "phylum": "", "class": "", "order": "", "family": "", "genus": "", "species": sci_name}
     if inat_class:
         for k in classification.keys():
-            if k != "species": classification[k] = inat_class.get(k, "")
+            if k != "species": 
+                classification[k] = inat_class.get(k, "")
     elif wikidata_enh.get("taxonomy"):
         for k in classification.keys():
-            if k != "species": classification[k] = wikidata_enh.get("taxonomy", {}).get(k, "")
+            if k != "species": 
+                classification[k] = wikidata_enh.get("taxonomy", {}).get(k, "")
     
     # 5. Merge Final Fields
     
-    # Physical
+    # Physical - Show source for each
     physical = {
-        "weight": get_first_non_empty(ninja_chars.get("weight"), debug.extractions["physical_stats"]["wiki_raw"].get("weight")),
-        "length": get_first_non_empty(ninja_chars.get("length"), debug.extractions["physical_stats"]["wiki_raw"].get("length")),
-        "height": get_first_non_empty(ninja_chars.get("height"), debug.extractions["physical_stats"]["wiki_raw"].get("height")),
-        "top_speed": get_first_non_empty(ninja_chars.get("top_speed"), debug.extractions["physical_stats"]["wiki_raw"].get("top_speed")),
-        "lifespan": get_first_non_empty(ninja_chars.get("lifespan"), eol_data.get("life_expectancy"), debug.extractions["physical_stats"]["wiki_raw"].get("lifespan"))
+        "weight": get_first_non_empty(ninja_chars.get("weight"), wiki_stats.get("weight")),
+        "length": get_first_non_empty(ninja_chars.get("length"), wiki_stats.get("length")),
+        "height": get_first_non_empty(ninja_chars.get("height"), wiki_stats.get("height")),
+        "top_speed": get_first_non_empty(ninja_chars.get("top_speed"), wiki_stats.get("top_speed")),
+        "lifespan": get_first_non_empty(ninja_chars.get("lifespan"), eol_data.get("life_expectancy"), wiki_stats.get("lifespan"))
+    }
+
+    # Track physical sources
+    debug.extractions["physical_sources"] = {
+        "weight": "Ninja" if ninja_chars.get("weight") else ("Wiki" if wiki_stats.get("weight") else "None"),
+        "length": "Ninja" if ninja_chars.get("length") else ("Wiki" if wiki_stats.get("length") else "None"),
+        "height": "Ninja" if ninja_chars.get("height") else ("Wiki" if wiki_stats.get("height") else "None"),
+        "top_speed": "Ninja" if ninja_chars.get("top_speed") else ("Wiki" if wiki_stats.get("top_speed") else "None"),
+        "lifespan": "Ninja" if ninja_chars.get("lifespan") else ("EOL" if eol_data.get("life_expectancy") else ("Wiki" if wiki_stats.get("lifespan") else "None"))
     }
 
     # Ecology
@@ -263,11 +325,28 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         "population_trend": wikidata_enh.get("population", "")
     }
 
+    # Track ecology sources
+    debug.extractions["ecology_sources"] = {
+        "diet": "Ninja" if ninja_chars.get("diet") else ("Wiki" if wiki_diet else "EOL"),
+        "habitat": "GBIF" if gbif_data.get("habitat") else ("Wiki" if wiki_sections.get("habitat") else "Ninja"),
+        "conservation": "Wikidata" if wikidata_enh.get("conservation", {}).get("status") else ("Wiki" if wiki_cons_status else "Ninja")
+    }
+
     # Reproduction
+    young_name = get_young_name(animal_type, ninja_data)
+    group_name = get_group_name(animal_type, ninja_data)
+    
     reproduction = {
         "gestation_period": get_first_non_empty(ninja_chars.get("gestation_period"), wiki_repro.get("gestation_period")),
         "average_litter_size": get_first_non_empty(ninja_chars.get("average_litter_size"), wiki_repro.get("average_litter_size")),
-        "name_of_young": get_first_non_empty(ninja_chars.get("name_of_young"), wiki_repro.get("name_of_young"), get_young_name(animal_type))
+        "name_of_young": young_name
+    }
+
+    # Track reproduction sources
+    debug.extractions["reproduction_sources"] = {
+        "gestation_period": "Ninja" if ninja_chars.get("gestation_period") else ("Wiki" if wiki_repro.get("gestation_period") else "None"),
+        "average_litter_size": "Ninja" if ninja_chars.get("average_litter_size") else ("Wiki" if wiki_repro.get("average_litter_size") else "None"),
+        "name_of_young": "Ninja" if ninja_chars.get("name_of_young") else ("Fallback" if young_name not in ["nd", ""] else "None")
     }
 
     # Additional
@@ -277,19 +356,25 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         "skin_type": ninja_chars.get("skin_type", ""),
         "prey": get_first_non_empty(ninja_chars.get("prey"), wiki_prey),
         "slogan": ninja_chars.get("slogan", ""),
-        "group": get_first_non_empty(ninja_chars.get("group"), wiki_additional.get("group")),
+        "group": group_name,
         "number_of_species": get_first_non_empty(ninja_chars.get("number_of_species"), wiki_additional.get("number_of_species")),
         "estimated_population_size": get_first_non_empty(ninja_chars.get("estimated_population_size"), wikidata_enh.get("population"), wiki_additional.get("estimated_population_size")),
         "most_distinctive_feature": get_first_non_empty(ninja_chars.get("most_distinctive_feature"), wiki_additional.get("most_distinctive_feature"))
     }
 
     # Sources Tracking
-    if ninja_data and ninja_data.get("characteristics"): debug.log_source("API Ninjas")
-    if wiki_sections: debug.log_source("Wikipedia")
-    if inat_class: debug.log_source("iNaturalist")
-    if wikidata_enh: debug.log_source("Wikidata")
-    if gbif_data and gbif_data.get("countries"): debug.log_source("GBIF")
-    if eol_data and eol_data.get("page_id"): debug.log_source("EOL")
+    if ninja_data and ninja_data.get("characteristics"): 
+        debug.log_source("API Ninjas")
+    if wiki_sections: 
+        debug.log_source("Wikipedia")
+    if inat_class: 
+        debug.log_source("iNaturalist")
+    if wikidata_enh: 
+        debug.log_source("Wikidata")
+    if gbif_data and gbif_data.get("countries"): 
+        debug.log_source("GBIF")
+    if eol_data and eol_data.get("page_id"): 
+        debug.log_source("EOL")
 
     # Construct Final Object
     final_data = {
@@ -304,8 +389,8 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         "eol_url": eol_data.get("eol_url", ""),
         "classification": classification,
         "animal_type": animal_type,
-        "young_name": get_young_name(animal_type),
-        "group_name": get_group_name(animal_type),
+        "young_name": young_name,
+        "group_name": group_name,
         "physical": physical,
         "ecology": ecology,
         "reproduction": reproduction,
@@ -321,6 +406,91 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
 
     debug.final_data = final_data
     return final_data
+
+# =============================================================================
+# PRINT HELPERS
+# =============================================================================
+def print_data_table(final_data: Dict, debug: DebugSummary) -> None:
+    """Print complete data overview table"""
+    print(f"\n📊 COMPLETE DATA OVERVIEW:")
+    print(f"   {'Category':<20} | {'Field':<22} | {'Value':<35} | {'Source'}")
+    print(f"   {'-'*20}-+-{'-'*22}-+-{'-'*35}-+-{'-'*10}")
+    
+    # Physical Stats
+    p = final_data['physical']
+    ps = debug.extractions.get('physical_sources', {})
+    physical_fields = [
+        ('Weight', p['weight']),
+        ('Length', p['length']),
+        ('Height', p['height']),
+        ('Top Speed', p['top_speed']),
+        ('Lifespan', p['lifespan'])
+    ]
+    for field, value in physical_fields:
+        src = ps.get(field.lower().replace(' ', '_'), 'None')
+        display_val = value[:33] + '...' if len(str(value)) > 35 else str(value)
+        print(f"   {'Physical':<20} | {field:<22} | {display_val:<35} | {src}")
+    
+    # Ecology
+    e = final_data['ecology']
+    es = debug.extractions.get('ecology_sources', {})
+    ecology_fields = [
+        ('Diet', e['diet']),
+        ('Habitat', e['habitat'][:33] + '...' if len(e['habitat']) > 35 else e['habitat']),
+        ('Conservation', e['conservation_status']),
+        ('Group Behavior', e['group_behavior'][:33] + '...' if len(str(e['group_behavior'])) > 35 else str(e['group_behavior'])),
+        ('Biggest Threat', e['biggest_threat'][:33] + '...' if len(str(e['biggest_threat'])) > 35 else str(e['biggest_threat']))
+    ]
+    for field, value in ecology_fields:
+        key = field.lower().replace(' ', '_')
+        src = es.get(key, 'None')
+        print(f"   {'Ecology':<20} | {field:<22} | {value:<35} | {src}")
+    
+    # Reproduction
+    r = final_data['reproduction']
+    rs = debug.extractions.get('reproduction_sources', {})
+    repro_fields = [
+        ('Gestation', r['gestation_period']),
+        ('Litter Size', r['average_litter_size']),
+        ('Young Name', r['name_of_young'])
+    ]
+    for field, value in repro_fields:
+        key = field.lower().replace(' ', '_')
+        src = rs.get(key, 'None')
+        print(f"   {'Reproduction':<20} | {field:<22} | {str(value)[:35]:<35} | {src}")
+    
+    # Additional Info
+    a = final_data['additional_info']
+    add_fields = [
+        ('Lifestyle', a['lifestyle']),
+        ('Color', a['color']),
+        ('Skin Type', a['skin_type']),
+        ('Prey', a['prey'][:33] + '...' if len(str(a['prey'])) > 35 else str(a['prey'])),
+        ('Group', a['group']),
+        ('Distinctive Feature', a['most_distinctive_feature'][:33] + '...' if len(str(a['most_distinctive_feature'])) > 35 else str(a['most_distinctive_feature']))
+    ]
+    for field, value in add_fields:
+        src = 'Ninja' if value else 'Wiki'
+        print(f"   {'Additional':<20} | {field:<22} | {str(value)[:35]:<35} | {src}")
+    
+    # Classification
+    c = final_data['classification']
+    class_fields = [
+        ('Kingdom', c['kingdom']),
+        ('Phylum', c['phylum']),
+        ('Class', c['class']),
+        ('Order', c['order']),
+        ('Family', c['family']),
+        ('Genus', c['genus'])
+    ]
+    for field, value in class_fields:
+        src = 'iNat' if value else 'Wiki'
+        print(f"   {'Classification':<20} | {field:<22} | {str(value)[:35]:<35} | {src}")
+    
+    # Distribution
+    d = final_data['distribution']
+    print(f"   {'Distribution':<20} | {'Countries':<22} | {len(d['countries'])} countries{'':<24} | GBIF")
+    print(f"   {'Distribution':<20} | {'Occurrences':<22} | {d['occurrence_count']}{'':<30} | GBIF")
 
 # =============================================================================
 # MAIN GENERATION LOOP
@@ -342,39 +512,53 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         try:
             # --- FETCHING ---
             # Ninja
+            print(f"   🔍 Searching Ninja API for: {name}")
             ninja_data = fetch_animal_data(name, ninja_api_key) or {"characteristics": {}, "taxonomy": {}, "locations": []}
             debug.inputs["ninja"] = ninja_data
-            if not ninja_data.get("characteristics"):
-                debug.add_warning("No data from API Ninjas")
-
+            if ninja_data:
+                chars = ninja_data.get("characteristics", {})
+                if chars:
+                    print(f"   ✓ Found {len(chars)} fields from Ninja API")
+            
             # Wikipedia
+            print(f"   📖 Fetching Wikipedia data for: {name}")
             wiki_data = fetch_wikipedia_data(name)
             wiki_sections = wiki_data.get('sections', {})
             wiki_infobox = wiki_data.get('infobox', {})
             debug.inputs["wiki_sections"] = wiki_sections
             debug.inputs["wiki_infobox"] = wiki_infobox
-            if not wiki_sections:
+            if wiki_sections:
+                print(f"   ✓ Found {len(wiki_sections)} Wikipedia sections")
+            else:
                 debug.add_warning("No Wikipedia sections found")
 
             # iNaturalist
             inat_class = fetch_inaturalist(sci) or {}
             debug.inputs["inat"] = inat_class
+            if inat_class:
+                print(f"   ✓ Got classification from iNaturalist")
 
             # Wikidata
             wikidata_enh = extract_wikidata_all(qid, sci) or {}
             debug.inputs["wikidata"] = wikidata_enh
+            if wikidata_enh:
+                print(f"   ✓ Got Wikidata enhancements")
 
             time.sleep(0.2)
 
             # GBIF
             gbif_data = extract_gbif_all(sci) or {}
             debug.inputs["gbif"] = gbif_data
+            if gbif_data and gbif_data.get("countries"):
+                print(f"   ✓ Found in {len(gbif_data.get('countries', []))} countries via GBIF")
 
             time.sleep(0.2)
 
             # EOL
             eol_data = extract_eol_all(sci) or {}
             debug.inputs["eol"] = eol_data
+            if eol_data and eol_data.get("page_id"):
+                print(f"   ✓ Got EOL data (Page ID: {eol_data.get('page_id')})")
 
             # --- BUILDING ---
             final_data = build_animal_data(debug, name, sci, qid)
@@ -389,30 +573,12 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
             # Save Debug Summary
             summary_path = debug.save()
 
-            # --- CONSOLE OUTPUT (The "Easy to Review" Part) ---
+            # --- CONSOLE OUTPUT (Complete Overview) ---
             print(f"\n✅ COMPLETE | Sources: {', '.join(debug.sources_used)}")
             if debug.warnings:
                 print(f"   ⚠️  Warnings: {'; '.join(debug.warnings)}")
             
-            print(f"\n📊 FINAL MERGED DATA REVIEW:")
-            print(f"   {'Field':<25} | {'Value':<40} | {'Top Source'}")
-            print(f"   {'-'*25}-+-{'-'*40}-+-{'-'*15}")
-            
-            # Physical
-            p = final_data['physical']
-            print(f"   {'Weight':<25} | {p['weight']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('weight') else 'Wiki'}")
-            print(f"   {'Length':<25} | {p['length']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('length') else 'Wiki'}")
-            print(f"   {'Lifespan':<25} | {p['lifespan']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('lifespan') else 'EOL/Wiki'}")
-            
-            # Ecology
-            e = final_data['ecology']
-            print(f"   {'Diet':<25} | {e['diet']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('diet') else 'Wiki'}")
-            print(f"   {'Conservation':<25} | {e['conservation_status']:<40} | {'Wikidata' if wikidata_enh.get('conservation',{}).get('status') else 'Wiki'}")
-            print(f"   {'Habitat (preview)':<25} | {e['habitat'][:37]+'...' if len(e['habitat'])>40 else e['habitat']:<40} | {'GBIF' if gbif_data.get('habitat') else 'Wiki'}")
-
-            # Repro
-            r = final_data['reproduction']
-            print(f"   {'Young Name':<25} | {r['name_of_young']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('name_of_young') else 'Config'}")
+            print_data_table(final_data, debug)
 
             print(f"\n💾 Files Saved:")
             print(f"   📄 Data: {filepath.name}")
