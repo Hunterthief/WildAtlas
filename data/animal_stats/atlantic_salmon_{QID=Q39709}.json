@@ -52,7 +52,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
   "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-  "eol_url": "https://eol.org/pages/46563143",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -118,8 +118,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T11:49:08.139907"
+  "last_updated": "2026-03-20T11:57:59.187612"
 }

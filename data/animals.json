@@ -125,7 +125,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T11:48:10.475395"
+    "last_updated": "2026-03-20T11:56:09.407644"
   },
   {
     "id": "Q35625",
@@ -180,7 +180,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "https://eol.org/pages/1271375",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -251,10 +251,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:48:18.290161"
+    "last_updated": "2026-03-20T11:56:28.417277"
   },
   {
     "id": "Q7372",
@@ -308,7 +307,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "https://eol.org/pages/55636404",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -382,10 +381,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:48:25.494980"
+    "last_updated": "2026-03-20T11:56:43.739716"
   },
   {
     "id": "Q213537",
@@ -527,7 +525,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T11:48:38.496425"
+    "last_updated": "2026-03-20T11:56:52.939874"
   },
   {
     "id": "Q25319",
@@ -582,7 +580,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "https://eol.org/pages/1228132",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -649,10 +647,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:48:46.553330"
+    "last_updated": "2026-03-20T11:57:14.995641"
   },
   {
     "id": "Q43306",
@@ -777,7 +774,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T11:48:52.778683"
+    "last_updated": "2026-03-20T11:57:21.634571"
   },
   {
     "id": "Q47164",
@@ -833,7 +830,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-    "eol_url": "https://eol.org/pages/46559751",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -906,10 +903,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:48:59.714931"
+    "last_updated": "2026-03-20T11:57:38.053301"
   },
   {
     "id": "Q39709",
@@ -965,7 +961,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "https://eol.org/pages/46563143",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1031,10 +1027,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:49:08.139907"
+    "last_updated": "2026-03-20T11:57:59.187612"
   },
   {
     "id": "Q7785",
@@ -1090,7 +1085,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-    "eol_url": "https://eol.org/pages/46559469",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1176,10 +1171,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:49:15.606499"
+    "last_updated": "2026-03-20T11:58:16.054209"
   },
   {
     "id": "Q189609",
@@ -1234,7 +1228,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-    "eol_url": "https://eol.org/pages/1055746",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1309,10 +1303,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:49:21.177198"
+    "last_updated": "2026-03-20T11:58:31.347717"
   },
   {
     "id": "Q270238",
@@ -1367,7 +1360,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-    "eol_url": "https://eol.org/pages/330963",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1436,10 +1429,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:49:27.420505"
+    "last_updated": "2026-03-20T11:58:47.621874"
   },
   {
     "id": "Q165980",
@@ -1495,7 +1487,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-    "eol_url": "https://eol.org/pages/4090155",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1565,10 +1557,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:49:39.831846"
+    "last_updated": "2026-03-20T11:59:08.889086"
   },
   {
     "id": "Q7316",
@@ -1624,7 +1615,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-    "eol_url": "https://eol.org/pages/1045608",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1710,9 +1701,8 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:49:48.855864"
+    "last_updated": "2026-03-20T11:59:26.418424"
   }
 ]
