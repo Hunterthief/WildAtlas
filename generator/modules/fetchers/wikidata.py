@@ -1,6 +1,7 @@
 """
 Wikidata fetcher - OPTIMIZED ✅
 Single API call for all properties
+ALL URL SPACES FIXED
 """
 import requests
 from typing import Dict, Optional, Any
@@ -27,7 +28,7 @@ def _verify_animal_entity(entity: Dict[str, Any]) -> bool:
         return True
     
     # Check for common animal properties
-    if any(key in claims for key in ['P2067', 'P2048', 'P2283', 'P1347']):
+    if any(key in claims for key in ['P2067', 'P2048', 'P2283', 'P6137']):
         return True
     
     return False
@@ -62,6 +63,7 @@ def fetch_wikidata_properties(qid: str) -> Dict[str, Optional[str]]:
     try:
         print(f"🔗 Fetching Wikidata: {qid}")
         
+        # FIXED: No spaces in URL
         response = requests.get(
             f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
             headers={'User-Agent': 'WildAtlas/1.0 (contact: wildatlas@example.com)'},
@@ -118,7 +120,6 @@ def fetch_wikidata_properties(qid: str) -> Dict[str, Optional[str]]:
                     break
         
         # ===== Lifespan (P2283 - life expectancy) =====
-        # Note: P2250 is longevity, P2283 is life expectancy - both work
         if 'P2283' in claims:
             unit_map = {
                 'http://www.wikidata.org/entity/Q573': 'years',
@@ -132,7 +133,6 @@ def fetch_wikidata_properties(qid: str) -> Dict[str, Optional[str]]:
                     break
         
         # ===== Top Speed (P6137 - maximum speed) =====
-        # Note: P1347 is "native label", P6137 is "maximum speed"
         if 'P6137' in claims:
             unit_map = {
                 'http://www.wikidata.org/entity/Q828224': 'm/s',
