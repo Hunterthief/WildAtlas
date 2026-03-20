@@ -125,7 +125,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:13:21.349510"
+    "last_updated": "2026-03-20T04:22:26.230429"
   },
   {
     "id": "Q35625",
@@ -254,7 +254,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:13:28.847746"
+    "last_updated": "2026-03-20T04:22:31.386203"
   },
   {
     "id": "Q7372",
@@ -308,7 +308,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/55636404",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -324,7 +324,7 @@
     "physical": {
       "weight": "",
       "length": "",
-      "height": "",
+      "height": "2.47–2.73 m",
       "top_speed": "",
       "lifespan": ""
     },
@@ -382,9 +382,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T04:13:44.111164"
+    "last_updated": "2026-03-20T04:22:35.898354"
   },
   {
     "id": "Q213537",
@@ -438,7 +439,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1268606",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -454,7 +455,7 @@
     "physical": {
       "weight": "",
       "length": "",
-      "height": "29–50 cm",
+      "height": "220–250 m",
       "top_speed": "",
       "lifespan": ""
     },
@@ -523,9 +524,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T04:14:01.277388"
+    "last_updated": "2026-03-20T04:22:42.409123"
   },
   {
     "id": "Q25319",
@@ -580,7 +582,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1228132",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -647,9 +649,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T04:14:18.389670"
+    "last_updated": "2026-03-20T04:22:52.159741"
   },
   {
     "id": "Q43306",
@@ -774,7 +777,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:14:25.734491"
+    "last_updated": "2026-03-20T04:22:57.430274"
   },
   {
     "id": "Q47164",
@@ -906,7 +909,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:14:33.381765"
+    "last_updated": "2026-03-20T04:23:03.431290"
   },
   {
     "id": "Q39709",
@@ -1031,7 +1034,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:14:49.910227"
+    "last_updated": "2026-03-20T04:23:09.051261"
   },
   {
     "id": "Q7785",
@@ -1103,7 +1106,7 @@
     "physical": {
       "weight": "68–190 kg",
       "length": "",
-      "height": "40 m",
+      "height": "78–112 cm",
       "top_speed": "3 km/h",
       "lifespan": "90 years"
     },
@@ -1176,7 +1179,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:14:58.077650"
+    "last_updated": "2026-03-20T04:23:15.440346"
   },
   {
     "id": "Q189609",
@@ -1247,7 +1250,7 @@
     "physical": {
       "weight": "10 kg",
       "length": "3.18–4 m",
-      "height": "55 cm",
+      "height": "3.18–4 m",
       "top_speed": "12 mph",
       "lifespan": "About 20 years"
     },
@@ -1309,7 +1312,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:15:03.541121"
+    "last_updated": "2026-03-20T04:23:19.939763"
   },
   {
     "id": "Q270238",
@@ -1436,7 +1439,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:15:10.550792"
+    "last_updated": "2026-03-20T04:23:25.002680"
   },
   {
     "id": "Q165980",
@@ -1508,7 +1511,7 @@
     "physical": {
       "weight": "0.25 - 0.75 grams",
       "length": "",
-      "height": "3–5 feet",
+      "height": "2–6 m",
       "top_speed": "12 mph",
       "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
     },
@@ -1565,7 +1568,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:15:23.459738"
+    "last_updated": "2026-03-20T04:23:34.528995"
   },
   {
     "id": "Q7316",
@@ -1710,6 +1713,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:15:38.368614"
+    "last_updated": "2026-03-20T04:23:42.345328"
   }
 ]
