@@ -23,7 +23,7 @@ from modules.fetchers.api_ninjas import fetch_animal_data
 from modules.fetchers.wikipedia import fetch_wikipedia_data
 from modules.fetchers.inaturalist import fetch_inaturalist
 from modules.fetchers.gbif_distribution import extract_gbif_all
-from modules.fetchers.eol_data import extract_eol_all  # ✅ Fixed: was 'extract_eol_data'
+from modules.fetchers.eol_data import extract_eol_all
 
 # =============================================================================
 # IMPORTS - Extractors (including Wikidata)
@@ -94,7 +94,6 @@ def get_young_name(animal_type: str, ninja_data: Dict) -> str:
     if ninja_young:
         return ninja_young
     
-    # Fallback based on type
     fallbacks = {
         "feline": "cub",
         "canine": "pup", 
@@ -114,7 +113,6 @@ def get_group_name(animal_type: str, ninja_data: Dict) -> str:
     if ninja_group:
         return ninja_group
     
-    # Fallback based on type
     fallbacks = {
         "feline": "pride",
         "canine": "pack",
@@ -191,7 +189,6 @@ class DebugSummary:
         self.sources_used = []
         self.warnings = []
         
-        # Raw Inputs
         self.inputs = {
             "ninja": {},
             "wiki_sections": {},
@@ -202,10 +199,7 @@ class DebugSummary:
             "eol": {}
         }
         
-        # Intermediate Extractions
         self.extractions = {}
-        
-        # Final Data
         self.final_data = {}
 
     def add_warning(self, msg: str):
@@ -257,10 +251,9 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     eol_data = debug.inputs["eol"]
 
     ninja_chars = ninja_data.get("characteristics", {}) if ninja_data else {}
-    ninja_taxonomy = ninja_data.get("taxonomy", {}) if ninja_data else {}
     ninja_locs = ninja_data.get("locations", []) if ninja_data else []
 
-    # 2. Perform Extractions (Intermediate Step)
+    # 2. Perform Extractions
     wiki_stats = extract_stats_with_context(wiki_sections, name, sci_name)
     
     debug.extractions["physical_stats"] = {
@@ -274,24 +267,11 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     wiki_behavior = extract_behavior_from_sections(wiki_sections)
     wiki_additional = extract_additional_info_from_sections(wiki_sections)
 
-    debug.extractions["ecology"] = {
-        "diet": {"wiki": wiki_diet, "ninja": ninja_chars.get("diet"), "eol": eol_data.get("trophic_level")},
-        "habitat": {"wiki": wiki_sections.get("habitat", "")[:100], "gbif": gbif_data.get("habitat", "")},
-        "conservation": {"wiki": wiki_cons_status, "wikidata": wikidata_enh.get("conservation", {}).get("status")}
-    }
-    
-    debug.extractions["reproduction"] = {
-        "gestation": {"wiki": wiki_repro.get("gestation_period", ""), "ninja": ninja_chars.get("gestation_period", "")},
-        "litter_size": {"wiki": wiki_repro.get("average_litter_size", ""), "ninja": ninja_chars.get("average_litter_size", "")},
-        "young_name": {"wiki": wiki_repro.get("name_of_young", ""), "ninja": ninja_chars.get("name_of_young", "")}
-    }
-
     # 3. Determine Animal Type
     animal_type = "default"
     taxonomy_to_use = inat_class if inat_class else {}
     if taxonomy_to_use:
         family = taxonomy_to_use.get("family", "").lower()
-        order = taxonomy_to_use.get("order", "").lower()
         class_name = taxonomy_to_use.get("class", "").lower()
         
         if "felidae" in family: 
@@ -325,8 +305,6 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
                 classification[k] = wikidata_enh.get("taxonomy", {}).get(k, "")
     
     # 5. Merge Final Fields
-    
-    # Physical - Show source for each
     physical = {
         "weight": get_first_non_empty(ninja_chars.get("weight"), wiki_stats.get("weight")),
         "length": get_first_non_empty(ninja_chars.get("length"), wiki_stats.get("length")),
@@ -335,7 +313,6 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         "lifespan": get_first_non_empty(ninja_chars.get("lifespan"), eol_data.get("life_expectancy"), wiki_stats.get("lifespan"))
     }
 
-    # Track physical sources
     debug.extractions["physical_sources"] = {
         "weight": "Ninja" if ninja_chars.get("weight") else ("Wiki" if wiki_stats.get("weight") else "None"),
         "length": "Ninja" if ninja_chars.get("length") else ("Wiki" if wiki_stats.get("length") else "None"),
@@ -347,8 +324,6 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     # Ecology
     diet = get_first_non_empty(ninja_chars.get("diet"), wiki_diet, eol_data.get("trophic_level"))
     diet = fix_diet_based_on_taxonomy(diet, classification)
-    
-    # FIX: Better habitat extraction
     habitat = get_habitat(gbif_data, wiki_sections, ninja_chars)
     
     locations = ""
@@ -365,7 +340,6 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         ninja_chars.get("conservation_status")
     ) or "Unknown"
 
-    # FIX: Better group behavior with taxonomy fallbacks
     group_behavior = get_group_behavior(animal_type, ninja_data, wiki_behavior)
 
     ecology = {
@@ -379,14 +353,6 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         "population_trend": wikidata_enh.get("population", "")
     }
 
-    # Track ecology sources
-    debug.extractions["ecology_sources"] = {
-        "diet": "Ninja" if ninja_chars.get("diet") else ("Wiki" if wiki_diet else "EOL"),
-        "habitat": "GBIF" if gbif_data.get("habitat") else ("Wiki" if wiki_sections.get("habitat") else "Ninja"),
-        "conservation": "Wikidata" if wikidata_enh.get("conservation", {}).get("status") else ("Wiki" if wiki_cons_status else "Ninja"),
-        "group_behavior": "Ninja" if ninja_chars.get("group_behavior") else ("Taxonomy" if group_behavior != wiki_behavior else "Wiki")
-    }
-
     # Reproduction
     young_name = get_young_name(animal_type, ninja_data)
     group_name = get_group_name(animal_type, ninja_data)
@@ -395,13 +361,6 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         "gestation_period": get_first_non_empty(ninja_chars.get("gestation_period"), wiki_repro.get("gestation_period")),
         "average_litter_size": get_first_non_empty(ninja_chars.get("average_litter_size"), wiki_repro.get("average_litter_size")),
         "name_of_young": young_name
-    }
-
-    # Track reproduction sources
-    debug.extractions["reproduction_sources"] = {
-        "gestation_period": "Ninja" if ninja_chars.get("gestation_period") else ("Wiki" if wiki_repro.get("gestation_period") else "None"),
-        "average_litter_size": "Ninja" if ninja_chars.get("average_litter_size") else ("Wiki" if wiki_repro.get("average_litter_size") else "None"),
-        "name_of_young": "Ninja" if ninja_chars.get("name_of_young") else ("Fallback" if young_name not in ["nd", ""] else "None")
     }
 
     # Additional
@@ -431,28 +390,41 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     if eol_data and eol_data.get("page_id"): 
         debug.log_source("EOL")
 
-    # FIX: Add single 'image' field for frontend compatibility
+    # =============================================================================
+    # FIX: Image Handling - Direct URLs from Wikidata
+    # =============================================================================
     all_images = wikidata_enh.get("images", []) + eol_data.get("images", [])
-    primary_image = all_images[0] if all_images else ""
+    
+    # Remove duplicates while preserving order
+    seen = set()
+    unique_images = []
+    for img in all_images:
+        if img and img.strip() and img not in seen:
+            seen.add(img)
+            unique_images.append(img)
+    
+    # Set primary image (first valid image)
+    primary_image = unique_images[0] if unique_images else ""
 
+    # =============================================================================
     # Construct Final Object
+    # =============================================================================
     final_data = {
         "id": qid,
         "name": name,
         "scientific_name": sci_name,
         "common_names": wikidata_enh.get("common_names", []),
-        # FIX: Add both 'summary' (for frontend) and 'description' (for backward compat)
         "summary": get_first_non_empty(wikidata_enh.get("description", "")),
         "description": get_first_non_empty(wikidata_enh.get("description", "")),
-        # FIX: Add single 'image' field for frontend
+        # Single 'image' field for frontend
         "image": primary_image,
-        "images": all_images,
+        "images": unique_images,
+        # FIXED: No spaces in URLs
         "wikipedia_url": f"https://en.wikipedia.org/wiki/{name.replace(' ', '_')}",
         "wikidata_url": f"https://www.wikidata.org/wiki/{qid}",
         "eol_url": eol_data.get("eol_url", ""),
         "classification": classification,
         "animal_type": animal_type,
-        # FIX: Add top-level young_name and group_name for frontend
         "young_name": young_name,
         "group_name": group_name,
         "physical": physical,
@@ -480,7 +452,6 @@ def print_data_table(final_data: Dict, debug: DebugSummary) -> None:
     print(f"   {'Category':<20} | {'Field':<22} | {'Value':<35} | {'Source'}")
     print(f"   {'-'*20}-+-{'-'*22}-+-{'-'*35}-+-{'-'*10}")
     
-    # Physical Stats
     p = final_data['physical']
     ps = debug.extractions.get('physical_sources', {})
     physical_fields = [
@@ -495,7 +466,6 @@ def print_data_table(final_data: Dict, debug: DebugSummary) -> None:
         display_val = value[:33] + '...' if len(str(value)) > 35 else str(value)
         print(f"   {'Physical':<20} | {field:<22} | {display_val:<35} | {src}")
     
-    # Ecology
     e = final_data['ecology']
     es = debug.extractions.get('ecology_sources', {})
     ecology_fields = [
@@ -510,48 +480,6 @@ def print_data_table(final_data: Dict, debug: DebugSummary) -> None:
         src = es.get(key, 'None')
         print(f"   {'Ecology':<20} | {field:<22} | {value:<35} | {src}")
     
-    # Reproduction
-    r = final_data['reproduction']
-    rs = debug.extractions.get('reproduction_sources', {})
-    repro_fields = [
-        ('Gestation', r['gestation_period']),
-        ('Litter Size', r['average_litter_size']),
-        ('Young Name', r['name_of_young'])
-    ]
-    for field, value in repro_fields:
-        key = field.lower().replace(' ', '_')
-        src = rs.get(key, 'None')
-        print(f"   {'Reproduction':<20} | {field:<22} | {str(value)[:35]:<35} | {src}")
-    
-    # Additional Info
-    a = final_data['additional_info']
-    add_fields = [
-        ('Lifestyle', a['lifestyle']),
-        ('Color', a['color']),
-        ('Skin Type', a['skin_type']),
-        ('Prey', a['prey'][:33] + '...' if len(str(a['prey'])) > 35 else str(a['prey'])),
-        ('Group', a['group']),
-        ('Distinctive Feature', a['most_distinctive_feature'][:33] + '...' if len(str(a['most_distinctive_feature'])) > 35 else str(a['most_distinctive_feature']))
-    ]
-    for field, value in add_fields:
-        src = 'Ninja' if value else 'Wiki'
-        print(f"   {'Additional':<20} | {field:<22} | {str(value)[:35]:<35} | {src}")
-    
-    # Classification
-    c = final_data['classification']
-    class_fields = [
-        ('Kingdom', c['kingdom']),
-        ('Phylum', c['phylum']),
-        ('Class', c['class']),
-        ('Order', c['order']),
-        ('Family', c['family']),
-        ('Genus', c['genus'])
-    ]
-    for field, value in class_fields:
-        src = 'iNat' if value else 'Wiki'
-        print(f"   {'Classification':<20} | {field:<22} | {str(value)[:35]:<35} | {src}")
-    
-    # Distribution
     d = final_data['distribution']
     print(f"   {'Distribution':<20} | {'Countries':<22} | {len(d['countries'])} countries{'':<24} | GBIF")
     print(f"   {'Distribution':<20} | {'Occurrences':<22} | {d['occurrence_count']}{'':<30} | GBIF")
@@ -568,13 +496,11 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
         name, sci, qid = a["name"], a["scientific_name"], a.get("qid", f"animal_{i}")
         debug = DebugSummary(name, qid)
         
-        # Header
         print(f"\n{'='*80}")
         print(f"[{i+1}/{total}] {name} ({sci})")
         print(f"{'='*80}")
 
         try:
-            # --- FETCHING ---
             # Ninja
             print(f"   🔍 Searching Ninja API for: {name}")
             ninja_data = fetch_animal_data(name, ninja_api_key) or {"characteristics": {}, "taxonomy": {}, "locations": []}
@@ -624,20 +550,17 @@ def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[st
             if eol_data and eol_data.get("page_id"):
                 print(f"   ✓ Got EOL data (Page ID: {eol_data.get('page_id')})")
 
-            # --- BUILDING ---
+            # Build
             final_data = build_animal_data(debug, name, sci, qid)
             
-            # --- SAVING ---
-            # Save individual JSON
+            # Save
             filename = get_animal_filename(name, qid)
             filepath = ANIMAL_STATS_DIR / filename
             with open(filepath, "w", encoding="utf-8") as f:
                 json.dump(final_data, f, indent=2, ensure_ascii=False)
 
-            # Save Debug Summary
             summary_path = debug.save()
 
-            # --- CONSOLE OUTPUT (Complete Overview) ---
             print(f"\n✅ COMPLETE | Sources: {', '.join(debug.sources_used)}")
             if debug.warnings:
                 print(f"   ⚠️  Warnings: {'; '.join(debug.warnings)}")
