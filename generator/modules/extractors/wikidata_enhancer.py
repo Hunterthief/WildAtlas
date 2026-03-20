@@ -321,14 +321,14 @@ def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
         return None
 
 
-def extract_taxonomy(wiki Dict[str, Any]) -> Dict[str, str]:
+def extract_taxonomy(wikidata: Dict[str, Any]) -> Dict[str, str]:
     """Extract taxonomic classification from Wikidata"""
     taxonomy = {
         "kingdom": "", "phylum": "", "class": "", "order": "", 
         "family": "", "genus": "", "species": ""
     }
     
-    if not wiki
+    if not wikidata:
         return taxonomy
     
     claims = wikidata.get("claims", {})
@@ -339,9 +339,9 @@ def extract_taxonomy(wiki Dict[str, Any]) -> Dict[str, str]:
     return taxonomy
 
 
-def extract_conservation_status(wiki Dict[str, Any]) -> Dict[str, str]:
+def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
     """Extract IUCN conservation status from Wikidata"""
-    if not wiki
+    if not wikidata:
         return {"status": None, "status_id": None}
     
     claims = wikidata.get("claims", {})
@@ -368,7 +368,7 @@ def extract_conservation_status(wiki Dict[str, Any]) -> Dict[str, str]:
     return {"status": None, "status_id": None}
 
 
-def extract_images(wiki Dict[str, Any], animal_name: str = "", scientific_name: str = "") -> Dict[str, List[str]]:
+def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_name: str = "") -> Dict[str, List[str]]:
     """
     Extract DIRECT image URLs from Wikidata AND Wikipedia
     Separates regular photos from distribution maps
@@ -404,7 +404,7 @@ def extract_images(wiki Dict[str, Any], animal_name: str = "", scientific_name: 
     return result
 
 
-def extract_common_names(wiki Dict[str, Any]) -> list:
+def extract_common_names(wikidata: Dict[str, Any]) -> list:
     """Extract common names from Wikidata labels"""
     names = []
     labels = wikidata.get("labels", {})
@@ -417,7 +417,7 @@ def extract_common_names(wiki Dict[str, Any]) -> list:
     return names[:10]
 
 
-def extract_population(wiki Dict[str, Any]) -> str:
+def extract_population(wikidata: Dict[str, Any]) -> str:
     """Extract population estimate from Wikidata"""
     claims = wikidata.get("claims", {})
     pop_claims = claims.get("P1082", [])
@@ -439,7 +439,7 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
             print(f"   ✅ Found QID: {new_qid}")
             wikidata = fetch_wikidata(new_qid)
     
-    if not wiki
+    if not wikidata:
         return {}
     
     # Extract images with distribution filtering
