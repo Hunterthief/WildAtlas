@@ -7,7 +7,7 @@ import requests
 import hashlib
 from typing import Dict, Any, Optional, List
 
-# FIXED: No trailing spaces
+# FIXED: NO TRAILING SPACES
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
 WIKIMEDIA_COMMONS = "https://commons.wikimedia.org/w/api.php"
@@ -21,19 +21,9 @@ SUBSPECIES_KEYWORDS = [
 
 # FIXED: Reject keywords for distribution maps
 DISTRIBUTION_REJECT_KEYWORDS = [
-    'historical',  # Reject historical distribution maps
-    '-ar',         # Reject Arabic language versions
-    '-fr',         # Reject French language versions
-    '-de',         # Reject German language versions
-    '-es',         # Reject Spanish language versions
-    '-pt',         # Reject Portuguese language versions
-    '-ru',         # Reject Russian language versions
-    '-zh',         # Reject Chinese language versions
-    '-ja',         # Reject Japanese language versions
-    'plo',         # Reject PLoS journal maps (often historical)
-    'old',         # Reject old distribution maps
-    'ancient',     # Reject ancient distribution maps
-    'former',      # Reject former range maps
+    'historical',
+    '-ar', '-fr', '-de', '-es', '-pt', '-ru', '-zh', '-ja',
+    'plo', 'old', 'ancient', 'former',
 ]
 
 
@@ -61,7 +51,7 @@ def _filename_to_direct_url(filename: str) -> str:
     hash1 = md5_hash[0]
     hash2 = md5_hash[0:2]
     
-    # Build direct URL (NO SPACES ANYWHERE)
+    # FIXED: NO SPACES IN URL
     direct_url = f"https://upload.wikimedia.org/wikipedia/commons/{hash1}/{hash2}/{filename}"
     
     return direct_url
@@ -78,7 +68,7 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     filename_lower = filename.lower()
     animal_lower = animal_name.lower().replace(' ', '_')
     
-    # FIXED: Check for reject keywords first (historical, language suffixes, etc.)
+    # Check for reject keywords first (historical, language suffixes, etc.)
     for reject_kw in DISTRIBUTION_REJECT_KEYWORDS:
         if reject_kw in filename_lower:
             print(f"   ⚠️  Rejecting distribution map (contains '{reject_kw}'): {filename}")
@@ -125,7 +115,7 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
                 "format": "json",
                 "list": "search",
                 "srsearch": f"{query}",
-                "srnamespace": 6,  # File namespace
+                "srnamespace": 6,
                 "srlimit": 20
             }
             # FIXED: No trailing spaces in User-Agent
@@ -145,7 +135,7 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
                     
                     # Must have "distribution" in name
                     if filename_clean and "distribution" in filename_clean.lower():
-                        # FIXED: Check if it's a valid general map
+                        # Check if it's a valid general map
                         if _is_valid_distribution_map(filename_clean, animal_name):
                             direct_url = _filename_to_direct_url(filename)
                             direct_url = direct_url.strip()
@@ -332,7 +322,7 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
             
             # Check if it's a distribution map
             if "distribution" in filename_clean.lower() or "range_map" in filename_clean.lower():
-                # FIXED: Only add if it's a valid general species map
+                # Only add if it's a valid general species map
                 if _is_valid_distribution_map(filename_clean, animal_name):
                     result["distribution"].append(direct_url)
                     print(f"   🗺️  Distribution image: {filename_clean}")
