@@ -1,6 +1,5 @@
-# generator/modules/extractors/lifespan.py
 """
-Lifespan extraction module - IMPROVED
+Lifespan extraction module - V3 (MISSING DATA FIX)
 Better patterns for various animals
 """
 import re
@@ -70,6 +69,12 @@ def extract_lifespan_from_sections(sections: Dict[str, str], animal_name: str = 
         
         # "longevity of X years"
         r'longevity\s*(?:of|is)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)',
+        
+        # "survive for X years"
+        r'survive\s*(?:for|up to)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)',
+        
+        # "live for X years"
+        r'live\s*(?:for|up to|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?|yrs)',
     ]
     
     for pattern in lifespan_patterns:
@@ -84,9 +89,15 @@ def extract_lifespan_from_sections(sections: Dict[str, str], animal_name: str = 
     # Priority 2: Animal-specific patterns
     animal_lower = animal_name.lower() if animal_name else ""
     
-    # Snake specific - "average lifespan of about X years"
+    # Snake specific
     if any(x in animal_lower for x in ["snake", "cobra", "python"]):
         m = re.search(r'average\s*lifespan\s*(?:of|is)?\s*(?:a\s+wild\s+)?(?:about|around)?\s*(\d+)\s*(years?)', clean_text, re.I)
+        if m:
+            return f"{m.group(1)} {m.group(2)}"
+    
+    # Elephant specific
+    if "elephant" in animal_lower:
+        m = re.search(r'(?:live|lifespan|years)\s*(?:of|is|up to|about)?\s*(\d+(?:\s*[-–]\s*\d+)?)\s*(years?)', clean_text, re.I)
         if m:
             return f"{m.group(1)} {m.group(2)}"
     
