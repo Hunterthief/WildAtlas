@@ -4,7 +4,7 @@ Fixed: Better patterns, section priority, classification validation
 Based on analysis of 13 animal Wikipedia articles
 """
 import re
-from typing import Dict, Optional, List, Tuple
+from typing import Dict, Optional, List, Tuple, Any  # ← Added 'Any' to imports
 
 
 # =============================================================================
