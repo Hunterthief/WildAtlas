@@ -1,6 +1,6 @@
 """
-Length extraction module - PRODUCTION v10
-Fixed: Cheetah 4-7m tail, Elephant 2.4m shoulder, Eagle 11cm too small, Butterfly 1.2m wingspan, Wolf no length, Bee no mm
+Length extraction module - PRODUCTION v11
+Fixed: Cheetah "between" keyword, head-body pattern matching, total length rejection
 Based on analysis of 13 animal Wikipedia articles from WildAtlas
 """
 import re
@@ -176,7 +176,7 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
 
 
 def _has_length_context(text: str, animal_name: str = "") -> bool:
-    """Check if text has length-related context - AGGRESSIVE shoulder/wingspan rejection"""
+    """Check if text has length-related context - AGGRESSIVE shoulder/wingspan/tail rejection"""
     text_lower = text.lower()
     
     # POSITIVE indicators (length-related)
@@ -185,7 +185,7 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         'body length', 'total length', 'head-body', 'snout',
         'carapace', 'adult', 'mature', 'full-grown',
         'from head', 'from snout', 'from nose',
-        'typically', 'average', 'usually', 'about', 'approximately'
+        'typically', 'average', 'usually', 'about', 'approximately', 'between'
     ]
     
     # REJECT keywords - AGGRESSIVE shoulder/distribution/wingspan rejection
@@ -258,11 +258,11 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
     
     # SPECIAL: For cats, prefer "head-body" over "total length"
     if any(x in animal_lower for x in ['tiger', 'cheetah', 'lion', 'cat', 'leopard', 'jaguar']):
+        # CRITICAL FIX: Reject "total length" that mentions tail
         if 'total length' in text_lower and 'tail' in text_lower:
-            return False  # Reject total length that includes tail
-        # Also reject if value seems too large for body length
+            return False
+        # CRITICAL FIX: Reject any value >3m for cats (includes tail)
         if 'total length' in text_lower:
-            # Check for large values that include tail
             large_values = re.findall(r'(\d+[.,]?\d*)\s*(?:m|metres?|meters?)', text_lower)
             for val in large_values:
                 try:
@@ -270,15 +270,22 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
                         return False  # Likely includes tail
                 except:
                     pass
+        # CRITICAL FIX: Even without "total length" keyword, reject >3m for cats
+        all_meter_values = re.findall(r'(\d+[.,]?\d*)\s*(?:m|metres?|meters?)(?!\s*m)', text_lower)
+        for val in all_meter_values:
+            try:
+                if float(val.replace(',', '')) > 3.0:
+                    if 'head' not in text_lower and 'body' not in text_lower:
+                        return False  # Large value without head-body context
+            except:
+                pass
     
     # SPECIAL: For elephants, reject shoulder height values (2-3m range)
     if any(x in animal_lower for x in ['elephant']):
-        # Check for values in shoulder height range (2-3m)
         shoulder_values = re.findall(r'(2[.,]?\d*|3[.,]?\d*)\s*(?:m|metres?|meters?)', text_lower)
         if shoulder_values:
             if 'shoulder' in text_lower or 'height' in text_lower:
                 return False
-            # Even without shoulder keyword, 2-3m is suspicious for elephant length
             if 'length' not in text_lower:
                 return False
     
@@ -287,10 +294,9 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         cm_values = re.findall(r'(\d+[.,]?\d*)\s*(?:cm|centimetres?|centimeters?)', text_lower)
         for val in cm_values:
             try:
-                if float(val.replace(',', '')) < 60:  # <60cm likely shoulder height
+                if float(val.replace(',', '')) < 60:
                     if 'shoulder' in text_lower or 'height' in text_lower:
                         return False
-                    # Even without shoulder keyword, be suspicious
                     if 'length' not in text_lower:
                         return False
             except:
@@ -328,21 +334,27 @@ SECTION_PRIORITY = [
 
 
 # =============================================================================
-# PATTERN DEFINITIONS - Refined based on 13 animal analysis
+# PATTERN DEFINITIONS - FIXED for "between" keyword and head-body priority
 # =============================================================================
 LENGTH_PATTERNS = [
     # =========================================================================
-    # TIER 1: Explicit Body Length Statements (Most Reliable)
+    # TIER 1: Explicit Body Length Statements (Most Reliable) - FIXED PATTERNS
     # =========================================================================
     {
-        # "body length of 1.5–2.5 m" - PREFER this over total length
-        'pattern': r'body\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        # "body length of/between 1.5–2.5 m" - PREFER this over total length
+        'pattern': r'body\s*length\s*(?:of|is|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
         'priority': 1,
         'format': 'range'
     },
     {
-        # "head-and-body length of 1.5–2.5 m" - PREFER this for cats/mammals
-        'pattern': r'(?:head-and-body|head\s*and\s*body|head-body|head\s*to\s*body)\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        # "head-and-body length of/between 1.5–2.5 m" - HIGHEST PRIORITY for cats/mammals
+        'pattern': r'(?:head-and-body|head\s*and\s*body|head-body|head\s*to\s*body)\s*length\s*(?:of|is|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'priority': 1,
+        'format': 'range'
+    },
+    {
+        # "head-body length between X and Y m" - alternative format
+        'pattern': r'head[-\s]*body\s*length\s+(?:is\s+)?between\s+(\d+(?:[.,]\d+)?)\s+and\s+(\d+(?:[.,]\d+)?)\s+(m|metres?|meters?|cm|centimetres?|ft|feet)',
         'priority': 1,
         'format': 'range'
     },
@@ -381,8 +393,8 @@ LENGTH_PATTERNS = [
     # TIER 2: Total Length (Lower priority - may include tail)
     # =========================================================================
     {
-        # "total length of 1.5–2.5 m" - but validate against animal type
-        'pattern': r'total\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        # "total length of/between 1.5–2.5 m" - but validate against animal type
+        'pattern': r'total\s*length\s*(?:of|is|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
         'priority': 2,
         'format': 'range'
     },
@@ -419,8 +431,8 @@ LENGTH_PATTERNS = [
         'format': 'range'
     },
     {
-        # "length of 1.5–2.5 m"
-        'pattern': r'length\s+(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        # "length of/between 1.5–2.5 m"
+        'pattern': r'length\s+(?:of|is|between)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
         'priority': 4,
         'format': 'range'
     },
