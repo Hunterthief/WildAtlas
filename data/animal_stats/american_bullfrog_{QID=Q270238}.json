@@ -51,7 +51,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
   "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/330963",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -120,7 +120,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T05:14:35.033248"
+  "last_updated": "2026-03-20T05:24:24.671757"
 }
