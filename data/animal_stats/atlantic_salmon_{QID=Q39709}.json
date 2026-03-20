@@ -52,7 +52,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
   "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/46563143",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -67,7 +67,7 @@
   "group_name": "school",
   "physical": {
     "weight": "3.6–5.4 kg",
-    "length": "30 in",
+    "length": "1 m",
     "height": "",
     "top_speed": "",
     "lifespan": ""
@@ -118,7 +118,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T11:14:19.782600"
+  "last_updated": "2026-03-20T11:28:21.507106"
 }

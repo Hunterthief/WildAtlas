@@ -52,7 +52,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
   "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/45512074",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -118,7 +118,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T11:13:48.434742"
+  "last_updated": "2026-03-20T11:28:05.835519"
 }
