@@ -1,6 +1,6 @@
 """
-Wikipedia data fetcher - FULLY FIXED ✅
-Properly extracts infobox data from rendered HTML
+Wikipedia data fetcher - DEBUG VERSION 🔍
+Dumps ALL infobox data without filtering to verify fetching works
 """
 import re
 import requests
@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
     """Fetch Wikipedia article sections"""
     try:
-        # FIXED: Removed trailing spaces from URL
+        # FIXED: NO trailing spaces!
         response = requests.get(
             'https://en.wikipedia.org/w/api.php',
             params={
@@ -92,19 +92,22 @@ def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
 
 def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
     """
-    Extract data from Wikipedia infobox - FIXED VERSION ✅
-    Fetches rendered HTML and parses the infobox table directly
-    Returns dict with weight, length, height, lifespan, speed if found
+    DEBUG VERSION - Dumps ALL infobox data without filtering 🔍
     """
     try:
-        # FIXED: Removed trailing spaces from URL
+        # FIXED: NO trailing spaces! Clean URL construction
+        url = f'https://en.wikipedia.org/wiki/{name.replace(" ", "_")}'
+        print(f"🔗 Requesting URL: {url}")
+        
         response = requests.get(
-            f'https://en.wikipedia.org/wiki/{name}',
+            url,
             headers={
                 'User-Agent': 'WildAtlas/1.0 (contact: wildatlas@example.com)'
             },
             timeout=10
         )
+        
+        print(f"📡 HTTP Status: {response.status_code}")
         
         if response.status_code != 200:
             print(f"⚠️ HTTP {response.status_code} for {name}")
@@ -112,70 +115,88 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Find the infobox table - multiple possible class names
-        infobox_table = soup.find('table', class_=lambda x: x and 'infobox' in x.lower())
+        # Debug: Check page title to verify we got the right page
+        page_title = soup.find('h1', id='firstHeading')
+        if page_title:
+            print(f"📄 Page Title: {page_title.get_text()}")
         
-        if not infobox_table:
-            print(f"⚠️ No infobox found for {name}")
+        # Find ALL tables with infobox in class name
+        print("\n🔍 Searching for infobox tables...")
+        all_tables = soup.find_all('table')
+        print(f"   Total tables on page: {len(all_tables)}")
+        
+        infobox_tables = []
+        for i, table in enumerate(all_tables):
+            class_attr = table.get('class', [])
+            class_str = ' '.join(class_attr) if isinstance(class_attr, list) else str(class_attr)
+            if 'infobox' in class_str.lower():
+                infobox_tables.append(table)
+                print(f"   ✅ Found infobox table #{len(infobox_tables)} with class: '{class_str}'")
+        
+        if not infobox_tables:
+            print(f"⚠️ NO infobox tables found for {name}")
+            print("   Searching for ANY table...")
+            for i, table in enumerate(all_tables[:5]):
+                class_attr = table.get('class', [])
+                print(f"   Table #{i}: class='{class_attr}'")
             return {}
         
-        print(f"✅ Found infobox table for {name}")
+        # Use the first infobox table
+        infobox_table = infobox_tables[0]
+        print(f"\n✅ Using infobox table for {name}")
         
+        # DUMP ALL ROWS - NO FILTERING
         infobox_data = {}
-        
-        # Extract all rows from infobox
         rows = infobox_table.find_all('tr')
+        print(f"📊 Total rows in infobox: {len(rows)}")
         
-        # Keywords mapping for physical stats - EXPANDED
-        stat_keywords = {
-            'weight': ['mass', 'weight', 'body mass', 'avg mass', 'average mass'],
-            'length': ['length', 'body length', 'total length', 'size', 'avg length'],
-            'height': ['height', 'shoulder height', 'standing height', 'avg height'],
-            'lifespan': ['lifespan', 'longevity', 'life span', 'average lifespan'],
-            'top_speed': ['speed', 'top speed', 'maximum speed', 'max speed'],
-        }
+        print("\n📋 DUMPING ALL INFOBOX ROWS:")
+        print("=" * 80)
         
-        for row in rows:
+        for i, row in enumerate(rows):
             header_cell = row.find('th')
             data_cell = row.find('td')
             
-            if not header_cell or not data_cell:
-                continue
+            header_text = header_cell.get_text().strip() if header_cell else ""
+            data_text = data_cell.get_text().strip() if data_cell else ""
             
-            header_text = header_cell.get_text().strip().lower()
-            data_text = data_cell.get_text().strip()
-            
-            # Skip empty or very short values
-            if len(data_text) < 2:
-                continue
-            
-            # Clean the data text - remove citations, references, etc.
+            # Clean citations from data
             data_text = re.sub(r'\[\d+\]', '', data_text)
-            data_text = re.sub(r'\[\^\d+\]', '', data_text)
-            data_text = re.sub(r'\s+', ' ', data_text)
-            data_text = data_text.strip()
+            data_text = ' '.join(data_text.split())
             
-            # Match against our stat keywords
+            print(f"   Row {i:2d} | Header: {header_text[:40]:<40} | Data: {data_text[:60]}")
+            
+            # Store ALL data (not just physical stats)
+            if header_text and data_text:
+                # Create clean key from header
+                key = header_text.lower().replace(' ', '_').replace('-', '_')
+                key = re.sub(r'[^\w]', '', key)
+                infobox_data[key] = data_text
+        
+        print("=" * 80)
+        print(f"\n✅ Total infobox fields captured: {len(infobox_data)}")
+        print(f"📦 All keys: {list(infobox_data.keys())}")
+        
+        # Also return the standard physical stats
+        physical_stats = {}
+        stat_keywords = {
+            'weight': ['mass', 'weight', 'body_mass'],
+            'length': ['length', 'body_length', 'total_length', 'size'],
+            'height': ['height', 'shoulder_height', 'standing_height'],
+            'lifespan': ['lifespan', 'longevity', 'life_span'],
+            'top_speed': ['speed', 'top_speed', 'maximum_speed', 'max_speed'],
+        }
+        
+        for key, value in infobox_data.items():
             for stat_name, keywords in stat_keywords.items():
-                if any(keyword in header_text for keyword in keywords):
-                    if stat_name not in infobox_data:  # Don't overwrite if already found
-                        infobox_data[stat_name] = data_text
-                        print(f"   📊 {stat_name}: {data_text}")
+                if any(kw in key for kw in keywords):
+                    if stat_name not in physical_stats:
+                        physical_stats[stat_name] = value
                     break
         
-        if infobox_data:
-            print(f"✅ Found infobox data for {name}: {list(infobox_data.keys())}")
-        else:
-            print(f"⚠️ Infobox found but no matching stats for {name}")
-            # Debug: print all row headers to see what's available
-            print("   Available infobox fields:")
-            for row in rows[:10]:
-                th = row.find('th')
-                td = row.find('td')
-                if th and td:
-                    print(f"      - {th.get_text().strip()}: {td.get_text().strip()[:50]}")
+        print(f"\n🎯 Physical stats extracted: {physical_stats}")
         
-        return infobox_data
+        return physical_stats
     
     except Exception as e:
         print(f"❌ Error fetching Wikipedia infobox: {e}")
@@ -189,7 +210,9 @@ def fetch_wikipedia_data(name: str) -> Dict[str, Any]:
     Main Wikipedia fetcher - combines sections and infobox
     Returns combined data structure
     """
+    print(f"\n{'='*80}")
     print(f"📚 Fetching Wikipedia data for: {name}")
+    print(f"{'='*80}")
     
     sections = fetch_wikipedia_sections(name)
     infobox = fetch_wikipedia_infobox(name)
@@ -201,19 +224,19 @@ def fetch_wikipedia_data(name: str) -> Dict[str, Any]:
         'has_sections': bool(sections)
     }
     
-    print(f"📋 Infobox: {type(infobox).__name__} with {len(infobox)} keys")
-    print(f"📦 Keys: {list(infobox.keys())}")
+    print(f"\n📋 FINAL Infobox: {type(infobox).__name__} with {len(infobox)} keys")
+    print(f"📦 Final Keys: {list(infobox.keys())}")
+    print(f"{'='*80}\n")
     
     return result
 
 
 if __name__ == "__main__":
-    # Test the fetcher
-    test_animals = ["Tiger", "African Bush Elephant", "Lion", "Giraffe"]
+    # Test the fetcher with detailed debug output
+    test_animals = ["Tiger", "Lion"]
     
     for animal in test_animals:
-        print(f"\n{'='*60}")
-        print(f"Testing: {animal}")
-        print('='*60)
         data = fetch_wikipedia_data(animal)
-        print(f"\nFinal Result: {data['infobox']}")
+        print(f"\n🎯 FINAL RESULT for {animal}:")
+        print(f"   Infobox: {data['infobox']}")
+        print(f"\n\n")
