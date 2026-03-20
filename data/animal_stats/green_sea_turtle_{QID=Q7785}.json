@@ -68,7 +68,7 @@
   "physical": {
     "weight": "68–190 kg",
     "length": "",
-    "height": "40 m",
+    "height": "",
     "top_speed": "3 km/h",
     "lifespan": "90 years"
   },
@@ -141,5 +141,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T04:43:42.681958"
+  "last_updated": "2026-03-20T05:04:29.653349"
 }

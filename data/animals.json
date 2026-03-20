@@ -125,7 +125,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:42:59.527768"
+    "last_updated": "2026-03-20T05:03:31.918685"
   },
   {
     "id": "Q35625",
@@ -254,7 +254,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:04.141316"
+    "last_updated": "2026-03-20T05:03:37.154154"
   },
   {
     "id": "Q7372",
@@ -385,7 +385,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:08.474744"
+    "last_updated": "2026-03-20T05:03:42.086397"
   },
   {
     "id": "Q213537",
@@ -455,7 +455,7 @@
     "physical": {
       "weight": "",
       "length": "",
-      "height": "29–50 cm",
+      "height": "",
       "top_speed": "",
       "lifespan": ""
     },
@@ -527,7 +527,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:14.146322"
+    "last_updated": "2026-03-20T05:03:48.691812"
   },
   {
     "id": "Q25319",
@@ -652,7 +652,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:20.249221"
+    "last_updated": "2026-03-20T05:03:56.565717"
   },
   {
     "id": "Q43306",
@@ -777,7 +777,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:25.125908"
+    "last_updated": "2026-03-20T05:04:03.818311"
   },
   {
     "id": "Q47164",
@@ -909,7 +909,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:30.843324"
+    "last_updated": "2026-03-20T05:04:10.104490"
   },
   {
     "id": "Q39709",
@@ -1034,7 +1034,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:36.730386"
+    "last_updated": "2026-03-20T05:04:22.461240"
   },
   {
     "id": "Q7785",
@@ -1106,7 +1106,7 @@
     "physical": {
       "weight": "68–190 kg",
       "length": "",
-      "height": "40 m",
+      "height": "",
       "top_speed": "3 km/h",
       "lifespan": "90 years"
     },
@@ -1179,7 +1179,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:42.681958"
+    "last_updated": "2026-03-20T05:04:29.653349"
   },
   {
     "id": "Q189609",
@@ -1250,7 +1250,7 @@
     "physical": {
       "weight": "10 kg",
       "length": "3.18–4 m",
-      "height": "3.75 m",
+      "height": "",
       "top_speed": "12 mph",
       "lifespan": "About 20 years"
     },
@@ -1312,7 +1312,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:46.837323"
+    "last_updated": "2026-03-20T05:04:35.186887"
   },
   {
     "id": "Q270238",
@@ -1439,7 +1439,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:43:51.540704"
+    "last_updated": "2026-03-20T05:04:40.703866"
   },
   {
     "id": "Q165980",
@@ -1511,7 +1511,7 @@
     "physical": {
       "weight": "0.25 - 0.75 grams",
       "length": "",
-      "height": "40 m",
+      "height": "",
       "top_speed": "12 mph",
       "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
     },
@@ -1568,7 +1568,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:44:01.688241"
+    "last_updated": "2026-03-20T05:04:51.622266"
   },
   {
     "id": "Q7316",
@@ -1713,6 +1713,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:44:08.697818"
+    "last_updated": "2026-03-20T05:05:00.501107"
   }
 ]
