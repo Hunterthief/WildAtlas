@@ -51,9 +51,9 @@
     "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/e/e4/Danaus_plexippus_MHNT.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/9/90/Monarch_caterpillar_(23229).jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/0/02/MonarchDistribution2-2.png"
+    "https://upload.wikimedia.org/wikipedia/commons/6/6c/MonarchDistribution2-3.png"
   ],
-  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/0/02/MonarchDistribution2-2.png",
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/MonarchDistribution2-3.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
   "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
   "eol_url": "https://eol.org/pages/4090155",
@@ -129,5 +129,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T23:22:20.165517"
+  "last_updated": "2026-03-20T23:28:19.355507"
 }
