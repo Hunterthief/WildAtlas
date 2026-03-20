@@ -51,7 +51,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1271375",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -66,7 +66,7 @@
   "group_name": "Mammal",
   "physical": {
     "weight": "40kg - 65kg (88lbs - 140lbs)",
-    "length": "",
+    "length": "60–80 cm",
     "height": "115cm - 136cm (45in - 53in)",
     "top_speed": "70 mph",
     "lifespan": "10 - 12 years"
@@ -122,7 +122,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T13:13:32.248251"
+  "last_updated": "2026-03-20T13:36:40.454858"
 }

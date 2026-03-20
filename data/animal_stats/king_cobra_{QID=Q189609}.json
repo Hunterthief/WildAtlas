@@ -66,7 +66,7 @@
   "group_name": "Solitary",
   "physical": {
     "weight": "10 kg",
-    "length": "4 m",
+    "length": "3.18–4 m",
     "height": "",
     "top_speed": "12 mph",
     "lifespan": "About 20 years"
@@ -128,5 +128,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T13:15:38.386628"
+  "last_updated": "2026-03-20T13:39:26.071860"
 }

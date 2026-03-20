@@ -124,7 +124,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T13:13:15.875167"
+    "last_updated": "2026-03-20T13:36:32.681152"
   },
   {
     "id": "Q35625",
@@ -179,7 +179,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1271375",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -194,7 +194,7 @@
     "group_name": "Mammal",
     "physical": {
       "weight": "40kg - 65kg (88lbs - 140lbs)",
-      "length": "",
+      "length": "60–80 cm",
       "height": "115cm - 136cm (45in - 53in)",
       "top_speed": "70 mph",
       "lifespan": "10 - 12 years"
@@ -250,9 +250,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T13:13:32.248251"
+    "last_updated": "2026-03-20T13:36:40.454858"
   },
   {
     "id": "Q7372",
@@ -321,7 +322,7 @@
     "group_name": "herd",
     "physical": {
       "weight": "",
-      "length": "30 cm",
+      "length": "",
       "height": "2.47–2.73 m",
       "top_speed": "",
       "lifespan": ""
@@ -382,7 +383,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T13:13:47.034665"
+    "last_updated": "2026-03-20T13:36:55.799744"
   },
   {
     "id": "Q213537",
@@ -523,7 +524,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T13:14:03.379646"
+    "last_updated": "2026-03-20T13:37:12.318419"
   },
   {
     "id": "Q25319",
@@ -647,7 +648,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T13:14:20.451319"
+    "last_updated": "2026-03-20T13:37:29.204082"
   },
   {
     "id": "Q43306",
@@ -718,7 +719,7 @@
     "group_name": "Bird",
     "physical": {
       "weight": "22kg - 45kg (49lbs - 99lbs)",
-      "length": "1.5 m",
+      "length": "100 cm",
       "height": "100cm - 120cm (39in - 47in)",
       "top_speed": "15 mph",
       "lifespan": "15 - 50 years"
@@ -771,7 +772,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T13:14:35.864106"
+    "last_updated": "2026-03-20T13:37:46.001361"
   },
   {
     "id": "Q47164",
@@ -902,7 +903,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T13:14:51.585758"
+    "last_updated": "2026-03-20T13:38:02.405642"
   },
   {
     "id": "Q39709",
@@ -981,7 +982,7 @@
     "ecology": {
       "diet": "Carnivore",
       "habitat": "The natural breeding grounds of Atlantic salmon are rivers in Europe and the northeastern coast of North America. In Europe, Atlantic salmon are still found as far south as Spain, and as far northeast as the Pechora River in Russia. Atlantic salmon have spread north to colonise Svalbard (78°N) from 2002–2006 onward, due to the warming of the climate there. Because of sport-fishing, some of the species' southern populations in northern Spain are growing smaller. The species distribution is easily influenced by changes in freshwater habitat and climate. Atlantic salmon are a cold-water fish species and are particularly sensitive to changes in water temperature. The Housatonic River, and its Naugatuck River tributary, hosted the southernmost Atlantic salmon spawning runs in the United States. However, there is a 1609 account by Henry Hudson that Atlantic salmon once ran up the Hudson River. In addition, fish scale evidence dating to 10,000 years BP places Atlantic salmon in a coastal New Jersey pond. Two publications from 1988 and 1996 questioned the notion that Atlantic salmon were prehistorically plentiful in New England, when the climate was warmer as it is now. This argument was primarily based on a paucity of bone data in archaeological sites relative to other fish species, and the assertion that historical claims of abundance may have been exaggerated. This argument was later challenged in another paper which claimed that lack of archaeological bone fragments could be explained by salmon bones being rare at sites that still have large salmon runs and that salmonid bones in general are poorly recovered relative to other fish species. Atlantic salmon populations were significantly reduced in the United States following European settlement. The fur trade, timber harvesting, dams and mills and agriculture degraded freshwater habitats and lowered the carrying capacity of most North American streams. Beaver populations were trapped to near-extinction by 1800, and log drives and clear-cutting further exacerbated stream erosion and habitat loss. As timber and fur gave way to agriculture, freshwater Atlantic salmon habitat was further compromised. According to historian D.W. Dunfield (1985) \"over half of the historical Atlantic salmon runs had been lost in North America by 1850\". As early as 1798, a bill for the preservation of Atlantic Salmon was introduced in Canadian Parliament, to protect populations in Lake Ontario. In the Gulf Region of Nova Scotia it was reported that 31 of the 33 Atlantic salmon streams were blocked off by lumber dams, leading to the extirpation of early-run fish in many watersheds. The inshore Atlantic salmon fishery became a major export of the New World, with major fishing operations establishing along the shores of major river systems. The southernmost populations were the first to disappear.[citation needed] Young salmon spend one to four years in their natal river. When they are large enough (c. 15 centimetres (5.9 in)), they smoltify, changing camouflage from stream-adapted with large, gray spots to sea-adapted with shiny sides. They also undergo some endocrinological changes to adapt to osmotic differences between fresh water and seawater habitat. When smoltification is complete, the parr (young fish) now begin to swim with the current instead of against it. With this behavioural change, the fish are now referred to as smolt. When the smolt reach the sea, they follow sea surface currents and feed on plankton or fry from other fish species such as herring. During their time at sea, they can sense the change in the Earth magnetic field through iron in their lateral line.[citation needed] When they have had a year of good growth, they will move to the sea surface currents that transport them back to their natal river. It is a major misconception that salmon swim thousands of kilometres at sea; instead they surf through sea surface currents.[citation needed] It is possible they find their natal river by smell, although this is not confirmed; only 5% of Atlantic salmon go up the wrong river.[citation needed] The range of an individual Atlantic salmon can thus be the river where they are born and the sea surface currents that are connected to that river in a circular path.[citation needed] Wild salmon continued to disappear from many rivers during the twentieth century due to overfishing and habitat change.",
-      "locations": "Canada, France, Netherlands, United States of America",
+      "locations": "",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -1005,28 +1006,16 @@
       "most_distinctive_feature": "es of Atlantic salmon vary between two and eight years"
     },
     "distribution": {
-      "countries": [
-        "Canada",
-        "France",
-        "Netherlands",
-        "United States of America"
-      ],
-      "coordinates": {
-        "min_lat": 42.385017,
-        "max_lat": 50.004707,
-        "min_lon": -76.877625,
-        "max_lon": 1.520426,
-        "count": 50
-      },
-      "occurrence_count": 1453602
+      "countries": [],
+      "coordinates": {},
+      "occurrence_count": 0
     },
     "sources": [
       "Wikipedia",
       "iNaturalist",
-      "Wikidata",
-      "GBIF"
+      "Wikidata"
     ],
-    "last_updated": "2026-03-20T13:15:07.304774"
+    "last_updated": "2026-03-20T13:38:32.848010"
   },
   {
     "id": "Q7785",
@@ -1097,7 +1086,7 @@
     "group_name": "group",
     "physical": {
       "weight": "68–190 kg",
-      "length": "1.5 m",
+      "length": "78–112 cm",
       "height": "",
       "top_speed": "3 km/h",
       "lifespan": "90 years"
@@ -1105,7 +1094,7 @@
     "ecology": {
       "diet": "Herbivore",
       "habitat": "Green sea turtles move across three habitat types, depending on their life stage. They lay eggs on beaches. Mature turtles spend most of their time in shallow, coastal waters with lush seagrass beds. Adults frequent inshore bays, lagoons, and shoals with lush seagrass meadows. Entire generations often migrate between one pair of feeding and nesting areas. Green sea turtles, Chelonia mydas, are classified as an aquatic species and are distributed around the globe in warm tropical to subtropical waters. The environmental parameter that limits the distribution of the turtles is ocean temperatures below 7 to 10 degrees Celsius. Within their geographical range, the green sea turtles generally stay near continental and island coastlines. Near the coastlines, the green sea turtles live within shallow bays and protected shores. In these protected shores and bays, the green sea turtle habitats include coral reefs, salt marshes, and nearshore seagrass beds. The coral reefs provide red, brown, and green algae for their diet and give protection from predators and rough storms within the ocean. The salt marshes and seagrass beds contain seaweed and grass vegetation, allowing ample habitat for the sea turtles. Turtles spend most of their first five years in convergence zones within the bare open ocean that surround them. These young turtles are rarely seen as they swim in deep, pelagic waters. Green sea turtles typically swim at 2.5–3 km/h (1.6–1.9 mph).",
-      "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
+      "locations": "The range of the green sea turtle extends throughout tropical and subtropical oceans worldwide. The two major subpopulations are the Atlantic and the eastern Pacific subpopulations. Each population is genetically distinct, with its own set of nesting and feeding grounds within the population's known range. One of the genetic differences between the two subpopulations is the type of mitochondrial DNA found in individual's cells. Individuals from rookeries in the Atlantic Ocean and Mediterranean Sea have a similar type of mitochondrial DNA, and individuals from the Pacific and Indian Oceans have another type of mitochondrial DNA. Their native range includes tropical to subtropical waters along continental coasts and islands between 30°N and 30°S. Since green sea turtles are a migrating species, their global distribution spans into the open ocean. The differences in mitochondrial DNA more than likely stems from the populations being isolated from each other by the southern tips of both South America and Africa with no warm waters for the green sea turtles to migrate through. The green sea turtle is estimated to inhabit coastal areas of more than 140 countries, with nesting sites in over 80 countries worldwide throughout the year. In the United States Atlantic coast, green sea turtles can be found from Texas to Massachusetts. In the United States Pacific coast, they have been found from southern California north to the southernmost tip of Alaska. The largest populations of green sea turtles within the United States coastline are in the Hawaiian Islands and Florida. Globally, the largest populations of sea turtles are in the Great Barrier Reef in Australia, and the Caribbean Sea. Recently these Turtles were discovered within Rangaunu Harbour in New Zealand.",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -1129,48 +1118,16 @@
       "most_distinctive_feature": "s distinguish the green turtle from the other members of its family"
     },
     "distribution": {
-      "countries": [
-        "Australia",
-        "Bahamas",
-        "Barbados",
-        "Bonaire, Sint Eustatius and Saba",
-        "Brazil",
-        "Canada",
-        "Chinese Taipei",
-        "Cook Islands",
-        "Costa Rica",
-        "Ecuador",
-        "Egypt",
-        "Guadeloupe",
-        "Honduras",
-        "Martinique",
-        "Mexico",
-        "New Caledonia",
-        "New Zealand",
-        "Norfolk Island",
-        "Northern Mariana Islands",
-        "Oman",
-        "Philippines",
-        "Puerto Rico",
-        "United States of America",
-        "Virgin Islands (U.S.)"
-      ],
-      "coordinates": {
-        "min_lat": -31.034203,
-        "max_lat": 49.095935,
-        "min_lon": -159.798629,
-        "max_lon": 166.475121,
-        "count": 50
-      },
-      "occurrence_count": 252562
+      "countries": [],
+      "coordinates": {},
+      "occurrence_count": 0
     },
     "sources": [
       "Wikipedia",
       "iNaturalist",
-      "Wikidata",
-      "GBIF"
+      "Wikidata"
     ],
-    "last_updated": "2026-03-20T13:15:23.809499"
+    "last_updated": "2026-03-20T13:39:06.607821"
   },
   {
     "id": "Q189609",
@@ -1240,7 +1197,7 @@
     "group_name": "Solitary",
     "physical": {
       "weight": "10 kg",
-      "length": "4 m",
+      "length": "3.18–4 m",
       "height": "",
       "top_speed": "12 mph",
       "lifespan": "About 20 years"
@@ -1302,7 +1259,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T13:15:38.386628"
+    "last_updated": "2026-03-20T13:39:26.071860"
   },
   {
     "id": "Q270238",
@@ -1428,7 +1385,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T13:15:54.075888"
+    "last_updated": "2026-03-20T13:39:48.419470"
   },
   {
     "id": "Q165980",
@@ -1556,7 +1513,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T13:16:14.979013"
+    "last_updated": "2026-03-20T13:40:17.485933"
   },
   {
     "id": "Q7316",
@@ -1612,7 +1569,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1045608",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1698,8 +1655,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T13:16:31.594511"
+    "last_updated": "2026-03-20T13:40:37.979726"
   }
 ]
