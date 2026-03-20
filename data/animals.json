@@ -45,7 +45,9 @@
         "language": "fa"
       }
     ],
+    "summary": "species of big cat",
     "description": "species of big cat",
+    "image": "https://commons.wikimedia.org/wiki/File:Adult_male_Royal_Bengal_tiger.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Adult_male_Royal_Bengal_tiger.jpg",
       "https://commons.wikimedia.org/wiki/File:Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg"
@@ -125,7 +127,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:54:29.017918"
+    "last_updated": "2026-03-20T20:06:56.724692"
   },
   {
     "id": "Q35625",
@@ -173,7 +175,9 @@
         "language": "es"
       }
     ],
+    "summary": "plant species",
     "description": "plant species",
+    "image": "https://commons.wikimedia.org/wiki/File:Ginger_Plant_vs.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Ginger_Plant_vs.jpg",
       "https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg"
@@ -254,7 +258,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:54:34.968544"
+    "last_updated": "2026-03-20T20:07:04.373604"
   },
   {
     "id": "Q7372",
@@ -302,7 +306,9 @@
         "language": "az"
       }
     ],
+    "summary": "clade of predatory cartilaginous fish (Chondrichthyes)",
     "description": "clade of predatory cartilaginous fish (Chondrichthyes)",
+    "image": "https://commons.wikimedia.org/wiki/File:Great_white_shark_south_africa.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Great_white_shark_south_africa.jpg"
     ],
@@ -385,7 +391,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:54:43.869735"
+    "last_updated": "2026-03-20T20:07:10.467800"
   },
   {
     "id": "Q213537",
@@ -433,7 +439,9 @@
         "language": "ba"
       }
     ],
+    "summary": "species of mammal",
     "description": "species of mammal",
+    "image": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg"
     ],
@@ -527,7 +535,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:54:50.687862"
+    "last_updated": "2026-03-20T20:07:18.954863"
   },
   {
     "id": "Q25319",
@@ -575,7 +583,9 @@
         "language": "es"
       }
     ],
+    "summary": "species of bird of prey found in North America",
     "description": "species of bird of prey found in North America",
+    "image": "https://commons.wikimedia.org/wiki/File:Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
       "https://commons.wikimedia.org/wiki/File:Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg"
@@ -652,7 +662,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:54:57.359540"
+    "last_updated": "2026-03-20T20:07:26.176442"
   },
   {
     "id": "Q43306",
@@ -700,7 +710,9 @@
         "language": "es"
       }
     ],
+    "summary": "large flightless seabird endemic to Antarctica",
     "description": "large flightless seabird endemic to Antarctica",
+    "image": "https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
       "https://commons.wikimedia.org/wiki/File:Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
@@ -777,7 +789,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:55:03.239977"
+    "last_updated": "2026-03-20T20:07:34.311192"
   },
   {
     "id": "Q47164",
@@ -825,7 +837,9 @@
         "language": "bs"
       }
     ],
+    "summary": "species of large lamniform shark",
     "description": "species of large lamniform shark",
+    "image": "https://commons.wikimedia.org/wiki/File:Great_white_shark.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Great_white_shark.jpg",
       "https://commons.wikimedia.org/wiki/File:202410_Great_white_shark.svg",
@@ -909,7 +923,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:55:09.712666"
+    "last_updated": "2026-03-20T20:07:46.834089"
   },
   {
     "id": "Q39709",
@@ -957,7 +971,9 @@
         "language": "pl"
       }
     ],
+    "summary": "species of fish",
     "description": "species of fish",
+    "image": "https://commons.wikimedia.org/wiki/File:Atlantischer_Lachs.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Atlantischer_Lachs.jpg",
       "https://commons.wikimedia.org/wiki/File:Atlantic_salmon_fish.jpg",
@@ -1034,7 +1050,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:55:16.213269"
+    "last_updated": "2026-03-20T20:07:54.075161"
   },
   {
     "id": "Q7785",
@@ -1082,7 +1098,9 @@
         "language": "eu"
       }
     ],
+    "summary": "species of sea turtle",
     "description": "species of sea turtle",
+    "image": "https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
       "https://commons.wikimedia.org/wiki/File:Hawaii_turtle_2.JPG",
@@ -1179,7 +1197,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:55:23.368263"
+    "last_updated": "2026-03-20T20:08:01.479185"
   },
   {
     "id": "Q189609",
@@ -1227,7 +1245,9 @@
         "language": "be"
       }
     ],
+    "summary": "species of bird",
     "description": "species of bird",
+    "image": "https://commons.wikimedia.org/wiki/File:Merganser_(53630992394).jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Merganser_(53630992394).jpg",
       "https://commons.wikimedia.org/wiki/File:Red-breasted_merganser_female_in_CP_(40744).jpg"
@@ -1312,7 +1332,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:55:28.499217"
+    "last_updated": "2026-03-20T20:08:06.623268"
   },
   {
     "id": "Q270238",
@@ -1360,7 +1380,9 @@
         "language": "nl"
       }
     ],
+    "summary": "species of amphibian",
     "description": "species of amphibian",
+    "image": "https://commons.wikimedia.org/wiki/File:American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
       "https://commons.wikimedia.org/wiki/File:202312_American_bullfrog.svg"
@@ -1389,7 +1411,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "",
+      "habitat": "Bullfrogs are voracious, opportunistic, ambush predators that prey on any small animal they can overpower and consume. Bullfrog stomachs have been found to contain rodents, small lizards and snakes, other frogs and toads, other amphibians, crayfish, other crustaceans, small birds, scorpions, tarantulas and bats, as well as the many types of invertebrates, such as snails, worms and insects, which are the usual food of ranid frogs. These studies revealed the bullfrog's diet to be u",
       "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -1439,7 +1461,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:55:34.413271"
+    "last_updated": "2026-03-20T20:08:12.449307"
   },
   {
     "id": "Q165980",
@@ -1487,7 +1509,9 @@
         "language": "fr"
       }
     ],
+    "summary": "milkweed butterfly in the family Nymphalidae",
     "description": "milkweed butterfly in the family Nymphalidae",
+    "image": "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT_femelle.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT_femelle.jpg",
       "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT.jpg",
@@ -1568,7 +1592,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:55:42.728525"
+    "last_updated": "2026-03-20T20:08:21.306559"
   },
   {
     "id": "Q7316",
@@ -1616,7 +1640,9 @@
         "language": "et"
       }
     ],
+    "summary": "species of insect",
     "description": "species of insect",
+    "image": "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Tanzania.jpg",
     "images": [
       "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Tanzania.jpg",
       "https://commons.wikimedia.org/wiki/File:Apis_mellifera_flying.jpg",
@@ -1713,6 +1739,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T15:55:50.610521"
+    "last_updated": "2026-03-20T20:08:29.422214"
   }
 ]

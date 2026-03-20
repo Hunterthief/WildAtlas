@@ -44,7 +44,9 @@
       "language": "fa"
     }
   ],
+  "summary": "species of big cat",
   "description": "species of big cat",
+  "image": "https://commons.wikimedia.org/wiki/File:Adult_male_Royal_Bengal_tiger.jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:Adult_male_Royal_Bengal_tiger.jpg",
     "https://commons.wikimedia.org/wiki/File:Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg"
@@ -124,5 +126,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:54:29.017918"
+  "last_updated": "2026-03-20T20:06:56.724692"
 }

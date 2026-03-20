@@ -44,7 +44,9 @@
       "language": "nl"
     }
   ],
+  "summary": "species of amphibian",
   "description": "species of amphibian",
+  "image": "https://commons.wikimedia.org/wiki/File:American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
     "https://commons.wikimedia.org/wiki/File:202312_American_bullfrog.svg"
@@ -73,7 +75,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "",
+    "habitat": "Bullfrogs are voracious, opportunistic, ambush predators that prey on any small animal they can overpower and consume. Bullfrog stomachs have been found to contain rodents, small lizards and snakes, other frogs and toads, other amphibians, crayfish, other crustaceans, small birds, scorpions, tarantulas and bats, as well as the many types of invertebrates, such as snails, worms and insects, which are the usual food of ranid frogs. These studies revealed the bullfrog's diet to be u",
     "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Vulnerable",
@@ -123,5 +125,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:55:34.413271"
+  "last_updated": "2026-03-20T20:08:12.449307"
 }

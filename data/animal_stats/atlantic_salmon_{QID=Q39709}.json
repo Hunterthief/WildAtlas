@@ -44,7 +44,9 @@
       "language": "pl"
     }
   ],
+  "summary": "species of fish",
   "description": "species of fish",
+  "image": "https://commons.wikimedia.org/wiki/File:Atlantischer_Lachs.jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:Atlantischer_Lachs.jpg",
     "https://commons.wikimedia.org/wiki/File:Atlantic_salmon_fish.jpg",
@@ -121,5 +123,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:55:16.213269"
+  "last_updated": "2026-03-20T20:07:54.075161"
 }

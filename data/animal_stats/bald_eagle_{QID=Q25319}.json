@@ -44,7 +44,9 @@
       "language": "es"
     }
   ],
+  "summary": "species of bird of prey found in North America",
   "description": "species of bird of prey found in North America",
+  "image": "https://commons.wikimedia.org/wiki/File:Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
     "https://commons.wikimedia.org/wiki/File:Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg"
@@ -121,5 +123,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:54:57.359540"
+  "last_updated": "2026-03-20T20:07:26.176442"
 }

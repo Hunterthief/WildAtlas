@@ -44,7 +44,9 @@
       "language": "eu"
     }
   ],
+  "summary": "species of sea turtle",
   "description": "species of sea turtle",
+  "image": "https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
     "https://commons.wikimedia.org/wiki/File:Hawaii_turtle_2.JPG",
@@ -141,5 +143,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:55:23.368263"
+  "last_updated": "2026-03-20T20:08:01.479185"
 }

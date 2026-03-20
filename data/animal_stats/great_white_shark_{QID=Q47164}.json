@@ -44,7 +44,9 @@
       "language": "bs"
     }
   ],
+  "summary": "species of large lamniform shark",
   "description": "species of large lamniform shark",
+  "image": "https://commons.wikimedia.org/wiki/File:Great_white_shark.jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:Great_white_shark.jpg",
     "https://commons.wikimedia.org/wiki/File:202410_Great_white_shark.svg",
@@ -128,5 +130,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:55:09.712666"
+  "last_updated": "2026-03-20T20:07:46.834089"
 }

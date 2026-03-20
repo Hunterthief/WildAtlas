@@ -44,7 +44,9 @@
       "language": "be"
     }
   ],
+  "summary": "species of bird",
   "description": "species of bird",
+  "image": "https://commons.wikimedia.org/wiki/File:Merganser_(53630992394).jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:Merganser_(53630992394).jpg",
     "https://commons.wikimedia.org/wiki/File:Red-breasted_merganser_female_in_CP_(40744).jpg"
@@ -129,5 +131,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:55:28.499217"
+  "last_updated": "2026-03-20T20:08:06.623268"
 }

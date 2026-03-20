@@ -44,7 +44,9 @@
       "language": "fr"
     }
   ],
+  "summary": "milkweed butterfly in the family Nymphalidae",
   "description": "milkweed butterfly in the family Nymphalidae",
+  "image": "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT_femelle.jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT_femelle.jpg",
     "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT.jpg",
@@ -125,5 +127,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:55:42.728525"
+  "last_updated": "2026-03-20T20:08:21.306559"
 }

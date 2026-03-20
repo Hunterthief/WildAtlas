@@ -44,7 +44,9 @@
       "language": "es"
     }
   ],
+  "summary": "large flightless seabird endemic to Antarctica",
   "description": "large flightless seabird endemic to Antarctica",
+  "image": "https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
     "https://commons.wikimedia.org/wiki/File:Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
@@ -121,5 +123,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:55:03.239977"
+  "last_updated": "2026-03-20T20:07:34.311192"
 }

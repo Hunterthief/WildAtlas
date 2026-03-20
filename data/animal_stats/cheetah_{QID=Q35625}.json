@@ -44,7 +44,9 @@
       "language": "es"
     }
   ],
+  "summary": "plant species",
   "description": "plant species",
+  "image": "https://commons.wikimedia.org/wiki/File:Ginger_Plant_vs.jpg",
   "images": [
     "https://commons.wikimedia.org/wiki/File:Ginger_Plant_vs.jpg",
     "https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg"
@@ -125,5 +127,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T15:54:34.968544"
+  "last_updated": "2026-03-20T20:07:04.373604"
 }
