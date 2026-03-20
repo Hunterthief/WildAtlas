@@ -51,9 +51,9 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/8/8d/Panthera_tigris_sumatrae_distribution_map-ar.png"
+      "https://upload.wikimedia.org/wikipedia/commons/2/2e/Historical_tiger_distribution_PLoS_2009-ar.png"
     ],
-    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Panthera_tigris_sumatrae_distribution_map-ar.png",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Historical_tiger_distribution_PLoS_2009-ar.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
     "eol_url": "",
@@ -128,7 +128,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:28:28.385345"
+    "last_updated": "2026-03-20T22:38:48.144523"
   },
   {
     "id": "Q35625",
@@ -258,7 +258,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:28:44.333887"
+    "last_updated": "2026-03-20T22:39:03.468615"
   },
   {
     "id": "Q7372",
@@ -392,7 +392,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:28:59.265006"
+    "last_updated": "2026-03-20T22:39:18.139865"
   },
   {
     "id": "Q213537",
@@ -537,7 +537,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:29:16.144767"
+    "last_updated": "2026-03-20T22:39:34.346765"
   },
   {
     "id": "Q25319",
@@ -665,7 +665,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:29:32.747828"
+    "last_updated": "2026-03-20T22:39:50.724176"
   },
   {
     "id": "Q43306",
@@ -792,7 +792,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:29:49.051823"
+    "last_updated": "2026-03-20T22:40:06.383016"
   },
   {
     "id": "Q47164",
@@ -846,9 +846,10 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/4/4b/Great_white_shark.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/8/85/202410_Great_white_shark.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/8/8b/XII.—On_Fossil_Echinoderms_from_the_Island_of_Malta;_with_notes_on_the_stratigraphical_distribution_of_the_fossil_organisms_in_the_Maltese_beds_(IA_biostor-90150).pdf"
     ],
-    "distribution_image": "",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/XII.—On_Fossil_Echinoderms_from_the_Island_of_Malta;_with_notes_on_the_stratigraphical_distribution_of_the_fossil_organisms_in_the_Maltese_beds_(IA_biostor-90150).pdf",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
     "eol_url": "",
@@ -927,7 +928,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:30:05.677010"
+    "last_updated": "2026-03-20T22:40:22.244424"
   },
   {
     "id": "Q39709",
@@ -1055,7 +1056,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:30:21.695221"
+    "last_updated": "2026-03-20T22:40:37.851828"
   },
   {
     "id": "Q7785",
@@ -1203,7 +1204,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:30:38.004186"
+    "last_updated": "2026-03-20T22:40:54.179707"
   },
   {
     "id": "Q189609",
@@ -1339,7 +1340,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:30:52.789756"
+    "last_updated": "2026-03-20T22:41:08.479950"
   },
   {
     "id": "Q270238",
@@ -1469,7 +1470,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:31:08.783367"
+    "last_updated": "2026-03-20T22:41:23.267089"
   },
   {
     "id": "Q165980",
@@ -1524,9 +1525,9 @@
       "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/e/e4/Danaus_plexippus_MHNT.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/9/90/Monarch_caterpillar_(23229).jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/6/6c/MonarchDistribution2-3.png"
+      "https://upload.wikimedia.org/wikipedia/commons/0/02/MonarchDistribution2-2.png"
     ],
-    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/MonarchDistribution2-3.png",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/0/02/MonarchDistribution2-2.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
     "eol_url": "",
@@ -1601,7 +1602,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:31:25.897871"
+    "last_updated": "2026-03-20T22:41:39.596059"
   },
   {
     "id": "Q7316",
@@ -1749,6 +1750,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:31:42.991555"
+    "last_updated": "2026-03-20T22:41:56.297935"
   }
 ]
