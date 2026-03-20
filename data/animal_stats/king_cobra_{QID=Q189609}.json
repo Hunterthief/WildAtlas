@@ -96,7 +96,7 @@
   "ecology": {
     "diet": "Carnivore",
     "habitat": "he king cobra has a wide distribution throughout tropical Asia. It occurs in elevations of 2,000 m (6,600 ft) from the erai in India and southern epal to the Brahmaputra River basin in Bhutan and northeast India, down to Bangladesh, Myanmar, southern hina, ambodia, hailand, Laos, Vietnam; to the maritime outheast Asian countries of Malaysia, ingapore, Indonesia and the hilippines. In northern India, it has been recorded in Garhwal and umaon, and in the ivalik hills and terai regions of Uttarakhand and Uttar radesh. In northeast India, the king cobra has been recorded in northern West Bengal, ikkim, Assam, Meghalaya, Arunachal radesh, agaland, Manipur and Mizoram. In the Eastern Ghats, it occurs from amil adu and Andhra radesh to coastal disha, and also in Bihar and southern West Bengal, especially the undarbans. In the Western Ghats, it was recorded in erala, arnataka and Maharashtra, and also in Gujarat. It also occurs on Baratang Island in the Great Andaman chain. It may have reached the furthest west of its distributional range in extreme western India and eastern akistan, in the vicinity of Lahore and alanpur. hese populations have sometimes been thought to be the result of introduction by snake charmers or transport along rivers, but are now more likely considered natural populations. However, it remains uncertain if any populations continue to persist there.",
-    "locations": "Asia",
+    "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
     "group_behavior": "Pairs",
     "conservation_status": "Vulnerable",
     "biggest_threat": "Poaching, habitat loss",
@@ -124,16 +124,34 @@
     "most_distinctive_feature": "An expanding hood"
   },
   "distribution": {
-    "countries": [],
-    "coordinates": {},
-    "occurrence_count": 0
+    "countries": [
+      "Bangladesh",
+      "Bhutan",
+      "Cambodia",
+      "China",
+      "Hong Kong",
+      "India",
+      "Nepal",
+      "Singapore",
+      "Thailand",
+      "Viet Nam"
+    ],
+    "coordinates": {
+      "min_lat": 8.647457,
+      "max_lat": 27.84147,
+      "min_lon": 84.612784,
+      "max_lon": 116.32829,
+      "count": 50
+    },
+    "occurrence_count": 856
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
+    "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:28:21.233343"
+  "last_updated": "2026-03-20T01:33:08.600807"
 }

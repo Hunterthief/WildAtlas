@@ -112,7 +112,7 @@
   "ecology": {
     "diet": "Carnivore",
     "habitat": "White sharks range from tropical to temperate and even colder waters around the world, with major populations in the northwestern and northeastern acific, western orth Atlantic, the Mediterranean, southern African waters and ceania. It is also present near the coasts of outh America, but appears to be uncommon. hark expert Greg komal lists the Farallon Islands, alifornia, Guadalupe Island, Mexico, ape od, Massachusetts, Western ape, outh Africa, eptune Islands, Australia, and both tewart Island and the hatham Islands, ew Zealand as major coastal feeding aggregations. Researchers have also identified an offshore feeding aggregation between western orth America and Hawaii dubbed the White hark afé. White sharks can be found both along the coast and in the open ocean. hey are typically close to the surface, but may dive to depths of up to 1,300 m (4,300 ft). eeper dives are more common in the open ocean. oastal habitats used include nearshore archipelagos, offshore reefs, banks and shoals, and headlands. A 2018 study indicated that white sharks will congregate in anticyclonic eddies in the open ocean. uvenile white sharks are more limited to shallow coastal waters with temperatures between 14 and 24 ° (57 and 75 °F). Increased sightings of young sharks in areas they were not previously common, such as Monterey Bay on the central alifornia coast, suggest climate change may be forcing juveniles closer to the poles.",
-    "locations": "Ocean",
+    "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
     "biggest_threat": "Hunting and habitat degredation",
@@ -138,16 +138,34 @@
     "most_distinctive_feature": "forms of body language are known, most of which consist of two sharks swimming with or around each o"
   },
   "distribution": {
-    "countries": [],
-    "coordinates": {},
-    "occurrence_count": 0
+    "countries": [
+      "Australia",
+      "Canada",
+      "China",
+      "Greece",
+      "Indonesia",
+      "Montenegro",
+      "Netherlands",
+      "New Zealand",
+      "South Africa",
+      "United States of America"
+    ],
+    "coordinates": {
+      "min_lat": -50.500713,
+      "max_lat": 44.52273,
+      "min_lon": -122.500884,
+      "max_lon": 176.113362,
+      "count": 50
+    },
+    "occurrence_count": 18139
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
+    "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:27:44.154450"
+  "last_updated": "2026-03-20T01:32:47.470774"
 }

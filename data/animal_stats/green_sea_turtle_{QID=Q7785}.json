@@ -104,7 +104,7 @@
   "ecology": {
     "diet": "Herbivore",
     "habitat": "Green sea turtles move across three habitat types, depending on their life stage. hey lay eggs on beaches. Mature turtles spend most of their time in shallow, coastal waters with lush seagrass beds. Adults frequent inshore bays, lagoons, and shoals with lush seagrass meadows. Entire generations often migrate between one pair of feeding and nesting areas. Green sea turtles, helonia mydas, are classified as an aquatic species and are distributed around the globe in warm tropical to subtropical waters. he environmental parameter that limits the distribution of the turtles is ocean temperatures below 7 to 10 degrees elsius. Within their geographical range, the green sea turtles generally stay near continental and island coastlines. ear the coastlines, the green sea turtles live within shallow bays and protected shores. In these protected shores and bays, the green sea turtle habitats include coral reefs, salt marshes, and nearshore seagrass beds. he coral reefs provide red, brown, and green algae for their diet and give protection from predators and rough storms within the ocean. he salt marshes and seagrass beds contain seaweed and grass vegetation, allowing ample habitat for the sea turtles. urtles spend most of their first five years in convergence zones within the bare open ocean that surround them. hese young turtles are rarely seen as they swim in deep, pelagic waters. Green sea turtles typically swim at 2.5–3 km/h (1.6–1.9 mph).",
-    "locations": "he range of the green sea turtle extends throughout tropical and subtropical oceans worldwide. he two major subpopulations are the Atlantic and the eastern acific subpopulations. Each population is genetically distinct, with its own set of nesting and feeding grounds within the population's known range. ne of the genetic differences between the two subpopulations is the type of mitochondrial A found in individual's cells. Individuals from rookeries in the Atlantic cean and Mediterranean ea have a similar type of mitochondrial A, and individuals from the acific and Indian ceans have another type of mitochondrial A. heir native range includes tropical to subtropical waters along continental coasts and islands between 30° and 30°. ince green sea turtles are a migrating species, their global distribution spans into the open ocean. he differences in mitochondrial A more than likely stems from the populations being isolated from each other by the southern tips of both outh America and Africa with no warm waters for the green sea turtles to migrate through. he green sea turtle is estimated to inhabit coastal areas of more than 140 countries, with nesting sites in over 80 countries worldwide throughout the year. In the United tates Atlantic coast, green sea turtles can be found from exas to Massachusetts. In the United tates acific coast, they have been found from southern alifornia north to the southernmost tip of Alaska. he largest populations of green sea turtles within the United tates coastline are in the Hawaiian Islands and Florida. Globally, the largest populations of sea turtles are in the Great Barrier Reef in Australia, and the aribbean ea. Recently these urtles were discovered within Rangaunu Harbour in ew Zealand.",
+    "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
     "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -130,15 +130,47 @@
     "most_distinctive_feature": "s distinguish the green turtle from the other members of its family"
   },
   "distribution": {
-    "countries": [],
-    "coordinates": {},
-    "occurrence_count": 0
+    "countries": [
+      "Australia",
+      "Bahamas",
+      "Barbados",
+      "Bonaire, Sint Eustatius and Saba",
+      "Brazil",
+      "Canada",
+      "Chinese Taipei",
+      "Cook Islands",
+      "Costa Rica",
+      "Ecuador",
+      "Egypt",
+      "Guadeloupe",
+      "Honduras",
+      "Martinique",
+      "Mexico",
+      "New Caledonia",
+      "New Zealand",
+      "Norfolk Island",
+      "Northern Mariana Islands",
+      "Oman",
+      "Philippines",
+      "Puerto Rico",
+      "United States of America",
+      "Virgin Islands (U.S.)"
+    ],
+    "coordinates": {
+      "min_lat": -31.034203,
+      "max_lat": 49.095935,
+      "min_lon": -159.798629,
+      "max_lon": 166.475121,
+      "count": 50
+    },
+    "occurrence_count": 252562
   },
   "sources": [
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
+    "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:28:00.767202"
+  "last_updated": "2026-03-20T01:33:02.786574"
 }
