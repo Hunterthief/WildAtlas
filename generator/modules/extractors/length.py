@@ -1,6 +1,16 @@
 """
-Length extraction module - PRODUCTION v14
-Fixed: Cheetah head-body between pattern, Eagle body length, Butterfly body cm, Bee mm, Wolf body, Elephant trunk
+Length Extraction Module - PRODUCTION v18
+WildAtlas Project - https://github.com/Hunterthief/WildAtlas/
+Inspired by facts.app but for normal animals
+
+Fixed Issues (v18):
+- Cheetah: head-body length between pattern (was empty)
+- African Elephant: Reject 30cm tusk measurement, get 4.5-7.5m body length
+- Gray Wolf: Reject shoulder height (29-50cm), get 1.0-1.6m body length
+- Bald Eagle: Reject 11cm (beak/talon), get 70-120cm body length
+- Monarch Butterfly: Reject wingspan, get 4.5-5cm body length
+- Honey Bee: Get 10-15mm body length (was empty)
+
 Based on analysis of 13 animal Wikipedia articles from WildAtlas + actual Wikipedia text review
 """
 import re
@@ -9,6 +19,7 @@ from typing import Dict, Optional, List, Tuple, Any
 
 # =============================================================================
 # CONFIGURATION - Animal Type Length Expectations (for validation)
+# All ranges in METERS for consistent comparison
 # =============================================================================
 ANIMAL_LENGTH_RANGES = {
     # Mammals (body length in meters, NOT including tail unless specified)
@@ -17,9 +28,11 @@ ANIMAL_LENGTH_RANGES = {
     'elephantidae': (4.5, 7.5),   # Elephants total length with trunk
     'ursidae': (1.0, 3.0),        # Bears
     'giraffidae': (3.5, 6.0),     # Giraffes
+    'proboscidea': (4.5, 7.5),    # Elephants order
     
     # Birds (body length, NOT wingspan)
-    'accipitridae': (0.5, 1.3),   # Eagles body length (70-120cm)
+    'accipitridae': (0.6, 1.2),   # Eagles body length (70-120cm)
+    'accipitriformes': (0.5, 1.3), # Eagle order
     'spheniscidae': (0.7, 1.3),   # Penguins
     'anatidae': (0.4, 1.8),       # Ducks/Geese
     
@@ -32,9 +45,11 @@ ANIMAL_LENGTH_RANGES = {
     # Fish
     'salmonidae': (0.5, 1.5),     # Salmon
     'lamnidae': (4.0, 6.5),       # Sharks
+    'lamniformes': (4.0, 7.0),    # Shark order
     
     # Amphibians
     'ranidae': (0.06, 0.20),      # Frogs (6-20cm)
+    'anura': (0.03, 0.25),        # Frog order
     
     # Insects (body length, NOT wingspan)
     'hymenoptera': (0.008, 0.03), # Bees (8-30mm)
@@ -42,6 +57,29 @@ ANIMAL_LENGTH_RANGES = {
     'apidae': (0.008, 0.03),      # Honey bees specifically
     'nymphalidae': (0.03, 0.06),  # Monarch butterfly family
 }
+
+
+# =============================================================================
+# UNIT CONVERSION - Convert all measurements to meters for validation
+# =============================================================================
+def convert_to_meters(value: float, unit: str) -> float:
+    """Convert a measurement to meters"""
+    unit = unit.lower().strip()
+    
+    if unit in ['m', 'meter', 'meters', 'metre', 'metres']:
+        return value
+    elif unit in ['cm', 'centimeter', 'centimeters', 'centimetre', 'centimetres']:
+        return value / 100
+    elif unit in ['mm', 'millimeter', 'millimeters', 'millimetre', 'millimetres']:
+        return value / 1000
+    elif unit in ['ft', 'foot', 'feet']:
+        return value * 0.3048
+    elif unit in ['in', 'inch', 'inches', '"']:
+        return value * 0.0254
+    elif unit in ['km', 'kilometer', 'kilometers']:
+        return value * 1000
+    else:
+        return value  # Assume meters if unknown
 
 
 # =============================================================================
@@ -58,25 +96,36 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
     reject_contexts = [
         'ma ', 'million years', 'mya', 'temporal range',
         'pleistocene', 'miocene', 'pliocene', 'fossil',
-        'extinct', 'years ago', 'evolved'
+        'extinct', 'years ago', 'evolved', 'tusk', 'trunk length'
     ]
     
     for context in reject_contexts:
         if context in value_lower:
             return False
     
-    # Extract numeric values
-    numbers = re.findall(r'(\d+(?:[.,]?\d+)?)', value)
-    if not numbers:
+    # Extract numeric values and units
+    # Pattern: number followed by unit
+    matches = re.findall(r'(\d+(?:[.,]?\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|mm|millimetres?|millimeters?|ft|feet|in|inches)', value_lower)
+    
+    if not matches:
         return False
     
     try:
-        # Get the primary number (first one)
-        primary_num = float(numbers[0].replace(',', '').replace('.', ''))
-        max_num = max(float(n.replace(',', '').replace('.', '')) for n in numbers if n)
+        # Get all numeric values converted to meters
+        values_in_meters = []
+        for num_str, unit in matches:
+            num = float(num_str.replace(',', ''))
+            meters = convert_to_meters(num, unit)
+            values_in_meters.append(meters)
+        
+        if not values_in_meters:
+            return False
+        
+        max_meters = max(values_in_meters)
+        min_meters = min(values_in_meters)
         
         # REJECT: Too small or too large for any animal
-        if max_num < 0.001 or max_num > 50:
+        if max_meters < 0.005 or max_meters > 50:
             return False
         
         # Use classification for smarter validation
@@ -97,80 +146,73 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
                 if 'mammalia' in class_name:
                     expected_range = (0.3, 8.0)
                 elif 'aves' in class_name:
-                    expected_range = (0.1, 1.5)
+                    expected_range = (0.15, 1.5)
                 elif 'reptilia' in class_name:
                     expected_range = (0.2, 7.0)
                 elif 'amphibia' in class_name:
                     expected_range = (0.05, 0.5)
-                elif 'actinopterygii' in class_name:
-                    expected_range = (0.1, 5.0)
+                elif 'actinopterygii' in class_name or 'chondrichthyes' in class_name:
+                    expected_range = (0.1, 8.0)
                 elif 'insecta' in class_name:
                     expected_range = (0.005, 0.1)
             
             if expected_range:
-                # Convert to meters for comparison
-                value_in_meters = max_num
-                if 'cm' in value_lower or 'centimeter' in value_lower:
-                    value_in_meters = max_num / 100
-                elif 'mm' in value_lower or 'millimeter' in value_lower:
-                    value_in_meters = max_num / 1000
-                elif 'ft' in value_lower or 'feet' in value_lower:
-                    value_in_meters = max_num * 0.3048
-                elif 'in' in value_lower or 'inch' in value_lower:
-                    value_in_meters = max_num * 0.0254
-                
                 # CRITICAL FIX #1: For cats (felidae), reject >3m as it's likely total length with tail
                 if 'felidae' in family:
-                    if value_in_meters > 3.0:
+                    if max_meters > 3.5:
                         return False
-                    if primary_num > 3.0:
-                        return False
+                    # Also reject if primary number > 3.5 (total length with tail)
+                    for num_str, unit in matches:
+                        num = float(num_str.replace(',', ''))
+                        if num > 3.5 and unit in ['m', 'meter', 'meters']:
+                            return False
                 
                 # CRITICAL FIX #2: For wolves/dogs (canidae), reject <0.5m as it's likely shoulder height
                 if 'canidae' in family:
-                    if value_in_meters < 0.5:
+                    if max_meters < 0.5:
                         return False
-                    if value_in_meters > 2.0:
+                    if max_meters > 2.0:
                         return False
                 
                 # CRITICAL FIX #3: For elephants, reject <4m (2.4m is shoulder height, not length)
-                if 'elephantidae' in family:
-                    if value_in_meters < 4.0:
+                # Also reject small values like 30cm (tusk measurement)
+                if 'elephantidae' in family or 'proboscidea' in order:
+                    if max_meters < 4.0:
                         return False
-                    if value_in_meters > 8.0:
+                    if max_meters > 8.0:
                         return False
                 
                 # CRITICAL FIX #4: For birds, reject if too small or too large (wingspan)
                 if 'aves' in class_name:
-                    if value_in_meters < 0.15:
+                    if max_meters < 0.20:  # Reject values < 20cm for bird body length
                         return False
-                    if value_in_meters > 1.5:
+                    if max_meters > 1.5:
                         return False
                 
                 # CRITICAL FIX #5: For butterflies, reject >10cm (wingspan!)
                 if 'lepidoptera' in order or 'nymphalidae' in family:
-                    if value_in_meters > 0.10:
+                    if max_meters > 0.10:  # Reject > 10cm (likely wingspan)
                         return False
-                    if value_in_meters < 0.015:
+                    if max_meters < 0.015:  # Reject < 1.5cm
                         return False
                 
-                # CRITICAL FIX #6: For insects, validate mm range properly
+                # CRITICAL FIX #6: For bees/insects, validate mm range properly
                 if 'insecta' in class_name:
-                    if value_in_meters > 0.15:
+                    if max_meters > 0.15:  # Reject > 15cm for insects
                         return False
                     if 'hymenoptera' in order or 'apidae' in family:
-                        if value_in_meters < 0.005 or value_in_meters > 0.035:
+                        if max_meters < 0.005 or max_meters > 0.035:  # 5-35mm for bees
                             return False
                 
                 # Allow 3x margin for unit conversion errors (more flexible)
-                if value_in_meters > expected_range[1] * 3:
+                if max_meters > expected_range[1] * 3:
                     return False
-                if value_in_meters < expected_range[0] / 5:
+                if min_meters < expected_range[0] / 5:
                     return False
         
         return True
         
-    except:
+    except Exception as e:
         return False
 
 
@@ -181,7 +223,7 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
     # POSITIVE indicators (length-related)
     length_keywords = [
         'length', 'long', 'measures', 'reaching', 'grows',
-        'body length', 'total length', 'head-body', 'snout',
+        'body length', 'total length', 'head-body', 'head and body',
         'carapace', 'adult', 'mature', 'full-grown',
         'from head', 'from snout', 'from nose',
         'typically', 'average', 'usually', 'about', 'approximately', 'between'
@@ -193,9 +235,10 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         'wingspan', 'wing span', 'wing length', 'wing spread',
         'egg length', 'nest length', 'colony length',
         'population size', 'range size',
-        'at the shoulder', 'shoulder height',
+        'at the shoulder', 'shoulder height', 'shoulder to',
         'distribution', 'range:', 'migrat', 'found from',
-        'occurs from', 'native to', 'habitat', 'geographic'
+        'occurs from', 'native to', 'habitat', 'geographic',
+        'tusk', 'trunk length', 'tail length'
     ]
     
     # CRITICAL: Check for shoulder context
@@ -266,14 +309,27 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
             except:
                 pass
     
-    # SPECIAL: For elephants, reject shoulder height values (2-3m range)
+    # SPECIAL: For elephants, reject shoulder height values (2-3m range) and tusk measurements
     if any(x in animal_lower for x in ['elephant']):
+        # Reject tusk measurements (typically 30-100cm)
+        if 'tusk' in text_lower:
+            return False
+        if 'trunk' in text_lower and 'length' in text_lower:
+            return False
         shoulder_values = re.findall(r'(2[.,]?\d*|3[.,]?\d*)\s*(?:m|metres?|meters?)', text_lower)
         if shoulder_values:
             if 'shoulder' in text_lower or 'height' in text_lower:
                 return False
-            if 'length' not in text_lower and 'trunk' not in text_lower:
+            if 'length' not in text_lower:
                 return False
+        # Reject small values (< 1m) for elephants
+        small_values = re.findall(r'(\d+[.,]?\d*)\s*(?:cm|centimetres?|centimeters?)', text_lower)
+        for val in small_values:
+            try:
+                if float(val.replace(',', '')) < 100:
+                    return False
+            except:
+                pass
     
     # SPECIAL: For wolves, reject cm values <60cm (shoulder height range)
     if any(x in animal_lower for x in ['wolf', 'dog', 'canine']):
@@ -324,39 +380,39 @@ SECTION_PRIORITY = [
 
 # =============================================================================
 # PATTERN DEFINITIONS - FIXED based on actual Wikipedia text analysis
+# Priority: Lower number = Higher priority (checked first)
 # =============================================================================
 LENGTH_PATTERNS = [
     # =========================================================================
-    # TIER 1: Explicit Body Length Statements (Most Reliable)
+    # TIER 1: Explicit Body Length Statements (Most Reliable) - Priority 1
     # =========================================================================
     {
         # "body length of/between 1.5–2.5 m" - PREFER this
-        'pattern': r'body\s*length\s*(?:of|is)?\s*(?:between\s+)?(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'pattern': r'body\s*length\s*(?:of|is)?\s*(?:between\s+)?(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)',
         'priority': 1,
         'format': 'range'
     },
     {
         # "head-and-body length of/between 1.5–2.5 m" - HIGHEST PRIORITY for cats
-        # FIXED: More flexible spacing for "head-and-body length is between X and Y m"
-        'pattern': r'head[-\s]*and[-\s]*body\s*length\s*(?:is\s+)?(?:between\s+)?(\d+(?:[.,]\d+)?)\s+(?:and|to|-|–)\s+(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'pattern': r'head[-\s]*and[-\s]*body\s*length\s*(?:is\s+)?(?:between\s+)?(\d+(?:[.,]\d+)?)\s+(?:and|to|-|–)\s+(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)',
         'priority': 1,
         'format': 'range'
     },
     {
         # "head-body length between X and Y m" - cheetah specific
-        'pattern': r'head[-\s]*body\s*length\s+(?:is\s+)?between\s+(\d+(?:[.,]\d+)?)\s+and\s+(\d+(?:[.,]\d+)?)\s+(m|metres?|meters?|cm|centimetres?|ft|feet)',
+        'pattern': r'head[-\s]*body\s*length\s+(?:is\s+)?between\s+(\d+(?:[.,]\d+)?)\s+and\s+(\d+(?:[.,]\d+)?)\s+(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet)',
         'priority': 1,
         'format': 'range'
     },
     {
         # "carapace length of 80–120 cm" (turtles)
-        'pattern': r'carapace\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'pattern': r'carapace\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)',
         'priority': 1,
         'format': 'range'
     },
     {
         # "snout-to-vent length of 1.5–2.5 m" (reptiles)
-        'pattern': r'snout[-\s]*(?:to|-)?vent\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'pattern': r'snout[-\s]*(?:to|-)?vent\s*length\s*(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)',
         'priority': 1,
         'format': 'range'
     },
@@ -378,79 +434,91 @@ LENGTH_PATTERNS = [
         'priority': 999,
         'format': 'reject'
     },
+    {
+        # "tusk length" - reject for elephants
+        'pattern': r'tusk\s*length',
+        'priority': 999,
+        'format': 'reject'
+    },
+    {
+        # "tail length" - reject (we want body length)
+        'pattern': r'tail\s*length',
+        'priority': 999,
+        'format': 'reject'
+    },
     
     # =========================================================================
-    # TIER 2: Total Length (Lower priority - may include tail)
+    # TIER 2: Total Length (Lower priority - may include tail) - Priority 2
     # =========================================================================
     {
         # "total length of/between 1.5–2.5 m"
-        'pattern': r'total\s*length\s*(?:of|is)?\s*(?:between\s+)?(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'pattern': r'total\s*length\s*(?:of|is)?\s*(?:between\s+)?(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)',
         'priority': 2,
         'format': 'range'
     },
     
     # =========================================================================
-    # TIER 3: Measurement Statements
+    # TIER 3: Measurement Statements - Priority 3
     # =========================================================================
     {
         # "measuring 1.5–2.5 m in length"
-        'pattern': r'measur(?:ing|es)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s*(?:in length|long)?',
+        'pattern': r'measur(?:ing|es)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)\s*(?:in length|long)?',
         'priority': 3,
         'format': 'range'
     },
     {
         # "reaching 1.5–2.5 m in length"
-        'pattern': r'reach(?:ing|es)?\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s*(?:in length|long)?',
+        'pattern': r'reach(?:ing|es)?\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)\s*(?:in length|long)?',
         'priority': 3,
         'format': 'range'
     },
     {
         # "grows to 1.5–2.5 m"
-        'pattern': r'grows?\s+(?:to|up to|reaching)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'pattern': r'grows?\s+(?:to|up to|reaching)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)',
         'priority': 3,
         'format': 'range'
     },
     
     # =========================================================================
-    # TIER 4: Simple Length Patterns
+    # TIER 4: Simple Length Patterns - Priority 4
     # =========================================================================
     {
         # "1.5–2.5 m in length"
-        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s+(?:in length|long|length)',
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)\s+(?:in length|long|length)',
         'priority': 4,
         'format': 'range'
     },
     {
         # "length of/between 1.5–2.5 m"
-        'pattern': r'length\s+(?:of|is)?\s*(?:between\s+)?(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'pattern': r'length\s+(?:of|is)?\s*(?:between\s+)?(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)',
         'priority': 4,
         'format': 'range'
     },
     {
         # "average length of 1.5–2.5 m"
-        'pattern': r'average\s*length\s+(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)',
+        'pattern': r'average\s*length\s+(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)',
         'priority': 4,
         'format': 'range'
     },
     
     # =========================================================================
-    # TIER 5: Single Value Length
+    # TIER 5: Single Value Length - Priority 5
     # =========================================================================
     {
         # "up to 2.5 m"
-        'pattern': r'(?:up to|reaching|to|about|approximately)\s+(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s*(?:in length|long)?',
+        'pattern': r'(?:up to|reaching|to|about|approximately)\s+(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)\s*(?:in length|long)?',
         'priority': 5,
         'format': 'single'
     },
     {
         # "2.5 m long"
-        'pattern': r'(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s+long',
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|centimeters?|ft|feet|in|inches)\s+long',
         'priority': 5,
         'format': 'single'
     },
     
     # =========================================================================
-    # TIER 6: Snake-Specific Patterns
+    # TIER 6: Snake-Specific Patterns - Priority 6
     # =========================================================================
     {
         # "reaches 3-4 m" (snakes)
@@ -466,7 +534,7 @@ LENGTH_PATTERNS = [
     },
     
     # =========================================================================
-    # TIER 7: Turtle/Frog Specific
+    # TIER 7: Turtle/Frog Specific - Priority 7
     # =========================================================================
     {
         # "80-120 cm carapace" (turtles)
@@ -482,7 +550,7 @@ LENGTH_PATTERNS = [
     },
     
     # =========================================================================
-    # TIER 8: Small Animals (Bees, Insects) - IMPROVED mm support
+    # TIER 8: Small Animals (Bees, Insects) - IMPROVED mm support - Priority 8
     # =========================================================================
     {
         # "10-15 mm long" (bees)
@@ -545,12 +613,6 @@ LENGTH_PATTERNS = [
         'format': 'single'
     },
     {
-        # "X mm" for bees (simple fallback)
-        'pattern': r'(\d+(?:[.,]\d+)?)\s*(mm)',
-        'priority': 9,
-        'format': 'single'
-    },
-    {
         # "X cm" for butterflies (4.5 cm body)
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm)\s+(?:long|length|body)',
         'priority': 8,
@@ -558,7 +620,7 @@ LENGTH_PATTERNS = [
     },
     
     # =========================================================================
-    # TIER 9: Fallback Patterns
+    # TIER 9: Fallback Patterns - Priority 9
     # =========================================================================
     {
         # "X cm" in description sections
@@ -593,7 +655,7 @@ def extract_length_from_sections(
     for section_name in SECTION_PRIORITY:
         if section_name in sections and sections[section_name]:
             text = sections[section_name]
-            if len(text) > 50:
+            if len(text) > 25:  # Lowered from 50 to 25 for shorter descriptions
                 result = _extract_length_from_text(text, animal_name, classification)
                 if result:
                     all_matches.append((result, section_name))
@@ -602,7 +664,7 @@ def extract_length_from_sections(
         section_name_alt = section_name.replace('_', ' ')
         if section_name_alt in sections and sections[section_name_alt]:
             text = sections[section_name_alt]
-            if len(text) > 50:
+            if len(text) > 25:
                 result = _extract_length_from_text(text, animal_name, classification)
                 if result:
                     all_matches.append((result, section_name_alt))
@@ -622,7 +684,7 @@ def _extract_length_from_text(
     classification: Dict[str, str] = None
 ) -> str:
     """Extract length from text content"""
-    if not text or len(text) < 50:
+    if not text or len(text) < 25:  # Lowered from 50 to 25
         return ""
     
     # Clean text
@@ -668,7 +730,7 @@ def _extract_length_from_text(
             else:
                 continue
             
-            # Validate
+            # Validate with classification
             if _is_valid_length(candidate, animal_name, classification):
                 best_match = candidate
                 best_priority = priority
@@ -680,9 +742,9 @@ def _extract_length_from_text(
     return best_match if best_match else ""
 
 
-def test_length_extraction(text: str, animal_name: str = "") -> str:
+def test_length_extraction(text: str, animal_name: str = "", classification: Dict[str, str] = None) -> str:
     """Test function for length extraction"""
-    return _extract_length_from_text(text, animal_name)
+    return _extract_length_from_text(text, animal_name, classification)
 
 
 def get_pattern_stats() -> Dict[str, Any]:
@@ -692,3 +754,130 @@ def get_pattern_stats() -> Dict[str, Any]:
         'priority_tiers': len(set(p['priority'] for p in LENGTH_PATTERNS if p['priority'] < 999)),
         'section_priorities': len(SECTION_PRIORITY),
     }
+
+
+# =============================================================================
+# TEST CASES - Based on actual WildAtlas animal data
+# =============================================================================
+if __name__ == "__main__":
+    print("=" * 80)
+    print("WildAtlas Length Extraction Module - TEST SUITE v18")
+    print("=" * 80)
+    
+    test_cases = [
+        # Cheetah - head-body length
+        {
+            'name': 'Cheetah',
+            'text': 'The cheetah has a slender body with a head-body length between 1.1 and 1.5 m.',
+            'expected': '1.1–1.5 m',
+            'classification': {'family': 'Felidae', 'order': 'Carnivora', 'class': 'Mammalia'}
+        },
+        # Tiger - body length
+        {
+            'name': 'Tiger',
+            'text': 'Tigers have a body length of 1.7–2.5 m, with a tail adding another meter.',
+            'expected': '1.7–2.5 m',
+            'classification': {'family': 'Felidae', 'order': 'Carnivora', 'class': 'Mammalia'}
+        },
+        # African Elephant - reject 30cm tusk, get body length
+        {
+            'name': 'African Elephant',
+            'text': 'African elephants reach 4.5–7.5 m in total length. Tusks can be 30 cm long.',
+            'expected': '4.5–7.5 m',
+            'classification': {'family': 'Elephantidae', 'order': 'Proboscidea', 'class': 'Mammalia'}
+        },
+        # Gray Wolf - reject shoulder height, get body length
+        {
+            'name': 'Gray Wolf',
+            'text': 'Gray wolves have a body length of 1.0 to 1.6 m. Shoulder height is 29–50 cm.',
+            'expected': '1.0–1.6 m',
+            'classification': {'family': 'Canidae', 'order': 'Carnivora', 'class': 'Mammalia'}
+        },
+        # Bald Eagle - reject 11cm, get body length
+        {
+            'name': 'Bald Eagle',
+            'text': 'Bald eagles have a body length of 70–120 cm. The beak is about 11 cm.',
+            'expected': '70–120 cm',
+            'classification': {'family': 'Accipitridae', 'order': 'Accipitriformes', 'class': 'Aves'}
+        },
+        # Emperor Penguin
+        {
+            'name': 'Emperor Penguin',
+            'text': 'Emperor penguins reach about 1.5 m in length.',
+            'expected': '1.5 m',
+            'classification': {'family': 'Spheniscidae', 'order': 'Sphenisciformes', 'class': 'Aves'}
+        },
+        # Monarch Butterfly - reject wingspan, get body length
+        {
+            'name': 'Monarch Butterfly',
+            'text': 'Monarch butterflies have a body length of 4.5–5 cm. Wingspan is 8–10 cm.',
+            'expected': '4.5–5 cm',
+            'classification': {'family': 'Nymphalidae', 'order': 'Lepidoptera', 'class': 'Insecta'}
+        },
+        # Honey Bee - mm body length
+        {
+            'name': 'Honey Bee',
+            'text': 'Worker honey bees measure 10–15 mm in length.',
+            'expected': '10–15 mm',
+            'classification': {'family': 'Apidae', 'order': 'Hymenoptera', 'class': 'Insecta'}
+        },
+        # Great White Shark
+        {
+            'name': 'Great White Shark',
+            'text': 'Great white sharks typically reach 5.5–8 m in length.',
+            'expected': '5.5–8 m',
+            'classification': {'family': 'Lamnidae', 'order': 'Lamniformes', 'class': 'Chondrichthyes'}
+        },
+        # Green Sea Turtle
+        {
+            'name': 'Green Sea Turtle',
+            'text': 'Green sea turtles have a carapace length of 1.5 m.',
+            'expected': '1.5 m',
+            'classification': {'family': 'Cheloniidae', 'order': 'Testudines', 'class': 'Reptilia'}
+        },
+        # King Cobra
+        {
+            'name': 'King Cobra',
+            'text': 'King cobras reach up to 4 m in length, typically 3–4 m.',
+            'expected': '3–4 m',
+            'classification': {'family': 'Elapidae', 'order': 'Squamata', 'class': 'Reptilia'}
+        },
+        # American Bullfrog
+        {
+            'name': 'American Bullfrog',
+            'text': 'American bullfrogs grow to about 6 inches in length.',
+            'expected': '6 in',
+            'classification': {'family': 'Ranidae', 'order': 'Anura', 'class': 'Amphibia'}
+        },
+        # Atlantic Salmon
+        {
+            'name': 'Atlantic Salmon',
+            'text': 'Atlantic salmon typically reach 1 m in length.',
+            'expected': '1 m',
+            'classification': {'family': 'Salmonidae', 'order': 'Salmoniformes', 'class': 'Actinopterygii'}
+        },
+    ]
+    
+    passed = 0
+    failed = 0
+    
+    for test in test_cases:
+        result = test_length_extraction(
+            test['text'], 
+            test['name'], 
+            test.get('classification')
+        )
+        
+        status = "✓ PASS" if result == test['expected'] else "✗ FAIL"
+        if result == test['expected']:
+            passed += 1
+        else:
+            failed += 1
+        
+        print(f"\n{status} | {test['name']}")
+        print(f"  Expected: {test['expected']}")
+        print(f"  Got:      {result}")
+    
+    print("\n" + "=" * 80)
+    print(f"RESULTS: {passed}/{len(test_cases)} passed ({passed/len(test_cases)*100:.0f}%)")
+    print("=" * 80)
