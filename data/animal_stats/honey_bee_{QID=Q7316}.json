@@ -128,7 +128,7 @@
   "ecology": {
     "diet": "Herbivore",
     "habitat": "Sheltered forests and meadows",
-    "locations": "Africa, Asia, Central-America, Eurasia, Europe, North-America, Oceania, South-America",
+    "locations": "Argentina, Australia, Brazil, Canada, Chinese Taipei, Dominican Republic, Ecuador, Egypt, France, Greece, Grenada, Guatemala, Israel, Martinique, Mexico, New Caledonia, New Zealand, Peru, Portugal, Puerto Rico, Saint Vincent and the Grenadines, Spain, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
     "biggest_threat": "Habitat loss, Human-wildlife conflict",
@@ -154,16 +154,47 @@
     "most_distinctive_feature": "among wasps in feeding their larvae exclusively with pollen and nectar, in a fashion quite similar t"
   },
   "distribution": {
-    "countries": [],
-    "coordinates": {},
-    "occurrence_count": 0
+    "countries": [
+      "Argentina",
+      "Australia",
+      "Brazil",
+      "Canada",
+      "Chinese Taipei",
+      "Dominican Republic",
+      "Ecuador",
+      "Egypt",
+      "France",
+      "Greece",
+      "Grenada",
+      "Guatemala",
+      "Israel",
+      "Martinique",
+      "Mexico",
+      "New Caledonia",
+      "New Zealand",
+      "Peru",
+      "Portugal",
+      "Puerto Rico",
+      "Saint Vincent and the Grenadines",
+      "Spain",
+      "United States of America"
+    ],
+    "coordinates": {
+      "min_lat": -43.577425,
+      "max_lat": 43.567205,
+      "min_lon": -119.716163,
+      "max_lon": 164.956147,
+      "count": 50
+    },
+    "occurrence_count": 1124359
   },
   "sources": [
     "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
+    "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:26:21.791930"
+  "last_updated": "2026-03-20T01:29:06.867915"
 }
