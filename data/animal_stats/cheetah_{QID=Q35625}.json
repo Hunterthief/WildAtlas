@@ -115,7 +115,7 @@
       "max_lon": 38.388967,
       "count": 50
     },
-    "occurrence_count": 8340
+    "occurrence_count": 8341
   },
   "sources": [
     "API Ninjas",
@@ -125,5 +125,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T03:39:38.096411"
+  "last_updated": "2026-03-20T03:43:03.629148"
 }

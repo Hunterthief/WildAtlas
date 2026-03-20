@@ -125,7 +125,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:39:32.397637"
+    "last_updated": "2026-03-20T03:42:58.114159"
   },
   {
     "id": "Q35625",
@@ -244,7 +244,7 @@
         "max_lon": 38.388967,
         "count": 50
       },
-      "occurrence_count": 8340
+      "occurrence_count": 8341
     },
     "sources": [
       "API Ninjas",
@@ -254,7 +254,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:39:38.096411"
+    "last_updated": "2026-03-20T03:43:03.629148"
   },
   {
     "id": "Q7372",
@@ -376,7 +376,7 @@
         "max_lon": 38.084716,
         "count": 50
       },
-      "occurrence_count": 22565
+      "occurrence_count": 22567
     },
     "sources": [
       "Wikipedia",
@@ -385,7 +385,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:39:42.493854"
+    "last_updated": "2026-03-20T03:43:07.931484"
   },
   {
     "id": "Q213537",
@@ -518,7 +518,7 @@
         "max_lon": 151.355139,
         "count": 50
       },
-      "occurrence_count": 199044
+      "occurrence_count": 199052
     },
     "sources": [
       "Wikipedia",
@@ -527,7 +527,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:39:48.732946"
+    "last_updated": "2026-03-20T03:43:13.947217"
   },
   {
     "id": "Q25319",
@@ -652,7 +652,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:39:56.179321"
+    "last_updated": "2026-03-20T03:43:20.915702"
   },
   {
     "id": "Q43306",
@@ -777,7 +777,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:40:01.367363"
+    "last_updated": "2026-03-20T03:43:26.304067"
   },
   {
     "id": "Q47164",
@@ -909,7 +909,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:40:07.445590"
+    "last_updated": "2026-03-20T03:43:32.366373"
   },
   {
     "id": "Q39709",
@@ -1034,7 +1034,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:40:13.998876"
+    "last_updated": "2026-03-20T03:43:37.976814"
   },
   {
     "id": "Q7785",
@@ -1106,7 +1106,7 @@
     "physical": {
       "weight": "68–190 kg",
       "length": "",
-      "height": "40 m",
+      "height": "78–112 cm",
       "top_speed": "3 km/h",
       "lifespan": "90 years"
     },
@@ -1179,7 +1179,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:40:20.821014"
+    "last_updated": "2026-03-20T03:43:44.185773"
   },
   {
     "id": "Q189609",
@@ -1312,7 +1312,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:40:25.246348"
+    "last_updated": "2026-03-20T03:43:48.923960"
   },
   {
     "id": "Q270238",
@@ -1439,7 +1439,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:40:30.753848"
+    "last_updated": "2026-03-20T03:43:53.721377"
   },
   {
     "id": "Q165980",
@@ -1511,7 +1511,7 @@
     "physical": {
       "weight": "0.25 - 0.75 grams",
       "length": "",
-      "height": "3–5 feet",
+      "height": "2–6 m",
       "top_speed": "12 mph",
       "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
     },
@@ -1558,7 +1558,7 @@
         "max_lon": 153.064852,
         "count": 50
       },
-      "occurrence_count": 748846
+      "occurrence_count": 748841
     },
     "sources": [
       "API Ninjas",
@@ -1568,7 +1568,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:40:41.492219"
+    "last_updated": "2026-03-20T03:44:04.026200"
   },
   {
     "id": "Q7316",
@@ -1703,7 +1703,7 @@
         "max_lon": 164.956147,
         "count": 50
       },
-      "occurrence_count": 1124359
+      "occurrence_count": 1124023
     },
     "sources": [
       "API Ninjas",
@@ -1713,6 +1713,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T03:40:49.199620"
+    "last_updated": "2026-03-20T03:44:10.958071"
   }
 ]

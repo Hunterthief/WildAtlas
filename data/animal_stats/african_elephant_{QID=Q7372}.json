@@ -118,7 +118,7 @@
       "max_lon": 38.084716,
       "count": 50
     },
-    "occurrence_count": 22565
+    "occurrence_count": 22567
   },
   "sources": [
     "Wikipedia",
@@ -127,5 +127,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T03:39:42.493854"
+  "last_updated": "2026-03-20T03:43:07.931484"
 }
