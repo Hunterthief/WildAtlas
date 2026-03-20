@@ -996,3 +996,50 @@ a:hover {
         font-size: 0.75rem;
     }
 }
+/* Distribution Image Styles */
+.distribution-image-container {
+    width: 100%;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.distribution-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.world-map-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.world-map-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#location-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.location-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #38bdf8;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
