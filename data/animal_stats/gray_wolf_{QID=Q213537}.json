@@ -67,7 +67,7 @@
   "group_name": "pack",
   "physical": {
     "weight": "",
-    "length": "9.1–11.0 in",
+    "length": "2.4–2.8 in",
     "height": "29–50 cm",
     "top_speed": "",
     "lifespan": ""
@@ -140,5 +140,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T20:07:18.954863"
+  "last_updated": "2026-03-20T20:26:05.030277"
 }

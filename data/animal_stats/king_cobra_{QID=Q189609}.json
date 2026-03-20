@@ -67,7 +67,7 @@
   "young_name": "Hatchlings",
   "group_name": "Solitary",
   "physical": {
-    "weight": "10 kg",
+    "weight": "",
     "length": "3–5 m",
     "height": "",
     "top_speed": "12 mph",
@@ -131,5 +131,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T20:08:06.623268"
+  "last_updated": "2026-03-20T20:27:10.147751"
 }

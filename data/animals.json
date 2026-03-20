@@ -54,7 +54,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "https://eol.org/pages/1253183",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -124,10 +124,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:06:56.724692"
+    "last_updated": "2026-03-20T20:25:40.536239"
   },
   {
     "id": "Q35625",
@@ -199,7 +198,7 @@
     "group_name": "Mammal",
     "physical": {
       "weight": "40kg - 65kg (88lbs - 140lbs)",
-      "length": "67–94 cm",
+      "length": "517 in",
       "height": "115cm - 136cm (45in - 53in)",
       "top_speed": "70 mph",
       "lifespan": "10 - 12 years"
@@ -258,7 +257,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T20:07:04.373604"
+    "last_updated": "2026-03-20T20:25:46.496949"
   },
   {
     "id": "Q7372",
@@ -329,7 +328,7 @@
     "group_name": "herd",
     "physical": {
       "weight": "",
-      "length": "7–6 m",
+      "length": "2.09–2.31 m",
       "height": "2.47–2.73 m",
       "top_speed": "",
       "lifespan": ""
@@ -391,7 +390,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T20:07:10.467800"
+    "last_updated": "2026-03-20T20:25:52.004379"
   },
   {
     "id": "Q213537",
@@ -462,7 +461,7 @@
     "group_name": "pack",
     "physical": {
       "weight": "",
-      "length": "9.1–11.0 in",
+      "length": "2.4–2.8 in",
       "height": "29–50 cm",
       "top_speed": "",
       "lifespan": ""
@@ -535,7 +534,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T20:07:18.954863"
+    "last_updated": "2026-03-20T20:26:05.030277"
   },
   {
     "id": "Q25319",
@@ -592,7 +591,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "https://eol.org/pages/1228132",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -607,7 +606,7 @@
     "group_name": "flock",
     "physical": {
       "weight": "6.6-14lbs",
-      "length": "51.5–69 cm",
+      "length": "7–9 cm",
       "height": "28-38 inches",
       "top_speed": "100 mph",
       "lifespan": "15-20 years in the wild"
@@ -659,10 +658,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:07:26.176442"
+    "last_updated": "2026-03-20T20:26:21.551109"
   },
   {
     "id": "Q43306",
@@ -789,7 +787,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T20:07:34.311192"
+    "last_updated": "2026-03-20T20:26:29.786336"
   },
   {
     "id": "Q47164",
@@ -923,7 +921,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T20:07:46.834089"
+    "last_updated": "2026-03-20T20:26:38.742292"
   },
   {
     "id": "Q39709",
@@ -981,7 +979,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "https://eol.org/pages/46563143",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -995,8 +993,8 @@
     "young_name": "fry",
     "group_name": "school",
     "physical": {
-      "weight": "3.6–5.4 kg",
-      "length": "71–76 cm",
+      "weight": "",
+      "length": "1960 in",
       "height": "",
       "top_speed": "",
       "lifespan": ""
@@ -1047,10 +1045,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:07:54.075161"
+    "last_updated": "2026-03-20T20:26:54.473775"
   },
   {
     "id": "Q7785",
@@ -1122,7 +1119,7 @@
     "young_name": "hatchling",
     "group_name": "group",
     "physical": {
-      "weight": "68–190 kg",
+      "weight": "",
       "length": "78–112 cm",
       "height": "",
       "top_speed": "3 km/h",
@@ -1197,7 +1194,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T20:08:01.479185"
+    "last_updated": "2026-03-20T20:27:01.551107"
   },
   {
     "id": "Q189609",
@@ -1268,7 +1265,7 @@
     "young_name": "Hatchlings",
     "group_name": "Solitary",
     "physical": {
-      "weight": "10 kg",
+      "weight": "",
       "length": "3–5 m",
       "height": "",
       "top_speed": "12 mph",
@@ -1332,7 +1329,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T20:08:06.623268"
+    "last_updated": "2026-03-20T20:27:10.147751"
   },
   {
     "id": "Q270238",
@@ -1389,7 +1386,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-    "eol_url": "https://eol.org/pages/330963",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1403,7 +1400,7 @@
     "young_name": "tadpole",
     "group_name": "group",
     "physical": {
-      "weight": "5–175 g",
+      "weight": "",
       "length": "3.6–6 in",
       "height": "",
       "top_speed": "",
@@ -1458,10 +1455,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:08:12.449307"
+    "last_updated": "2026-03-20T20:27:25.834433"
   },
   {
     "id": "Q165980",
@@ -1592,7 +1588,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T20:08:21.306559"
+    "last_updated": "2026-03-20T20:27:39.441073"
   },
   {
     "id": "Q7316",
@@ -1650,7 +1646,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-    "eol_url": "https://eol.org/pages/1045608",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1665,7 +1661,7 @@
     "group_name": "colony",
     "physical": {
       "weight": "",
-      "length": "34 m",
+      "length": "4 m",
       "height": "",
       "top_speed": "",
       "lifespan": ""
@@ -1736,9 +1732,8 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:08:29.422214"
+    "last_updated": "2026-03-20T20:27:56.457215"
   }
 ]
