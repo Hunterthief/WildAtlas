@@ -50,7 +50,8 @@
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/9/99/Apis_mellifera_flying.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg"
+    "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/0/09/File:Apis_mellifera_distribution_map.svg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
@@ -142,5 +143,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:43:25.635273"
+  "last_updated": "2026-03-20T21:54:53.871547"
 }

@@ -50,7 +50,8 @@
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/e/e4/Danaus_plexippus_MHNT.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/9/90/Monarch_caterpillar_(23229).jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/9/90/Monarch_caterpillar_(23229).jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b2/File:MonarchDistribution2-2.png"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
   "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
@@ -126,5 +127,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:43:10.300723"
+  "last_updated": "2026-03-20T21:54:36.466702"
 }

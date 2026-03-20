@@ -50,7 +50,8 @@
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg"
+    "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/b/be/File:Salmo_salar_CZ_distribution_grid_map_2006.png"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
   "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
@@ -122,5 +123,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:42:14.191274"
+  "last_updated": "2026-03-20T21:53:26.099322"
 }
