@@ -23,7 +23,7 @@ from modules.fetchers.api_ninjas import fetch_animal_data
 from modules.fetchers.wikipedia import fetch_wikipedia_data
 from modules.fetchers.inaturalist import fetch_inaturalist
 from modules.fetchers.gbif_distribution import extract_gbif_all
-from modules.fetchers.eol_data import extract_eol_all
+from modules.fetchers.eol_data import extract_eol_data
 
 # =============================================================================
 # IMPORTS - Extractors (including Wikidata)
@@ -125,6 +125,60 @@ def get_group_name(animal_type: str, ninja_data: Dict) -> str:
         "insect": "colony"
     }
     return fallbacks.get(animal_type, "group")
+
+def get_group_behavior(animal_type: str, ninja_data: Dict, wiki_behavior: str) -> str:
+    """Get group behavior with smart fallbacks"""
+    # Priority 1: Ninja API
+    ninja_behavior = ninja_data.get("characteristics", {}).get("group_behavior", "")
+    if ninja_behavior:
+        return ninja_behavior
+    
+    # Priority 2: Wiki extraction
+    if wiki_behavior and len(wiki_behavior) > 3:
+        return wiki_behavior
+    
+    # Priority 3: Taxonomy-based defaults
+    behavior_defaults = {
+        "feline": "Solitary (except lions)",
+        "canine": "Pack",
+        "bear": "Solitary",
+        "elephant": "Herd",
+        "bird": "Flock",
+        "fish": "School",
+        "insect": "Colony",
+        "reptile": "Solitary",
+        "amphibian": "Solitary"
+    }
+    return behavior_defaults.get(animal_type, "Solitary")
+
+def get_habitat(gbif_data: Dict, wiki_sections: Dict, ninja_chars: Dict) -> str:
+    """Get habitat with proper fallback chain"""
+    # Priority 1: GBIF habitat
+    if gbif_data and gbif_data.get("habitat"):
+        habitat = clean_wikipedia_text(gbif_data.get("habitat", ""))
+        if len(habitat) > 20:
+            return habitat
+    
+    # Priority 2: Wikipedia habitat section
+    wiki_habitat = wiki_sections.get("habitat", "")
+    if wiki_habitat:
+        habitat = clean_wikipedia_text(wiki_habitat)
+        if len(habitat) > 20:
+            return habitat
+    
+    # Priority 3: Wikipedia ecology/distribution section
+    for section_name in ["ecology", "distribution", "habitat_and_distribution"]:
+        if section_name in wiki_sections:
+            habitat = clean_wikipedia_text(wiki_sections[section_name][:500])
+            if len(habitat) > 20:
+                return habitat
+    
+    # Priority 4: Ninja API
+    ninja_habitat = ninja_chars.get("habitat", "")
+    if ninja_habitat and len(ninja_habitat) > 10:
+        return ninja_habitat
+    
+    return ""
 
 # =============================================================================
 # DEBUG SUMMARY CLASS
@@ -294,11 +348,8 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     diet = get_first_non_empty(ninja_chars.get("diet"), wiki_diet, eol_data.get("trophic_level"))
     diet = fix_diet_based_on_taxonomy(diet, classification)
     
-    habitat = get_first_non_empty(
-        gbif_data.get("habitat") if gbif_data else "",
-        clean_wikipedia_text(wiki_sections.get("habitat", "")),
-        ninja_chars.get("habitat")
-    )
+    # FIX: Better habitat extraction
+    habitat = get_habitat(gbif_data, wiki_sections, ninja_chars)
     
     locations = ""
     if gbif_data and gbif_data.get("countries"):
@@ -314,11 +365,14 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         ninja_chars.get("conservation_status")
     ) or "Unknown"
 
+    # FIX: Better group behavior with taxonomy fallbacks
+    group_behavior = get_group_behavior(animal_type, ninja_data, wiki_behavior)
+
     ecology = {
         "diet": diet,
         "habitat": habitat,
         "locations": locations,
-        "group_behavior": get_first_non_empty(ninja_chars.get("group_behavior"), wiki_behavior),
+        "group_behavior": group_behavior,
         "conservation_status": conservation_status,
         "biggest_threat": get_first_non_empty(ninja_chars.get("biggest_threat"), wiki_threats),
         "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
@@ -329,7 +383,8 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     debug.extractions["ecology_sources"] = {
         "diet": "Ninja" if ninja_chars.get("diet") else ("Wiki" if wiki_diet else "EOL"),
         "habitat": "GBIF" if gbif_data.get("habitat") else ("Wiki" if wiki_sections.get("habitat") else "Ninja"),
-        "conservation": "Wikidata" if wikidata_enh.get("conservation", {}).get("status") else ("Wiki" if wiki_cons_status else "Ninja")
+        "conservation": "Wikidata" if wikidata_enh.get("conservation", {}).get("status") else ("Wiki" if wiki_cons_status else "Ninja"),
+        "group_behavior": "Ninja" if ninja_chars.get("group_behavior") else ("Taxonomy" if group_behavior != wiki_behavior else "Wiki")
     }
 
     # Reproduction
@@ -376,19 +431,28 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     if eol_data and eol_data.get("page_id"): 
         debug.log_source("EOL")
 
+    # FIX: Add single 'image' field for frontend compatibility
+    all_images = wikidata_enh.get("images", []) + eol_data.get("images", [])
+    primary_image = all_images[0] if all_images else ""
+
     # Construct Final Object
     final_data = {
         "id": qid,
         "name": name,
         "scientific_name": sci_name,
         "common_names": wikidata_enh.get("common_names", []),
+        # FIX: Add both 'summary' (for frontend) and 'description' (for backward compat)
+        "summary": get_first_non_empty(wikidata_enh.get("description", "")),
         "description": get_first_non_empty(wikidata_enh.get("description", "")),
-        "images": wikidata_enh.get("images", []) + eol_data.get("images", []),
+        # FIX: Add single 'image' field for frontend
+        "image": primary_image,
+        "images": all_images,
         "wikipedia_url": f"https://en.wikipedia.org/wiki/{name.replace(' ', '_')}",
         "wikidata_url": f"https://www.wikidata.org/wiki/{qid}",
         "eol_url": eol_data.get("eol_url", ""),
         "classification": classification,
         "animal_type": animal_type,
+        # FIX: Add top-level young_name and group_name for frontend
         "young_name": young_name,
         "group_name": group_name,
         "physical": physical,
