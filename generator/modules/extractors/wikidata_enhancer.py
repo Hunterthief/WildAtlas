@@ -1,7 +1,7 @@
 """
 Wikidata Extractor - No API Key Required
 CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
-ALL TRAILING SPACES REMOVED + Search Wikipedia for Distribution Maps
+STRICT PATTERN: Only {animal_name}_distribution.png accepted
 """
 import requests
 import hashlib
@@ -13,18 +13,6 @@ WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
 WIKIMEDIA_COMMONS = "https://commons.wikimedia.org/w/api.php"
 WIKIPEDIA_API = "https://en.wikipedia.org/w/api.php"
-
-# Subspecies keywords to filter out (we want general species maps only)
-SUBSPECIES_KEYWORDS = [
-    'sumatrae', 'altaica', 'amoyensis', 'corbetti', 'jacksoni',
-    'virgata', 'sondaica', 'balica', 'leo', 'persica',
-    'africanus', 'asiaticus', 'bengalensis', 'indicus', 'lupus',
-    'subspecies', 'subsp', 'ssp', 'italicus', 'pardus', 'melas',
-    'oncilla', 'tigrina', 'jubatus', 'salar', 'mydas', 'catesbeianus',
-    'plexippus', 'mellifera', 'leucocephalus', 'forsteri', 'carcharias',
-    'hannah', 'ophiophagus'
-]
-# NOTE: 'tigris' REMOVED - it's the species name for tiger, not a subspecies keyword
 
 # Language suffixes to reject (e.g., -ar.png, -he.png, -fr.png)
 LANGUAGE_SUFFIXES = [
@@ -41,11 +29,9 @@ LANGUAGE_SUFFIXES = [
 DISTRIBUTION_REJECT_KEYWORDS = [
     'historical', 'history', 'old', 'ancient', 'former',
     'plo', 'early', 'late', 'century', 'past', 'previous',
-    'grid_map', 'grid', 'cutted', 'without_borders'
+    'grid_map', 'grid', 'cutted', 'without_borders',
+    'subspecies', 'range', 'map', '202', '201', '200', '199', '198'
 ]
-
-# Year patterns to reject (e.g., 2006, 2022, etc.)
-YEAR_PATTERN = re.compile(r'(19|20)\d{2}')
 
 
 def _filename_to_direct_url(filename: str) -> str:
@@ -78,36 +64,21 @@ def _filename_to_direct_url(filename: str) -> str:
     return direct_url
 
 
-def _has_rejectable_numbers(filename: str) -> bool:
-    """
-    Check if filename contains rejectable numbers (years, versions)
-    
-    Accept: Tiger_distribution.png (no numbers)
-    Accept: Tiger_distribution_map.png (no numbers)
-    Reject: Tiger_distribution_2022.png (has year)
-    Reject: Tiger_distribution_map_2.png (has version number)
-    """
-    # Check for 4-digit years (1900-2099)
-    if YEAR_PATTERN.search(filename):
-        return True
-    
-    # Check for version numbers like "_2", "_v2", etc.
-    if re.search(r'[_-]\d+', filename):
-        return True
-    
-    return False
-
-
 def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     """
-    Check if this is a valid general species distribution map
+    Check if this is a valid distribution map
     
-    Accept: Tiger_distribution.png
-    Accept: Tiger_distribution_map.png
-    Accept: Panthera_tigris_distribution.png (scientific name OK)
-    Reject: Panthera_tigris_tigris_distribution.png (subspecies)
-    Reject: Tiger_distribution_2022.png (has year)
-    Reject: Tiger_distribution_map-ar.png (language suffix)
+    ACCEPT ONLY:
+    - Tiger_distribution.png
+    - Tiger_distribution.svg
+    - Tiger_distribution.jpg
+    
+    REJECT:
+    - Panthera_tigris_distribution.png (scientific name)
+    - Panthera_tigris_tigris_distribution.png (subspecies)
+    - Tiger_distribution_2022.png (has year)
+    - Tiger_distribution_map-ar.png (language suffix)
+    - Distribution_Canis_Lupus_Italicus.png (multi-name)
     """
     filename_lower = filename.lower()
     animal_lower = animal_name.lower().replace(' ', '_')
@@ -116,35 +87,36 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     if 'distribution' not in filename_lower:
         return False
     
-    # Reject files with years or version numbers
-    if _has_rejectable_numbers(filename):
-        print(f"   ⚠️  Rejecting distribution map (has year/version): {filename}")
+    # Get file extension
+    if not (filename_lower.endswith('.png') or filename_lower.endswith('.svg') or 
+            filename_lower.endswith('.jpg') or filename_lower.endswith('.jpeg')):
         return False
     
-    # Check for reject keywords
-    for reject_kw in DISTRIBUTION_REJECT_KEYWORDS:
-        if reject_kw in filename_lower:
-            print(f"   ⚠️  Rejecting distribution map (contains '{reject_kw}'): {filename}")
-            return False
+    # Remove extension for pattern matching
+    filename_no_ext = filename_lower.rsplit('.', 1)[0]
     
-    # Check for language suffixes
-    for lang_suffix in LANGUAGE_SUFFIXES:
-        if filename_lower.endswith(lang_suffix + '.png') or \
-           filename_lower.endswith(lang_suffix + '.jpg') or \
-           filename_lower.endswith(lang_suffix + '.svg') or \
-           filename_lower.endswith(lang_suffix + '.jpeg'):
-            print(f"   ⚠️  Rejecting distribution map (language suffix '{lang_suffix}'): {filename}")
-            return False
+    # STRICT PATTERN: Must be exactly "{animal_name}_distribution"
+    # Example: "tiger_distribution" for animal_name "Tiger"
+    expected_pattern = f"{animal_lower}_distribution"
     
-    # Check for subspecies keywords (but allow species names like 'tigris' for tiger)
-    for subspecies in SUBSPECIES_KEYWORDS:
-        if subspecies in filename_lower:
-            # Check if this keyword is NOT part of the animal name
-            if subspecies not in animal_lower:
-                print(f"   ⚠️  Rejecting distribution map (subspecies '{subspecies}'): {filename}")
+    # Check if filename matches the exact pattern
+    if filename_no_ext == expected_pattern:
+        return True
+    
+    # Also accept "{animal_lower}_distribution_map" (without numbers/suffixes)
+    if filename_no_ext == f"{animal_lower}_distribution_map":
+        # But reject if it has language suffixes or numbers
+        for lang_suffix in LANGUAGE_SUFFIXES:
+            if filename_lower.endswith(lang_suffix + '.png') or \
+               filename_lower.endswith(lang_suffix + '.svg'):
                 return False
+        return True
     
-    return True
+    # REJECT everything else (scientific names, multi-names, etc.)
+    print(f"   ⚠️  Rejecting distribution map (wrong pattern): {filename}")
+    print(f"      Expected: {expected_pattern}")
+    print(f"      Got: {filename_no_ext}")
+    return False
 
 
 def _get_wikipedia_images(animal_name: str) -> List[str]:
@@ -221,8 +193,6 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
     print(f"   🔍 Searching Wikimedia Commons for distribution map...")
     search_queries = [
         f"{animal_name} distribution",
-        f"{scientific_name} distribution",
-        f"{animal_name} range map",
     ]
     
     for query in search_queries:
@@ -351,14 +321,14 @@ def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
         return None
 
 
-def extract_taxonomy(wikidata: Dict[str, Any]) -> Dict[str, str]:
+def extract_taxonomy(wiki Dict[str, Any]) -> Dict[str, str]:
     """Extract taxonomic classification from Wikidata"""
     taxonomy = {
         "kingdom": "", "phylum": "", "class": "", "order": "", 
         "family": "", "genus": "", "species": ""
     }
     
-    if not wikidata:
+    if not wiki
         return taxonomy
     
     claims = wikidata.get("claims", {})
@@ -369,9 +339,9 @@ def extract_taxonomy(wikidata: Dict[str, Any]) -> Dict[str, str]:
     return taxonomy
 
 
-def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
+def extract_conservation_status(wiki Dict[str, Any]) -> Dict[str, str]:
     """Extract IUCN conservation status from Wikidata"""
-    if not wikidata:
+    if not wiki
         return {"status": None, "status_id": None}
     
     claims = wikidata.get("claims", {})
@@ -398,7 +368,7 @@ def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
     return {"status": None, "status_id": None}
 
 
-def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_name: str = "") -> Dict[str, List[str]]:
+def extract_images(wiki Dict[str, Any], animal_name: str = "", scientific_name: str = "") -> Dict[str, List[str]]:
     """
     Extract DIRECT image URLs from Wikidata AND Wikipedia
     Separates regular photos from distribution maps
@@ -434,7 +404,7 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
     return result
 
 
-def extract_common_names(wikidata: Dict[str, Any]) -> list:
+def extract_common_names(wiki Dict[str, Any]) -> list:
     """Extract common names from Wikidata labels"""
     names = []
     labels = wikidata.get("labels", {})
@@ -447,7 +417,7 @@ def extract_common_names(wikidata: Dict[str, Any]) -> list:
     return names[:10]
 
 
-def extract_population(wikidata: Dict[str, Any]) -> str:
+def extract_population(wiki Dict[str, Any]) -> str:
     """Extract population estimate from Wikidata"""
     claims = wikidata.get("claims", {})
     pop_claims = claims.get("P1082", [])
@@ -469,7 +439,7 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
             print(f"   ✅ Found QID: {new_qid}")
             wikidata = fetch_wikidata(new_qid)
     
-    if not wikidata:
+    if not wiki
         return {}
     
     # Extract images with distribution filtering
