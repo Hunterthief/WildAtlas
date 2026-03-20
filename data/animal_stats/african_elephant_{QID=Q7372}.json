@@ -116,7 +116,7 @@
     "lifestyle": "",
     "color": "",
     "skin_type": "",
-    "prey": "dolphin",
+    "prey": "",
     "slogan": "",
     "group": "",
     "number_of_species": "two",
@@ -156,5 +156,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T00:24:53.117091"
+  "last_updated": "2026-03-20T00:33:18.613383"
 }

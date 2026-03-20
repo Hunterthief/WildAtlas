@@ -144,7 +144,7 @@
     "lifestyle": "",
     "color": "BrownYellowBlack",
     "skin_type": "Hair",
-    "prey": "seal",
+    "prey": "fish",
     "slogan": "There are only 8 recognized species!",
     "group": "",
     "number_of_species": "8",
@@ -196,5 +196,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T00:27:36.148517"
+  "last_updated": "2026-03-20T00:34:59.361379"
 }

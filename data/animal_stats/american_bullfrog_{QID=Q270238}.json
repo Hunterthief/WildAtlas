@@ -108,7 +108,7 @@
     "lifestyle": "",
     "color": "",
     "skin_type": "",
-    "prey": "snake",
+    "prey": "fish",
     "slogan": "",
     "group": "",
     "number_of_species": "two",
@@ -143,5 +143,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T00:26:54.680167"
+  "last_updated": "2026-03-20T00:34:29.569033"
 }
