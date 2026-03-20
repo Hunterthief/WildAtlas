@@ -62,8 +62,8 @@
     "species": "Panthera tigris"
   },
   "animal_type": "feline",
-  "young_name": "young",
-  "group_name": "population",
+  "young_name": "cub",
+  "group_name": "pride",
   "physical": {
     "weight": "140kg - 300kg (309lbs - 660lbs)",
     "length": "2.4m - 3.3m (6.8ft - 11ft)",
@@ -84,7 +84,7 @@
   "reproduction": {
     "gestation_period": "",
     "average_litter_size": "3",
-    "name_of_young": "nd"
+    "name_of_young": "cub"
   },
   "additional_info": {
     "lifestyle": "Solitary",
@@ -92,7 +92,7 @@
     "skin_type": "Fur",
     "prey": "preys mainly on ungulates, which it takes by ambush",
     "slogan": "The most numerous species of tiger!",
-    "group": "Cat",
+    "group": "pride",
     "number_of_species": "nine",
     "estimated_population_size": "80,000",
     "most_distinctive_feature": "black or dark brown stripes, which are uniquely patterned in each individual"
@@ -124,5 +124,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T02:24:48.629650"
+  "last_updated": "2026-03-20T02:39:37.113444"
 }

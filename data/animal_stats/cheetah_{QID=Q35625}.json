@@ -62,8 +62,8 @@
     "species": "Acinonyx jubatus"
   },
   "animal_type": "feline",
-  "young_name": "young",
-  "group_name": "population",
+  "young_name": "Cub",
+  "group_name": "Mammal",
   "physical": {
     "weight": "40kg - 65kg (88lbs - 140lbs)",
     "length": "",
@@ -125,5 +125,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T02:24:55.424715"
+  "last_updated": "2026-03-20T02:39:42.265496"
 }

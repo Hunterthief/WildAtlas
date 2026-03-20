@@ -61,8 +61,8 @@
     "species": "Canis lupus"
   },
   "animal_type": "canine",
-  "young_name": "young",
-  "group_name": "population",
+  "young_name": "pup",
+  "group_name": "pack",
   "physical": {
     "weight": "",
     "length": "",
@@ -83,7 +83,7 @@
   "reproduction": {
     "gestation_period": "62–75 days",
     "average_litter_size": "",
-    "name_of_young": "wolves"
+    "name_of_young": "pup"
   },
   "additional_info": {
     "lifestyle": "",
@@ -91,7 +91,7 @@
     "skin_type": "",
     "prey": "hunts for large prey",
     "slogan": "",
-    "group": "",
+    "group": "pack",
     "number_of_species": "two",
     "estimated_population_size": "33",
     "most_distinctive_feature": "very dense and fluffy winter fur, with a short undercoat"
@@ -138,5 +138,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T02:25:12.056928"
+  "last_updated": "2026-03-20T02:39:52.633753"
 }

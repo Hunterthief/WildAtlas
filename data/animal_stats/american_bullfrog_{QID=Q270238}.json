@@ -61,9 +61,9 @@
     "genus": "Lithobates",
     "species": "Lithobates catesbeianus"
   },
-  "animal_type": "default",
-  "young_name": "young",
-  "group_name": "population",
+  "animal_type": "amphibian",
+  "young_name": "tadpole",
+  "group_name": "group",
   "physical": {
     "weight": "5–175 g",
     "length": "",
@@ -84,7 +84,7 @@
   "reproduction": {
     "gestation_period": "",
     "average_litter_size": "",
-    "name_of_young": "of"
+    "name_of_young": "tadpole"
   },
   "additional_info": {
     "lifestyle": "",
@@ -92,7 +92,7 @@
     "skin_type": "",
     "prey": "fish",
     "slogan": "",
-    "group": "",
+    "group": "group",
     "number_of_species": "two",
     "estimated_population_size": "",
     "most_distinctive_feature": "among North American ranids in the inclusion of a large percentage of aquatic animals, such as fish,"
@@ -123,5 +123,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T02:26:05.355718"
+  "last_updated": "2026-03-20T02:40:43.791406"
 }

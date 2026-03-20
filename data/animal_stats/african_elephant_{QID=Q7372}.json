@@ -61,8 +61,8 @@
     "species": "Loxodonta africana"
   },
   "animal_type": "elephant",
-  "young_name": "young",
-  "group_name": "population",
+  "young_name": "calf",
+  "group_name": "herd",
   "physical": {
     "weight": "",
     "length": "",
@@ -83,7 +83,7 @@
   "reproduction": {
     "gestation_period": "22 months",
     "average_litter_size": "",
-    "name_of_young": "bulls"
+    "name_of_young": "calf"
   },
   "additional_info": {
     "lifestyle": "",
@@ -91,7 +91,7 @@
     "skin_type": "",
     "prey": "",
     "slogan": "",
-    "group": "",
+    "group": "herd",
     "number_of_species": "two",
     "estimated_population_size": "",
     "most_distinctive_feature": "lozenge/loxodont (<>) shape characteristic to all members of the genus Loxodonta"
@@ -127,5 +127,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T02:25:02.552030"
+  "last_updated": "2026-03-20T02:39:46.483109"
 }

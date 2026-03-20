@@ -62,9 +62,9 @@
     "genus": "Chelonia",
     "species": "Chelonia mydas"
   },
-  "animal_type": "default",
-  "young_name": "young",
-  "group_name": "population",
+  "animal_type": "reptile",
+  "young_name": "hatchling",
+  "group_name": "group",
   "physical": {
     "weight": "68–190 kg",
     "length": "",
@@ -85,7 +85,7 @@
   "reproduction": {
     "gestation_period": "",
     "average_litter_size": "",
-    "name_of_young": "specimens"
+    "name_of_young": "hatchling"
   },
   "additional_info": {
     "lifestyle": "",
@@ -93,7 +93,7 @@
     "skin_type": "",
     "prey": "fish",
     "slogan": "",
-    "group": "",
+    "group": "group",
     "number_of_species": "",
     "estimated_population_size": "",
     "most_distinctive_feature": "s distinguish the green turtle from the other members of its family"
@@ -141,5 +141,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T02:25:52.855916"
+  "last_updated": "2026-03-20T02:40:32.970532"
 }

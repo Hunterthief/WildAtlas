@@ -61,9 +61,9 @@
     "genus": "Ophiophagus",
     "species": "Ophiophagus hannah"
   },
-  "animal_type": "default",
-  "young_name": "young",
-  "group_name": "population",
+  "animal_type": "reptile",
+  "young_name": "Hatchlings",
+  "group_name": "Solitary",
   "physical": {
     "weight": "10 kg",
     "length": "3.18–4 m",
@@ -129,5 +129,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T02:25:58.500855"
+  "last_updated": "2026-03-20T02:40:37.973596"
 }

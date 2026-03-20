@@ -62,9 +62,9 @@
     "genus": "Aptenodytes",
     "species": "Aptenodytes forsteri"
   },
-  "animal_type": "default",
-  "young_name": "young",
-  "group_name": "population",
+  "animal_type": "bird",
+  "young_name": "Chick",
+  "group_name": "Bird",
   "physical": {
     "weight": "22kg - 45kg (49lbs - 99lbs)",
     "length": "",
@@ -121,5 +121,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T02:25:26.554506"
+  "last_updated": "2026-03-20T02:40:04.784594"
 }

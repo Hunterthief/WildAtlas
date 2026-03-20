@@ -62,9 +62,9 @@
     "genus": "Salmo",
     "species": "Salmo salar"
   },
-  "animal_type": "default",
-  "young_name": "young",
-  "group_name": "population",
+  "animal_type": "fish",
+  "young_name": "fry",
+  "group_name": "school",
   "physical": {
     "weight": "3.6–5.4 kg",
     "length": "",
@@ -85,7 +85,7 @@
   "reproduction": {
     "gestation_period": "",
     "average_litter_size": "",
-    "name_of_young": "tlantic"
+    "name_of_young": "fry"
   },
   "additional_info": {
     "lifestyle": "",
@@ -93,7 +93,7 @@
     "skin_type": "",
     "prey": "fish",
     "slogan": "",
-    "group": "",
+    "group": "school",
     "number_of_species": "",
     "estimated_population_size": "",
     "most_distinctive_feature": "es of Atlantic salmon vary between two and eight years"
@@ -121,5 +121,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T02:25:42.326019"
+  "last_updated": "2026-03-20T02:40:17.056241"
 }

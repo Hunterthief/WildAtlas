@@ -63,8 +63,8 @@
       "species": "Panthera tigris"
     },
     "animal_type": "feline",
-    "young_name": "young",
-    "group_name": "population",
+    "young_name": "cub",
+    "group_name": "pride",
     "physical": {
       "weight": "140kg - 300kg (309lbs - 660lbs)",
       "length": "2.4m - 3.3m (6.8ft - 11ft)",
@@ -85,7 +85,7 @@
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "3",
-      "name_of_young": "nd"
+      "name_of_young": "cub"
     },
     "additional_info": {
       "lifestyle": "Solitary",
@@ -93,7 +93,7 @@
       "skin_type": "Fur",
       "prey": "preys mainly on ungulates, which it takes by ambush",
       "slogan": "The most numerous species of tiger!",
-      "group": "Cat",
+      "group": "pride",
       "number_of_species": "nine",
       "estimated_population_size": "80,000",
       "most_distinctive_feature": "black or dark brown stripes, which are uniquely patterned in each individual"
@@ -125,7 +125,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:24:48.629650"
+    "last_updated": "2026-03-20T02:39:37.113444"
   },
   {
     "id": "Q35625",
@@ -191,8 +191,8 @@
       "species": "Acinonyx jubatus"
     },
     "animal_type": "feline",
-    "young_name": "young",
-    "group_name": "population",
+    "young_name": "Cub",
+    "group_name": "Mammal",
     "physical": {
       "weight": "40kg - 65kg (88lbs - 140lbs)",
       "length": "",
@@ -254,7 +254,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:24:55.424715"
+    "last_updated": "2026-03-20T02:39:42.265496"
   },
   {
     "id": "Q7372",
@@ -319,8 +319,8 @@
       "species": "Loxodonta africana"
     },
     "animal_type": "elephant",
-    "young_name": "young",
-    "group_name": "population",
+    "young_name": "calf",
+    "group_name": "herd",
     "physical": {
       "weight": "",
       "length": "",
@@ -341,7 +341,7 @@
     "reproduction": {
       "gestation_period": "22 months",
       "average_litter_size": "",
-      "name_of_young": "bulls"
+      "name_of_young": "calf"
     },
     "additional_info": {
       "lifestyle": "",
@@ -349,7 +349,7 @@
       "skin_type": "",
       "prey": "",
       "slogan": "",
-      "group": "",
+      "group": "herd",
       "number_of_species": "two",
       "estimated_population_size": "",
       "most_distinctive_feature": "lozenge/loxodont (<>) shape characteristic to all members of the genus Loxodonta"
@@ -385,7 +385,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:25:02.552030"
+    "last_updated": "2026-03-20T02:39:46.483109"
   },
   {
     "id": "Q213537",
@@ -450,8 +450,8 @@
       "species": "Canis lupus"
     },
     "animal_type": "canine",
-    "young_name": "young",
-    "group_name": "population",
+    "young_name": "pup",
+    "group_name": "pack",
     "physical": {
       "weight": "",
       "length": "",
@@ -472,7 +472,7 @@
     "reproduction": {
       "gestation_period": "62–75 days",
       "average_litter_size": "",
-      "name_of_young": "wolves"
+      "name_of_young": "pup"
     },
     "additional_info": {
       "lifestyle": "",
@@ -480,7 +480,7 @@
       "skin_type": "",
       "prey": "hunts for large prey",
       "slogan": "",
-      "group": "",
+      "group": "pack",
       "number_of_species": "two",
       "estimated_population_size": "33",
       "most_distinctive_feature": "very dense and fluffy winter fur, with a short undercoat"
@@ -527,7 +527,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:25:12.056928"
+    "last_updated": "2026-03-20T02:39:52.633753"
   },
   {
     "id": "Q25319",
@@ -592,9 +592,9 @@
       "genus": "Haliaeetus",
       "species": "Haliaeetus leucocephalus"
     },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
+    "animal_type": "bird",
+    "young_name": "chick",
+    "group_name": "flock",
     "physical": {
       "weight": "6.6-14lbs",
       "length": "",
@@ -617,7 +617,7 @@
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "birds"
+      "name_of_young": "chick"
     },
     "additional_info": {
       "lifestyle": "",
@@ -625,7 +625,7 @@
       "skin_type": "",
       "prey": "Fish, birds, and small mammals",
       "slogan": "",
-      "group": "Bird",
+      "group": "flock",
       "number_of_species": "1",
       "estimated_population_size": "1,312",
       "most_distinctive_feature": "The white plumage on the head"
@@ -652,7 +652,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:25:20.159299"
+    "last_updated": "2026-03-20T02:39:59.438089"
   },
   {
     "id": "Q43306",
@@ -718,9 +718,9 @@
       "genus": "Aptenodytes",
       "species": "Aptenodytes forsteri"
     },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
+    "animal_type": "bird",
+    "young_name": "Chick",
+    "group_name": "Bird",
     "physical": {
       "weight": "22kg - 45kg (49lbs - 99lbs)",
       "length": "",
@@ -777,7 +777,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:25:26.554506"
+    "last_updated": "2026-03-20T02:40:04.784594"
   },
   {
     "id": "Q47164",
@@ -843,9 +843,9 @@
       "genus": "Carcharodon",
       "species": "Carcharodon carcharias"
     },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
+    "animal_type": "fish",
+    "young_name": "Pup",
+    "group_name": "Fish",
     "physical": {
       "weight": "1,110kg - 2,240kg (2,450lbs - 4,938lbs)",
       "length": "5.5m - 8m (18ft - 26ft)",
@@ -909,7 +909,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:25:34.246044"
+    "last_updated": "2026-03-20T02:40:11.450324"
   },
   {
     "id": "Q39709",
@@ -975,9 +975,9 @@
       "genus": "Salmo",
       "species": "Salmo salar"
     },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
+    "animal_type": "fish",
+    "young_name": "fry",
+    "group_name": "school",
     "physical": {
       "weight": "3.6–5.4 kg",
       "length": "",
@@ -998,7 +998,7 @@
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "tlantic"
+      "name_of_young": "fry"
     },
     "additional_info": {
       "lifestyle": "",
@@ -1006,7 +1006,7 @@
       "skin_type": "",
       "prey": "fish",
       "slogan": "",
-      "group": "",
+      "group": "school",
       "number_of_species": "",
       "estimated_population_size": "",
       "most_distinctive_feature": "es of Atlantic salmon vary between two and eight years"
@@ -1034,7 +1034,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:25:42.326019"
+    "last_updated": "2026-03-20T02:40:17.056241"
   },
   {
     "id": "Q7785",
@@ -1100,9 +1100,9 @@
       "genus": "Chelonia",
       "species": "Chelonia mydas"
     },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
+    "animal_type": "reptile",
+    "young_name": "hatchling",
+    "group_name": "group",
     "physical": {
       "weight": "68–190 kg",
       "length": "",
@@ -1123,7 +1123,7 @@
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "specimens"
+      "name_of_young": "hatchling"
     },
     "additional_info": {
       "lifestyle": "",
@@ -1131,7 +1131,7 @@
       "skin_type": "",
       "prey": "fish",
       "slogan": "",
-      "group": "",
+      "group": "group",
       "number_of_species": "",
       "estimated_population_size": "",
       "most_distinctive_feature": "s distinguish the green turtle from the other members of its family"
@@ -1179,7 +1179,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:25:52.855916"
+    "last_updated": "2026-03-20T02:40:32.970532"
   },
   {
     "id": "Q189609",
@@ -1244,9 +1244,9 @@
       "genus": "Ophiophagus",
       "species": "Ophiophagus hannah"
     },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
+    "animal_type": "reptile",
+    "young_name": "Hatchlings",
+    "group_name": "Solitary",
     "physical": {
       "weight": "10 kg",
       "length": "3.18–4 m",
@@ -1312,7 +1312,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:25:58.500855"
+    "last_updated": "2026-03-20T02:40:37.973596"
   },
   {
     "id": "Q270238",
@@ -1377,9 +1377,9 @@
       "genus": "Lithobates",
       "species": "Lithobates catesbeianus"
     },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
+    "animal_type": "amphibian",
+    "young_name": "tadpole",
+    "group_name": "group",
     "physical": {
       "weight": "5–175 g",
       "length": "",
@@ -1400,7 +1400,7 @@
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "of"
+      "name_of_young": "tadpole"
     },
     "additional_info": {
       "lifestyle": "",
@@ -1408,7 +1408,7 @@
       "skin_type": "",
       "prey": "fish",
       "slogan": "",
-      "group": "",
+      "group": "group",
       "number_of_species": "two",
       "estimated_population_size": "",
       "most_distinctive_feature": "among North American ranids in the inclusion of a large percentage of aquatic animals, such as fish,"
@@ -1439,7 +1439,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:26:05.355718"
+    "last_updated": "2026-03-20T02:40:43.791406"
   },
   {
     "id": "Q165980",
@@ -1505,9 +1505,9 @@
       "genus": "Danaus",
       "species": "Danaus plexippus"
     },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
+    "animal_type": "insect",
+    "young_name": "Larvae/Caterpillar",
+    "group_name": "Invertebrates",
     "physical": {
       "weight": "0.25 - 0.75 grams",
       "length": "",
@@ -1568,7 +1568,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:26:18.698498"
+    "last_updated": "2026-03-20T02:40:53.432493"
   },
   {
     "id": "Q7316",
@@ -1634,9 +1634,9 @@
       "genus": "Apis",
       "species": "Apis mellifera"
     },
-    "animal_type": "default",
-    "young_name": "young",
-    "group_name": "population",
+    "animal_type": "insect",
+    "young_name": "larva",
+    "group_name": "colony",
     "physical": {
       "weight": "",
       "length": "",
@@ -1657,7 +1657,7 @@
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "200",
-      "name_of_young": "er"
+      "name_of_young": "larva"
     },
     "additional_info": {
       "lifestyle": "",
@@ -1665,7 +1665,7 @@
       "skin_type": "Hair",
       "prey": "fish",
       "slogan": "There are only 8 recognized species!",
-      "group": "",
+      "group": "colony",
       "number_of_species": "8",
       "estimated_population_size": "43",
       "most_distinctive_feature": "among wasps in feeding their larvae exclusively with pollen and nectar, in a fashion quite similar t"
@@ -1713,6 +1713,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T02:26:28.130977"
+    "last_updated": "2026-03-20T02:41:00.277952"
   }
 ]
