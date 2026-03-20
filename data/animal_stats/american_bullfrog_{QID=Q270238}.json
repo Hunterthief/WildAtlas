@@ -73,7 +73,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "",
+    "habitat": ". The bullfrog is originally native to eastern North America, where it is commonly found in every U.S. state east of the Mississippi River. Its natural range extends from the eastern Canadian Maritime Provinces to as far west as Idaho and Texas, and as far north as Michigan (including the Upper Peninsula), Minnesota and Montana; it is largely absent in North Dakota. Within North America, the bullfrog has been introduced to Nantucket island, as well as portions of the western U.S., including Arizona, California, Colorado, Idaho, Nevada, New Mexico, Oregon, Utah, Washington and Wyoming. In these states, it is considered to be an invasive species, as concerns exist that it may outcompete or prey upon native species of reptiles and amphibians, disrupting the delicate ecological balance of certain areas. It is very common on the West Coast, especially in California, where it is believed to pose a threat to the California red-legged frog, and is considered to be a factor in the decline of that vulnerable species. Bullfrogs have been found to feed on the young of several snakes, including the California endemic giant garter snake, a threatened species. In early 2023, the Utah Department of Natural Resources began tweeting tips on how to catch and cook bullfrogs in an effort to encourage residents to help control the growing population by catching the invasive frogs for food. The bullfrog has also been introduced to Hawaii, South America, Asia, the Caribbean, and Europe for various purposes including frog farming and population control of other species. Specifically, the bullfrog has been introduced to the extreme south of British Columbia, Canada, nearly every state in Mexico, as well as Belgium, Cuba, the Dominican Republic, Haiti, Italy, Jamaica, the Netherlands, and Puerto Rico. It is also found in Argentina, Brazil, China, Colombia, Japan, South Korea, Uruguay and Venezuela. The reasons for introducing the bullfrog to these areas have largely been intentional, either to provide humans with a source of food or as biological control agents. In addition, the unintended escape of frogs from breeding establishments or scientific research facilities, captive escapees or released pets are also a possibility. Conservationists are concerned that the bullfrog is relatively immune to the fungal infection chytridiomycosis (also called 'chytrid' fungus) which has been ravaging numerous frog species: as it invades new territories, it may assist in the spread of this lethal fungus as an asymptomatic carrier, spreading the fungus to more susceptible, native species of frog it encounters.",
     "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Vulnerable",
@@ -95,7 +95,7 @@
     "group": "group",
     "number_of_species": "two",
     "estimated_population_size": "",
-    "most_distinctive_feature": "among North American ranids in the inclusion of a large percentage of aquatic animals, such as fish,"
+    "most_distinctive_feature": "olive-green background color"
   },
   "distribution": {
     "countries": [
@@ -122,5 +122,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T14:28:11.085636"
+  "last_updated": "2026-03-20T14:53:45.845112"
 }

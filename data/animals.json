@@ -74,7 +74,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "The tiger historically ranged from eastern Turkey, northern Iran and Afghanistan to Central Asia and from northern Pakistan through the Indian subcontinent and Indochina to southeastern Siberia, Sumatra, Java and Bali. As of 2022, it inhabits less than 7% of its historical distribution and has a scattered range in the Indian subcontinent, the Indochinese Peninsula, Sumatra, northeastern China and the Russian Far East. As of 2020, India had the largest extent of global tiger habitat with 300,508 km2 (116,027 sq mi), followed by Russia with 195,819 km2 (75,606 sq mi). The tiger mainly lives in forest habitats and is highly adaptable. Records in Central Asia indicate that it primarily inhabited Tugay riverine forests and hilly and lowland forests in the Caucasus. In the Amur-Ussuri region of Russia and China, it inhabits Korean pine and temperate broadleaf and mixed forests; riparian forests serve as dispersal corridors, providing food and water for both tigers and ungulates. On the Indian subcontinent, it inhabits mainly tropical and subtropical moist broadleaf forests, temperate broadleaf and mixed forests, tropical moist evergreen forests, tropical dry forests, alluvial plains and the mangrove forests of the Sundarbans. In the Eastern Himalayas, it was documented in temperate forest up to an elevation of 4,200 m (13,800 ft) in Bhutan, of 3,630 m (11,910 ft) in the Mishmi Hills and of 3,139 m (10,299 ft) in Mêdog County, southeastern Tibet. In Thailand, it lives in deciduous and evergreen forests. In Sumatra, it inhabits lowland peat swamp forests and rugged montane forests.",
+      "habitat": ". The tiger historically ranged from eastern Turkey, northern Iran and Afghanistan to Central Asia and from northern Pakistan through the Indian subcontinent and Indochina to southeastern Siberia, Sumatra, Java and Bali. As of 2022, it inhabits less than 7% of its historical distribution and has a scattered range in the Indian subcontinent, the Indochinese Peninsula, Sumatra, northeastern China and the Russian Far East. As of 2020, India had the largest extent of global tiger habitat with 300,508 km2 (116,027 sq mi), followed by Russia with 195,819 km2 (75,606 sq mi). The tiger mainly lives in forest habitats and is highly adaptable. Records in Central Asia indicate that it primarily inhabited Tugay riverine forests and hilly and lowland forests in the Caucasus. In the Amur-Ussuri region of Russia and China, it inhabits Korean pine and temperate broadleaf and mixed forests; riparian forests serve as dispersal corridors, providing food and water for both tigers and ungulates. On the Indian subcontinent, it inhabits mainly tropical and subtropical moist broadleaf forests, temperate broadleaf and mixed forests, tropical moist evergreen forests, tropical dry forests, alluvial plains and the mangrove forests of the Sundarbans. In the Eastern Himalayas, it was documented in temperate forest up to an elevation of 4,200 m (13,800 ft) in Bhutan, of 3,630 m (11,910 ft) in the Mishmi Hills and of 3,139 m (10,299 ft) in Mêdog County, southeastern Tibet. In Thailand, it lives in deciduous and evergreen forests. In Sumatra, it inhabits lowland peat swamp forests and rugged montane forests.",
       "locations": "Bangladesh, China, India, Indonesia, Nepal, Russian Federation, Thailand",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -124,7 +124,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:25:25.355169"
+    "last_updated": "2026-03-20T14:50:58.667106"
   },
   {
     "id": "Q35625",
@@ -201,7 +201,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "In eastern and southern Africa, the cheetah occurs mostly in savannas like the Kalahari and Serengeti. In central, northern and western Africa, it inhabits arid mountain ranges and valleys; in the harsh climate of the Sahara, it prefers high mountains, which receive more rainfall than the surrounding desert. The vegetation and water resources in these mountains support antelopes. In Iran, it occurs in hilly terrain of deserts at elevations up to 2,000–3,000 m (6,600–9,800 ft), where annual precipitation is generally below 100 mm (3.9 in); the primary vegetation in these areas is thinly distributed shrubs, less than 1 m (3 ft 3 in) tall. The cheetah inhabits a variety of ecosystems and appears to be less selective in habitat choice than other felids; it prefers areas with greater availability of prey, good visibility and minimal chances of encountering larger predators. It seldom occurs in tropical forests. It has been reported at the elevation of 4,000 m (13,000 ft). An open area with some cover, such as diffused bushes, is probably ideal for the cheetah because it needs to stalk and pursue its prey over a distance. This also minimises the risk of encountering larger carnivores. The cheetah tends to occur in low densities typically between 0.3 and 3.0 adults per 100 km2 (39 sq mi); these values are 10–30% of those reported for leopards and lions.",
+      "habitat": ". Female cheetahs tend to occupy larger home ranges than males. Females typically disperse over large areas in pursuit of prey, but are less nomadic and roam in a smaller area if prey availability in the area is high. The size of their home range depends on the distribution of prey in a region. In central Namibia, where most prey species are sparsely distributed, home ranges are 554–7,063 km2 (214–2,727 sq mi), whereas home ranges in the woodlands of Phinda Game Reserve are 34–157 km2 (13–61 sq mi) in size. Cheetahs can travel long stretches overland in search of food; a study in the Kalahari Desert recorded an average displacement of nearly 11 km (6.8 mi) every day and walking speeds ranged between 2.5 and 3.8 km/h (1.6 and 2.4 mph). Males are generally less nomadic than females; often males in coalitions and sometimes solitary males staying far from coalitions establish home ranges. Whether males settle in territories or disperse over large areas forming home ranges depends primarily on the movements of females. Territoriality is preferred only if females tend to be more sedentary, which is more feasible in areas with plenty of prey. Some males, called floaters, switch between territoriality and nomadism depending on the availability of females. A 1987 study showed territoriality depended on the size and age of males and the membership of the coalition. The ranges of floaters averaged 777 km2 (300 sq mi) in the Serengeti to 1,464 km2 (565 sq mi) in central Namibia. Territories in Kruger National Park were much smaller. A coalition of three males occupied a territory of 126 km2 (49 sq mi), and the territory of a solitary male measured 195 km2 (75 sq mi). When a female enters a territory, the males surround her; if she tries to escape, the males bite or snap at her. Generally, the female can not escape on her own; the males themselves leave after they lose interest in her. They may smell the spot she was sitting or lying on to determine if she was in oestrus.",
       "locations": "Botswana, Kenya, Malawi, Namibia, South Africa, Tanzania, United Republic of",
       "group_behavior": "Solitary/Pairs",
       "conservation_status": "Endangered",
@@ -252,7 +252,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:25:49.208921"
+    "last_updated": "2026-03-20T14:51:14.915931"
   },
   {
     "id": "Q7372",
@@ -306,7 +306,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/55636404",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -328,7 +328,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "African elephants are distributed in Sub-Saharan Africa, where they inhabit Sahelian scrubland and arid regions, tropical rainforests, mopane and miombo woodlands. African forest elephant populations occur only in Central and West Africa.",
+      "habitat": ". African elephants are distributed in Sub-Saharan Africa, where they inhabit Sahelian scrubland and arid regions, tropical rainforests, mopane and miombo woodlands. African forest elephant populations occur only in Central and West Africa.",
       "locations": "Botswana, Burkina Faso, Ghana, Kenya, Namibia, Niger, Rwanda, South Africa, Tanzania, United Republic of, Uganda, Zambia, Zimbabwe",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -380,9 +380,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T14:26:12.442667"
+    "last_updated": "2026-03-20T14:51:27.661381"
   },
   {
     "id": "Q213537",
@@ -458,7 +459,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Wolves occur across Eurasia and North America. However, deliberate human persecution because of livestock predation and fear of attacks on humans has reduced the wolf's range to about one-third of its historic range; the wolf is now extirpated (locally extinct) from much of its range in Western Europe, the United States and Mexico, and completely in the British Isles and Japan. In modern times, the wolf occurs mostly in wilderness and remote areas. The wolf can be found between sea level and 3,000 m (9,800 ft). Wolves live in forests, inland wetlands, shrublands, grasslands (including Arctic tundra), pastures, deserts, and rocky peaks on mountains. Habitat use by wolves depends on the abundance of prey, snow conditions, livestock densities, road densities, human presence and topography.",
+      "habitat": ". Wolves occur across Eurasia and North America. However, deliberate human persecution because of livestock predation and fear of attacks on humans has reduced the wolf's range to about one-third of its historic range; the wolf is now extirpated (locally extinct) from much of its range in Western Europe, the United States and Mexico, and completely in the British Isles and Japan. In modern times, the wolf occurs mostly in wilderness and remote areas. The wolf can be found between sea level and 3,000 m (9,800 ft). Wolves live in forests, inland wetlands, shrublands, grasslands (including Arctic tundra), pastures, deserts, and rocky peaks on mountains. Habitat use by wolves depends on the abundance of prey, snow conditions, livestock densities, road densities, human presence and topography.",
       "locations": "Australia, Belgium, Canada, China, Costa Rica, Denmark, Egypt, Germany, Greece, India, Indonesia, Israel, Italy, Jamaica, Malaysia, Mexico, Norway, Philippines, Russian Federation, Sweden, Thailand, Türkiye, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -523,7 +524,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:26:29.022530"
+    "last_updated": "2026-03-20T14:51:44.505073"
   },
   {
     "id": "Q25319",
@@ -578,7 +579,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "https://eol.org/pages/1228132",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -600,7 +601,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "The bald eagle occurs during its breeding season in virtually any kind of American wetland habitat such as seacoasts, rivers, large lakes or marshes or other large bodies of open water with an abundance of fish. Studies have shown a preference for bodies of water with a circumference greater than 11 km (7 mi), and lakes with an area greater than 10 km2 (4 sq mi) are optimal for breeding bald eagles. The bald eagle typically requires old-growth and mature stands of coniferous or hardwood trees for perching, roosting, and nesting. Tree species reportedly is less important to the eagle pair than the tree's height, composition and location. Perhaps of paramount importance for this species is an abundance of comparatively large trees surrounding the body of water. Selected trees must have good visibility, be over 20 m (66 ft) tall, an open structure, and proximity to prey. If nesting trees are in standing water such as in a mangrove swamp, the nest can be located fairly low, at as low as 6 m (20 ft) above the ground. In a more typical tree standing on dry ground, nests may be located from 16 to 38 m (52 to 125 ft) in height. In Chesapeake Bay, nesting trees averaged 82 cm (32 in) in diameter and 28 m (92 ft) in total height, while in Florida, the average nesting tree stands 23 m (75 ft) high and is 23 cm (9.1 in) in diameter. Trees used for nesting in the Greater Yellowstone area average 27 m (89 ft) high. Trees or forest used for nesting should have a canopy cover of no more than 60%, and no less than 20%, and be in close proximity to water. Most nests have been found within 200 m (660 ft) of open water. The greatest distance from open water recorded for a bald eagle nest was over 3 km (1.9 mi), in Florida. Bald eagle nests are often very large in order to compensate for size of the birds. The largest recorded nest was found in Florida in 1963, and was measured at 2.9 m (9.5 ft) wide and 6.1 m (20 ft) deep. In Florida, nesting habitats often consist of mangrove swamps, the shorelines of lakes and rivers, pinelands, seasonally flooded flatwoods, hardwood swamps, and open prairies and pastureland with scattered tall trees. Favored nesting trees in Florida are slash pines (Pinus elliottii), longleaf pines (P. palustris), loblolly pines (P. taeda) and cypress trees, but for the southern coastal areas where mangroves are usually used. In Wyoming, groves of mature cottonwoods or tall pines found along streams and rivers are typical bald eagle nesting habitats. Wyoming eagles may inhabit habitat types ranging from large, old-growth stands of ponderosa pines (Pinus ponderosa) to narrow strips of riparian trees surrounded by rangeland. In Southeast Alaska, Sitka spruce (Picea sitchensis) provided 78% of the nesting trees used by eagles, followed by hemlocks (Tsuga) at 20%. Increasingly, eagles nest near human-made reservoirs stocked with fish. The bald eagle is usually quite sensitive to human activity while nesting, and is found most commonly in areas with minimal human disturbance. It chooses sites more than 1.2 km (0.75 mi) from low-density human disturbance and more than 1.8 km (1.1 mi) from medium- to high-density human disturbance. However, bald eagles will occasionally nest in large estuaries or secluded groves within major cities, such as Hardtack Island on the Willamette River in Portland, Oregon, or John Heinz National Wildlife Refuge at Tinicum in Philadelphia, Pennsylvania, which are surrounded by a great quantity of human activity. Even more contrary to the usual sensitivity to disturbance, a family of bald eagles moved to the Harlem neighborhood in New York City in 2010. While wintering, bald eagles tend to be less habitat and disturbance sensitive. They will commonly congregate at spots with plentiful perches and waters with plentiful prey and (in northern climes) partially unfrozen waters. Alternately, non-breeding or wintering bald eagles, particularly in areas with a lack of human disturbance, spend their time in various upland, terrestrial habitats sometimes quite far away from waterways. In the northern half of North America (especially the interior portion), this terrestrial inhabitance by bald eagles tends to be especially prevalent because unfrozen water may not be accessible. Upland wintering habitats often consist of open habitats with concentrations of medium-sized mammals, such as prairies, meadows or tundra, or open forests with regular carrion access.",
+      "habitat": ". The bald eagle occurs during its breeding season in virtually any kind of American wetland habitat such as seacoasts, rivers, large lakes or marshes or other large bodies of open water with an abundance of fish. Studies have shown a preference for bodies of water with a circumference greater than 11 km (7 mi), and lakes with an area greater than 10 km2 (4 sq mi) are optimal for breeding bald eagles. The bald eagle typically requires old-growth and mature stands of coniferous or hardwood trees for perching, roosting, and nesting. Tree species reportedly is less important to the eagle pair than the tree's height, composition and location. Perhaps of paramount importance for this species is an abundance of comparatively large trees surrounding the body of water. Selected trees must have good visibility, be over 20 m (66 ft) tall, an open structure, and proximity to prey. If nesting trees are in standing water such as in a mangrove swamp, the nest can be located fairly low, at as low as 6 m (20 ft) above the ground. In a more typical tree standing on dry ground, nests may be located from 16 to 38 m (52 to 125 ft) in height. In Chesapeake Bay, nesting trees averaged 82 cm (32 in) in diameter and 28 m (92 ft) in total height, while in Florida, the average nesting tree stands 23 m (75 ft) high and is 23 cm (9.1 in) in diameter. Trees used for nesting in the Greater Yellowstone area average 27 m (89 ft) high. Trees or forest used for nesting should have a canopy cover of no more than 60%, and no less than 20%, and be in close proximity to water. Most nests have been found within 200 m (660 ft) of open water. The greatest distance from open water recorded for a bald eagle nest was over 3 km (1.9 mi), in Florida. Bald eagle nests are often very large in order to compensate for size of the birds. The largest recorded nest was found in Florida in 1963, and was measured at 2.9 m (9.5 ft) wide and 6.1 m (20 ft) deep. In Florida, nesting habitats often consist of mangrove swamps, the shorelines of lakes and rivers, pinelands, seasonally flooded flatwoods, hardwood swamps, and open prairies and pastureland with scattered tall trees. Favored nesting trees in Florida are slash pines (Pinus elliottii), longleaf pines (P. palustris), loblolly pines (P. taeda) and cypress trees, but for the southern coastal areas where mangroves are usually used. In Wyoming, groves of mature cottonwoods or tall pines found along streams and rivers are typical bald eagle nesting habitats. Wyoming eagles may inhabit habitat types ranging from large, old-growth stands of ponderosa pines (Pinus ponderosa) to narrow strips of riparian trees surrounded by rangeland. In Southeast Alaska, Sitka spruce (Picea sitchensis) provided 78% of the nesting trees used by eagles, followed by hemlocks (Tsuga) at 20%. Increasingly, eagles nest near human-made reservoirs stocked with fish. The bald eagle is usually quite sensitive to human activity while nesting, and is found most commonly in areas with minimal human disturbance. It chooses sites more than 1.2 km (0.75 mi) from low-density human disturbance and more than 1.8 km (1.1 mi) from medium- to high-density human disturbance. However, bald eagles will occasionally nest in large estuaries or secluded groves within major cities, such as Hardtack Island on the Willamette River in Portland, Oregon, or John Heinz National Wildlife Refuge at Tinicum in Philadelphia, Pennsylvania, which are surrounded by a great quantity of human activity. Even more contrary to the usual sensitivity to disturbance, a family of bald eagles moved to the Harlem neighborhood in New York City in 2010. While wintering, bald eagles tend to be less habitat and disturbance sensitive. They will commonly congregate at spots with plentiful perches and waters with plentiful prey and (in northern climes) partially unfrozen waters. Alternately, non-breeding or wintering bald eagles, particularly in areas with a lack of human disturbance, spend their time in various upland, terrestrial habitats sometimes quite far away from waterways. In the northern half of North America (especially the interior portion), this terrestrial inhabitance by bald eagles tends to be especially prevalent because unfrozen water may not be accessible. Upland wintering habitats often consist of open habitats with concentrations of medium-sized mammals, such as prairies, meadows or tundra, or open forests with regular carrion access.",
       "locations": "Canada, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -645,10 +646,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T14:26:37.434764"
+    "last_updated": "2026-03-20T14:52:07.077837"
   },
   {
     "id": "Q43306",
@@ -726,7 +726,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "The emperor penguin has a circumpolar distribution in the Antarctic almost exclusively between the 66° and 77° south latitudes. It almost always breeds on stable pack ice near the coast and up to 18 km (11 mi) offshore. Breeding colonies are usually in areas where ice cliffs and icebergs provide some protection from the wind. Three land colonies have been reported: one (now disappeared) on a shingle spit at the Dion Islands on the Antarctic Peninsula, one on a headland at Taylor Glacier in Victoria Land, and most recently one at Amundsen Bay. Since 2009, a number of colonies have been reported on shelf ice rather than sea ice, in some cases moving to the shelf in years when sea ice forms late. The northernmost breeding population is on Snow Hill Island, near the northern tip of the Peninsula. Individual vagrants have been seen on Heard Island, South Georgia, and occasionally in New Zealand. The furthest north a vagrant has been recorded was in Denmark, Western Australia in November 2024. This individual, which is believed to have originated from eastern Antarctica, was encountered by a group of surfers shortly after it arrived in Denmark, and was taken in by conservationists at the Department of Biodiversity, Conservation and Attractions to have its condition evaluated. In 2009, the total population of emperor penguins was estimated to be at around 595,000 adult birds, in 46 known colonies spread around the Antarctic and sub-Antarctic; around 35% of the known population lives north of the Antarctic Circle. Major breeding colonies were located at Cape Washington, Coulman Island in Victoria Land, Halley Bay, Cape Colbeck, and Dibble Glacier. Colonies are known to fluctuate over time, often breaking into \"suburbs\" which move apart from the parent group, and some have been known to disappear entirely. The Cape Crozier colony on the Ross Sea shrank drastically between the first visits by the Discovery Expedition in 1902–03 and the later visits by the Terra Nova Expedition in 1910–11; it was reduced to a few hundred birds, and may have come close to extinction due to changes in the position of the ice shelf. By the 1960s it had rebounded dramatically, but by 2009 was again reduced to a small population of around 300.",
+      "habitat": ". The emperor penguin has a circumpolar distribution in the Antarctic almost exclusively between the 66° and 77° south latitudes. It almost always breeds on stable pack ice near the coast and up to 18 km (11 mi) offshore. Breeding colonies are usually in areas where ice cliffs and icebergs provide some protection from the wind. Three land colonies have been reported: one (now disappeared) on a shingle spit at the Dion Islands on the Antarctic Peninsula, one on a headland at Taylor Glacier in Victoria Land, and most recently one at Amundsen Bay. Since 2009, a number of colonies have been reported on shelf ice rather than sea ice, in some cases moving to the shelf in years when sea ice forms late. The northernmost breeding population is on Snow Hill Island, near the northern tip of the Peninsula. Individual vagrants have been seen on Heard Island, South Georgia, and occasionally in New Zealand. The furthest north a vagrant has been recorded was in Denmark, Western Australia in November 2024. This individual, which is believed to have originated from eastern Antarctica, was encountered by a group of surfers shortly after it arrived in Denmark, and was taken in by conservationists at the Department of Biodiversity, Conservation and Attractions to have its condition evaluated. In 2009, the total population of emperor penguins was estimated to be at around 595,000 adult birds, in 46 known colonies spread around the Antarctic and sub-Antarctic; around 35% of the known population lives north of the Antarctic Circle. Major breeding colonies were located at Cape Washington, Coulman Island in Victoria Land, Halley Bay, Cape Colbeck, and Dibble Glacier. Colonies are known to fluctuate over time, often breaking into \"suburbs\" which move apart from the parent group, and some have been known to disappear entirely. The Cape Crozier colony on the Ross Sea shrank drastically between the first visits by the Discovery Expedition in 1902–03 and the later visits by the Terra Nova Expedition in 1910–11; it was reduced to a few hundred birds, and may have come close to extinction due to changes in the position of the ice shelf. By the 1960s it had rebounded dramatically, but by 2009 was again reduced to a small population of around 300.",
       "locations": "Antarctica",
       "group_behavior": "Colony",
       "conservation_status": "Endangered",
@@ -772,7 +772,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:26:52.575442"
+    "last_updated": "2026-03-20T14:52:22.864375"
   },
   {
     "id": "Q47164",
@@ -828,7 +828,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46559751",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -850,7 +850,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "White sharks range from tropical to temperate and even colder waters around the world, with major populations in the northwestern and northeastern Pacific, western North Atlantic, the Mediterranean, southern African waters and Oceania. It is also present near the coasts of South America, but appears to be uncommon. Shark expert Greg Skomal lists the Farallon Islands, California, Guadalupe Island, Mexico, Cape Cod, Massachusetts, Western Cape, South Africa, Neptune Islands, Australia, and both Stewart Island and the Chatham Islands, New Zealand as major coastal feeding aggregations. Researchers have also identified an offshore feeding aggregation between western North America and Hawaii dubbed the White Shark Café. White sharks can be found both along the coast and in the open ocean. They are typically close to the surface, but may dive to depths of up to 1,300 m (4,300 ft). Deeper dives are more common in the open ocean. Coastal habitats used include nearshore archipelagos, offshore reefs, banks and shoals, and headlands. A 2018 study indicated that white sharks will congregate in anticyclonic eddies in the open ocean. Juvenile white sharks are more limited to shallow coastal waters with temperatures between 14 and 24 °C (57 and 75 °F). Increased sightings of young sharks in areas they were not previously common, such as Monterey Bay on the central California coast, suggest climate change may be forcing juveniles closer to the poles.",
+      "habitat": ". White sharks range from tropical to temperate and even colder waters around the world, with major populations in the northwestern and northeastern Pacific, western North Atlantic, the Mediterranean, southern African waters and Oceania. It is also present near the coasts of South America, but appears to be uncommon. Shark expert Greg Skomal lists the Farallon Islands, California, Guadalupe Island, Mexico, Cape Cod, Massachusetts, Western Cape, South Africa, Neptune Islands, Australia, and both Stewart Island and the Chatham Islands, New Zealand as major coastal feeding aggregations. Researchers have also identified an offshore feeding aggregation between western North America and Hawaii dubbed the White Shark Café. White sharks can be found both along the coast and in the open ocean. They are typically close to the surface, but may dive to depths of up to 1,300 m (4,300 ft). Deeper dives are more common in the open ocean. Coastal habitats used include nearshore archipelagos, offshore reefs, banks and shoals, and headlands. A 2018 study indicated that white sharks will congregate in anticyclonic eddies in the open ocean. Juvenile white sharks are more limited to shallow coastal waters with temperatures between 14 and 24 °C (57 and 75 °F). Increased sightings of young sharks in areas they were not previously common, such as Monterey Bay on the central California coast, suggest climate change may be forcing juveniles closer to the poles.",
       "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -901,9 +901,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T14:27:08.607627"
+    "last_updated": "2026-03-20T14:52:42.202073"
   },
   {
     "id": "Q39709",
@@ -981,7 +982,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "The natural breeding grounds of Atlantic salmon are rivers in Europe and the northeastern coast of North America. In Europe, Atlantic salmon are still found as far south as Spain, and as far northeast as the Pechora River in Russia. Atlantic salmon have spread north to colonise Svalbard (78°N) from 2002–2006 onward, due to the warming of the climate there. Because of sport-fishing, some of the species' southern populations in northern Spain are growing smaller. The species distribution is easily influenced by changes in freshwater habitat and climate. Atlantic salmon are a cold-water fish species and are particularly sensitive to changes in water temperature. The Housatonic River, and its Naugatuck River tributary, hosted the southernmost Atlantic salmon spawning runs in the United States. However, there is a 1609 account by Henry Hudson that Atlantic salmon once ran up the Hudson River. In addition, fish scale evidence dating to 10,000 years BP places Atlantic salmon in a coastal New Jersey pond. Two publications from 1988 and 1996 questioned the notion that Atlantic salmon were prehistorically plentiful in New England, when the climate was warmer as it is now. This argument was primarily based on a paucity of bone data in archaeological sites relative to other fish species, and the assertion that historical claims of abundance may have been exaggerated. This argument was later challenged in another paper which claimed that lack of archaeological bone fragments could be explained by salmon bones being rare at sites that still have large salmon runs and that salmonid bones in general are poorly recovered relative to other fish species. Atlantic salmon populations were significantly reduced in the United States following European settlement. The fur trade, timber harvesting, dams and mills and agriculture degraded freshwater habitats and lowered the carrying capacity of most North American streams. Beaver populations were trapped to near-extinction by 1800, and log drives and clear-cutting further exacerbated stream erosion and habitat loss. As timber and fur gave way to agriculture, freshwater Atlantic salmon habitat was further compromised. According to historian D.W. Dunfield (1985) \"over half of the historical Atlantic salmon runs had been lost in North America by 1850\". As early as 1798, a bill for the preservation of Atlantic Salmon was introduced in Canadian Parliament, to protect populations in Lake Ontario. In the Gulf Region of Nova Scotia it was reported that 31 of the 33 Atlantic salmon streams were blocked off by lumber dams, leading to the extirpation of early-run fish in many watersheds. The inshore Atlantic salmon fishery became a major export of the New World, with major fishing operations establishing along the shores of major river systems. The southernmost populations were the first to disappear.[citation needed] Young salmon spend one to four years in their natal river. When they are large enough (c. 15 centimetres (5.9 in)), they smoltify, changing camouflage from stream-adapted with large, gray spots to sea-adapted with shiny sides. They also undergo some endocrinological changes to adapt to osmotic differences between fresh water and seawater habitat. When smoltification is complete, the parr (young fish) now begin to swim with the current instead of against it. With this behavioural change, the fish are now referred to as smolt. When the smolt reach the sea, they follow sea surface currents and feed on plankton or fry from other fish species such as herring. During their time at sea, they can sense the change in the Earth magnetic field through iron in their lateral line.[citation needed] When they have had a year of good growth, they will move to the sea surface currents that transport them back to their natal river. It is a major misconception that salmon swim thousands of kilometres at sea; instead they surf through sea surface currents.[citation needed] It is possible they find their natal river by smell, although this is not confirmed; only 5% of Atlantic salmon go up the wrong river.[citation needed] The range of an individual Atlantic salmon can thus be the river where they are born and the sea surface currents that are connected to that river in a circular path.[citation needed] Wild salmon continued to disappear from many rivers during the twentieth century due to overfishing and habitat change.",
+      "habitat": ". The natural breeding grounds of Atlantic salmon are rivers in Europe and the northeastern coast of North America. In Europe, Atlantic salmon are still found as far south as Spain, and as far northeast as the Pechora River in Russia. Atlantic salmon have spread north to colonise Svalbard (78°N) from 2002–2006 onward, due to the warming of the climate there. Because of sport-fishing, some of the species' southern populations in northern Spain are growing smaller. The species distribution is easily influenced by changes in freshwater habitat and climate. Atlantic salmon are a cold-water fish species and are particularly sensitive to changes in water temperature. The Housatonic River, and its Naugatuck River tributary, hosted the southernmost Atlantic salmon spawning runs in the United States. However, there is a 1609 account by Henry Hudson that Atlantic salmon once ran up the Hudson River. In addition, fish scale evidence dating to 10,000 years BP places Atlantic salmon in a coastal New Jersey pond. Two publications from 1988 and 1996 questioned the notion that Atlantic salmon were prehistorically plentiful in New England, when the climate was warmer as it is now. This argument was primarily based on a paucity of bone data in archaeological sites relative to other fish species, and the assertion that historical claims of abundance may have been exaggerated. This argument was later challenged in another paper which claimed that lack of archaeological bone fragments could be explained by salmon bones being rare at sites that still have large salmon runs and that salmonid bones in general are poorly recovered relative to other fish species. Atlantic salmon populations were significantly reduced in the United States following European settlement. The fur trade, timber harvesting, dams and mills and agriculture degraded freshwater habitats and lowered the carrying capacity of most North American streams. Beaver populations were trapped to near-extinction by 1800, and log drives and clear-cutting further exacerbated stream erosion and habitat loss. As timber and fur gave way to agriculture, freshwater Atlantic salmon habitat was further compromised. According to historian D.W. Dunfield (1985) \"over half of the historical Atlantic salmon runs had been lost in North America by 1850\". As early as 1798, a bill for the preservation of Atlantic Salmon was introduced in Canadian Parliament, to protect populations in Lake Ontario. In the Gulf Region of Nova Scotia it was reported that 31 of the 33 Atlantic salmon streams were blocked off by lumber dams, leading to the extirpation of early-run fish in many watersheds. The inshore Atlantic salmon fishery became a major export of the New World, with major fishing operations establishing along the shores of major river systems. The southernmost populations were the first to disappear.[citation needed] Young salmon spend one to four years in their natal river. When they are large enough (c. 15 centimetres (5.9 in)), they smoltify, changing camouflage from stream-adapted with large, gray spots to sea-adapted with shiny sides. They also undergo some endocrinological changes to adapt to osmotic differences between fresh water and seawater habitat. When smoltification is complete, the parr (young fish) now begin to swim with the current instead of against it. With this behavioural change, the fish are now referred to as smolt. When the smolt reach the sea, they follow sea surface currents and feed on plankton or fry from other fish species such as herring. During their time at sea, they can sense the change in the Earth magnetic field through iron in their lateral line.[citation needed] When they have had a year of good growth, they will move to the sea surface currents that transport them back to their natal river. It is a major misconception that salmon swim thousands of kilometres at sea; instead they surf through sea surface currents.[citation needed] It is possible they find their natal river by smell, although this is not confirmed; only 5% of Atlantic salmon go up the wrong river.[citation needed] The range of an individual Atlantic salmon can thus be the river where they are born and the sea surface currents that are connected to that river in a circular path.[citation needed] Wild salmon continued to disappear from many rivers during the twentieth century due to overfishing and habitat change.",
       "locations": "Canada, France, Netherlands, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -1027,7 +1028,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:27:25.082219"
+    "last_updated": "2026-03-20T14:52:58.294306"
   },
   {
     "id": "Q7785",
@@ -1105,7 +1106,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "Green sea turtles move across three habitat types, depending on their life stage. They lay eggs on beaches. Mature turtles spend most of their time in shallow, coastal waters with lush seagrass beds. Adults frequent inshore bays, lagoons, and shoals with lush seagrass meadows. Entire generations often migrate between one pair of feeding and nesting areas. Green sea turtles, Chelonia mydas, are classified as an aquatic species and are distributed around the globe in warm tropical to subtropical waters. The environmental parameter that limits the distribution of the turtles is ocean temperatures below 7 to 10 degrees Celsius. Within their geographical range, the green sea turtles generally stay near continental and island coastlines. Near the coastlines, the green sea turtles live within shallow bays and protected shores. In these protected shores and bays, the green sea turtle habitats include coral reefs, salt marshes, and nearshore seagrass beds. The coral reefs provide red, brown, and green algae for their diet and give protection from predators and rough storms within the ocean. The salt marshes and seagrass beds contain seaweed and grass vegetation, allowing ample habitat for the sea turtles. Turtles spend most of their first five years in convergence zones within the bare open ocean that surround them. These young turtles are rarely seen as they swim in deep, pelagic waters. Green sea turtles typically swim at 2.5–3 km/h (1.6–1.9 mph).",
+      "habitat": ". Green sea turtles move across three habitat types, depending on their life stage. They lay eggs on beaches. Mature turtles spend most of their time in shallow, coastal waters with lush seagrass beds. Adults frequent inshore bays, lagoons, and shoals with lush seagrass meadows. Entire generations often migrate between one pair of feeding and nesting areas. Green sea turtles, Chelonia mydas, are classified as an aquatic species and are distributed around the globe in warm tropical to subtropical waters. The environmental parameter that limits the distribution of the turtles is ocean temperatures below 7 to 10 degrees Celsius. Within their geographical range, the green sea turtles generally stay near continental and island coastlines. Near the coastlines, the green sea turtles live within shallow bays and protected shores. In these protected shores and bays, the green sea turtle habitats include coral reefs, salt marshes, and nearshore seagrass beds. The coral reefs provide red, brown, and green algae for their diet and give protection from predators and rough storms within the ocean. The salt marshes and seagrass beds contain seaweed and grass vegetation, allowing ample habitat for the sea turtles. Turtles spend most of their first five years in convergence zones within the bare open ocean that surround them. These young turtles are rarely seen as they swim in deep, pelagic waters. Green sea turtles typically swim at 2.5–3 km/h (1.6–1.9 mph).",
       "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
@@ -1171,7 +1172,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:27:41.455589"
+    "last_updated": "2026-03-20T14:53:15.010130"
   },
   {
     "id": "Q189609",
@@ -1248,7 +1249,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "The king cobra has a wide distribution throughout tropical Asia. It occurs in elevations of 2,000 m (6,600 ft) from the Terai in India and southern Nepal to the Brahmaputra River basin in Bhutan and northeast India, down to Bangladesh, Myanmar, southern China, Cambodia, Thailand, Laos, Vietnam; to the maritime Southeast Asian countries of Malaysia, Singapore, Indonesia and the Philippines. In northern India, it has been recorded in Garhwal and Kumaon, and in the Sivalik hills and terai regions of Uttarakhand and Uttar Pradesh. In northeast India, the king cobra has been recorded in northern West Bengal, Sikkim, Assam, Meghalaya, Arunachal Pradesh, Nagaland, Manipur and Mizoram. In the Eastern Ghats, it occurs from Tamil Nadu and Andhra Pradesh to coastal Odisha, and also in Bihar and southern West Bengal, especially the Sundarbans. In the Western Ghats, it was recorded in Kerala, Karnataka and Maharashtra, and also in Gujarat. It also occurs on Baratang Island in the Great Andaman chain. It may have reached the furthest west of its distributional range in extreme western India and eastern Pakistan, in the vicinity of Lahore and Palanpur. These populations have sometimes been thought to be the result of introduction by snake charmers or transport along rivers, but are now more likely considered natural populations. However, it remains uncertain if any populations continue to persist there.",
+      "habitat": ". The king cobra has a wide distribution throughout tropical Asia. It occurs in elevations of 2,000 m (6,600 ft) from the Terai in India and southern Nepal to the Brahmaputra River basin in Bhutan and northeast India, down to Bangladesh, Myanmar, southern China, Cambodia, Thailand, Laos, Vietnam; to the maritime Southeast Asian countries of Malaysia, Singapore, Indonesia and the Philippines. In northern India, it has been recorded in Garhwal and Kumaon, and in the Sivalik hills and terai regions of Uttarakhand and Uttar Pradesh. In northeast India, the king cobra has been recorded in northern West Bengal, Sikkim, Assam, Meghalaya, Arunachal Pradesh, Nagaland, Manipur and Mizoram. In the Eastern Ghats, it occurs from Tamil Nadu and Andhra Pradesh to coastal Odisha, and also in Bihar and southern West Bengal, especially the Sundarbans. In the Western Ghats, it was recorded in Kerala, Karnataka and Maharashtra, and also in Gujarat. It also occurs on Baratang Island in the Great Andaman chain. It may have reached the furthest west of its distributional range in extreme western India and eastern Pakistan, in the vicinity of Lahore and Palanpur. These populations have sometimes been thought to be the result of introduction by snake charmers or transport along rivers, but are now more likely considered natural populations. However, it remains uncertain if any populations continue to persist there.",
       "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
       "group_behavior": "Pairs",
       "conservation_status": "Vulnerable",
@@ -1303,7 +1304,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:27:55.955292"
+    "last_updated": "2026-03-20T14:53:29.901617"
   },
   {
     "id": "Q270238",
@@ -1380,7 +1381,7 @@
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "",
+      "habitat": ". The bullfrog is originally native to eastern North America, where it is commonly found in every U.S. state east of the Mississippi River. Its natural range extends from the eastern Canadian Maritime Provinces to as far west as Idaho and Texas, and as far north as Michigan (including the Upper Peninsula), Minnesota and Montana; it is largely absent in North Dakota. Within North America, the bullfrog has been introduced to Nantucket island, as well as portions of the western U.S., including Arizona, California, Colorado, Idaho, Nevada, New Mexico, Oregon, Utah, Washington and Wyoming. In these states, it is considered to be an invasive species, as concerns exist that it may outcompete or prey upon native species of reptiles and amphibians, disrupting the delicate ecological balance of certain areas. It is very common on the West Coast, especially in California, where it is believed to pose a threat to the California red-legged frog, and is considered to be a factor in the decline of that vulnerable species. Bullfrogs have been found to feed on the young of several snakes, including the California endemic giant garter snake, a threatened species. In early 2023, the Utah Department of Natural Resources began tweeting tips on how to catch and cook bullfrogs in an effort to encourage residents to help control the growing population by catching the invasive frogs for food. The bullfrog has also been introduced to Hawaii, South America, Asia, the Caribbean, and Europe for various purposes including frog farming and population control of other species. Specifically, the bullfrog has been introduced to the extreme south of British Columbia, Canada, nearly every state in Mexico, as well as Belgium, Cuba, the Dominican Republic, Haiti, Italy, Jamaica, the Netherlands, and Puerto Rico. It is also found in Argentina, Brazil, China, Colombia, Japan, South Korea, Uruguay and Venezuela. The reasons for introducing the bullfrog to these areas have largely been intentional, either to provide humans with a source of food or as biological control agents. In addition, the unintended escape of frogs from breeding establishments or scientific research facilities, captive escapees or released pets are also a possibility. Conservationists are concerned that the bullfrog is relatively immune to the fungal infection chytridiomycosis (also called 'chytrid' fungus) which has been ravaging numerous frog species: as it invades new territories, it may assist in the spread of this lethal fungus as an asymptomatic carrier, spreading the fungus to more susceptible, native species of frog it encounters.",
       "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -1402,7 +1403,7 @@
       "group": "group",
       "number_of_species": "two",
       "estimated_population_size": "",
-      "most_distinctive_feature": "among North American ranids in the inclusion of a large percentage of aquatic animals, such as fish,"
+      "most_distinctive_feature": "olive-green background color"
     },
     "distribution": {
       "countries": [
@@ -1429,7 +1430,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:28:11.085636"
+    "last_updated": "2026-03-20T14:53:45.845112"
   },
   {
     "id": "Q165980",
@@ -1557,7 +1558,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:28:32.495118"
+    "last_updated": "2026-03-20T14:54:15.198949"
   },
   {
     "id": "Q7316",
@@ -1635,7 +1636,7 @@
     },
     "ecology": {
       "diet": "Herbivore",
-      "habitat": "Sheltered forests and meadows",
+      "habitat": ". All honey bees are nectarivorous pollinators native to mainland Afro-Eurasia, but human migrations and colonizations to the New World since the Age of Discovery have been responsible for the introduction of multiple subspecies of the western honey bee into South America (early 16th century), North America (early 17th century) and Australia (early 19th century), resulting in the current cosmopolitan distribution of honey bees in all continents except Antarctica. Honey bees appear to have their center of origin in South and Southeast Asia (including the Philippines), as all the extant species except Apis mellifera are native to that region. Notably, living representatives of the earliest lineages to diverge (Apis florea and Apis andreniformis) have their center of origin there. The first Apis bees appear in the fossil record at the Eocene–Oligocene boundary (34 mya), in European deposits. The origin of these prehistoric honey bees does not necessarily indicate Europe as the place of origin of the genus, only that the bees were present in Europe by that time. Few fossil deposits are known from South Asia, the suspected region of honey bee origin, and fewer still have been thoroughly studied. No Apis species existed in the New World during human times before the introduction of A. mellifera by Europeans. Only one fossil species is documented from the New World, Apis nearctica, known from a single 14 million-year-old specimen from Nevada. The close relatives of modern honey bees—e.g., bumblebees and stingless bees—are also social to some degree, and social behavior is considered to be a trait that predates the origin of the genus. Among the extant members of Apis, the more basal species make single, exposed combs, while the more recently evolved species nest in cavities and have multiple combs, which has greatly facilitated their domestication.",
       "locations": "Argentina, Australia, Brazil, Canada, Chinese Taipei, Dominican Republic, Ecuador, Egypt, France, Greece, Grenada, Guatemala, Israel, Martinique, Mexico, New Caledonia, New Zealand, Peru, Portugal, Puerto Rico, Saint Vincent and the Grenadines, Spain, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -1701,6 +1702,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T14:28:54.391540"
+    "last_updated": "2026-03-20T14:54:36.105911"
   }
 ]

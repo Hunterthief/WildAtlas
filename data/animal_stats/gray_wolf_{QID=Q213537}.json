@@ -72,7 +72,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Wolves occur across Eurasia and North America. However, deliberate human persecution because of livestock predation and fear of attacks on humans has reduced the wolf's range to about one-third of its historic range; the wolf is now extirpated (locally extinct) from much of its range in Western Europe, the United States and Mexico, and completely in the British Isles and Japan. In modern times, the wolf occurs mostly in wilderness and remote areas. The wolf can be found between sea level and 3,000 m (9,800 ft). Wolves live in forests, inland wetlands, shrublands, grasslands (including Arctic tundra), pastures, deserts, and rocky peaks on mountains. Habitat use by wolves depends on the abundance of prey, snow conditions, livestock densities, road densities, human presence and topography.",
+    "habitat": ". Wolves occur across Eurasia and North America. However, deliberate human persecution because of livestock predation and fear of attacks on humans has reduced the wolf's range to about one-third of its historic range; the wolf is now extirpated (locally extinct) from much of its range in Western Europe, the United States and Mexico, and completely in the British Isles and Japan. In modern times, the wolf occurs mostly in wilderness and remote areas. The wolf can be found between sea level and 3,000 m (9,800 ft). Wolves live in forests, inland wetlands, shrublands, grasslands (including Arctic tundra), pastures, deserts, and rocky peaks on mountains. Habitat use by wolves depends on the abundance of prey, snow conditions, livestock densities, road densities, human presence and topography.",
     "locations": "Australia, Belgium, Canada, China, Costa Rica, Denmark, Egypt, Germany, Greece, India, Indonesia, Israel, Italy, Jamaica, Malaysia, Mexico, Norway, Philippines, Russian Federation, Sweden, Thailand, Türkiye, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
@@ -137,5 +137,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T14:26:29.022530"
+  "last_updated": "2026-03-20T14:51:44.505073"
 }
