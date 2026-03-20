@@ -124,7 +124,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:03:36.730918"
+    "last_updated": "2026-03-20T12:13:27.049368"
   },
   {
     "id": "Q35625",
@@ -252,7 +252,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:03:52.223555"
+    "last_updated": "2026-03-20T12:13:42.635404"
   },
   {
     "id": "Q7372",
@@ -382,7 +382,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:04:06.900997"
+    "last_updated": "2026-03-20T12:13:58.066615"
   },
   {
     "id": "Q213537",
@@ -436,7 +436,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-    "eol_url": "https://eol.org/pages/1268606",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -521,10 +521,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T12:04:26.297681"
+    "last_updated": "2026-03-20T12:14:15.378392"
   },
   {
     "id": "Q25319",
@@ -594,7 +593,7 @@
     "group_name": "flock",
     "physical": {
       "weight": "6.6-14lbs",
-      "length": "34–38 cm",
+      "length": "11 cm",
       "height": "28-38 inches",
       "top_speed": "100 mph",
       "lifespan": "15-20 years in the wild"
@@ -648,7 +647,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:04:43.071193"
+    "last_updated": "2026-03-20T12:14:33.147803"
   },
   {
     "id": "Q43306",
@@ -704,7 +703,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
     "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-    "eol_url": "https://eol.org/pages/45512074",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -770,10 +769,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T12:04:49.875538"
+    "last_updated": "2026-03-20T12:14:49.095162"
   },
   {
     "id": "Q47164",
@@ -904,7 +902,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:05:06.802520"
+    "last_updated": "2026-03-20T12:15:05.991917"
   },
   {
     "id": "Q39709",
@@ -960,7 +958,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "https://eol.org/pages/46563143",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1026,10 +1024,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T12:05:26.465621"
+    "last_updated": "2026-03-20T12:15:22.394384"
   },
   {
     "id": "Q7785",
@@ -1085,7 +1082,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-    "eol_url": "https://eol.org/pages/46559469",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1171,10 +1168,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T12:05:41.484854"
+    "last_updated": "2026-03-20T12:15:39.479561"
   },
   {
     "id": "Q189609",
@@ -1306,7 +1302,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:05:55.942734"
+    "last_updated": "2026-03-20T12:15:54.334430"
   },
   {
     "id": "Q270238",
@@ -1432,7 +1428,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:06:12.762862"
+    "last_updated": "2026-03-20T12:16:10.040191"
   },
   {
     "id": "Q165980",
@@ -1560,7 +1556,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:06:32.631791"
+    "last_updated": "2026-03-20T12:16:31.412558"
   },
   {
     "id": "Q7316",
@@ -1704,6 +1700,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:06:49.164503"
+    "last_updated": "2026-03-20T12:16:52.859092"
   }
 ]
