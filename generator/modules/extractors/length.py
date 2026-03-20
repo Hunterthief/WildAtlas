@@ -1,6 +1,6 @@
 """
-Length extraction module - PRODUCTION v4
-Fixed: Reject shoulder height, better cheetah/elephant patterns, bee support
+Length extraction module - PRODUCTION v5
+Fixed: Better shoulder rejection, cheetah/elephant patterns, bee mm support
 Based on analysis of 13 animal Wikipedia articles
 """
 import re
@@ -129,14 +129,21 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         'typically', 'average', 'usually', 'about'
     ]
     
-    # REJECT keywords - CRITICAL: Reject shoulder/at shoulder for length!
+    # REJECT keywords - EXPANDED shoulder rejection
     reject_keywords = [
         'temporal range', 'million years', 'ma ', 'mya',
         'wingspan', 'wing span', 'wing length',
         'egg length', 'nest length', 'colony length',
         'population size',
-        'at the shoulder', 'shoulder height', 'shoulder'  # ← CRITICAL: Reject shoulder data!
+        'at the shoulder', 'shoulder height', 'shoulder',
+        'tall at the shoulder', 'height at shoulder'
     ]
+    
+    # CRITICAL: Check for shoulder context more aggressively
+    if 'shoulder' in text_lower:
+        # If text mentions shoulder, it's likely height not length
+        if any(kw in text_lower for kw in ['at the', 'tall', 'height', 'stands']):
+            return False
     
     # SPECIAL: For butterflies/bees/eagles, reject wingspan as "length"
     animal_lower = animal_name.lower() if animal_name else ""
@@ -302,17 +309,29 @@ LENGTH_PATTERNS = [
     },
     
     # =========================================================================
-    # TIER 7: Small Animals (Bees, Insects)
+    # TIER 7: Small Animals (Bees, Insects) - IMPROVED mm support
     # =========================================================================
     {
         # "10-15 mm long" (bees)
-        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(mm|cm)\s+long',
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(mm)\s+long',
         'priority': 7,
         'format': 'range'
     },
     {
         # "about 12 mm" (bees)
-        'pattern': r'(?:about|approximately|around)\s+(\d+(?:[.,]\d+)?)\s*(mm|cm)\s+(?:long|in length)',
+        'pattern': r'(?:about|approximately|around)\s+(\d+(?:[.,]\d+)?)\s*(mm)\s+(?:long|in length)',
+        'priority': 7,
+        'format': 'single'
+    },
+    {
+        # "12 mm in length" (bees)
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(mm)\s+in\s+length',
+        'priority': 7,
+        'format': 'single'
+    },
+    {
+        # "measures 12 mm" (bees)
+        'pattern': r'measur(?:es|ing)\s+(\d+(?:[.,]\d+)?)\s*(mm)',
         'priority': 7,
         'format': 'single'
     },
