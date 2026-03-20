@@ -159,7 +159,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:47:24.419918"
+    "last_updated": "2026-03-20T01:55:56.339526"
   },
   {
     "id": "Q35625",
@@ -327,7 +327,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:47:32.473776"
+    "last_updated": "2026-03-20T01:56:02.316934"
   },
   {
     "id": "Q7372",
@@ -487,7 +487,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:47:39.225798"
+    "last_updated": "2026-03-20T01:56:08.092701"
   },
   {
     "id": "Q213537",
@@ -544,7 +544,7 @@
     "wikipedia_url": "",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
     "eol_url": "https://eol.org/pages/1268606",
-    "gbif_key": 165635866,
+    "gbif_key": 162653743,
     "wikipedia_sections": {
       "etymology": " The English \"wolf\" stems from the Old English wulf, which is itself derived from the Proto-Germanic *wulfaz. The Proto-Indo-European root *wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic *lúkʷos).[5][6] The name \"grey wolf\" refers to the greyish colour of the species.[7] Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names. Examples include Wulfhere (\"Wolf Army\"), Cynewulf (\"Royal Wolf\"), Cēnwulf (\"Bold Wolf\"), Wulfheard (\"Wolf-hard\"), Earnwulf (\"Eagle Wolf\"), Wulfstān (\"Wolf Stone\") Æðelwulf (\"Noble Wolf\"), Wolfhroc (\"Wolf-Frock\"), Wolfhetan (\"Wolf Hide\"), Scrutolf (\"Garb Wolf\"), Wolfgang (\"Wolf Gait\") and Wolfdregil (\"Wolf Runner\").[8]",
       "taxonomy": " Grey wolf Coyote African wolf Ethiopian wolf Golden jackal Dhole African wild dog Side-striped jackal Black-backed jackal In 1758, the Swedish botanist and zoologist Carl Linnaeus published in his Systema Naturae the binomial nomenclature.[3] Canis is the Latin word meaning \"dog\",[10] and under this genus he listed the doglike carnivores including domestic dogs, wolves, and jackals. He classified the domestic dog as Canis familiaris, and the wolf as Canis lupus.[3] Linnaeus considered the dog to be a separate species from the wolf because of its \"cauda recurvata\" (upturning tail) which is not found in any other canid.[11]",
@@ -670,7 +670,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:47:47.926914"
+    "last_updated": "2026-03-20T01:56:15.251187"
   },
   {
     "id": "Q25319",
@@ -830,7 +830,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:47:58.422495"
+    "last_updated": "2026-03-20T01:56:23.603622"
   },
   {
     "id": "Q43306",
@@ -980,7 +980,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:48:06.113088"
+    "last_updated": "2026-03-20T01:56:30.071814"
   },
   {
     "id": "Q47164",
@@ -1151,7 +1151,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:48:14.473708"
+    "last_updated": "2026-03-20T01:56:36.857458"
   },
   {
     "id": "Q39709",
@@ -1311,7 +1311,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:48:23.414708"
+    "last_updated": "2026-03-20T01:56:44.797627"
   },
   {
     "id": "Q7785",
@@ -1487,7 +1487,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:48:35.318563"
+    "last_updated": "2026-03-20T01:56:53.698010"
   },
   {
     "id": "Q189609",
@@ -1644,7 +1644,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:48:42.199119"
+    "last_updated": "2026-03-20T01:56:59.272860"
   },
   {
     "id": "Q270238",
@@ -1791,7 +1791,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:48:49.690482"
+    "last_updated": "2026-03-20T01:57:05.474975"
   },
   {
     "id": "Q165980",
@@ -1965,7 +1965,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:49:05.277118"
+    "last_updated": "2026-03-20T01:57:21.793222"
   },
   {
     "id": "Q7316",
@@ -2165,6 +2165,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T01:49:16.297851"
+    "last_updated": "2026-03-20T01:57:31.105430"
   }
 ]

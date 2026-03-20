@@ -53,7 +53,7 @@
   "wikipedia_url": "",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
   "eol_url": "https://eol.org/pages/1268606",
-  "gbif_key": 165635866,
+  "gbif_key": 162653743,
   "wikipedia_sections": {
     "etymology": " The English \"wolf\" stems from the Old English wulf, which is itself derived from the Proto-Germanic *wulfaz. The Proto-Indo-European root *wĺ̥kʷos is also the source of the Latin word for the animal lupus (from Proto-Italic *lúkʷos).[5][6] The name \"grey wolf\" refers to the greyish colour of the species.[7] Since pre-Christian times, Germanic peoples such as the Anglo-Saxons took on wulf as a prefix or suffix in their names. Examples include Wulfhere (\"Wolf Army\"), Cynewulf (\"Royal Wolf\"), Cēnwulf (\"Bold Wolf\"), Wulfheard (\"Wolf-hard\"), Earnwulf (\"Eagle Wolf\"), Wulfstān (\"Wolf Stone\") Æðelwulf (\"Noble Wolf\"), Wolfhroc (\"Wolf-Frock\"), Wolfhetan (\"Wolf Hide\"), Scrutolf (\"Garb Wolf\"), Wolfgang (\"Wolf Gait\") and Wolfdregil (\"Wolf Runner\").[8]",
     "taxonomy": " Grey wolf Coyote African wolf Ethiopian wolf Golden jackal Dhole African wild dog Side-striped jackal Black-backed jackal In 1758, the Swedish botanist and zoologist Carl Linnaeus published in his Systema Naturae the binomial nomenclature.[3] Canis is the Latin word meaning \"dog\",[10] and under this genus he listed the doglike carnivores including domestic dogs, wolves, and jackals. He classified the domestic dog as Canis familiaris, and the wolf as Canis lupus.[3] Linnaeus considered the dog to be a separate species from the wolf because of its \"cauda recurvata\" (upturning tail) which is not found in any other canid.[11]",
@@ -179,5 +179,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T01:47:47.926914"
+  "last_updated": "2026-03-20T01:56:15.251187"
 }
