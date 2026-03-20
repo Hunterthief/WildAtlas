@@ -1,10 +1,10 @@
 """
-Length extraction module - PRODUCTION v2
-Fixed: Better patterns, section priority, classification validation
+Length extraction module - PRODUCTION v3
+Fixed: More patterns, smarter validation, better section priority
 Based on analysis of 13 animal Wikipedia articles
 """
 import re
-from typing import Dict, Optional, List, Tuple, Any  # ← Added 'Any' to imports
+from typing import Dict, Optional, List, Tuple, Any
 
 
 # =============================================================================
@@ -40,9 +40,6 @@ ANIMAL_LENGTH_RANGES = {
     'lepidoptera': (0.03, 0.06), # Butterflies (body only)
 }
 
-# Animals where we should extract wingspan instead of body length
-WINGSPAN_ANIMALS = ['butterfly', 'moth', 'eagle', 'hawk', 'falcon', 'bee', 'wasp']
-
 
 # =============================================================================
 # VALIDATION FUNCTIONS
@@ -54,7 +51,7 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
     
     value_lower = value.lower()
     
-    # REJECT temporal/geological contexts
+    # REJECT temporal/geological contexts (specific, not broad)
     reject_contexts = [
         'ma ', 'million years', 'mya', 'temporal range',
         'pleistocene', 'miocene', 'pliocene', 'fossil',
@@ -123,23 +120,24 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
     """Check if text has length-related context - NOT TOO RESTRICTIVE"""
     text_lower = text.lower()
     
-    # POSITIVE indicators (length-related)
+    # POSITIVE indicators (length-related) - EXPANDED
     length_keywords = [
         'length', 'long', 'measures', 'reaching', 'grows',
         'body length', 'total length', 'head-body', 'snout',
         'carapace', 'adult', 'mature', 'full-grown',
-        'from head', 'from snout', 'from nose'
+        'from head', 'from snout', 'from nose',
+        'typically', 'average', 'usually', 'about'
     ]
     
-    # REJECT keywords (specific, not broad)
+    # REJECT keywords (specific, not broad) - REMOVED 'range:', 'migration'
     reject_keywords = [
         'temporal range', 'million years', 'ma ', 'mya',
         'wingspan', 'wing span', 'wing length',
         'egg length', 'nest length', 'colony length',
-        'population', 'migration', 'range:'
+        'population size'
     ]
     
-    # SPECIAL: For butterflies/bees, reject wingspan as "length"
+    # SPECIAL: For butterflies/bees/eagles, reject wingspan as "length"
     animal_lower = animal_name.lower() if animal_name else ""
     if any(x in animal_lower for x in ['butterfly', 'moth', 'bee', 'wasp', 'eagle', 'hawk']):
         if 'wingspan' in text_lower or 'wing span' in text_lower:
@@ -173,7 +171,7 @@ SECTION_PRIORITY = [
 
 
 # =============================================================================
-# PATTERN DEFINITIONS - Comprehensive for all animals
+# PATTERN DEFINITIONS - Comprehensive for all animals (20+ patterns)
 # =============================================================================
 LENGTH_PATTERNS = [
     # =========================================================================
@@ -267,6 +265,48 @@ LENGTH_PATTERNS = [
         # "2.5 m long"
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|centimetres?|ft|feet|in|inches)\s+long',
         'priority': 4,
+        'format': 'single'
+    },
+    
+    # =========================================================================
+    # TIER 5: Snake-Specific Patterns (often no "length" keyword)
+    # =========================================================================
+    {
+        # "reaches 3-4 m" (snakes often omit "length")
+        'pattern': r'reaches?\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)',
+        'priority': 5,
+        'format': 'range'
+    },
+    {
+        # "typically 3-4 m" (snakes)
+        'pattern': r'typically\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)',
+        'priority': 5,
+        'format': 'range'
+    },
+    
+    # =========================================================================
+    # TIER 6: Turtle/Frog Specific
+    # =========================================================================
+    {
+        # "80-120 cm carapace" (turtles)
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?)\s+carapace',
+        'priority': 6,
+        'format': 'range'
+    },
+    {
+        # "9-15 cm long" (frogs)
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?)\s+long',
+        'priority': 6,
+        'format': 'range'
+    },
+    
+    # =========================================================================
+    # TIER 7: Fallback Patterns
+    # =========================================================================
+    {
+        # "X cm" in description sections (small animals)
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|mm)\s+(?:long|length)',
+        'priority': 7,
         'format': 'single'
     },
 ]
