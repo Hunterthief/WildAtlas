@@ -53,7 +53,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-  "eol_url": "https://eol.org/pages/1055746",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -77,7 +77,7 @@
     "diet": "Carnivore",
     "habitat": "Forest, shrublands, wetlands",
     "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
-    "group_behavior": "Pairs",
+    "group_behavior": "Solitary",
     "conservation_status": "Unknown",
     "biggest_threat": "Poaching, habitat loss",
     "distinctive_features": [
@@ -128,8 +128,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T20:27:10.147751"
+  "last_updated": "2026-03-20T20:39:00.524275"
 }

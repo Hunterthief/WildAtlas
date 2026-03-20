@@ -54,7 +54,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1253183",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -124,9 +124,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T20:25:40.536239"
+    "last_updated": "2026-03-20T20:36:52.079739"
   },
   {
     "id": "Q35625",
@@ -183,7 +184,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "https://eol.org/pages/1271375",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -254,10 +255,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:25:46.496949"
+    "last_updated": "2026-03-20T20:37:06.412442"
   },
   {
     "id": "Q7372",
@@ -313,7 +313,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "https://eol.org/pages/55636404",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -387,10 +387,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:25:52.004379"
+    "last_updated": "2026-03-20T20:37:20.239820"
   },
   {
     "id": "Q213537",
@@ -446,7 +445,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-    "eol_url": "https://eol.org/pages/1268606",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -531,10 +530,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:26:05.030277"
+    "last_updated": "2026-03-20T20:37:34.655235"
   },
   {
     "id": "Q25319",
@@ -660,7 +658,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T20:26:21.551109"
+    "last_updated": "2026-03-20T20:37:49.460525"
   },
   {
     "id": "Q43306",
@@ -718,7 +716,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
     "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-    "eol_url": "https://eol.org/pages/45512074",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -784,10 +782,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:26:29.786336"
+    "last_updated": "2026-03-20T20:38:03.893853"
   },
   {
     "id": "Q47164",
@@ -845,7 +842,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-    "eol_url": "https://eol.org/pages/46559751",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -918,10 +915,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:26:38.742292"
+    "last_updated": "2026-03-20T20:38:18.407683"
   },
   {
     "id": "Q39709",
@@ -1047,7 +1043,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T20:26:54.473775"
+    "last_updated": "2026-03-20T20:38:32.767270"
   },
   {
     "id": "Q7785",
@@ -1105,7 +1101,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-    "eol_url": "https://eol.org/pages/46559469",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1129,7 +1125,7 @@
       "diet": "Herbivore",
       "habitat": "Green sea turtles move across three habitat types, depending on their life stage. They lay eggs on beaches. Mature turtles spend most of their time in shallow, coastal waters with lush seagrass beds. Adults frequent inshore bays, lagoons, and shoals with lush seagrass meadows. Entire generations often migrate between one pair of feeding and nesting areas. Green sea turtles, Chelonia mydas, are classified as an aquatic species and are distributed around the globe in warm tropical to subtropical waters. The environmental parameter that limits the distribution of the turtles is ocean temperatures below 7 to 10 degrees Celsius. Within their geographical range, the green sea turtles generally stay near continental and island coastlines. Near the coastlines, the green sea turtles live within shallow bays and protected shores. In these protected shores and bays, the green sea turtle habitats include coral reefs, salt marshes, and nearshore seagrass beds. The coral reefs provide red, brown, and green algae for their diet and give protection from predators and rough storms within the ocean. The salt marshes and seagrass beds contain seaweed and grass vegetation, allowing ample habitat for the sea turtles. Turtles spend most of their first five years in convergence zones within the bare open ocean that surround them. These young turtles are rarely seen as they swim in deep, pelagic waters. Green sea turtles typically swim at 2.5–3 km/h (1.6–1.9 mph).",
       "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
-      "group_behavior": "Social",
+      "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
       "distinctive_features": [],
@@ -1191,10 +1187,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:27:01.551107"
+    "last_updated": "2026-03-20T20:38:46.915828"
   },
   {
     "id": "Q189609",
@@ -1251,7 +1246,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-    "eol_url": "https://eol.org/pages/1055746",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1275,7 +1270,7 @@
       "diet": "Carnivore",
       "habitat": "Forest, shrublands, wetlands",
       "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
-      "group_behavior": "Pairs",
+      "group_behavior": "Solitary",
       "conservation_status": "Unknown",
       "biggest_threat": "Poaching, habitat loss",
       "distinctive_features": [
@@ -1326,10 +1321,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:27:10.147751"
+    "last_updated": "2026-03-20T20:39:00.524275"
   },
   {
     "id": "Q270238",
@@ -1457,7 +1451,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T20:27:25.834433"
+    "last_updated": "2026-03-20T20:39:14.495864"
   },
   {
     "id": "Q165980",
@@ -1515,7 +1509,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-    "eol_url": "https://eol.org/pages/4090155",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1585,10 +1579,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T20:27:39.441073"
+    "last_updated": "2026-03-20T20:39:30.037836"
   },
   {
     "id": "Q7316",
@@ -1734,6 +1727,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T20:27:56.457215"
+    "last_updated": "2026-03-20T20:39:44.451504"
   }
 ]
