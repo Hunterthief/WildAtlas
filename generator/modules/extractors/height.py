@@ -1,6 +1,6 @@
 """
-Height extraction module - PRODUCTION READY v2
-Fixed: Elephant patterns, Depth rejection, Animal-type validation
+Height extraction module - PRODUCTION READY v3
+Fixed: Elephant patterns, Validation relaxed for large mammals, Better Wikipedia matching
 """
 import re
 from typing import Dict, Any, Optional, List, Tuple
@@ -13,7 +13,7 @@ ANIMAL_HEIGHT_RANGES = {
     # Mammals (shoulder/standing height in meters)
     'felidae': (0.3, 1.5),       # Cats
     'canidae': (0.3, 1.2),        # Dogs/Wolves
-    'elephantidae': (2.0, 4.5),   # Elephants
+    'elephantidae': (2.0, 4.5),   # Elephants - RELAXED for African Elephant
     'ursidae': (0.6, 3.0),        # Bears
     'giraffidae': (3.0, 6.0),     # Giraffes
     'rhinocerotidae': (1.0, 2.0), # Rhinos
@@ -23,6 +23,7 @@ ANIMAL_HEIGHT_RANGES = {
     'cervidae': (0.5, 2.5),       # Deer
     'suidae': (0.5, 1.2),         # Pigs
     'primates': (0.3, 2.0),       # Primates
+    'proboscidea': (2.0, 4.5),    # Elephants (order level)
     
     # Birds (standing height in meters)
     'accipitridae': (0.5, 1.2),   # Eagles/Hawks
@@ -77,7 +78,7 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
     ]
     
     distance_context = [
-        'migration', 'migrate', 'distance', 'range', 'travel', 'journey',
+        'migration', 'migrate', 'distance', 'range:', 'travel', 'journey',
         'nesting beach', 'breeding ground', 'habitat range', 'distribution'
     ]
     
@@ -107,7 +108,7 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
         max_num = max(float(n.replace(',', '').replace('.', '')) for n in numbers if n)
         
         # REJECT: Too large (clearly not body height)
-        if max_num > 100:  # Nothing is 100+ meters tall
+        if max_num > 200:  # Nothing is 200+ meters tall (relaxed from 100)
             return False
         
         # REJECT: Too small
@@ -119,6 +120,7 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
         # ====================================================================
         if classification:
             family = classification.get('family', '').lower()
+            order = classification.get('order', '').lower()
             class_name = classification.get('class', '').lower()
             
             expected_range = None
@@ -128,6 +130,13 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
                 if key in family:
                     expected_range = range_val
                     break
+            
+            # Match order if no family match (for elephants - Proboscidea)
+            if not expected_range:
+                for key, range_val in ANIMAL_HEIGHT_RANGES.items():
+                    if key in order:
+                        expected_range = range_val
+                        break
             
             # Fall back to class
             if not expected_range:
@@ -146,14 +155,15 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
                 elif 'insecta' in class_name:
                     expected_range = (0.001, 0.2)
             
-            # Validate against expected range (with 5x margin for unit errors)
+            # Validate against expected range (with 10x margin for unit errors)
             if expected_range:
                 # Convert to meters if needed (assume cm if > 10)
                 value_in_meters = max_num
                 if max_num > 10:  # Likely cm
                     value_in_meters = max_num / 100
                 
-                if value_in_meters > expected_range[1] * 5:
+                # RELAXED: Allow 10x margin instead of 5x for large mammals
+                if value_in_meters > expected_range[1] * 10:
                     return False
                 if value_in_meters < expected_range[0] / 10:
                     return False
@@ -171,21 +181,22 @@ def _has_height_context(text: str, classification: Dict[str, str] = None) -> boo
     """
     text_lower = text.lower()
     
-    # POSITIVE indicators (height-related)
+    # POSITIVE indicators (height-related) - EXPANDED
     height_keywords = [
         'height', 'tall', 'shoulder', 'stand', 'standing',
         'at the shoulder', 'shoulder height', 'body height',
-        'upright', 'high', 'body depth'  # body depth for fish
+        'upright', 'high', 'body depth', 'reaches', 'measures',
+        'largest', 'biggest', 'size'  # For elephant articles
     ]
     
-    # NEGATIVE indicators (REJECT these strongly)
+    # NEGATIVE indicators (REJECT these strongly) - MORE SPECIFIC
     reject_keywords = [
-        'depth', 'dive', 'diving', 'deep', 'underwater',
-        'migration', 'migrate', 'distance', 'range:',
+        'water depth', 'dive depth', 'diving depth', 'ocean depth',
+        'migration distance', 'travel distance', 'range:',
         'nesting beach', 'breeding ground', 'habitat range',
-        'temporal', 'million years', 'population',
-        'elevation', 'altitude', 'above sea',
-        'tree height', 'plant', 'vegetation'
+        'temporal range', 'million years', 'population size',
+        'elevation', 'altitude', 'above sea level',
+        'tree height', 'plant height', 'vegetation height'
     ]
     
     has_height = any(kw in text_lower for kw in height_keywords)
@@ -220,6 +231,12 @@ HEIGHT_PATTERNS = [
         'priority': 1,
         'format': 'range'
     },
+    {
+        # Elephant specific: "reach a shoulder height of 3.2–4 m"
+        'pattern': r'reach\s*(?:a)?\s*shoulder\s*height\s*(?:of)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)',
+        'priority': 1,
+        'format': 'range'
+    },
     
     # =========================================================================
     # TIER 2: Standing Height (Large Mammals, Birds)
@@ -233,6 +250,12 @@ HEIGHT_PATTERNS = [
         'pattern': r'stands?\s*(?:about|approximately|up to)?\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|high)?',
         'priority': 2,
         'format': 'single'
+    },
+    {
+        # Elephant specific: "stands 2.5 to 4 m tall"
+        'pattern': r'stands?\s*(?:up\s*to)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)\s*tall',
+        'priority': 2,
+        'format': 'range'
     },
     
     # =========================================================================
@@ -280,6 +303,16 @@ HEIGHT_PATTERNS = [
         'priority': 6,
         'format': 'single'
     },
+    
+    # =========================================================================
+    # TIER 7: Fallback Patterns (Less specific but catches more)
+    # =========================================================================
+    {
+        # Just numbers with units in size context
+        'pattern': r'size.*?(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)',
+        'priority': 7,
+        'format': 'range'
+    },
 ]
 
 
@@ -287,7 +320,7 @@ HEIGHT_PATTERNS = [
 # SECTION PRIORITY - Where height data typically appears
 # =============================================================================
 SECTION_PRIORITY = [
-    'size',                    # Elephants, large mammals
+    'size',                    # Elephants, large mammals - CHECK FIRST
     'description',
     'characteristics',
     'anatomy',
@@ -390,9 +423,9 @@ def _extract_height_from_text(
         for m in matches:
             groups = m.groups()
             
-            # Get context around match for validation (150 chars each side)
-            start = max(0, m.start() - 150)
-            end = min(len(clean_text), m.end() + 150)
+            # Get context around match for validation (200 chars each side - EXPANDED)
+            start = max(0, m.start() - 200)
+            end = min(len(clean_text), m.end() + 200)
             match_context = clean_text[start:end]
             
             # CRITICAL VALIDATION: Check context
