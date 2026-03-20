@@ -124,7 +124,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:13:27.049368"
+    "last_updated": "2026-03-20T12:20:43.607303"
   },
   {
     "id": "Q35625",
@@ -252,7 +252,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:13:42.635404"
+    "last_updated": "2026-03-20T12:21:00.030102"
   },
   {
     "id": "Q7372",
@@ -382,7 +382,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:13:58.066615"
+    "last_updated": "2026-03-20T12:21:15.009294"
   },
   {
     "id": "Q213537",
@@ -523,7 +523,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:14:15.378392"
+    "last_updated": "2026-03-20T12:21:33.076927"
   },
   {
     "id": "Q25319",
@@ -647,7 +647,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:14:33.147803"
+    "last_updated": "2026-03-20T12:22:00.481450"
   },
   {
     "id": "Q43306",
@@ -771,7 +771,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:14:49.095162"
+    "last_updated": "2026-03-20T12:22:19.163948"
   },
   {
     "id": "Q47164",
@@ -827,7 +827,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46559751",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -900,9 +900,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T12:15:05.991917"
+    "last_updated": "2026-03-20T12:22:33.497217"
   },
   {
     "id": "Q39709",
@@ -1026,7 +1027,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:15:22.394384"
+    "last_updated": "2026-03-20T12:22:50.106048"
   },
   {
     "id": "Q7785",
@@ -1170,7 +1171,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:15:39.479561"
+    "last_updated": "2026-03-20T12:23:16.893555"
   },
   {
     "id": "Q189609",
@@ -1302,7 +1303,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:15:54.334430"
+    "last_updated": "2026-03-20T12:23:31.829127"
   },
   {
     "id": "Q270238",
@@ -1428,7 +1429,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:16:10.040191"
+    "last_updated": "2026-03-20T12:23:47.814835"
   },
   {
     "id": "Q165980",
@@ -1556,7 +1557,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:16:31.412558"
+    "last_updated": "2026-03-20T12:24:09.108222"
   },
   {
     "id": "Q7316",
@@ -1700,6 +1701,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:16:52.859092"
+    "last_updated": "2026-03-20T12:24:26.945844"
   }
 ]
