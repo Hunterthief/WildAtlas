@@ -77,7 +77,7 @@
   "ecology": {
     "diet": "Carnivore",
     "habitat": "Temperate, coastal waters and open ocean",
-    "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
+    "locations": "Australia, Canada, China, Greece, Indonesia, Italy, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
     "biggest_threat": "Hunting and habitat degredation",
@@ -107,6 +107,7 @@
       "China",
       "Greece",
       "Indonesia",
+      "Italy",
       "Montenegro",
       "Netherlands",
       "New Zealand",
@@ -120,7 +121,7 @@
       "max_lon": 176.113362,
       "count": 50
     },
-    "occurrence_count": 18139
+    "occurrence_count": 18141
   },
   "sources": [
     "API Ninjas",
@@ -129,5 +130,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:53:18.816714"
+  "last_updated": "2026-03-20T22:17:04.561059"
 }

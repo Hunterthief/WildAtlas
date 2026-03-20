@@ -77,7 +77,7 @@
   "ecology": {
     "diet": "Herbivore",
     "habitat": "Green sea turtles move across three habitat types, depending on their life stage. They lay eggs on beaches. Mature turtles spend most of their time in shallow, coastal waters with lush seagrass beds. Adults frequent inshore bays, lagoons, and shoals with lush seagrass meadows. Entire generations often migrate between one pair of feeding and nesting areas. Green sea turtles, Chelonia mydas, are classified as an aquatic species and are distributed around the globe in warm tropical to subtropical waters. The environmental parameter that limits the distribution of the turtles is ocean temperatures below 7 to 10 degrees Celsius. Within their geographical range, the green sea turtles generally stay near continental and island coastlines. Near the coastlines, the green sea turtles live within shallow bays and protected shores. In these protected shores and bays, the green sea turtle habitats include coral reefs, salt marshes, and nearshore seagrass beds. The coral reefs provide red, brown, and green algae for their diet and give protection from predators and rough storms within the ocean. The salt marshes and seagrass beds contain seaweed and grass vegetation, allowing ample habitat for the sea turtles. Turtles spend most of their first five years in convergence zones within the bare open ocean that surround them. These young turtles are rarely seen as they swim in deep, pelagic waters. Green sea turtles typically swim at 2.5–3 km/h (1.6–1.9 mph).",
-    "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
+    "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Indonesia, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
     "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -115,6 +115,7 @@
       "Egypt",
       "Guadeloupe",
       "Honduras",
+      "Indonesia",
       "Martinique",
       "Mexico",
       "New Caledonia",
@@ -130,11 +131,11 @@
     "coordinates": {
       "min_lat": -31.034203,
       "max_lat": 49.095935,
-      "min_lon": -159.798629,
-      "max_lon": 166.475121,
+      "min_lon": -159.706384,
+      "max_lon": 166.510188,
       "count": 50
     },
-    "occurrence_count": 252562
+    "occurrence_count": 252685
   },
   "sources": [
     "Wikipedia",
@@ -142,5 +143,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:53:46.843400"
+  "last_updated": "2026-03-20T22:17:37.735930"
 }

@@ -51,7 +51,7 @@
     "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/9/99/Apis_mellifera_flying.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/0/09/File:Apis_mellifera_distribution_map.svg"
+    "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
@@ -134,7 +134,7 @@
       "max_lon": 164.956147,
       "count": 50
     },
-    "occurrence_count": 1124383
+    "occurrence_count": 1128220
   },
   "sources": [
     "API Ninjas",
@@ -143,5 +143,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:54:53.871547"
+  "last_updated": "2026-03-20T22:18:44.587589"
 }

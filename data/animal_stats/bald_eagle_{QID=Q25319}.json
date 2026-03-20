@@ -50,7 +50,7 @@
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/4/42/File:Distribution_H._leucocephalus-he.png"
+    "https://upload.wikimedia.org/wikipedia/commons/b/b1/Distribution_H._leucocephalus-he.png"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
@@ -114,7 +114,7 @@
       "max_lon": -72.481989,
       "count": 50
     },
-    "occurrence_count": 7774987
+    "occurrence_count": 7776665
   },
   "sources": [
     "API Ninjas",
@@ -123,5 +123,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:52:49.308641"
+  "last_updated": "2026-03-20T22:16:30.658252"
 }

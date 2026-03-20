@@ -51,7 +51,7 @@
     "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/b/be/File:Salmo_salar_CZ_distribution_grid_map_2006.png"
+    "https://upload.wikimedia.org/wikipedia/commons/d/df/Salmo_salar_CZ_distribution_grid_map_2006.png"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
   "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
@@ -115,7 +115,7 @@
       "max_lon": 1.520426,
       "count": 50
     },
-    "occurrence_count": 1453602
+    "occurrence_count": 1453605
   },
   "sources": [
     "Wikipedia",
@@ -123,5 +123,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:53:26.099322"
+  "last_updated": "2026-03-20T22:17:20.872547"
 }

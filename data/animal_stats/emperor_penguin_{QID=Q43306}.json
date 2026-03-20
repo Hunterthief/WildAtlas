@@ -113,7 +113,7 @@
       "max_lon": 169.40249,
       "count": 50
     },
-    "occurrence_count": 131628
+    "occurrence_count": 131643
   },
   "sources": [
     "API Ninjas",
@@ -122,5 +122,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:52:57.149391"
+  "last_updated": "2026-03-20T22:16:47.648465"
 }

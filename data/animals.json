@@ -51,7 +51,7 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/8/8f/File:Panthera_tigris_sumatrae_distribution_map-ar.png"
+      "https://upload.wikimedia.org/wikipedia/commons/8/8d/Panthera_tigris_sumatrae_distribution_map-ar.png"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
@@ -118,7 +118,7 @@
         "max_lon": 131.581417,
         "count": 50
       },
-      "occurrence_count": 5266
+      "occurrence_count": 5294
     },
     "sources": [
       "API Ninjas",
@@ -127,7 +127,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:51:41.422068"
+    "last_updated": "2026-03-20T22:15:25.782968"
   },
   {
     "id": "Q35625",
@@ -181,7 +181,7 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/c/c1/Ginger_Plant_vs.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/1/18/Koeh-146-no_text.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/a/a4/File:Acinonyx_jubatus_history_distribution_in_the_early_20_century.png"
+      "https://upload.wikimedia.org/wikipedia/commons/a/a0/Acinonyx_jubatus_history_distribution_in_the_early_20_century.png"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
@@ -208,7 +208,7 @@
     "ecology": {
       "diet": "Carnivore",
       "habitat": "Open grassland",
-      "locations": "Botswana, Kenya, Malawi, Namibia, South Africa, Tanzania, United Republic of",
+      "locations": "Kenya, Malawi, South Africa, Tanzania, United Republic of",
       "group_behavior": "Solitary/Pairs",
       "conservation_status": "Endangered",
       "biggest_threat": "Habitat loss",
@@ -235,10 +235,8 @@
     },
     "distribution": {
       "countries": [
-        "Botswana",
         "Kenya",
         "Malawi",
-        "Namibia",
         "South Africa",
         "Tanzania, United Republic of"
       ],
@@ -249,7 +247,7 @@
         "max_lon": 38.388967,
         "count": 50
       },
-      "occurrence_count": 8341
+      "occurrence_count": 8380
     },
     "sources": [
       "API Ninjas",
@@ -258,7 +256,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:51:58.138608"
+    "last_updated": "2026-03-20T22:15:42.369359"
   },
   {
     "id": "Q7372",
@@ -311,7 +309,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg",
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/3/33/File:African_Elephant_distribution_map_without_borders.svg"
+      "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
@@ -383,7 +381,7 @@
         "max_lon": 38.084716,
         "count": 50
       },
-      "occurrence_count": 22567
+      "occurrence_count": 22723
     },
     "sources": [
       "Wikipedia",
@@ -391,7 +389,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:52:13.937702"
+    "last_updated": "2026-03-20T22:15:57.523098"
   },
   {
     "id": "Q213537",
@@ -444,7 +442,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/e/e0/File:Present_distribution_of_the_gray_wolf_subspecies_-_Eurasian_wolf_(Canis_lupus_lupus)_updated.png"
+      "https://upload.wikimedia.org/wikipedia/commons/a/a9/Present_distribution_of_the_gray_wolf_subspecies_-_Eurasian_wolf_(Canis_lupus_lupus)_updated.png"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
@@ -527,7 +525,7 @@
         "max_lon": 151.355139,
         "count": 50
       },
-      "occurrence_count": 199054
+      "occurrence_count": 199414
     },
     "sources": [
       "Wikipedia",
@@ -535,7 +533,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:52:31.724230"
+    "last_updated": "2026-03-20T22:16:13.894074"
   },
   {
     "id": "Q25319",
@@ -589,7 +587,7 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/4/42/File:Distribution_H._leucocephalus-he.png"
+      "https://upload.wikimedia.org/wikipedia/commons/b/b1/Distribution_H._leucocephalus-he.png"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
@@ -653,7 +651,7 @@
         "max_lon": -72.481989,
         "count": 50
       },
-      "occurrence_count": 7774987
+      "occurrence_count": 7776665
     },
     "sources": [
       "API Ninjas",
@@ -662,7 +660,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:52:49.308641"
+    "last_updated": "2026-03-20T22:16:30.658252"
   },
   {
     "id": "Q43306",
@@ -779,7 +777,7 @@
         "max_lon": 169.40249,
         "count": 50
       },
-      "occurrence_count": 131628
+      "occurrence_count": 131643
     },
     "sources": [
       "API Ninjas",
@@ -788,7 +786,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:52:57.149391"
+    "last_updated": "2026-03-20T22:16:47.648465"
   },
   {
     "id": "Q47164",
@@ -869,7 +867,7 @@
     "ecology": {
       "diet": "Carnivore",
       "habitat": "Temperate, coastal waters and open ocean",
-      "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
+      "locations": "Australia, Canada, China, Greece, Indonesia, Italy, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Hunting and habitat degredation",
@@ -899,6 +897,7 @@
         "China",
         "Greece",
         "Indonesia",
+        "Italy",
         "Montenegro",
         "Netherlands",
         "New Zealand",
@@ -912,7 +911,7 @@
         "max_lon": 176.113362,
         "count": 50
       },
-      "occurrence_count": 18139
+      "occurrence_count": 18141
     },
     "sources": [
       "API Ninjas",
@@ -921,7 +920,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:53:18.816714"
+    "last_updated": "2026-03-20T22:17:04.561059"
   },
   {
     "id": "Q39709",
@@ -976,7 +975,7 @@
       "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/b/be/File:Salmo_salar_CZ_distribution_grid_map_2006.png"
+      "https://upload.wikimedia.org/wikipedia/commons/d/df/Salmo_salar_CZ_distribution_grid_map_2006.png"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
@@ -1040,7 +1039,7 @@
         "max_lon": 1.520426,
         "count": 50
       },
-      "occurrence_count": 1453602
+      "occurrence_count": 1453605
     },
     "sources": [
       "Wikipedia",
@@ -1048,7 +1047,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:53:26.099322"
+    "last_updated": "2026-03-20T22:17:20.872547"
   },
   {
     "id": "Q7785",
@@ -1129,7 +1128,7 @@
     "ecology": {
       "diet": "Herbivore",
       "habitat": "Green sea turtles move across three habitat types, depending on their life stage. They lay eggs on beaches. Mature turtles spend most of their time in shallow, coastal waters with lush seagrass beds. Adults frequent inshore bays, lagoons, and shoals with lush seagrass meadows. Entire generations often migrate between one pair of feeding and nesting areas. Green sea turtles, Chelonia mydas, are classified as an aquatic species and are distributed around the globe in warm tropical to subtropical waters. The environmental parameter that limits the distribution of the turtles is ocean temperatures below 7 to 10 degrees Celsius. Within their geographical range, the green sea turtles generally stay near continental and island coastlines. Near the coastlines, the green sea turtles live within shallow bays and protected shores. In these protected shores and bays, the green sea turtle habitats include coral reefs, salt marshes, and nearshore seagrass beds. The coral reefs provide red, brown, and green algae for their diet and give protection from predators and rough storms within the ocean. The salt marshes and seagrass beds contain seaweed and grass vegetation, allowing ample habitat for the sea turtles. Turtles spend most of their first five years in convergence zones within the bare open ocean that surround them. These young turtles are rarely seen as they swim in deep, pelagic waters. Green sea turtles typically swim at 2.5–3 km/h (1.6–1.9 mph).",
-      "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
+      "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Indonesia, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
       "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
@@ -1167,6 +1166,7 @@
         "Egypt",
         "Guadeloupe",
         "Honduras",
+        "Indonesia",
         "Martinique",
         "Mexico",
         "New Caledonia",
@@ -1182,11 +1182,11 @@
       "coordinates": {
         "min_lat": -31.034203,
         "max_lat": 49.095935,
-        "min_lon": -159.798629,
-        "max_lon": 166.475121,
+        "min_lon": -159.706384,
+        "max_lon": 166.510188,
         "count": 50
       },
-      "occurrence_count": 252562
+      "occurrence_count": 252685
     },
     "sources": [
       "Wikipedia",
@@ -1194,7 +1194,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:53:46.843400"
+    "last_updated": "2026-03-20T22:17:37.735930"
   },
   {
     "id": "Q189609",
@@ -1248,7 +1248,7 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
       "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red-breasted_merganser_female_in_CP_(40744).jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/8/82/File:King_Cobra_(Ophiophagus)_Distribution_Map.png"
+      "https://upload.wikimedia.org/wikipedia/commons/2/24/King_Cobra_(Ophiophagus)_Distribution_Map.png"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
@@ -1320,7 +1320,7 @@
         "max_lon": 116.32829,
         "count": 50
       },
-      "occurrence_count": 856
+      "occurrence_count": 857
     },
     "sources": [
       "API Ninjas",
@@ -1329,7 +1329,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:54:02.262901"
+    "last_updated": "2026-03-20T22:17:52.881064"
   },
   {
     "id": "Q270238",
@@ -1383,7 +1383,7 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/e/e4/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
       "https://upload.wikimedia.org/wikipedia/commons/b/b9/202312_American_bullfrog.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/c/c2/File:Lithobates_catesbeianus_distribution.png"
+      "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lithobates_catesbeianus_distribution_cutted.png"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
@@ -1450,7 +1450,7 @@
         "max_lon": 4.99305,
         "count": 50
       },
-      "occurrence_count": 147454
+      "occurrence_count": 147883
     },
     "sources": [
       "Wikipedia",
@@ -1458,7 +1458,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:54:18.751106"
+    "last_updated": "2026-03-20T22:18:08.848667"
   },
   {
     "id": "Q165980",
@@ -1513,7 +1513,7 @@
       "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/e/e4/Danaus_plexippus_MHNT.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/9/90/Monarch_caterpillar_(23229).jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/b/b2/File:MonarchDistribution2-2.png"
+      "https://upload.wikimedia.org/wikipedia/commons/0/02/MonarchDistribution2-2.png"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
@@ -1580,7 +1580,7 @@
         "max_lon": 153.064852,
         "count": 50
       },
-      "occurrence_count": 748849
+      "occurrence_count": 750025
     },
     "sources": [
       "API Ninjas",
@@ -1589,7 +1589,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:54:36.466702"
+    "last_updated": "2026-03-20T22:18:25.955941"
   },
   {
     "id": "Q7316",
@@ -1644,7 +1644,7 @@
       "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/9/99/Apis_mellifera_flying.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/0/09/File:Apis_mellifera_distribution_map.svg"
+      "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg"
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
@@ -1727,7 +1727,7 @@
         "max_lon": 164.956147,
         "count": 50
       },
-      "occurrence_count": 1124383
+      "occurrence_count": 1128220
     },
     "sources": [
       "API Ninjas",
@@ -1736,6 +1736,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T21:54:53.871547"
+    "last_updated": "2026-03-20T22:18:44.587589"
   }
 ]

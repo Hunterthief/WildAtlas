@@ -50,7 +50,7 @@
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
     "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red-breasted_merganser_female_in_CP_(40744).jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/8/82/File:King_Cobra_(Ophiophagus)_Distribution_Map.png"
+    "https://upload.wikimedia.org/wikipedia/commons/2/24/King_Cobra_(Ophiophagus)_Distribution_Map.png"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
@@ -122,7 +122,7 @@
       "max_lon": 116.32829,
       "count": 50
     },
-    "occurrence_count": 856
+    "occurrence_count": 857
   },
   "sources": [
     "API Ninjas",
@@ -131,5 +131,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:54:02.262901"
+  "last_updated": "2026-03-20T22:17:52.881064"
 }
