@@ -1,6 +1,7 @@
 """
 Wikidata Extractor - No API Key Required
 CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
+ALL TRAILING SPACES REMOVED
 """
 import requests
 import hashlib
@@ -22,15 +23,21 @@ def _filename_to_direct_url(filename: str) -> str:
     if not filename:
         return ""
     
+    # FIXED: Remove "File:" prefix if present
+    filename = filename.replace('File:', '')
+    
     # Replace spaces with underscores
     filename = filename.replace(' ', '_')
     
-    # Calculate MD5 hash for path
+    # Strip any trailing/leading whitespace
+    filename = filename.strip()
+    
+    # Calculate MD5 hash for path (from clean filename)
     md5_hash = hashlib.md5(filename.encode('utf-8')).hexdigest()
     hash1 = md5_hash[0]
     hash2 = md5_hash[0:2]
     
-    # Build direct URL (no spaces anywhere)
+    # Build direct URL (NO SPACES ANYWHERE)
     direct_url = f"https://upload.wikimedia.org/wikipedia/commons/{hash1}/{hash2}/{filename}"
     
     return direct_url
@@ -46,9 +53,8 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
         # Try multiple search queries
         search_queries = [
             f"{animal_name} distribution",
-            f"{animal_name} range map",
             f"{scientific_name} distribution",
-            f"{animal_name} habitat map",
+            f"{animal_name} range map",
         ]
         
         for query in search_queries:
@@ -56,10 +62,11 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
                 "action": "query",
                 "format": "json",
                 "list": "search",
-                "srsearch": f"{query} distribution map",
+                "srsearch": f"{query}",
                 "srnamespace": 6,  # File namespace
-                "srlimit": 5
+                "srlimit": 10
             }
+            # FIXED: No trailing spaces in User-Agent
             headers = {
                 "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
             }
@@ -72,15 +79,18 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
                 
                 for result in results:
                     filename = result.get("title", "")
-                    # Only accept files with "distribution" in the name
-                    if filename and "distribution" in filename.lower():
+                    # FIXED: Only accept files with "distribution" in name (not "File:")
+                    filename_clean = filename.replace('File:', '').strip()
+                    if filename_clean and "distribution" in filename_clean.lower():
                         # Convert to direct URL
                         direct_url = _filename_to_direct_url(filename)
-                        print(f"   ✅ Found distribution map: {filename}")
+                        # FIXED: Strip trailing spaces from URL
+                        direct_url = direct_url.strip()
+                        print(f"   ✅ Found distribution map: {filename_clean}")
                         return direct_url
     
     except Exception as e:
-        print(f"   ⚠ Distribution map search failed: {e}")
+        print(f"   Distribution map search failed: {e}")
     
     return None
 
@@ -100,12 +110,12 @@ def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
         entity = data.get("entities", {}).get(qid, {})
         
         if not _is_animal_entity(entity):
-            print(f"   ⚠ QID {qid} is not an animal, searching by name...")
+            print(f"   QID {qid} is not an animal, searching by name...")
             return None
         
         return entity
     except Exception as e:
-        print(f"   ⚠ Wikidata fetch failed: {e}")
+        print(f"   Wikidata fetch failed: {e}")
         return None
 
 
@@ -177,7 +187,7 @@ def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
         
         return None
     except Exception as e:
-        print(f"   ⚠ Wikidata search failed: {e}")
+        print(f"   Wikidata search failed: {e}")
         return None
 
 
@@ -232,10 +242,11 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
     """
     CRITICAL FIX: Extract DIRECT image URLs from Wikidata
     Separates regular photos from distribution maps
+    NO TRAILING SPACES IN URLs
     
     Returns: {
         "photos": [...],
-        "distribution": [...]  # Only if "distribution" in filename
+        "distribution": [...]
     }
     """
     result = {
@@ -247,16 +258,21 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
     
     # P18 = image
     image_claims = claims.get("P18", [])
-    for claim in image_claims[:5]:  # Max 5 images
+    for claim in image_claims[:5]:
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
+            # FIXED: Remove "File:" prefix
+            filename_clean = filename.replace('File:', '').strip()
+            
             # Convert to direct URL
             direct_url = _filename_to_direct_url(filename)
+            # FIXED: Strip ALL trailing spaces from URL
+            direct_url = direct_url.strip()
             
             # FIXED: Filter by "distribution" keyword
-            if "distribution" in filename.lower() or "range_map" in filename.lower():
+            if "distribution" in filename_clean.lower() or "range_map" in filename_clean.lower():
                 result["distribution"].append(direct_url)
-                print(f"   🗺️  Distribution image: {filename}")
+                print(f"   Distribution image: {filename_clean}")
             else:
                 result["photos"].append(direct_url)
     
@@ -298,10 +314,10 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
     wikidata = fetch_wikidata(qid)
     
     if not wikidata and scientific_name:
-        print(f"   🔍 Searching Wikidata for: {scientific_name}")
+        print(f"   Searching Wikidata for: {scientific_name}")
         new_qid = search_wikidata_by_name(scientific_name)
         if new_qid:
-            print(f"   ✅ Found QID: {new_qid}")
+            print(f"   Found QID: {new_qid}")
             wikidata = fetch_wikidata(new_qid)
     
     if not wikidata:
@@ -316,18 +332,20 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
     # Primary image is first photo (not distribution map)
     primary_image = image_data["photos"][0] if image_data["photos"] else (image_data["distribution"][0] if image_data["distribution"] else "")
     
+    # FIXED: Strip trailing spaces
+    primary_image = primary_image.strip()
+    all_images = [img.strip() for img in all_images if img.strip()]
+    
     # FIXED: No spaces in Wikipedia URL
     wiki_title = scientific_name.replace(' ', '_') if scientific_name else qid
     
     return {
         "taxonomy": extract_taxonomy(wikidata),
         "conservation": extract_conservation_status(wikidata),
-        # FIXED: Separate distribution images
         "images": all_images,
-        "distribution_image": image_data["distribution"][0] if image_data["distribution"] else "",
+        "distribution_image": image_data["distribution"][0].strip() if image_data["distribution"] else "",
         "common_names": extract_common_names(wikidata),
         "population": extract_population(wikidata),
         "description": wikidata.get("descriptions", {}).get("en", {}).get("value", ""),
-        # FIXED: No spaces in URL
         "wikipedia_url": f"https://en.wikipedia.org/wiki/{wiki_title}"
     }
