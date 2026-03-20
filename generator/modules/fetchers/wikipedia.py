@@ -1,6 +1,6 @@
 """
-Wikipedia data fetcher - DEBUG VERSION 🔍
-Dumps ALL infobox data without filtering to verify fetching works
+Wikipedia data fetcher - FIXED ROW PARSING ✅
+Handles Wikipedia's split header/data row structure
 """
 import re
 import requests
@@ -11,7 +11,6 @@ from bs4 import BeautifulSoup
 def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
     """Fetch Wikipedia article sections"""
     try:
-        # FIXED: NO trailing spaces!
         response = requests.get(
             'https://en.wikipedia.org/w/api.php',
             params={
@@ -92,10 +91,9 @@ def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
 
 def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
     """
-    DEBUG VERSION - Dumps ALL infobox data without filtering 🔍
+    FIXED: Properly parses Wikipedia infobox with split header/data rows
     """
     try:
-        # FIXED: NO trailing spaces! Clean URL construction
         url = f'https://en.wikipedia.org/wiki/{name.replace(" ", "_")}'
         print(f"🔗 Requesting URL: {url}")
         
@@ -115,88 +113,129 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Debug: Check page title to verify we got the right page
         page_title = soup.find('h1', id='firstHeading')
         if page_title:
             print(f"📄 Page Title: {page_title.get_text()}")
         
-        # Find ALL tables with infobox in class name
-        print("\n🔍 Searching for infobox tables...")
-        all_tables = soup.find_all('table')
-        print(f"   Total tables on page: {len(all_tables)}")
+        # Find infobox table
+        infobox_table = soup.find('table', class_=lambda x: x and 'infobox' in str(x).lower())
         
-        infobox_tables = []
-        for i, table in enumerate(all_tables):
-            class_attr = table.get('class', [])
-            class_str = ' '.join(class_attr) if isinstance(class_attr, list) else str(class_attr)
-            if 'infobox' in class_str.lower():
-                infobox_tables.append(table)
-                print(f"   ✅ Found infobox table #{len(infobox_tables)} with class: '{class_str}'")
-        
-        if not infobox_tables:
-            print(f"⚠️ NO infobox tables found for {name}")
-            print("   Searching for ANY table...")
-            for i, table in enumerate(all_tables[:5]):
-                class_attr = table.get('class', [])
-                print(f"   Table #{i}: class='{class_attr}'")
+        if not infobox_table:
+            print(f"⚠️ NO infobox table found for {name}")
             return {}
         
-        # Use the first infobox table
-        infobox_table = infobox_tables[0]
-        print(f"\n✅ Using infobox table for {name}")
+        print(f"✅ Found infobox table for {name}")
         
-        # DUMP ALL ROWS - NO FILTERING
+        # KEY FIX: Get ALL cells from the infobox, not just row-by-row
         infobox_data = {}
-        rows = infobox_table.find_all('tr')
-        print(f"📊 Total rows in infobox: {len(rows)}")
+        all_text = infobox_table.get_text()
         
-        print("\n📋 DUMPING ALL INFOBOX ROWS:")
+        # Debug: Print raw infobox text
+        print("\n📋 RAW INFOBOX TEXT (first 2000 chars):")
+        print("=" * 80)
+        print(all_text[:2000])
         print("=" * 80)
         
-        for i, row in enumerate(rows):
-            header_cell = row.find('th')
-            data_cell = row.find('td')
-            
-            header_text = header_cell.get_text().strip() if header_cell else ""
-            data_text = data_cell.get_text().strip() if data_cell else ""
-            
-            # Clean citations from data
-            data_text = re.sub(r'\[\d+\]', '', data_text)
-            data_text = ' '.join(data_text.split())
-            
-            print(f"   Row {i:2d} | Header: {header_text[:40]:<40} | Data: {data_text[:60]}")
-            
-            # Store ALL data (not just physical stats)
-            if header_text and data_text:
-                # Create clean key from header
-                key = header_text.lower().replace(' ', '_').replace('-', '_')
-                key = re.sub(r'[^\w]', '', key)
-                infobox_data[key] = data_text
-        
-        print("=" * 80)
-        print(f"\n✅ Total infobox fields captured: {len(infobox_data)}")
-        print(f"📦 All keys: {list(infobox_data.keys())}")
-        
-        # Also return the standard physical stats
-        physical_stats = {}
-        stat_keywords = {
-            'weight': ['mass', 'weight', 'body_mass'],
-            'length': ['length', 'body_length', 'total_length', 'size'],
-            'height': ['height', 'shoulder_height', 'standing_height'],
-            'lifespan': ['lifespan', 'longevity', 'life_span'],
-            'top_speed': ['speed', 'top_speed', 'maximum_speed', 'max_speed'],
+        # Now search for physical stats in the raw text
+        stat_patterns = {
+            'weight': [
+                r'(?:mass|weight)[\s:]+([0-9.,\s\-]+(?:kg|lb|pounds?|kilograms?))',
+                r'([0-9.,\s\-]+(?:kg|lb|pounds?|kilograms?)).*?(?:mass|weight)',
+            ],
+            'length': [
+                r'(?:length|body length)[\s:]+([0-9.,\s\-]+(?:m|cm|ft|in|feet|inches|metres?|meters?))',
+                r'([0-9.,\s\-]+(?:m|cm|ft|in|feet|inches|metres?|meters?)).*?(?:length)',
+            ],
+            'height': [
+                r'(?:height|shoulder height)[\s:]+([0-9.,\s\-]+(?:m|cm|ft|in|feet|inches|metres?|meters?))',
+                r'([0-9.,\s\-]+(?:m|cm|ft|in|feet|inches|metres?|meters?)).*?(?:height)',
+            ],
+            'lifespan': [
+                r'(?:lifespan|longevity|life span)[\s:]+([0-9.,\s\-]+(?:years?|yrs?|months?|days?))',
+                r'([0-9.,\s\-]+(?:years?|yrs?|months?|days?)).*?(?:lifespan|longevity)',
+            ],
+            'top_speed': [
+                r'(?:speed|top speed|maximum speed)[\s:]+([0-9.,\s\-]+(?:km/h|mph|km|mi))',
+                r'([0-9.,\s\-]+(?:km/h|mph|km|mi)).*?(?:speed)',
+            ],
         }
         
-        for key, value in infobox_data.items():
-            for stat_name, keywords in stat_keywords.items():
-                if any(kw in key for kw in keywords):
-                    if stat_name not in physical_stats:
-                        physical_stats[stat_name] = value
+        print("\n🔍 Searching for physical stats in infobox text:")
+        
+        for stat_name, patterns in stat_patterns.items():
+            for pattern in patterns:
+                match = re.search(pattern, all_text, re.IGNORECASE)
+                if match:
+                    value = match.group(1).strip()
+                    # Clean up the value
+                    value = re.sub(r'\s+', ' ', value)
+                    infobox_data[stat_name] = value
+                    print(f"   ✅ {stat_name}: {value}")
                     break
         
-        print(f"\n🎯 Physical stats extracted: {physical_stats}")
+        if not infobox_data:
+            print("   ⚠️ No physical stats found with regex patterns")
+            
+            # Fallback: Parse rows more carefully
+            print("\n🔍 Fallback: Parsing rows with better logic...")
+            rows = infobox_table.find_all('tr')
+            
+            current_header = ""
+            for i, row in enumerate(rows):
+                cells = row.find_all(['th', 'td'])
+                row_text = ' '.join(cell.get_text().strip() for cell in cells)
+                
+                # Check if this row has a header
+                th = row.find('th')
+                td = row.find('td')
+                
+                if th and not td:
+                    # This is a header row
+                    current_header = th.get_text().strip().lower()
+                    print(f"   Header row {i}: {current_header[:50]}")
+                elif td and not th:
+                    # This is a data row - associate with previous header
+                    data_text = td.get_text().strip()
+                    data_text = re.sub(r'\[\d+\]', '', data_text)
+                    print(f"   Data row {i}: {current_header[:30]} -> {data_text[:50]}")
+                    
+                    # Check if current header matches our stats
+                    for stat_name, keywords in {
+                        'weight': ['mass', 'weight'],
+                        'length': ['length', 'body length', 'size'],
+                        'height': ['height', 'shoulder height'],
+                        'lifespan': ['lifespan', 'longevity', 'life span'],
+                        'top_speed': ['speed', 'top speed'],
+                    }.items():
+                        if any(kw in current_header for kw in keywords) and data_text:
+                            if stat_name not in infobox_data:
+                                infobox_data[stat_name] = data_text
+                                print(f"      📊 Captured {stat_name}: {data_text[:50]}")
+                            break
+                elif th and td:
+                    # Both in same row
+                    header_text = th.get_text().strip().lower()
+                    data_text = td.get_text().strip()
+                    data_text = re.sub(r'\[\d+\]', '', data_text)
+                    print(f"   Combined row {i}: {header_text[:30]} -> {data_text[:50]}")
+                    
+                    for stat_name, keywords in {
+                        'weight': ['mass', 'weight'],
+                        'length': ['length', 'body length', 'size'],
+                        'height': ['height', 'shoulder height'],
+                        'lifespan': ['lifespan', 'longevity', 'life span'],
+                        'top_speed': ['speed', 'top speed'],
+                    }.items():
+                        if any(kw in header_text for kw in keywords) and data_text:
+                            if stat_name not in infobox_data:
+                                infobox_data[stat_name] = data_text
+                                print(f"      📊 Captured {stat_name}: {data_text[:50]}")
+                            break
         
-        return physical_stats
+        print(f"\n✅ Total physical stats captured: {len(infobox_data)}")
+        print(f"📦 Keys: {list(infobox_data.keys())}")
+        
+        return infobox_data
     
     except Exception as e:
         print(f"❌ Error fetching Wikipedia infobox: {e}")
@@ -206,10 +245,7 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
 
 
 def fetch_wikipedia_data(name: str) -> Dict[str, Any]:
-    """
-    Main Wikipedia fetcher - combines sections and infobox
-    Returns combined data structure
-    """
+    """Main Wikipedia fetcher"""
     print(f"\n{'='*80}")
     print(f"📚 Fetching Wikipedia data for: {name}")
     print(f"{'='*80}")
@@ -232,8 +268,7 @@ def fetch_wikipedia_data(name: str) -> Dict[str, Any]:
 
 
 if __name__ == "__main__":
-    # Test the fetcher with detailed debug output
-    test_animals = ["Tiger", "Lion"]
+    test_animals = ["Tiger", "Lion", "African Bush Elephant"]
     
     for animal in test_animals:
         data = fetch_wikipedia_data(animal)
