@@ -51,9 +51,9 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/2/2e/Historical_tiger_distribution_PLoS_2009-ar.png"
+      "https://upload.wikimedia.org/wikipedia/commons/8/8d/Panthera_tigris_sumatrae_distribution_map-ar.png"
     ],
-    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Historical_tiger_distribution_PLoS_2009-ar.png",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Panthera_tigris_sumatrae_distribution_map-ar.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
     "eol_url": "",
@@ -128,7 +128,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:38:48.144523"
+    "last_updated": "2026-03-20T22:47:22.929567"
   },
   {
     "id": "Q35625",
@@ -258,7 +258,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:39:03.468615"
+    "last_updated": "2026-03-20T22:47:38.422904"
   },
   {
     "id": "Q7372",
@@ -392,7 +392,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:39:18.139865"
+    "last_updated": "2026-03-20T22:47:52.908609"
   },
   {
     "id": "Q213537",
@@ -537,7 +537,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:39:34.346765"
+    "last_updated": "2026-03-20T22:48:08.871601"
   },
   {
     "id": "Q25319",
@@ -665,7 +665,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T22:39:50.724176"
+    "last_updated": "2026-03-20T22:48:25.445156"
   },
   {
     "id": "Q43306",
@@ -724,7 +724,7 @@
     "distribution_image": "",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
     "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/45512074",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -790,9 +790,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:40:06.383016"
+    "last_updated": "2026-03-20T22:48:34.932731"
   },
   {
     "id": "Q47164",
@@ -852,7 +853,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/XII.—On_Fossil_Echinoderms_from_the_Island_of_Malta;_with_notes_on_the_stratigraphical_distribution_of_the_fossil_organisms_in_the_Maltese_beds_(IA_biostor-90150).pdf",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
     "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46559751",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -926,9 +927,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:40:22.244424"
+    "last_updated": "2026-03-20T22:48:49.205982"
   },
   {
     "id": "Q39709",
@@ -988,7 +990,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Salmo_salar_CZ_distribution_grid_map_2006.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46563143",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1054,9 +1056,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:40:37.851828"
+    "last_updated": "2026-03-20T22:49:05.889392"
   },
   {
     "id": "Q7785",
@@ -1115,7 +1118,7 @@
     "distribution_image": "",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46559469",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1202,9 +1205,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:40:54.179707"
+    "last_updated": "2026-03-20T22:49:16.495657"
   },
   {
     "id": "Q189609",
@@ -1263,7 +1267,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/2/24/King_Cobra_(Ophiophagus)_Distribution_Map.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1055746",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1338,9 +1342,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:41:08.479950"
+    "last_updated": "2026-03-20T22:49:22.054353"
   },
   {
     "id": "Q270238",
@@ -1399,7 +1404,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lithobates_catesbeianus_distribution_cutted.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/330963",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1468,9 +1473,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:41:23.267089"
+    "last_updated": "2026-03-20T22:49:27.584593"
   },
   {
     "id": "Q165980",
@@ -1530,7 +1536,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/0/02/MonarchDistribution2-2.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/4090155",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1600,9 +1606,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:41:39.596059"
+    "last_updated": "2026-03-20T22:49:34.563110"
   },
   {
     "id": "Q7316",
@@ -1662,7 +1669,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1045608",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1748,8 +1755,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:41:56.297935"
+    "last_updated": "2026-03-20T22:49:44.393118"
   }
 ]

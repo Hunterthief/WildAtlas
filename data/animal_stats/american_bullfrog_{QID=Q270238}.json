@@ -55,7 +55,7 @@
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lithobates_catesbeianus_distribution_cutted.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
   "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/330963",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -124,7 +124,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T22:41:23.267089"
+  "last_updated": "2026-03-20T22:49:27.584593"
 }

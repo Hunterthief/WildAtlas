@@ -56,7 +56,7 @@
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1045608",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -142,7 +142,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T22:41:56.297935"
+  "last_updated": "2026-03-20T22:49:44.393118"
 }
