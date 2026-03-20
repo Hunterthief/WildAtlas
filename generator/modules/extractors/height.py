@@ -1,7 +1,7 @@
 """
-Height extraction module - PRODUCTION READY v5
-Fixed: Elephant patterns, Validation ranges, Section priority, Context detection
-Tested against African Elephant Wikipedia article structure
+Height extraction module - PRODUCTION READY v6
+Fixed: Elephant patterns based on ACTUAL Wikipedia "Size" section text
+Tested against African Elephant Wikipedia article
 """
 import re
 from typing import Dict, Any, Optional, List, Tuple
@@ -200,17 +200,16 @@ def _has_height_context(text: str, classification: Dict[str, str] = None) -> boo
     
     # POSITIVE indicators (height-related) - EXPANDED for elephants
     height_keywords = [
-        'height', 'tall', 'shoulder', 'stand', 'standing',
+        'height', 'tall', 'shoulder', 'stand', 'standing', 'stood',
         'at the shoulder', 'shoulder height', 'body height',
         'upright', 'high', 'body depth', 'reaches', 'measures',
         'largest', 'biggest', 'size', 'weighing', 'weight',
         'adults measure', 'adults reach', 'typically stands',
         'males are', 'females are', 'male', 'female',
-        'bulls', 'cows', 'mature', 'adult'
+        'bulls', 'cows', 'mature', 'adult', 'fully grown'
     ]
     
     # NEGATIVE indicators (REJECT these strongly) - MORE SPECIFIC
-    # REMOVED 'range:' as it catches "habitat range" which appears near height data
     reject_keywords = [
         'water depth', 'dive depth', 'diving depth', 'ocean depth',
         'migration distance', 'travel distance',
@@ -233,6 +232,7 @@ def _has_height_context(text: str, classification: Dict[str, str] = None) -> boo
 
 # =============================================================================
 # PATTERN DEFINITIONS - Organized by specificity
+# Based on ACTUAL Wikipedia article analysis
 # =============================================================================
 HEIGHT_PATTERNS = [
     # =========================================================================
@@ -273,32 +273,46 @@ HEIGHT_PATTERNS = [
     # TIER 2: Standing Height (Large Mammals, Birds) - ELEPHANT CRITICAL
     # =========================================================================
     {
-        # "Males are 3.2–4 m tall at the shoulder" - Elephant format!
-        'pattern': r'(?:males?|females?|bulls?|cows?|adults?)\s*(?:are|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|at the shoulder|high)?',
+        # "mature fully grown females are 2.47–2.73 m (...) tall at the shoulder"
+        # CRITICAL: Catches African Elephant Wikipedia text!
+        'pattern': r'(?:mature\s+)?(?:fully\s+grown\s+)?(?:females?|males?|bulls?|cows?|adults?)\s+(?:are|is)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)\s*(?:\([^)]+\)\s*)?(?:tall(?:\s+at\s+the\s+shoulder)?|at\s+the\s+shoulder|high)?',
+        'priority': 2,
+        'format': 'range'
+    },
+    {
+        # "The largest recorded bull stood 3.96 m (13.0 ft) at the shoulder"
+        # CRITICAL: Catches "stood" (past tense) for maximum height records
+        'pattern': r'(?:largest|record|maximum).*?(?:stood|stands?)\s+(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?|cm|feet|ft)\s*(?:\([^)]+\)\s*)?(?:at\s+the\s+shoulder|tall|high)?',
+        'priority': 2,
+        'format': 'single'
+    },
+    {
+        # "Males are 3.2–4 m tall at the shoulder" - General mammal format
+        'pattern': r'(?:males?|females?|bulls?|cows?|adults?)\s*(?:are|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:\([^)]+\)\s*)?(?:tall|at the shoulder|high)?',
         'priority': 2,
         'format': 'range'
     },
     {
         # "stands 2.5 to 4 m tall" - Elephant format
-        'pattern': r'stands?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|at the shoulder|high)?',
+        'pattern': r'stands?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:\([^)]+\)\s*)?(?:tall|at the shoulder|high)?',
         'priority': 2,
         'format': 'range'
     },
     {
         # "stands up to 4 m tall" - Single value
-        'pattern': r'stands?\s*(?:up\s*to|about|approximately)?\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|high)?',
+        'pattern': r'stands?\s*(?:up\s*to|about|approximately)?\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:\([^)]+\)\s*)?(?:tall|high)?',
         'priority': 2,
         'format': 'single'
     },
     {
         # "typically stands 2.5 to 4 m" - Elephant format
-        'pattern': r'typically\s*stands?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)\s*(?:tall)?',
+        'pattern': r'typically\s*stands?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)\s*(?:\([^)]+\)\s*)?(?:tall)?',
         'priority': 2,
         'format': 'range'
     },
     {
         # "are X m tall" - Simple format (catches "are 3-4 m tall")
-        'pattern': r'\b(?:are|is)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|high)?',
+        'pattern': r'\b(?:are|is)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:\([^)]+\)\s*)?(?:tall|high)?',
         'priority': 2,
         'format': 'range'
     },
@@ -308,19 +322,19 @@ HEIGHT_PATTERNS = [
     # =========================================================================
     {
         # "reaches 2.5 to 4 m tall" - General format
-        'pattern': r'reaches?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|height|high|at the shoulder)?',
+        'pattern': r'reaches?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:\([^)]+\)\s*)?(?:tall|height|high|at the shoulder)?',
         'priority': 3,
         'format': 'range'
     },
     {
         # "measuring 2.5 to 4 m tall" - General format
-        'pattern': r'measur(?:ing|es)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|height|high)?',
+        'pattern': r'measur(?:ing|es)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:\([^)]+\)\s*)?(?:tall|height|high)?',
         'priority': 3,
         'format': 'range'
     },
     {
         # "adults measure 2.5 to 4 m" - Elephant format
-        'pattern': r'adults?\s*measur(?:e|ing)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)\s*(?:tall|height)?',
+        'pattern': r'adults?\s*measur(?:e|ing)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)\s*(?:\([^)]+\)\s*)?(?:tall|height)?',
         'priority': 3,
         'format': 'range'
     },
@@ -336,7 +350,7 @@ HEIGHT_PATTERNS = [
     },
     {
         # "2.5 m tall" - Single value
-        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|m)\s*(?:–|-)\s*(\d+(?:[.,]\d+)?)\s*(cm|m|in|ft)\s*(?:tall|height|standing|high)?',
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|m)\s*(?:–|-)\s*(\d+(?:[.,]\d+)?)\s*(cm|m|in|ft)\s*(?:\([^)]+\)\s*)?(?:tall|height|standing|high)?',
         'priority': 4,
         'format': 'range'
     },
@@ -362,7 +376,7 @@ HEIGHT_PATTERNS = [
     # =========================================================================
     {
         # "2.5 m tall" - Single value
-        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|height|standing|high)',
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:\([^)]+\)\s*)?(?:tall|height|standing|high)',
         'priority': 6,
         'format': 'single'
     },
@@ -372,7 +386,7 @@ HEIGHT_PATTERNS = [
     # =========================================================================
     {
         # "up to 4 m tall" - Maximum format
-        'pattern': r'up\s*to\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|height|high)?',
+        'pattern': r'up\s*to\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:\([^)]+\)\s*)?(?:tall|height|high)?',
         'priority': 7,
         'format': 'single'
     },
@@ -382,7 +396,7 @@ HEIGHT_PATTERNS = [
     # =========================================================================
     {
         # "between 2.5 and 4 m tall" - Range format
-        'pattern': r'between\s*(\d+(?:[.,]\d+)?)\s*(?:and|-|–)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|height|high)?',
+        'pattern': r'between\s*(\d+(?:[.,]\d+)?)\s*(?:and|-|–)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:\([^)]+\)\s*)?(?:tall|height|high)?',
         'priority': 8,
         'format': 'range'
     },
