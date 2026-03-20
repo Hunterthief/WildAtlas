@@ -125,7 +125,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:03:44.539992"
+    "last_updated": "2026-03-20T04:13:21.349510"
   },
   {
     "id": "Q35625",
@@ -254,7 +254,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:03:49.831342"
+    "last_updated": "2026-03-20T04:13:28.847746"
   },
   {
     "id": "Q7372",
@@ -308,7 +308,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "https://eol.org/pages/55636404",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -382,10 +382,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T04:03:53.920198"
+    "last_updated": "2026-03-20T04:13:44.111164"
   },
   {
     "id": "Q213537",
@@ -439,7 +438,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-    "eol_url": "https://eol.org/pages/1268606",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -524,10 +523,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T04:03:59.801138"
+    "last_updated": "2026-03-20T04:14:01.277388"
   },
   {
     "id": "Q25319",
@@ -582,7 +580,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "https://eol.org/pages/1228132",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -649,10 +647,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T04:04:05.877937"
+    "last_updated": "2026-03-20T04:14:18.389670"
   },
   {
     "id": "Q43306",
@@ -777,7 +774,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:04:11.122608"
+    "last_updated": "2026-03-20T04:14:25.734491"
   },
   {
     "id": "Q47164",
@@ -909,7 +906,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:04:16.695051"
+    "last_updated": "2026-03-20T04:14:33.381765"
   },
   {
     "id": "Q39709",
@@ -1034,7 +1031,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:04:22.187559"
+    "last_updated": "2026-03-20T04:14:49.910227"
   },
   {
     "id": "Q7785",
@@ -1179,7 +1176,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:04:28.172821"
+    "last_updated": "2026-03-20T04:14:58.077650"
   },
   {
     "id": "Q189609",
@@ -1312,7 +1309,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:04:32.821161"
+    "last_updated": "2026-03-20T04:15:03.541121"
   },
   {
     "id": "Q270238",
@@ -1439,7 +1436,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:04:52.024048"
+    "last_updated": "2026-03-20T04:15:10.550792"
   },
   {
     "id": "Q165980",
@@ -1568,7 +1565,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:05:02.852828"
+    "last_updated": "2026-03-20T04:15:23.459738"
   },
   {
     "id": "Q7316",
@@ -1713,6 +1710,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T04:05:11.648747"
+    "last_updated": "2026-03-20T04:15:38.368614"
   }
 ]

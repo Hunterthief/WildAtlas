@@ -51,7 +51,7 @@
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-  "eol_url": "https://eol.org/pages/1228132",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -118,8 +118,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T04:04:05.877937"
+  "last_updated": "2026-03-20T04:14:18.389670"
 }
