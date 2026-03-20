@@ -1,7 +1,7 @@
 """
-Height extraction module - PRODUCTION v15
-FIXED: Gray Wolf + mammals work, snakes/fish/insects still rejected
-Key: Smarter rejection (not too broad) + more mammal patterns
+Height extraction module - PRODUCTION v16
+FIXED: Gray Wolf + all mammals work, snakes/fish/insects rejected
+Key: More patterns + smart validation
 """
 import re
 from typing import Dict, Any, Optional, List, Tuple
@@ -141,17 +141,18 @@ def _has_height_context(text: str, classification: Dict[str, str] = None) -> boo
     """Check if text has height-related context - NOT TOO RESTRICTIVE"""
     text_lower = text.lower()
     
-    # POSITIVE indicators (height-related)
+    # POSITIVE indicators (height-related) - EXPANDED
     height_keywords = [
         'height', 'tall', 'shoulder', 'stand', 'standing', 'stood',
         'at the shoulder', 'shoulder height', 'body height',
         'upright', 'high', 'body depth',
         'males are', 'females are', 'male', 'female',
         'bulls', 'cows', 'mature', 'adult', 'fully grown',
-        'terrestrial', 'elephant', 'reaching', 'measuring', 'wolf'
+        'terrestrial', 'elephant', 'reaching', 'measuring', 'wolf',
+        'canid', 'canine', 'dogs', 'dog'
     ]
     
-    # REJECT keywords (SPECIFIC - removed broad terms like 'range:', 'distributed')
+    # REJECT keywords (SPECIFIC - removed broad terms)
     reject_keywords = [
         'water depth', 'dive depth', 'diving depth', 'ocean depth',
         'migration distance', 'travel distance',
@@ -170,7 +171,7 @@ def _has_height_context(text: str, classification: Dict[str, str] = None) -> boo
 
 
 # =============================================================================
-# PATTERN DEFINITIONS - More patterns for mammals
+# PATTERN DEFINITIONS - Comprehensive for all mammals
 # =============================================================================
 HEIGHT_PATTERNS = [
     # =========================================================================
@@ -208,7 +209,7 @@ HEIGHT_PATTERNS = [
     },
     
     # =========================================================================
-    # TIER 2: Standing Height (Mammals, Birds)
+    # TIER 2: Standing Height (Mammals, Birds) - ADDED MORE PATTERNS
     # =========================================================================
     {
         'pattern': r'stands?\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)\s*(?:tall)?',
@@ -226,12 +227,29 @@ HEIGHT_PATTERNS = [
         'priority': 2,
         'format': 'range'
     },
+    {
+        # "stands X cm tall" - Wolf/Coyote pattern
+        'pattern': r'stands?\s+(\d+(?:[.,]\d+)?)\s*(cm|m)\s+tall',
+        'priority': 2,
+        'format': 'single'
+    },
+    {
+        # "X cm at the shoulder" - Common wolf pattern
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|m)\s+at\s+the\s+shoulder',
+        'priority': 2,
+        'format': 'single'
+    },
     
     # =========================================================================
     # TIER 3: Reaches/Measuring (General)
     # =========================================================================
     {
         'pattern': r'reaches?\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)\s*(?:tall|high)?',
+        'priority': 3,
+        'format': 'range'
+    },
+    {
+        'pattern': r'measur(?:ing|es)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)\s*(?:tall|height|high)?',
         'priority': 3,
         'format': 'range'
     },
@@ -243,6 +261,12 @@ HEIGHT_PATTERNS = [
         'pattern': r'height\s+(?:of|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m)',
         'priority': 4,
         'format': 'range'
+    },
+    {
+        # "X cm in height"
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|m)\s+in\s+height',
+        'priority': 4,
+        'format': 'single'
     },
 ]
 
