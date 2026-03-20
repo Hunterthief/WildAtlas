@@ -2,7 +2,7 @@
 """
 Wikidata Extractor - No API Key Required
 Enhances taxonomy, conservation status, images, and more
-ALL URL SPACES FIXED ✅
+ALL URL SPACES FIXED + Spaces replaced with underscores ✅
 """
 import requests
 from typing import Dict, Any, Optional
@@ -182,7 +182,10 @@ def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
 
 
 def extract_images(wikidata: Dict[str, Any]) -> list:
-    """Extract image URLs from Wikidata - FIXED URL FORMAT ✅"""
+    """
+    Extract image URLs from Wikidata - FIXED ✅
+    Replaces spaces with underscores in filenames
+    """
     images = []
     claims = wikidata.get("claims", {})
     
@@ -191,6 +194,8 @@ def extract_images(wikidata: Dict[str, Any]) -> list:
     for claim in image_claims[:3]:  # Max 3 images
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
+            # FIXED: Replace spaces with underscores in filename
+            filename = filename.replace(' ', '_')
             # FIXED: No spaces in URL
             url = f"https://commons.wikimedia.org/wiki/File:{filename}"
             images.append(url)
