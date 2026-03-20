@@ -1,28 +1,30 @@
 """
 Wikidata Extractor - No API Key Required
 CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
-ALL TRAILING SPACES REMOVED + Better Distribution Detection + NO NUMBERS IN FILENAMES
+ALL TRAILING SPACES REMOVED + Search Wikipedia for Distribution Maps
 """
 import requests
 import hashlib
 import re
 from typing import Dict, Any, Optional, List
 
-# FIXED: NO TRAILING SPACES
+# FIXED: NO TRAILING SPACES ANYWHERE
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
 WIKIMEDIA_COMMONS = "https://commons.wikimedia.org/w/api.php"
+WIKIPEDIA_API = "https://en.wikipedia.org/w/api.php"
 
 # Subspecies keywords to filter out (we want general species maps only)
 SUBSPECIES_KEYWORDS = [
     'sumatrae', 'altaica', 'amoyensis', 'corbetti', 'jacksoni',
-    'virgata', 'sondaica', 'balica', 'tigris', 'leo', 'persica',
+    'virgata', 'sondaica', 'balica', 'leo', 'persica',
     'africanus', 'asiaticus', 'bengalensis', 'indicus', 'lupus',
     'subspecies', 'subsp', 'ssp', 'italicus', 'pardus', 'melas',
     'oncilla', 'tigrina', 'jubatus', 'salar', 'mydas', 'catesbeianus',
     'plexippus', 'mellifera', 'leucocephalus', 'forsteri', 'carcharias',
     'hannah', 'ophiophagus'
 ]
+# NOTE: 'tigris' REMOVED - it's the species name for tiger, not a subspecies keyword
 
 # Language suffixes to reject (e.g., -ar.png, -he.png, -fr.png)
 LANGUAGE_SUFFIXES = [
@@ -38,13 +40,12 @@ LANGUAGE_SUFFIXES = [
 # Reject keywords for distribution maps
 DISTRIBUTION_REJECT_KEYWORDS = [
     'historical', 'history', 'old', 'ancient', 'former',
-    'plo', '2000', '2001', '2002', '2003', '2004', '2005',
-    '2006', '2007', '2008', '2009', '2010', '2011', '2012',
-    '2013', '2014', '2015', '2016', '2017', '2018', '2019',
-    '2020', '2021', '2022', '2023', '2024', '2025',
-    'early', 'late', 'century', 'past', 'previous',
+    'plo', 'early', 'late', 'century', 'past', 'previous',
     'grid_map', 'grid', 'cutted', 'without_borders'
 ]
+
+# Year patterns to reject (e.g., 2006, 2022, etc.)
+YEAR_PATTERN = re.compile(r'(19|20)\d{2}')
 
 
 def _filename_to_direct_url(filename: str) -> str:
@@ -77,17 +78,24 @@ def _filename_to_direct_url(filename: str) -> str:
     return direct_url
 
 
-def _has_numbers(filename: str) -> bool:
+def _has_rejectable_numbers(filename: str) -> bool:
     """
-    Check if filename contains any numbers
+    Check if filename contains rejectable numbers (years, versions)
     
-    Input:  "Tiger_distribution_map_2.png"
-    Output: True (has "2")
-    
-    Input:  "Tiger_distribution.png"
-    Output: False (no numbers)
+    Accept: Tiger_distribution.png (no numbers)
+    Accept: Tiger_distribution_map.png (no numbers)
+    Reject: Tiger_distribution_2022.png (has year)
+    Reject: Tiger_distribution_map_2.png (has version number)
     """
-    return bool(re.search(r'\d', filename))
+    # Check for 4-digit years (1900-2099)
+    if YEAR_PATTERN.search(filename):
+        return True
+    
+    # Check for version numbers like "_2", "_v2", etc.
+    if re.search(r'[_-]\d+', filename):
+        return True
+    
+    return False
 
 
 def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
@@ -95,30 +103,31 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     Check if this is a valid general species distribution map
     
     Accept: Tiger_distribution.png
-    Accept: Apis_mellifera_distribution_map.svg
-    Reject: Panthera_tigris_tigris_distribution_map_2.png (has number "2")
-    Reject: Acinonyx_jubatus_history_distribution_in_the_early_20_century.png (has "20")
-    Reject: Salmo_salar_CZ_distribution_grid_map_2006.png (has "2006")
+    Accept: Tiger_distribution_map.png
+    Accept: Panthera_tigris_distribution.png (scientific name OK)
+    Reject: Panthera_tigris_tigris_distribution.png (subspecies)
+    Reject: Tiger_distribution_2022.png (has year)
+    Reject: Tiger_distribution_map-ar.png (language suffix)
     """
     filename_lower = filename.lower()
     animal_lower = animal_name.lower().replace(' ', '_')
     
-    # FIXED: Must contain "distribution" (no need for "map")
+    # Must contain "distribution"
     if 'distribution' not in filename_lower:
         return False
     
-    # FIXED: REJECT if filename contains ANY numbers
-    if _has_numbers(filename):
-        print(f"   ⚠️  Rejecting distribution map (contains numbers): {filename}")
+    # Reject files with years or version numbers
+    if _has_rejectable_numbers(filename):
+        print(f"   ⚠️  Rejecting distribution map (has year/version): {filename}")
         return False
     
-    # Check for reject keywords first (historical, years, etc.)
+    # Check for reject keywords
     for reject_kw in DISTRIBUTION_REJECT_KEYWORDS:
         if reject_kw in filename_lower:
             print(f"   ⚠️  Rejecting distribution map (contains '{reject_kw}'): {filename}")
             return False
     
-    # Check for language suffixes (e.g., -ar.png, -he.png)
+    # Check for language suffixes
     for lang_suffix in LANGUAGE_SUFFIXES:
         if filename_lower.endswith(lang_suffix + '.png') or \
            filename_lower.endswith(lang_suffix + '.jpg') or \
@@ -127,85 +136,123 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
             print(f"   ⚠️  Rejecting distribution map (language suffix '{lang_suffix}'): {filename}")
             return False
     
-    # Check if filename contains subspecies keywords
-    # FIXED: Reject if subspecies keyword is in filename but NOT the main animal name
+    # Check for subspecies keywords (but allow species names like 'tigris' for tiger)
     for subspecies in SUBSPECIES_KEYWORDS:
         if subspecies in filename_lower:
-            # Check if this subspecies is NOT part of the common animal name
-            # e.g., "tigris" in filename but "tiger" doesn't contain "tigris" → REJECT
+            # Check if this keyword is NOT part of the animal name
             if subspecies not in animal_lower:
                 print(f"   ⚠️  Rejecting distribution map (subspecies '{subspecies}'): {filename}")
                 return False
     
-    # Prefer filenames that match the common animal name
-    if animal_lower in filename_lower:
-        return True
-    
-    # Accept if it has "distribution" but no reject/subspecies/language keywords
     return True
+
+
+def _get_wikipedia_images(animal_name: str) -> List[str]:
+    """
+    Get all images from Wikipedia article including distribution maps
+    
+    Example: https://en.wikipedia.org/wiki/Tiger
+    Returns list of direct image URLs
+    """
+    images = []
+    
+    try:
+        # Get page images from Wikipedia API
+        params = {
+            "action": "query",
+            "format": "json",
+            "titles": animal_name,
+            "prop": "images",
+            "imlimit": "50"
+        }
+        headers = {
+            "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
+        }
+        
+        response = requests.get(WIKIPEDIA_API, params=params, headers=headers, timeout=10)
+        
+        if response.status_code == 200:
+            data = response.json()
+            pages = data.get("query", {}).get("pages", {})
+            
+            for page_id, page_data in pages.items():
+                if page_id == "-1":
+                    continue
+                    
+                images_list = page_data.get("images", [])
+                for img in images_list:
+                    filename = img.get("title", "")
+                    if filename:
+                        # Convert to direct URL
+                        direct_url = _filename_to_direct_url(filename)
+                        images.append(direct_url)
+    
+    except Exception as e:
+        print(f"   ⚠️  Wikipedia image fetch failed: {e}")
+    
+    return images
 
 
 def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional[str]:
     """
-    Search Wikimedia Commons for distribution map images
-    Prefers general species maps over subspecies-specific ones
-    Rejects historical, language-specific, and numbered versions
+    Search Wikimedia Commons AND Wikipedia for distribution map images
+    
+    Priority:
+    1. Wikipedia article images (most likely to have correct distribution map)
+    2. Wikimedia Commons search
     
     Example: https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png
     """
-    try:
-        # Try multiple search queries - general name first
-        search_queries = [
-            f"{animal_name} distribution",
-            f"{scientific_name} distribution",
-            f"{animal_name} range",
-        ]
-        
-        best_match = None
-        
-        for query in search_queries:
-            params = {
-                "action": "query",
-                "format": "json",
-                "list": "search",
-                "srsearch": f"{query}",
-                "srnamespace": 6,  # File namespace
-                "srlimit": 20
-            }
-            # FIXED: No trailing spaces in User-Agent
-            headers = {
-                "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
-            }
-            
-            response = requests.get(WIKIMEDIA_COMMONS, params=params, headers=headers, timeout=10)
-            
-            if response.status_code == 200:
-                data = response.json()
-                results = data.get("query", {}).get("search", [])
-                
-                for result in results:
-                    filename = result.get("title", "")
-                    filename_clean = filename.replace('File:', '').strip()
-                    
-                    # Must have "distribution" in name
-                    if filename_clean and "distribution" in filename_clean.lower():
-                        # Check if it's a valid general map
-                        if _is_valid_distribution_map(filename_clean, animal_name):
-                            direct_url = _filename_to_direct_url(filename)
-                            direct_url = direct_url.strip()
-                            print(f"   ✅ Found distribution map: {filename_clean}")
-                            return direct_url
-                        elif best_match is None:
-                            # Keep as fallback if no valid map found
-                            best_match = _filename_to_direct_url(filename).strip()
-        
-        # Return fallback if no valid map found
-        if best_match:
-            print(f"   ⚠️  Using fallback map (no ideal map found): {best_match}")
-            return best_match
+    # PRIORITY 1: Get images from Wikipedia article
+    print(f"   📖 Searching Wikipedia article for distribution map...")
+    wiki_images = _get_wikipedia_images(animal_name)
     
-    except Exception as e:
-        print(f"   Distribution map search failed: {e}")
+    for img_url in wiki_images:
+        # Extract filename from URL
+        filename = img_url.split('/')[-1]
+        filename_clean = filename.replace('File:', '').strip()
+        
+        if 'distribution' in filename_clean.lower():
+            if _is_valid_distribution_map(filename_clean, animal_name):
+                print(f"   ✅ Found distribution map in Wikipedia: {filename_clean}")
+                return img_url
+    
+    # PRIORITY 2: Search Wikimedia Commons
+    print(f"   🔍 Searching Wikimedia Commons for distribution map...")
+    search_queries = [
+        f"{animal_name} distribution",
+        f"{scientific_name} distribution",
+        f"{animal_name} range map",
+    ]
+    
+    for query in search_queries:
+        params = {
+            "action": "query",
+            "format": "json",
+            "list": "search",
+            "srsearch": f"{query}",
+            "srnamespace": 6,  # File namespace
+            "srlimit": 20
+        }
+        headers = {
+            "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
+        }
+        
+        response = requests.get(WIKIMEDIA_COMMONS, params=params, headers=headers, timeout=10)
+        
+        if response.status_code == 200:
+            data = response.json()
+            results = data.get("query", {}).get("search", [])
+            
+            for result in results:
+                filename = result.get("title", "")
+                filename_clean = filename.replace('File:', '').strip()
+                
+                if filename_clean and "distribution" in filename_clean.lower():
+                    if _is_valid_distribution_map(filename_clean, animal_name):
+                        direct_url = _filename_to_direct_url(filename)
+                        print(f"   ✅ Found distribution map: {filename_clean}")
+                        return direct_url
     
     return None
 
@@ -214,7 +261,6 @@ def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
     """Fetch data from Wikidata using QID"""
     try:
         url = f"{WIKIDATA_ENDPOINT}{qid}.json"
-        # FIXED: No trailing spaces in User-Agent
         headers = {
             "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)",
             "Accept": "application/json"
@@ -285,7 +331,6 @@ def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
             "type": "item",
             "limit": 5
         }
-        # FIXED: No trailing spaces in User-Agent
         headers = {
             "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
         }
@@ -355,37 +400,32 @@ def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
 
 def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_name: str = "") -> Dict[str, List[str]]:
     """
-    Extract DIRECT image URLs from Wikidata
+    Extract DIRECT image URLs from Wikidata AND Wikipedia
     Separates regular photos from distribution maps
-    Filters out subspecies-specific, historical, language-specific, and NUMBERED distribution maps
     """
     result = {
         "photos": [],
         "distribution": []
     }
     
+    # Get images from Wikidata P18 claims
     claims = wikidata.get("claims", {})
-    
-    # P18 = image
     image_claims = claims.get("P18", [])
+    
     for claim in image_claims[:5]:
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
             filename_clean = filename.replace('File:', '').strip()
             direct_url = _filename_to_direct_url(filename).strip()
             
-            # Check if it's a distribution map (just needs "distribution", not "map")
             if "distribution" in filename_clean.lower():
-                # Only add if it's a valid general species map
                 if _is_valid_distribution_map(filename_clean, animal_name):
                     result["distribution"].append(direct_url)
-                    print(f"   🗺️  Distribution image: {filename_clean}")
-                else:
-                    print(f"   ⚠️  Skipping invalid distribution map: {filename_clean}")
+                    print(f"   🗺️  Distribution image from Wikidata: {filename_clean}")
             else:
                 result["photos"].append(direct_url)
     
-    # If no distribution image found in Wikidata, search Wikimedia Commons
+    # If no distribution image from Wikidata, search Wikipedia and Commons
     if not result["distribution"] and animal_name:
         dist_map = _search_distribution_map(animal_name, scientific_name)
         if dist_map:
