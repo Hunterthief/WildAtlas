@@ -1,6 +1,6 @@
 """
-Length extraction module - PRODUCTION v3
-Fixed: More patterns, smarter validation, better section priority
+Length extraction module - PRODUCTION v4
+Fixed: Reject shoulder height, better cheetah/elephant patterns, bee support
 Based on analysis of 13 animal Wikipedia articles
 """
 import re
@@ -51,7 +51,7 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
     
     value_lower = value.lower()
     
-    # REJECT temporal/geological contexts (specific, not broad)
+    # REJECT temporal/geological contexts
     reject_contexts = [
         'ma ', 'million years', 'mya', 'temporal range',
         'pleistocene', 'miocene', 'pliocene', 'fossil',
@@ -91,7 +91,7 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
                 if 'mammalia' in class_name:
                     expected_range = (0.3, 8.0)
                 elif 'aves' in class_name:
-                    expected_range = (0.1, 1.5)  # Body length, not wingspan
+                    expected_range = (0.1, 1.5)
                 elif 'reptilia' in class_name:
                     expected_range = (0.2, 7.0)
                 elif 'amphibia' in class_name:
@@ -99,7 +99,7 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
                 elif 'actinopterygii' in class_name:
                     expected_range = (0.1, 5.0)
                 elif 'insecta' in class_name:
-                    expected_range = (0.005, 0.1)  # Body length, not wingspan
+                    expected_range = (0.005, 0.1)
             
             if expected_range:
                 value_in_meters = max_num / 100 if max_num > 10 else max_num
@@ -117,10 +117,10 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
 
 
 def _has_length_context(text: str, animal_name: str = "") -> bool:
-    """Check if text has length-related context - NOT TOO RESTRICTIVE"""
+    """Check if text has length-related context - REJECT shoulder height"""
     text_lower = text.lower()
     
-    # POSITIVE indicators (length-related) - EXPANDED
+    # POSITIVE indicators (length-related)
     length_keywords = [
         'length', 'long', 'measures', 'reaching', 'grows',
         'body length', 'total length', 'head-body', 'snout',
@@ -129,12 +129,13 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         'typically', 'average', 'usually', 'about'
     ]
     
-    # REJECT keywords (specific, not broad) - REMOVED 'range:', 'migration'
+    # REJECT keywords - CRITICAL: Reject shoulder/at shoulder for length!
     reject_keywords = [
         'temporal range', 'million years', 'ma ', 'mya',
         'wingspan', 'wing span', 'wing length',
         'egg length', 'nest length', 'colony length',
-        'population size'
+        'population size',
+        'at the shoulder', 'shoulder height', 'shoulder'  # ← CRITICAL: Reject shoulder data!
     ]
     
     # SPECIAL: For butterflies/bees/eagles, reject wingspan as "length"
@@ -171,7 +172,7 @@ SECTION_PRIORITY = [
 
 
 # =============================================================================
-# PATTERN DEFINITIONS - Comprehensive for all animals (20+ patterns)
+# PATTERN DEFINITIONS - Fixed for all animals
 # =============================================================================
 LENGTH_PATTERNS = [
     # =========================================================================
@@ -301,12 +302,28 @@ LENGTH_PATTERNS = [
     },
     
     # =========================================================================
-    # TIER 7: Fallback Patterns
+    # TIER 7: Small Animals (Bees, Insects)
+    # =========================================================================
+    {
+        # "10-15 mm long" (bees)
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(mm|cm)\s+long',
+        'priority': 7,
+        'format': 'range'
+    },
+    {
+        # "about 12 mm" (bees)
+        'pattern': r'(?:about|approximately|around)\s+(\d+(?:[.,]\d+)?)\s*(mm|cm)\s+(?:long|in length)',
+        'priority': 7,
+        'format': 'single'
+    },
+    
+    # =========================================================================
+    # TIER 8: Fallback Patterns
     # =========================================================================
     {
         # "X cm" in description sections (small animals)
         'pattern': r'(\d+(?:[.,]\d+)?)\s*(cm|mm)\s+(?:long|length)',
-        'priority': 7,
+        'priority': 8,
         'format': 'single'
     },
 ]
