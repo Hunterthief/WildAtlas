@@ -52,7 +52,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "https://eol.org/pages/1253183",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -122,10 +122,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T11:56:09.407644"
+    "last_updated": "2026-03-20T12:03:36.730918"
   },
   {
     "id": "Q35625",
@@ -253,7 +252,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T11:56:28.417277"
+    "last_updated": "2026-03-20T12:03:52.223555"
   },
   {
     "id": "Q7372",
@@ -383,7 +382,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T11:56:43.739716"
+    "last_updated": "2026-03-20T12:04:06.900997"
   },
   {
     "id": "Q213537",
@@ -516,7 +515,7 @@
         "max_lon": 151.355139,
         "count": 50
       },
-      "occurrence_count": 199053
+      "occurrence_count": 199054
     },
     "sources": [
       "Wikipedia",
@@ -525,7 +524,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T11:56:52.939874"
+    "last_updated": "2026-03-20T12:04:26.297681"
   },
   {
     "id": "Q25319",
@@ -595,7 +594,7 @@
     "group_name": "flock",
     "physical": {
       "weight": "6.6-14lbs",
-      "length": "11 cm",
+      "length": "34–38 cm",
       "height": "28-38 inches",
       "top_speed": "100 mph",
       "lifespan": "15-20 years in the wild"
@@ -649,7 +648,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T11:57:14.995641"
+    "last_updated": "2026-03-20T12:04:43.071193"
   },
   {
     "id": "Q43306",
@@ -774,7 +773,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T11:57:21.634571"
+    "last_updated": "2026-03-20T12:04:49.875538"
   },
   {
     "id": "Q47164",
@@ -905,7 +904,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T11:57:38.053301"
+    "last_updated": "2026-03-20T12:05:06.802520"
   },
   {
     "id": "Q39709",
@@ -961,7 +960,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46563143",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1027,9 +1026,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T11:57:59.187612"
+    "last_updated": "2026-03-20T12:05:26.465621"
   },
   {
     "id": "Q7785",
@@ -1085,7 +1085,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/46559469",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1171,9 +1171,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T11:58:16.054209"
+    "last_updated": "2026-03-20T12:05:41.484854"
   },
   {
     "id": "Q189609",
@@ -1305,7 +1306,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T11:58:31.347717"
+    "last_updated": "2026-03-20T12:05:55.942734"
   },
   {
     "id": "Q270238",
@@ -1431,7 +1432,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T11:58:47.621874"
+    "last_updated": "2026-03-20T12:06:12.762862"
   },
   {
     "id": "Q165980",
@@ -1502,7 +1503,7 @@
     "group_name": "Invertebrates",
     "physical": {
       "weight": "0.25 - 0.75 grams",
-      "length": "4.5 cm",
+      "length": "1.2 m",
       "height": "",
       "top_speed": "12 mph",
       "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
@@ -1559,7 +1560,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T11:59:08.889086"
+    "last_updated": "2026-03-20T12:06:32.631791"
   },
   {
     "id": "Q7316",
@@ -1703,6 +1704,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T11:59:26.418424"
+    "last_updated": "2026-03-20T12:06:49.164503"
   }
 ]
