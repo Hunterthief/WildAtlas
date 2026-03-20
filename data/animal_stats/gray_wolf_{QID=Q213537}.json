@@ -49,9 +49,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/d/dc/Canis_lupus_cristaldii_distribution_(1900).png"
+    "https://upload.wikimedia.org/wikipedia/commons/e/e1/Indian_wolf_(Canis_lupus_pallipes)_distribution.png"
   ],
-  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Canis_lupus_cristaldii_distribution_(1900).png",
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Indian_wolf_(Canis_lupus_pallipes)_distribution.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
   "eol_url": "https://eol.org/pages/1268606",
@@ -142,5 +142,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T23:14:34.526639"
+  "last_updated": "2026-03-20T23:21:27.914549"
 }
