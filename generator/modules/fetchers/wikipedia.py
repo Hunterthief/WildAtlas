@@ -52,7 +52,7 @@ def fetch_wikidata_properties(qid: str) -> Dict[str, str]:
         
         wikidata_stats = {}
         
-        # Extract mass (weight)
+        # Extract mass (weight) - P2067
         if 'P2067' in claims:
             for claim in claims['P2067']:
                 mainsnak = claim.get('mainsnak', {})
@@ -62,9 +62,7 @@ def fetch_wikidata_properties(qid: str) -> Dict[str, str]:
                 unit = value.get('unit', '')
                 
                 if amount:
-                    # Clean amount (remove + prefix)
                     amount = amount.lstrip('+')
-                    # Convert unit if present
                     if 'kilogram' in unit:
                         wikidata_stats['weight'] = f"{amount} kg"
                     elif 'gram' in unit:
@@ -76,7 +74,7 @@ def fetch_wikidata_properties(qid: str) -> Dict[str, str]:
                     print(f"   ✅ Wikidata weight: {wikidata_stats['weight']}")
                     break
         
-        # Extract height/length
+        # Extract height/length - P2048
         if 'P2048' in claims:
             for claim in claims['P2048']:
                 mainsnak = claim.get('mainsnak', {})
@@ -97,7 +95,7 @@ def fetch_wikidata_properties(qid: str) -> Dict[str, str]:
                     print(f"   ✅ Wikidata length: {wikidata_stats['length']}")
                     break
         
-        # Extract lifespan
+        # Extract lifespan - P2250
         if 'P2250' in claims:
             for claim in claims['P2250']:
                 mainsnak = claim.get('mainsnak', {})
@@ -114,7 +112,7 @@ def fetch_wikidata_properties(qid: str) -> Dict[str, str]:
                     print(f"   ✅ Wikidata lifespan: {wikidata_stats['lifespan']}")
                     break
         
-        # Extract speed
+        # Extract speed - P6137
         if 'P6137' in claims:
             for claim in claims['P6137']:
                 mainsnak = claim.get('mainsnak', {})
@@ -144,10 +142,9 @@ def fetch_wikidata_properties(qid: str) -> Dict[str, str]:
 def fetch_dbpedia_properties(name: str) -> Dict[str, str]:
     """
     Fetch physical stats from DBPedia (structured Wikipedia data)
-    DBPedia extracts infobox data into a queryable database [[10]]
+    DBPedia extracts infobox data into a queryable database
     """
     try:
-        # Convert name to DBPedia resource URI
         resource_name = name.replace(' ', '_')
         url = f'http://dbpedia.org/data/{resource_name}.json'
         print(f"🔗 Fetching DBPedia: {url}")
@@ -168,7 +165,6 @@ def fetch_dbpedia_properties(name: str) -> Dict[str, str]:
         
         dbpedia_stats = {}
         
-        # Map DBPedia properties to our format
         property_mappings = {
             'http://dbpedia.org/ontology/mass': 'weight',
             'http://dbpedia.org/ontology/length': 'length',
@@ -181,7 +177,6 @@ def fetch_dbpedia_properties(name: str) -> Dict[str, str]:
             if dbpedia_prop in resource_data:
                 values = resource_data[dbpedia_prop]
                 if values:
-                    # Get the numeric value
                     value = values[0].get('value', '')
                     if value:
                         dbpedia_stats[our_key] = str(value)
@@ -196,7 +191,7 @@ def fetch_dbpedia_properties(name: str) -> Dict[str, str]:
 
 
 def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
-    """Fetch Wikipedia article sections (unchanged)"""
+    """Fetch Wikipedia article sections"""
     try:
         response = requests.get(
             'https://en.wikipedia.org/w/api.php',
@@ -292,20 +287,18 @@ def fetch_wikipedia_infobox(name: str, qid: str = None) -> Dict[str, str]:
         infobox_data.update(wikidata_stats)
     
     # ===== PRIORITY 2: DBPedia (Structured Wikipedia) =====
-    if not infobox_
+    if not infobox_data:
         print("\n🔍 PRIORITY 2: DBPedia...")
         dbpedia_stats = fetch_dbpedia_properties(name)
         infobox_data.update(dbpedia_stats)
     
     # ===== PRIORITY 3: Wikipedia sections (Fallback only) =====
-    if not infobox_
+    if not infobox_data:
         print("\n🔍 PRIORITY 3: Wikipedia sections (fallback)...")
         sections = fetch_wikipedia_sections(name)
         
-        # Only search physical_characteristics section
         if 'physical_characteristics' in sections:
             text = sections['physical_characteristics']
-            # Very conservative patterns - only match obvious stats
             conservative_patterns = {
                 'weight': r'(?:weighs?|weight|mass)[:\s]+([0-9]+\s*(?:kg|lb))',
                 'length': r'(?:length|measures?)[:\s]+([0-9]+\s*(?:m|cm|ft))',
@@ -333,10 +326,7 @@ def fetch_wikipedia_data(name: str, qid: str = None) -> Dict[str, Any]:
     print(f"📚 Fetching data for: {name} (QID: {qid})")
     print(f"{'='*80}")
     
-    # Get sections for text content
     sections = fetch_wikipedia_sections(name)
-    
-    # Get physical stats from structured sources
     infobox = fetch_wikipedia_infobox(name, qid)
     
     result = {
@@ -354,7 +344,6 @@ def fetch_wikipedia_data(name: str, qid: str = None) -> Dict[str, Any]:
 
 
 if __name__ == "__main__":
-    # Test with animals that have good Wikidata coverage
     test_animals = [
         {"name": "Tiger", "qid": "Q132186"},
         {"name": "Lion", "qid": "Q140"},
