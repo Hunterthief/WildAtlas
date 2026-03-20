@@ -129,10 +129,8 @@ async function setup3DModel(animal) {
     try {
         const oembedUrl = `https://sketchfab.com/oembed?url=${encodeURIComponent(modelUrl)}&maxwidth=800`;
         const response = await fetch(oembedUrl);
-        
         if (response.ok) {
             const data = await response.json();
-            
             if (data.glb_url || data.gltf_url) {
                 // Load 3D model
                 modelViewer.src = data.glb_url || data.gltf_url;
@@ -150,7 +148,6 @@ async function setup3DModel(animal) {
                 
                 // Setup toggle between 3D and image
                 setupViewToggle(modelViewer, imageElement, toggleButton, toggleText);
-                
                 console.log(`✅ 3D model loaded for ${animal.name}`);
                 return;
             }
@@ -272,6 +269,7 @@ function setupViewToggle() {
     if (savedView && savedView === 'list') {
         const grids = document.querySelectorAll('.animal-grid');
         grids.forEach(grid => grid.classList.add('list-view'));
+        
         viewButtons.forEach(btn => {
             if (btn.dataset.view === 'list') {
                 btn.classList.add('active');
@@ -373,7 +371,8 @@ function renderAnimalCard(animal, type) {
     const card = document.createElement('div');
     card.className = 'animal-card';
     
-    const imageUrl = animal.image ? animal.image.trim() : 'https://via.placeholder.com/48?text=?';
+    // FIX: Use 'image' field (single string) with fallback to first image in array
+    const imageUrl = animal.image || (animal.images && animal.images[0]) || 'https://via.placeholder.com/48?text=?';
     const name = animal.name;
     const scientific = animal.scientific_name;
     
@@ -498,14 +497,14 @@ function populateDetailPage(animal) {
     const eco = animal.ecology || {};
     const phys = animal.physical || {};
     const repro = animal.reproduction || {};
-    const summary = animal.summary || '';
+    // FIX: Use 'summary' field (with fallback to 'description')
+    const summary = animal.summary || animal.description || '';
     
     // === TITLE SECTION ===
     document.getElementById('animal-name').textContent = animal.name;
     document.getElementById('animal-scientific').textContent = animal.scientific_name;
     
     // === LEFT SIDEBAR ===
-    
     // Diet Icons
     const dietIcons = document.getElementById('diet-icons');
     if (dietIcons && eco.diet) {
@@ -535,24 +534,27 @@ function populateDetailPage(animal) {
     }
     
     // === CENTER COLUMN ===
-    
     // Setup 3D Model
     setup3DModel(animal);
     
     // Hero Image
     const heroImage = document.getElementById('animal-image');
-    if (heroImage && animal.image) {
-        heroImage.src = animal.image.trim();
-        heroImage.alt = animal.name;
+    if (heroImage) {
+        // FIX: Use 'image' field with fallback to first image in array
+        const imageUrl = animal.image || (animal.images && animal.images[0]) || '';
+        if (imageUrl) {
+            heroImage.src = imageUrl.trim();
+            heroImage.alt = animal.name;
+        }
     }
     
     // === RIGHT SIDEBAR ===
-    
     // Location with Map Dots
     const locationCard = document.getElementById('location-card');
     const locationText = document.getElementById('location-text');
     if (locationText && animal.ecology?.locations) {
         locationText.textContent = animal.ecology.locations;
+        
         const mapImg = document.getElementById('world-map');
         if (mapImg && mapImg.complete) {
             addLocationDots(animal.ecology.locations);
@@ -570,12 +572,14 @@ function populateDetailPage(animal) {
     const conservationBox = document.getElementById('conservation-status-box');
     const conservationText = document.getElementById('conservation-status-text');
     if (conservationBox && animal.ecology?.conservation_status) {
+        // FIX: Properly pass status parameter
         const statusClass = getConservationClass(animal.ecology.conservation_status);
         conservationBox.className = `conservation-status-box ${statusClass}`;
         if (conservationText) conservationText.textContent = animal.ecology.conservation_status;
     } else if (conservationCard) {
         conservationCard.style.display = 'none';
     }
+    
     setStatContent('conservation-threats', null, animal.ecology?.biggest_threat);
     
     // Time Period
@@ -584,7 +588,6 @@ function populateDetailPage(animal) {
     const timelineFill = document.getElementById('timeline-fill');
     const timelineStart = document.getElementById('timeline-start');
     const timelineEnd = document.getElementById('timeline-end');
-    
     if (timeRange) {
         const timeData = getTimePeriod(animal);
         timeRange.textContent = timeData.text;
@@ -597,9 +600,8 @@ function populateDetailPage(animal) {
     
     // Reproduction
     const reproCard = document.getElementById('reproduction-card');
-    const hasReproData = repro.name_of_young || animal.young_name || animal.group_name || 
+    const hasReproData = repro.name_of_young || animal.young_name || animal.group_name ||
                          repro.gestation_period || repro.average_litter_size;
-    
     if (hasReproData) {
         setStatContent('repro-young', null, repro.name_of_young || animal.young_name);
         setStatContent('repro-group', null, animal.group_name);
@@ -613,10 +615,9 @@ function populateDetailPage(animal) {
     const commonNameCard = document.getElementById('common-name-card');
     const commonNamesText = document.getElementById('common-names-text');
     if (commonNamesText) {
-        const commonNames = animal.common_names && animal.common_names.length > 0 
+        const commonNames = animal.common_names && animal.common_names.length > 0
             ? animal.common_names.join(', ')
             : null;
-        
         if (commonNames) {
             commonNamesText.textContent = commonNames;
         } else {
@@ -625,7 +626,7 @@ function populateDetailPage(animal) {
     }
     
     // === MAIN ARTICLE SECTIONS ===
-    
+    // FIX: Use 'summary' with fallback to 'description'
     setStatContent('overview-text', null, animal.summary || animal.description || 'No description available.');
     
     const descriptionText = generateDescriptionText(animal, summary);
@@ -698,7 +699,6 @@ function setupScrollIndicator() {
 
 function scrollToOverview() {
     const overviewSection = document.getElementById('overview-section');
-    
     if (overviewSection) {
         overviewSection.scrollIntoView({
             behavior: 'smooth',
@@ -733,7 +733,6 @@ function addLocationDots(locationsString) {
         const coords = findLocationCoordinates(location);
         if (coords) {
             const dotKey = `${coords.x}-${coords.y}`;
-            
             if (!addedDots.has(dotKey)) {
                 addedDots.add(dotKey);
                 
@@ -790,27 +789,27 @@ function getTimePeriod(animal) {
     let text = '';
     let width = '50%';
     
-    if (classType.includes('mammal') || animalType.includes('cat') || animalType.includes('feline') || 
+    if (classType.includes('mammal') || animalType.includes('cat') || animalType.includes('feline') ||
         animalType.includes('dog') || animalType.includes('canine') || animalType.includes('elephant') ||
         animalType.includes('wolf') || animalType.includes('tiger')) {
         millionsYears = 200;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '85%';
     }
-    else if (classType.includes('aves') || animalType.includes('bird') || animalType.includes('eagle') || 
-             animalType.includes('penguin') || animalType.includes('raptor')) {
+    else if (classType.includes('aves') || animalType.includes('bird') || animalType.includes('eagle') ||
+        animalType.includes('penguin') || animalType.includes('raptor')) {
         millionsYears = 150;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '75%';
     }
     else if (classType.includes('reptil') || animalType.includes('snake') || animalType.includes('turtle') ||
-             animalType.includes('cobra')) {
+        animalType.includes('cobra')) {
         millionsYears = 300;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '90%';
     }
     else if (classType.includes('fish') || classType.includes('chondrichthyes') || classType.includes('actinopterygii') ||
-             animalType.includes('shark') || animalType.includes('salmon')) {
+        animalType.includes('shark') || animalType.includes('salmon')) {
         millionsYears = 500;
         text = `Evolved ~${millionsYears} million years ago`;
         width = '95%';
@@ -848,11 +847,9 @@ function generateDescriptionText(animal, summary) {
     const parts = [];
     
     let desc = `${animal.name} is a ${animal.animal_type || 'animal'}`;
-    
     if (eco.diet) {
         desc += ` and a ${eco.diet.toLowerCase()}`;
     }
-    
     desc += '.';
     parts.push(desc);
     
@@ -887,14 +884,12 @@ function generateHabitatText(animal) {
     if (eco.locations) {
         parts.push(`${animal.name} is found in ${eco.locations.toLowerCase()}.`);
     }
-    
     if (eco.habitat) {
         parts.push(`It inhabits ${eco.habitat.toLowerCase()} environments.`);
     }
-    
     if (eco.group_behavior) {
         const behavior = eco.group_behavior.toLowerCase();
-        parts.push(`This species is ${behavior === 'social' ? 'social and lives in groups' : 'typically solitary'}.`);
+        parts.push(`This species is ${behavior === 'social' ? 'social and lives in groups' : 'typically ' + behavior.toLowerCase()}.`);
     }
     
     return parts.join(' ') || 'Habitat information is not available for this species.';
@@ -922,7 +917,7 @@ function generateBehaviorText(animal, summary) {
     
     if (eco.group_behavior) {
         const behavior = eco.group_behavior.toLowerCase();
-        if (behavior.includes('social')) {
+        if (behavior.includes('social') || behavior.includes('herd') || behavior.includes('pack') || behavior.includes('colony') || behavior.includes('flock') || behavior.includes('school')) {
             parts.push('These animals are social and often live in family groups or herds.');
         } else if (behavior.includes('solitary')) {
             parts.push('They are typically solitary animals, coming together only for mating.');
@@ -972,10 +967,8 @@ function generateConservationText(animal) {
 // ============================================
 function generateDietFAQ(animal) {
     const eco = animal.ecology || {};
-    
     if (eco.diet) {
         let answer = `${animal.name} is a ${eco.diet.toLowerCase()}.`;
-        
         if (eco.diet === 'Carnivore') {
             answer += ' It feeds on other animals.';
         } else if (eco.diet === 'Herbivore') {
@@ -983,30 +976,23 @@ function generateDietFAQ(animal) {
         } else if (eco.diet === 'Omnivore') {
             answer += ' It has a varied diet including both plants and animals.';
         }
-        
         return answer;
     }
-    
     return 'Diet information is not available for this species.';
 }
 
 function generateHabitatFAQ(animal) {
     const eco = animal.ecology || {};
-    
     if (eco.locations || eco.habitat) {
         let answer = '';
-        
         if (eco.locations) {
             answer += `${animal.name} is found in ${eco.locations.toLowerCase()}. `;
         }
-        
         if (eco.habitat) {
             answer += `It inhabits ${eco.habitat.toLowerCase()} environments.`;
         }
-        
         return answer.trim();
     }
-    
     return 'Habitat information is not available for this species.';
 }
 
@@ -1021,44 +1007,35 @@ function generateSizeFAQ(animal) {
     if (parts.length > 0) {
         return `${animal.name} is ${parts.join(', ')}.`;
     }
-    
     return 'Size information is not available for this species.';
 }
 
 function generateConservationFAQ(animal) {
     const eco = animal.ecology || {};
-    
     if (eco.conservation_status) {
         let answer = `${animal.name} is classified as ${eco.conservation_status.toLowerCase()}.`;
-        
         if (eco.biggest_threat) {
             answer += ` The biggest threats include ${eco.biggest_threat.toLowerCase()}.`;
         }
-        
         return answer;
     }
-    
     return 'Conservation status information is not available for this species.';
 }
 
 function generateLifespanFAQ(animal) {
     const phys = animal.physical || {};
-    
     if (phys.lifespan) {
         return `${animal.name} can live for ${phys.lifespan.toLowerCase()}.`;
     }
-    
     return 'Lifespan information is not available for this species.';
 }
 
 function generateFeaturesFAQ(animal) {
     const eco = animal.ecology || {};
-    
     if (eco.distinctive_features && eco.distinctive_features.length > 0) {
         const features = eco.distinctive_features.join(', ').toLowerCase();
         return `The most distinctive features of ${animal.name.toLowerCase()} include ${features}.`;
     }
-    
     return 'Distinctive feature information is not available for this species.';
 }
 
@@ -1069,7 +1046,6 @@ function generateDangerFAQ(animal) {
     if (dangerousTypes.includes(animalType)) {
         return `${animal.name} can be dangerous to humans if threatened or provoked. It is best to observe from a safe distance and never approach wild animals.`;
     }
-    
     return `${animal.name} is generally not dangerous to humans, but like all wild animals, should be observed from a safe distance.`;
 }
 
@@ -1080,11 +1056,9 @@ function generateReproductionFAQ(animal) {
     if (repro.gestation_period) {
         parts.push(`gestation period of ${repro.gestation_period.toLowerCase()}`);
     }
-    
     if (repro.average_litter_size) {
         parts.push(`typically has ${repro.average_litter_size} offspring`);
     }
-    
     if (repro.name_of_young) {
         parts.push(`young are called ${repro.name_of_young.toLowerCase()}`);
     }
@@ -1092,7 +1066,6 @@ function generateReproductionFAQ(animal) {
     if (parts.length > 0) {
         return `${animal.name} has a ${parts.join(', ')}.`;
     }
-    
     return 'Reproduction information is not available for this species.';
 }
 
@@ -1100,7 +1073,8 @@ function generateReproductionFAQ(animal) {
 // Helper Functions
 // ============================================
 function getConservationClass(status) {
-    if (!status) return '';
+    // FIX: Properly handle status parameter
+    if (!status) return 'status-vulnerable';
     const s = status.toLowerCase();
     if (s.includes('critically')) return 'status-critical';
     if (s.includes('endangered')) return 'status-endangered';
@@ -1129,10 +1103,11 @@ function getDietTypes(diet, animalType, summary) {
     const dietLower = diet.toLowerCase();
     const summaryLower = (summary || '').toLowerCase();
     const typeLower = (animalType || '').toLowerCase();
+    
     const types = [];
     
     // CARNIVORE / MEAT
-    if (dietLower.includes('carnivore') || 
+    if (dietLower.includes('carnivore') ||
         dietLower.includes('meat') ||
         summaryLower.includes('predator') ||
         summaryLower.includes('preys on') ||
@@ -1142,7 +1117,7 @@ function getDietTypes(diet, animalType, summary) {
     }
     
     // HERBIVORE / PLANTS
-    if (dietLower.includes('herbivore') || 
+    if (dietLower.includes('herbivore') ||
         dietLower.includes('plant') ||
         summaryLower.includes('grazes') ||
         summaryLower.includes('foliage') ||
@@ -1152,7 +1127,7 @@ function getDietTypes(diet, animalType, summary) {
     }
     
     // PISCIVORE / FISH
-    if (dietLower.includes('piscivore') || 
+    if (dietLower.includes('piscivore') ||
         dietLower.includes('fish') ||
         summaryLower.includes('fish') ||
         summaryLower.includes('salmon') ||
@@ -1162,7 +1137,7 @@ function getDietTypes(diet, animalType, summary) {
     }
     
     // INSECTIVORE / INSECTS
-    if (dietLower.includes('insectivore') || 
+    if (dietLower.includes('insectivore') ||
         summaryLower.includes('insects') ||
         summaryLower.includes('bugs') ||
         summaryLower.includes('arthropods') ||
@@ -1171,7 +1146,7 @@ function getDietTypes(diet, animalType, summary) {
     }
     
     // OMNIVORE / MIXED
-    if (dietLower.includes('omnivore') || 
+    if (dietLower.includes('omnivore') ||
         summaryLower.includes('varied diet') ||
         summaryLower.includes('both plants and animals') ||
         ['bear', 'pig', 'raccoon', 'crow'].includes(typeLower)) {
