@@ -1,6 +1,6 @@
 """
-Wikipedia data fetcher - COMPREHENSIVE FIX ✅
-Searches ALL infoboxes and full page content for physical stats
+Wikipedia data fetcher - MAXIMUM DEBUG 🔍
+Shows EXACTLY what text is in the infobox
 """
 import re
 import requests
@@ -91,7 +91,7 @@ def fetch_wikipedia_sections(name: str) -> Dict[str, str]:
 
 def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
     """
-    COMPREHENSIVE: Searches ALL infoboxes and full page for physical stats
+    MAXIMUM DEBUG - Shows EXACTLY what's in the infobox
     """
     try:
         url = f'https://en.wikipedia.org/wiki/{name.replace(" ", "_")}'
@@ -119,131 +119,113 @@ def fetch_wikipedia_infobox(name: str) -> Dict[str, str]:
         
         infobox_data = {}
         
-        # ===== STRATEGY 1: Find ALL infobox tables =====
-        print("\n🔍 STRATEGY 1: Searching ALL infobox tables...")
-        all_tables = soup.find_all('table', class_=lambda x: x and 'infobox' in str(x).lower())
-        print(f"   Found {len(all_tables)} infobox table(s)")
+        # Find ALL tables
+        all_tables = soup.find_all('table')
+        print(f"\n📊 Total tables on page: {len(all_tables)}")
         
-        for idx, infobox_table in enumerate(all_tables):
-            print(f"\n   --- Infobox #{idx + 1} ---")
+        # Find infobox tables
+        infobox_tables = []
+        for i, table in enumerate(all_tables):
+            class_attr = table.get('class', [])
+            class_str = ' '.join(class_attr) if isinstance(class_attr, list) else str(class_attr)
+            if 'infobox' in class_str.lower():
+                infobox_tables.append((i, table, class_str))
+                print(f"   ✅ Table #{i} is infobox: '{class_str}'")
+        
+        if not infobox_tables:
+            print("   ⚠️ NO infobox tables found!")
+            # Save HTML for inspection
+            with open(f'debug_{name.replace(" ", "_")}.html', 'w', encoding='utf-8') as f:
+                f.write(soup.prettify())
+            print(f"   💾 Saved full HTML to debug_{name.replace(' ', '_')}.html")
+            return {}
+        
+        # Process each infobox
+        for idx, (table_num, infobox_table, class_str) in enumerate(infobox_tables):
+            print(f"\n{'='*80}")
+            print(f"   INFOBOX #{idx + 1} (Table #{table_num})")
+            print(f"{'='*80}")
             
-            # Get ALL text from this infobox
-            all_text = infobox_table.get_text()
+            # Get ALL text
+            all_text = infobox_table.get_text(separator=' | ')
+            print(f"\n📋 FULL INFOBOX TEXT ({len(all_text)} chars):")
+            print("-" * 80)
+            print(all_text)
+            print("-" * 80)
             
-            # Search for physical stats with flexible patterns
-            stat_patterns = {
-                'weight': [
-                    r'(?:mass|weight)\s*[:\s]\s*([0-9.,\s\-–]+(?:\s*[kmglb]+)?(?:\s*\(.*?\))?)',
-                    r'([0-9.,\s\-–]+\s*(?:kg|lb|pounds?|kilograms?|grams?|tonnes?|tons?))',
-                ],
-                'length': [
-                    r'(?:length|body\s*length|total\s*length)\s*[:\s]\s*([0-9.,\s\-–]+(?:\s*[kcmftin]+)?(?:\s*\(.*?\))?)',
-                    r'([0-9.,\s\-–]+\s*(?:m|cm|mm|ft|in|feet|inches|metres?|meters?))',
-                ],
-                'height': [
-                    r'(?:height|shoulder\s*height|standing\s*height)\s*[:\s]\s*([0-9.,\s\-–]+(?:\s*[kcmftin]+)?(?:\s*\(.*?\))?)',
-                    r'([0-9.,\s\-–]+\s*(?:m|cm|mm|ft|in|feet|inches|metres?|meters?)).*?(?:height)',
-                ],
-                'lifespan': [
-                    r'(?:lifespan|longevity|life\s*span)\s*[:\s]\s*([0-9.,\s\-–]+(?:\s*[a-z]+)?(?:\s*\(.*?\))?)',
-                    r'([0-9.,\s\-–]+\s*(?:years?|yrs?|months?|weeks?|days?)).*?(?:lifespan|longevity|life)',
-                ],
-                'top_speed': [
-                    r'(?:speed|top\s*speed|maximum\s*speed)\s*[:\s]\s*([0-9.,\s\-–]+(?:\s*[a-z/]+)?(?:\s*\(.*?\))?)',
-                    r'([0-9.,\s\-–]+\s*(?:km/h|mph|km|mi|m/s)).*?(?:speed)',
-                ],
-            }
+            # Save infobox HTML for inspection
+            with open(f'debug_infobox_{name.replace(" ", "_")}_{idx}.html', 'w', encoding='utf-8') as f:
+                f.write(str(infobox_table))
+            print(f"\n💾 Saved infobox HTML to debug_infobox_{name.replace(' ', '_')}_{idx}.html")
             
-            for stat_name, patterns in stat_patterns.items():
-                if stat_name in infobox_data:
-                    continue  # Already found
+            # Search for physical stats
+            print("\n🔍 Searching for physical stats...")
+            
+            # Look for specific keywords followed by numbers
+            keywords_to_find = ['mass', 'weight', 'length', 'height', 'lifespan', 'longevity', 'speed']
+            
+            for keyword in keywords_to_find:
+                # Find the keyword in text
+                pattern = rf'{keyword}.*?([0-9][0-9,\s.\-–]*\s*[a-z/]+)'
+                match = re.search(pattern, all_text, re.IGNORECASE | re.DOTALL)
+                if match:
+                    value = match.group(1).strip()
+                    print(f"   Found '{keyword}': {value}")
                     
-                for pattern in patterns:
-                    match = re.search(pattern, all_text, re.IGNORECASE)
-                    if match:
-                        value = match.group(1).strip()
-                        value = re.sub(r'\s+', ' ', value)
-                        # Validate it looks like a measurement
-                        if re.search(r'[0-9]', value):
-                            infobox_data[stat_name] = value
-                            print(f"      ✅ {stat_name}: {value}")
-                        break
-        
-        # ===== STRATEGY 2: Parse infobox rows more carefully =====
-        if not infobox_data:
-            print("\n🔍 STRATEGY 2: Parsing infobox rows with state machine...")
+                    # Map to our standard keys
+                    if any(k in keyword for k in ['mass', 'weight']):
+                        infobox_data['weight'] = value
+                    elif 'length' in keyword:
+                        infobox_data['length'] = value
+                    elif 'height' in keyword:
+                        infobox_data['height'] = value
+                    elif any(k in keyword for k in ['lifespan', 'longevity']):
+                        infobox_data['lifespan'] = value
+                    elif 'speed' in keyword:
+                        infobox_data['top_speed'] = value
             
-            for idx, infobox_table in enumerate(all_tables):
-                rows = infobox_table.find_all('tr')
-                current_label = ""
+            # Also try row-by-row parsing
+            print("\n📊 Parsing rows:")
+            rows = infobox_table.find_all('tr')
+            print(f"   Total rows: {len(rows)}")
+            
+            for i, row in enumerate(rows):
+                cells = row.find_all(['th', 'td'])
+                cell_texts = [cell.get_text().strip() for cell in cells]
                 
-                for row in rows:
-                    # Get all cells in this row
-                    cells = row.find_all(['th', 'td'])
+                # Only show rows with numbers (likely physical stats)
+                row_text = ' '.join(cell_texts)
+                if re.search(r'[0-9]', row_text) and len(row_text) > 5:
+                    print(f"   Row {i:2d}: {cell_texts}")
                     
-                    for cell in cells:
-                        cell_text = cell.get_text().strip()
-                        cell_text = re.sub(r'\[\d+\]', '', cell_text)
+                    # Try to extract stats from this row
+                    for cell in cell_texts:
+                        # Weight patterns
+                        if re.search(r'(?:mass|weight)', cell, re.IGNORECASE):
+                            match = re.search(r'([0-9][0-9,\s.\-–]*\s*(?:kg|lb|pounds?))', cell, re.IGNORECASE)
+                            if match and 'weight' not in infobox_data:
+                                infobox_data['weight'] = match.group(1).strip()
+                                print(f"      → Captured weight: {infobox_data['weight']}")
                         
-                        if not cell_text:
-                            continue
+                        # Length patterns
+                        if re.search(r'(?:length)', cell, re.IGNORECASE):
+                            match = re.search(r'([0-9][0-9,\s.\-–]*\s*(?:m|cm|ft|in|metres?))', cell, re.IGNORECASE)
+                            if match and 'length' not in infobox_data:
+                                infobox_data['length'] = match.group(1).strip()
+                                print(f"      → Captured length: {infobox_data['length']}")
                         
-                        # Check if this looks like a label (short, ends with colon, or is a known stat)
-                        is_label = (
-                            cell.name == 'th' or
-                            cell_text.endswith(':') or
-                            len(cell_text) < 30
-                        )
-                        
-                        if is_label:
-                            current_label = cell_text.lower()
-                        else:
-                            # This is data - match against current label
-                            for stat_name, keywords in {
-                                'weight': ['mass', 'weight', 'body mass', 'avg mass'],
-                                'length': ['length', 'body length', 'total length', 'size'],
-                                'height': ['height', 'shoulder height', 'standing height'],
-                                'lifespan': ['lifespan', 'longevity', 'life span', 'average lifespan'],
-                                'top_speed': ['speed', 'top speed', 'maximum speed', 'max speed'],
-                            }.items():
-                                if stat_name not in infobox_data:
-                                    if any(kw in current_label for kw in keywords):
-                                        if re.search(r'[0-9]', cell_text):
-                                            infobox_data[stat_name] = cell_text
-                                            print(f"      ✅ {stat_name}: {cell_text[:60]}")
-                                            break
+                        # Lifespan patterns
+                        if re.search(r'(?:lifespan|longevity)', cell, re.IGNORECASE):
+                            match = re.search(r'([0-9][0-9,\s.\-–]*\s*(?:years?|yrs?))', cell, re.IGNORECASE)
+                            if match and 'lifespan' not in infobox_data:
+                                infobox_data['lifespan'] = match.group(1).strip()
+                                print(f"      → Captured lifespan: {infobox_data['lifespan']}")
         
-        # ===== STRATEGY 3: Search entire page content as fallback =====
-        if not infobox_data:
-            print("\n🔍 STRATEGY 3: Searching entire page content...")
-            
-            # Get main content area
-            content_div = soup.find('div', id='mw-content-text')
-            if content_div:
-                page_text = content_div.get_text()
-                
-                stat_patterns = {
-                    'weight': [r'(?:mass|weight)[:\s]+([0-9.,\s\-–]+\s*(?:kg|lb))'],
-                    'length': [r'(?:length)[:\s]+([0-9.,\s\-–]+\s*(?:m|cm|ft|in))'],
-                    'height': [r'(?:height)[:\s]+([0-9.,\s\-–]+\s*(?:m|cm|ft|in))'],
-                    'lifespan': [r'(?:lifespan|longevity)[:\s]+([0-9.,\s\-–]+\s*(?:years?))'],
-                    'top_speed': [r'(?:speed)[:\s]+([0-9.,\s\-–]+\s*(?:km/h|mph))'],
-                }
-                
-                for stat_name, patterns in stat_patterns.items():
-                    for pattern in patterns:
-                        match = re.search(pattern, page_text, re.IGNORECASE)
-                        if match:
-                            value = match.group(1).strip()
-                            infobox_data[stat_name] = value
-                            print(f"      ✅ {stat_name} (from page): {value}")
-                            break
-        
-        print(f"\n✅ Total physical stats captured: {len(infobox_data)}")
+        print(f"\n{'='*80}")
+        print(f"✅ Total physical stats captured: {len(infobox_data)}")
         print(f"📦 Keys: {list(infobox_data.keys())}")
-        
-        if infobox_data:
-            print(f"\n🎯 FINAL DATA: {infobox_data}")
+        print(f"🎯 Data: {infobox_data}")
+        print(f"{'='*80}")
         
         return infobox_data
     
@@ -278,10 +260,9 @@ def fetch_wikipedia_data(name: str) -> Dict[str, Any]:
 
 
 if __name__ == "__main__":
-    test_animals = ["Tiger", "African Bush Elephant", "Giraffe"]
+    test_animals = ["Tiger"]
     
     for animal in test_animals:
         data = fetch_wikipedia_data(animal)
         print(f"\n🎯 FINAL RESULT for {animal}:")
         print(f"   Infobox: {data['infobox']}")
-        print(f"\n\n")
