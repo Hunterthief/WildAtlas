@@ -1,13 +1,12 @@
-# generator/modules/extractors/wikidata_enhancer.py
 """
 Wikidata Extractor - No API Key Required
 Enhances taxonomy, conservation status, images, and more
-ALL URL SPACES FIXED + Spaces replaced with underscores ✅
+ALL URL SPACES FIXED + Direct image URLs ✅
 """
 import requests
 from typing import Dict, Any, Optional
 
-# FIXED: No trailing spaces in URLs
+# FIXED: Removed trailing spaces
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
 
@@ -127,6 +126,33 @@ def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
         return None
 
 
+def _convert_to_direct_image_url(filename: str) -> str:
+    """
+    Convert Wikimedia filename to direct image URL
+    Example:
+    - Input:  "Tiger.jpg"
+    - Output: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Tiger.jpg/800px-Tiger.jpg"
+    """
+    if not filename:
+        return ""
+    
+    # Replace spaces with underscores
+    filename = filename.replace(' ', '_')
+    
+    # Get hash path (first 2 chars of filename)
+    clean_name = filename.split('.')[0]
+    if len(clean_name) >= 2:
+        hash1 = clean_name[0]
+        hash2 = clean_name[:2]
+        
+        # Build direct image URL (800px width)
+        direct_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{hash1}/{hash2}/{filename}/800px-{filename}"
+        return direct_url
+    
+    # Fallback
+    return f"https://upload.wikimedia.org/wikipedia/commons/{filename}"
+
+
 def extract_taxonomy(wikidata: Dict[str, Any]) -> Dict[str, str]:
     """Extract taxonomic classification from Wikidata"""
     taxonomy = {
@@ -183,8 +209,8 @@ def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
 
 def extract_images(wikidata: Dict[str, Any]) -> list:
     """
-    Extract image URLs from Wikidata - FIXED ✅
-    Replaces spaces with underscores in filenames
+    Extract DIRECT image URLs from Wikidata - FIXED ✅
+    Returns upload.wikimedia.org URLs, not commons.wikimedia.org page URLs
     """
     images = []
     claims = wikidata.get("claims", {})
@@ -194,11 +220,9 @@ def extract_images(wikidata: Dict[str, Any]) -> list:
     for claim in image_claims[:3]:  # Max 3 images
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
-            # FIXED: Replace spaces with underscores in filename
-            filename = filename.replace(' ', '_')
-            # FIXED: No spaces in URL
-            url = f"https://commons.wikimedia.org/wiki/File:{filename}"
-            images.append(url)
+            # FIXED: Convert to direct image URL
+            direct_url = _convert_to_direct_image_url(filename)
+            images.append(direct_url)
     
     return images
 
@@ -245,6 +269,9 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
     if not wikidata:
         return {}
     
+    # FIXED: Use scientific_name for Wikipedia URL, not QID
+    wiki_title = scientific_name.replace(' ', '_') if scientific_name else qid
+    
     return {
         "taxonomy": extract_taxonomy(wikidata),
         "conservation": extract_conservation_status(wikidata),
@@ -252,6 +279,6 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
         "common_names": extract_common_names(wikidata),
         "population": extract_population(wikidata),
         "description": wikidata.get("descriptions", {}).get("en", {}).get("value", ""),
-        # FIXED: No spaces in URL
-        "wikipedia_url": f"https://en.wikipedia.org/wiki/{qid}"
+        # FIXED: Use animal name, no spaces in URL
+        "wikipedia_url": f"https://en.wikipedia.org/wiki/{wiki_title}"
     }
