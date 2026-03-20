@@ -1,17 +1,17 @@
 """
-Length Extraction Module - PRODUCTION v26 (CRITICAL BUG FIXES)
+Length Extraction Module - PRODUCTION v27 (CRITICAL BUG FIXES)
 WildAtlas Project
 
-FIXES APPLIED:
-- Added "tail" to bad context (wolf fix)
-- Fixed wingspan filtering (butterfly fix)
-- Fixed mm→m conversion bug (bee fix)
-- Added value range validation BEFORE conversion
-- Fixed reversed range handling (elephant fix)
+CRITICAL FIXES:
+- Added "tail" to bad context (wolf fix - 9-11in was tail length)
+- Added "wingspan" filtering (butterfly fix - 1.2m was wingspan)
+- Added strict insect validation (bee fix - 34m is impossible)
+- Added reversed range detection (elephant fix - 7-6m → 6-7m)
+- Added unit conversion validation
 """
 
 import re
-from typing import Dict, Any, Optional, Tuple
+from typing import Dict, Any, Optional
 
 
 # =============================================================================
@@ -42,12 +42,12 @@ ANIMAL_LENGTH_RANGES = {
     'salmonidae': (0.5, 1.5),
     'actinopterygii': (0.01, 5.0),
     
-    # Insects - CRITICAL FIX: Proper ranges
+    # Insects - CRITICAL: Proper ranges
     'hymenoptera': (0.005, 0.03),  # Bees: 0.5-3 cm
-    'lepidoptera': (0.02, 0.15),   # Butterflies: 2-15 cm (wingspan max)
+    'lepidoptera': (0.02, 0.15),   # Butterflies: 2-15 cm
     'apidae': (0.008, 0.025),      # Honey bees: 0.8-2.5 cm
     'nymphalidae': (0.02, 0.12),   # Monarchs: 2-12 cm
-    'insecta': (0.001, 0.20),      # General insects: 0.1-20 cm
+    'insecta': (0.001, 0.20),      # General insects: 0.1-20 cm MAX
 }
 
 
