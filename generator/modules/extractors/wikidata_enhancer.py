@@ -1,7 +1,7 @@
 """
 Wikidata Extractor - No API Key Required
 CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
-ALL TRAILING SPACES REMOVED + Subspecies Filter + Historical/Language Filter
+ALL TRAILING SPACES REMOVED + Better Distribution Detection
 """
 import requests
 import hashlib
@@ -16,14 +16,25 @@ WIKIMEDIA_COMMONS = "https://commons.wikimedia.org/w/api.php"
 SUBSPECIES_KEYWORDS = [
     'sumatrae', 'altaica', 'amoyensis', 'corbetti', 'jacksoni',
     'virgata', 'sondaica', 'balica', 'tigris', 'leo', 'persica',
-    'africanus', 'asiaticus', 'bengalensis', 'indicus'
+    'africanus', 'asiaticus', 'bengalensis', 'indicus', 'lupus',
+    'subspecies', 'subsp', 'ssp'
 ]
 
-# FIXED: Reject keywords for distribution maps
+# Language suffixes to reject (e.g., -ar.png, -he.png, -fr.png)
+LANGUAGE_SUFFIXES = [
+    '-ar', '-fr', '-de', '-es', '-pt', '-ru', '-zh', '-ja', '-ko',
+    '-he', '-it', '-nl', '-pl', '-tr', '-hi', '-bn', '-ta', '-te',
+    '-th', '-vi', '-id', '-ms', '-tl', '-uk', '-cs', '-sk', '-hu',
+    '-ro', '-bg', '-hr', '-sr', '-sl', '-et', '-lv', '-lt', '-fi',
+    '-sv', '-no', '-da', '-is', '-ga', '-cy', '-mt', '-eu', '-ca',
+    '-gl', '-ast', '-oc', '-br', '-gd', '-gv', '-kw', '-lb', '-rm'
+]
+
+# Reject keywords for distribution maps
 DISTRIBUTION_REJECT_KEYWORDS = [
-    'historical',
-    '-ar', '-fr', '-de', '-es', '-pt', '-ru', '-zh', '-ja',
-    'plo', 'old', 'ancient', 'former',
+    'historical', 'history', 'old', 'ancient', 'former',
+    'plo', '2009', '2010', '2011', '2012', '2013', '2014', '2015',
+    'early', 'late', 'century', 'past', 'previous'
 ]
 
 
@@ -62,33 +73,46 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     Check if this is a valid general species distribution map
     
     Accept: Tiger_distribution.png
+    Accept: Apis_mellifera_distribution_map.svg
     Reject: Panthera_tigris_sumatrae_distribution_map-ar.png
-    Reject: Historical_tiger_distribution_PLoS_2009-ar.png
+    Reject: Historical_tiger_distribution_PLoS_2009.png
     """
     filename_lower = filename.lower()
     animal_lower = animal_name.lower().replace(' ', '_')
     
-    # Check for reject keywords first (historical, language suffixes, etc.)
+    # FIXED: Must contain "distribution" (no need for "map")
+    if 'distribution' not in filename_lower:
+        return False
+    
+    # Check for reject keywords first (historical, years, etc.)
     for reject_kw in DISTRIBUTION_REJECT_KEYWORDS:
         if reject_kw in filename_lower:
             print(f"   ⚠️  Rejecting distribution map (contains '{reject_kw}'): {filename}")
             return False
     
+    # Check for language suffixes (e.g., -ar.png, -he.png)
+    for lang_suffix in LANGUAGE_SUFFIXES:
+        if filename_lower.endswith(lang_suffix + '.png') or \
+           filename_lower.endswith(lang_suffix + '.jpg') or \
+           filename_lower.endswith(lang_suffix + '.svg') or \
+           filename_lower.endswith(lang_suffix + '.jpeg'):
+            print(f"   ⚠️  Rejecting distribution map (language suffix '{lang_suffix}'): {filename}")
+            return False
+    
     # Check if filename contains subspecies keywords
     for subspecies in SUBSPECIES_KEYWORDS:
         if subspecies in filename_lower:
-            print(f"   ⚠️  Rejecting distribution map (subspecies '{subspecies}'): {filename}")
-            return False
+            # Allow if it's part of the main animal name (e.g., "gray_wolf" contains "wolf")
+            if subspecies not in animal_lower:
+                print(f"   ⚠️  Rejecting distribution map (subspecies '{subspecies}'): {filename}")
+                return False
     
     # Prefer filenames that match the common animal name
     if animal_lower in filename_lower:
         return True
     
-    # Accept if it has "distribution" but no reject/subspecies keywords
-    if 'distribution' in filename_lower:
-        return True
-    
-    return False
+    # Accept if it has "distribution" but no reject/subspecies/language keywords
+    return True
 
 
 def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional[str]:
@@ -103,8 +127,8 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
         # Try multiple search queries - general name first
         search_queries = [
             f"{animal_name} distribution",
-            f"{animal_name} range",
             f"{scientific_name} distribution",
+            f"{animal_name} range",
         ]
         
         best_match = None
@@ -115,7 +139,7 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
                 "format": "json",
                 "list": "search",
                 "srsearch": f"{query}",
-                "srnamespace": 6,
+                "srnamespace": 6,  # File namespace
                 "srlimit": 20
             }
             # FIXED: No trailing spaces in User-Agent
@@ -320,8 +344,8 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
             filename_clean = filename.replace('File:', '').strip()
             direct_url = _filename_to_direct_url(filename).strip()
             
-            # Check if it's a distribution map
-            if "distribution" in filename_clean.lower() or "range_map" in filename_clean.lower():
+            # Check if it's a distribution map (just needs "distribution", not "map")
+            if "distribution" in filename_clean.lower():
                 # Only add if it's a valid general species map
                 if _is_valid_distribution_map(filename_clean, animal_name):
                     result["distribution"].append(direct_url)
