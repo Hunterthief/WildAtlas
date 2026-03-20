@@ -1,22 +1,23 @@
 """
 Wikidata Extractor - No API Key Required
-CRITICAL FIX: Direct upload.wikimedia.org URLs (NO SPACES)
+CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
 """
 import requests
 import hashlib
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 
 # FIXED: No trailing spaces
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
+WIKIMEDIA_COMMONS = "https://commons.wikimedia.org/w/api.php"
 
 
-def _filename_to_direct_url(filename: str, width: int = 800) -> str:
+def _filename_to_direct_url(filename: str) -> str:
     """
     Convert Wikimedia filename to DIRECT image URL using MD5 hash
     
-    Input:  "Bengal_tiger_(Panthera_tigris_tigris)_female_3_crop.jpg"
-    Output: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Bengal_tiger_(Panthera_tigris_tigris)_female_3_crop.jpg"
+    Input:  "Tiger_distribution.png"
+    Output: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png"
     """
     if not filename:
         return ""
@@ -33,6 +34,55 @@ def _filename_to_direct_url(filename: str, width: int = 800) -> str:
     direct_url = f"https://upload.wikimedia.org/wikipedia/commons/{hash1}/{hash2}/{filename}"
     
     return direct_url
+
+
+def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional[str]:
+    """
+    Search Wikimedia Commons for distribution map images
+    
+    Example: https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png
+    """
+    try:
+        # Try multiple search queries
+        search_queries = [
+            f"{animal_name} distribution",
+            f"{animal_name} range map",
+            f"{scientific_name} distribution",
+            f"{animal_name} habitat map",
+        ]
+        
+        for query in search_queries:
+            params = {
+                "action": "query",
+                "format": "json",
+                "list": "search",
+                "srsearch": f"{query} distribution map",
+                "srnamespace": 6,  # File namespace
+                "srlimit": 5
+            }
+            headers = {
+                "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
+            }
+            
+            response = requests.get(WIKIMEDIA_COMMONS, params=params, headers=headers, timeout=10)
+            
+            if response.status_code == 200:
+                data = response.json()
+                results = data.get("query", {}).get("search", [])
+                
+                for result in results:
+                    filename = result.get("title", "")
+                    # Only accept files with "distribution" in the name
+                    if filename and "distribution" in filename.lower():
+                        # Convert to direct URL
+                        direct_url = _filename_to_direct_url(filename)
+                        print(f"   ✅ Found distribution map: {filename}")
+                        return direct_url
+    
+    except Exception as e:
+        print(f"   ⚠ Distribution map search failed: {e}")
+    
+    return None
 
 
 def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
@@ -178,24 +228,45 @@ def extract_conservation_status(wikidata: Dict[str, Any]) -> Dict[str, str]:
     return {"status": None, "status_id": None}
 
 
-def extract_images(wikidata: Dict[str, Any]) -> list:
+def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_name: str = "") -> Dict[str, List[str]]:
     """
     CRITICAL FIX: Extract DIRECT image URLs from Wikidata
-    Returns upload.wikimedia.org URLs (actual images)
+    Separates regular photos from distribution maps
+    
+    Returns: {
+        "photos": [...],
+        "distribution": [...]  # Only if "distribution" in filename
+    }
     """
-    images = []
+    result = {
+        "photos": [],
+        "distribution": []
+    }
+    
     claims = wikidata.get("claims", {})
     
     # P18 = image
     image_claims = claims.get("P18", [])
-    for claim in image_claims[:3]:  # Max 3 images
+    for claim in image_claims[:5]:  # Max 5 images
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
-            # FIXED: Convert to direct upload.wikimedia.org URL
+            # Convert to direct URL
             direct_url = _filename_to_direct_url(filename)
-            images.append(direct_url)
+            
+            # FIXED: Filter by "distribution" keyword
+            if "distribution" in filename.lower() or "range_map" in filename.lower():
+                result["distribution"].append(direct_url)
+                print(f"   🗺️  Distribution image: {filename}")
+            else:
+                result["photos"].append(direct_url)
     
-    return images
+    # If no distribution image found in Wikidata, search Wikimedia Commons
+    if not result["distribution"] and animal_name:
+        dist_map = _search_distribution_map(animal_name, scientific_name)
+        if dist_map:
+            result["distribution"].append(dist_map)
+    
+    return result
 
 
 def extract_common_names(wikidata: Dict[str, Any]) -> list:
@@ -236,13 +307,24 @@ def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
     if not wikidata:
         return {}
     
+    # FIXED: Extract images with distribution filtering
+    image_data = extract_images(wikidata, scientific_name, scientific_name)
+    
+    # Combine photos and distribution for "images" array
+    all_images = image_data["photos"] + image_data["distribution"]
+    
+    # Primary image is first photo (not distribution map)
+    primary_image = image_data["photos"][0] if image_data["photos"] else (image_data["distribution"][0] if image_data["distribution"] else "")
+    
     # FIXED: No spaces in Wikipedia URL
     wiki_title = scientific_name.replace(' ', '_') if scientific_name else qid
     
     return {
         "taxonomy": extract_taxonomy(wikidata),
         "conservation": extract_conservation_status(wikidata),
-        "images": extract_images(wikidata),  # Now returns DIRECT URLs
+        # FIXED: Separate distribution images
+        "images": all_images,
+        "distribution_image": image_data["distribution"][0] if image_data["distribution"] else "",
         "common_names": extract_common_names(wikidata),
         "population": extract_population(wikidata),
         "description": wikidata.get("descriptions", {}).get("en", {}).get("value", ""),
