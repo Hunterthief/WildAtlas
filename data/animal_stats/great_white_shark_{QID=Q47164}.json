@@ -50,10 +50,9 @@
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/4/4b/Great_white_shark.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/8/85/202410_Great_white_shark.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/8/8b/XII.—On_Fossil_Echinoderms_from_the_Island_of_Malta;_with_notes_on_the_stratigraphical_distribution_of_the_fossil_organisms_in_the_Maltese_beds_(IA_biostor-90150).pdf"
+    "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
   ],
-  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/XII.—On_Fossil_Echinoderms_from_the_Island_of_Malta;_with_notes_on_the_stratigraphical_distribution_of_the_fossil_organisms_in_the_Maltese_beds_(IA_biostor-90150).pdf",
+  "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
   "eol_url": "https://eol.org/pages/46559751",
@@ -133,5 +132,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T23:27:44.033063"
+  "last_updated": "2026-03-20T23:36:43.344531"
 }

@@ -49,10 +49,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Ginger_Plant_vs.jpg",
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/c/c1/Ginger_Plant_vs.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/1/18/Koeh-146-no_text.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/a/a0/Acinonyx_jubatus_history_distribution_in_the_early_20_century.png"
+    "https://upload.wikimedia.org/wikipedia/commons/1/18/Koeh-146-no_text.jpg"
   ],
-  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Acinonyx_jubatus_history_distribution_in_the_early_20_century.png",
+  "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
   "eol_url": "https://eol.org/pages/1271375",
@@ -127,5 +126,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-20T23:27:11.650727"
+  "last_updated": "2026-03-20T23:35:22.437138"
 }
