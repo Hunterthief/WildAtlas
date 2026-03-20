@@ -46,10 +46,10 @@
   ],
   "summary": "species of amphibian",
   "description": "species of amphibian",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Am/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg/800px-American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
+  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg&width=800",
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Am/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg/800px-American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/202312_American_bullfrog.svg/800px-202312_American_bullfrog.svg"
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg&width=800",
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/202312_American_bullfrog.svg&width=800"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
   "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
@@ -124,5 +124,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:10:54.460061"
+  "last_updated": "2026-03-20T21:23:32.846759"
 }

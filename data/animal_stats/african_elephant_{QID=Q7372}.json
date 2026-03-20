@@ -46,9 +46,9 @@
   ],
   "summary": "clade of predatory cartilaginous fish (Chondrichthyes)",
   "description": "clade of predatory cartilaginous fish (Chondrichthyes)",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gr/Great_white_shark_south_africa.jpg/800px-Great_white_shark_south_africa.jpg",
+  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Great_white_shark_south_africa.jpg&width=800",
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gr/Great_white_shark_south_africa.jpg/800px-Great_white_shark_south_africa.jpg"
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Great_white_shark_south_africa.jpg&width=800"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
@@ -128,5 +128,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:08:52.098249"
+  "last_updated": "2026-03-20T21:21:26.708428"
 }

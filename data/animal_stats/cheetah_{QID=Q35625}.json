@@ -46,10 +46,10 @@
   ],
   "summary": "plant species",
   "description": "plant species",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gi/Ginger_Plant_vs.jpg/800px-Ginger_Plant_vs.jpg",
+  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ginger_Plant_vs.jpg&width=800",
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gi/Ginger_Plant_vs.jpg/800px-Ginger_Plant_vs.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/K/Ko/Koeh-146-no_text.jpg/800px-Koeh-146-no_text.jpg"
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Ginger_Plant_vs.jpg&width=800",
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Koeh-146-no_text.jpg&width=800"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
@@ -126,5 +126,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:08:37.799995"
+  "last_updated": "2026-03-20T21:21:02.232486"
 }

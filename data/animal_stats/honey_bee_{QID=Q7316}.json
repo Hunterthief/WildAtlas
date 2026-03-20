@@ -46,11 +46,11 @@
   ],
   "summary": "species of insect",
   "description": "species of insect",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ap/Apis_mellifera_Tanzania.jpg/800px-Apis_mellifera_Tanzania.jpg",
+  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Apis_mellifera_Tanzania.jpg&width=800",
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ap/Apis_mellifera_Tanzania.jpg/800px-Apis_mellifera_Tanzania.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/A/Ap/Apis_mellifera_flying.jpg/800px-Apis_mellifera_flying.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/202203_western_honey_bee.svg/800px-202203_western_honey_bee.svg"
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Apis_mellifera_Tanzania.jpg&width=800",
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Apis_mellifera_flying.jpg&width=800",
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/202203_western_honey_bee.svg&width=800"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
@@ -142,5 +142,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:11:26.792651"
+  "last_updated": "2026-03-20T21:24:11.248693"
 }

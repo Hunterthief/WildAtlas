@@ -46,11 +46,11 @@
   ],
   "summary": "species of sea turtle",
   "description": "species of sea turtle",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gr/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg/800px-Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+  "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg&width=800",
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/G/Gr/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg/800px-Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/H/Ha/Hawaii_turtle_2.JPG/800px-Hawaii_turtle_2.JPG",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/202304_Green_turtle.svg/800px-202304_Green_turtle.svg"
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg&width=800",
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Hawaii_turtle_2.JPG&width=800",
+    "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/202304_Green_turtle.svg&width=800"
   ],
   "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
@@ -142,5 +142,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T21:10:25.067967"
+  "last_updated": "2026-03-20T21:23:03.124625"
 }
