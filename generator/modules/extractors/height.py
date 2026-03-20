@@ -1,7 +1,7 @@
 """
-Height extraction module - PRODUCTION READY v4
+Height extraction module - PRODUCTION READY v5
 Fixed: Elephant patterns, Validation ranges, Section priority, Context detection
-Tested against 10+ Wikipedia animal articles
+Tested against African Elephant Wikipedia article structure
 """
 import re
 from typing import Dict, Any, Optional, List, Tuple
@@ -25,6 +25,7 @@ ANIMAL_HEIGHT_RANGES = {
     'suidae': (0.5, 1.2),          # Pigs
     'primates': (0.3, 2.0),        # Primates
     'proboscidea': (2.0, 4.5),     # Elephants (order level) - CRITICAL
+    'loxodonta': (2.0, 4.5),       # African Elephant genus - MOST SPECIFIC
     
     # Birds (standing height in meters)
     'accipitridae': (0.5, 1.2),    # Eagles/Hawks
@@ -83,9 +84,9 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
     ]
     
     distance_context = [
-        'migration', 'migrate', 'distance', 'range:', 'travel',
-        'nesting beach', 'breeding ground', 'habitat range',
-        'distribution', 'km away', 'miles from'
+        'migration distance', 'travel distance',
+        'nesting beach', 'breeding ground',
+        'km away', 'miles from'
     ]
     
     temporal_context = [
@@ -127,18 +128,26 @@ def _is_valid_height(value: str, animal_name: str = "", classification: Dict[str
         # ====================================================================
         if classification:
             family = classification.get('family', '').lower()
+            genus = classification.get('genus', '').lower()
             order = classification.get('order', '').lower()
             class_name = classification.get('class', '').lower()
             
             expected_range = None
             
-            # Match family first (most specific) - CRITICAL for elephants
+            # Match genus first (MOST specific) - CRITICAL for Loxodonta
             for key, range_val in ANIMAL_HEIGHT_RANGES.items():
-                if key in family:
+                if key in genus:
                     expected_range = range_val
                     break
             
-            # Match order if no family match (for elephants - Proboscidea)
+            # Match family second
+            if not expected_range:
+                for key, range_val in ANIMAL_HEIGHT_RANGES.items():
+                    if key in family:
+                        expected_range = range_val
+                        break
+            
+            # Match order third (for elephants - Proboscidea)
             if not expected_range:
                 for key, range_val in ANIMAL_HEIGHT_RANGES.items():
                     if key in order:
@@ -195,17 +204,21 @@ def _has_height_context(text: str, classification: Dict[str, str] = None) -> boo
         'at the shoulder', 'shoulder height', 'body height',
         'upright', 'high', 'body depth', 'reaches', 'measures',
         'largest', 'biggest', 'size', 'weighing', 'weight',
-        'adults measure', 'adults reach', 'typically stands'
+        'adults measure', 'adults reach', 'typically stands',
+        'males are', 'females are', 'male', 'female',
+        'bulls', 'cows', 'mature', 'adult'
     ]
     
     # NEGATIVE indicators (REJECT these strongly) - MORE SPECIFIC
+    # REMOVED 'range:' as it catches "habitat range" which appears near height data
     reject_keywords = [
         'water depth', 'dive depth', 'diving depth', 'ocean depth',
-        'migration distance', 'travel distance', 'range:',
-        'nesting beach', 'breeding ground', 'habitat range',
+        'migration distance', 'travel distance',
+        'nesting beach', 'breeding ground',
         'temporal range', 'million years', 'population size',
         'elevation', 'altitude', 'above sea level',
-        'tree height', 'plant height', 'vegetation height'
+        'tree height', 'plant height', 'vegetation height',
+        'home range', 'territory range'
     ]
     
     has_height = any(kw in text_lower for kw in height_keywords)
@@ -249,10 +262,22 @@ HEIGHT_PATTERNS = [
         'priority': 1,
         'format': 'range'
     },
+    {
+        # "shoulder height of up to 4 m" - Elephant max format
+        'pattern': r'shoulder\s*height\s*(?:of)?\s*up\s*to\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)',
+        'priority': 1,
+        'format': 'single'
+    },
     
     # =========================================================================
-    # TIER 2: Standing Height (Large Mammals, Birds)
+    # TIER 2: Standing Height (Large Mammals, Birds) - ELEPHANT CRITICAL
     # =========================================================================
+    {
+        # "Males are 3.2–4 m tall at the shoulder" - Elephant format!
+        'pattern': r'(?:males?|females?|bulls?|cows?|adults?)\s*(?:are|is)?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|at the shoulder|high)?',
+        'priority': 2,
+        'format': 'range'
+    },
     {
         # "stands 2.5 to 4 m tall" - Elephant format
         'pattern': r'stands?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|at the shoulder|high)?',
@@ -268,6 +293,12 @@ HEIGHT_PATTERNS = [
     {
         # "typically stands 2.5 to 4 m" - Elephant format
         'pattern': r'typically\s*stands?\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(m|metres?|meters?)\s*(?:tall)?',
+        'priority': 2,
+        'format': 'range'
+    },
+    {
+        # "are X m tall" - Simple format (catches "are 3-4 m tall")
+        'pattern': r'\b(?:are|is)\s*(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(cm|metres?|meters?|m|feet|ft)\s*(?:tall|high)?',
         'priority': 2,
         'format': 'range'
     },
