@@ -54,7 +54,7 @@
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Present_distribution_of_the_gray_wolf_subspecies_-_Eurasian_wolf_(Canis_lupus_lupus)_updated.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1268606",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -139,7 +139,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T22:48:08.871601"
+  "last_updated": "2026-03-20T22:55:40.541701"
 }

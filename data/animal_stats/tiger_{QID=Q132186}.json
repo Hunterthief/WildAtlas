@@ -55,7 +55,7 @@
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Panthera_tigris_sumatrae_distribution_map-ar.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1253183",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -125,7 +125,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T22:47:22.929567"
+  "last_updated": "2026-03-20T22:55:20.447677"
 }

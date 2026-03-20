@@ -55,7 +55,7 @@
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Acinonyx_jubatus_history_distribution_in_the_early_20_century.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1271375",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -124,7 +124,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-20T22:47:38.422904"
+  "last_updated": "2026-03-20T22:55:26.638063"
 }

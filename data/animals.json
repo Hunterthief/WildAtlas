@@ -56,7 +56,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Panthera_tigris_sumatrae_distribution_map-ar.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1253183",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -126,9 +126,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:47:22.929567"
+    "last_updated": "2026-03-20T22:55:20.447677"
   },
   {
     "id": "Q35625",
@@ -187,7 +188,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Acinonyx_jubatus_history_distribution_in_the_early_20_century.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
     "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1271375",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -256,9 +257,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:47:38.422904"
+    "last_updated": "2026-03-20T22:55:26.638063"
   },
   {
     "id": "Q7372",
@@ -316,7 +318,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/55636404",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -390,9 +392,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:47:52.908609"
+    "last_updated": "2026-03-20T22:55:32.369783"
   },
   {
     "id": "Q213537",
@@ -450,7 +453,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Present_distribution_of_the_gray_wolf_subspecies_-_Eurasian_wolf_(Canis_lupus_lupus)_updated.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1268606",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -535,9 +538,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:48:08.871601"
+    "last_updated": "2026-03-20T22:55:40.541701"
   },
   {
     "id": "Q25319",
@@ -596,7 +600,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Distribution_H._leucocephalus-he.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1228132",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -663,9 +667,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T22:48:25.445156"
+    "last_updated": "2026-03-20T22:55:48.941404"
   },
   {
     "id": "Q43306",
@@ -793,7 +798,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T22:48:34.932731"
+    "last_updated": "2026-03-20T22:55:56.739738"
   },
   {
     "id": "Q47164",
@@ -930,7 +935,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T22:48:49.205982"
+    "last_updated": "2026-03-20T22:56:04.186820"
   },
   {
     "id": "Q39709",
@@ -1059,7 +1064,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T22:49:05.889392"
+    "last_updated": "2026-03-20T22:56:11.738016"
   },
   {
     "id": "Q7785",
@@ -1208,7 +1213,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T22:49:16.495657"
+    "last_updated": "2026-03-20T22:56:20.568272"
   },
   {
     "id": "Q189609",
@@ -1345,7 +1350,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T22:49:22.054353"
+    "last_updated": "2026-03-20T22:56:26.757518"
   },
   {
     "id": "Q270238",
@@ -1476,7 +1481,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T22:49:27.584593"
+    "last_updated": "2026-03-20T22:56:33.613385"
   },
   {
     "id": "Q165980",
@@ -1531,9 +1536,9 @@
       "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/e/e4/Danaus_plexippus_MHNT.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/9/90/Monarch_caterpillar_(23229).jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/0/02/MonarchDistribution2-2.png"
+      "https://upload.wikimedia.org/wikipedia/commons/6/6c/MonarchDistribution2-3.png"
     ],
-    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/0/02/MonarchDistribution2-2.png",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/MonarchDistribution2-3.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
     "eol_url": "https://eol.org/pages/4090155",
@@ -1609,7 +1614,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T22:49:34.563110"
+    "last_updated": "2026-03-20T22:56:42.253897"
   },
   {
     "id": "Q7316",
@@ -1758,6 +1763,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-20T22:49:44.393118"
+    "last_updated": "2026-03-20T22:56:50.897229"
   }
 ]
