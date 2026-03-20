@@ -1,10 +1,11 @@
 """
 Wikidata Extractor - No API Key Required
 CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
-ALL TRAILING SPACES REMOVED + Better Distribution Detection
+ALL TRAILING SPACES REMOVED + Better Distribution Detection + NO NUMBERS IN FILENAMES
 """
 import requests
 import hashlib
+import re
 from typing import Dict, Any, Optional, List
 
 # FIXED: NO TRAILING SPACES
@@ -70,10 +71,23 @@ def _filename_to_direct_url(filename: str) -> str:
     hash1 = md5_hash[0]
     hash2 = md5_hash[0:2]
     
-    # FIXED: NO SPACES IN URL
+    # Build direct URL (NO SPACES ANYWHERE)
     direct_url = f"https://upload.wikimedia.org/wikipedia/commons/{hash1}/{hash2}/{filename}"
     
     return direct_url
+
+
+def _has_numbers(filename: str) -> bool:
+    """
+    Check if filename contains any numbers
+    
+    Input:  "Tiger_distribution_map_2.png"
+    Output: True (has "2")
+    
+    Input:  "Tiger_distribution.png"
+    Output: False (no numbers)
+    """
+    return bool(re.search(r'\d', filename))
 
 
 def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
@@ -82,8 +96,9 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     
     Accept: Tiger_distribution.png
     Accept: Apis_mellifera_distribution_map.svg
-    Reject: Panthera_tigris_tigris_distribution_map_2.png
-    Reject: Historical_tiger_distribution_PLoS_2009.png
+    Reject: Panthera_tigris_tigris_distribution_map_2.png (has number "2")
+    Reject: Acinonyx_jubatus_history_distribution_in_the_early_20_century.png (has "20")
+    Reject: Salmo_salar_CZ_distribution_grid_map_2006.png (has "2006")
     """
     filename_lower = filename.lower()
     animal_lower = animal_name.lower().replace(' ', '_')
@@ -92,10 +107,9 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     if 'distribution' not in filename_lower:
         return False
     
-    # FIXED: Reject non-image files (PDF, etc.)
-    if not (filename_lower.endswith('.png') or filename_lower.endswith('.jpg') or 
-            filename_lower.endswith('.jpeg') or filename_lower.endswith('.svg')):
-        print(f"   ⚠️  Rejecting distribution map (not an image file): {filename}")
+    # FIXED: REJECT if filename contains ANY numbers
+    if _has_numbers(filename):
+        print(f"   ⚠️  Rejecting distribution map (contains numbers): {filename}")
         return False
     
     # Check for reject keywords first (historical, years, etc.)
@@ -135,7 +149,7 @@ def _search_distribution_map(animal_name: str, scientific_name: str) -> Optional
     """
     Search Wikimedia Commons for distribution map images
     Prefers general species maps over subspecies-specific ones
-    Rejects historical and language-specific versions
+    Rejects historical, language-specific, and numbered versions
     
     Example: https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png
     """
@@ -343,7 +357,7 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
     """
     Extract DIRECT image URLs from Wikidata
     Separates regular photos from distribution maps
-    Filters out subspecies-specific, historical, and language-specific distribution maps
+    Filters out subspecies-specific, historical, language-specific, and NUMBERED distribution maps
     """
     result = {
         "photos": [],
