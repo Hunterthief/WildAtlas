@@ -74,7 +74,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": ". White sharks range from tropical to temperate and even colder waters around the world, with major populations in the northwestern and northeastern Pacific, western North Atlantic, the Mediterranean, southern African waters and Oceania. It is also present near the coasts of South America, but appears to be uncommon. Shark expert Greg Skomal lists the Farallon Islands, California, Guadalupe Island, Mexico, Cape Cod, Massachusetts, Western Cape, South Africa, Neptune Islands, Australia, and both Stewart Island and the Chatham Islands, New Zealand as major coastal feeding aggregations. Researchers have also identified an offshore feeding aggregation between western North America and Hawaii dubbed the White Shark Café. White sharks can be found both along the coast and in the open ocean. They are typically close to the surface, but may dive to depths of up to 1,300 m (4,300 ft). Deeper dives are more common in the open ocean. Coastal habitats used include nearshore archipelagos, offshore reefs, banks and shoals, and headlands. A 2018 study indicated that white sharks will congregate in anticyclonic eddies in the open ocean. Juvenile white sharks are more limited to shallow coastal waters with temperatures between 14 and 24 °C (57 and 75 °F). Increased sightings of young sharks in areas they were not previously common, such as Monterey Bay on the central California coast, suggest climate change may be forcing juveniles closer to the poles.",
+    "habitat": "Temperate, coastal waters and open ocean",
     "locations": "Australia, Canada, China, Greece, Indonesia, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
@@ -127,5 +127,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T15:01:04.575440"
+  "last_updated": "2026-03-20T15:12:57.157943"
 }

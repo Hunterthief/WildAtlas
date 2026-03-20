@@ -66,17 +66,17 @@
   "group_name": "Solitary",
   "physical": {
     "weight": "10 kg",
-    "length": "4 m",
+    "length": "",
     "height": "",
     "top_speed": "12 mph",
     "lifespan": "About 20 years"
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": ". The king cobra has a wide distribution throughout tropical Asia. It occurs in elevations of 2,000 m (6,600 ft) from the Terai in India and southern Nepal to the Brahmaputra River basin in Bhutan and northeast India, down to Bangladesh, Myanmar, southern China, Cambodia, Thailand, Laos, Vietnam; to the maritime Southeast Asian countries of Malaysia, Singapore, Indonesia and the Philippines. In northern India, it has been recorded in Garhwal and Kumaon, and in the Sivalik hills and terai regions of Uttarakhand and Uttar Pradesh. In northeast India, the king cobra has been recorded in northern West Bengal, Sikkim, Assam, Meghalaya, Arunachal Pradesh, Nagaland, Manipur and Mizoram. In the Eastern Ghats, it occurs from Tamil Nadu and Andhra Pradesh to coastal Odisha, and also in Bihar and southern West Bengal, especially the Sundarbans. In the Western Ghats, it was recorded in Kerala, Karnataka and Maharashtra, and also in Gujarat. It also occurs on Baratang Island in the Great Andaman chain. It may have reached the furthest west of its distributional range in extreme western India and eastern Pakistan, in the vicinity of Lahore and Palanpur. These populations have sometimes been thought to be the result of introduction by snake charmers or transport along rivers, but are now more likely considered natural populations. However, it remains uncertain if any populations continue to persist there.",
+    "habitat": "Forest, shrublands, wetlands",
     "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
     "group_behavior": "Pairs",
-    "conservation_status": "Vulnerable",
+    "conservation_status": "Unknown",
     "biggest_threat": "Poaching, habitat loss",
     "distinctive_features": [
       "An expanding hood"
@@ -128,5 +128,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T15:01:54.189245"
+  "last_updated": "2026-03-20T15:13:40.473708"
 }

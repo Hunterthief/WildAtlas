@@ -72,7 +72,7 @@
   },
   "ecology": {
     "diet": "Herbivore",
-    "habitat": ". African elephants are distributed in Sub-Saharan Africa, where they inhabit Sahelian scrubland and arid regions, tropical rainforests, mopane and miombo woodlands. African forest elephant populations occur only in Central and West Africa.",
+    "habitat": "",
     "locations": "Botswana, Burkina Faso, Ghana, Kenya, Namibia, Niger, Rwanda, South Africa, Tanzania, United Republic of, Uganda, Zambia, Zimbabwe",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
@@ -126,5 +126,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T15:00:07.625353"
+  "last_updated": "2026-03-20T15:11:54.352284"
 }

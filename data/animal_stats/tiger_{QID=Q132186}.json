@@ -73,7 +73,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": ". The tiger historically ranged from eastern Turkey, northern Iran and Afghanistan to Central Asia and from northern Pakistan through the Indian subcontinent and Indochina to southeastern Siberia, Sumatra, Java and Bali. As of 2022, it inhabits less than 7% of its historical distribution and has a scattered range in the Indian subcontinent, the Indochinese Peninsula, Sumatra, northeastern China and the Russian Far East. As of 2020, India had the largest extent of global tiger habitat with 300,508 km2 (116,027 sq mi), followed by Russia with 195,819 km2 (75,606 sq mi). The tiger mainly lives in forest habitats and is highly adaptable. Records in Central Asia indicate that it primarily inhabited Tugay riverine forests and hilly and lowland forests in the Caucasus. In the Amur-Ussuri region of Russia and China, it inhabits Korean pine and temperate broadleaf and mixed forests; riparian forests serve as dispersal corridors, providing food and water for both tigers and ungulates. On the Indian subcontinent, it inhabits mainly tropical and subtropical moist broadleaf forests, temperate broadleaf and mixed forests, tropical moist evergreen forests, tropical dry forests, alluvial plains and the mangrove forests of the Sundarbans. In the Eastern Himalayas, it was documented in temperate forest up to an elevation of 4,200 m (13,800 ft) in Bhutan, of 3,630 m (11,910 ft) in the Mishmi Hills and of 3,139 m (10,299 ft) in Mêdog County, southeastern Tibet. In Thailand, it lives in deciduous and evergreen forests. In Sumatra, it inhabits lowland peat swamp forests and rugged montane forests.",
+    "habitat": "Dense tropical forest and mangroves",
     "locations": "Bangladesh, China, India, Indonesia, Nepal, Russian Federation, Thailand",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
@@ -90,11 +90,11 @@
     "lifestyle": "Solitary",
     "color": "BlackWhiteOrange",
     "skin_type": "Fur",
-    "prey": "preys mainly on ungulates, which it takes by ambush",
+    "prey": "feeds mainly on large and medium-sized ungulates such as sambar deer, Manchurian wapiti, barasingha,",
     "slogan": "The most numerous species of tiger!",
     "group": "pride",
     "number_of_species": "nine",
-    "estimated_population_size": "80,000",
+    "estimated_population_size": "5,000",
     "most_distinctive_feature": "black or dark brown stripes, which are uniquely patterned in each individual"
   },
   "distribution": {
@@ -123,5 +123,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T14:59:35.330357"
+  "last_updated": "2026-03-20T15:11:26.014681"
 }

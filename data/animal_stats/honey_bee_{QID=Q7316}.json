@@ -74,11 +74,11 @@
   },
   "ecology": {
     "diet": "Herbivore",
-    "habitat": ". All honey bees are nectarivorous pollinators native to mainland Afro-Eurasia, but human migrations and colonizations to the New World since the Age of Discovery have been responsible for the introduction of multiple subspecies of the western honey bee into South America (early 16th century), North America (early 17th century) and Australia (early 19th century), resulting in the current cosmopolitan distribution of honey bees in all continents except Antarctica. Honey bees appear to have their center of origin in South and Southeast Asia (including the Philippines), as all the extant species except Apis mellifera are native to that region. Notably, living representatives of the earliest lineages to diverge (Apis florea and Apis andreniformis) have their center of origin there. The first Apis bees appear in the fossil record at the Eocene–Oligocene boundary (34 mya), in European deposits. The origin of these prehistoric honey bees does not necessarily indicate Europe as the place of origin of the genus, only that the bees were present in Europe by that time. Few fossil deposits are known from South Asia, the suspected region of honey bee origin, and fewer still have been thoroughly studied. No Apis species existed in the New World during human times before the introduction of A. mellifera by Europeans. Only one fossil species is documented from the New World, Apis nearctica, known from a single 14 million-year-old specimen from Nevada. The close relatives of modern honey bees—e.g., bumblebees and stingless bees—are also social to some degree, and social behavior is considered to be a trait that predates the origin of the genus. Among the extant members of Apis, the more basal species make single, exposed combs, while the more recently evolved species nest in cavities and have multiple combs, which has greatly facilitated their domestication.",
+    "habitat": "Sheltered forests and meadows",
     "locations": "Argentina, Australia, Brazil, Canada, Chinese Taipei, Dominican Republic, Ecuador, Egypt, France, Greece, Grenada, Guatemala, Israel, Martinique, Mexico, New Caledonia, New Zealand, Peru, Portugal, Puerto Rico, Saint Vincent and the Grenadines, Spain, United States of America",
     "group_behavior": "Solitary",
-    "conservation_status": "Endangered",
-    "biggest_threat": "Habitat loss, Human-wildlife conflict",
+    "conservation_status": "Vulnerable",
+    "biggest_threat": "Human-wildlife conflict",
     "distinctive_features": [],
     "population_trend": ""
   },
@@ -91,12 +91,12 @@
     "lifestyle": "",
     "color": "BrownYellowBlack",
     "skin_type": "Hair",
-    "prey": "fish",
+    "prey": "",
     "slogan": "There are only 8 recognized species!",
     "group": "colony",
     "number_of_species": "8",
     "estimated_population_size": "43",
-    "most_distinctive_feature": "among wasps in feeding their larvae exclusively with pollen and nectar, in a fashion quite similar t"
+    "most_distinctive_feature": ""
   },
   "distribution": {
     "countries": [
@@ -140,5 +140,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T15:02:57.114199"
+  "last_updated": "2026-03-20T15:14:25.002409"
 }

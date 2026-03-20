@@ -73,7 +73,7 @@
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": ". Female cheetahs tend to occupy larger home ranges than males. Females typically disperse over large areas in pursuit of prey, but are less nomadic and roam in a smaller area if prey availability in the area is high. The size of their home range depends on the distribution of prey in a region. In central Namibia, where most prey species are sparsely distributed, home ranges are 554–7,063 km2 (214–2,727 sq mi), whereas home ranges in the woodlands of Phinda Game Reserve are 34–157 km2 (13–61 sq mi) in size. Cheetahs can travel long stretches overland in search of food; a study in the Kalahari Desert recorded an average displacement of nearly 11 km (6.8 mi) every day and walking speeds ranged between 2.5 and 3.8 km/h (1.6 and 2.4 mph). Males are generally less nomadic than females; often males in coalitions and sometimes solitary males staying far from coalitions establish home ranges. Whether males settle in territories or disperse over large areas forming home ranges depends primarily on the movements of females. Territoriality is preferred only if females tend to be more sedentary, which is more feasible in areas with plenty of prey. Some males, called floaters, switch between territoriality and nomadism depending on the availability of females. A 1987 study showed territoriality depended on the size and age of males and the membership of the coalition. The ranges of floaters averaged 777 km2 (300 sq mi) in the Serengeti to 1,464 km2 (565 sq mi) in central Namibia. Territories in Kruger National Park were much smaller. A coalition of three males occupied a territory of 126 km2 (49 sq mi), and the territory of a solitary male measured 195 km2 (75 sq mi). When a female enters a territory, the males surround her; if she tries to escape, the males bite or snap at her. Generally, the female can not escape on her own; the males themselves leave after they lose interest in her. They may smell the spot she was sitting or lying on to determine if she was in oestrus.",
+    "habitat": "Open grassland",
     "locations": "Botswana, Kenya, Malawi, Namibia, South Africa, Tanzania, United Republic of",
     "group_behavior": "Solitary/Pairs",
     "conservation_status": "Endangered",
@@ -124,5 +124,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T14:59:52.142632"
+  "last_updated": "2026-03-20T15:11:40.507800"
 }

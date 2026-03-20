@@ -67,14 +67,14 @@
   "group_name": "Bird",
   "physical": {
     "weight": "22kg - 45kg (49lbs - 99lbs)",
-    "length": "100 cm",
+    "length": "83–97 cm",
     "height": "100cm - 120cm (39in - 47in)",
     "top_speed": "15 mph",
     "lifespan": "15 - 50 years"
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": ". The emperor penguin has a circumpolar distribution in the Antarctic almost exclusively between the 66° and 77° south latitudes. It almost always breeds on stable pack ice near the coast and up to 18 km (11 mi) offshore. Breeding colonies are usually in areas where ice cliffs and icebergs provide some protection from the wind. Three land colonies have been reported: one (now disappeared) on a shingle spit at the Dion Islands on the Antarctic Peninsula, one on a headland at Taylor Glacier in Victoria Land, and most recently one at Amundsen Bay. Since 2009, a number of colonies have been reported on shelf ice rather than sea ice, in some cases moving to the shelf in years when sea ice forms late. The northernmost breeding population is on Snow Hill Island, near the northern tip of the Peninsula. Individual vagrants have been seen on Heard Island, South Georgia, and occasionally in New Zealand. The furthest north a vagrant has been recorded was in Denmark, Western Australia in November 2024. This individual, which is believed to have originated from eastern Antarctica, was encountered by a group of surfers shortly after it arrived in Denmark, and was taken in by conservationists at the Department of Biodiversity, Conservation and Attractions to have its condition evaluated. In 2009, the total population of emperor penguins was estimated to be at around 595,000 adult birds, in 46 known colonies spread around the Antarctic and sub-Antarctic; around 35% of the known population lives north of the Antarctic Circle. Major breeding colonies were located at Cape Washington, Coulman Island in Victoria Land, Halley Bay, Cape Colbeck, and Dibble Glacier. Colonies are known to fluctuate over time, often breaking into \"suburbs\" which move apart from the parent group, and some have been known to disappear entirely. The Cape Crozier colony on the Ross Sea shrank drastically between the first visits by the Discovery Expedition in 1902–03 and the later visits by the Terra Nova Expedition in 1910–11; it was reduced to a few hundred birds, and may have come close to extinction due to changes in the position of the ice shelf. By the 1960s it had rebounded dramatically, but by 2009 was again reduced to a small population of around 300.",
+    "habitat": "Compact sea-ice and ocean",
     "locations": "Antarctica",
     "group_behavior": "Colony",
     "conservation_status": "Endangered",
@@ -120,5 +120,5 @@
     "Wikidata",
     "GBIF"
   ],
-  "last_updated": "2026-03-20T15:00:46.418720"
+  "last_updated": "2026-03-20T15:12:42.511184"
 }
