@@ -1,6 +1,6 @@
 """
-Wikidata fetcher - ENHANCED
-Now includes P2067 (mass) property extraction with animal verification
+Wikidata fetcher - OPTIMIZED ✅
+Single API call for all properties
 """
 import requests
 from typing import Dict, Optional, Any
@@ -33,273 +33,147 @@ def _verify_animal_entity(entity: Dict[str, Any]) -> bool:
     return False
 
 
-def fetch_wikidata_mass(qid: str) -> Optional[str]:
-    """Fetch mass from Wikidata property P2067"""
+def _extract_quantity_value(claim: Dict[str, Any], unit_map: Dict[str, str], default_unit: str) -> Optional[str]:
+    """Extract quantity value from a Wikidata claim"""
+    mainsnak = claim.get('mainsnak', {})
+    if mainsnak.get('snaktype') != 'value':
+        return None
+    
+    datavalue = mainsnak.get('datavalue', {})
+    value = datavalue.get('value', {})
+    
+    amount = value.get('amount', '').lstrip('+')
+    unit = value.get('unit', '')
+    
+    unit_short = unit_map.get(unit, default_unit)
+    
+    return f"{amount} {unit_short}" if amount else None
+
+
+def fetch_wikidata_properties(qid: str) -> Dict[str, Optional[str]]:
+    """
+    Fetch ALL physical properties from Wikidata in ONE API call ✅
+    Returns dict with weight, length, lifespan, top_speed
+    """
+    if not qid or not qid.startswith('Q'):
+        print(f"⚠️ Invalid QID: {qid}")
+        return {}
+    
     try:
+        print(f"🔗 Fetching Wikidata: {qid}")
+        
         response = requests.get(
             f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
-            headers={'User-Agent': 'WildAtlas/1.0'}
+            headers={'User-Agent': 'WildAtlas/1.0 (contact: wildatlas@example.com)'},
+            timeout=10
         )
         
         if response.status_code != 200:
-            return None
+            print(f"⚠️ HTTP {response.status_code} from Wikidata")
+            return {}
         
         data = response.json()
         entities = data.get('entities', {})
         if not entities:
-            return None
+            return {}
         
         entity = list(entities.values())[0]
         
-        # FIXED: Verify this is actually an animal
+        # Verify this is an animal
         if not _verify_animal_entity(entity):
-            print(f"⚠️  Wikidata QID {qid} does not appear to be an animal")
-            return None
+            print(f"⚠️ Wikidata QID {qid} does not appear to be an animal")
+            return {}
         
         claims = entity.get('claims', {})
+        result = {}
         
-        if 'P2067' not in claims:
-            return None
-        
-        mass_claims = claims['P2067']
-        if not mass_claims:
-            return None
-        
-        for claim in mass_claims:
-            if 'mainsnak' not in claim:
-                continue
-            
-            mainsnak = claim['mainsnak']
-            if mainsnak.get('snaktype') != 'value':
-                continue
-            
-            if 'datavalue' not in mainsnak:
-                continue
-            
-            datavalue = mainsnak['datavalue']
-            value = datavalue.get('value', {})
-            
-            amount = value.get('amount', '')
-            unit = value.get('unit', '')
-            
-            amount = amount.lstrip('+')
-            
+        # ===== Weight (P2067 - mass) =====
+        if 'P2067' in claims:
             unit_map = {
                 'http://www.wikidata.org/entity/Q11573': 'kg',
                 'http://www.wikidata.org/entity/Q191118': 'g',
                 'http://www.wikidata.org/entity/Q1009905': 'tonnes',
-                'http://www.wikidata.org/entity/Q103207': 'lbs',
+                'http://www.wikidata.org/entity/Q103207': 'lb',
             }
-            
-            unit_short = unit_map.get(unit, 'kg')
-            
-            return f"{amount} {unit_short}"
+            for claim in claims['P2067']:
+                value = _extract_quantity_value(claim, unit_map, 'kg')
+                if value:
+                    result['weight'] = value
+                    print(f"   ✅ Weight: {value}")
+                    break
         
-        return None
-    
-    except Exception as e:
-        print(f"❌ Error fetching Wikidata mass: {e}")
-        return None
-
-
-def fetch_wikidata_length(qid: str) -> Optional[str]:
-    """Fetch length from Wikidata property P2048"""
-    try:
-        response = requests.get(
-            f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
-            headers={'User-Agent': 'WildAtlas/1.0'}
-        )
-        
-        if response.status_code != 200:
-            return None
-        
-        data = response.json()
-        entities = data.get('entities', {})
-        if not entities:
-            return None
-        
-        entity = list(entities.values())[0]
-        
-        if not _verify_animal_entity(entity):
-            return None
-        
-        claims = entity.get('claims', {})
-        
-        if 'P2048' not in claims:
-            return None
-        
-        length_claims = claims['P2048']
-        if not length_claims:
-            return None
-        
-        for claim in length_claims:
-            if 'mainsnak' not in claim:
-                continue
-            
-            mainsnak = claim['mainsnak']
-            if mainsnak.get('snaktype') != 'value':
-                continue
-            
-            if 'datavalue' not in mainsnak:
-                continue
-            
-            datavalue = mainsnak['datavalue']
-            value = datavalue.get('value', {})
-            
-            amount = value.get('amount', '').lstrip('+')
-            unit = value.get('unit', '')
-            
+        # ===== Length (P2048 - height/length) =====
+        if 'P2048' in claims:
             unit_map = {
                 'http://www.wikidata.org/entity/Q828224': 'm',
                 'http://www.wikidata.org/entity/Q174728': 'cm',
                 'http://www.wikidata.org/entity/Q2112654': 'mm',
                 'http://www.wikidata.org/entity/Q3710': 'ft',
             }
-            
-            unit_short = unit_map.get(unit, 'm')
-            
-            return f"{amount} {unit_short}"
+            for claim in claims['P2048']:
+                value = _extract_quantity_value(claim, unit_map, 'm')
+                if value:
+                    result['length'] = value
+                    print(f"   ✅ Length: {value}")
+                    break
         
-        return None
-    
-    except Exception as e:
-        print(f"❌ Error fetching Wikidata length: {e}")
-        return None
-
-
-def fetch_wikidata_lifespan(qid: str) -> Optional[str]:
-    """Fetch lifespan from Wikidata property P2283"""
-    try:
-        response = requests.get(
-            f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
-            headers={'User-Agent': 'WildAtlas/1.0'}
-        )
-        
-        if response.status_code != 200:
-            return None
-        
-        data = response.json()
-        entities = data.get('entities', {})
-        if not entities:
-            return None
-        
-        entity = list(entities.values())[0]
-        
-        if not _verify_animal_entity(entity):
-            return None
-        
-        claims = entity.get('claims', {})
-        
-        if 'P2283' not in claims:
-            return None
-        
-        lifespan_claims = claims['P2283']
-        if not lifespan_claims:
-            return None
-        
-        for claim in lifespan_claims:
-            if 'mainsnak' not in claim:
-                continue
-            
-            mainsnak = claim['mainsnak']
-            if mainsnak.get('snaktype') != 'value':
-                continue
-            
-            if 'datavalue' not in mainsnak:
-                continue
-            
-            datavalue = mainsnak['datavalue']
-            value = datavalue.get('value', {})
-            
-            amount = value.get('amount', '').lstrip('+')
-            unit = value.get('unit', '')
-            
+        # ===== Lifespan (P2283 - life expectancy) =====
+        # Note: P2250 is longevity, P2283 is life expectancy - both work
+        if 'P2283' in claims:
             unit_map = {
                 'http://www.wikidata.org/entity/Q573': 'years',
                 'http://www.wikidata.org/entity/Q5151': 'months',
             }
-            
-            unit_short = unit_map.get(unit, 'years')
-            
-            return f"{amount} {unit_short}"
+            for claim in claims['P2283']:
+                value = _extract_quantity_value(claim, unit_map, 'years')
+                if value:
+                    result['lifespan'] = value
+                    print(f"   ✅ Lifespan: {value}")
+                    break
         
-        return None
-    
-    except Exception as e:
-        print(f"❌ Error fetching Wikidata lifespan: {e}")
-        return None
-
-
-def fetch_wikidata_speed(qid: str) -> Optional[str]:
-    """Fetch top speed from Wikidata property P1347"""
-    try:
-        response = requests.get(
-            f'https://www.wikidata.org/wiki/Special:EntityData/{qid}.json',
-            headers={'User-Agent': 'WildAtlas/1.0'}
-        )
-        
-        if response.status_code != 200:
-            return None
-        
-        data = response.json()
-        entities = data.get('entities', {})
-        if not entities:
-            return None
-        
-        entity = list(entities.values())[0]
-        
-        if not _verify_animal_entity(entity):
-            return None
-        
-        claims = entity.get('claims', {})
-        
-        if 'P1347' not in claims:
-            return None
-        
-        speed_claims = claims['P1347']
-        if not speed_claims:
-            return None
-        
-        for claim in speed_claims:
-            if 'mainsnak' not in claim:
-                continue
-            
-            mainsnak = claim['mainsnak']
-            if mainsnak.get('snaktype') != 'value':
-                continue
-            
-            if 'datavalue' not in mainsnak:
-                continue
-            
-            datavalue = mainsnak['datavalue']
-            value = datavalue.get('value', {})
-            
-            amount = value.get('amount', '').lstrip('+')
-            unit = value.get('unit', '')
-            
+        # ===== Top Speed (P6137 - maximum speed) =====
+        # Note: P1347 is "native label", P6137 is "maximum speed"
+        if 'P6137' in claims:
             unit_map = {
                 'http://www.wikidata.org/entity/Q828224': 'm/s',
                 'http://www.wikidata.org/entity/Q484640': 'km/h',
                 'http://www.wikidata.org/entity/Q827583': 'mph',
             }
-            
-            unit_short = unit_map.get(unit, 'km/h')
-            
-            return f"{amount} {unit_short}"
+            for claim in claims['P6137']:
+                value = _extract_quantity_value(claim, unit_map, 'km/h')
+                if value:
+                    result['top_speed'] = value
+                    print(f"   ✅ Speed: {value}")
+                    break
         
-        return None
+        print(f"✅ Wikidata: Found {len(result)} physical stats")
+        return result
     
     except Exception as e:
-        print(f"❌ Error fetching Wikidata speed: {e}")
-        return None
+        print(f"❌ Error fetching Wikidata: {e}")
+        return {}
 
 
-def fetch_wikidata_properties(qid: str) -> Dict[str, Optional[str]]:
-    """Fetch all physical properties from Wikidata"""
-    return {
-        'weight': fetch_wikidata_mass(qid),
-        'length': fetch_wikidata_length(qid),
-        'height': None,
-        'lifespan': fetch_wikidata_lifespan(qid),
-        'top_speed': fetch_wikidata_speed(qid),
-    }
+# Keep individual functions for backward compatibility
+def fetch_wikidata_mass(qid: str) -> Optional[str]:
+    """Fetch mass from Wikidata property P2067"""
+    result = fetch_wikidata_properties(qid)
+    return result.get('weight')
+
+
+def fetch_wikidata_length(qid: str) -> Optional[str]:
+    """Fetch length from Wikidata property P2048"""
+    result = fetch_wikidata_properties(qid)
+    return result.get('length')
+
+
+def fetch_wikidata_lifespan(qid: str) -> Optional[str]:
+    """Fetch lifespan from Wikidata property P2283"""
+    result = fetch_wikidata_properties(qid)
+    return result.get('lifespan')
+
+
+def fetch_wikidata_speed(qid: str) -> Optional[str]:
+    """Fetch top speed from Wikidata property P6137"""
+    result = fetch_wikidata_properties(qid)
+    return result.get('top_speed')
