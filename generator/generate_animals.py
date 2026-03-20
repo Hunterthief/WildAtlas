@@ -8,10 +8,10 @@ import sys
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional, Tuple
 
 # =============================================================================
-# PATH SETUP (CRITICAL for GitHub Actions)
+# PATH SETUP
 # =============================================================================
 GENERATOR_DIR = Path(__file__).parent
 sys.path.insert(0, str(GENERATOR_DIR))
@@ -20,17 +20,16 @@ sys.path.insert(0, str(GENERATOR_DIR))
 # IMPORTS - Data Fetchers
 # =============================================================================
 from modules.fetchers.api_ninjas import fetch_animal_data
-from modules.fetchers.wikipedia import fetch_wikipedia_data, fetch_wikipedia_sections, fetch_wikipedia_infobox
+from modules.fetchers.wikipedia import fetch_wikipedia_data
 from modules.fetchers.inaturalist import fetch_inaturalist
-from modules.fetchers.wikidata import fetch_wikidata_properties
+from modules.fetchers.wikidata import extract_wikidata_all
 from modules.fetchers.gbif_distribution import extract_gbif_all
 from modules.fetchers.eol_data import extract_eol_all
-from modules.fetchers.iucn_redlist import fetch_iucn_data
 
 # =============================================================================
-# IMPORTS - Wikipedia Extractors
+# IMPORTS - Extractors
 # =============================================================================
-from modules.extractors.sections import extract_wikipedia_sections
+from modules.extractors.stats import extract_stats_with_context
 from modules.extractors.weight import extract_weight_from_sections
 from modules.extractors.length import extract_length_from_sections
 from modules.extractors.height import extract_height_from_sections
@@ -41,8 +40,6 @@ from modules.extractors.diet import extract_diet_from_sections
 from modules.extractors.behavior import extract_behavior_from_sections
 from modules.extractors.conservation import extract_conservation_from_sections
 from modules.extractors.additional_info import extract_additional_info_from_sections
-from modules.extractors.stats import extract_stats_from_sections, extract_stats_with_context
-from modules.extractors.wikidata_enhancer import extract_wikidata_all
 
 # =============================================================================
 # SETUP PATHS
@@ -59,54 +56,9 @@ os.makedirs(DEBUG_DIR, exist_ok=True)
 CONFIG_DIR = GENERATOR_DIR / "config"
 
 # =============================================================================
-# DEBUG HELPERS
-# =============================================================================
-def print_debug_header(title: str, char: str = "=") -> None:
-    """Print a debug section header"""
-    print(f"\n{char * 80}")
-    print(f"  {title}")
-    print(f"{char * 80}")
-
-def print_raw_data(label: str, data: Any, max_length: int = 500) -> None:
-    """Print raw data with truncation for large content"""
-    print(f"\n📋 {label}:")
-    if data is None:
-        print("   ⚠️  NONE")
-        return
-    if isinstance(data, dict):
-        print(f"   Type: dict with {len(data)} keys")
-        print(f"   Keys: {list(data.keys())[:10]}{'...' if len(data) > 10 else ''}")
-        for key, value in list(data.items())[:5]:
-            if isinstance(value, str) and len(value) > max_length:
-                print(f"   - {key}: {value[:max_length]}... (truncated)")
-            else:
-                print(f"   - {key}: {value}")
-        if len(data) > 5:
-            print(f"   ... and {len(data) - 5} more keys")
-    elif isinstance(data, list):
-        print(f"   Type: list with {len(data)} items")
-        print(f"   First 3 items: {data[:3]}")
-    elif isinstance(data, str):
-        if len(data) > max_length:
-            print(f"   {data[:max_length]}... (truncated, total: {len(data)} chars)")
-        else:
-            print(f"   {data}")
-    else:
-        print(f"   {data}")
-
-def save_debug_log(name: str, qid: str, data: Dict[str, Any]) -> None:
-    """Save debug data to file for inspection"""
-    clean_name = name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
-    filepath = DEBUG_DIR / f"{clean_name}_{qid}_debug.json"
-    with open(filepath, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False, default=str)
-    print(f"   💾 Debug log saved: {filepath.name}")
-
-# =============================================================================
 # CONFIG LOADING
 # =============================================================================
 def load_config(filename: str) -> Dict[str, Any]:
-    """Load JSON config file if it exists"""
     config_path = CONFIG_DIR / filename
     if config_path.exists():
         with open(config_path, "r", encoding="utf-8") as f:
@@ -117,469 +69,243 @@ YOUNG_NAMES = load_config("young_names.json")
 GROUP_NAMES = load_config("group_names.json")
 
 def get_young_name(animal_type: str) -> str:
-    """Get young animal name based on type"""
     return YOUNG_NAMES.get(animal_type, YOUNG_NAMES.get("default", "young"))
 
 def get_group_name(animal_type: str) -> str:
-    """Get group name based on type"""
     return GROUP_NAMES.get(animal_type, GROUP_NAMES.get("default", "population"))
 
 # =============================================================================
-# FILE OPERATIONS
+# HELPER FUNCTIONS
 # =============================================================================
+def get_first_non_empty(*values) -> str:
+    for v in values:
+        if v and isinstance(v, str) and v.strip():
+            return v.strip()
+    return ""
+
+def clean_wikipedia_text(text: str) -> str:
+    if not text: return ""
+    text = re.sub(r'\[\d+\]', '', text)
+    text = ' '.join(text.split())
+    return text.strip() if len(text) > 20 else ""
+
+def fix_diet_based_on_taxonomy(diet: str, classification: Dict[str, str]) -> str:
+    if not diet: return diet
+    diet_lower = diet.lower()
+    family = classification.get("family", "").lower()
+    if "elephantidae" in family and "carnivore" in diet_lower: return "Herbivore"
+    if "cheloniidae" in family and "carnivore" in diet_lower: return "Herbivore"
+    return diet
+
 def get_animal_filename(name: str, qid: str) -> str:
-    """Generate clean filename for animal data"""
     clean_name = name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
     return f"{clean_name}_{{QID={qid}}}.json"
 
-def save_animal_file(data: Dict[str, Any], name: str, qid: str) -> None:
-    """Save animal data to JSON file"""
-    filename = get_animal_filename(name, qid)
-    filepath = ANIMAL_STATS_DIR / filename
-    with open(filepath, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-    print(f" 💾 Saved: {filename}")
-
 # =============================================================================
-# DATA CLEANING HELPERS
+# DEBUG SUMMARY CLASS
 # =============================================================================
-def clean_wikipedia_text(text: str) -> str:
-    """Clean messy Wikipedia text - remove citations, infobox artifacts, etc."""
-    if not text:
-        return ""
-    
-    text = re.sub(r'\[\d+\]', '', text)
-    
-    artifacts = [
-        "Temporal range:", "PreꞒ", "Ꞓ", "O", "S", "D", "C", "P", "T", "J", "K", "Pg", "N",
-        "Animalia", "Chordata", "Mammalia", "Aves", "Reptilia", "Amphibia",
-        "Order:", "Family:", "Genus:", "Species:", "Subspecies:",
-        "Least Concern", "Near Threatened", "Vulnerable", "Endangered", "Critically Endangered",
-        "IUCN Red List", "Red List of Threatened Species"
-    ]
-    
-    for artifact in artifacts:
-        text = text.replace(artifact, "")
-    
-    text = ' '.join(text.split())
-    
-    if len(text) < 20:
-        return ""
-    
-    return text.strip()
-
-def extract_clean_habitat(wiki_sections: Dict[str, str], gbif_data: Dict[str, Any]) -> str:
-    """Extract clean habitat from multiple sources"""
-    if gbif_data and gbif_data.get("habitat"):
-        return gbif_data.get("habitat", "")
-    
-    habitat = wiki_sections.get("habitat", "")
-    return clean_wikipedia_text(habitat)
-
-def extract_clean_locations(wiki_sections: Dict[str, str], gbif_data: Dict[str, Any], ninja_locations: List[str]) -> str:
-    """Extract clean location data from multiple sources"""
-    if gbif_data and gbif_data.get("countries"):
-        return ", ".join(gbif_data.get("countries", []))
-    
-    if ninja_locations:
-        return ", ".join(ninja_locations)
-    
-    distribution = wiki_sections.get("distribution", "")
-    return clean_wikipedia_text(distribution)
-
-def fix_diet_based_on_taxonomy(diet: str, classification: Dict[str, str]) -> str:
-    """Fix obvious diet errors based on taxonomy"""
-    if not diet:
-        return diet
-    
-    diet_lower = diet.lower()
-    family = classification.get("family", "").lower()
-    order = classification.get("order", "").lower()
-    
-    if "elephantidae" in family and "carnivore" in diet_lower:
-        return "Herbivore"
-    
-    if "cheloniidae" in family and "carnivore" in diet_lower:
-        return "Herbivore"
-    
-    if "primates" in order and "carnivore" in diet_lower:
-        return "Omnivore"
-    
-    return diet
-
-def get_first_non_empty(*values) -> str:
-    """Return first non-empty string from values"""
-    for v in values:
-        if v and isinstance(v, str) and v.strip():
-            return v
-    return ""
-
-def _extract_conservation_from_wikipedia_sections(wiki_sections: Dict[str, str]) -> str:
-    """Extract conservation status from Wikipedia sections"""
-    conservation_text = wiki_sections.get("conservation", "").lower()
-    threats_text = wiki_sections.get("threats", "").lower()
-    distribution_text = wiki_sections.get("distribution", "").lower()
-    
-    status_patterns = [
-        (r"critically endangered", "Critically Endangered"),
-        (r"endangered", "Endangered"),
-        (r"vulnerable", "Vulnerable"),
-        (r"near threatened", "Near Threatened"),
-        (r"least concern", "Least Concern"),
-        (r"data deficient", "Data Deficient"),
-        (r"extinct in the wild", "Extinct in the Wild"),
-        (r"extinct", "Extinct"),
-        (r"iucn.*?critically endangered", "Critically Endangered"),
-        (r"iucn.*?endangered", "Endangered"),
-        (r"iucn.*?vulnerable", "Vulnerable"),
-        (r"iucn.*?near threatened", "Near Threatened"),
-        (r"iucn.*?least concern", "Least Concern"),
-        (r"red list.*?critically endangered", "Critically Endangered"),
-        (r"red list.*?endangered", "Endangered"),
-        (r"red list.*?vulnerable", "Vulnerable"),
-    ]
-    
-    for text in [conservation_text, threats_text, distribution_text]:
-        for pattern, status in status_patterns:
-            if re.search(pattern, text):
-                return status
-    
-    return ""
-
-# =============================================================================
-# BUILD ANIMAL DATA
-# =============================================================================
-def build_animal_data(
-    ninja_data: Dict[str, Any],
-    wiki_sections: Dict[str, str],
-    wiki_infobox: Dict[str, str],
-    inat_classification: Dict[str, Any],
-    wikidata_enhanced: Dict[str, Any],
-    gbif_data: Dict[str, Any],
-    eol_data: Dict[str, Any],
-    qid: str,
-    name: str,
-    sci_name: str
-) -> Dict[str, Any]:
-    """Build complete animal data from fetched sources - NO fetching here!"""
-    
-    print_debug_header(f"BUILDING DATA FOR: {name} ({sci_name})")
-    
-    # ===== DEBUG: Print all raw inputs =====
-    print_debug_header("RAW INPUT DATA TO EXTRACTORS", "-")
-    
-    print_raw_data("🥷 API Ninjas Data", ninja_data)
-    print_raw_data("📖 Wikipedia Sections", wiki_sections)
-    print_raw_data("📦 Wikipedia Infobox", wiki_infobox)
-    print_raw_data("🔬 iNaturalist Classification", inat_classification)
-    print_raw_data("📊 Wikidata Enhanced", wikidata_enhanced)
-    print_raw_data("🌍 GBIF Data", gbif_data)
-    print_raw_data("📚 EOL Data", eol_data)
-    
-    # ===== Save complete debug log =====
-    debug_data = {
-        "name": name,
-        "scientific_name": sci_name,
-        "qid": qid,
-        "timestamp": datetime.now().isoformat(),
-        "inputs": {
-            "ninja_data": ninja_data,
-            "wiki_sections": wiki_sections,
-            "wiki_infobox": wiki_infobox,
-            "inat_classification": inat_classification,
-            "wikidata_enhanced": wikidata_enhanced,
-            "gbif_data": gbif_data,
-            "eol_data": eol_data
+class DebugSummary:
+    def __init__(self, name: str, qid: str):
+        self.name = name
+        self.qid = qid
+        self.start_time = datetime.now()
+        self.sources_used = []
+        self.warnings = []
+        
+        # Raw Inputs
+        self.inputs = {
+            "ninja": {},
+            "wiki_sections": {},
+            "wiki_infobox": {},
+            "inat": {},
+            "wikidata": {},
+            "gbif": {},
+            "eol": {}
         }
-    }
-    save_debug_log(name, qid, debug_data)
-    
-    # ===== Wikipedia Extractions (MUST HAPPEN FIRST) =====
-    print_debug_header("EXTRACTOR INPUTS & OUTPUTS", "-")
-    
-    print("\n📊 Physical Stats Extraction:")
-    
-    # Extract ALL Wikipedia data FIRST before using it
-    wiki_stats = extract_stats_with_context(wiki_sections, name, sci_name)
-    wiki_diet, wiki_prey = extract_diet_from_sections(wiki_sections)
-    wiki_repro = extract_reproduction_from_sections(wiki_sections)
-    wiki_conservation_status, wiki_threats = extract_conservation_from_sections(wiki_sections)
-    wiki_behavior = extract_behavior_from_sections(wiki_sections)
-    wiki_additional = extract_additional_info_from_sections(wiki_sections)
-    
-    # Prepare API Ninjas physical data
-    api_ninjas_physical = {}
-    if ninja_data:
-        chars = ninja_data.get('characteristics', {})
-        api_ninjas_physical = {
-            'weight': chars.get('weight', ''),
-            'length': chars.get('length', ''),
-            'height': chars.get('height', ''),
-            'lifespan': chars.get('lifespan', ''),
-            'top_speed': chars.get('top_speed', ''),
+        
+        # Intermediate Extractions
+        self.extractions = {}
+        
+        # Final Data
+        self.final_data = {}
+
+    def add_warning(self, msg: str):
+        self.warnings.append(msg)
+
+    def log_source(self, source: str):
+        if source not in self.sources_used:
+            self.sources_used.append(source)
+
+    def save(self):
+        clean_name = self.name.lower().replace(' ', '_').replace('-', '_').replace("'", "")
+        filepath = DEBUG_DIR / f"{clean_name}_{self.qid}_summary.json"
+        
+        report = {
+            "meta": {
+                "name": self.name,
+                "qid": self.qid,
+                "timestamp": self.start_time.isoformat(),
+                "duration": str(datetime.now() - self.start_time),
+                "sources_used": self.sources_used,
+                "warnings": self.warnings
+            },
+            "inputs_summary": {
+                "ninja_fields": list(self.inputs["ninja"].get("characteristics", {}).keys()) if self.inputs["ninja"] else [],
+                "wiki_sections_count": len(self.inputs["wiki_sections"]),
+                "wikidata_keys": list(self.inputs["wikidata"].keys()) if self.inputs["wikidata"] else [],
+                "gbif_countries": self.inputs["gbif"].get("countries", []) if self.inputs["gbif"] else []
+            },
+            "extraction_comparison": self.extractions,
+            "final_result": self.final_data
         }
-        print(f"   API Ninjas Physical: {api_ninjas_physical}")
+
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(report, f, indent=2, ensure_ascii=False, default=str)
+        return filepath
+
+# =============================================================================
+# DATA BUILDING LOGIC
+# =============================================================================
+def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -> Dict[str, Any]:
     
-    # Show what's being passed to extractor
-    print(f"\n   📤 Passing to extract_stats_with_context:")
-    print(f"      - sections keys: {list(wiki_sections.keys())}")
-    print(f"      - animal_name: {name}")
-    print(f"      - scientific_name: {sci_name}")
-    print(f"      - infobox keys: {list(wiki_infobox.keys()) if wiki_infobox else 'NONE'}")
-    print(f"      - wikidata keys: {list(wikidata_enhanced.keys()) if wikidata_enhanced else 'NONE'}")
-    print(f"      - api_ninjas: {api_ninjas_physical}")
-    
-    # Extract with priority: Infobox > Wikidata > API Ninjas > Text
-    physical_stats = extract_stats_with_context(
-        sections=wiki_sections,
-        animal_name=name,
-        scientific_name=sci_name,
-        infobox_data=wiki_infobox,
-        wikidata_data=wikidata_enhanced,
-        api_ninjas_data=api_ninjas_physical
-    )
-    
-    print(f"\n   📥 Extractor returned: {physical_stats}")
-    
-    # ===== Individual Extractor Debug =====
-    print("\n📏 Individual Extractor Calls:")
-    
-    weight = extract_weight_from_sections(wiki_sections, name)
-    print(f"   Weight extractor: '{weight}'")
-    
-    length = extract_length_from_sections(wiki_sections, name)
-    print(f"   Length extractor: '{length}'")
-    
-    height = extract_height_from_sections(wiki_sections, name)
-    print(f"   Height extractor: '{height}'")
-    
-    lifespan = extract_lifespan_from_sections(wiki_sections, name)
-    print(f"   Lifespan extractor: '{lifespan}'")
-    
-    speed = extract_speed_from_sections(wiki_sections, name)
-    print(f"   Speed extractor: '{speed}'")
-    
-    diet, prey = extract_diet_from_sections(wiki_sections)
-    print(f"   Diet extractor: '{diet}'")
-    print(f"   Prey extractor: '{prey}'")
-    
-    repro = extract_reproduction_from_sections(wiki_sections)
-    print(f"   Reproduction extractor: {repro}")
-    
-    behavior = extract_behavior_from_sections(wiki_sections)
-    print(f"   Behavior extractor: '{behavior}'")
-    
-    conservation_status_wiki, threats = extract_conservation_from_sections(wiki_sections)
-    print(f"   Conservation extractor: '{conservation_status_wiki}'")
-    print(f"   Threats extractor: '{threats}'")
-    
-    additional = extract_additional_info_from_sections(wiki_sections)
-    print(f"   Additional info extractor: {additional}")
-    
-    # ===== Animal Type Detection =====
-    animal_type = "default"
-    taxonomy_to_use = inat_classification if inat_classification else {}
-    
-    if taxonomy_to_use:
-        family = taxonomy_to_use.get("family", "").lower()
-        if "felidae" in family:
-            animal_type = "feline"
-        elif "canidae" in family:
-            animal_type = "canine"
-        elif "ursidae" in family:
-            animal_type = "bear"
-        elif "elephantidae" in family:
-            animal_type = "elephant"
-    
-    print(f"\n🏷️  Animal Type: {animal_type}")
-    
-    young_name = get_young_name(animal_type)
-    
-    # ===== Classification - Priority: iNaturalist > Wikidata > Ninja =====
-    classification = {
-        "kingdom": "",
-        "phylum": "",
-        "class": "",
-        "order": "",
-        "family": "",
-        "genus": "",
-        "species": sci_name
-    }
-    
+    # 1. Prepare Inputs
+    ninja_data = debug.inputs["ninja"]
+    wiki_sections = debug.inputs["wiki_sections"]
+    wiki_infobox = debug.inputs["wiki_infobox"]
+    inat_class = debug.inputs["inat"]
+    wikidata_enh = debug.inputs["wikidata"]
+    gbif_data = debug.inputs["gbif"]
+    eol_data = debug.inputs["eol"]
+
     ninja_chars = ninja_data.get("characteristics", {}) if ninja_data else {}
     ninja_taxonomy = ninja_data.get("taxonomy", {}) if ninja_data else {}
-    
-    if inat_classification:
-        for key in classification.keys():
-            if key != "species":
-                classification[key] = inat_classification.get(key, "")
-    elif wikidata_enhanced.get("taxonomy"):
-        for key in classification.keys():
-            if key != "species":
-                classification[key] = wikidata_enhanced.get("taxonomy", {}).get(key, "")
-    elif ninja_taxonomy:
-        for key in classification.keys():
-            if key != "species":
-                classification[key] = ninja_taxonomy.get(key, "")
-    
-    print(f"\n📋 Classification: {classification}")
-    
-    # ===== Conservation Status - Priority: Wikidata > Wikipedia > Ninja =====
-    # NOW wiki_conservation_status is defined!
-    conservation_status = get_first_non_empty(
-        wikidata_enhanced.get("conservation", {}).get("status"),
-        wiki_conservation_status,
-        ninja_chars.get("conservation_status"),
-        _extract_conservation_from_wikipedia_sections(wiki_sections)
-    )
-    
-    if not conservation_status:
-        conservation_status = "Unknown"
-    
-    print(f"\n🛡️  Conservation Status: {conservation_status}")
-    
-    # ===== Physical Data - Priority: Ninja > Wikipedia > EOL =====
-    physical = {
-        "weight": get_first_non_empty(
-            ninja_chars.get("weight", ""),
-            wiki_stats.get("weight", "")
-        ),
-        "length": get_first_non_empty(
-            ninja_chars.get("length", ""),
-            wiki_stats.get("length", "")
-        ),
-        "height": get_first_non_empty(
-            ninja_chars.get("height", ""),
-            wiki_stats.get("height", "")
-        ),
-        "top_speed": get_first_non_empty(
-            ninja_chars.get("top_speed", ""),
-            wiki_stats.get("top_speed", "")
-        ),
-        "lifespan": get_first_non_empty(
-            ninja_chars.get("lifespan", ""),
-            eol_data.get("life_expectancy", ""),
-            wiki_stats.get("lifespan", "")
-        )
+    ninja_locs = ninja_data.get("locations", []) if ninja_data else []
+
+    # 2. Perform Extractions (Intermediate Step)
+    debug.extractions["physical_stats"] = {
+        "wiki_raw": extract_stats_with_context(wiki_sections, name, sci_name),
+        "ninja_raw": {k: ninja_chars.get(k, "") for k in ['weight', 'length', 'height', 'lifespan', 'top_speed']}
     }
+
+    wiki_diet, wiki_prey = extract_diet_from_sections(wiki_sections)
+    wiki_repro = extract_reproduction_from_sections(wiki_sections)
+    wiki_cons_status, wiki_threats = extract_conservation_from_sections(wiki_sections)
+    wiki_behavior = extract_behavior_from_sections(wiki_sections)
+    wiki_additional = extract_additional_info_from_sections(wiki_sections)
+
+    debug.extractions["ecology"] = {
+        "diet": {"wiki": wiki_diet, "ninja": ninja_chars.get("diet"), "eol": eol_data.get("trophic_level")},
+        "habitat": {"wiki": wiki_sections.get("habitat", "")[:100], "gbif": gbif_data.get("habitat", "")},
+        "conservation": {"wiki": wiki_cons_status, "wikidata": wikidata_enh.get("conservation", {}).get("status")}
+    }
+
+    # 3. Determine Animal Type
+    animal_type = "default"
+    taxonomy_to_use = inat_class if inat_class else {}
+    if taxonomy_to_use:
+        family = taxonomy_to_use.get("family", "").lower()
+        if "felidae" in family: animal_type = "feline"
+        elif "canidae" in family: animal_type = "canine"
+        elif "ursidae" in family: animal_type = "bear"
+        elif "elephantidae" in family: animal_type = "elephant"
+
+    # 4. Build Classification
+    classification = {"kingdom": "", "phylum": "", "class": "", "order": "", "family": "", "genus": "", "species": sci_name}
+    if inat_class:
+        for k in classification.keys():
+            if k != "species": classification[k] = inat_class.get(k, "")
+    elif wikidata_enh.get("taxonomy"):
+        for k in classification.keys():
+            if k != "species": classification[k] = wikidata_enh.get("taxonomy", {}).get(k, "")
     
-    print(f"\n💪 Physical Data: {physical}")
+    # 5. Merge Final Fields
     
-    # ===== Ecology - Multi-source merge with cleaning =====
-    diet = get_first_non_empty(
-        ninja_chars.get("diet", ""),
-        wiki_diet,
-        eol_data.get("trophic_level", "")
-    )
+    # Physical
+    physical = {
+        "weight": get_first_non_empty(ninja_chars.get("weight"), debug.extractions["physical_stats"]["wiki_raw"].get("weight")),
+        "length": get_first_non_empty(ninja_chars.get("length"), debug.extractions["physical_stats"]["wiki_raw"].get("length")),
+        "height": get_first_non_empty(ninja_chars.get("height"), debug.extractions["physical_stats"]["wiki_raw"].get("height")),
+        "top_speed": get_first_non_empty(ninja_chars.get("top_speed"), debug.extractions["physical_stats"]["wiki_raw"].get("top_speed")),
+        "lifespan": get_first_non_empty(ninja_chars.get("lifespan"), eol_data.get("life_expectancy"), debug.extractions["physical_stats"]["wiki_raw"].get("lifespan"))
+    }
+
+    # Ecology
+    diet = get_first_non_empty(ninja_chars.get("diet"), wiki_diet, eol_data.get("trophic_level"))
     diet = fix_diet_based_on_taxonomy(diet, classification)
     
-    ninja_locations = ninja_data.get("locations", []) if ninja_data else []
+    habitat = get_first_non_empty(
+        gbif_data.get("habitat") if gbif_data else "",
+        clean_wikipedia_text(wiki_sections.get("habitat", "")),
+        ninja_chars.get("habitat")
+    )
     
+    locations = ""
+    if gbif_data and gbif_data.get("countries"):
+        locations = ", ".join(gbif_data.get("countries", []))
+    elif ninja_locs:
+        locations = ", ".join(ninja_locs)
+    else:
+        locations = clean_wikipedia_text(wiki_sections.get("distribution", ""))
+
+    conservation_status = get_first_non_empty(
+        wikidata_enh.get("conservation", {}).get("status"),
+        wiki_cons_status,
+        ninja_chars.get("conservation_status")
+    ) or "Unknown"
+
     ecology = {
         "diet": diet,
-        "habitat": get_first_non_empty(
-            extract_clean_habitat(wiki_sections, gbif_data),
-            ninja_chars.get("habitat", "")
-        ),
-        "locations": get_first_non_empty(
-            extract_clean_locations(wiki_sections, gbif_data, ninja_locations),
-        ),
-        "group_behavior": get_first_non_empty(
-            ninja_chars.get("group_behavior", ""),
-            wiki_behavior
-        ),
+        "habitat": habitat,
+        "locations": locations,
+        "group_behavior": get_first_non_empty(ninja_chars.get("group_behavior"), wiki_behavior),
         "conservation_status": conservation_status,
-        "biggest_threat": get_first_non_empty(
-            ninja_chars.get("biggest_threat", ""),
-            wiki_threats
-        ),
+        "biggest_threat": get_first_non_empty(ninja_chars.get("biggest_threat"), wiki_threats),
         "distinctive_features": [ninja_chars.get("most_distinctive_feature")] if ninja_chars.get("most_distinctive_feature") else [],
-        "population_trend": wikidata_enhanced.get("population", "")
+        "population_trend": wikidata_enh.get("population", "")
     }
-    
-    print(f"\n🌍 Ecology: {ecology}")
-    
-    # ===== Reproduction - Priority: Ninja > Wikipedia =====
+
+    # Reproduction
     reproduction = {
-        "gestation_period": get_first_non_empty(
-            ninja_chars.get("gestation_period", ""),
-            wiki_repro.get("gestation_period", "")
-        ),
-        "average_litter_size": get_first_non_empty(
-            ninja_chars.get("average_litter_size", ""),
-            wiki_repro.get("average_litter_size", "")
-        ),
-        "name_of_young": get_first_non_empty(
-            ninja_chars.get("name_of_young", ""),
-            wiki_repro.get("name_of_young", ""),
-            young_name
-        )
+        "gestation_period": get_first_non_empty(ninja_chars.get("gestation_period"), wiki_repro.get("gestation_period")),
+        "average_litter_size": get_first_non_empty(ninja_chars.get("average_litter_size"), wiki_repro.get("average_litter_size")),
+        "name_of_young": get_first_non_empty(ninja_chars.get("name_of_young"), wiki_repro.get("name_of_young"), get_young_name(animal_type))
     }
-    
-    print(f"\n👶 Reproduction: {reproduction}")
-    
-    # ===== Additional Info - Multi-source merge =====
+
+    # Additional
     additional_info = {
         "lifestyle": ninja_chars.get("lifestyle", ""),
         "color": ninja_chars.get("color", ""),
         "skin_type": ninja_chars.get("skin_type", ""),
-        "prey": get_first_non_empty(
-            ninja_chars.get("prey", ""),
-            wiki_prey
-        ),
+        "prey": get_first_non_empty(ninja_chars.get("prey"), wiki_prey),
         "slogan": ninja_chars.get("slogan", ""),
-        "group": get_first_non_empty(
-            ninja_chars.get("group", ""),
-            wiki_additional.get("group", "")
-        ),
-        "number_of_species": get_first_non_empty(
-            ninja_chars.get("number_of_species", ""),
-            wiki_additional.get("number_of_species", "")
-        ),
-        "estimated_population_size": get_first_non_empty(
-            ninja_chars.get("estimated_population_size", ""),
-            wikidata_enhanced.get("population", ""),
-            wiki_additional.get("estimated_population_size", "")
-        ),
-        "age_of_sexual_maturity": get_first_non_empty(
-            ninja_chars.get("age_of_sexual_maturity", ""),
-            wiki_additional.get("age_of_sexual_maturity", "")
-        ),
-        "age_of_weaning": get_first_non_empty(
-            ninja_chars.get("age_of_weaning", ""),
-            wiki_additional.get("age_of_weaning", "")
-        ),
-        "most_distinctive_feature": get_first_non_empty(
-            ninja_chars.get("most_distinctive_feature", ""),
-            wiki_additional.get("most_distinctive_feature", "")
-        )
+        "group": get_first_non_empty(ninja_chars.get("group"), wiki_additional.get("group")),
+        "number_of_species": get_first_non_empty(ninja_chars.get("number_of_species"), wiki_additional.get("number_of_species")),
+        "estimated_population_size": get_first_non_empty(ninja_chars.get("estimated_population_size"), wikidata_enh.get("population"), wiki_additional.get("estimated_population_size")),
+        "most_distinctive_feature": get_first_non_empty(ninja_chars.get("most_distinctive_feature"), wiki_additional.get("most_distinctive_feature"))
     }
-    
-    print(f"\nℹ️  Additional Info: {additional_info}")
-    
-    # ===== Build Final Data Structure =====
-    wiki_summary = {}  # Not used anymore with new fetcher
-    
-    data = {
+
+    # Sources Tracking
+    if ninja_data and ninja_data.get("characteristics"): debug.log_source("API Ninjas")
+    if wiki_sections: debug.log_source("Wikipedia")
+    if inat_class: debug.log_source("iNaturalist")
+    if wikidata_enh: debug.log_source("Wikidata")
+    if gbif_data and gbif_data.get("countries"): debug.log_source("GBIF")
+    if eol_data and eol_data.get("page_id"): debug.log_source("EOL")
+
+    # Construct Final Object
+    final_data = {
         "id": qid,
         "name": name,
         "scientific_name": sci_name,
-        "common_names": wikidata_enhanced.get("common_names", []),
-        "description": get_first_non_empty(
-            wikidata_enhanced.get("description", ""),
-            wiki_summary.get("description", "") if wiki_summary else ""
-        ),
-        "summary": wiki_summary.get("summary", "") if wiki_summary else "",
-        "image": wiki_summary.get("image", "") if wiki_summary else "",
-        "images": wikidata_enhanced.get("images", []) + eol_data.get("images", []),
-        "wikipedia_url": wiki_summary.get("url", "") if wiki_summary else "",
+        "common_names": wikidata_enh.get("common_names", []),
+        "description": get_first_non_empty(wikidata_enh.get("description", "")),
+        "images": wikidata_enh.get("images", []) + eol_data.get("images", []),
+        "wikipedia_url": f"https://en.wikipedia.org/wiki/{name.replace(' ', '_')}",
         "wikidata_url": f"https://www.wikidata.org/wiki/{qid}",
         "eol_url": eol_data.get("eol_url", ""),
-        "gbif_key": gbif_data.get("gbif_key", ""),
-        "wikipedia_sections": wiki_sections,
         "classification": classification,
         "animal_type": animal_type,
-        "young_name": young_name,
+        "young_name": get_young_name(animal_type),
         "group_name": get_group_name(animal_type),
         "physical": physical,
         "ecology": ecology,
@@ -590,156 +316,135 @@ def build_animal_data(
             "coordinates": gbif_data.get("coordinates", {}),
             "occurrence_count": gbif_data.get("occurrence_count", 0)
         },
-        "sources": [],
+        "sources": debug.sources_used,
         "last_updated": datetime.now().isoformat()
     }
-    
-    # ===== Track Sources =====
-    if ninja_data is not None and ninja_data.get("characteristics"):
-        data["sources"].append("API Ninjas")
-    if wiki_sections:
-        data["sources"].append("Wikipedia")
-    if inat_classification:
-        data["sources"].append("iNaturalist")
-    if wikidata_enhanced:
-        data["sources"].append("Wikidata")
-    if gbif_data and gbif_data.get("countries"):
-        data["sources"].append("GBIF")
-    if eol_data and eol_data.get("page_id"):
-        data["sources"].append("EOL")
-    
-    return data
 
+    debug.final_data = final_data
+    return final_data
 
 # =============================================================================
-# MAIN GENERATION
+# MAIN GENERATION LOOP
 # =============================================================================
 def generate(animals: List[Dict[str, str]], force: bool = False) -> List[Dict[str, Any]]:
-    """Generate animal data from all sources"""
     output = []
     ninja_api_key = os.environ.get("API_NINJAS_KEY", "")
-    
     total = len(animals)
-    
+
     for i, a in enumerate(animals):
         name, sci, qid = a["name"], a["scientific_name"], a.get("qid", f"animal_{i}")
+        debug = DebugSummary(name, qid)
         
+        # Header
         print(f"\n{'='*80}")
-        print(f"  [{i+1}/{total}] {name} ({sci})")
+        print(f"[{i+1}/{total}] {name} ({sci})")
         print(f"{'='*80}")
 
-        # ===== API Ninjas =====
-        print("\n🥷 Fetching from Ninja API...")
-        ninja_data = fetch_animal_data(name, ninja_api_key)
-        
-        if ninja_data is not None:
-            chars = ninja_data.get("characteristics", {})
-            print(f"   ✅ Got {len(chars)} fields from Ninja API")
-            print(f"   Fields: {list(chars.keys())}")
-        else:
-            print(f"   ⚠️  No data from Ninja API for {name}")
-            ninja_data = {"characteristics": {}, "taxonomy": {}, "locations": []}
+        try:
+            # --- FETCHING ---
+            # Ninja
+            ninja_data = fetch_animal_data(name, ninja_api_key) or {"characteristics": {}, "taxonomy": {}, "locations": []}
+            debug.inputs["ninja"] = ninja_data
+            if not ninja_data.get("characteristics"):
+                debug.add_warning("No data from API Ninjas")
 
-        # ===== Wikipedia =====
-        print("\n📖 Fetching from Wikipedia...")
-        wiki_data = fetch_wikipedia_data(name)
-        wiki_sections = wiki_data.get('sections', {})
-        wiki_infobox = wiki_data.get('infobox', {})
-        
-        filled_sections = sum(1 for v in wiki_sections.values() if v and len(v) > 20)
-        print(f"   ✅ Extracted {filled_sections} Wikipedia sections")
-        print(f"   Section names: {list(wiki_sections.keys())}")
-        
-        # Show section content lengths
-        print(f"   Section content lengths:")
-        for section, content in list(wiki_sections.items())[:5]:
-            length = len(content) if content else 0
-            print(f"      - {section}: {length} chars")
-        
-        # ===== iNaturalist =====
-        print("\n🔬 Fetching from iNaturalist...")
-        inat_classification = fetch_inaturalist(sci)
-        if inat_classification:
-            print(f"   ✅ Got classification from iNaturalist")
-            print(f"   Classification: {inat_classification}")
-        else:
-            print(f"   ⚠️  No classification from iNaturalist")
-        
-        # ===== Wikidata =====
-        print("\n📊 Fetching from Wikidata...")
-        wikidata_enhanced = extract_wikidata_all(qid, sci)
-        if wikidata_enhanced:
-            print(f"   ✅ Got Wikidata enhancements")
-            print(f"   Keys: {list(wikidata_enhanced.keys())}")
-            if wikidata_enhanced.get("conservation", {}).get("status"):
-                print(f"      🏷️  Conservation: {wikidata_enhanced['conservation']['status']}")
-        else:
-            print(f"   ⚠️  No data from Wikidata")
-            wikidata_enhanced = {}
-        
-        time.sleep(0.3)
-        
-        # ===== GBIF =====
-        print("\n🌍 Fetching from GBIF...")
-        gbif_data = extract_gbif_all(sci)
-        if gbif_data and gbif_data.get("countries"):
-            print(f"   ✅ Found in {len(gbif_data.get('countries', []))} countries")
-            print(f"   Countries: {gbif_data.get('countries', [])[:5]}{'...' if len(gbif_data.get('countries', [])) > 5 else ''}")
-        else:
-            print(f"   ⚠️  Limited GBIF data")
-            print(f"   GBIF keys: {list(gbif_data.keys()) if gbif_data else 'NONE'}")
-        
-        time.sleep(0.3)
-        
-        # ===== EOL =====
-        print("\n📚 Fetching from EOL...")
-        eol_data = extract_eol_all(sci)
-        if eol_data and eol_data.get("page_id"):
-            print(f"   ✅ Got EOL data (Page ID: {eol_data.get('page_id')})")
-            print(f"   EOL keys: {list(eol_data.keys())}")
-        else:
-            print(f"   ⚠️  No data from EOL")
-            eol_data = {}
-        
-        time.sleep(0.3)
-        
-        # ===== Build Animal Data =====
-        data = build_animal_data(
-            ninja_data=ninja_data,
-            wiki_sections=wiki_sections,
-            wiki_infobox=wiki_infobox,
-            inat_classification=inat_classification,
-            wikidata_enhanced=wikidata_enhanced,
-            gbif_data=gbif_data,
-            eol_data=eol_data,
-            qid=qid,
-            name=name,
-            sci_name=sci
-        )
-        
-        save_animal_file(data, name, qid)
-        output.append(data)
-        
-        print(f"\n✅ {name} complete! Sources: {', '.join(data['sources'])}")
-        print(f"   Physical: {data['physical']}")
-        print(f"   Ecology: diet={data['ecology']['diet']}, conservation={data['ecology']['conservation_status']}")
-        
-        time.sleep(0.5)
+            # Wikipedia
+            wiki_data = fetch_wikipedia_data(name)
+            wiki_sections = wiki_data.get('sections', {})
+            wiki_infobox = wiki_data.get('infobox', {})
+            debug.inputs["wiki_sections"] = wiki_sections
+            debug.inputs["wiki_infobox"] = wiki_infobox
+            if not wiki_sections:
+                debug.add_warning("No Wikipedia sections found")
 
-    with open(DATA_DIR / "animals.json", "w", encoding="utf-8") as f:
+            # iNaturalist
+            inat_class = fetch_inaturalist(sci) or {}
+            debug.inputs["inat"] = inat_class
+
+            # Wikidata
+            wikidata_enh = extract_wikidata_all(qid, sci) or {}
+            debug.inputs["wikidata"] = wikidata_enh
+
+            time.sleep(0.2)
+
+            # GBIF
+            gbif_data = extract_gbif_all(sci) or {}
+            debug.inputs["gbif"] = gbif_data
+
+            time.sleep(0.2)
+
+            # EOL
+            eol_data = extract_eol_all(sci) or {}
+            debug.inputs["eol"] = eol_data
+
+            # --- BUILDING ---
+            final_data = build_animal_data(debug, name, sci, qid)
+            
+            # --- SAVING ---
+            # Save individual JSON
+            filename = get_animal_filename(name, qid)
+            filepath = ANIMAL_STATS_DIR / filename
+            with open(filepath, "w", encoding="utf-8") as f:
+                json.dump(final_data, f, indent=2, ensure_ascii=False)
+
+            # Save Debug Summary
+            summary_path = debug.save()
+
+            # --- CONSOLE OUTPUT (The "Easy to Review" Part) ---
+            print(f"\n✅ COMPLETE | Sources: {', '.join(debug.sources_used)}")
+            if debug.warnings:
+                print(f"   ⚠️  Warnings: {'; '.join(debug.warnings)}")
+            
+            print(f"\n📊 FINAL MERGED DATA REVIEW:")
+            print(f"   {'Field':<25} | {'Value':<40} | {'Top Source'}")
+            print(f"   {'-'*25}-+-{'-'*40}-+-{'-'*15}")
+            
+            # Physical
+            p = final_data['physical']
+            print(f"   {'Weight':<25} | {p['weight']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('weight') else 'Wiki'}")
+            print(f"   {'Length':<25} | {p['length']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('length') else 'Wiki'}")
+            print(f"   {'Lifespan':<25} | {p['lifespan']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('lifespan') else 'EOL/Wiki'}")
+            
+            # Ecology
+            e = final_data['ecology']
+            print(f"   {'Diet':<25} | {e['diet']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('diet') else 'Wiki'}")
+            print(f"   {'Conservation':<25} | {e['conservation_status']:<40} | {'Wikidata' if wikidata_enh.get('conservation',{}).get('status') else 'Wiki'}")
+            print(f"   {'Habitat (preview)':<25} | {e['habitat'][:37]+'...' if len(e['habitat'])>40 else e['habitat']:<40} | {'GBIF' if gbif_data.get('habitat') else 'Wiki'}")
+
+            # Repro
+            r = final_data['reproduction']
+            print(f"   {'Young Name':<25} | {r['name_of_young']:<40} | {'Ninja' if ninja_data.get('characteristics',{}).get('name_of_young') else 'Config'}")
+
+            print(f"\n💾 Files Saved:")
+            print(f"   📄 Data: {filepath.name}")
+            print(f"   🐞 Debug: {summary_path.name}")
+
+            output.append(final_data)
+
+        except Exception as ex:
+            print(f"\n❌ ERROR processing {name}: {str(ex)}")
+            debug.add_warning(f"Critical Error: {str(ex)}")
+            debug.save()
+            continue
+
+        time.sleep(0.3)
+
+    # Save Combined
+    combined_path = DATA_DIR / "animals.json"
+    with open(combined_path, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
     print(f"\n{'='*80}")
-    print(f"✅ Done! {len(output)} animals saved to {ANIMAL_STATS_DIR}/")
-    print(f"📁 Combined file: {DATA_DIR / 'animals.json'}")
-    print(f"📂 Debug logs: {DEBUG_DIR}/")
-    print(f"{'='*80}")
+    print(f"🎉 GENERATION FINISHED")
+    print(f"   Total Animals: {len(output)}")
+    print(f"   Combined Data: {combined_path}")
+    print(f"   Debug Logs: {DEBUG_DIR}/")
+    print(f"{'='*80}\n")
     
     return output
 
-
 # =============================================================================
-# TEST ANIMALS
+# TEST DATA
 # =============================================================================
 TEST_ANIMALS = [
     {"name": "Tiger", "scientific_name": "Panthera tigris", "qid": "Q132186"},
@@ -757,9 +462,6 @@ TEST_ANIMALS = [
     {"name": "Honey Bee", "scientific_name": "Apis mellifera", "qid": "Q7316"},
 ]
 
-# =============================================================================
-# MAIN ENTRY POINT
-# =============================================================================
 if __name__ == "__main__":
     force = "--force" in sys.argv
     generate(TEST_ANIMALS, force)
