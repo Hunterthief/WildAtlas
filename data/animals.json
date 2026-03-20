@@ -124,7 +124,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:39:30.311083"
+    "last_updated": "2026-03-20T12:53:33.751600"
   },
   {
     "id": "Q35625",
@@ -252,7 +252,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:39:45.791064"
+    "last_updated": "2026-03-20T12:53:49.510761"
   },
   {
     "id": "Q7372",
@@ -321,7 +321,7 @@
     "group_name": "herd",
     "physical": {
       "weight": "",
-      "length": "30 cm",
+      "length": "",
       "height": "2.47–2.73 m",
       "top_speed": "",
       "lifespan": ""
@@ -382,7 +382,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:40:00.724778"
+    "last_updated": "2026-03-20T12:54:03.847019"
   },
   {
     "id": "Q213537",
@@ -523,7 +523,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:40:17.401822"
+    "last_updated": "2026-03-20T12:54:19.873131"
   },
   {
     "id": "Q25319",
@@ -647,7 +647,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:40:34.623223"
+    "last_updated": "2026-03-20T12:54:36.489751"
   },
   {
     "id": "Q43306",
@@ -771,7 +771,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:40:51.110556"
+    "last_updated": "2026-03-20T12:55:01.025863"
   },
   {
     "id": "Q47164",
@@ -902,7 +902,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:41:12.410084"
+    "last_updated": "2026-03-20T12:55:16.462816"
   },
   {
     "id": "Q39709",
@@ -1018,7 +1018,7 @@
         "max_lon": 1.520426,
         "count": 50
       },
-      "occurrence_count": 1453603
+      "occurrence_count": 1453602
     },
     "sources": [
       "Wikipedia",
@@ -1026,7 +1026,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:41:29.207665"
+    "last_updated": "2026-03-20T12:55:32.167074"
   },
   {
     "id": "Q7785",
@@ -1170,7 +1170,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:41:45.937004"
+    "last_updated": "2026-03-20T12:55:48.000421"
   },
   {
     "id": "Q189609",
@@ -1302,7 +1302,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:42:00.766712"
+    "last_updated": "2026-03-20T12:56:02.308085"
   },
   {
     "id": "Q270238",
@@ -1357,7 +1357,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-    "eol_url": "https://eol.org/pages/330963",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1426,10 +1426,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T12:42:18.177962"
+    "last_updated": "2026-03-20T12:56:21.682776"
   },
   {
     "id": "Q165980",
@@ -1500,7 +1499,7 @@
     "group_name": "Invertebrates",
     "physical": {
       "weight": "0.25 - 0.75 grams",
-      "length": "1.2 m",
+      "length": "",
       "height": "",
       "top_speed": "12 mph",
       "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
@@ -1557,7 +1556,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:42:39.450418"
+    "last_updated": "2026-03-20T12:56:42.543477"
   },
   {
     "id": "Q7316",
@@ -1701,6 +1700,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:42:56.885557"
+    "last_updated": "2026-03-20T12:56:59.408618"
   }
 ]
