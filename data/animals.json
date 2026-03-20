@@ -124,7 +124,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:29:59.924889"
+    "last_updated": "2026-03-20T12:39:30.311083"
   },
   {
     "id": "Q35625",
@@ -194,7 +194,7 @@
     "group_name": "Mammal",
     "physical": {
       "weight": "40kg - 65kg (88lbs - 140lbs)",
-      "length": "4–7 m",
+      "length": "",
       "height": "115cm - 136cm (45in - 53in)",
       "top_speed": "70 mph",
       "lifespan": "10 - 12 years"
@@ -252,7 +252,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:30:15.808445"
+    "last_updated": "2026-03-20T12:39:45.791064"
   },
   {
     "id": "Q7372",
@@ -306,7 +306,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "https://eol.org/pages/55636404",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -380,10 +380,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T12:30:32.553310"
+    "last_updated": "2026-03-20T12:40:00.724778"
   },
   {
     "id": "Q213537",
@@ -524,7 +523,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:30:52.394912"
+    "last_updated": "2026-03-20T12:40:17.401822"
   },
   {
     "id": "Q25319",
@@ -579,7 +578,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
-    "eol_url": "https://eol.org/pages/1228132",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -646,10 +645,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T12:31:00.844509"
+    "last_updated": "2026-03-20T12:40:34.623223"
   },
   {
     "id": "Q43306",
@@ -773,7 +771,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:31:22.127144"
+    "last_updated": "2026-03-20T12:40:51.110556"
   },
   {
     "id": "Q47164",
@@ -904,7 +902,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:31:37.633965"
+    "last_updated": "2026-03-20T12:41:12.410084"
   },
   {
     "id": "Q39709",
@@ -1028,7 +1026,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:31:52.825405"
+    "last_updated": "2026-03-20T12:41:29.207665"
   },
   {
     "id": "Q7785",
@@ -1172,7 +1170,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:32:09.189228"
+    "last_updated": "2026-03-20T12:41:45.937004"
   },
   {
     "id": "Q189609",
@@ -1304,7 +1302,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:32:23.403976"
+    "last_updated": "2026-03-20T12:42:00.766712"
   },
   {
     "id": "Q270238",
@@ -1359,7 +1357,7 @@
     ],
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/330963",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1428,9 +1426,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T12:32:37.887930"
+    "last_updated": "2026-03-20T12:42:18.177962"
   },
   {
     "id": "Q165980",
@@ -1558,7 +1557,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:33:00.314817"
+    "last_updated": "2026-03-20T12:42:39.450418"
   },
   {
     "id": "Q7316",
@@ -1702,6 +1701,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T12:33:16.553057"
+    "last_updated": "2026-03-20T12:42:56.885557"
   }
 ]
