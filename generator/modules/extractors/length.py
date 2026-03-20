@@ -1,6 +1,6 @@
 """
-Length extraction module - PRODUCTION v8
-Fixed: Cheetah 4-7m rejection, Wolf body length, Bee mm patterns, Eagle body length
+Length extraction module - PRODUCTION v9
+Fixed: Cheetah tail rejection, Elephant shoulder height, Butterfly wingspan, Bee mm patterns
 Based on analysis of 13 animal Wikipedia articles from WildAtlas
 """
 import re
@@ -40,6 +40,7 @@ ANIMAL_LENGTH_RANGES = {
     'hymenoptera': (0.01, 0.025), # Bees (10-25mm)
     'lepidoptera': (0.03, 0.06),  # Butterflies body (3-6cm)
     'apidae': (0.01, 0.025),      # Honey bees specifically
+    'nymphalidae': (0.03, 0.06),  # Monarch butterfly family
 }
 
 
@@ -118,40 +119,47 @@ def _is_valid_length(value: str, animal_name: str = "", classification: Dict[str
                 elif 'in' in value_lower or 'inch' in value_lower:
                     value_in_meters = max_num * 0.0254
                 
-                # CRITICAL FIX: For cats (felidae), reject >2.5m as it's likely total length with tail
+                # CRITICAL FIX #1: For cats (felidae), reject >2.5m as it's likely total length with tail
                 # Cheetah 4-7m is WRONG (includes tail), body length is ~1.2m
                 if 'felidae' in family and value_in_meters > 2.5:
                     return False
                 
-                # CRITICAL FIX: For wolves/dogs (canidae), reject <0.5m as it's likely shoulder height
+                # CRITICAL FIX #2: For wolves/dogs (canidae), reject <0.5m as it's likely shoulder height
                 # Wolf shoulder height is 29-50cm, body length is 1-1.6m
                 if 'canidae' in family and value_in_meters < 0.5:
                     return False
                 
-                # CRITICAL FIX: For birds, reject if too small (wrong measurement) or too large (wingspan)
-                # Eagle body length is 70-100cm, NOT 11cm
+                # CRITICAL FIX #3: For elephants, reject <4m (2.4m is shoulder height, not length)
+                if 'elephantidae' in family:
+                    if value_in_meters < 4.0:
+                        return False
+                    if value_in_meters > 8.0:
+                        return False
+                
+                # CRITICAL FIX #4: For birds, reject if too small or too large (wingspan)
+                # Eagle body length is 70-100cm, NOT 11cm or 2m+
                 if 'aves' in class_name:
                     if value_in_meters < 0.2:  # <20cm is too small for most birds
                         return False
                     if value_in_meters > 1.5:  # >1.5m is likely wingspan
                         return False
                 
-                # CRITICAL FIX: For insects, validate mm range properly
+                # CRITICAL FIX #5: For butterflies, reject >10cm (1.2m is wingspan!)
+                # Monarch body length is 4.5cm, wingspan is 10cm
+                if 'lepidoptera' in order or 'nymphalidae' in family:
+                    if value_in_meters > 0.10:  # >10cm is likely wingspan
+                        return False
+                    if value_in_meters < 0.02:  # <2cm is too small
+                        return False
+                
+                # CRITICAL FIX #6: For insects, validate mm range properly
                 if 'insecta' in class_name:
                     if value_in_meters > 0.15:  # >15cm is too big for most insects
                         return False
-                    # Bees should be 10-25mm, butterflies 30-60mm body
+                    # Bees should be 10-25mm
                     if 'hymenoptera' in order or 'apidae' in family:
                         if value_in_meters < 0.005 or value_in_meters > 0.03:
                             return False
-                    if 'lepidoptera' in order:
-                        if value_in_meters < 0.02 or value_in_meters > 0.08:
-                            return False
-                
-                # CRITICAL FIX: For elephants, reject <4m (too small)
-                if 'elephantidae' in family:
-                    if value_in_meters < 4.0:
-                        return False
                 
                 # Allow 2x margin for unit conversion errors (tighter validation)
                 if value_in_meters > expected_range[1] * 2:
@@ -204,17 +212,28 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
         if 'length' not in text_lower:  # Only reject if no length keyword
             return False
     
-    # CRITICAL: For birds, reject wingspan measurements
+    # CRITICAL: For butterflies/moths, reject wingspan measurements
     animal_lower = animal_name.lower() if animal_name else ""
-    if any(x in animal_lower for x in ['butterfly', 'moth', 'bee', 'wasp', 'eagle', 'hawk', 'bird', 'penguin']):
+    if any(x in animal_lower for x in ['butterfly', 'moth']):
         if 'wingspan' in text_lower or 'wing span' in text_lower:
             return False
-        # Also reject if mentions wing without body
+        # Also check for wing measurements without "body"
+        if 'wing' in text_lower and 'body' not in text_lower:
+            return False
+    
+    # CRITICAL: For birds, reject wingspan measurements
+    if any(x in animal_lower for x in ['eagle', 'hawk', 'bird', 'penguin']):
+        if 'wingspan' in text_lower or 'wing span' in text_lower:
+            return False
         if 'wing' in text_lower and 'body' not in text_lower:
             if 'length' in text_lower:
-                # Check if it's specifically wing length
                 if 'wing length' in text_lower or 'length of the wing' in text_lower:
                     return False
+    
+    # CRITICAL: For bees/insects, reject wingspan
+    if any(x in animal_lower for x in ['bee', 'wasp', 'insect']):
+        if 'wingspan' in text_lower or 'wing span' in text_lower:
+            return False
     
     # SPECIAL: For cats, prefer "head-body" over "total length"
     if any(x in animal_lower for x in ['tiger', 'cheetah', 'lion', 'cat', 'leopard', 'jaguar']):
@@ -230,6 +249,14 @@ def _has_length_context(text: str, animal_name: str = "") -> bool:
                         return False  # Likely includes tail
                 except:
                     pass
+    
+    # SPECIAL: For elephants, reject shoulder height values (2-3m range)
+    if any(x in animal_lower for x in ['elephant']):
+        # Check for values in shoulder height range (2-3m)
+        shoulder_values = re.findall(r'(2[.,]?\d*|3[.,]?\d*)\s*(?:m|metres?|meters?)', text_lower)
+        if shoulder_values:
+            if 'shoulder' in text_lower or 'height' in text_lower:
+                return False
     
     has_length = any(kw in text_lower for kw in length_keywords)
     has_reject = any(kw in text_lower for kw in reject_keywords)
@@ -302,6 +329,12 @@ LENGTH_PATTERNS = [
     {
         # "wing length" (birds) - reject
         'pattern': r'wing\s*length',
+        'priority': 999,
+        'format': 'reject'
+    },
+    {
+        # "wingspan" - reject for all animals
+        'pattern': r'wingspan',
         'priority': 999,
         'format': 'reject'
     },
@@ -443,7 +476,13 @@ LENGTH_PATTERNS = [
     },
     {
         # "workers measure 10-15 mm" (bees/ants)
-        'pattern': r'(?:workers?|adults?)\s+(?:measure|measuring)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(mm)',
+        'pattern': r'(?:workers?|adults?|females?|males?)\s+(?:measure|measuring|are|is)\s+(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(mm)',
+        'priority': 8,
+        'format': 'range'
+    },
+    {
+        # "10 to 15 millimeters" (bees - full word)
+        'pattern': r'(\d+(?:[.,]\d+)?)\s*(?:–|-|to|and)\s*(\d+(?:[.,]\d+)?)\s*(millimetres?|millimeters?)',
         'priority': 8,
         'format': 'range'
     },
