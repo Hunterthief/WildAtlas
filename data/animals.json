@@ -79,15 +79,15 @@
     "young_name": "cub",
     "group_name": "pride",
     "physical": {
-      "weight": "140kg - 300kg (309lbs - 660lbs)",
-      "length": "2.4m - 3.3m (6.8ft - 11ft)",
+      "weight": "",
+      "length": "35 m",
       "height": "0.8–1.1 m",
-      "top_speed": "60 mph",
-      "lifespan": "18 - 25 years"
+      "top_speed": "56 km/h",
+      "lifespan": "12–15 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Dense tropical forest and mangroves",
+      "habitat": "",
       "locations": "Bangladesh, China, India, Indonesia, Nepal, Russian Federation, Thailand",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
@@ -97,15 +97,15 @@
     },
     "reproduction": {
       "gestation_period": "",
-      "average_litter_size": "3",
+      "average_litter_size": "",
       "name_of_young": "cub"
     },
     "additional_info": {
-      "lifestyle": "Solitary",
-      "color": "BlackWhiteOrange",
-      "skin_type": "Fur",
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
       "prey": "feeds mainly on large and medium-sized ungulates such as sambar deer, Manchurian wapiti, barasingha,",
-      "slogan": "The most numerous species of tiger!",
+      "slogan": "",
       "group": "pride",
       "number_of_species": "nine",
       "estimated_population_size": "5,000",
@@ -131,14 +131,13 @@
       "occurrence_count": 5294
     },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:00:32.576010"
+    "last_updated": "2026-03-21T02:10:10.783232"
   },
   {
     "id": "Q35625",
@@ -146,52 +145,54 @@
     "scientific_name": "Acinonyx jubatus",
     "common_names": [
       {
-        "name": "薑",
+        "name": "猎豹",
         "language": "zh"
       },
       {
-        "name": "Jaé",
-        "language": "jv"
-      },
-      {
-        "name": "བཅའ་ལྒ།",
-        "language": "bo"
-      },
-      {
-        "name": "imbir lekarski",
-        "language": "pl"
-      },
-      {
-        "name": "Jengibre",
+        "name": "Gepardo",
         "language": "eu"
       },
       {
-        "name": "Awirinri",
-        "language": "qu"
+        "name": "gepard grzywiasty",
+        "language": "pl"
       },
       {
-        "name": "Dinnsear",
-        "language": "gd"
-      },
-      {
-        "name": "Gingifer",
+        "name": "Dottatiȝer",
         "language": "ang"
       },
       {
-        "name": "Đumbir",
-        "language": "bs"
+        "name": "guepardo",
+        "language": "es"
       },
       {
-        "name": "Zingiber officinale",
-        "language": "es"
+        "name": "gepárd",
+        "language": "hu"
+      },
+      {
+        "name": "Duma",
+        "language": "sw"
+      },
+      {
+        "name": "Gepardi",
+        "language": "sq"
+      },
+      {
+        "name": "Lepogo",
+        "language": "nso"
+      },
+      {
+        "name": "gepardo",
+        "language": "ia"
       }
     ],
-    "summary": "plant species",
-    "description": "plant species",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Ginger_Plant_vs.jpg",
+    "summary": "species of mammal",
+    "description": "species of mammal",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Cheetah_(Acinonyx_jubatus)_female_2.jpg",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/c1/Ginger_Plant_vs.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/1/18/Koeh-146-no_text.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/3/36/Cheetah_(Acinonyx_jubatus)_female_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/09/TheCheethcat.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/1/11/Acinonyx.jubatus-1-ZOO.Olomouc.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/b0/Herberstein_Gepard_029.jpg"
     ],
     "distribution_image": "",
     "time_period": {
@@ -274,7 +275,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:00:40.740107"
+    "last_updated": "2026-03-21T02:10:20.923061"
   },
   {
     "id": "Q7372",
@@ -282,51 +283,53 @@
     "scientific_name": "Loxodonta africana",
     "common_names": [
       {
-        "name": "requins",
+        "name": "Afrikaneschen Elefant",
+        "language": "lb"
+      },
+      {
+        "name": "非洲象",
+        "language": "zh"
+      },
+      {
+        "name": "Ndlovu",
+        "language": "tum"
+      },
+      {
+        "name": "Африка пилдери",
+        "language": "ky"
+      },
+      {
+        "name": "słoń afrykański",
+        "language": "pl"
+      },
+      {
+        "name": "Loxodonta africana",
+        "language": "eu"
+      },
+      {
+        "name": "Саваннадин фил",
+        "language": "lez"
+      },
+      {
+        "name": "Саванавы афрыканскі слон",
+        "language": "be"
+      },
+      {
+        "name": "פיל סוואנה אפריקני",
+        "language": "he"
+      },
+      {
+        "name": "éléphant de savane d'Afrique",
         "language": "fr"
-      },
-      {
-        "name": "squali",
-        "language": "it"
-      },
-      {
-        "name": "Rinkin",
-        "language": "br"
-      },
-      {
-        "name": "shark",
-        "language": "en-ca"
-      },
-      {
-        "name": "shark",
-        "language": "en-gb"
-      },
-      {
-        "name": "Selachimorpha",
-        "language": "an"
-      },
-      {
-        "name": "Sǣhund",
-        "language": "ang"
-      },
-      {
-        "name": "قرش",
-        "language": "ar"
-      },
-      {
-        "name": "Selachimorpha",
-        "language": "ast"
-      },
-      {
-        "name": "köpəkbalığı",
-        "language": "az"
       }
     ],
-    "summary": "clade of predatory cartilaginous fish (Chondrichthyes)",
-    "description": "clade of predatory cartilaginous fish (Chondrichthyes)",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg",
+    "summary": "species of mammal; largest land animal",
+    "description": "species of mammal; largest land animal",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/2/2e/African_bush_elephant,_Loxodonta_africana_at_Punda_Maria,_Kruger_National_Park,_South_Africa._Includes_lots_of_baby_elephant._(20591203310).jpg",
       "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg"
     ],
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg",
@@ -418,7 +421,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:00:46.518671"
+    "last_updated": "2026-03-21T02:10:28.058649"
   },
   {
     "id": "Q213537",
@@ -573,63 +576,18 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:00:53.432578"
+    "last_updated": "2026-03-21T02:10:37.897230"
   },
   {
     "id": "Q25319",
     "name": "Bald Eagle",
     "scientific_name": "Haliaeetus leucocephalus",
-    "common_names": [
-      {
-        "name": "白头海雕",
-        "language": "zh-hans"
-      },
-      {
-        "name": "白頭海鵰",
-        "language": "zh-hant"
-      },
-      {
-        "name": "白頭海鵰",
-        "language": "zh-hk"
-      },
-      {
-        "name": "白头海雕",
-        "language": "zh-cn"
-      },
-      {
-        "name": "白头海雕",
-        "language": "zh-sg"
-      },
-      {
-        "name": "白頭海鵰",
-        "language": "zh-tw"
-      },
-      {
-        "name": "itsas arrano buruzuri",
-        "language": "eu"
-      },
-      {
-        "name": "bielik amerykański",
-        "language": "pl"
-      },
-      {
-        "name": "Bjeloglavi orao",
-        "language": "bs"
-      },
-      {
-        "name": "Haliaeetus leucocephalus",
-        "language": "es"
-      }
-    ],
-    "summary": "species of bird of prey found in North America",
-    "description": "species of bird of prey found in North America",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
-    "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png"
-    ],
-    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png",
+    "common_names": [],
+    "summary": "",
+    "description": "",
+    "image": "",
+    "images": [],
+    "distribution_image": "",
     "time_period": {
       "text": "Evolved ~150 million years ago",
       "width": "75%",
@@ -701,11 +659,10 @@
     "sources": [
       "Wikipedia",
       "iNaturalist",
-      "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:00:59.815451"
+    "last_updated": "2026-03-21T02:10:45.065336"
   },
   {
     "id": "Q43306",
@@ -839,7 +796,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:01:10.495161"
+    "last_updated": "2026-03-21T02:10:53.565711"
   },
   {
     "id": "Q47164",
@@ -983,64 +940,18 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:01:18.670503"
+    "last_updated": "2026-03-21T02:11:11.952864"
   },
   {
     "id": "Q39709",
     "name": "Atlantic Salmon",
     "scientific_name": "Salmo salar",
-    "common_names": [
-      {
-        "name": "大西洋鲑",
-        "language": "zh-hans"
-      },
-      {
-        "name": "大西洋鮭",
-        "language": "zh-hant"
-      },
-      {
-        "name": "大西洋鮭",
-        "language": "zh-hk"
-      },
-      {
-        "name": "大西洋鲑",
-        "language": "zh-cn"
-      },
-      {
-        "name": "大西洋鲑",
-        "language": "zh-sg"
-      },
-      {
-        "name": "大西洋鮭",
-        "language": "zh-tw"
-      },
-      {
-        "name": "Lachs",
-        "language": "gsw"
-      },
-      {
-        "name": "Atlantic salmon",
-        "language": "pam"
-      },
-      {
-        "name": "Izokin",
-        "language": "eu"
-      },
-      {
-        "name": "łosoś szlachetny",
-        "language": "pl"
-      }
-    ],
-    "summary": "species of fish",
-    "description": "species of fish",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
-    "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg"
-    ],
-    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg",
+    "common_names": [],
+    "summary": "",
+    "description": "",
+    "image": "",
+    "images": [],
+    "distribution_image": "",
     "time_period": {
       "text": "Evolved ~500 million years ago",
       "width": "95%",
@@ -1114,11 +1025,10 @@
     "sources": [
       "Wikipedia",
       "iNaturalist",
-      "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:01:24.820380"
+    "last_updated": "2026-03-21T02:11:20.296813"
   },
   {
     "id": "Q7785",
@@ -1272,7 +1182,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-21T02:01:42.671936"
+    "last_updated": "2026-03-21T02:11:39.318858"
   },
   {
     "id": "Q189609",
@@ -1280,52 +1190,51 @@
     "scientific_name": "Ophiophagus hannah",
     "common_names": [
       {
-        "name": "红胸秋沙鸭",
-        "language": "zh-hans"
+        "name": "眼镜王蛇",
+        "language": "zh"
       },
       {
-        "name": "紅胸秋沙鴨",
-        "language": "zh-hant"
+        "name": "Ula anang",
+        "language": "jv"
       },
       {
-        "name": "紅胸秋沙鴨",
-        "language": "zh-hk"
-      },
-      {
-        "name": "红胸秋沙鸭",
-        "language": "zh-cn"
-      },
-      {
-        "name": "红胸秋沙鸭",
-        "language": "zh-sg"
-      },
-      {
-        "name": "紅胸秋沙",
-        "language": "zh-tw"
-      },
-      {
-        "name": "Mergus serrator",
-        "language": "pms"
-      },
-      {
-        "name": "zerra ertain",
-        "language": "eu"
-      },
-      {
-        "name": "Szlachar",
+        "name": "kobra królewska",
         "language": "pl"
       },
       {
-        "name": "крахаль даўгадзюбы",
-        "language": "be"
+        "name": "Ophiophagus hannah",
+        "language": "es"
+      },
+      {
+        "name": "கருநாகம்",
+        "language": "ta"
+      },
+      {
+        "name": "Kownukronsneki",
+        "language": "srn"
+      },
+      {
+        "name": "Ular Tedung Selar",
+        "language": "ms"
+      },
+      {
+        "name": "királykobra",
+        "language": "hu"
+      },
+      {
+        "name": "শঙ্খচূড়",
+        "language": "bn"
+      },
+      {
+        "name": "ملك الكوبرا",
+        "language": "ar"
       }
     ],
-    "summary": "species of bird",
-    "description": "species of bird",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
+    "summary": "species of reptile",
+    "description": "species of reptile",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red-breasted_merganser_female_in_CP_(40744).jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png"
     ],
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png",
@@ -1337,7 +1246,7 @@
     },
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/1055746",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1409,9 +1318,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-21T02:01:57.044106"
+    "last_updated": "2026-03-21T02:11:48.575489"
   },
   {
     "id": "Q270238",
@@ -1548,7 +1458,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:02:02.674522"
+    "last_updated": "2026-03-21T02:12:00.464612"
   },
   {
     "id": "Q165980",
@@ -1613,7 +1523,7 @@
     },
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-    "eol_url": "https://eol.org/pages/4090155",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1680,10 +1590,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-21T02:02:11.480374"
+    "last_updated": "2026-03-21T02:12:19.221865"
   },
   {
     "id": "Q7316",
@@ -1691,53 +1600,51 @@
     "scientific_name": "Apis mellifera",
     "common_names": [
       {
-        "name": "西方蜜蜂",
-        "language": "zh"
-      },
-      {
-        "name": "erle arrunt",
-        "language": "eu"
-      },
-      {
-        "name": "pszczoła miodna",
-        "language": "pl"
-      },
-      {
-        "name": "Alghina",
-        "language": "rup"
-      },
-      {
-        "name": "Apis mellifera",
+        "name": "Apis mellifera ligustica",
         "language": "es"
       },
       {
-        "name": "Heuningby",
-        "language": "af"
+        "name": "abella italiana",
+        "language": "ca"
       },
       {
-        "name": "Apis mellifera",
-        "language": "oc"
+        "name": "Italienische Biene",
+        "language": "de"
       },
       {
-        "name": "Lebah Eropah",
-        "language": "ms"
+        "name": "Apis mellifera ligustica",
+        "language": "fr"
       },
       {
-        "name": "házi méh",
-        "language": "hu"
+        "name": "Apis mellifera ligustica",
+        "language": "it"
       },
       {
-        "name": "meemesilane",
-        "language": "et"
+        "name": "pszczoła włoska",
+        "language": "pl"
+      },
+      {
+        "name": "Abelha-italiana",
+        "language": "pt"
+      },
+      {
+        "name": "Apis mellifera ligustica",
+        "language": "ro"
+      },
+      {
+        "name": "Apis mellifera ligustica",
+        "language": "la"
+      },
+      {
+        "name": "نحل إيطالي",
+        "language": "ar"
       }
     ],
-    "summary": "species of insect",
-    "description": "species of insect",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
+    "summary": "subspecies of the western honey bee (Apis mellifera)",
+    "description": "subspecies of the western honey bee (Apis mellifera)",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Honeybee-27527-1.jpg",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/9/99/Apis_mellifera_flying.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg",
+      "https://upload.wikimedia.org/wikipedia/commons/c/cd/Honeybee-27527-1.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg"
     ],
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg",
@@ -1752,7 +1659,7 @@
     },
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-    "eol_url": "https://eol.org/pages/1045608",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1837,9 +1744,8 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-21T02:02:18.876735"
+    "last_updated": "2026-03-21T02:12:36.084971"
   }
 ]

@@ -4,53 +4,51 @@
   "scientific_name": "Apis mellifera",
   "common_names": [
     {
-      "name": "西方蜜蜂",
-      "language": "zh"
-    },
-    {
-      "name": "erle arrunt",
-      "language": "eu"
-    },
-    {
-      "name": "pszczoła miodna",
-      "language": "pl"
-    },
-    {
-      "name": "Alghina",
-      "language": "rup"
-    },
-    {
-      "name": "Apis mellifera",
+      "name": "Apis mellifera ligustica",
       "language": "es"
     },
     {
-      "name": "Heuningby",
-      "language": "af"
+      "name": "abella italiana",
+      "language": "ca"
     },
     {
-      "name": "Apis mellifera",
-      "language": "oc"
+      "name": "Italienische Biene",
+      "language": "de"
     },
     {
-      "name": "Lebah Eropah",
-      "language": "ms"
+      "name": "Apis mellifera ligustica",
+      "language": "fr"
     },
     {
-      "name": "házi méh",
-      "language": "hu"
+      "name": "Apis mellifera ligustica",
+      "language": "it"
     },
     {
-      "name": "meemesilane",
-      "language": "et"
+      "name": "pszczoła włoska",
+      "language": "pl"
+    },
+    {
+      "name": "Abelha-italiana",
+      "language": "pt"
+    },
+    {
+      "name": "Apis mellifera ligustica",
+      "language": "ro"
+    },
+    {
+      "name": "Apis mellifera ligustica",
+      "language": "la"
+    },
+    {
+      "name": "نحل إيطالي",
+      "language": "ar"
     }
   ],
-  "summary": "species of insect",
-  "description": "species of insect",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
+  "summary": "subspecies of the western honey bee (Apis mellifera)",
+  "description": "subspecies of the western honey bee (Apis mellifera)",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Honeybee-27527-1.jpg",
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/9/99/Apis_mellifera_flying.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/c/cd/Honeybee-27527-1.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg",
@@ -65,7 +63,7 @@
   },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-  "eol_url": "https://eol.org/pages/1045608",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -150,8 +148,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-21T02:02:18.876735"
+  "last_updated": "2026-03-21T02:12:36.084971"
 }

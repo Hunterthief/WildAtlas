@@ -78,15 +78,15 @@
   "young_name": "cub",
   "group_name": "pride",
   "physical": {
-    "weight": "140kg - 300kg (309lbs - 660lbs)",
-    "length": "2.4m - 3.3m (6.8ft - 11ft)",
+    "weight": "",
+    "length": "35 m",
     "height": "0.8–1.1 m",
-    "top_speed": "60 mph",
-    "lifespan": "18 - 25 years"
+    "top_speed": "56 km/h",
+    "lifespan": "12–15 years"
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Dense tropical forest and mangroves",
+    "habitat": "",
     "locations": "Bangladesh, China, India, Indonesia, Nepal, Russian Federation, Thailand",
     "group_behavior": "Solitary",
     "conservation_status": "Endangered",
@@ -96,15 +96,15 @@
   },
   "reproduction": {
     "gestation_period": "",
-    "average_litter_size": "3",
+    "average_litter_size": "",
     "name_of_young": "cub"
   },
   "additional_info": {
-    "lifestyle": "Solitary",
-    "color": "BlackWhiteOrange",
-    "skin_type": "Fur",
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
     "prey": "feeds mainly on large and medium-sized ungulates such as sambar deer, Manchurian wapiti, barasingha,",
-    "slogan": "The most numerous species of tiger!",
+    "slogan": "",
     "group": "pride",
     "number_of_species": "nine",
     "estimated_population_size": "5,000",
@@ -130,12 +130,11 @@
     "occurrence_count": 5294
   },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T02:00:32.576010"
+  "last_updated": "2026-03-21T02:10:10.783232"
 }

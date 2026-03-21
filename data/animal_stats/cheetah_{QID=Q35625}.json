@@ -4,52 +4,54 @@
   "scientific_name": "Acinonyx jubatus",
   "common_names": [
     {
-      "name": "薑",
+      "name": "猎豹",
       "language": "zh"
     },
     {
-      "name": "Jaé",
-      "language": "jv"
-    },
-    {
-      "name": "བཅའ་ལྒ།",
-      "language": "bo"
-    },
-    {
-      "name": "imbir lekarski",
-      "language": "pl"
-    },
-    {
-      "name": "Jengibre",
+      "name": "Gepardo",
       "language": "eu"
     },
     {
-      "name": "Awirinri",
-      "language": "qu"
+      "name": "gepard grzywiasty",
+      "language": "pl"
     },
     {
-      "name": "Dinnsear",
-      "language": "gd"
-    },
-    {
-      "name": "Gingifer",
+      "name": "Dottatiȝer",
       "language": "ang"
     },
     {
-      "name": "Đumbir",
-      "language": "bs"
+      "name": "guepardo",
+      "language": "es"
     },
     {
-      "name": "Zingiber officinale",
-      "language": "es"
+      "name": "gepárd",
+      "language": "hu"
+    },
+    {
+      "name": "Duma",
+      "language": "sw"
+    },
+    {
+      "name": "Gepardi",
+      "language": "sq"
+    },
+    {
+      "name": "Lepogo",
+      "language": "nso"
+    },
+    {
+      "name": "gepardo",
+      "language": "ia"
     }
   ],
-  "summary": "plant species",
-  "description": "plant species",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Ginger_Plant_vs.jpg",
+  "summary": "species of mammal",
+  "description": "species of mammal",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Cheetah_(Acinonyx_jubatus)_female_2.jpg",
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/c/c1/Ginger_Plant_vs.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/1/18/Koeh-146-no_text.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/3/36/Cheetah_(Acinonyx_jubatus)_female_2.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/0/09/TheCheethcat.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/1/11/Acinonyx.jubatus-1-ZOO.Olomouc.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b0/Herberstein_Gepard_029.jpg"
   ],
   "distribution_image": "",
   "time_period": {
@@ -132,5 +134,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T02:00:40.740107"
+  "last_updated": "2026-03-21T02:10:20.923061"
 }
