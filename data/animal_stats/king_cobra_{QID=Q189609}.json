@@ -54,7 +54,7 @@
   "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-  "eol_url": "https://eol.org/pages/1055746",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -129,8 +129,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T23:50:49.887268"
+  "last_updated": "2026-03-21T00:01:45.077329"
 }

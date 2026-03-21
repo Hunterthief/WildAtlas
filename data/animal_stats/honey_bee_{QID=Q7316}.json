@@ -55,7 +55,7 @@
   "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-  "eol_url": "https://eol.org/pages/1045608",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -141,8 +141,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-20T23:51:10.126388"
+  "last_updated": "2026-03-21T00:02:38.405139"
 }
