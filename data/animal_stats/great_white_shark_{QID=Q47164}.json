@@ -55,7 +55,7 @@
   "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/46559751",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -129,7 +129,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-21T00:10:59.900245"
+  "last_updated": "2026-03-21T00:22:33.724495"
 }
