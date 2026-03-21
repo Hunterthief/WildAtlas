@@ -52,9 +52,18 @@
     "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg",
+  "time_period": {
+    "text": "~7.0 million years ago",
+    "width": "55%",
+    "start": "7.0M years ago",
+    "end": "Present",
+    "millions_years": 7.0,
+    "confidence": 1,
+    "raw_match": "7–5 million years ago"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/55636404",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -128,7 +137,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-21T01:13:41.183361"
+  "last_updated": "2026-03-21T01:42:24.329632"
 }

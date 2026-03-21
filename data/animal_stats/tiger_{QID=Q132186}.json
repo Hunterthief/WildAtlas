@@ -53,6 +53,15 @@
     "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png",
+  "time_period": {
+    "text": "~3.7 million years ago",
+    "width": "40%",
+    "start": "3.7M years ago",
+    "end": "Present",
+    "millions_years": 3.7,
+    "confidence": 1,
+    "raw_match": "split from each other between 2.70 and 3.70 million years ago"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
   "eol_url": "https://eol.org/pages/1253183",
@@ -128,5 +137,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:13:08.003697"
+  "last_updated": "2026-03-21T01:42:08.389998"
 }

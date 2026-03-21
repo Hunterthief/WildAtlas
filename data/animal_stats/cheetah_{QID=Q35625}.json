@@ -52,9 +52,18 @@
     "https://upload.wikimedia.org/wikipedia/commons/1/18/Koeh-146-no_text.jpg"
   ],
   "distribution_image": "",
+  "time_period": {
+    "text": "~6.7 million years ago",
+    "width": "55%",
+    "start": "6.7M years ago",
+    "end": "Present",
+    "millions_years": 6.7,
+    "confidence": 2,
+    "raw_match": "6.7 million years ago"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
   "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/1271375",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -123,7 +132,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-21T01:13:24.518686"
+  "last_updated": "2026-03-21T01:42:18.194513"
 }

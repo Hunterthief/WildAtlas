@@ -52,6 +52,15 @@
     "https://upload.wikimedia.org/wikipedia/commons/4/48/Canis_lupus_distribution_(IUCN).png"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Canis_lupus_distribution_(IUCN).png",
+  "time_period": {
+    "text": "~1.4 million years ago",
+    "width": "40%",
+    "start": "1.4M years ago",
+    "end": "Present",
+    "millions_years": 1.4,
+    "confidence": 2,
+    "raw_match": "appeared around 1.4 million years ago"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
   "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
   "eol_url": "https://eol.org/pages/1268606",
@@ -142,5 +151,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:13:47.187812"
+  "last_updated": "2026-03-21T01:42:33.491576"
 }
