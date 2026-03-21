@@ -14,6 +14,7 @@ from .behavior import extract_behavior_from_sections
 from .conservation import extract_conservation_from_sections
 from .additional_info import extract_additional_info_from_sections
 from .stats import extract_stats_from_sections, extract_stats_with_context
+from .time_period import extract_time_period_from_sections, extract_evolution_time
 from .wikidata_enhancer import extract_wikidata_all
 
 __all__ = [
@@ -30,5 +31,7 @@ __all__ = [
     'extract_additional_info_from_sections',
     'extract_stats_from_sections',
     'extract_stats_with_context',
+    'extract_time_period_from_sections',
+    'extract_evolution_time',
     'extract_wikidata_all'
 ]
