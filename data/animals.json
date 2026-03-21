@@ -127,7 +127,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T23:59:17.173426"
+    "last_updated": "2026-03-21T00:09:19.842763"
   },
   {
     "id": "Q35625",
@@ -256,7 +256,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-20T23:59:32.463039"
+    "last_updated": "2026-03-21T00:09:35.740912"
   },
   {
     "id": "Q7372",
@@ -313,7 +313,7 @@
     "distribution_image": "",
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/55636404",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -387,9 +387,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-20T23:59:47.484470"
+    "last_updated": "2026-03-21T00:09:53.771679"
   },
   {
     "id": "Q213537",
@@ -446,7 +447,7 @@
     "distribution_image": "",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
-    "eol_url": "https://eol.org/pages/1268606",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -531,10 +532,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-20T23:59:58.156020"
+    "last_updated": "2026-03-21T00:10:10.606451"
   },
   {
     "id": "Q25319",
@@ -661,7 +661,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-21T00:00:17.990365"
+    "last_updated": "2026-03-21T00:10:27.832409"
   },
   {
     "id": "Q43306",
@@ -788,7 +788,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-21T00:00:33.687692"
+    "last_updated": "2026-03-21T00:10:43.631863"
   },
   {
     "id": "Q47164",
@@ -923,7 +923,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-21T00:00:49.346831"
+    "last_updated": "2026-03-21T00:10:59.900245"
   },
   {
     "id": "Q39709",
@@ -982,7 +982,7 @@
     "distribution_image": "",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "https://eol.org/pages/46563143",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1048,10 +1048,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-21T00:01:06.580537"
+    "last_updated": "2026-03-21T00:11:18.503062"
   },
   {
     "id": "Q7785",
@@ -1199,7 +1198,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-21T00:01:25.903113"
+    "last_updated": "2026-03-21T00:11:35.000661"
   },
   {
     "id": "Q189609",
@@ -1334,7 +1333,7 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-21T00:01:45.077329"
+    "last_updated": "2026-03-21T00:11:50.225562"
   },
   {
     "id": "Q270238",
@@ -1392,7 +1391,7 @@
     "distribution_image": "",
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
-    "eol_url": "",
+    "eol_url": "https://eol.org/pages/330963",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1461,9 +1460,10 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF"
+      "GBIF",
+      "EOL"
     ],
-    "last_updated": "2026-03-21T00:02:00.789896"
+    "last_updated": "2026-03-21T00:11:59.532965"
   },
   {
     "id": "Q165980",
@@ -1595,7 +1595,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:02:21.256424"
+    "last_updated": "2026-03-21T00:12:14.153848"
   },
   {
     "id": "Q7316",
@@ -1742,6 +1742,6 @@
       "Wikidata",
       "GBIF"
     ],
-    "last_updated": "2026-03-21T00:02:38.405139"
+    "last_updated": "2026-03-21T00:12:31.546660"
   }
 ]
