@@ -45,7 +45,6 @@ def _filename_to_direct_url(filename: str) -> str:
         filename = unquote(filename)
         
         # Extract filename from thumb URL
-        # https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tiger_distribution.png/960px-Tiger_distribution.png
         thumb_match = re.search(r'/thumb/[0-9a-fA-F]/[0-9a-fA-F]{2}/([^/]+\.(?:png|jpg|jpeg|svg|gif))', filename, re.IGNORECASE)
         if thumb_match:
             filename = thumb_match.group(1)
@@ -88,8 +87,6 @@ def _filename_to_direct_url(filename: str) -> str:
 def _is_distribution_map(filename: str, animal_name: str) -> bool:
     """
     VERY FLEXIBLE distribution map detection
-    
-    ACCEPTS anything with distribution/range/map in filename
     """
     filename_lower = filename.lower()
     animal_lower = animal_name.lower().replace(' ', '_')
@@ -116,10 +113,8 @@ def _is_distribution_map(filename: str, animal_name: str) -> bool:
         if reject_kw in filename_lower:
             return False
     
-    # Very flexible matching - just check if animal name appears with distribution
+    # Very flexible matching
     filename_no_ext = filename_lower.rsplit('.', 1)[0]
-    
-    # Clean up common suffixes
     filename_clean = re.sub(r'_\(.*?\)', '', filename_no_ext)
     filename_clean = re.sub(r'_map$', '', filename_clean)
     filename_clean = re.sub(r'_range$', '', filename_clean)
@@ -128,11 +123,9 @@ def _is_distribution_map(filename: str, animal_name: str) -> bool:
     animal_parts = animal_lower.split('_')
     animal_in_filename = any(part in filename_clean for part in animal_parts if len(part) > 2)
     
-    # If animal name found with distribution = ACCEPT
     if animal_in_filename and has_dist:
         return True
     
-    # If just "distribution" without animal name but has range/map = ACCEPT
     if has_dist or (has_range and has_map):
         return True
     
@@ -142,12 +135,6 @@ def _is_distribution_map(filename: str, animal_name: str) -> bool:
 def _get_all_images_from_wikipedia_html(animal_name: str) -> List[str]:
     """
     AGGRESSIVE: Parse Wikipedia HTML and extract ALL image URLs
-    
-    This finds images in:
-    - Infoboxes
-    - Article content
-    - Galleries
-    - Thumbnails
     """
     images = []
     
@@ -165,15 +152,12 @@ def _get_all_images_from_wikipedia_html(animal_name: str) -> List[str]:
             return images
         
         html = response.text
-        
-        # Parse with BeautifulSoup for better HTML handling
         soup = BeautifulSoup(html, 'html.parser')
         
         # Find ALL img tags
         img_tags = soup.find_all('img')
         
         for img in img_tags:
-            # Try multiple attributes for image URL
             src = img.get('src', '')
             data_src = img.get('data-src', '')
             original = img.get('data-original', '')
@@ -191,12 +175,11 @@ def _get_all_images_from_wikipedia_html(animal_name: str) -> List[str]:
             
             images.append(img_url)
         
-        # Also find images in href links (for file pages)
+        # Also find images in href links
         links = soup.find_all('a', href=True)
         for link in links:
             href = link.get('href', '')
             if 'File:' in href and any(ext in href.lower() for ext in ['.png', '.jpg', '.jpeg', '.svg']):
-                # Convert wiki file link to direct URL
                 if href.startswith('/wiki/'):
                     filename = href.replace('/wiki/File:', '').replace('/wiki/file:', '')
                     if filename:
@@ -228,7 +211,7 @@ def _get_all_images_from_wikipedia_api(animal_name: str) -> List[str]:
             "format": "json",
             "titles": animal_name,
             "prop": "images",
-            "imlimit": "500"  # Get more images
+            "imlimit": "500"
         }
         headers = {
             "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
@@ -272,10 +255,6 @@ def _get_all_images_from_wikipedia_api(animal_name: str) -> List[str]:
 def _get_distribution_from_wikipedia(animal_name: str) -> Optional[str]:
     """
     AGGRESSIVE: Find distribution map by checking ALL images
-    
-    Priority:
-    1. HTML parsing (finds embedded images)
-    2. API (gets all image titles)
     """
     distribution_images = []
     
@@ -296,14 +275,12 @@ def _get_distribution_from_wikipedia(animal_name: str) -> Optional[str]:
         if not img_url:
             continue
         
-        # Extract filename from URL
         filename_match = re.search(r'/([^/]+\.(?:png|jpg|jpeg|svg|gif))', img_url, re.IGNORECASE)
         if not filename_match:
             continue
         
         filename = unquote(filename_match.group(1))
         
-        # Check if it's a distribution map
         if _is_distribution_map(filename, animal_name):
             direct_url = _filename_to_direct_url(img_url)
             if direct_url:
@@ -312,13 +289,11 @@ def _get_distribution_from_wikipedia(animal_name: str) -> Optional[str]:
     
     # Return first valid distribution image
     if distribution_images:
-        # Prefer images with animal name in filename
         for img in distribution_images:
             if animal_name.lower().replace(' ', '_') in img.lower():
                 print(f"   🗺️  Selected distribution map: {img}")
                 return img
         
-        # Otherwise return first one
         print(f"   🗺️  Selected distribution map: {distribution_images[0]}")
         return distribution_images[0]
     
@@ -400,7 +375,7 @@ def fetch_wikidata(qid: str, expected_name: str = "") -> Optional[Dict[str, Any]
 def _is_animal_entity(entity: Dict[str, Any], expected_name: str = "") -> bool:
     """
     Check if Wikidata entity is actually an animal
-    FIXED: Less aggressive validation to prevent false rejections
+    FIXED: STRICT validation to prevent wrong entity matches (elephant/shark mixup)
     """
     if not entity:
         return False
@@ -408,6 +383,27 @@ def _is_animal_entity(entity: Dict[str, Any], expected_name: str = "") -> bool:
     # Check labels - entity should have the expected animal name
     labels = entity.get("labels", {})
     en_label = labels.get("en", {}).get("value", "").lower()
+    
+    # CRITICAL: If we have an expected name, verify it matches
+    if expected_name:
+        expected_lower = expected_name.lower()
+        
+        # Check if label contains expected animal name
+        label_matches = expected_lower in en_label or en_label in expected_lower
+        
+        # Check aliases as fallback
+        aliases = entity.get("aliases", {})
+        alias_values = []
+        for lang, alias_list in aliases.items():
+            for alias in alias_list:
+                alias_values.append(alias.get("value", "").lower())
+        
+        alias_matches = any(expected_lower in alias for alias in alias_values)
+        
+        # If neither label nor aliases match, REJECT
+        if not label_matches and not alias_matches:
+            print(f"   ⚠️  Entity label '{en_label}' doesn't match expected '{expected_name}'")
+            return False
     
     # Check instance of (P31) - must be a biological taxon
     claims = entity.get("claims", {})
@@ -427,7 +423,6 @@ def _is_animal_entity(entity: Dict[str, Any], expected_name: str = "") -> bool:
             has_valid_taxon = True
             break
     
-    # Must be a valid taxon
     if not has_valid_taxon:
         print(f"   ⚠️  Entity is not a valid biological taxon")
         return False
@@ -436,18 +431,38 @@ def _is_animal_entity(entity: Dict[str, Any], expected_name: str = "") -> bool:
     descriptions = entity.get("descriptions", {})
     en_desc = descriptions.get("en", {}).get("value", "").lower()
     
-    # CRITICAL: Only reject if it's clearly NOT an animal
+    # CRITICAL: Reject if description mentions wrong animal type
+    # Example: Reject if description says "shark" but we expect "elephant"
+    if expected_name:
+        expected_lower = expected_name.lower()
+        
+        # Shark vs Elephant mismatch
+        if "shark" in en_desc and "elephant" in expected_lower:
+            print(f"   ⚠️  Entity description mentions 'shark' but we expect 'elephant'")
+            return False
+        
+        # Plant vs Animal mismatch
+        if "plant" in en_desc and "elephant" in expected_lower:
+            print(f"   ⚠️  Entity description mentions 'plant' but we expect 'elephant'")
+            return False
+        
+        # Bird vs Snake mismatch
+        if "bird" in en_desc and "cobra" in expected_lower:
+            print(f"   ⚠️  Entity description mentions 'bird' but we expect 'cobra'")
+            return False
+        
+        # Ginger vs Cheetah mismatch
+        if "ginger" in en_desc or "zingiber" in en_desc:
+            if "cheetah" in expected_lower:
+                print(f"   ⚠️  Entity description mentions 'ginger' but we expect 'cheetah'")
+                return False
+    
+    # General reject keywords
     reject_keywords = [
         "commune", "city", "town", "village", "person", "politician", 
         "university", "year", "emperor of", "dynasty",
     ]
     
-    # Only reject if description explicitly says "plant" (not "plant species" which could be wrong entity)
-    if "species of plant" in en_desc or "plant species" in en_desc:
-        print(f"   ⚠️  Entity description mentions 'plant species'")
-        return False
-    
-    # Check for obvious mismatches
     has_reject_keyword = any(kw in en_desc for kw in reject_keywords)
     
     if has_reject_keyword:
@@ -550,7 +565,7 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
     claims = wikidata.get("claims", {})
     image_claims = claims.get("P18", [])
     
-    for claim in image_claims[:10]:  # Get more images
+    for claim in image_claims[:10]:
         filename = claim.get("mainsnak", {}).get("datavalue", {}).get("value", "")
         if filename:
             filename_clean = filename.replace('File:', '').strip()
