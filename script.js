@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isHomePage) {
         initHomePage();
         setupSectionToggles();
-        setupViewToggle();
+        setupViewToggleButtons();
     } else if (isDetailPage) {
         initDetailPage();
     }
@@ -236,9 +236,9 @@ function setupSectionToggles() {
 }
 
 // ============================================
-// View Toggle (Grid/List)
+// View Toggle (Grid/List) - Home Page Only
 // ============================================
-function setupViewToggle() {
+function setupViewToggleButtons() {
     const viewButtons = document.querySelectorAll('.view-btn');
     
     viewButtons.forEach(button => {
@@ -552,7 +552,7 @@ function populateDetailPage(animal) {
     }
     
     // === RIGHT SIDEBAR ===
-    // 🗺️ LOCATION WITH DISTRIBUTION IMAGE (UPDATED)
+    // 🗺️ LOCATION WITH DISTRIBUTION IMAGE (PRIORITY 1) - world.svg is FALLBACK
     setupLocationMap(animal);
     
     // Conservation Status
@@ -704,7 +704,9 @@ function scrollToOverview() {
 }
 
 // ============================================
-// 🗺️ Location Map Functions - DISTRIBUTION IMAGE FIRST
+// 🗺️ Location Map Functions
+// DISTRIBUTION IMAGE = PRIORITY 1
+// world.svg = FALLBACK (only if no distribution image)
 // ============================================
 function setupLocationMap(animal) {
     const locationCard = document.getElementById('location-card');
@@ -723,19 +725,19 @@ function setupLocationMap(animal) {
     // Set location text
     locationText.textContent = animal.ecology.locations;
     
-    // ✅ CHECK FOR DISTRIBUTION IMAGE FIRST
+    // ✅ CHECK FOR DISTRIBUTION IMAGE FIRST (PRIORITY 1)
     const distributionImageUrl = animal.distribution_image || '';
     
     if (distributionImageUrl && distributionImageUrl.trim()) {
-        // 🗺️ HAS DISTRIBUTION IMAGE - Show it, hide world map + markers
+        // 🗺️ HAS DISTRIBUTION IMAGE - Show it, HIDE world map + markers
         console.log(`🗺️ Using distribution map for ${animal.name}: ${distributionImageUrl}`);
         
         distributionImage.src = distributionImageUrl.trim();
         distributionImage.alt = `${animal.name} distribution map`;
         
-        // Add error handler for distribution image
+        // Add error handler - FALLBACK to world map if image fails
         distributionImage.onerror = function() {
-            console.warn(`⚠️ Distribution image failed for ${animal.name}, falling back to world map`);
+            console.warn(`⚠️ Distribution image failed for ${animal.name}, FALLING BACK to world map`);
             distributionImageContainer.style.display = 'none';
             worldMapContainer.style.display = 'block';
             addLocationDots(animal.ecology.locations);
@@ -745,7 +747,7 @@ function setupLocationMap(animal) {
             console.log(`✅ Distribution map loaded successfully for ${animal.name}`);
         };
         
-        // Show distribution image, hide world map
+        // Show distribution image, HIDE world map
         distributionImageContainer.style.display = 'block';
         worldMapContainer.style.display = 'none';
         
@@ -753,8 +755,8 @@ function setupLocationMap(animal) {
         locationDots.innerHTML = '';
         
     } else {
-        // 🌍 NO DISTRIBUTION IMAGE - Use world map with markers
-        console.log(`🌍 Using world map with markers for ${animal.name}`);
+        // 🌍 NO DISTRIBUTION IMAGE - FALLBACK to world map with markers
+        console.log(`🌍 No distribution image for ${animal.name}, using world map FALLBACK`);
         
         distributionImageContainer.style.display = 'none';
         worldMapContainer.style.display = 'block';
