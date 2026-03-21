@@ -74,42 +74,40 @@
     "species": "Acinonyx jubatus"
   },
   "animal_type": "feline",
-  "young_name": "Cub",
-  "group_name": "Mammal",
+  "young_name": "cub",
+  "group_name": "pride",
   "physical": {
-    "weight": "40kg - 65kg (88lbs - 140lbs)",
+    "weight": "",
     "length": "517 in",
-    "height": "115cm - 136cm (45in - 53in)",
-    "top_speed": "70 mph",
-    "lifespan": "10 - 12 years"
+    "height": "67–94 cm",
+    "top_speed": "93–104 km/h",
+    "lifespan": "3–4 years"
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Open grassland",
+    "habitat": "",
     "locations": "Kenya, Malawi, South Africa, Tanzania, United Republic of",
-    "group_behavior": "Solitary/Pairs",
+    "group_behavior": "Solitary",
     "conservation_status": "Endangered",
-    "biggest_threat": "Habitat loss",
-    "distinctive_features": [
-      "Yellowish fur covered in small black spots"
-    ],
+    "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+    "distinctive_features": [],
     "population_trend": ""
   },
   "reproduction": {
-    "gestation_period": "90 days",
-    "average_litter_size": "3",
-    "name_of_young": "Cub"
+    "gestation_period": "",
+    "average_litter_size": "",
+    "name_of_young": "cub"
   },
   "additional_info": {
-    "lifestyle": "Diurnal",
-    "color": "BrownYellowBlackTan",
-    "skin_type": "Fur",
-    "prey": "Gazelle, Wildebeest, Hare",
-    "slogan": "The fastest land mammal in the world!",
-    "group": "Mammal",
-    "number_of_species": "5",
-    "estimated_population_size": "8,500",
-    "most_distinctive_feature": "Yellowish fur covered in small black spots"
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "hunts was 54 km/h (34 mph), while highest speed was 93 km/h (58 mph)",
+    "slogan": "",
+    "group": "pride",
+    "number_of_species": "Four",
+    "estimated_population_size": "",
+    "most_distinctive_feature": "individuals"
   },
   "distribution": {
     "countries": [
@@ -128,12 +126,11 @@
     "occurrence_count": 8380
   },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:42:18.194513"
+  "last_updated": "2026-03-21T02:00:40.740107"
 }

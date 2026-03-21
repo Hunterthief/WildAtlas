@@ -75,39 +75,39 @@
     "species": "Carcharodon carcharias"
   },
   "animal_type": "fish",
-  "young_name": "Pup",
-  "group_name": "Fish",
+  "young_name": "fry",
+  "group_name": "school",
   "physical": {
-    "weight": "1,110kg - 2,240kg (2,450lbs - 4,938lbs)",
-    "length": "5.5m - 8m (18ft - 26ft)",
+    "weight": "",
+    "length": "4.6–4.9 m",
     "height": "",
-    "top_speed": "15 mph",
-    "lifespan": "30 - 40 years"
+    "top_speed": "24.12 km/h",
+    "lifespan": ""
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Temperate, coastal waters and open ocean",
+    "habitat": "",
     "locations": "Australia, Canada, China, Greece, Indonesia, Italy, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Critically Endangered",
-    "biggest_threat": "Hunting and habitat degredation",
+    "biggest_threat": "Human-wildlife conflict",
     "distinctive_features": [],
     "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "",
     "average_litter_size": "",
-    "name_of_young": "Pup"
+    "name_of_young": "fry"
   },
   "additional_info": {
-    "lifestyle": "Diurnal",
-    "color": "GreyBlackWhite",
-    "skin_type": "Tough",
-    "prey": "Seals, Sea Lions, Dolphins",
-    "slogan": "Can grow to more than 8 meters long!",
-    "group": "Fish",
-    "number_of_species": "1",
-    "estimated_population_size": "Unknown",
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "fish",
+    "slogan": "",
+    "group": "school",
+    "number_of_species": "five",
+    "estimated_population_size": "300",
     "most_distinctive_feature": "forms of body language are known, most of which consist of two sharks swimming with or around each o"
   },
   "distribution": {
@@ -134,12 +134,11 @@
     "occurrence_count": 18141
   },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:42:58.945998"
+  "last_updated": "2026-03-21T02:01:18.670503"
 }

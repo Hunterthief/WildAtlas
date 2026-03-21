@@ -86,8 +86,8 @@
     "lifespan": ""
   },
   "ecology": {
-    "diet": "Herbivore",
-    "habitat": "Sheltered forests and meadows",
+    "diet": "Carnivore",
+    "habitat": "",
     "locations": "Argentina, Australia, Brazil, Canada, Chinese Taipei, Dominican Republic, Ecuador, Egypt, France, Greece, Grenada, Guatemala, Israel, Martinique, Mexico, New Caledonia, New Zealand, Peru, Portugal, Puerto Rico, Saint Vincent and the Grenadines, Spain, United States of America",
     "group_behavior": "Solitary",
     "conservation_status": "Vulnerable",
@@ -97,17 +97,17 @@
   },
   "reproduction": {
     "gestation_period": "",
-    "average_litter_size": "200",
+    "average_litter_size": "",
     "name_of_young": "larva"
   },
   "additional_info": {
     "lifestyle": "",
-    "color": "BrownYellowBlack",
-    "skin_type": "Hair",
+    "color": "",
+    "skin_type": "",
     "prey": "",
-    "slogan": "There are only 8 recognized species!",
+    "slogan": "",
     "group": "colony",
-    "number_of_species": "8",
+    "number_of_species": "two",
     "estimated_population_size": "43",
     "most_distinctive_feature": ""
   },
@@ -147,12 +147,11 @@
     "occurrence_count": 1128220
   },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:43:54.439073"
+  "last_updated": "2026-03-21T02:02:18.876735"
 }

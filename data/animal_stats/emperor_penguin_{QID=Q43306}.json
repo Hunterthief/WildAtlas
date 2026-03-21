@@ -75,42 +75,40 @@
     "species": "Aptenodytes forsteri"
   },
   "animal_type": "bird",
-  "young_name": "Chick",
-  "group_name": "Bird",
+  "young_name": "chick",
+  "group_name": "flock",
   "physical": {
-    "weight": "22kg - 45kg (49lbs - 99lbs)",
+    "weight": "",
     "length": "110–120 cm",
-    "height": "100cm - 120cm (39in - 47in)",
-    "top_speed": "15 mph",
-    "lifespan": "15 - 50 years"
+    "height": "81–94 cm",
+    "top_speed": "6–9 km/h",
+    "lifespan": "50 years"
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Compact sea-ice and ocean",
+    "habitat": "",
     "locations": "Antarctica",
-    "group_behavior": "Colony",
+    "group_behavior": "Solitary",
     "conservation_status": "Endangered",
-    "biggest_threat": "Global warming",
-    "distinctive_features": [
-      "Bright yellow feathers on neck and ears"
-    ],
+    "biggest_threat": "Habitat loss, Human-wildlife conflict",
+    "distinctive_features": [],
     "population_trend": ""
   },
   "reproduction": {
     "gestation_period": "",
     "average_litter_size": "",
-    "name_of_young": "Chick"
+    "name_of_young": "chick"
   },
   "additional_info": {
-    "lifestyle": "Diurnal",
-    "color": "YellowBlackWhiteOrange",
-    "skin_type": "Feathers",
-    "prey": "Fish, Krill, Squid",
-    "slogan": "The world's largest species of penguin!",
-    "group": "Bird",
-    "number_of_species": "1",
-    "estimated_population_size": "200,000 breeding pairs",
-    "most_distinctive_feature": "Bright yellow feathers on neck and ears"
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "fish",
+    "slogan": "",
+    "group": "flock",
+    "number_of_species": "",
+    "estimated_population_size": "300",
+    "most_distinctive_feature": "life cycle in such a harsh environment has been described in print and visual media"
   },
   "distribution": {
     "countries": [
@@ -126,12 +124,11 @@
     "occurrence_count": 131643
   },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:42:49.861779"
+  "last_updated": "2026-03-21T02:01:10.495161"
 }

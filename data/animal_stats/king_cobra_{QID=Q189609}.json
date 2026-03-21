@@ -61,7 +61,7 @@
   },
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-  "eol_url": "https://eol.org/pages/1055746",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -72,42 +72,40 @@
     "species": "Ophiophagus hannah"
   },
   "animal_type": "reptile",
-  "young_name": "Hatchlings",
-  "group_name": "Solitary",
+  "young_name": "hatchling",
+  "group_name": "group",
   "physical": {
     "weight": "",
     "length": "3–5 m",
     "height": "",
-    "top_speed": "12 mph",
-    "lifespan": "About 20 years"
+    "top_speed": "",
+    "lifespan": ""
   },
   "ecology": {
     "diet": "Carnivore",
-    "habitat": "Forest, shrublands, wetlands",
+    "habitat": "",
     "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
     "group_behavior": "Solitary",
     "conservation_status": "Unknown",
-    "biggest_threat": "Poaching, habitat loss",
-    "distinctive_features": [
-      "An expanding hood"
-    ],
+    "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+    "distinctive_features": [],
     "population_trend": ""
   },
   "reproduction": {
-    "gestation_period": "66-105 days",
+    "gestation_period": "",
     "average_litter_size": "",
-    "name_of_young": "Hatchlings"
+    "name_of_young": "hatchling"
   },
   "additional_info": {
-    "lifestyle": "Diurnal",
-    "color": "BrownYellowBlackGreen",
-    "skin_type": "Scales",
-    "prey": "Lizards, birds, other snakes",
+    "lifestyle": "",
+    "color": "",
+    "skin_type": "",
+    "prey": "hunts during the day, but has also been seen at night, albeit rarely",
     "slogan": "",
-    "group": "Solitary",
-    "number_of_species": "20",
-    "estimated_population_size": "Unknown",
-    "most_distinctive_feature": "An expanding hood"
+    "group": "group",
+    "number_of_species": "two",
+    "estimated_population_size": "",
+    "most_distinctive_feature": ""
   },
   "distribution": {
     "countries": [
@@ -132,12 +130,10 @@
     "occurrence_count": 857
   },
   "sources": [
-    "API Ninjas",
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-21T01:43:21.801017"
+  "last_updated": "2026-03-21T02:01:57.044106"
 }

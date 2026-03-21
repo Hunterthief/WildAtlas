@@ -138,7 +138,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:42:08.389998"
+    "last_updated": "2026-03-21T02:00:32.576010"
   },
   {
     "id": "Q35625",
@@ -216,42 +216,40 @@
       "species": "Acinonyx jubatus"
     },
     "animal_type": "feline",
-    "young_name": "Cub",
-    "group_name": "Mammal",
+    "young_name": "cub",
+    "group_name": "pride",
     "physical": {
-      "weight": "40kg - 65kg (88lbs - 140lbs)",
+      "weight": "",
       "length": "517 in",
-      "height": "115cm - 136cm (45in - 53in)",
-      "top_speed": "70 mph",
-      "lifespan": "10 - 12 years"
+      "height": "67–94 cm",
+      "top_speed": "93–104 km/h",
+      "lifespan": "3–4 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Open grassland",
+      "habitat": "",
       "locations": "Kenya, Malawi, South Africa, Tanzania, United Republic of",
-      "group_behavior": "Solitary/Pairs",
+      "group_behavior": "Solitary",
       "conservation_status": "Endangered",
-      "biggest_threat": "Habitat loss",
-      "distinctive_features": [
-        "Yellowish fur covered in small black spots"
-      ],
+      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
-      "gestation_period": "90 days",
-      "average_litter_size": "3",
-      "name_of_young": "Cub"
+      "gestation_period": "",
+      "average_litter_size": "",
+      "name_of_young": "cub"
     },
     "additional_info": {
-      "lifestyle": "Diurnal",
-      "color": "BrownYellowBlackTan",
-      "skin_type": "Fur",
-      "prey": "Gazelle, Wildebeest, Hare",
-      "slogan": "The fastest land mammal in the world!",
-      "group": "Mammal",
-      "number_of_species": "5",
-      "estimated_population_size": "8,500",
-      "most_distinctive_feature": "Yellowish fur covered in small black spots"
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "hunts was 54 km/h (34 mph), while highest speed was 93 km/h (58 mph)",
+      "slogan": "",
+      "group": "pride",
+      "number_of_species": "Four",
+      "estimated_population_size": "",
+      "most_distinctive_feature": "individuals"
     },
     "distribution": {
       "countries": [
@@ -270,14 +268,13 @@
       "occurrence_count": 8380
     },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:42:18.194513"
+    "last_updated": "2026-03-21T02:00:40.740107"
   },
   {
     "id": "Q7372",
@@ -421,7 +418,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:42:24.329632"
+    "last_updated": "2026-03-21T02:00:46.518671"
   },
   {
     "id": "Q213537",
@@ -576,7 +573,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:42:33.491576"
+    "last_updated": "2026-03-21T02:00:53.432578"
   },
   {
     "id": "Q25319",
@@ -655,11 +652,11 @@
     "young_name": "chick",
     "group_name": "flock",
     "physical": {
-      "weight": "6.6-14lbs",
+      "weight": "1 kg",
       "length": "7–9 cm",
-      "height": "28-38 inches",
-      "top_speed": "100 mph",
-      "lifespan": "15-20 years in the wild"
+      "height": "34–38 cm",
+      "top_speed": "",
+      "lifespan": ""
     },
     "ecology": {
       "diet": "Carnivore",
@@ -667,10 +664,8 @@
       "locations": "Canada, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Endangered",
-      "biggest_threat": "Pesticide use",
-      "distinctive_features": [
-        "The white plumage on the head"
-      ],
+      "biggest_threat": "Human-wildlife conflict",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
@@ -680,14 +675,14 @@
     },
     "additional_info": {
       "lifestyle": "",
-      "color": "BrownYellowWhite",
+      "color": "",
       "skin_type": "",
-      "prey": "Fish, birds, and small mammals",
+      "prey": "fish",
       "slogan": "",
       "group": "flock",
-      "number_of_species": "1",
+      "number_of_species": "two",
       "estimated_population_size": "1,312",
-      "most_distinctive_feature": "The white plumage on the head"
+      "most_distinctive_feature": "in plumage with a more solid warm brown color than an immature bald eagle, with a reddish-golden pat"
     },
     "distribution": {
       "countries": [
@@ -704,14 +699,13 @@
       "occurrence_count": 7776665
     },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:42:41.603828"
+    "last_updated": "2026-03-21T02:00:59.815451"
   },
   {
     "id": "Q43306",
@@ -790,42 +784,40 @@
       "species": "Aptenodytes forsteri"
     },
     "animal_type": "bird",
-    "young_name": "Chick",
-    "group_name": "Bird",
+    "young_name": "chick",
+    "group_name": "flock",
     "physical": {
-      "weight": "22kg - 45kg (49lbs - 99lbs)",
+      "weight": "",
       "length": "110–120 cm",
-      "height": "100cm - 120cm (39in - 47in)",
-      "top_speed": "15 mph",
-      "lifespan": "15 - 50 years"
+      "height": "81–94 cm",
+      "top_speed": "6–9 km/h",
+      "lifespan": "50 years"
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Compact sea-ice and ocean",
+      "habitat": "",
       "locations": "Antarctica",
-      "group_behavior": "Colony",
+      "group_behavior": "Solitary",
       "conservation_status": "Endangered",
-      "biggest_threat": "Global warming",
-      "distinctive_features": [
-        "Bright yellow feathers on neck and ears"
-      ],
+      "biggest_threat": "Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "Chick"
+      "name_of_young": "chick"
     },
     "additional_info": {
-      "lifestyle": "Diurnal",
-      "color": "YellowBlackWhiteOrange",
-      "skin_type": "Feathers",
-      "prey": "Fish, Krill, Squid",
-      "slogan": "The world's largest species of penguin!",
-      "group": "Bird",
-      "number_of_species": "1",
-      "estimated_population_size": "200,000 breeding pairs",
-      "most_distinctive_feature": "Bright yellow feathers on neck and ears"
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "fish",
+      "slogan": "",
+      "group": "flock",
+      "number_of_species": "",
+      "estimated_population_size": "300",
+      "most_distinctive_feature": "life cycle in such a harsh environment has been described in print and visual media"
     },
     "distribution": {
       "countries": [
@@ -841,14 +833,13 @@
       "occurrence_count": 131643
     },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:42:49.861779"
+    "last_updated": "2026-03-21T02:01:10.495161"
   },
   {
     "id": "Q47164",
@@ -927,39 +918,39 @@
       "species": "Carcharodon carcharias"
     },
     "animal_type": "fish",
-    "young_name": "Pup",
-    "group_name": "Fish",
+    "young_name": "fry",
+    "group_name": "school",
     "physical": {
-      "weight": "1,110kg - 2,240kg (2,450lbs - 4,938lbs)",
-      "length": "5.5m - 8m (18ft - 26ft)",
+      "weight": "",
+      "length": "4.6–4.9 m",
       "height": "",
-      "top_speed": "15 mph",
-      "lifespan": "30 - 40 years"
+      "top_speed": "24.12 km/h",
+      "lifespan": ""
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Temperate, coastal waters and open ocean",
+      "habitat": "",
       "locations": "Australia, Canada, China, Greece, Indonesia, Italy, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Critically Endangered",
-      "biggest_threat": "Hunting and habitat degredation",
+      "biggest_threat": "Human-wildlife conflict",
       "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
       "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "Pup"
+      "name_of_young": "fry"
     },
     "additional_info": {
-      "lifestyle": "Diurnal",
-      "color": "GreyBlackWhite",
-      "skin_type": "Tough",
-      "prey": "Seals, Sea Lions, Dolphins",
-      "slogan": "Can grow to more than 8 meters long!",
-      "group": "Fish",
-      "number_of_species": "1",
-      "estimated_population_size": "Unknown",
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "fish",
+      "slogan": "",
+      "group": "school",
+      "number_of_species": "five",
+      "estimated_population_size": "300",
       "most_distinctive_feature": "forms of body language are known, most of which consist of two sharks swimming with or around each o"
     },
     "distribution": {
@@ -986,14 +977,13 @@
       "occurrence_count": 18141
     },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:42:58.945998"
+    "last_updated": "2026-03-21T02:01:18.670503"
   },
   {
     "id": "Q39709",
@@ -1128,7 +1118,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:43:06.295443"
+    "last_updated": "2026-03-21T02:01:24.820380"
   },
   {
     "id": "Q7785",
@@ -1193,7 +1183,7 @@
     },
     "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
-    "eol_url": "https://eol.org/pages/46559469",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1280,10 +1270,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-21T01:43:15.578151"
+    "last_updated": "2026-03-21T02:01:42.671936"
   },
   {
     "id": "Q189609",
@@ -1348,7 +1337,7 @@
     },
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-    "eol_url": "https://eol.org/pages/1055746",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1359,42 +1348,40 @@
       "species": "Ophiophagus hannah"
     },
     "animal_type": "reptile",
-    "young_name": "Hatchlings",
-    "group_name": "Solitary",
+    "young_name": "hatchling",
+    "group_name": "group",
     "physical": {
       "weight": "",
       "length": "3–5 m",
       "height": "",
-      "top_speed": "12 mph",
-      "lifespan": "About 20 years"
+      "top_speed": "",
+      "lifespan": ""
     },
     "ecology": {
       "diet": "Carnivore",
-      "habitat": "Forest, shrublands, wetlands",
+      "habitat": "",
       "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
       "group_behavior": "Solitary",
       "conservation_status": "Unknown",
-      "biggest_threat": "Poaching, habitat loss",
-      "distinctive_features": [
-        "An expanding hood"
-      ],
+      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
-      "gestation_period": "66-105 days",
+      "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "Hatchlings"
+      "name_of_young": "hatchling"
     },
     "additional_info": {
-      "lifestyle": "Diurnal",
-      "color": "BrownYellowBlackGreen",
-      "skin_type": "Scales",
-      "prey": "Lizards, birds, other snakes",
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
+      "prey": "hunts during the day, but has also been seen at night, albeit rarely",
       "slogan": "",
-      "group": "Solitary",
-      "number_of_species": "20",
-      "estimated_population_size": "Unknown",
-      "most_distinctive_feature": "An expanding hood"
+      "group": "group",
+      "number_of_species": "two",
+      "estimated_population_size": "",
+      "most_distinctive_feature": ""
     },
     "distribution": {
       "countries": [
@@ -1419,14 +1406,12 @@
       "occurrence_count": 857
     },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-21T01:43:21.801017"
+    "last_updated": "2026-03-21T02:01:57.044106"
   },
   {
     "id": "Q270238",
@@ -1563,7 +1548,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:43:28.405637"
+    "last_updated": "2026-03-21T02:02:02.674522"
   },
   {
     "id": "Q165980",
@@ -1639,42 +1624,40 @@
       "species": "Danaus plexippus"
     },
     "animal_type": "insect",
-    "young_name": "Larvae/Caterpillar",
-    "group_name": "Invertebrates",
+    "young_name": "larva",
+    "group_name": "colony",
     "physical": {
-      "weight": "0.25 - 0.75 grams",
+      "weight": "",
       "length": "1.2 m",
       "height": "",
-      "top_speed": "12 mph",
-      "lifespan": "2-6 weeks after becoming an adult, 8-9 months for the last generation of the year"
+      "top_speed": "9 km/h",
+      "lifespan": "20 years"
     },
     "ecology": {
-      "diet": "Herbivore",
-      "habitat": "Sunny places with streams, vegetation, and few predators (wintering habitat)",
+      "diet": "Carnivore",
+      "habitat": "",
       "locations": "Australia, Colombia, Mexico, New Zealand, United States of America",
-      "group_behavior": "Group",
+      "group_behavior": "Colony",
       "conservation_status": "Endangered",
-      "biggest_threat": "Habitat loss",
-      "distinctive_features": [
-        "Black, orange, and white pattern on wings"
-      ],
+      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+      "distinctive_features": [],
       "population_trend": ""
     },
     "reproduction": {
-      "gestation_period": "3 to 8 days for eggs to hatch after they are laid",
+      "gestation_period": "",
       "average_litter_size": "",
-      "name_of_young": "Larvae/Caterpillar"
+      "name_of_young": "larva"
     },
     "additional_info": {
-      "lifestyle": "Diurnal",
-      "color": "BlackWhiteOrange",
-      "skin_type": "Scales",
+      "lifestyle": "",
+      "color": "",
+      "skin_type": "",
       "prey": "Fish",
       "slogan": "",
-      "group": "Invertebrates",
-      "number_of_species": "3",
+      "group": "colony",
+      "number_of_species": "three",
       "estimated_population_size": "",
-      "most_distinctive_feature": "Black, orange, and white pattern on wings"
+      "most_distinctive_feature": "for its annual southward late-summer/autumn instinctive migration from the northern and central Unit"
     },
     "distribution": {
       "countries": [
@@ -1694,14 +1677,13 @@
       "occurrence_count": 750025
     },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:43:45.439423"
+    "last_updated": "2026-03-21T02:02:11.480374"
   },
   {
     "id": "Q7316",
@@ -1791,8 +1773,8 @@
       "lifespan": ""
     },
     "ecology": {
-      "diet": "Herbivore",
-      "habitat": "Sheltered forests and meadows",
+      "diet": "Carnivore",
+      "habitat": "",
       "locations": "Argentina, Australia, Brazil, Canada, Chinese Taipei, Dominican Republic, Ecuador, Egypt, France, Greece, Grenada, Guatemala, Israel, Martinique, Mexico, New Caledonia, New Zealand, Peru, Portugal, Puerto Rico, Saint Vincent and the Grenadines, Spain, United States of America",
       "group_behavior": "Solitary",
       "conservation_status": "Vulnerable",
@@ -1802,17 +1784,17 @@
     },
     "reproduction": {
       "gestation_period": "",
-      "average_litter_size": "200",
+      "average_litter_size": "",
       "name_of_young": "larva"
     },
     "additional_info": {
       "lifestyle": "",
-      "color": "BrownYellowBlack",
-      "skin_type": "Hair",
+      "color": "",
+      "skin_type": "",
       "prey": "",
-      "slogan": "There are only 8 recognized species!",
+      "slogan": "",
       "group": "colony",
-      "number_of_species": "8",
+      "number_of_species": "two",
       "estimated_population_size": "43",
       "most_distinctive_feature": ""
     },
@@ -1852,13 +1834,12 @@
       "occurrence_count": 1128220
     },
     "sources": [
-      "API Ninjas",
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T01:43:54.439073"
+    "last_updated": "2026-03-21T02:02:18.876735"
   }
 ]
