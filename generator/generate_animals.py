@@ -39,7 +39,7 @@ from modules.extractors.diet import extract_diet_from_sections
 from modules.extractors.behavior import extract_behavior_from_sections
 from modules.extractors.conservation import extract_conservation_from_sections
 from modules.extractors.additional_info import extract_additional_info_from_sections
-from modules.extractors.time_period import extract_time_period_from_sections, extract_evolution_time
+from modules.extractors.time_period import extract_time_period_from_sections, get_fallback_time_period
 from modules.extractors.wikidata_enhancer import extract_wikidata_all
 
 # =============================================================================
@@ -381,7 +381,7 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
         "most_distinctive_feature": get_first_non_empty(ninja_chars.get("most_distinctive_feature"), wiki_additional.get("most_distinctive_feature"))
     }
 
-    # 🕰️ Time Period / Evolution Data
+    # 🕰️ Time Period / Evolution Data (Wikipedia extraction + fallback)
     time_period = wiki_time_period if wiki_time_period else get_fallback_time_period(animal_type, classification)
     debug.extractions["time_period_source"] = "Wikipedia Evolution Section" if wiki_time_period else "Taxonomy Fallback"
 
@@ -459,46 +459,6 @@ def build_animal_data(debug: DebugSummary, name: str, sci_name: str, qid: str) -
     debug.final_data = final_data
     return final_data
 
-
-# =============================================================================
-# FALLBACK TIME PERIOD (if Wikipedia extraction fails)
-# =============================================================================
-def get_fallback_time_period(animal_type: str, classification: Dict[str, str]) -> Dict[str, Any]:
-    """Fallback time period estimation based on taxonomy"""
-    class_name = classification.get("class", "").lower()
-    
-    fallbacks = {
-        "feline": {"text": "Evolved ~2-4 million years ago", "width": "85%", "start": "2-4M years ago", "end": "Present"},
-        "canine": {"text": "Evolved ~5-10 million years ago", "width": "85%", "start": "5-10M years ago", "end": "Present"},
-        "bear": {"text": "Evolved ~5-6 million years ago", "width": "85%", "start": "5-6M years ago", "end": "Present"},
-        "elephant": {"text": "Evolved ~6-7 million years ago", "width": "88%", "start": "6-7M years ago", "end": "Present"},
-        "bird": {"text": "Evolved ~150 million years ago", "width": "75%", "start": "150M years ago", "end": "Present"},
-        "reptile": {"text": "Evolved ~300 million years ago", "width": "90%", "start": "300M years ago", "end": "Present"},
-        "amphibian": {"text": "Evolved ~370 million years ago", "width": "92%", "start": "370M years ago", "end": "Present"},
-        "fish": {"text": "Evolved ~500 million years ago", "width": "95%", "start": "500M years ago", "end": "Present"},
-        "insect": {"text": "Evolved ~400 million years ago", "width": "93%", "start": "400M years ago", "end": "Present"},
-    }
-    
-    if animal_type in fallbacks:
-        return fallbacks[animal_type]
-    
-    # Class-based fallbacks
-    if "aves" in class_name:
-        return fallbacks["bird"]
-    elif "reptilia" in class_name:
-        return fallbacks["reptile"]
-    elif "amphibia" in class_name:
-        return fallbacks["amphibian"]
-    elif "actinopterygii" in class_name or "chondrichthyes" in class_name:
-        return fallbacks["fish"]
-    elif "insecta" in class_name:
-        return fallbacks["insect"]
-    elif "mammalia" in class_name:
-        return {"text": "Evolved ~200 million years ago", "width": "85%", "start": "200M years ago", "end": "Present"}
-    
-    return {"text": "Evolution data not available", "width": "50%", "start": "Unknown", "end": "Present"}
-
-
 # =============================================================================
 # PRINT HELPERS
 # =============================================================================
@@ -554,7 +514,6 @@ def print_data_table(final_data: Dict, debug: DebugSummary) -> None:
         print(f"   {'Time Period':<20} | {'Evolution':<22} | {display_tp:<35} | {tp_src}")
     else:
         print(f"   {'Time Period':<20} | {'Evolution':<22} | ❌ Not found{'':<22} | -")
-
 
 # =============================================================================
 # MAIN GENERATION LOOP
