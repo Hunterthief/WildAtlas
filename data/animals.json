@@ -129,7 +129,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:39:25.483787"
+    "last_updated": "2026-03-21T00:52:04.232860"
   },
   {
     "id": "Q35625",
@@ -259,7 +259,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:39:34.511038"
+    "last_updated": "2026-03-21T00:52:12.318061"
   },
   {
     "id": "Q7372",
@@ -394,7 +394,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:39:41.049257"
+    "last_updated": "2026-03-21T00:52:18.276937"
   },
   {
     "id": "Q213537",
@@ -540,7 +540,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:39:48.967720"
+    "last_updated": "2026-03-21T00:52:25.826807"
   },
   {
     "id": "Q25319",
@@ -669,7 +669,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:39:57.035797"
+    "last_updated": "2026-03-21T00:52:32.922116"
   },
   {
     "id": "Q43306",
@@ -797,7 +797,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:40:05.759208"
+    "last_updated": "2026-03-21T00:52:43.022766"
   },
   {
     "id": "Q47164",
@@ -933,7 +933,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:40:16.970049"
+    "last_updated": "2026-03-21T00:52:59.724175"
   },
   {
     "id": "Q39709",
@@ -993,7 +993,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
-    "eol_url": "https://eol.org/pages/46563143",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1059,10 +1059,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-21T00:40:25.058751"
+    "last_updated": "2026-03-21T00:53:16.323949"
   },
   {
     "id": "Q7785",
@@ -1211,7 +1210,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:40:35.341367"
+    "last_updated": "2026-03-21T00:53:29.431774"
   },
   {
     "id": "Q189609",
@@ -1270,7 +1269,7 @@
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
-    "eol_url": "https://eol.org/pages/1055746",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Chordata",
@@ -1345,10 +1344,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-21T00:40:44.423938"
+    "last_updated": "2026-03-21T00:53:45.128083"
   },
   {
     "id": "Q270238",
@@ -1479,7 +1477,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:40:56.450576"
+    "last_updated": "2026-03-21T00:53:55.081336"
   },
   {
     "id": "Q165980",
@@ -1538,7 +1536,7 @@
     "distribution_image": "",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
     "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-    "eol_url": "https://eol.org/pages/4090155",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1608,10 +1606,9 @@
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-21T00:41:07.432999"
+    "last_updated": "2026-03-21T00:54:14.508903"
   },
   {
     "id": "Q7316",
@@ -1760,6 +1757,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:41:16.725297"
+    "last_updated": "2026-03-21T00:54:26.734394"
   }
 ]
