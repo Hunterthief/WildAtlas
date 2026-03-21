@@ -128,7 +128,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:29:13.960960"
+    "last_updated": "2026-03-21T00:34:15.725349"
   },
   {
     "id": "Q35625",
@@ -258,7 +258,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:29:20.383298"
+    "last_updated": "2026-03-21T00:34:26.256723"
   },
   {
     "id": "Q7372",
@@ -392,7 +392,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:29:25.977105"
+    "last_updated": "2026-03-21T00:34:32.526349"
   },
   {
     "id": "Q213537",
@@ -444,9 +444,10 @@
     "description": "species of mammal",
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/4/48/Canis_lupus_distribution_(IUCN).png"
     ],
-    "distribution_image": "",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Canis_lupus_distribution_(IUCN).png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
     "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
     "eol_url": "https://eol.org/pages/1268606",
@@ -537,7 +538,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:29:34.057018"
+    "last_updated": "2026-03-21T00:34:38.727843"
   },
   {
     "id": "Q25319",
@@ -665,7 +666,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:29:41.396417"
+    "last_updated": "2026-03-21T00:34:51.015369"
   },
   {
     "id": "Q43306",
@@ -793,7 +794,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:29:48.622592"
+    "last_updated": "2026-03-21T00:34:58.207355"
   },
   {
     "id": "Q47164",
@@ -929,7 +930,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:29:56.132750"
+    "last_updated": "2026-03-21T00:35:06.354349"
   },
   {
     "id": "Q39709",
@@ -1057,7 +1058,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:30:04.004991"
+    "last_updated": "2026-03-21T00:35:13.827747"
   },
   {
     "id": "Q7785",
@@ -1206,7 +1207,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:30:11.701489"
+    "last_updated": "2026-03-21T00:35:21.781002"
   },
   {
     "id": "Q189609",
@@ -1342,7 +1343,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:30:17.573626"
+    "last_updated": "2026-03-21T00:35:29.740767"
   },
   {
     "id": "Q270238",
@@ -1395,9 +1396,10 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/e/e4/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/b/b9/202312_American_bullfrog.svg"
+      "https://upload.wikimedia.org/wikipedia/commons/b/b9/202312_American_bullfrog.svg",
+      "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png"
     ],
-    "distribution_image": "",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
     "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
     "eol_url": "https://eol.org/pages/330963",
@@ -1472,7 +1474,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:30:24.967951"
+    "last_updated": "2026-03-21T00:35:35.324679"
   },
   {
     "id": "Q165980",
@@ -1604,7 +1606,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:30:32.979671"
+    "last_updated": "2026-03-21T00:35:43.636068"
   },
   {
     "id": "Q7316",
@@ -1752,6 +1754,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:30:44.630872"
+    "last_updated": "2026-03-21T00:35:54.432687"
   }
 ]
