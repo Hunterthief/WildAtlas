@@ -570,7 +570,7 @@ function populateDetailPage(animal) {
     
     setStatContent('conservation-threats', null, animal.ecology?.biggest_threat);
     
-    // Time Period
+    // ⏰ TIME PERIOD - UPDATED TO USE JSON time_period FIELD
     const timeCard = document.getElementById('time-card');
     const timeRange = document.getElementById('time-range');
     const timelineFill = document.getElementById('timeline-fill');
@@ -582,7 +582,7 @@ function populateDetailPage(animal) {
         timeRange.textContent = timeData.text;
         if (timelineFill) timelineFill.style.width = timeData.width;
         if (timelineStart) timelineStart.textContent = timeData.start;
-        if (timelineEnd) timelineEnd.textContent = 'Present';
+        if (timelineEnd) timelineEnd.textContent = timeData.end || 'Present';
     } else if (timeCard) {
         timeCard.style.display = 'none';
     }
@@ -834,9 +834,21 @@ function findLocationCoordinates(location) {
 }
 
 // ============================================
-// Time Period Functions
+// ⏰ Time Period Functions - UPDATED FOR JSON DATA
 // ============================================
 function getTimePeriod(animal) {
+    // PRIORITY 1: Use time_period from JSON data (from Python extractor)
+    if (animal.time_period) {
+        console.log(`🕰️ Using extracted time period for ${animal.name}: ${animal.time_period.text}`);
+        return {
+            text: animal.time_period.text,
+            width: animal.time_period.width,
+            start: animal.time_period.start,
+            end: animal.time_period.end || 'Present'
+        };
+    }
+    
+    // FALLBACK: Class-based estimation (if no time_period in JSON)
     const animalType = animal.animal_type?.toLowerCase() || '';
     const classType = animal.classification?.class?.toLowerCase() || '';
     
