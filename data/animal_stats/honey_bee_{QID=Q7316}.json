@@ -65,7 +65,7 @@
   },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-  "eol_url": "https://eol.org/pages/1045608",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -144,14 +144,13 @@
       "max_lon": 164.956147,
       "count": 50
     },
-    "occurrence_count": 1128220
+    "occurrence_count": 1128255
   },
   "sources": [
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-21T02:20:19.911164"
+  "last_updated": "2026-03-21T21:38:11.632844"
 }

@@ -137,7 +137,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:18:42.895681"
+    "last_updated": "2026-03-21T21:36:14.407722"
   },
   {
     "id": "Q35625",
@@ -275,7 +275,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:18:50.839957"
+    "last_updated": "2026-03-21T21:36:23.205815"
   },
   {
     "id": "Q7372",
@@ -283,51 +283,53 @@
     "scientific_name": "Loxodonta africana",
     "common_names": [
       {
-        "name": "requins",
+        "name": "Afrikaneschen Elefant",
+        "language": "lb"
+      },
+      {
+        "name": "非洲象",
+        "language": "zh"
+      },
+      {
+        "name": "Ndlovu",
+        "language": "tum"
+      },
+      {
+        "name": "Африка пилдери",
+        "language": "ky"
+      },
+      {
+        "name": "słoń afrykański",
+        "language": "pl"
+      },
+      {
+        "name": "Loxodonta africana",
+        "language": "eu"
+      },
+      {
+        "name": "Саваннадин фил",
+        "language": "lez"
+      },
+      {
+        "name": "Саванавы афрыканскі слон",
+        "language": "be"
+      },
+      {
+        "name": "פיל סוואנה אפריקני",
+        "language": "he"
+      },
+      {
+        "name": "éléphant de savane d'Afrique",
         "language": "fr"
-      },
-      {
-        "name": "squali",
-        "language": "it"
-      },
-      {
-        "name": "Rinkin",
-        "language": "br"
-      },
-      {
-        "name": "shark",
-        "language": "en-ca"
-      },
-      {
-        "name": "shark",
-        "language": "en-gb"
-      },
-      {
-        "name": "Selachimorpha",
-        "language": "an"
-      },
-      {
-        "name": "Sǣhund",
-        "language": "ang"
-      },
-      {
-        "name": "قرش",
-        "language": "ar"
-      },
-      {
-        "name": "Selachimorpha",
-        "language": "ast"
-      },
-      {
-        "name": "köpəkbalığı",
-        "language": "az"
       }
     ],
-    "summary": "clade of predatory cartilaginous fish (Chondrichthyes)",
-    "description": "clade of predatory cartilaginous fish (Chondrichthyes)",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg",
+    "summary": "species of mammal; largest land animal",
+    "description": "species of mammal; largest land animal",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/2/2e/African_bush_elephant,_Loxodonta_africana_at_Punda_Maria,_Kruger_National_Park,_South_Africa._Includes_lots_of_baby_elephant._(20591203310).jpg",
       "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg"
     ],
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg",
@@ -419,7 +421,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:18:57.332478"
+    "last_updated": "2026-03-21T21:36:30.648399"
   },
   {
     "id": "Q213537",
@@ -574,7 +576,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:19:03.948551"
+    "last_updated": "2026-03-21T21:36:40.564111"
   },
   {
     "id": "Q25319",
@@ -706,7 +708,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:19:10.564764"
+    "last_updated": "2026-03-21T21:36:47.835994"
   },
   {
     "id": "Q43306",
@@ -840,7 +842,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:19:18.166734"
+    "last_updated": "2026-03-21T21:36:56.771039"
   },
   {
     "id": "Q47164",
@@ -984,7 +986,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:19:25.959006"
+    "last_updated": "2026-03-21T21:37:12.648718"
   },
   {
     "id": "Q39709",
@@ -1110,7 +1112,7 @@
         "max_lon": 1.520426,
         "count": 50
       },
-      "occurrence_count": 1453605
+      "occurrence_count": 1453690
     },
     "sources": [
       "Wikipedia",
@@ -1119,7 +1121,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:19:32.409220"
+    "last_updated": "2026-03-21T21:37:20.365054"
   },
   {
     "id": "Q7785",
@@ -1274,7 +1276,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:19:40.657203"
+    "last_updated": "2026-03-21T21:37:30.645788"
   },
   {
     "id": "Q189609",
@@ -1282,52 +1284,51 @@
     "scientific_name": "Ophiophagus hannah",
     "common_names": [
       {
-        "name": "红胸秋沙鸭",
-        "language": "zh-hans"
+        "name": "眼镜王蛇",
+        "language": "zh"
       },
       {
-        "name": "紅胸秋沙鴨",
-        "language": "zh-hant"
+        "name": "Ula anang",
+        "language": "jv"
       },
       {
-        "name": "紅胸秋沙鴨",
-        "language": "zh-hk"
-      },
-      {
-        "name": "红胸秋沙鸭",
-        "language": "zh-cn"
-      },
-      {
-        "name": "红胸秋沙鸭",
-        "language": "zh-sg"
-      },
-      {
-        "name": "紅胸秋沙",
-        "language": "zh-tw"
-      },
-      {
-        "name": "Mergus serrator",
-        "language": "pms"
-      },
-      {
-        "name": "zerra ertain",
-        "language": "eu"
-      },
-      {
-        "name": "Szlachar",
+        "name": "kobra królewska",
         "language": "pl"
       },
       {
-        "name": "крахаль даўгадзюбы",
-        "language": "be"
+        "name": "Ophiophagus hannah",
+        "language": "es"
+      },
+      {
+        "name": "கருநாகம்",
+        "language": "ta"
+      },
+      {
+        "name": "Kownukronsneki",
+        "language": "srn"
+      },
+      {
+        "name": "Ular Tedung Selar",
+        "language": "ms"
+      },
+      {
+        "name": "királykobra",
+        "language": "hu"
+      },
+      {
+        "name": "শঙ্খচূড়",
+        "language": "bn"
+      },
+      {
+        "name": "ملك الكوبرا",
+        "language": "ar"
       }
     ],
-    "summary": "species of bird",
-    "description": "species of bird",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
+    "summary": "species of reptile",
+    "description": "species of reptile",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red-breasted_merganser_female_in_CP_(40744).jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png"
     ],
     "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png",
@@ -1414,7 +1415,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:19:48.004920"
+    "last_updated": "2026-03-21T21:37:36.601481"
   },
   {
     "id": "Q270238",
@@ -1551,7 +1552,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:19:54.814353"
+    "last_updated": "2026-03-21T21:37:42.678209"
   },
   {
     "id": "Q165980",
@@ -1686,7 +1687,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T02:20:05.249594"
+    "last_updated": "2026-03-21T21:37:53.157968"
   },
   {
     "id": "Q7316",
@@ -1755,7 +1756,7 @@
     },
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
-    "eol_url": "https://eol.org/pages/1045608",
+    "eol_url": "",
     "classification": {
       "kingdom": "Animalia",
       "phylum": "Arthropoda",
@@ -1834,15 +1835,14 @@
         "max_lon": 164.956147,
         "count": 50
       },
-      "occurrence_count": 1128220
+      "occurrence_count": 1128255
     },
     "sources": [
       "Wikipedia",
       "iNaturalist",
       "Wikidata",
-      "GBIF",
-      "EOL"
+      "GBIF"
     ],
-    "last_updated": "2026-03-21T02:20:19.911164"
+    "last_updated": "2026-03-21T21:38:11.632844"
   }
 ]
