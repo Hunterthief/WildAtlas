@@ -49,9 +49,10 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png"
   ],
-  "distribution_image": "",
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
   "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
   "eol_url": "https://eol.org/pages/1253183",
@@ -127,5 +128,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T00:34:15.725349"
+  "last_updated": "2026-03-21T00:39:25.483787"
 }

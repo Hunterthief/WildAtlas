@@ -50,9 +50,10 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png"
     ],
-    "distribution_image": "",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
     "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
     "eol_url": "https://eol.org/pages/1253183",
@@ -128,7 +129,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:34:15.725349"
+    "last_updated": "2026-03-21T00:39:25.483787"
   },
   {
     "id": "Q35625",
@@ -258,7 +259,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:34:26.256723"
+    "last_updated": "2026-03-21T00:39:34.511038"
   },
   {
     "id": "Q7372",
@@ -310,9 +311,10 @@
     "description": "clade of predatory cartilaginous fish (Chondrichthyes)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg",
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg"
     ],
-    "distribution_image": "",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
     "eol_url": "https://eol.org/pages/55636404",
@@ -392,7 +394,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:34:32.526349"
+    "last_updated": "2026-03-21T00:39:41.049257"
   },
   {
     "id": "Q213537",
@@ -538,7 +540,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:34:38.727843"
+    "last_updated": "2026-03-21T00:39:48.967720"
   },
   {
     "id": "Q25319",
@@ -591,9 +593,10 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png"
     ],
-    "distribution_image": "",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
     "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
     "eol_url": "https://eol.org/pages/1228132",
@@ -666,7 +669,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:34:51.015369"
+    "last_updated": "2026-03-21T00:39:57.035797"
   },
   {
     "id": "Q43306",
@@ -794,7 +797,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:34:58.207355"
+    "last_updated": "2026-03-21T00:40:05.759208"
   },
   {
     "id": "Q47164",
@@ -930,7 +933,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:35:06.354349"
+    "last_updated": "2026-03-21T00:40:16.970049"
   },
   {
     "id": "Q39709",
@@ -984,9 +987,10 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg"
+      "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg"
     ],
-    "distribution_image": "",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
     "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
     "eol_url": "https://eol.org/pages/46563143",
@@ -1058,7 +1062,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:35:13.827747"
+    "last_updated": "2026-03-21T00:40:25.058751"
   },
   {
     "id": "Q7785",
@@ -1207,7 +1211,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:35:21.781002"
+    "last_updated": "2026-03-21T00:40:35.341367"
   },
   {
     "id": "Q189609",
@@ -1260,9 +1264,10 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red-breasted_merganser_female_in_CP_(40744).jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red-breasted_merganser_female_in_CP_(40744).jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png"
     ],
-    "distribution_image": "",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png",
     "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
     "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
     "eol_url": "https://eol.org/pages/1055746",
@@ -1343,7 +1348,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:35:29.740767"
+    "last_updated": "2026-03-21T00:40:44.423938"
   },
   {
     "id": "Q270238",
@@ -1474,7 +1479,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:35:35.324679"
+    "last_updated": "2026-03-21T00:40:56.450576"
   },
   {
     "id": "Q165980",
@@ -1606,7 +1611,7 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:35:43.636068"
+    "last_updated": "2026-03-21T00:41:07.432999"
   },
   {
     "id": "Q7316",
@@ -1660,9 +1665,10 @@
     "images": [
       "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/9/99/Apis_mellifera_flying.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg"
+      "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg"
     ],
-    "distribution_image": "",
+    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg",
     "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
     "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
     "eol_url": "https://eol.org/pages/1045608",
@@ -1754,6 +1760,6 @@
       "GBIF",
       "EOL"
     ],
-    "last_updated": "2026-03-21T00:35:54.432687"
+    "last_updated": "2026-03-21T00:41:16.725297"
   }
 ]

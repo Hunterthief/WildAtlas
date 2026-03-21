@@ -49,9 +49,10 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red-breasted_merganser_female_in_CP_(40744).jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red-breasted_merganser_female_in_CP_(40744).jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png"
   ],
-  "distribution_image": "",
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
   "eol_url": "https://eol.org/pages/1055746",
@@ -132,5 +133,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T00:35:29.740767"
+  "last_updated": "2026-03-21T00:40:44.423938"
 }

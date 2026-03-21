@@ -49,9 +49,10 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
   "images": [
     "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png"
   ],
-  "distribution_image": "",
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
   "eol_url": "https://eol.org/pages/1228132",
@@ -124,5 +125,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T00:34:51.015369"
+  "last_updated": "2026-03-21T00:39:57.035797"
 }
