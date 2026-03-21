@@ -33,7 +33,7 @@ EPOCH_MAPPING = {
     'late triassic': {'min': 247, 'max': 201, 'display': '247-201'}
 }
 
-# Time period regex patterns
+# Time period regex patterns - FIXED: All patterns have consistent groups
 TIME_PATTERNS = [
     # "split from each other between 2.70 and 3.70 million years ago"
     {
@@ -141,54 +141,64 @@ def parse_time_periods(text: str, animal_name: str) -> Optional[Dict[str, Any]]:
     best_match = None
     
     for pattern in TIME_PATTERNS:
-        match = re.search(pattern['regex'], text, re.IGNORECASE)
-        
-        if match:
-            millions_years = 0
-            text_display = ''
-            width = '50%'
+        try:
+            match = re.search(pattern['regex'], text, re.IGNORECASE)
             
-            if pattern['type'] in ['split_range', 'lineage_split', 'range_short']:
-                min_val = float(match.group(1).replace(',', ''))
-                max_val = float(match.group(2).replace(',', ''))
-                millions_years = max(min_val, max_val)
-                text_display = f'~{millions_years} million years ago'
-                width = calculate_timeline_width(millions_years)
+            if match:
+                millions_years = 0
+                text_display = ''
+                width = '50%'
                 
-            elif pattern['type'] in ['ancestor_range', 'years_ago']:
-                min_val = float(match.group(1).replace(',', ''))
-                max_val = float(match.group(2).replace(',', '')) if match.group(2) else min_val
-                millions_years = max(min_val, max_val) / 1000000
-                if millions_years < 0.1:
-                    text_display = f'~{int(max(min_val, max_val)):,} years ago'
-                    width = '10%'
-                else:
-                    text_display = f'~{millions_years:.2f} million years ago'
+                if pattern['type'] in ['split_range', 'lineage_split', 'range_short']:
+                    # Range like "2.70 and 3.70 million years ago"
+                    min_val = float(match.group(1).replace(',', ''))
+                    max_val = float(match.group(2).replace(',', ''))
+                    millions_years = max(min_val, max_val)
+                    text_display = f'~{millions_years} million years ago'
                     width = calculate_timeline_width(millions_years)
                     
-            elif pattern['type'] == 'epoch':
-                epoch_key = f'{match.group(1).lower()} {match.group(2).lower()}'
-                epoch_data = EPOCH_MAPPING.get(epoch_key)
-                if epoch_data:
-                    millions_years = epoch_data['min']
-                    text_display = f'{match.group(1).capitalize()} {match.group(2).capitalize()} (~{epoch_data["display"]} million years ago)'
+                elif pattern['type'] in ['ancestor_range', 'years_ago']:
+                    # Years ago (not millions)
+                    min_val = float(match.group(1).replace(',', ''))
+                    max_val = float(match.group(2).replace(',', '')) if match.group(2) else min_val
+                    millions_years = max(min_val, max_val) / 1000000
+                    if millions_years < 0.1:
+                        text_display = f'~{int(max(min_val, max_val)):,} years ago'
+                        width = '10%'
+                    else:
+                        text_display = f'~{millions_years:.2f} million years ago'
+                        width = calculate_timeline_width(millions_years)
+                        
+                elif pattern['type'] == 'epoch':
+                    # Geological epoch
+                    epoch_key = f'{match.group(1).lower()} {match.group(2).lower()}'
+                    epoch_data = EPOCH_MAPPING.get(epoch_key)
+                    if epoch_data:
+                        millions_years = epoch_data['min']
+                        text_display = f'{match.group(1).capitalize()} {match.group(2).capitalize()} (~{epoch_data["display"]} million years ago)'
+                        width = calculate_timeline_width(millions_years)
+                        
+                elif pattern['type'] in ['single_million', 'diverged', 'evolved', 'emerged']:
+                    # Single value
+                    millions_years = float(match.group(1).replace(',', ''))
+                    text_display = f'~{millions_years} million years ago'
                     width = calculate_timeline_width(millions_years)
+                
+                # FIXED: Use 'priority' from pattern, store as 'confidence' in best_match
+                if not best_match or pattern['priority'] < best_match.get('confidence', 999):
+                    best_match = {
+                        'text': text_display,
+                        'width': width,
+                        'start': format_start_text(millions_years),
+                        'end': 'Present',
+                        'millions_years': millions_years,
+                        'confidence': pattern['priority'],
+                        'raw_match': match.group(0)
+                    }
                     
-            elif pattern['type'] in ['single_million', 'diverged', 'evolved', 'emerged']:
-                millions_years = float(match.group(1).replace(',', ''))
-                text_display = f'~{millions_years} million years ago'
-                width = calculate_timeline_width(millions_years)
-            
-            if not best_match or pattern['priority'] < best_match['priority']:
-                best_match = {
-                    'text': text_display,
-                    'width': width,
-                    'start': format_start_text(millions_years),
-                    'end': 'Present',
-                    'millions_years': millions_years,
-                    'confidence': pattern['priority'],
-                    'raw_match': match.group(0)
-                }
+        except (IndexError, ValueError) as e:
+            # Skip this pattern if regex groups don't match
+            continue
     
     return best_match
 
@@ -287,11 +297,14 @@ def extract_time_period_from_sections(sections: Dict[str, str], animal_name: str
         section_lower = section_name.lower()
         
         if any(ev_sec in section_lower for ev_sec in evolution_sections):
-            time_data = parse_time_periods(content, animal_name)
-            
-            if time_data:
-                print(f'✅ Found time period in section "{section_name}": {time_data["text"]}')
-                return time_data
+            try:
+                time_data = parse_time_periods(content, animal_name)
+                
+                if time_data:
+                    print(f'✅ Found time period in section "{section_name}": {time_data["text"]}')
+                    return time_data
+            except Exception as e:
+                continue
     
     return None
 
