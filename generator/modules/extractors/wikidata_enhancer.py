@@ -400,7 +400,7 @@ def fetch_wikidata(qid: str, expected_name: str = "") -> Optional[Dict[str, Any]
 def _is_animal_entity(entity: Dict[str, Any], expected_name: str = "") -> bool:
     """
     Check if Wikidata entity is actually an animal
-    FIXED: More strict validation to prevent wrong entity matches
+    FIXED: Less aggressive validation to prevent false rejections
     """
     if not entity:
         return False
@@ -409,34 +409,15 @@ def _is_animal_entity(entity: Dict[str, Any], expected_name: str = "") -> bool:
     labels = entity.get("labels", {})
     en_label = labels.get("en", {}).get("value", "").lower()
     
-    # If we have an expected name, verify it matches
-    if expected_name:
-        expected_lower = expected_name.lower()
-        # Label should contain the expected animal name
-        if expected_lower not in en_label and en_label not in expected_lower:
-            # Check aliases as fallback
-            aliases = entity.get("aliases", {})
-            alias_values = []
-            for lang, alias_list in aliases.items():
-                for alias in alias_list:
-                    alias_values.append(alias.get("value", "").lower())
-            
-            # If neither label nor aliases match, reject
-            if not any(expected_lower in alias for alias in alias_values):
-                print(f"   ⚠️  Entity label '{en_label}' doesn't match expected '{expected_name}'")
-                return False
-    
     # Check instance of (P31) - must be a biological taxon
     claims = entity.get("claims", {})
     instance_of = claims.get("P31", [])
     
     # Valid biological taxon QIDs
     valid_taxon_qids = [
-        "Q729", "Q16521", "Q190887", "Q14959704", "Q7432",  # Animal, Taxon, etc.
-        "Q10878", "Q25313", "Q25306", "Q25303", "Q25308", "Q25311",  # Mammal, Bird, etc.
-        "Q71087",  # Species
-        "Q16155062",  # Superspecies
-        "Q2858969",  # Taxon rank
+        "Q729", "Q16521", "Q190887", "Q14959704", "Q7432",
+        "Q10878", "Q25313", "Q25306", "Q25303", "Q25308", "Q25311",
+        "Q71087", "Q16155062", "Q2858969",
     ]
     
     has_valid_taxon = False
@@ -455,44 +436,25 @@ def _is_animal_entity(entity: Dict[str, Any], expected_name: str = "") -> bool:
     descriptions = entity.get("descriptions", {})
     en_desc = descriptions.get("en", {}).get("value", "").lower()
     
-    # CRITICAL: Reject if description contains plant/fish keywords when expecting mammal/bird
+    # CRITICAL: Only reject if it's clearly NOT an animal
     reject_keywords = [
         "commune", "city", "town", "village", "person", "politician", 
-        "university", "year", "plant", "emperor of", "dynasty",
-        "species of plant", "species of fish", "species of shark",
-        "species of bird", "species of insect"
+        "university", "year", "emperor of", "dynasty",
     ]
     
-    # Animal keywords that should be present
-    animal_keywords = [
-        "species of mammal", "species of bird", "species of reptile",
-        "species of amphibian", "species of fish", "species of insect",
-        "species of animal", "mammal", "bird", "fish", "reptile",
-        "amphibian", "insect", "cat", "dog", "elephant", "wolf",
-        "tiger", "shark", "turtle", "snake", "frog", "butterfly",
-        "bee", "penguin", "eagle", "cheetah", "salmon", "cobra",
-    ]
+    # Only reject if description explicitly says "plant" (not "plant species" which could be wrong entity)
+    if "species of plant" in en_desc or "plant species" in en_desc:
+        print(f"   ⚠️  Entity description mentions 'plant species'")
+        return False
     
-    # Check if description contains animal keywords
-    has_animal_keyword = any(kw in en_desc for kw in animal_keywords)
+    # Check for obvious mismatches
     has_reject_keyword = any(kw in en_desc for kw in reject_keywords)
     
-    # If description says "plant" but we expect an animal, reject
-    if "plant" in en_desc and expected_name:
-        print(f"   ⚠️  Entity description mentions 'plant' but we expect animal '{expected_name}'")
+    if has_reject_keyword:
+        print(f"   ⚠️  Entity has reject keywords in description")
         return False
     
-    # If description says "shark" but we expect elephant, reject
-    if "shark" in en_desc and "elephant" in expected_name.lower():
-        print(f"   ⚠️  Entity description mentions 'shark' but we expect 'elephant'")
-        return False
-    
-    # If description says "ginger" but we expect cheetah, reject
-    if "ginger" in en_desc and "cheetah" in expected_name.lower():
-        print(f"   ⚠️  Entity description mentions 'ginger' but we expect 'cheetah'")
-        return False
-    
-    return has_animal_keyword and not has_reject_keyword
+    return True
 
 
 def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
