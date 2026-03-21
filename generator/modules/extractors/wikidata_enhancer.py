@@ -9,7 +9,7 @@ import hashlib
 import re
 from typing import Dict, Any, Optional, List
 
-# FIXED: NO TRAILING SPACES
+# FIXED: NO TRAILING SPACES IN URLS
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
 WIKIDATA_SEARCH = "https://www.wikidata.org/w/api.php"
 WIKIMEDIA_COMMONS = "https://commons.wikimedia.org/w/api.php"
