@@ -53,6 +53,15 @@
     "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
   ],
   "distribution_image": "",
+  "time_period": {
+    "text": "~43.0 million years ago",
+    "width": "70%",
+    "start": "43M years ago",
+    "end": "Present",
+    "millions_years": 43.0,
+    "confidence": 2,
+    "raw_match": "43 million years ago"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
   "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
   "eol_url": "https://eol.org/pages/46559751",
@@ -132,5 +141,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:14:21.069742"
+  "last_updated": "2026-03-21T01:24:01.042657"
 }

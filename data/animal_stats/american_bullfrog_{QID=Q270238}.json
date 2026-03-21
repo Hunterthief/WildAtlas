@@ -53,6 +53,12 @@
     "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png",
+  "time_period": {
+    "text": "Evolved ~370 million years ago",
+    "width": "92%",
+    "start": "370M years ago",
+    "end": "Present"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
   "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
   "eol_url": "https://eol.org/pages/330963",
@@ -127,5 +133,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:14:55.258001"
+  "last_updated": "2026-03-21T01:24:29.342983"
 }

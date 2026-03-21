@@ -53,6 +53,15 @@
     "https://upload.wikimedia.org/wikipedia/commons/4/4c/Penguin_diving_statistics.svg"
   ],
   "distribution_image": "",
+  "time_period": {
+    "text": "~40.0 million years ago",
+    "width": "70%",
+    "start": "40M years ago",
+    "end": "Present",
+    "millions_years": 40.0,
+    "confidence": 2,
+    "raw_match": "40 million years ago"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
   "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
   "eol_url": "https://eol.org/pages/45512074",
@@ -124,5 +133,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:14:02.350875"
+  "last_updated": "2026-03-21T01:23:52.481108"
 }

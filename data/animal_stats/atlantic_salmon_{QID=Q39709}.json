@@ -54,6 +54,12 @@
     "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg",
+  "time_period": {
+    "text": "Evolved ~500 million years ago",
+    "width": "95%",
+    "start": "500M years ago",
+    "end": "Present"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
   "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
   "eol_url": "https://eol.org/pages/46563143",
@@ -125,5 +131,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:14:30.215088"
+  "last_updated": "2026-03-21T01:24:08.032278"
 }

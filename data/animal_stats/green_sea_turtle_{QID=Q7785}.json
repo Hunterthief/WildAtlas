@@ -53,6 +53,12 @@
     "https://upload.wikimedia.org/wikipedia/commons/4/4e/202304_Green_turtle.svg"
   ],
   "distribution_image": "",
+  "time_period": {
+    "text": "Evolved ~300 million years ago",
+    "width": "90%",
+    "start": "300M years ago",
+    "end": "Present"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
   "eol_url": "https://eol.org/pages/46559469",
@@ -145,5 +151,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:14:41.364557"
+  "last_updated": "2026-03-21T01:24:17.146858"
 }

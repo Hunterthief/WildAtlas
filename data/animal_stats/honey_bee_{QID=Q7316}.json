@@ -54,6 +54,15 @@
     "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg",
+  "time_period": {
+    "text": "~34.0 million years ago",
+    "width": "70%",
+    "start": "34M years ago",
+    "end": "Present",
+    "millions_years": 34.0,
+    "confidence": 2,
+    "raw_match": "34 mya"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
   "eol_url": "https://eol.org/pages/1045608",
@@ -145,5 +154,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:15:15.728548"
+  "last_updated": "2026-03-21T01:24:48.315482"
 }

@@ -53,6 +53,12 @@
     "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png",
+  "time_period": {
+    "text": "Evolved ~150 million years ago",
+    "width": "75%",
+    "start": "150M years ago",
+    "end": "Present"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
   "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
   "eol_url": "https://eol.org/pages/1228132",
@@ -125,5 +131,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:13:53.216533"
+  "last_updated": "2026-03-21T01:23:45.498671"
 }

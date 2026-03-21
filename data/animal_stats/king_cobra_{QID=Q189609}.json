@@ -53,6 +53,12 @@
     "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png",
+  "time_period": {
+    "text": "Evolved ~300 million years ago",
+    "width": "90%",
+    "start": "300M years ago",
+    "end": "Present"
+  },
   "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
   "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
   "eol_url": "https://eol.org/pages/1055746",
@@ -133,5 +139,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T01:14:47.345888"
+  "last_updated": "2026-03-21T01:24:22.883432"
 }
