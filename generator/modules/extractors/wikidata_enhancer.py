@@ -373,7 +373,7 @@ def _search_distribution_on_commons(animal_name: str) -> Optional[str]:
         return None
 
 
-def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
+def fetch_wikidata(qid: str, expected_name: str = "") -> Optional[Dict[str, Any]]:
     """Fetch data from Wikidata using QID"""
     try:
         url = f"{WIKIDATA_ENDPOINT}{qid}.json"
@@ -386,8 +386,9 @@ def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
         data = response.json()
         entity = data.get("entities", {}).get(qid, {})
         
-        if not _is_animal_entity(entity):
-            print(f"   ⚠️  QID {qid} is not an animal, searching by name...")
+        # FIXED: More strict animal entity validation
+        if not _is_animal_entity(entity, expected_name):
+            print(f"   ⚠️  QID {qid} is not a valid animal entity, searching by name...")
             return None
         
         return entity
@@ -396,41 +397,100 @@ def fetch_wikidata(qid: str) -> Optional[Dict[str, Any]]:
         return None
 
 
-def _is_animal_entity(entity: Dict[str, Any]) -> bool:
-    """Check if Wikidata entity is actually an animal"""
+def _is_animal_entity(entity: Dict[str, Any], expected_name: str = "") -> bool:
+    """
+    Check if Wikidata entity is actually an animal
+    FIXED: More strict validation to prevent wrong entity matches
+    """
     if not entity:
         return False
     
+    # Check labels - entity should have the expected animal name
+    labels = entity.get("labels", {})
+    en_label = labels.get("en", {}).get("value", "").lower()
+    
+    # If we have an expected name, verify it matches
+    if expected_name:
+        expected_lower = expected_name.lower()
+        # Label should contain the expected animal name
+        if expected_lower not in en_label and en_label not in expected_lower:
+            # Check aliases as fallback
+            aliases = entity.get("aliases", {})
+            alias_values = []
+            for lang, alias_list in aliases.items():
+                for alias in alias_list:
+                    alias_values.append(alias.get("value", "").lower())
+            
+            # If neither label nor aliases match, reject
+            if not any(expected_lower in alias for alias in alias_values):
+                print(f"   ⚠️  Entity label '{en_label}' doesn't match expected '{expected_name}'")
+                return False
+    
+    # Check instance of (P31) - must be a biological taxon
     claims = entity.get("claims", {})
     instance_of = claims.get("P31", [])
     
-    animal_qids = [
-        "Q729", "Q16521", "Q190887", "Q14959704", "Q7432",
-        "Q10878", "Q25313", "Q25306", "Q25303", "Q25308", "Q25311",
+    # Valid biological taxon QIDs
+    valid_taxon_qids = [
+        "Q729", "Q16521", "Q190887", "Q14959704", "Q7432",  # Animal, Taxon, etc.
+        "Q10878", "Q25313", "Q25306", "Q25303", "Q25308", "Q25311",  # Mammal, Bird, etc.
+        "Q71087",  # Species
+        "Q16155062",  # Superspecies
+        "Q2858969",  # Taxon rank
     ]
     
+    has_valid_taxon = False
     for claim in instance_of:
         qid = claim.get("mainsnak", {}).get("datavalue", {}).get("value", {}).get("id", "")
-        if qid in animal_qids:
-            return True
+        if qid in valid_taxon_qids:
+            has_valid_taxon = True
+            break
     
+    # Must be a valid taxon
+    if not has_valid_taxon:
+        print(f"   ⚠️  Entity is not a valid biological taxon")
+        return False
+    
+    # Check description for reject keywords
     descriptions = entity.get("descriptions", {})
     en_desc = descriptions.get("en", {}).get("value", "").lower()
     
-    animal_keywords = [
-        "species of", "animal", "mammal", "bird", "fish", "reptile", 
-        "amphibian", "insect", "cat", "dog", "elephant", "wolf", 
-        "tiger", "shark", "turtle", "snake", "frog", "butterfly", 
-        "bee", "penguin", "eagle", "cheetah", "salmon", "cobra",
-    ]
-    
+    # CRITICAL: Reject if description contains plant/fish keywords when expecting mammal/bird
     reject_keywords = [
         "commune", "city", "town", "village", "person", "politician", 
         "university", "year", "plant", "emperor of", "dynasty",
+        "species of plant", "species of fish", "species of shark",
+        "species of bird", "species of insect"
     ]
     
+    # Animal keywords that should be present
+    animal_keywords = [
+        "species of mammal", "species of bird", "species of reptile",
+        "species of amphibian", "species of fish", "species of insect",
+        "species of animal", "mammal", "bird", "fish", "reptile",
+        "amphibian", "insect", "cat", "dog", "elephant", "wolf",
+        "tiger", "shark", "turtle", "snake", "frog", "butterfly",
+        "bee", "penguin", "eagle", "cheetah", "salmon", "cobra",
+    ]
+    
+    # Check if description contains animal keywords
     has_animal_keyword = any(kw in en_desc for kw in animal_keywords)
     has_reject_keyword = any(kw in en_desc for kw in reject_keywords)
+    
+    # If description says "plant" but we expect an animal, reject
+    if "plant" in en_desc and expected_name:
+        print(f"   ⚠️  Entity description mentions 'plant' but we expect animal '{expected_name}'")
+        return False
+    
+    # If description says "shark" but we expect elephant, reject
+    if "shark" in en_desc and "elephant" in expected_name.lower():
+        print(f"   ⚠️  Entity description mentions 'shark' but we expect 'elephant'")
+        return False
+    
+    # If description says "ginger" but we expect cheetah, reject
+    if "ginger" in en_desc and "cheetah" in expected_name.lower():
+        print(f"   ⚠️  Entity description mentions 'ginger' but we expect 'cheetah'")
+        return False
     
     return has_animal_keyword and not has_reject_keyword
 
@@ -457,8 +517,8 @@ def search_wikidata_by_name(scientific_name: str) -> Optional[str]:
         results = data.get("search", [])
         for result in results:
             qid = result.get("id", "")
-            entity = fetch_wikidata(qid)
-            if entity and _is_animal_entity(entity):
+            entity = fetch_wikidata(qid, scientific_name)
+            if entity and _is_animal_entity(entity, scientific_name):
                 return qid
         
         return None
@@ -584,14 +644,14 @@ def extract_population(wikidata: Dict[str, Any]) -> str:
 
 def extract_wikidata_all(qid: str, scientific_name: str = "") -> Dict[str, Any]:
     """Main function - fetch all Wikidata enhancements with fallback search"""
-    wikidata = fetch_wikidata(qid)
+    wikidata = fetch_wikidata(qid, scientific_name)
     
     if not wikidata and scientific_name:
         print(f"   🔍 Searching Wikidata for: {scientific_name}")
         new_qid = search_wikidata_by_name(scientific_name)
         if new_qid:
             print(f"   ✅ Found QID: {new_qid}")
-            wikidata = fetch_wikidata(new_qid)
+            wikidata = fetch_wikidata(new_qid, scientific_name)
     
     if not wikidata:
         return {}
