@@ -4,51 +4,52 @@
   "scientific_name": "Ophiophagus hannah",
   "common_names": [
     {
-      "name": "眼镜王蛇",
-      "language": "zh"
+      "name": "红胸秋沙鸭",
+      "language": "zh-hans"
     },
     {
-      "name": "Ula anang",
-      "language": "jv"
+      "name": "紅胸秋沙鴨",
+      "language": "zh-hant"
     },
     {
-      "name": "kobra królewska",
+      "name": "紅胸秋沙鴨",
+      "language": "zh-hk"
+    },
+    {
+      "name": "红胸秋沙鸭",
+      "language": "zh-cn"
+    },
+    {
+      "name": "红胸秋沙鸭",
+      "language": "zh-sg"
+    },
+    {
+      "name": "紅胸秋沙",
+      "language": "zh-tw"
+    },
+    {
+      "name": "Mergus serrator",
+      "language": "pms"
+    },
+    {
+      "name": "zerra ertain",
+      "language": "eu"
+    },
+    {
+      "name": "Szlachar",
       "language": "pl"
     },
     {
-      "name": "Ophiophagus hannah",
-      "language": "es"
-    },
-    {
-      "name": "கருநாகம்",
-      "language": "ta"
-    },
-    {
-      "name": "Kownukronsneki",
-      "language": "srn"
-    },
-    {
-      "name": "Ular Tedung Selar",
-      "language": "ms"
-    },
-    {
-      "name": "királykobra",
-      "language": "hu"
-    },
-    {
-      "name": "শঙ্খচূড়",
-      "language": "bn"
-    },
-    {
-      "name": "ملك الكوبرا",
-      "language": "ar"
+      "name": "крахаль даўгадзюбы",
+      "language": "be"
     }
   ],
-  "summary": "species of reptile",
-  "description": "species of reptile",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
+  "summary": "species of bird",
+  "description": "species of bird",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
   "images": [
-    "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/3/33/Merganser_(53630992394).jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red-breasted_merganser_female_in_CP_(40744).jpg",
     "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png"
   ],
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png",
@@ -135,5 +136,5 @@
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T02:11:48.575489"
+  "last_updated": "2026-03-21T02:19:48.004920"
 }

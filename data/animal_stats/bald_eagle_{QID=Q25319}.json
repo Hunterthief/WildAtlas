@@ -2,12 +2,57 @@
   "id": "Q25319",
   "name": "Bald Eagle",
   "scientific_name": "Haliaeetus leucocephalus",
-  "common_names": [],
-  "summary": "",
-  "description": "",
-  "image": "",
-  "images": [],
-  "distribution_image": "",
+  "common_names": [
+    {
+      "name": "白头海雕",
+      "language": "zh-hans"
+    },
+    {
+      "name": "白頭海鵰",
+      "language": "zh-hant"
+    },
+    {
+      "name": "白頭海鵰",
+      "language": "zh-hk"
+    },
+    {
+      "name": "白头海雕",
+      "language": "zh-cn"
+    },
+    {
+      "name": "白头海雕",
+      "language": "zh-sg"
+    },
+    {
+      "name": "白頭海鵰",
+      "language": "zh-tw"
+    },
+    {
+      "name": "itsas arrano buruzuri",
+      "language": "eu"
+    },
+    {
+      "name": "bielik amerykański",
+      "language": "pl"
+    },
+    {
+      "name": "Bjeloglavi orao",
+      "language": "bs"
+    },
+    {
+      "name": "Haliaeetus leucocephalus",
+      "language": "es"
+    }
+  ],
+  "summary": "species of bird of prey found in North America",
+  "description": "species of bird of prey found in North America",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+  "images": [
+    "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png"
+  ],
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png",
   "time_period": {
     "text": "Evolved ~150 million years ago",
     "width": "75%",
@@ -79,8 +124,9 @@
   "sources": [
     "Wikipedia",
     "iNaturalist",
+    "Wikidata",
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T02:10:45.065336"
+  "last_updated": "2026-03-21T02:19:10.564764"
 }

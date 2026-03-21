@@ -2,12 +2,58 @@
   "id": "Q39709",
   "name": "Atlantic Salmon",
   "scientific_name": "Salmo salar",
-  "common_names": [],
-  "summary": "",
-  "description": "",
-  "image": "",
-  "images": [],
-  "distribution_image": "",
+  "common_names": [
+    {
+      "name": "大西洋鲑",
+      "language": "zh-hans"
+    },
+    {
+      "name": "大西洋鮭",
+      "language": "zh-hant"
+    },
+    {
+      "name": "大西洋鮭",
+      "language": "zh-hk"
+    },
+    {
+      "name": "大西洋鲑",
+      "language": "zh-cn"
+    },
+    {
+      "name": "大西洋鲑",
+      "language": "zh-sg"
+    },
+    {
+      "name": "大西洋鮭",
+      "language": "zh-tw"
+    },
+    {
+      "name": "Lachs",
+      "language": "gsw"
+    },
+    {
+      "name": "Atlantic salmon",
+      "language": "pam"
+    },
+    {
+      "name": "Izokin",
+      "language": "eu"
+    },
+    {
+      "name": "łosoś szlachetny",
+      "language": "pl"
+    }
+  ],
+  "summary": "species of fish",
+  "description": "species of fish",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
+  "images": [
+    "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg"
+  ],
+  "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg",
   "time_period": {
     "text": "Evolved ~500 million years ago",
     "width": "95%",
@@ -81,8 +127,9 @@
   "sources": [
     "Wikipedia",
     "iNaturalist",
+    "Wikidata",
     "GBIF",
     "EOL"
   ],
-  "last_updated": "2026-03-21T02:11:20.296813"
+  "last_updated": "2026-03-21T02:19:32.409220"
 }
