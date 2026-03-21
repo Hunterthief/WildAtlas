@@ -55,7 +55,7 @@
   "distribution_image": "",
   "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
   "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
-  "eol_url": "",
+  "eol_url": "https://eol.org/pages/4090155",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Arthropoda",
@@ -125,7 +125,8 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF"
+    "GBIF",
+    "EOL"
   ],
-  "last_updated": "2026-03-21T00:54:14.508903"
+  "last_updated": "2026-03-21T01:15:06.220235"
 }

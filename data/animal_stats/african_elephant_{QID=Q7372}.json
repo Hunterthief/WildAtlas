@@ -54,7 +54,7 @@
   "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg",
   "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
   "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
-  "eol_url": "https://eol.org/pages/55636404",
+  "eol_url": "",
   "classification": {
     "kingdom": "Animalia",
     "phylum": "Chordata",
@@ -128,8 +128,7 @@
     "Wikipedia",
     "iNaturalist",
     "Wikidata",
-    "GBIF",
-    "EOL"
+    "GBIF"
   ],
-  "last_updated": "2026-03-21T00:52:18.276937"
+  "last_updated": "2026-03-21T01:13:41.183361"
 }
