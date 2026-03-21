@@ -2,13 +2,13 @@
 Wikidata Extractor - No API Key Required
 CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
 Searches Wikipedia articles + Wikimedia Commons for distribution maps
-Accepts clean {animal_name}_distribution patterns (including IUCN variants)
+Accepts flexible {animal_name}_distribution patterns
 """
 import requests
 import hashlib
 import re
 from typing import Dict, Any, Optional, List
-from urllib.parse import unquote
+from urllib.parse import unquote, quote
 
 # FIXED: NO TRAILING SPACES IN URLS
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
@@ -43,27 +43,23 @@ def _filename_to_direct_url(filename: str) -> str:
     if not filename:
         return ""
     
+    # Strip whitespace
+    filename = filename.strip()
+    
     # If it's already a full URL, extract the filename
     if filename.startswith('http'):
         # URL decode first (handle %28, %29, etc.)
         filename = unquote(filename)
         
-        # Extract filename from URL like:
+        # Extract filename from thumb URL like:
         # https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tiger_distribution.png/960px-Tiger_distribution.png
-        # We need to get the FIRST occurrence of the filename (before the size specifier)
-        match = re.search(r'/thumb/[0-9a-f]/[0-9a-f]{2}/([^/]+)\.png', filename, re.IGNORECASE)
-        if not match:
-            match = re.search(r'/thumb/[0-9a-f]/[0-9a-f]{2}/([^/]+)\.jpg', filename, re.IGNORECASE)
-        if not match:
-            match = re.search(r'/thumb/[0-9a-f]/[0-9a-f]{2}/([^/]+)\.jpeg', filename, re.IGNORECASE)
-        if not match:
-            match = re.search(r'/thumb/[0-9a-f]/[0-9a-f]{2}/([^/]+)\.svg', filename, re.IGNORECASE)
-        
-        if match:
-            filename = match.group(1) + '.' + filename[match.end()-3:match.end()]
+        # We need the ORIGINAL filename (before the size specifier)
+        thumb_match = re.search(r'/thumb/[0-9a-fA-F]/[0-9a-fA-F]{2}/([^/]+\.(?:png|jpg|jpeg|svg))', filename, re.IGNORECASE)
+        if thumb_match:
+            filename = thumb_match.group(1)
         else:
-            # Fallback: try to extract any image filename
-            match = re.search(r'/([^/]+\.(png|jpg|jpeg|svg))$', filename, re.IGNORECASE)
+            # Fallback: try to extract any image filename from URL
+            match = re.search(r'/([^/]+\.(?:png|jpg|jpeg|svg))(?:\?|$)', filename, re.IGNORECASE)
             if match:
                 filename = match.group(1)
             else:
@@ -78,6 +74,9 @@ def _filename_to_direct_url(filename: str) -> str:
     # Strip any trailing/leading whitespace
     filename = filename.strip()
     
+    if not filename:
+        return ""
+    
     # Calculate MD5 hash for path
     md5_hash = hashlib.md5(filename.encode('utf-8')).hexdigest()
     hash1 = md5_hash[0]
@@ -91,7 +90,7 @@ def _filename_to_direct_url(filename: str) -> str:
 
 def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     """
-    Check if this is a valid distribution map
+    Check if this is a valid distribution map - MORE FLEXIBLE PATTERN MATCHING
     
     ACCEPT:
     - Tiger_distribution.png
@@ -99,6 +98,9 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     - Tiger_Distribution.png
     - Canis_lupus_distribution_(IUCN).png
     - Hippopotamus_distribution.png
+    - Panthera_tigris_distribution_range.png
+    - Distribution_of_tigers.png
+    - Tiger_range_map.png
     
     REJECT:
     - Panthera_tigris_tigris_distribution_map_2.png (subspecies + number)
@@ -121,8 +123,11 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
             filename_lower.endswith('.jpeg') or filename_lower.endswith('.svg')):
         return False
     
-    # Must contain "distribution"
-    if 'distribution' not in filename_lower:
+    # Must contain "distribution" OR "range" (common alternative)
+    has_distribution = 'distribution' in filename_lower
+    has_range = 'range' in filename_lower and 'map' in filename_lower
+    
+    if not has_distribution and not has_range:
         return False
     
     # Check for reject keywords
@@ -134,9 +139,12 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     # Get filename without extension
     filename_no_ext = filename_lower.rsplit('.', 1)[0]
     
-    # Remove common suffixes like _(iucn), _map, etc. for pattern matching
+    # Remove common suffixes like _(iucn), _map, _range, etc. for pattern matching
     filename_clean = re.sub(r'_\(.*?\)$', '', filename_no_ext)  # Remove (IUCN), (2020), etc.
-    filename_clean = filename_clean.replace('_map', '')
+    filename_clean = re.sub(r'_map$', '', filename_clean)
+    filename_clean = re.sub(r'_range$', '', filename_clean)
+    filename_clean = re.sub(r'_range_map$', '', filename_clean)
+    filename_clean = re.sub(r'distribution_range$', 'distribution', filename_clean)
     
     # Create expected pattern: "{animal_name}_distribution"
     expected_pattern = f"{animal_lower}_distribution"
@@ -147,6 +155,16 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     
     # Also accept if it STARTS with the expected pattern
     if filename_clean.startswith(expected_pattern + '_'):
+        return True
+    
+    # Also accept "distribution_of_{animal}" pattern
+    distribution_of_pattern = f"distribution_of_{animal_lower}"
+    if distribution_of_pattern in filename_lower:
+        return True
+    
+    # Also accept "{animal}_range_map" pattern
+    range_map_pattern = f"{animal_lower}_range"
+    if range_map_pattern in filename_clean:
         return True
     
     # Also accept "{animal}_distribution_map" (without extra qualifiers)
@@ -161,18 +179,99 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     return False
 
 
+def _extract_images_from_wikipedia_html(animal_name: str) -> Optional[str]:
+    """
+    Parse Wikipedia article HTML to find distribution map images
+    
+    This is MORE RELIABLE than the images API because it finds images
+    actually embedded in the article content (like in infoboxes)
+    """
+    try:
+        # Get the Wikipedia article HTML
+        wiki_title = animal_name.replace(' ', '_')
+        url = f"https://en.wikipedia.org/wiki/{wiki_title}"
+        
+        headers = {
+            "User-Agent": "WildAtlas/1.0 (https://github.com/Hunterthief/WildAtlas)"
+        }
+        
+        response = requests.get(url, headers=headers, timeout=10)
+        
+        if response.status_code != 200:
+            return None
+        
+        html = response.text
+        
+        # Pattern 1: Find images in src attributes with "distribution" in the URL
+        # Matches: src="//upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tiger_distribution.png/..."
+        img_patterns = [
+            r'src=["\']([^"\']*distribution[^"\']*\.(?:png|jpg|jpeg|svg))["\']',
+            r'href=["\']([^"\']*distribution[^"\']*\.(?:png|jpg|jpeg|svg))["\']',
+            r'original=["\']([^"\']*distribution[^"\']*\.(?:png|jpg|jpeg|svg))["\']',
+        ]
+        
+        for pattern in img_patterns:
+            matches = re.findall(pattern, html, re.IGNORECASE)
+            for match in matches:
+                # Clean up the URL
+                img_url = match.strip()
+                if img_url.startswith('//'):
+                    img_url = 'https:' + img_url
+                
+                # Extract filename from URL
+                filename_match = re.search(r'/([^/]+\.(?:png|jpg|jpeg|svg))', img_url, re.IGNORECASE)
+                if filename_match:
+                    filename = filename_match.group(1)
+                    filename_clean = unquote(filename).replace('File:', '').strip()
+                    
+                    if _is_valid_distribution_map(filename_clean, animal_name):
+                        direct_url = _filename_to_direct_url(img_url)
+                        print(f"   ✅ Found distribution map in Wikipedia HTML: {filename_clean}")
+                        return direct_url
+        
+        # Pattern 2: Look for distribution images in infobox
+        infobox_match = re.search(r'class=["\']infobox[^"\']*["\'].*?</table>', html, re.IGNORECASE | re.DOTALL)
+        if infobox_match:
+            infobox_html = infobox_match.group(0)
+            img_matches = re.findall(r'src=["\']([^"\']*\.(?:png|jpg|jpeg|svg))["\']', infobox_html, re.IGNORECASE)
+            for img_url in img_matches:
+                if 'distribution' in img_url.lower() or 'range' in img_url.lower():
+                    filename_match = re.search(r'/([^/]+\.(?:png|jpg|jpeg|svg))', img_url, re.IGNORECASE)
+                    if filename_match:
+                        filename = filename_match.group(1)
+                        filename_clean = unquote(filename).replace('File:', '').strip()
+                        
+                        if _is_valid_distribution_map(filename_clean, animal_name):
+                            direct_url = _filename_to_direct_url(img_url)
+                            print(f"   ✅ Found distribution map in infobox: {filename_clean}")
+                            return direct_url
+        
+        return None
+    
+    except Exception as e:
+        print(f"   ⚠️  Wikipedia HTML parse failed: {e}")
+        return None
+
+
 def _get_distribution_from_wikipedia(animal_name: str) -> Optional[str]:
     """
     Get distribution map from Wikipedia article images
     
     Process:
-    1. Get all images from Wikipedia article (e.g., https://en.wikipedia.org/wiki/Tiger)
-    2. Find images with "distribution" in filename
-    3. Validate against strict pattern
-    4. Return direct upload.wikimedia.org URL
+    1. Get all images from Wikipedia article via API
+    2. Parse Wikipedia article HTML for embedded images
+    3. Find images with "distribution" or "range" in filename
+    4. Validate against flexible pattern
+    5. Return direct upload.wikimedia.org URL
     """
+    # TRY 1: Parse HTML directly (MORE RELIABLE)
+    print(f"   📖 Parsing Wikipedia article HTML for distribution map...")
+    dist_map = _extract_images_from_wikipedia_html(animal_name)
+    if dist_map:
+        return dist_map
+    
+    # TRY 2: Use Wikipedia API images list
     try:
-        # Get all images from Wikipedia article
         params = {
             "action": "query",
             "format": "json",
@@ -207,16 +306,16 @@ def _get_distribution_from_wikipedia(animal_name: str) -> Optional[str]:
         # Search for distribution maps
         for img in images_list:
             filename = img.get("title", "")
-            if filename and 'distribution' in filename.lower():
+            if filename and ('distribution' in filename.lower() or 'range' in filename.lower()):
                 if _is_valid_distribution_map(filename, animal_name):
                     direct_url = _filename_to_direct_url(filename)
-                    print(f"   ✅ Found distribution map in Wikipedia: {filename}")
+                    print(f"   ✅ Found distribution map in Wikipedia API: {filename}")
                     return direct_url
         
         return None
     
     except Exception as e:
-        print(f"   ⚠️  Wikipedia image fetch failed: {e}")
+        print(f"   ⚠️  Wikipedia API image fetch failed: {e}")
         return None
 
 
@@ -231,6 +330,8 @@ def _search_distribution_on_commons(animal_name: str) -> Optional[str]:
         search_queries = [
             f"{animal_name} distribution",
             f"{animal_name.replace(' ', '_')}_distribution",
+            f"{animal_name} range map",
+            f"{animal_name.replace(' ', '_')}_range",
         ]
         
         for query in search_queries:
@@ -429,16 +530,16 @@ def extract_images(wikidata: Dict[str, Any], animal_name: str = "", scientific_n
             filename_clean = filename.replace('File:', '').strip()
             direct_url = _filename_to_direct_url(filename).strip()
             
-            if "distribution" in filename_clean.lower():
+            if "distribution" in filename_clean.lower() or "range" in filename_clean.lower():
                 if _is_valid_distribution_map(filename_clean, animal_name):
                     result["distribution"].append(direct_url)
                     print(f"   🗺️  Distribution image from Wikidata: {filename_clean}")
             else:
                 result["photos"].append(direct_url)
     
-    # PRIORITY 1: Search Wikipedia article for distribution map
+    # PRIORITY 1: Search Wikipedia article HTML for distribution map (MOST RELIABLE)
     if not result["distribution"] and animal_name:
-        print(f"   📖 Searching Wikipedia article for distribution map...")
+        print(f"   📖 Searching Wikipedia article HTML for distribution map...")
         dist_map = _get_distribution_from_wikipedia(animal_name)
         if dist_map:
             result["distribution"].append(dist_map)
