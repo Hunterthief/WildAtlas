@@ -2,12 +2,13 @@
 Wikidata Extractor - No API Key Required
 CRITICAL FIX: Direct upload.wikimedia.org URLs + Distribution Images
 Searches Wikipedia articles + Wikimedia Commons for distribution maps
-ONLY accepts clean {animal_name}_distribution patterns
+Accepts clean {animal_name}_distribution patterns (including IUCN variants)
 """
 import requests
 import hashlib
 import re
 from typing import Dict, Any, Optional, List
+from urllib.parse import unquote
 
 # FIXED: NO TRAILING SPACES IN URLS
 WIKIDATA_ENDPOINT = "https://www.wikidata.org/entity/"
@@ -20,10 +21,6 @@ DISTRIBUTION_REJECT_KEYWORDS = [
     'subspecies', 'historical', 'history', 'old', 'ancient', 'former',
     'early', 'late', 'century', 'past', 'previous',
     'cutted', 'without_borders', 'grid', 'grid_map',
-    '200', '2000', '2001', '2002', '2003', '2004', '2005',
-    '2006', '2007', '2008', '2009', '2010', '2011', '2012',
-    '2013', '2014', '2015', '2016', '2017', '2018', '2019',
-    '2020', '2021', '2022', '2023', '2024', '2025',
     'map_2', 'map_3', 'map-2', 'map-3', 'distribution2', 'distribution3'
 ]
 
@@ -39,6 +36,7 @@ def _filename_to_direct_url(filename: str) -> str:
     - "Tiger_distribution.png"
     - "File:Tiger_distribution.png"
     - "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tiger_distribution.png/960px-Tiger_distribution.png"
+    - "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Canis_lupus_distribution_%28IUCN%29.png/500px-Canis_lupus_distribution_%28IUCN%29.png"
     
     Output: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png"
     """
@@ -47,13 +45,29 @@ def _filename_to_direct_url(filename: str) -> str:
     
     # If it's already a full URL, extract the filename
     if filename.startswith('http'):
+        # URL decode first (handle %28, %29, etc.)
+        filename = unquote(filename)
+        
         # Extract filename from URL like:
         # https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tiger_distribution.png/960px-Tiger_distribution.png
-        match = re.search(r'/([^/]+\.png|[^/]+\.jpg|[^/]+\.jpeg|[^/]+\.svg)$', filename)
+        # We need to get the FIRST occurrence of the filename (before the size specifier)
+        match = re.search(r'/thumb/[0-9a-f]/[0-9a-f]{2}/([^/]+)\.png', filename, re.IGNORECASE)
+        if not match:
+            match = re.search(r'/thumb/[0-9a-f]/[0-9a-f]{2}/([^/]+)\.jpg', filename, re.IGNORECASE)
+        if not match:
+            match = re.search(r'/thumb/[0-9a-f]/[0-9a-f]{2}/([^/]+)\.jpeg', filename, re.IGNORECASE)
+        if not match:
+            match = re.search(r'/thumb/[0-9a-f]/[0-9a-f]{2}/([^/]+)\.svg', filename, re.IGNORECASE)
+        
         if match:
-            filename = match.group(1)
+            filename = match.group(1) + '.' + filename[match.end()-3:match.end()]
         else:
-            return ""
+            # Fallback: try to extract any image filename
+            match = re.search(r'/([^/]+\.(png|jpg|jpeg|svg))$', filename, re.IGNORECASE)
+            if match:
+                filename = match.group(1)
+            else:
+                return ""
     
     # Remove "File:" prefix if present
     filename = filename.replace('File:', '')
@@ -83,6 +97,8 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
     - Tiger_distribution.png
     - tiger_distribution.png
     - Tiger_Distribution.png
+    - Canis_lupus_distribution_(IUCN).png
+    - Hippopotamus_distribution.png
     
     REJECT:
     - Panthera_tigris_tigris_distribution_map_2.png (subspecies + number)
@@ -115,24 +131,32 @@ def _is_valid_distribution_map(filename: str, animal_name: str) -> bool:
             print(f"   ⚠️  Rejecting distribution map (contains '{reject_kw}'): {filename}")
             return False
     
-    # Create expected pattern: "{animal_name}_distribution"
-    expected_pattern = f"{animal_lower}_distribution"
-    
     # Get filename without extension
     filename_no_ext = filename_lower.rsplit('.', 1)[0]
     
-    # Check if filename matches the exact pattern
-    if filename_no_ext == expected_pattern:
+    # Remove common suffixes like _(iucn), _map, etc. for pattern matching
+    filename_clean = re.sub(r'_\(.*?\)$', '', filename_no_ext)  # Remove (IUCN), (2020), etc.
+    filename_clean = filename_clean.replace('_map', '')
+    
+    # Create expected pattern: "{animal_name}_distribution"
+    expected_pattern = f"{animal_lower}_distribution"
+    
+    # Check if filename matches the pattern (with or without suffixes)
+    if filename_clean == expected_pattern:
+        return True
+    
+    # Also accept if it STARTS with the expected pattern
+    if filename_clean.startswith(expected_pattern + '_'):
         return True
     
     # Also accept "{animal}_distribution_map" (without extra qualifiers)
     expected_with_map = f"{animal_lower}_distribution_map"
-    if filename_no_ext == expected_with_map:
+    if filename_no_ext == expected_with_map or filename_clean == expected_with_map:
         return True
     
     # REJECT everything else
     print(f"   ⚠️  Rejecting distribution map (wrong pattern): {filename}")
-    print(f"      Expected: {expected_pattern} or {expected_with_map}")
+    print(f"      Expected pattern: {expected_pattern}")
     print(f"      Got: {filename_no_ext}")
     return False
 
