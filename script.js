@@ -129,8 +129,10 @@ async function setup3DModel(animal) {
     try {
         const oembedUrl = `https://sketchfab.com/oembed?url=${encodeURIComponent(modelUrl)}&maxwidth=800`;
         const response = await fetch(oembedUrl);
+        
         if (response.ok) {
             const data = await response.json();
+            
             if (data.glb_url || data.gltf_url) {
                 // Load 3D model
                 modelViewer.src = data.glb_url || data.gltf_url;
@@ -169,6 +171,7 @@ function setupViewToggle(modelViewer, imageElement, toggleButton, toggleText) {
     
     toggleButton.addEventListener('click', () => {
         showing3D = !showing3D;
+        
         if (showing3D) {
             modelViewer.style.display = 'block';
             imageElement.style.display = 'none';
@@ -371,7 +374,7 @@ function renderAnimalCard(animal, type) {
     const card = document.createElement('div');
     card.className = 'animal-card';
     
-    // FIX: Use 'image' field (single string) with fallback to first image in array
+    // Use 'image' field (single string) with fallback to first image in array
     const imageUrl = animal.image || (animal.images && animal.images[0]) || 'https://via.placeholder.com/48?text=?';
     const name = animal.name;
     const scientific = animal.scientific_name;
@@ -475,7 +478,7 @@ async function initDetailPage() {
     
     fetchAnimals()
         .then(animals => {
-            const animal = animals.find(a => 
+            const animal = animals.find(a =>
                 a.name.toLowerCase() === decodeURIComponent(animalName).toLowerCase()
             );
             
@@ -497,7 +500,8 @@ function populateDetailPage(animal) {
     const eco = animal.ecology || {};
     const phys = animal.physical || {};
     const repro = animal.reproduction || {};
-    // FIX: Use 'summary' field (with fallback to 'description')
+    
+    // Use 'summary' field (with fallback to 'description')
     const summary = animal.summary || animal.description || '';
     
     // === TITLE SECTION ===
@@ -540,7 +544,6 @@ function populateDetailPage(animal) {
     // Hero Image
     const heroImage = document.getElementById('animal-image');
     if (heroImage) {
-        // FIX: Use 'image' field with fallback to first image in array
         const imageUrl = animal.image || (animal.images && animal.images[0]) || '';
         if (imageUrl) {
             heroImage.src = imageUrl.trim();
@@ -549,30 +552,15 @@ function populateDetailPage(animal) {
     }
     
     // === RIGHT SIDEBAR ===
-    // Location with Map Dots
-    const locationCard = document.getElementById('location-card');
-    const locationText = document.getElementById('location-text');
-    if (locationText && animal.ecology?.locations) {
-        locationText.textContent = animal.ecology.locations;
-        
-        const mapImg = document.getElementById('world-map');
-        if (mapImg && mapImg.complete) {
-            addLocationDots(animal.ecology.locations);
-        } else if (mapImg) {
-            mapImg.addEventListener('load', () => {
-                addLocationDots(animal.ecology.locations);
-            });
-        }
-    } else if (locationCard) {
-        locationCard.style.display = 'none';
-    }
+    // 🗺️ LOCATION WITH DISTRIBUTION IMAGE (UPDATED)
+    setupLocationMap(animal);
     
     // Conservation Status
     const conservationCard = document.getElementById('conservation-card');
     const conservationBox = document.getElementById('conservation-status-box');
     const conservationText = document.getElementById('conservation-status-text');
+    
     if (conservationBox && animal.ecology?.conservation_status) {
-        // FIX: Properly pass status parameter
         const statusClass = getConservationClass(animal.ecology.conservation_status);
         conservationBox.className = `conservation-status-box ${statusClass}`;
         if (conservationText) conservationText.textContent = animal.ecology.conservation_status;
@@ -588,6 +576,7 @@ function populateDetailPage(animal) {
     const timelineFill = document.getElementById('timeline-fill');
     const timelineStart = document.getElementById('timeline-start');
     const timelineEnd = document.getElementById('timeline-end');
+    
     if (timeRange) {
         const timeData = getTimePeriod(animal);
         timeRange.textContent = timeData.text;
@@ -602,6 +591,7 @@ function populateDetailPage(animal) {
     const reproCard = document.getElementById('reproduction-card');
     const hasReproData = repro.name_of_young || animal.young_name || animal.group_name ||
                          repro.gestation_period || repro.average_litter_size;
+    
     if (hasReproData) {
         setStatContent('repro-young', null, repro.name_of_young || animal.young_name);
         setStatContent('repro-group', null, animal.group_name);
@@ -614,19 +604,15 @@ function populateDetailPage(animal) {
     // Common Names
     const commonNameCard = document.getElementById('common-name-card');
     const commonNamesText = document.getElementById('common-names-text');
+    
     if (commonNamesText) {
         const commonNames = animal.common_names && animal.common_names.length > 0
-            ? animal.common_names.join(', ')
-            : null;
-        if (commonNames) {
-            commonNamesText.textContent = commonNames;
-        } else {
-            commonNamesText.textContent = 'No alternative names';
-        }
+            ? animal.common_names.map(n => n.name).join(', ')
+            : 'No alternative names';
+        commonNamesText.textContent = commonNames;
     }
     
     // === MAIN ARTICLE SECTIONS ===
-    // FIX: Use 'summary' with fallback to 'description'
     setStatContent('overview-text', null, animal.summary || animal.description || 'No description available.');
     
     const descriptionText = generateDescriptionText(animal, summary);
@@ -718,7 +704,7 @@ function scrollToOverview() {
 }
 
 // ============================================
-// Location Map Functions - UPDATED FOR DISTRIBUTION IMAGES
+// 🗺️ Location Map Functions - DISTRIBUTION IMAGE FIRST
 // ============================================
 function setupLocationMap(animal) {
     const locationCard = document.getElementById('location-card');
@@ -737,12 +723,12 @@ function setupLocationMap(animal) {
     // Set location text
     locationText.textContent = animal.ecology.locations;
     
-    // Check if distribution image is available
+    // ✅ CHECK FOR DISTRIBUTION IMAGE FIRST
     const distributionImageUrl = animal.distribution_image || '';
     
     if (distributionImageUrl && distributionImageUrl.trim()) {
-        // ✅ HAS DISTRIBUTION IMAGE - Show it, hide world map + markers
-        console.log(`🗺️ Using distribution map for ${animal.name}`);
+        // 🗺️ HAS DISTRIBUTION IMAGE - Show it, hide world map + markers
+        console.log(`🗺️ Using distribution map for ${animal.name}: ${distributionImageUrl}`);
         
         distributionImage.src = distributionImageUrl.trim();
         distributionImage.alt = `${animal.name} distribution map`;
@@ -756,9 +742,10 @@ function setupLocationMap(animal) {
         };
         
         distributionImage.onload = function() {
-            console.log(`✅ Distribution map loaded for ${animal.name}`);
+            console.log(`✅ Distribution map loaded successfully for ${animal.name}`);
         };
         
+        // Show distribution image, hide world map
         distributionImageContainer.style.display = 'block';
         worldMapContainer.style.display = 'none';
         
@@ -766,7 +753,7 @@ function setupLocationMap(animal) {
         locationDots.innerHTML = '';
         
     } else {
-        // ❌ NO DISTRIBUTION IMAGE - Use world map with markers
+        // 🌍 NO DISTRIBUTION IMAGE - Use world map with markers
         console.log(`🌍 Using world map with markers for ${animal.name}`);
         
         distributionImageContainer.style.display = 'none';
@@ -788,6 +775,7 @@ function addLocationDots(locationsString) {
     if (!dotsContainer || !locationsString) return;
     
     dotsContainer.innerHTML = '';
+    
     const locations = locationsString.toLowerCase().split(',').map(l => l.trim());
     const addedDots = new Set();
     
@@ -797,12 +785,14 @@ function addLocationDots(locationsString) {
             const dotKey = `${coords.x}-${coords.y}`;
             if (!addedDots.has(dotKey)) {
                 addedDots.add(dotKey);
+                
                 const dot = document.createElement('div');
                 dot.className = 'location-dot';
                 dot.style.left = coords.x + '%';
                 dot.style.top = coords.y + '%';
                 dot.setAttribute('data-label', location);
                 dot.setAttribute('title', location);
+                
                 dotsContainer.appendChild(dot);
             }
         }
@@ -811,14 +801,20 @@ function addLocationDots(locationsString) {
 
 function findLocationCoordinates(location) {
     const loc = location.toLowerCase().trim();
+    
+    // Direct match
     if (locationCoordinates[loc]) {
         return locationCoordinates[loc];
     }
+    
+    // Partial match
     for (const key in locationCoordinates) {
         if (loc.includes(key) || key.includes(loc)) {
             return locationCoordinates[key];
         }
     }
+    
+    // Fallback guesses
     if (loc.includes('asia') || loc.includes('east')) return locationCoordinates['asia'];
     if (loc.includes('america') || loc.includes('usa') || loc.includes('us') || loc.includes('united states')) {
         return locationCoordinates['north america'];
@@ -831,8 +827,10 @@ function findLocationCoordinates(location) {
     if (loc.includes('china')) return locationCoordinates['china'];
     if (loc.includes('russia')) return locationCoordinates['russia'];
     if (loc.includes('indonesia')) return locationCoordinates['indonesia'];
+    
     return null;
 }
+
 // ============================================
 // Time Period Functions
 // ============================================
@@ -972,7 +970,8 @@ function generateBehaviorText(animal, summary) {
     
     if (eco.group_behavior) {
         const behavior = eco.group_behavior.toLowerCase();
-        if (behavior.includes('social') || behavior.includes('herd') || behavior.includes('pack') || behavior.includes('colony') || behavior.includes('flock') || behavior.includes('school')) {
+        if (behavior.includes('social') || behavior.includes('herd') || behavior.includes('pack') || 
+            behavior.includes('colony') || behavior.includes('flock') || behavior.includes('school')) {
             parts.push('These animals are social and often live in family groups or herds.');
         } else if (behavior.includes('solitary')) {
             parts.push('They are typically solitary animals, coming together only for mating.');
@@ -1128,13 +1127,14 @@ function generateReproductionFAQ(animal) {
 // Helper Functions
 // ============================================
 function getConservationClass(status) {
-    // FIX: Properly handle status parameter
     if (!status) return 'status-vulnerable';
+    
     const s = status.toLowerCase();
     if (s.includes('critically')) return 'status-critical';
     if (s.includes('endangered')) return 'status-endangered';
     if (s.includes('vulnerable')) return 'status-vulnerable';
     if (s.includes('least') || s.includes('concern')) return 'status-least-concern';
+    
     return 'status-vulnerable';
 }
 
