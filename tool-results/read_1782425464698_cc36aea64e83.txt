@@ -1,0 +1,1848 @@
+     1→[
+     2→  {
+     3→    "id": "Q132186",
+     4→    "name": "Tiger",
+     5→    "scientific_name": "Panthera tigris",
+     6→    "common_names": [
+     7→      {
+     8→        "name": "tigre",
+     9→        "language": "es"
+    10→      },
+    11→      {
+    12→        "name": "ببر",
+    13→        "language": "ar"
+    14→      },
+    15→      {
+    16→        "name": "Panthera tigris",
+    17→        "language": "ast"
+    18→      },
+    19→      {
+    20→        "name": "тигър",
+    21→        "language": "bg"
+    22→      },
+    23→      {
+    24→        "name": "বাঘ",
+    25→        "language": "bn"
+    26→      },
+    27→      {
+    28→        "name": "tigre",
+    29→        "language": "ca"
+    30→      },
+    31→      {
+    32→        "name": "tygr",
+    33→        "language": "cs"
+    34→      },
+    35→      {
+    36→        "name": "tiger",
+    37→        "language": "da"
+    38→      },
+    39→      {
+    40→        "name": "Tiger",
+    41→        "language": "de"
+    42→      },
+    43→      {
+    44→        "name": "ببر",
+    45→        "language": "fa"
+    46→      }
+    47→    ],
+    48→    "summary": "species of big cat",
+    49→    "description": "species of big cat",
+    50→    "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
+    51→    "images": [
+    52→      "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
+    53→      "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg",
+    54→      "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png"
+    55→    ],
+    56→    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png",
+    57→    "time_period": {
+    58→      "text": "~3.7 million years ago",
+    59→      "width": "40%",
+    60→      "start": "3.7M years ago",
+    61→      "end": "Present",
+    62→      "millions_years": 3.7,
+    63→      "confidence": 1,
+    64→      "raw_match": "split from each other between 2.70 and 3.70 million years ago"
+    65→    },
+    66→    "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
+    67→    "wikidata_url": "https://www.wikidata.org/wiki/Q132186",
+    68→    "eol_url": "https://eol.org/pages/1253183",
+    69→    "classification": {
+    70→      "kingdom": "Animalia",
+    71→      "phylum": "Chordata",
+    72→      "class": "Mammalia",
+    73→      "order": "Carnivora",
+    74→      "family": "Felidae",
+    75→      "genus": "Panthera",
+    76→      "species": "Panthera tigris"
+    77→    },
+    78→    "animal_type": "feline",
+    79→    "young_name": "cub",
+    80→    "group_name": "pride",
+    81→    "physical": {
+    82→      "weight": "",
+    83→      "length": "35 m",
+    84→      "height": "0.8–1.1 m",
+    85→      "top_speed": "56 km/h",
+    86→      "lifespan": "12–15 years"
+    87→    },
+    88→    "ecology": {
+    89→      "diet": "Carnivore",
+    90→      "habitat": "",
+    91→      "locations": "Bangladesh, China, India, Indonesia, Nepal, Russian Federation, Thailand",
+    92→      "group_behavior": "Solitary",
+    93→      "conservation_status": "Endangered",
+    94→      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+    95→      "distinctive_features": [],
+    96→      "population_trend": ""
+    97→    },
+    98→    "reproduction": {
+    99→      "gestation_period": "",
+   100→      "average_litter_size": "",
+   101→      "name_of_young": "cub"
+   102→    },
+   103→    "additional_info": {
+   104→      "lifestyle": "",
+   105→      "color": "",
+   106→      "skin_type": "",
+   107→      "prey": "feeds mainly on large and medium-sized ungulates such as sambar deer, Manchurian wapiti, barasingha,",
+   108→      "slogan": "",
+   109→      "group": "pride",
+   110→      "number_of_species": "nine",
+   111→      "estimated_population_size": "5,000",
+   112→      "most_distinctive_feature": "black or dark brown stripes, which are uniquely patterned in each individual"
+   113→    },
+   114→    "distribution": {
+   115→      "countries": [
+   116→        "Bangladesh",
+   117→        "China",
+   118→        "India",
+   119→        "Indonesia",
+   120→        "Nepal",
+   121→        "Russian Federation",
+   122→        "Thailand"
+   123→      ],
+   124→      "coordinates": {
+   125→        "min_lat": 0.462517,
+   126→        "max_lat": 43.187619,
+   127→        "min_lon": 74.266941,
+   128→        "max_lon": 131.581417,
+   129→        "count": 50
+   130→      },
+   131→      "occurrence_count": 5294
+   132→    },
+   133→    "sources": [
+   134→      "Wikipedia",
+   135→      "iNaturalist",
+   136→      "Wikidata",
+   137→      "GBIF",
+   138→      "EOL"
+   139→    ],
+   140→    "last_updated": "2026-03-21T21:36:14.407722"
+   141→  },
+   142→  {
+   143→    "id": "Q35625",
+   144→    "name": "Cheetah",
+   145→    "scientific_name": "Acinonyx jubatus",
+   146→    "common_names": [
+   147→      {
+   148→        "name": "猎豹",
+   149→        "language": "zh"
+   150→      },
+   151→      {
+   152→        "name": "Gepardo",
+   153→        "language": "eu"
+   154→      },
+   155→      {
+   156→        "name": "gepard grzywiasty",
+   157→        "language": "pl"
+   158→      },
+   159→      {
+   160→        "name": "Dottatiȝer",
+   161→        "language": "ang"
+   162→      },
+   163→      {
+   164→        "name": "guepardo",
+   165→        "language": "es"
+   166→      },
+   167→      {
+   168→        "name": "gepárd",
+   169→        "language": "hu"
+   170→      },
+   171→      {
+   172→        "name": "Duma",
+   173→        "language": "sw"
+   174→      },
+   175→      {
+   176→        "name": "Gepardi",
+   177→        "language": "sq"
+   178→      },
+   179→      {
+   180→        "name": "Lepogo",
+   181→        "language": "nso"
+   182→      },
+   183→      {
+   184→        "name": "gepardo",
+   185→        "language": "ia"
+   186→      }
+   187→    ],
+   188→    "summary": "species of mammal",
+   189→    "description": "species of mammal",
+   190→    "image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Cheetah_(Acinonyx_jubatus)_female_2.jpg",
+   191→    "images": [
+   192→      "https://upload.wikimedia.org/wikipedia/commons/3/36/Cheetah_(Acinonyx_jubatus)_female_2.jpg",
+   193→      "https://upload.wikimedia.org/wikipedia/commons/0/09/TheCheethcat.jpg",
+   194→      "https://upload.wikimedia.org/wikipedia/commons/1/11/Acinonyx.jubatus-1-ZOO.Olomouc.jpg",
+   195→      "https://upload.wikimedia.org/wikipedia/commons/b/b0/Herberstein_Gepard_029.jpg"
+   196→    ],
+   197→    "distribution_image": "",
+   198→    "time_period": {
+   199→      "text": "~6.7 million years ago",
+   200→      "width": "55%",
+   201→      "start": "6.7M years ago",
+   202→      "end": "Present",
+   203→      "millions_years": 6.7,
+   204→      "confidence": 2,
+   205→      "raw_match": "6.7 million years ago"
+   206→    },
+   207→    "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
+   208→    "wikidata_url": "https://www.wikidata.org/wiki/Q35625",
+   209→    "eol_url": "https://eol.org/pages/1271375",
+   210→    "classification": {
+   211→      "kingdom": "Animalia",
+   212→      "phylum": "Chordata",
+   213→      "class": "Mammalia",
+   214→      "order": "Carnivora",
+   215→      "family": "Felidae",
+   216→      "genus": "Acinonyx",
+   217→      "species": "Acinonyx jubatus"
+   218→    },
+   219→    "animal_type": "feline",
+   220→    "young_name": "cub",
+   221→    "group_name": "pride",
+   222→    "physical": {
+   223→      "weight": "",
+   224→      "length": "517 in",
+   225→      "height": "67–94 cm",
+   226→      "top_speed": "93–104 km/h",
+   227→      "lifespan": "3–4 years"
+   228→    },
+   229→    "ecology": {
+   230→      "diet": "Carnivore",
+   231→      "habitat": "",
+   232→      "locations": "Kenya, Malawi, South Africa, Tanzania, United Republic of",
+   233→      "group_behavior": "Solitary",
+   234→      "conservation_status": "Endangered",
+   235→      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+   236→      "distinctive_features": [],
+   237→      "population_trend": ""
+   238→    },
+   239→    "reproduction": {
+   240→      "gestation_period": "",
+   241→      "average_litter_size": "",
+   242→      "name_of_young": "cub"
+   243→    },
+   244→    "additional_info": {
+   245→      "lifestyle": "",
+   246→      "color": "",
+   247→      "skin_type": "",
+   248→      "prey": "hunts was 54 km/h (34 mph), while highest speed was 93 km/h (58 mph)",
+   249→      "slogan": "",
+   250→      "group": "pride",
+   251→      "number_of_species": "Four",
+   252→      "estimated_population_size": "",
+   253→      "most_distinctive_feature": "individuals"
+   254→    },
+   255→    "distribution": {
+   256→      "countries": [
+   257→        "Kenya",
+   258→        "Malawi",
+   259→        "South Africa",
+   260→        "Tanzania, United Republic of"
+   261→      ],
+   262→      "coordinates": {
+   263→        "min_lat": -34.184019,
+   264→        "max_lat": 1.59933,
+   265→        "min_lon": 20.044896,
+   266→        "max_lon": 38.388967,
+   267→        "count": 50
+   268→      },
+   269→      "occurrence_count": 8380
+   270→    },
+   271→    "sources": [
+   272→      "Wikipedia",
+   273→      "iNaturalist",
+   274→      "Wikidata",
+   275→      "GBIF",
+   276→      "EOL"
+   277→    ],
+   278→    "last_updated": "2026-03-21T21:36:23.205815"
+   279→  },
+   280→  {
+   281→    "id": "Q7372",
+   282→    "name": "African Elephant",
+   283→    "scientific_name": "Loxodonta africana",
+   284→    "common_names": [
+   285→      {
+   286→        "name": "Afrikaneschen Elefant",
+   287→        "language": "lb"
+   288→      },
+   289→      {
+   290→        "name": "非洲象",
+   291→        "language": "zh"
+   292→      },
+   293→      {
+   294→        "name": "Ndlovu",
+   295→        "language": "tum"
+   296→      },
+   297→      {
+   298→        "name": "Африка пилдери",
+   299→        "language": "ky"
+   300→      },
+   301→      {
+   302→        "name": "słoń afrykański",
+   303→        "language": "pl"
+   304→      },
+   305→      {
+   306→        "name": "Loxodonta africana",
+   307→        "language": "eu"
+   308→      },
+   309→      {
+   310→        "name": "Саваннадин фил",
+   311→        "language": "lez"
+   312→      },
+   313→      {
+   314→        "name": "Саванавы афрыканскі слон",
+   315→        "language": "be"
+   316→      },
+   317→      {
+   318→        "name": "פיל סוואנה אפריקני",
+   319→        "language": "he"
+   320→      },
+   321→      {
+   322→        "name": "éléphant de savane d'Afrique",
+   323→        "language": "fr"
+   324→      }
+   325→    ],
+   326→    "summary": "species of mammal; largest land animal",
+   327→    "description": "species of mammal; largest land animal",
+   328→    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+   329→    "images": [
+   330→      "https://upload.wikimedia.org/wikipedia/commons/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+   331→      "https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg",
+   332→      "https://upload.wikimedia.org/wikipedia/commons/2/2e/African_bush_elephant,_Loxodonta_africana_at_Punda_Maria,_Kruger_National_Park,_South_Africa._Includes_lots_of_baby_elephant._(20591203310).jpg",
+   333→      "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg"
+   334→    ],
+   335→    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg",
+   336→    "time_period": {
+   337→      "text": "~7.0 million years ago",
+   338→      "width": "55%",
+   339→      "start": "7.0M years ago",
+   340→      "end": "Present",
+   341→      "millions_years": 7.0,
+   342→      "confidence": 1,
+   343→      "raw_match": "7–5 million years ago"
+   344→    },
+   345→    "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
+   346→    "wikidata_url": "https://www.wikidata.org/wiki/Q7372",
+   347→    "eol_url": "https://eol.org/pages/55636404",
+   348→    "classification": {
+   349→      "kingdom": "Animalia",
+   350→      "phylum": "Chordata",
+   351→      "class": "Mammalia",
+   352→      "order": "Proboscidea",
+   353→      "family": "Elephantidae",
+   354→      "genus": "Loxodonta",
+   355→      "species": "Loxodonta africana"
+   356→    },
+   357→    "animal_type": "elephant",
+   358→    "young_name": "calf",
+   359→    "group_name": "herd",
+   360→    "physical": {
+   361→      "weight": "",
+   362→      "length": "2.09–2.31 m",
+   363→      "height": "2.47–2.73 m",
+   364→      "top_speed": "",
+   365→      "lifespan": ""
+   366→    },
+   367→    "ecology": {
+   368→      "diet": "Herbivore",
+   369→      "habitat": "",
+   370→      "locations": "Botswana, Burkina Faso, Ghana, Kenya, Namibia, Niger, Rwanda, South Africa, Tanzania, United Republic of, Uganda, Zambia, Zimbabwe",
+   371→      "group_behavior": "Solitary",
+   372→      "conservation_status": "Critically Endangered",
+   373→      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+   374→      "distinctive_features": [],
+   375→      "population_trend": ""
+   376→    },
+   377→    "reproduction": {
+   378→      "gestation_period": "22 months",
+   379→      "average_litter_size": "",
+   380→      "name_of_young": "calf"
+   381→    },
+   382→    "additional_info": {
+   383→      "lifestyle": "",
+   384→      "color": "",
+   385→      "skin_type": "",
+   386→      "prey": "",
+   387→      "slogan": "",
+   388→      "group": "herd",
+   389→      "number_of_species": "two",
+   390→      "estimated_population_size": "",
+   391→      "most_distinctive_feature": "lozenge/loxodont (<>) shape characteristic to all members of the genus Loxodonta"
+   392→    },
+   393→    "distribution": {
+   394→      "countries": [
+   395→        "Botswana",
+   396→        "Burkina Faso",
+   397→        "Ghana",
+   398→        "Kenya",
+   399→        "Namibia",
+   400→        "Niger",
+   401→        "Rwanda",
+   402→        "South Africa",
+   403→        "Tanzania, United Republic of",
+   404→        "Uganda",
+   405→        "Zambia",
+   406→        "Zimbabwe"
+   407→      ],
+   408→      "coordinates": {
+   409→        "min_lat": -33.562833,
+   410→        "max_lat": 9.281961,
+   411→        "min_lon": -1.90394,
+   412→        "max_lon": 38.084716,
+   413→        "count": 50
+   414→      },
+   415→      "occurrence_count": 22723
+   416→    },
+   417→    "sources": [
+   418→      "Wikipedia",
+   419→      "iNaturalist",
+   420→      "Wikidata",
+   421→      "GBIF",
+   422→      "EOL"
+   423→    ],
+   424→    "last_updated": "2026-03-21T21:36:30.648399"
+   425→  },
+   426→  {
+   427→    "id": "Q213537",
+   428→    "name": "Gray Wolf",
+   429→    "scientific_name": "Canis lupus",
+   430→    "common_names": [
+   431→      {
+   432→        "name": "Wolf",
+   433→        "language": "de"
+   434→      },
+   435→      {
+   436→        "name": "Абгаду",
+   437→        "language": "ab"
+   438→      },
+   439→      {
+   440→        "name": "wolf",
+   441→        "language": "af"
+   442→      },
+   443→      {
+   444→        "name": "Canis lupus",
+   445→        "language": "an"
+   446→      },
+   447→      {
+   448→        "name": "Ƿulf",
+   449→        "language": "ang"
+   450→      },
+   451→      {
+   452→        "name": "ذئب رمادي",
+   453→        "language": "ar"
+   454→      },
+   455→      {
+   456→        "name": "Canis lupus",
+   457→        "language": "ast"
+   458→      },
+   459→      {
+   460→        "name": "БацӀ",
+   461→        "language": "av"
+   462→      },
+   463→      {
+   464→        "name": "adi canavar",
+   465→        "language": "az"
+   466→      },
+   467→      {
+   468→        "name": "Бүре",
+   469→        "language": "ba"
+   470→      }
+   471→    ],
+   472→    "summary": "species of mammal",
+   473→    "description": "species of mammal",
+   474→    "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
+   475→    "images": [
+   476→      "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
+   477→      "https://upload.wikimedia.org/wikipedia/commons/4/48/Canis_lupus_distribution_(IUCN).png"
+   478→    ],
+   479→    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Canis_lupus_distribution_(IUCN).png",
+   480→    "time_period": {
+   481→      "text": "~1.4 million years ago",
+   482→      "width": "40%",
+   483→      "start": "1.4M years ago",
+   484→      "end": "Present",
+   485→      "millions_years": 1.4,
+   486→      "confidence": 2,
+   487→      "raw_match": "appeared around 1.4 million years ago"
+   488→    },
+   489→    "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
+   490→    "wikidata_url": "https://www.wikidata.org/wiki/Q213537",
+   491→    "eol_url": "https://eol.org/pages/1268606",
+   492→    "classification": {
+   493→      "kingdom": "Animalia",
+   494→      "phylum": "Chordata",
+   495→      "class": "Mammalia",
+   496→      "order": "Carnivora",
+   497→      "family": "Canidae",
+   498→      "genus": "Canis",
+   499→      "species": "Canis lupus"
+   500→    },
+   501→    "animal_type": "canine",
+   502→    "young_name": "pup",
+   503→    "group_name": "pack",
+   504→    "physical": {
+   505→      "weight": "",
+   506→      "length": "2.4–2.8 in",
+   507→      "height": "29–50 cm",
+   508→      "top_speed": "",
+   509→      "lifespan": ""
+   510→    },
+   511→    "ecology": {
+   512→      "diet": "Carnivore",
+   513→      "habitat": "",
+   514→      "locations": "Australia, Belgium, Canada, China, Costa Rica, Denmark, Egypt, Germany, Greece, India, Indonesia, Israel, Italy, Jamaica, Malaysia, Mexico, Norway, Philippines, Russian Federation, Sweden, Thailand, Türkiye, United States of America",
+   515→      "group_behavior": "Solitary",
+   516→      "conservation_status": "Endangered",
+   517→      "biggest_threat": "Habitat loss, Human-wildlife conflict",
+   518→      "distinctive_features": [],
+   519→      "population_trend": ""
+   520→    },
+   521→    "reproduction": {
+   522→      "gestation_period": "62–75 days",
+   523→      "average_litter_size": "",
+   524→      "name_of_young": "pup"
+   525→    },
+   526→    "additional_info": {
+   527→      "lifestyle": "",
+   528→      "color": "",
+   529→      "skin_type": "",
+   530→      "prey": "hunts for large prey",
+   531→      "slogan": "",
+   532→      "group": "pack",
+   533→      "number_of_species": "two",
+   534→      "estimated_population_size": "33",
+   535→      "most_distinctive_feature": "very dense and fluffy winter fur, with a short undercoat"
+   536→    },
+   537→    "distribution": {
+   538→      "countries": [
+   539→        "Australia",
+   540→        "Belgium",
+   541→        "Canada",
+   542→        "China",
+   543→        "Costa Rica",
+   544→        "Denmark",
+   545→        "Egypt",
+   546→        "Germany",
+   547→        "Greece",
+   548→        "India",
+   549→        "Indonesia",
+   550→        "Israel",
+   551→        "Italy",
+   552→        "Jamaica",
+   553→        "Malaysia",
+   554→        "Mexico",
+   555→        "Norway",
+   556→        "Philippines",
+   557→        "Russian Federation",
+   558→        "Sweden",
+   559→        "Thailand",
+   560→        "Türkiye",
+   561→        "United States of America"
+   562→      ],
+   563→      "coordinates": {
+   564→        "min_lat": -28.294889,
+   565→        "max_lat": 60.495512,
+   566→        "min_lon": -116.559478,
+   567→        "max_lon": 151.355139,
+   568→        "count": 50
+   569→      },
+   570→      "occurrence_count": 199412
+   571→    },
+   572→    "sources": [
+   573→      "Wikipedia",
+   574→      "iNaturalist",
+   575→      "Wikidata",
+   576→      "GBIF",
+   577→      "EOL"
+   578→    ],
+   579→    "last_updated": "2026-03-21T21:36:40.564111"
+   580→  },
+   581→  {
+   582→    "id": "Q25319",
+   583→    "name": "Bald Eagle",
+   584→    "scientific_name": "Haliaeetus leucocephalus",
+   585→    "common_names": [
+   586→      {
+   587→        "name": "白头海雕",
+   588→        "language": "zh-hans"
+   589→      },
+   590→      {
+   591→        "name": "白頭海鵰",
+   592→        "language": "zh-hant"
+   593→      },
+   594→      {
+   595→        "name": "白頭海鵰",
+   596→        "language": "zh-hk"
+   597→      },
+   598→      {
+   599→        "name": "白头海雕",
+   600→        "language": "zh-cn"
+   601→      },
+   602→      {
+   603→        "name": "白头海雕",
+   604→        "language": "zh-sg"
+   605→      },
+   606→      {
+   607→        "name": "白頭海鵰",
+   608→        "language": "zh-tw"
+   609→      },
+   610→      {
+   611→        "name": "itsas arrano buruzuri",
+   612→        "language": "eu"
+   613→      },
+   614→      {
+   615→        "name": "bielik amerykański",
+   616→        "language": "pl"
+   617→      },
+   618→      {
+   619→        "name": "Bjeloglavi orao",
+   620→        "language": "bs"
+   621→      },
+   622→      {
+   623→        "name": "Haliaeetus leucocephalus",
+   624→        "language": "es"
+   625→      }
+   626→    ],
+   627→    "summary": "species of bird of prey found in North America",
+   628→    "description": "species of bird of prey found in North America",
+   629→    "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+   630→    "images": [
+   631→      "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+   632→      "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg",
+   633→      "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png"
+   634→    ],
+   635→    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png",
+   636→    "time_period": {
+   637→      "text": "Evolved ~150 million years ago",
+   638→      "width": "75%",
+   639→      "start": "150M years ago",
+   640→      "end": "Present"
+   641→    },
+   642→    "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
+   643→    "wikidata_url": "https://www.wikidata.org/wiki/Q25319",
+   644→    "eol_url": "https://eol.org/pages/1228132",
+   645→    "classification": {
+   646→      "kingdom": "Animalia",
+   647→      "phylum": "Chordata",
+   648→      "class": "Aves",
+   649→      "order": "Accipitriformes",
+   650→      "family": "Accipitridae",
+   651→      "genus": "Haliaeetus",
+   652→      "species": "Haliaeetus leucocephalus"
+   653→    },
+   654→    "animal_type": "bird",
+   655→    "young_name": "chick",
+   656→    "group_name": "flock",
+   657→    "physical": {
+   658→      "weight": "1 kg",
+   659→      "length": "7–9 cm",
+   660→      "height": "34–38 cm",
+   661→      "top_speed": "",
+   662→      "lifespan": ""
+   663→    },
+   664→    "ecology": {
+   665→      "diet": "Carnivore",
+   666→      "habitat": "The bald eagle occurs during its breeding season in virtually any kind of American wetland habitat such as seacoasts, rivers, large lakes or marshes or other large bodies of open water with an abundance of fish. Studies have shown a preference for bodies of water with a circumference greater than 11 km (7 mi), and lakes with an area greater than 10 km2 (4 sq mi) are optimal for breeding bald eagles. The bald eagle typically requires old-growth and mature stands of coniferous or hardwood trees for perching, roosting, and nesting. Tree species reportedly is less important to the eagle pair than the tree's height, composition and location. Perhaps of paramount importance for this species is an abundance of comparatively large trees surrounding the body of water. Selected trees must have good visibility, be over 20 m (66 ft) tall, an open structure, and proximity to prey. If nesting trees are in standing water such as in a mangrove swamp, the nest can be located fairly low, at as low as 6 m (20 ft) above the ground. In a more typical tree standing on dry ground, nests may be located from 16 to 38 m (52 to 125 ft) in height. In Chesapeake Bay, nesting trees averaged 82 cm (32 in) in diameter and 28 m (92 ft) in total height, while in Florida, the average nesting tree stands 23 m (75 ft) high and is 23 cm (9.1 in) in diameter. Trees used for nesting in the Greater Yellowstone area average 27 m (89 ft) high. Trees or forest used for nesting should have a canopy cover of no more than 60%, and no less than 20%, and be in close proximity to water. Most nests have been found within 200 m (660 ft) of open water. The greatest distance from open water recorded for a bald eagle nest was over 3 km (1.9 mi), in Florida. Bald eagle nests are often very large in order to compensate for size of the birds. The largest recorded nest was found in Florida in 1963, and was measured at 2.9 m (9.5 ft) wide and 6.1 m (20 ft) deep. In Florida, nesting habitats often consist of mangrove swamps, the shorelines of lakes and rivers, pinelands, seasonally flooded flatwoods, hardwood swamps, and open prairies and pastureland with scattered tall trees. Favored nesting trees in Florida are slash pines (Pinus elliottii), longleaf pines (P. palustris), loblolly pines (P. taeda) and cypress trees, but for the southern coastal areas where mangroves are usually used. In Wyoming, groves of mature cottonwoods or tall pines found along streams and rivers are typical bald eagle nesting habitats. Wyoming eagles may inhabit habitat types ranging from large, old-growth stands of ponderosa pines (Pinus ponderosa) to narrow strips of riparian trees surrounded by rangeland. In Southeast Alaska, Sitka spruce (Picea sitchensis) provided 78% of the nesting trees used by eagles, followed by hemlocks (Tsuga) at 20%. Increasingly, eagles nest near human-made reservoirs stocked with fish. The bald eagle is usually quite sensitive to human activity while nesting, and is found most commonly in areas with minimal human disturbance. It chooses sites more than 1.2 km (0.75 mi) from low-density human disturbance and more than 1.8 km (1.1 mi) from medium- to high-density human disturbance. However, bald eagles will occasionally nest in large estuaries or secluded groves within major cities, such as Hardtack Island on the Willamette River in Portland, Oregon, or John Heinz National Wildlife Refuge at Tinicum in Philadelphia, Pennsylvania, which are surrounded by a great quantity of human activity. Even more contrary to the usual sensitivity to disturbance, a family of bald eagles moved to the Harlem neighborhood in New York City in 2010. While wintering, bald eagles tend to be less habitat and disturbance sensitive. They will commonly congregate at spots with plentiful perches and waters with plentiful prey and (in northern climes) partially unfrozen waters. Alternately, non-breeding or wintering bald eagles, particularly in areas with a lack of human disturbance, spend their time in various upland, terrestrial habitats sometimes quite far away from waterways. In the northern half of North America (especially the interior portion), this terrestrial inhabitance by bald eagles tends to be especially prevalent because unfrozen water may not be accessible. Upland wintering habitats often consist of open habitats with concentrations of medium-sized mammals, such as prairies, meadows or tundra, or open forests with regular carrion access.",
+   667→      "locations": "Canada, United States of America",
+   668→      "group_behavior": "Solitary",
+   669→      "conservation_status": "Endangered",
+   670→      "biggest_threat": "Human-wildlife conflict",
+   671→      "distinctive_features": [],
+   672→      "population_trend": ""
+   673→    },
+   674→    "reproduction": {
+   675→      "gestation_period": "",
+   676→      "average_litter_size": "",
+   677→      "name_of_young": "chick"
+   678→    },
+   679→    "additional_info": {
+   680→      "lifestyle": "",
+   681→      "color": "",
+   682→      "skin_type": "",
+   683→      "prey": "fish",
+   684→      "slogan": "",
+   685→      "group": "flock",
+   686→      "number_of_species": "two",
+   687→      "estimated_population_size": "1,312",
+   688→      "most_distinctive_feature": "in plumage with a more solid warm brown color than an immature bald eagle, with a reddish-golden pat"
+   689→    },
+   690→    "distribution": {
+   691→      "countries": [
+   692→        "Canada",
+   693→        "United States of America"
+   694→      ],
+   695→      "coordinates": {
+   696→        "min_lat": 25.43792,
+   697→        "max_lat": 51.283605,
+   698→        "min_lon": -123.267463,
+   699→        "max_lon": -72.481989,
+   700→        "count": 50
+   701→      },
+   702→      "occurrence_count": 7776665
+   703→    },
+   704→    "sources": [
+   705→      "Wikipedia",
+   706→      "iNaturalist",
+   707→      "Wikidata",
+   708→      "GBIF",
+   709→      "EOL"
+   710→    ],
+   711→    "last_updated": "2026-03-21T21:36:47.835994"
+   712→  },
+   713→  {
+   714→    "id": "Q43306",
+   715→    "name": "Emperor Penguin",
+   716→    "scientific_name": "Aptenodytes forsteri",
+   717→    "common_names": [
+   718→      {
+   719→        "name": "Keeserpinguin",
+   720→        "language": "lb"
+   721→      },
+   722→      {
+   723→        "name": "皇帝企鹅",
+   724→        "language": "zh-hans"
+   725→      },
+   726→      {
+   727→        "name": "皇帝企鵝",
+   728→        "language": "zh-hant"
+   729→      },
+   730→      {
+   731→        "name": "皇帝企鵝",
+   732→        "language": "zh-hk"
+   733→      },
+   734→      {
+   735→        "name": "帝企鹅",
+   736→        "language": "zh-cn"
+   737→      },
+   738→      {
+   739→        "name": "皇帝企鹅",
+   740→        "language": "zh-sg"
+   741→      },
+   742→      {
+   743→        "name": "帝企鵝",
+   744→        "language": "zh-tw"
+   745→      },
+   746→      {
+   747→        "name": "pingwin cesarski",
+   748→        "language": "pl"
+   749→      },
+   750→      {
+   751→        "name": "Aptenodytes forsteri",
+   752→        "language": "eu"
+   753→      },
+   754→      {
+   755→        "name": "Aptenodytes forsteri",
+   756→        "language": "es"
+   757→      }
+   758→    ],
+   759→    "summary": "large flightless seabird endemic to Antarctica",
+   760→    "description": "large flightless seabird endemic to Antarctica",
+   761→    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+   762→    "images": [
+   763→      "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+   764→      "https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
+   765→      "https://upload.wikimedia.org/wikipedia/commons/4/4c/Penguin_diving_statistics.svg"
+   766→    ],
+   767→    "distribution_image": "",
+   768→    "time_period": {
+   769→      "text": "~40.0 million years ago",
+   770→      "width": "70%",
+   771→      "start": "40M years ago",
+   772→      "end": "Present",
+   773→      "millions_years": 40.0,
+   774→      "confidence": 2,
+   775→      "raw_match": "40 million years ago"
+   776→    },
+   777→    "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
+   778→    "wikidata_url": "https://www.wikidata.org/wiki/Q43306",
+   779→    "eol_url": "https://eol.org/pages/45512074",
+   780→    "classification": {
+   781→      "kingdom": "Animalia",
+   782→      "phylum": "Chordata",
+   783→      "class": "Aves",
+   784→      "order": "Sphenisciformes",
+   785→      "family": "Spheniscidae",
+   786→      "genus": "Aptenodytes",
+   787→      "species": "Aptenodytes forsteri"
+   788→    },
+   789→    "animal_type": "bird",
+   790→    "young_name": "chick",
+   791→    "group_name": "flock",
+   792→    "physical": {
+   793→      "weight": "",
+   794→      "length": "110–120 cm",
+   795→      "height": "81–94 cm",
+   796→      "top_speed": "6–9 km/h",
+   797→      "lifespan": "50 years"
+   798→    },
+   799→    "ecology": {
+   800→      "diet": "Carnivore",
+   801→      "habitat": "",
+   802→      "locations": "Antarctica",
+   803→      "group_behavior": "Solitary",
+   804→      "conservation_status": "Endangered",
+   805→      "biggest_threat": "Habitat loss, Human-wildlife conflict",
+   806→      "distinctive_features": [],
+   807→      "population_trend": ""
+   808→    },
+   809→    "reproduction": {
+   810→      "gestation_period": "",
+   811→      "average_litter_size": "",
+   812→      "name_of_young": "chick"
+   813→    },
+   814→    "additional_info": {
+   815→      "lifestyle": "",
+   816→      "color": "",
+   817→      "skin_type": "",
+   818→      "prey": "fish",
+   819→      "slogan": "",
+   820→      "group": "flock",
+   821→      "number_of_species": "",
+   822→      "estimated_population_size": "300",
+   823→      "most_distinctive_feature": "life cycle in such a harsh environment has been described in print and visual media"
+   824→    },
+   825→    "distribution": {
+   826→      "countries": [
+   827→        "Antarctica"
+   828→      ],
+   829→      "coordinates": {
+   830→        "min_lat": -77.786996,
+   831→        "max_lat": -67.0071,
+   832→        "min_lon": -178.772833,
+   833→        "max_lon": 169.40249,
+   834→        "count": 50
+   835→      },
+   836→      "occurrence_count": 131643
+   837→    },
+   838→    "sources": [
+   839→      "Wikipedia",
+   840→      "iNaturalist",
+   841→      "Wikidata",
+   842→      "GBIF",
+   843→      "EOL"
+   844→    ],
+   845→    "last_updated": "2026-03-21T21:36:56.771039"
+   846→  },
+   847→  {
+   848→    "id": "Q47164",
+   849→    "name": "Great White Shark",
+   850→    "scientific_name": "Carcharodon carcharias",
+   851→    "common_names": [
+   852→      {
+   853→        "name": "大白鲨",
+   854→        "language": "zh-hans"
+   855→      },
+   856→      {
+   857→        "name": "大白鯊",
+   858→        "language": "zh-hant"
+   859→      },
+   860→      {
+   861→        "name": "大白鯊",
+   862→        "language": "zh-hk"
+   863→      },
+   864→      {
+   865→        "name": "大白鲨",
+   866→        "language": "zh-cn"
+   867→      },
+   868→      {
+   869→        "name": "大白鲨",
+   870→        "language": "zh-sg"
+   871→      },
+   872→      {
+   873→        "name": "食人鯊",
+   874→        "language": "zh-tw"
+   875→      },
+   876→      {
+   877→        "name": "Hiu putih",
+   878→        "language": "jv"
+   879→      },
+   880→      {
+   881→        "name": "Marrazo zuri",
+   882→        "language": "eu"
+   883→      },
+   884→      {
+   885→        "name": "żarłacz biały",
+   886→        "language": "pl"
+   887→      },
+   888→      {
+   889→        "name": "Velika bijela ajkula",
+   890→        "language": "bs"
+   891→      }
+   892→    ],
+   893→    "summary": "species of large lamniform shark",
+   894→    "description": "species of large lamniform shark",
+   895→    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Great_white_shark.jpg",
+   896→    "images": [
+   897→      "https://upload.wikimedia.org/wikipedia/commons/4/4b/Great_white_shark.jpg",
+   898→      "https://upload.wikimedia.org/wikipedia/commons/8/85/202410_Great_white_shark.svg",
+   899→      "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
+   900→    ],
+   901→    "distribution_image": "",
+   902→    "time_period": {
+   903→      "text": "~43.0 million years ago",
+   904→      "width": "70%",
+   905→      "start": "43M years ago",
+   906→      "end": "Present",
+   907→      "millions_years": 43.0,
+   908→      "confidence": 2,
+   909→      "raw_match": "43 million years ago"
+   910→    },
+   911→    "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
+   912→    "wikidata_url": "https://www.wikidata.org/wiki/Q47164",
+   913→    "eol_url": "https://eol.org/pages/46559751",
+   914→    "classification": {
+   915→      "kingdom": "Animalia",
+   916→      "phylum": "Chordata",
+   917→      "class": "Chondrichthyes",
+   918→      "order": "Lamniformes",
+   919→      "family": "Lamnidae",
+   920→      "genus": "Carcharodon",
+   921→      "species": "Carcharodon carcharias"
+   922→    },
+   923→    "animal_type": "fish",
+   924→    "young_name": "fry",
+   925→    "group_name": "school",
+   926→    "physical": {
+   927→      "weight": "",
+   928→      "length": "4.6–4.9 m",
+   929→      "height": "",
+   930→      "top_speed": "24.12 km/h",
+   931→      "lifespan": ""
+   932→    },
+   933→    "ecology": {
+   934→      "diet": "Carnivore",
+   935→      "habitat": "",
+   936→      "locations": "Australia, Canada, China, Greece, Indonesia, Italy, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
+   937→      "group_behavior": "Solitary",
+   938→      "conservation_status": "Critically Endangered",
+   939→      "biggest_threat": "Human-wildlife conflict",
+   940→      "distinctive_features": [],
+   941→      "population_trend": ""
+   942→    },
+   943→    "reproduction": {
+   944→      "gestation_period": "",
+   945→      "average_litter_size": "",
+   946→      "name_of_young": "fry"
+   947→    },
+   948→    "additional_info": {
+   949→      "lifestyle": "",
+   950→      "color": "",
+   951→      "skin_type": "",
+   952→      "prey": "fish",
+   953→      "slogan": "",
+   954→      "group": "school",
+   955→      "number_of_species": "five",
+   956→      "estimated_population_size": "300",
+   957→      "most_distinctive_feature": "forms of body language are known, most of which consist of two sharks swimming with or around each o"
+   958→    },
+   959→    "distribution": {
+   960→      "countries": [
+   961→        "Australia",
+   962→        "Canada",
+   963→        "China",
+   964→        "Greece",
+   965→        "Indonesia",
+   966→        "Italy",
+   967→        "Montenegro",
+   968→        "Netherlands",
+   969→        "New Zealand",
+   970→        "South Africa",
+   971→        "United States of America"
+   972→      ],
+   973→      "coordinates": {
+   974→        "min_lat": -50.500713,
+   975→        "max_lat": 44.52273,
+   976→        "min_lon": -122.500884,
+   977→        "max_lon": 176.113362,
+   978→        "count": 50
+   979→      },
+   980→      "occurrence_count": 18141
+   981→    },
+   982→    "sources": [
+   983→      "Wikipedia",
+   984→      "iNaturalist",
+   985→      "Wikidata",
+   986→      "GBIF",
+   987→      "EOL"
+   988→    ],
+   989→    "last_updated": "2026-03-21T21:37:12.648718"
+   990→  },
+   991→  {
+   992→    "id": "Q39709",
+   993→    "name": "Atlantic Salmon",
+   994→    "scientific_name": "Salmo salar",
+   995→    "common_names": [
+   996→      {
+   997→        "name": "大西洋鲑",
+   998→        "language": "zh-hans"
+   999→      },
+  1000→      {
+  1001→        "name": "大西洋鮭",
+  1002→        "language": "zh-hant"
+  1003→      },
+  1004→      {
+  1005→        "name": "大西洋鮭",
+  1006→        "language": "zh-hk"
+  1007→      },
+  1008→      {
+  1009→        "name": "大西洋鲑",
+  1010→        "language": "zh-cn"
+  1011→      },
+  1012→      {
+  1013→        "name": "大西洋鲑",
+  1014→        "language": "zh-sg"
+  1015→      },
+  1016→      {
+  1017→        "name": "大西洋鮭",
+  1018→        "language": "zh-tw"
+  1019→      },
+  1020→      {
+  1021→        "name": "Lachs",
+  1022→        "language": "gsw"
+  1023→      },
+  1024→      {
+  1025→        "name": "Atlantic salmon",
+  1026→        "language": "pam"
+  1027→      },
+  1028→      {
+  1029→        "name": "Izokin",
+  1030→        "language": "eu"
+  1031→      },
+  1032→      {
+  1033→        "name": "łosoś szlachetny",
+  1034→        "language": "pl"
+  1035→      }
+  1036→    ],
+  1037→    "summary": "species of fish",
+  1038→    "description": "species of fish",
+  1039→    "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
+  1040→    "images": [
+  1041→      "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
+  1042→      "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
+  1043→      "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
+  1044→      "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg"
+  1045→    ],
+  1046→    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg",
+  1047→    "time_period": {
+  1048→      "text": "Evolved ~500 million years ago",
+  1049→      "width": "95%",
+  1050→      "start": "500M years ago",
+  1051→      "end": "Present"
+  1052→    },
+  1053→    "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
+  1054→    "wikidata_url": "https://www.wikidata.org/wiki/Q39709",
+  1055→    "eol_url": "https://eol.org/pages/46563143",
+  1056→    "classification": {
+  1057→      "kingdom": "Animalia",
+  1058→      "phylum": "Chordata",
+  1059→      "class": "Actinopterygii",
+  1060→      "order": "Salmoniformes",
+  1061→      "family": "Salmonidae",
+  1062→      "genus": "Salmo",
+  1063→      "species": "Salmo salar"
+  1064→    },
+  1065→    "animal_type": "fish",
+  1066→    "young_name": "fry",
+  1067→    "group_name": "school",
+  1068→    "physical": {
+  1069→      "weight": "",
+  1070→      "length": "1960 in",
+  1071→      "height": "",
+  1072→      "top_speed": "",
+  1073→      "lifespan": ""
+  1074→    },
+  1075→    "ecology": {
+  1076→      "diet": "Carnivore",
+  1077→      "habitat": "",
+  1078→      "locations": "Canada, France, Netherlands, United States of America",
+  1079→      "group_behavior": "Solitary",
+  1080→      "conservation_status": "Endangered",
+  1081→      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+  1082→      "distinctive_features": [],
+  1083→      "population_trend": ""
+  1084→    },
+  1085→    "reproduction": {
+  1086→      "gestation_period": "",
+  1087→      "average_litter_size": "",
+  1088→      "name_of_young": "fry"
+  1089→    },
+  1090→    "additional_info": {
+  1091→      "lifestyle": "",
+  1092→      "color": "",
+  1093→      "skin_type": "",
+  1094→      "prey": "fish",
+  1095→      "slogan": "",
+  1096→      "group": "school",
+  1097→      "number_of_species": "",
+  1098→      "estimated_population_size": "",
+  1099→      "most_distinctive_feature": "es of Atlantic salmon vary between two and eight years"
+  1100→    },
+  1101→    "distribution": {
+  1102→      "countries": [
+  1103→        "Canada",
+  1104→        "France",
+  1105→        "Netherlands",
+  1106→        "United States of America"
+  1107→      ],
+  1108→      "coordinates": {
+  1109→        "min_lat": 42.385017,
+  1110→        "max_lat": 50.004707,
+  1111→        "min_lon": -76.877625,
+  1112→        "max_lon": 1.520426,
+  1113→        "count": 50
+  1114→      },
+  1115→      "occurrence_count": 1453690
+  1116→    },
+  1117→    "sources": [
+  1118→      "Wikipedia",
+  1119→      "iNaturalist",
+  1120→      "Wikidata",
+  1121→      "GBIF",
+  1122→      "EOL"
+  1123→    ],
+  1124→    "last_updated": "2026-03-21T21:37:20.365054"
+  1125→  },
+  1126→  {
+  1127→    "id": "Q7785",
+  1128→    "name": "Green Sea Turtle",
+  1129→    "scientific_name": "Chelonia mydas",
+  1130→    "common_names": [
+  1131→      {
+  1132→        "name": "Le̍k hái-ku",
+  1133→        "language": "nan"
+  1134→      },
+  1135→      {
+  1136→        "name": "绿蠵龟",
+  1137→        "language": "zh-hans"
+  1138→      },
+  1139→      {
+  1140→        "name": "綠蠵龜",
+  1141→        "language": "zh-hant"
+  1142→      },
+  1143→      {
+  1144→        "name": "綠蠵龜",
+  1145→        "language": "zh-hk"
+  1146→      },
+  1147→      {
+  1148→        "name": "绿蠵龟",
+  1149→        "language": "zh-cn"
+  1150→      },
+  1151→      {
+  1152→        "name": "绿蠵龟",
+  1153→        "language": "zh-sg"
+  1154→      },
+  1155→      {
+  1156→        "name": "綠蠵龜",
+  1157→        "language": "zh-tw"
+  1158→      },
+  1159→      {
+  1160→        "name": "Жашыл ташбака",
+  1161→        "language": "ky"
+  1162→      },
+  1163→      {
+  1164→        "name": "Bulus Ijem",
+  1165→        "language": "jv"
+  1166→      },
+  1167→      {
+  1168→        "name": "Chelonia mydas",
+  1169→        "language": "eu"
+  1170→      }
+  1171→    ],
+  1172→    "summary": "species of sea turtle",
+  1173→    "description": "species of sea turtle",
+  1174→    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+  1175→    "images": [
+  1176→      "https://upload.wikimedia.org/wikipedia/commons/a/a3/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+  1177→      "https://upload.wikimedia.org/wikipedia/commons/b/bb/Hawaii_turtle_2.JPG",
+  1178→      "https://upload.wikimedia.org/wikipedia/commons/4/4e/202304_Green_turtle.svg"
+  1179→    ],
+  1180→    "distribution_image": "",
+  1181→    "time_period": {
+  1182→      "text": "Evolved ~300 million years ago",
+  1183→      "width": "90%",
+  1184→      "start": "300M years ago",
+  1185→      "end": "Present"
+  1186→    },
+  1187→    "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
+  1188→    "wikidata_url": "https://www.wikidata.org/wiki/Q7785",
+  1189→    "eol_url": "https://eol.org/pages/46559469",
+  1190→    "classification": {
+  1191→      "kingdom": "Animalia",
+  1192→      "phylum": "Chordata",
+  1193→      "class": "Reptilia",
+  1194→      "order": "Testudines",
+  1195→      "family": "Cheloniidae",
+  1196→      "genus": "Chelonia",
+  1197→      "species": "Chelonia mydas"
+  1198→    },
+  1199→    "animal_type": "reptile",
+  1200→    "young_name": "hatchling",
+  1201→    "group_name": "group",
+  1202→    "physical": {
+  1203→      "weight": "",
+  1204→      "length": "78–112 cm",
+  1205→      "height": "",
+  1206→      "top_speed": "3 km/h",
+  1207→      "lifespan": ""
+  1208→    },
+  1209→    "ecology": {
+  1210→      "diet": "Herbivore",
+  1211→      "habitat": "Green sea turtles move across three habitat types, depending on their life stage. They lay eggs on beaches. Mature turtles spend most of their time in shallow, coastal waters with lush seagrass beds. Adults frequent inshore bays, lagoons, and shoals with lush seagrass meadows. Entire generations often migrate between one pair of feeding and nesting areas. Green sea turtles, Chelonia mydas, are classified as an aquatic species and are distributed around the globe in warm tropical to subtropical waters. The environmental parameter that limits the distribution of the turtles is ocean temperatures below 7 to 10 degrees Celsius. Within their geographical range, the green sea turtles generally stay near continental and island coastlines. Near the coastlines, the green sea turtles live within shallow bays and protected shores. In these protected shores and bays, the green sea turtle habitats include coral reefs, salt marshes, and nearshore seagrass beds. The coral reefs provide red, brown, and green algae for their diet and give protection from predators and rough storms within the ocean. The salt marshes and seagrass beds contain seaweed and grass vegetation, allowing ample habitat for the sea turtles. Turtles spend most of their first five years in convergence zones within the bare open ocean that surround them. These young turtles are rarely seen as they swim in deep, pelagic waters. Green sea turtles typically swim at 2.5–3 km/h (1.6–1.9 mph).",
+  1212→      "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Indonesia, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
+  1213→      "group_behavior": "Solitary",
+  1214→      "conservation_status": "Critically Endangered",
+  1215→      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+  1216→      "distinctive_features": [],
+  1217→      "population_trend": ""
+  1218→    },
+  1219→    "reproduction": {
+  1220→      "gestation_period": "",
+  1221→      "average_litter_size": "",
+  1222→      "name_of_young": "hatchling"
+  1223→    },
+  1224→    "additional_info": {
+  1225→      "lifestyle": "",
+  1226→      "color": "",
+  1227→      "skin_type": "",
+  1228→      "prey": "fish",
+  1229→      "slogan": "",
+  1230→      "group": "group",
+  1231→      "number_of_species": "",
+  1232→      "estimated_population_size": "",
+  1233→      "most_distinctive_feature": "s distinguish the green turtle from the other members of its family"
+  1234→    },
+  1235→    "distribution": {
+  1236→      "countries": [
+  1237→        "Australia",
+  1238→        "Bahamas",
+  1239→        "Barbados",
+  1240→        "Bonaire, Sint Eustatius and Saba",
+  1241→        "Brazil",
+  1242→        "Canada",
+  1243→        "Chinese Taipei",
+  1244→        "Cook Islands",
+  1245→        "Costa Rica",
+  1246→        "Ecuador",
+  1247→        "Egypt",
+  1248→        "Guadeloupe",
+  1249→        "Honduras",
+  1250→        "Indonesia",
+  1251→        "Martinique",
+  1252→        "Mexico",
+  1253→        "New Caledonia",
+  1254→        "New Zealand",
+  1255→        "Norfolk Island",
+  1256→        "Northern Mariana Islands",
+  1257→        "Oman",
+  1258→        "Philippines",
+  1259→        "Puerto Rico",
+  1260→        "United States of America",
+  1261→        "Virgin Islands (U.S.)"
+  1262→      ],
+  1263→      "coordinates": {
+  1264→        "min_lat": -31.034203,
+  1265→        "max_lat": 49.095935,
+  1266→        "min_lon": -159.706384,
+  1267→        "max_lon": 166.510188,
+  1268→        "count": 50
+  1269→      },
+  1270→      "occurrence_count": 252685
+  1271→    },
+  1272→    "sources": [
+  1273→      "Wikipedia",
+  1274→      "iNaturalist",
+  1275→      "Wikidata",
+  1276→      "GBIF",
+  1277→      "EOL"
+  1278→    ],
+  1279→    "last_updated": "2026-03-21T21:37:30.645788"
+  1280→  },
+  1281→  {
+  1282→    "id": "Q189609",
+  1283→    "name": "King Cobra",
+  1284→    "scientific_name": "Ophiophagus hannah",
+  1285→    "common_names": [
+  1286→      {
+  1287→        "name": "眼镜王蛇",
+  1288→        "language": "zh"
+  1289→      },
+  1290→      {
+  1291→        "name": "Ula anang",
+  1292→        "language": "jv"
+  1293→      },
+  1294→      {
+  1295→        "name": "kobra królewska",
+  1296→        "language": "pl"
+  1297→      },
+  1298→      {
+  1299→        "name": "Ophiophagus hannah",
+  1300→        "language": "es"
+  1301→      },
+  1302→      {
+  1303→        "name": "கருநாகம்",
+  1304→        "language": "ta"
+  1305→      },
+  1306→      {
+  1307→        "name": "Kownukronsneki",
+  1308→        "language": "srn"
+  1309→      },
+  1310→      {
+  1311→        "name": "Ular Tedung Selar",
+  1312→        "language": "ms"
+  1313→      },
+  1314→      {
+  1315→        "name": "királykobra",
+  1316→        "language": "hu"
+  1317→      },
+  1318→      {
+  1319→        "name": "শঙ্খচূড়",
+  1320→        "language": "bn"
+  1321→      },
+  1322→      {
+  1323→        "name": "ملك الكوبرا",
+  1324→        "language": "ar"
+  1325→      }
+  1326→    ],
+  1327→    "summary": "species of reptile",
+  1328→    "description": "species of reptile",
+  1329→    "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
+  1330→    "images": [
+  1331→      "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
+  1332→      "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png"
+  1333→    ],
+  1334→    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png",
+  1335→    "time_period": {
+  1336→      "text": "Evolved ~300 million years ago",
+  1337→      "width": "90%",
+  1338→      "start": "300M years ago",
+  1339→      "end": "Present"
+  1340→    },
+  1341→    "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
+  1342→    "wikidata_url": "https://www.wikidata.org/wiki/Q189609",
+  1343→    "eol_url": "https://eol.org/pages/1055746",
+  1344→    "classification": {
+  1345→      "kingdom": "Animalia",
+  1346→      "phylum": "Chordata",
+  1347→      "class": "Reptilia",
+  1348→      "order": "Squamata",
+  1349→      "family": "Elapidae",
+  1350→      "genus": "Ophiophagus",
+  1351→      "species": "Ophiophagus hannah"
+  1352→    },
+  1353→    "animal_type": "reptile",
+  1354→    "young_name": "hatchling",
+  1355→    "group_name": "group",
+  1356→    "physical": {
+  1357→      "weight": "",
+  1358→      "length": "3–5 m",
+  1359→      "height": "",
+  1360→      "top_speed": "",
+  1361→      "lifespan": ""
+  1362→    },
+  1363→    "ecology": {
+  1364→      "diet": "Carnivore",
+  1365→      "habitat": "",
+  1366→      "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
+  1367→      "group_behavior": "Solitary",
+  1368→      "conservation_status": "Unknown",
+  1369→      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+  1370→      "distinctive_features": [],
+  1371→      "population_trend": ""
+  1372→    },
+  1373→    "reproduction": {
+  1374→      "gestation_period": "",
+  1375→      "average_litter_size": "",
+  1376→      "name_of_young": "hatchling"
+  1377→    },
+  1378→    "additional_info": {
+  1379→      "lifestyle": "",
+  1380→      "color": "",
+  1381→      "skin_type": "",
+  1382→      "prey": "hunts during the day, but has also been seen at night, albeit rarely",
+  1383→      "slogan": "",
+  1384→      "group": "group",
+  1385→      "number_of_species": "two",
+  1386→      "estimated_population_size": "",
+  1387→      "most_distinctive_feature": ""
+  1388→    },
+  1389→    "distribution": {
+  1390→      "countries": [
+  1391→        "Bangladesh",
+  1392→        "Bhutan",
+  1393→        "Cambodia",
+  1394→        "China",
+  1395→        "Hong Kong",
+  1396→        "India",
+  1397→        "Nepal",
+  1398→        "Singapore",
+  1399→        "Thailand",
+  1400→        "Viet Nam"
+  1401→      ],
+  1402→      "coordinates": {
+  1403→        "min_lat": 8.647457,
+  1404→        "max_lat": 27.84147,
+  1405→        "min_lon": 84.612784,
+  1406→        "max_lon": 116.32829,
+  1407→        "count": 50
+  1408→      },
+  1409→      "occurrence_count": 857
+  1410→    },
+  1411→    "sources": [
+  1412→      "Wikipedia",
+  1413→      "iNaturalist",
+  1414→      "Wikidata",
+  1415→      "GBIF",
+  1416→      "EOL"
+  1417→    ],
+  1418→    "last_updated": "2026-03-21T21:37:36.601481"
+  1419→  },
+  1420→  {
+  1421→    "id": "Q270238",
+  1422→    "name": "American Bullfrog",
+  1423→    "scientific_name": "Lithobates catesbeianus",
+  1424→    "common_names": [
+  1425→      {
+  1426→        "name": "Lithobates catesbeianus",
+  1427→        "language": "ceb"
+  1428→      },
+  1429→      {
+  1430→        "name": "Lithobates catesbeianus",
+  1431→        "language": "sv"
+  1432→      },
+  1433→      {
+  1434→        "name": "Lithobates catesbeianus",
+  1435→        "language": "war"
+  1436→      },
+  1437→      {
+  1438→        "name": "Lithobates catesbeianus",
+  1439→        "language": "de"
+  1440→      },
+  1441→      {
+  1442→        "name": "Lithobates catesbeianus",
+  1443→        "language": "it"
+  1444→      },
+  1445→      {
+  1446→        "name": "Lithobates catesbeianus",
+  1447→        "language": "es"
+  1448→      },
+  1449→      {
+  1450→        "name": "Lithobates catesbeianus",
+  1451→        "language": "fr"
+  1452→      },
+  1453→      {
+  1454→        "name": "Lithobates catesbeianus",
+  1455→        "language": "bg"
+  1456→      },
+  1457→      {
+  1458→        "name": "Lithobates catesbeianus",
+  1459→        "language": "ru"
+  1460→      },
+  1461→      {
+  1462→        "name": "Lithobates catesbeianus",
+  1463→        "language": "nl"
+  1464→      }
+  1465→    ],
+  1466→    "summary": "species of amphibian",
+  1467→    "description": "species of amphibian",
+  1468→    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
+  1469→    "images": [
+  1470→      "https://upload.wikimedia.org/wikipedia/commons/e/e4/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
+  1471→      "https://upload.wikimedia.org/wikipedia/commons/b/b9/202312_American_bullfrog.svg",
+  1472→      "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png"
+  1473→    ],
+  1474→    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png",
+  1475→    "time_period": {
+  1476→      "text": "Evolved ~370 million years ago",
+  1477→      "width": "92%",
+  1478→      "start": "370M years ago",
+  1479→      "end": "Present"
+  1480→    },
+  1481→    "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
+  1482→    "wikidata_url": "https://www.wikidata.org/wiki/Q270238",
+  1483→    "eol_url": "https://eol.org/pages/330963",
+  1484→    "classification": {
+  1485→      "kingdom": "Animalia",
+  1486→      "phylum": "Chordata",
+  1487→      "class": "Amphibia",
+  1488→      "order": "Anura",
+  1489→      "family": "Ranidae",
+  1490→      "genus": "Lithobates",
+  1491→      "species": "Lithobates catesbeianus"
+  1492→    },
+  1493→    "animal_type": "amphibian",
+  1494→    "young_name": "tadpole",
+  1495→    "group_name": "group",
+  1496→    "physical": {
+  1497→      "weight": "",
+  1498→      "length": "3.6–6 in",
+  1499→      "height": "",
+  1500→      "top_speed": "",
+  1501→      "lifespan": "16 years"
+  1502→    },
+  1503→    "ecology": {
+  1504→      "diet": "Carnivore",
+  1505→      "habitat": "Bullfrogs are voracious, opportunistic, ambush predators that prey on any small animal they can overpower and consume. Bullfrog stomachs have been found to contain rodents, small lizards and snakes, other frogs and toads, other amphibians, crayfish, other crustaceans, small birds, scorpions, tarantulas and bats, as well as the many types of invertebrates, such as snails, worms and insects, which are the usual food of ranid frogs. These studies revealed the bullfrog's diet to be u",
+  1506→      "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
+  1507→      "group_behavior": "Solitary",
+  1508→      "conservation_status": "Vulnerable",
+  1509→      "biggest_threat": "Human-wildlife conflict",
+  1510→      "distinctive_features": [],
+  1511→      "population_trend": ""
+  1512→    },
+  1513→    "reproduction": {
+  1514→      "gestation_period": "",
+  1515→      "average_litter_size": "",
+  1516→      "name_of_young": "tadpole"
+  1517→    },
+  1518→    "additional_info": {
+  1519→      "lifestyle": "",
+  1520→      "color": "",
+  1521→      "skin_type": "",
+  1522→      "prey": "fish",
+  1523→      "slogan": "",
+  1524→      "group": "group",
+  1525→      "number_of_species": "",
+  1526→      "estimated_population_size": "",
+  1527→      "most_distinctive_feature": "among North American ranids in the inclusion of a large percentage of aquatic animals, such as fish,"
+  1528→    },
+  1529→    "distribution": {
+  1530→      "countries": [
+  1531→        "Argentina",
+  1532→        "Belgium",
+  1533→        "Colombia",
+  1534→        "Dominican Republic",
+  1535→        "Japan",
+  1536→        "Mexico",
+  1537→        "United States of America"
+  1538→      ],
+  1539→      "coordinates": {
+  1540→        "min_lat": 19.660895,
+  1541→        "max_lat": 51.14126,
+  1542→        "min_lon": -157.91153,
+  1543→        "max_lon": 4.99305,
+  1544→        "count": 50
+  1545→      },
+  1546→      "occurrence_count": 147883
+  1547→    },
+  1548→    "sources": [
+  1549→      "Wikipedia",
+  1550→      "iNaturalist",
+  1551→      "Wikidata",
+  1552→      "GBIF",
+  1553→      "EOL"
+  1554→    ],
+  1555→    "last_updated": "2026-03-21T21:37:42.678209"
+  1556→  },
+  1557→  {
+  1558→    "id": "Q165980",
+  1559→    "name": "Monarch Butterfly",
+  1560→    "scientific_name": "Danaus plexippus",
+  1561→    "common_names": [
+  1562→      {
+  1563→        "name": "黑脉金斑蝶",
+  1564→        "language": "zh-hans"
+  1565→      },
+  1566→      {
+  1567→        "name": "帝王斑蝶",
+  1568→        "language": "zh-hant"
+  1569→      },
+  1570→      {
+  1571→        "name": "帝王斑蝶",
+  1572→        "language": "zh-hk"
+  1573→      },
+  1574→      {
+  1575→        "name": "黑脉金斑蝶",
+  1576→        "language": "zh-cn"
+  1577→      },
+  1578→      {
+  1579→        "name": "君主斑蝶",
+  1580→        "language": "zh-sg"
+  1581→      },
+  1582→      {
+  1583→        "name": "帝王斑蝶",
+  1584→        "language": "zh-tw"
+  1585→      },
+  1586→      {
+  1587→        "name": "Danaus plexippus",
+  1588→        "language": "pl"
+  1589→      },
+  1590→      {
+  1591→        "name": "Quetzalpāpalōtl",
+  1592→        "language": "nah"
+  1593→      },
+  1594→      {
+  1595→        "name": "דנאית מלכותית",
+  1596→        "language": "he"
+  1597→      },
+  1598→      {
+  1599→        "name": "monarque (papillon)",
+  1600→        "language": "fr"
+  1601→      }
+  1602→    ],
+  1603→    "summary": "milkweed butterfly in the family Nymphalidae",
+  1604→    "description": "milkweed butterfly in the family Nymphalidae",
+  1605→    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
+  1606→    "images": [
+  1607→      "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
+  1608→      "https://upload.wikimedia.org/wikipedia/commons/e/e4/Danaus_plexippus_MHNT.jpg",
+  1609→      "https://upload.wikimedia.org/wikipedia/commons/9/90/Monarch_caterpillar_(23229).jpg"
+  1610→    ],
+  1611→    "distribution_image": "",
+  1612→    "time_period": {
+  1613→      "text": "Evolved ~400 million years ago",
+  1614→      "width": "93%",
+  1615→      "start": "400M years ago",
+  1616→      "end": "Present"
+  1617→    },
+  1618→    "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
+  1619→    "wikidata_url": "https://www.wikidata.org/wiki/Q165980",
+  1620→    "eol_url": "https://eol.org/pages/4090155",
+  1621→    "classification": {
+  1622→      "kingdom": "Animalia",
+  1623→      "phylum": "Arthropoda",
+  1624→      "class": "Insecta",
+  1625→      "order": "Lepidoptera",
+  1626→      "family": "Nymphalidae",
+  1627→      "genus": "Danaus",
+  1628→      "species": "Danaus plexippus"
+  1629→    },
+  1630→    "animal_type": "insect",
+  1631→    "young_name": "larva",
+  1632→    "group_name": "colony",
+  1633→    "physical": {
+  1634→      "weight": "",
+  1635→      "length": "1.2 m",
+  1636→      "height": "",
+  1637→      "top_speed": "9 km/h",
+  1638→      "lifespan": "20 years"
+  1639→    },
+  1640→    "ecology": {
+  1641→      "diet": "Carnivore",
+  1642→      "habitat": "",
+  1643→      "locations": "Australia, Colombia, Mexico, New Zealand, United States of America",
+  1644→      "group_behavior": "Colony",
+  1645→      "conservation_status": "Endangered",
+  1646→      "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+  1647→      "distinctive_features": [],
+  1648→      "population_trend": ""
+  1649→    },
+  1650→    "reproduction": {
+  1651→      "gestation_period": "",
+  1652→      "average_litter_size": "",
+  1653→      "name_of_young": "larva"
+  1654→    },
+  1655→    "additional_info": {
+  1656→      "lifestyle": "",
+  1657→      "color": "",
+  1658→      "skin_type": "",
+  1659→      "prey": "Fish",
+  1660→      "slogan": "",
+  1661→      "group": "colony",
+  1662→      "number_of_species": "three",
+  1663→      "estimated_population_size": "",
+  1664→      "most_distinctive_feature": "for its annual southward late-summer/autumn instinctive migration from the northern and central Unit"
+  1665→    },
+  1666→    "distribution": {
+  1667→      "countries": [
+  1668→        "Australia",
+  1669→        "Colombia",
+  1670→        "Mexico",
+  1671→        "New Zealand",
+  1672→        "United States of America"
+  1673→      ],
+  1674→      "coordinates": {
+  1675→        "min_lat": -37.866868,
+  1676→        "max_lat": 37.519265,
+  1677→        "min_lon": -157.855928,
+  1678→        "max_lon": 153.064852,
+  1679→        "count": 50
+  1680→      },
+  1681→      "occurrence_count": 750025
+  1682→    },
+  1683→    "sources": [
+  1684→      "Wikipedia",
+  1685→      "iNaturalist",
+  1686→      "Wikidata",
+  1687→      "GBIF",
+  1688→      "EOL"
+  1689→    ],
+  1690→    "last_updated": "2026-03-21T21:37:53.157968"
+  1691→  },
+  1692→  {
+  1693→    "id": "Q7316",
+  1694→    "name": "Honey Bee",
+  1695→    "scientific_name": "Apis mellifera",
+  1696→    "common_names": [
+  1697→      {
+  1698→        "name": "西方蜜蜂",
+  1699→        "language": "zh"
+  1700→      },
+  1701→      {
+  1702→        "name": "erle arrunt",
+  1703→        "language": "eu"
+  1704→      },
+  1705→      {
+  1706→        "name": "pszczoła miodna",
+  1707→        "language": "pl"
+  1708→      },
+  1709→      {
+  1710→        "name": "Alghina",
+  1711→        "language": "rup"
+  1712→      },
+  1713→      {
+  1714→        "name": "Apis mellifera",
+  1715→        "language": "es"
+  1716→      },
+  1717→      {
+  1718→        "name": "Heuningby",
+  1719→        "language": "af"
+  1720→      },
+  1721→      {
+  1722→        "name": "Apis mellifera",
+  1723→        "language": "oc"
+  1724→      },
+  1725→      {
+  1726→        "name": "Lebah Eropah",
+  1727→        "language": "ms"
+  1728→      },
+  1729→      {
+  1730→        "name": "házi méh",
+  1731→        "language": "hu"
+  1732→      },
+  1733→      {
+  1734→        "name": "meemesilane",
+  1735→        "language": "et"
+  1736→      }
+  1737→    ],
+  1738→    "summary": "species of insect",
+  1739→    "description": "species of insect",
+  1740→    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
+  1741→    "images": [
+  1742→      "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
+  1743→      "https://upload.wikimedia.org/wikipedia/commons/9/99/Apis_mellifera_flying.jpg",
+  1744→      "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg",
+  1745→      "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg"
+  1746→    ],
+  1747→    "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg",
+  1748→    "time_period": {
+  1749→      "text": "~34.0 million years ago",
+  1750→      "width": "70%",
+  1751→      "start": "34M years ago",
+  1752→      "end": "Present",
+  1753→      "millions_years": 34.0,
+  1754→      "confidence": 2,
+  1755→      "raw_match": "34 mya"
+  1756→    },
+  1757→    "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
+  1758→    "wikidata_url": "https://www.wikidata.org/wiki/Q7316",
+  1759→    "eol_url": "",
+  1760→    "classification": {
+  1761→      "kingdom": "Animalia",
+  1762→      "phylum": "Arthropoda",
+  1763→      "class": "Insecta",
+  1764→      "order": "Hymenoptera",
+  1765→      "family": "Apidae",
+  1766→      "genus": "Apis",
+  1767→      "species": "Apis mellifera"
+  1768→    },
+  1769→    "animal_type": "insect",
+  1770→    "young_name": "larva",
+  1771→    "group_name": "colony",
+  1772→    "physical": {
+  1773→      "weight": "",
+  1774→      "length": "4 m",
+  1775→      "height": "",
+  1776→      "top_speed": "",
+  1777→      "lifespan": ""
+  1778→    },
+  1779→    "ecology": {
+  1780→      "diet": "Carnivore",
+  1781→      "habitat": "",
+  1782→      "locations": "Argentina, Australia, Brazil, Canada, Chinese Taipei, Dominican Republic, Ecuador, Egypt, France, Greece, Grenada, Guatemala, Israel, Martinique, Mexico, New Caledonia, New Zealand, Peru, Portugal, Puerto Rico, Saint Vincent and the Grenadines, Spain, United States of America",
+  1783→      "group_behavior": "Solitary",
+  1784→      "conservation_status": "Vulnerable",
+  1785→      "biggest_threat": "Human-wildlife conflict",
+  1786→      "distinctive_features": [],
+  1787→      "population_trend": ""
+  1788→    },
+  1789→    "reproduction": {
+  1790→      "gestation_period": "",
+  1791→      "average_litter_size": "",
+  1792→      "name_of_young": "larva"
+  1793→    },
+  1794→    "additional_info": {
+  1795→      "lifestyle": "",
+  1796→      "color": "",
+  1797→      "skin_type": "",
+  1798→      "prey": "",
+  1799→      "slogan": "",
+  1800→      "group": "colony",
+  1801→      "number_of_species": "two",
+  1802→      "estimated_population_size": "43",
+  1803→      "most_distinctive_feature": ""
+  1804→    },
+  1805→    "distribution": {
+  1806→      "countries": [
+  1807→        "Argentina",
+  1808→        "Australia",
+  1809→        "Brazil",
+  1810→        "Canada",
+  1811→        "Chinese Taipei",
+  1812→        "Dominican Republic",
+  1813→        "Ecuador",
+  1814→        "Egypt",
+  1815→        "France",
+  1816→        "Greece",
+  1817→        "Grenada",
+  1818→        "Guatemala",
+  1819→        "Israel",
+  1820→        "Martinique",
+  1821→        "Mexico",
+  1822→        "New Caledonia",
+  1823→        "New Zealand",
+  1824→        "Peru",
+  1825→        "Portugal",
+  1826→        "Puerto Rico",
+  1827→        "Saint Vincent and the Grenadines",
+  1828→        "Spain",
+  1829→        "United States of America"
+  1830→      ],
+  1831→      "coordinates": {
+  1832→        "min_lat": -43.577425,
+  1833→        "max_lat": 43.567205,
+  1834→        "min_lon": -119.716163,
+  1835→        "max_lon": 164.956147,
+  1836→        "count": 50
+  1837→      },
+  1838→      "occurrence_count": 1128255
+  1839→    },
+  1840→    "sources": [
+  1841→      "Wikipedia",
+  1842→      "iNaturalist",
+  1843→      "Wikidata",
+  1844→      "GBIF"
+  1845→    ],
+  1846→    "last_updated": "2026-03-21T21:38:11.632844"
+  1847→  }
+  1848→]
