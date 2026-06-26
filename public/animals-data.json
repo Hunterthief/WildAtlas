@@ -1,0 +1,3425 @@
+{
+  "count": 107,
+  "animals": [
+    {
+      "id": "Q19939",
+      "name": "Tiger",
+      "scientific_name": "Panthera tigris",
+      "common_names": [
+        {
+          "name": "tigre",
+          "language": "es"
+        },
+        {
+          "name": "ببر",
+          "language": "ar"
+        },
+        {
+          "name": "Panthera tigris",
+          "language": "ast"
+        },
+        {
+          "name": "тигър",
+          "language": "bg"
+        },
+        {
+          "name": "বাঘ",
+          "language": "bn"
+        },
+        {
+          "name": "tigre",
+          "language": "ca"
+        },
+        {
+          "name": "tygr",
+          "language": "cs"
+        },
+        {
+          "name": "tiger",
+          "language": "da"
+        },
+        {
+          "name": "Tiger",
+          "language": "de"
+        },
+        {
+          "name": "ببر",
+          "language": "fa"
+        }
+      ],
+      "summary": "species of big cat",
+      "description": "species of big cat",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/6/66/Adult_male_Royal_Bengal_tiger.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/97/Bengal_tiger_(Panthera_tigris_tigris)_female_3.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png"
+      ],
+      "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tiger_distribution.png",
+      "time_period": {
+        "text": "~3.7 million years ago",
+        "width": "40%",
+        "start": "3.7M years ago",
+        "end": "Present",
+        "millions_years": 3.7,
+        "confidence": 1,
+        "raw_match": "split from each other between 2.70 and 3.70 million years ago"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tiger",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q19939",
+      "eol_url": "https://eol.org/pages/1253183",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Felidae",
+        "genus": "Panthera",
+        "species": "Panthera tigris"
+      },
+      "animal_type": "feline",
+      "young_name": "cub",
+      "group_name": "pride",
+      "physical": {
+        "weight": "90–310 kg",
+        "length": "2.5–3.3 m",
+        "height": "0.8–1.1 m",
+        "top_speed": "49–65 km/h",
+        "lifespan": "10–15 years"
+      },
+      "ecology": {
+        "diet": "Carnivore",
+        "habitat": "Tropical forests, mangroves, taiga, and grasslands",
+        "locations": "Bangladesh, China, India, Indonesia, Nepal, Russian Federation, Thailand",
+        "group_behavior": "Solitary",
+        "conservation_status": "Endangered",
+        "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+        "distinctive_features": [
+          "Dark vertical stripes",
+          "Powerful build",
+          "Largest living cat species"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "103 days",
+        "average_litter_size": "2–4 cubs",
+        "name_of_young": "cub"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "feeds mainly on large and medium-sized ungulates such as sambar deer, Manchurian wapiti, barasingha,",
+        "slogan": "",
+        "group": "pride",
+        "number_of_species": "nine",
+        "estimated_population_size": "5,000",
+        "most_distinctive_feature": "black or dark brown stripes, which are uniquely patterned in each individual"
+      },
+      "distribution": {
+        "countries": [
+          "Bangladesh",
+          "China",
+          "India",
+          "Indonesia",
+          "Nepal",
+          "Russian Federation",
+          "Thailand"
+        ],
+        "coordinates": {
+          "min_lat": 0.462517,
+          "max_lat": 43.187619,
+          "min_lon": 74.266941,
+          "max_lon": 131.581417,
+          "count": 50
+        },
+        "occurrence_count": 5294
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:36:14.407722",
+      "article": {
+        "overview": "The tiger is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a distinctive orange coat and black stripes, making it one of the most recognizable big cats in the world.",
+        "description": "The tiger has a typical felid morphology, featuring a muscular body, strong forelimbs with wide front paws, and a large head with a tail about half the length of its body. The Siberian and Bengal tigers are the largest subspecies, with stripes that provide camouflage in vertical vegetation. Its orange fur may also aid in concealment, as prey is colorblind and perceives the tiger as blended with the environment. Rare color variants include white and golden tigers, which are virtually non-existent in the wild due to inbreeding in captivity.",
+        "habitat": "The tiger historically ranged from eastern Turkey to southeastern Siberia, Sumatra, Java, and Bali, primarily inhabiting forest habitats. It is highly adaptable, living in tropical and subtropical forests, temperate broadleaf and mixed forests, alluvial plains, and mangrove forests like the Sundarbans. In protected areas, population densities vary, such as 12–17 individuals per 100 km² in Jim Corbett National Park, India.",
+        "behavior": "The tiger is a carnivorous apex predator that mainly hunts large and medium-sized hooved mammals, such as sambar deer and wild boar, though it also preys on smaller species opportunistically. Tigers learn to hunt from their mothers and can consume up to 40 kg of meat in one session, dragging carcasses to private spots. They are powerful swimmers, mark their territories with scent, and are mostly active at night or during dawn and dusk to avoid human presence.",
+        "conservation": "The tiger is classified as endangered, with global wild populations concentrated in countries like India, Thailand, and Bangladesh. Threats include poaching, habitat loss, and human-wildlife conflict, though conservation efforts like India's Project Tiger have helped recover populations in some regions. Protected areas and stricter wildlife laws aim to curb illegal trade and habitat degradation."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the tiger eat?",
+          "answer": "The tiger is a carnivore and an apex predator, feeding mainly on large and medium-sized hooved mammals like sambar deer and wild boar. It also preys opportunistically on smaller species such as monkeys, peafowl, and fish."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the tiger live?",
+          "answer": "The tiger primarily inhabits forest habitats across Asia, including tropical and subtropical forests, temperate broadleaf forests, and mangrove forests like the Sundarbans. It is highly adaptable, with historical ranges extending from Turkey to southeastern Siberia and Sumatra."
+        },
+        {
+          "id": "size",
+          "question": "How big does the tiger get?",
+          "answer": "The Siberian and Bengal tigers are the largest subspecies, with males reaching lengths of 2.5–3.3 meters and weights of 90–310 kg. Their powerful build includes strong forelimbs and a tail about half their body length."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the tiger?",
+          "answer": "The tiger is classified as endangered, with wild populations threatened by poaching, habitat loss, and human-wildlife conflict. Conservation efforts, such as India's Project Tiger, have helped stabilize or increase populations in some regions."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the tiger live?",
+          "answer": "Wild Bengal tigers typically live 12–15 years, while captive tigers can live up to 19 years. Cub mortality is high due to predators, floods, or infanticide by new males taking over territories."
+        },
+        {
+          "id": "features",
+          "question": "What makes the tiger unique?",
+          "answer": "The tiger is distinguished by its orange coat with black stripes, which provide camouflage in vertical vegetation. It is also a powerful swimmer, capable of traversing rivers up to 29 km wide, and marks its territory with scent."
+        },
+        {
+          "id": "danger",
+          "question": "Is the tiger dangerous to humans?",
+          "answer": "Tigers are apex predators and can be dangerous to humans, especially when threatened or defending their territory. While attacks are rare, they may occur in areas where habitat loss brings tigers closer to human settlements."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the tiger reproduce?",
+          "answer": "Tigers mate year-round, particularly between November and April, with a tigress in oestrus for 3–6 days. Cubs open their eyes after 3–14 days and start eating meat at around two months old."
+        }
+      ],
+      "featured": true,
+      "type": "mammal",
+      "wikipediaTitle": "Tiger"
+    },
+    {
+      "id": "Q23907",
+      "name": "Cheetah",
+      "scientific_name": "Acinonyx jubatus",
+      "common_names": [
+        {
+          "name": "猎豹",
+          "language": "zh"
+        },
+        {
+          "name": "Gepardo",
+          "language": "eu"
+        },
+        {
+          "name": "gepard grzywiasty",
+          "language": "pl"
+        },
+        {
+          "name": "Dottatiȝer",
+          "language": "ang"
+        },
+        {
+          "name": "guepardo",
+          "language": "es"
+        },
+        {
+          "name": "gepárd",
+          "language": "hu"
+        },
+        {
+          "name": "Duma",
+          "language": "sw"
+        },
+        {
+          "name": "Gepardi",
+          "language": "sq"
+        },
+        {
+          "name": "Lepogo",
+          "language": "nso"
+        },
+        {
+          "name": "gepardo",
+          "language": "ia"
+        }
+      ],
+      "summary": "species of mammal",
+      "description": "species of mammal",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Cheetah_(Acinonyx_jubatus)_female_2.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/3/36/Cheetah_(Acinonyx_jubatus)_female_2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/09/TheCheethcat.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/11/Acinonyx.jubatus-1-ZOO.Olomouc.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b0/Herberstein_Gepard_029.jpg"
+      ],
+      "distribution_image": "",
+      "time_period": {
+        "text": "~6.7 million years ago",
+        "width": "55%",
+        "start": "6.7M years ago",
+        "end": "Present",
+        "millions_years": 6.7,
+        "confidence": 2,
+        "raw_match": "6.7 million years ago"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Cheetah",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q23907",
+      "eol_url": "https://eol.org/pages/1271375",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Felidae",
+        "genus": "Acinonyx",
+        "species": "Acinonyx jubatus"
+      },
+      "animal_type": "feline",
+      "young_name": "cub",
+      "group_name": "pride",
+      "physical": {
+        "weight": "21–72 kg",
+        "length": "1.1–1.5 m",
+        "height": "0.7–0.9 m",
+        "top_speed": "80–130 km/h",
+        "lifespan": "10–12 years"
+      },
+      "ecology": {
+        "diet": "Carnivore",
+        "habitat": "Open savannas and dry scrublands",
+        "locations": "Kenya, Malawi, South Africa, Tanzania, United Republic of",
+        "group_behavior": "Solitary",
+        "conservation_status": "Endangered",
+        "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+        "distinctive_features": [
+          "Solid black spots",
+          "Black tear marks",
+          "Semi-retractable claws"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "90–98 days",
+        "average_litter_size": "3–5 cubs",
+        "name_of_young": "cub"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "hunts was 54 km/h (34 mph), while highest speed was 93 km/h (58 mph)",
+        "slogan": "",
+        "group": "pride",
+        "number_of_species": "Four",
+        "estimated_population_size": "",
+        "most_distinctive_feature": "individuals"
+      },
+      "distribution": {
+        "countries": [
+          "Kenya",
+          "Malawi",
+          "South Africa",
+          "Tanzania, United Republic of"
+        ],
+        "coordinates": {
+          "min_lat": -34.184019,
+          "max_lat": 1.59933,
+          "min_lon": 20.044896,
+          "max_lon": 38.388967,
+          "count": 50
+        },
+        "occurrence_count": 8380
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:36:23.205815",
+      "article": {
+        "overview": "The cheetah is a remarkable species of large feline and the sole living member of the genus Acinonyx. Renowned as the fastest land animal, it is a pursuit predator capable of incredible speeds, having evolved specialized adaptations for hunting in open habitats.",
+        "description": "The cheetah has a tawny to creamy white or pale buff fur marked with evenly spaced, solid black spots. Its head is small and rounded, featuring a short snout and distinctive black tear-like facial streaks. This large feline stands 67–94 cm (2.20–3.08 ft) at the shoulder, with a head-and-body length between 1.1 and 1.5 m, and weighs between 21 and 65 kg. Its body is built for speed, with powerful hindlimb muscles, long limbs, and a flexible spine.",
+        "habitat": "The cheetah occurs mostly in eastern and southern African savannas, such as the Kalahari and Serengeti. In central, northern, and western Africa, it inhabits arid mountain ranges and valleys, and in the Sahara, it prefers high mountains. Its presence in Asia is limited to the central deserts of Iran, though there have been unconfirmed reports in other countries. The largest population of nearly 4,000 individuals is sparsely distributed across Angola, Botswana, Mozambique, Namibia, South Africa, and Zambia.",
+        "behavior": "The cheetah is a carnivore that hunts small to medium-sized prey, primarily medium-sized ungulates like gazelles, impala, and springbok. It uses its vision to hunt, often stalking prey before sprinting at incredible speeds to close the distance. Cheetahs are active mainly during the day, avoiding competition with nocturnal predators like lions and hyenas, which can also kill them and steal their kills. They are generally solitary or live in small groups, with males sometimes forming coalitions to increase their chances of mating.",
+        "conservation": "The cheetah has been classified as Vulnerable on the IUCN Red List and is listed under Appendix I of CITES and CMS. Its populations are declining and becoming more fragmented due to habitat loss and human-wildlife conflict. Conservation efforts include field research, education, and habitat restoration initiatives, such as the Cheetah Conservation Fund in Namibia and the Range Wide Conservation Program for Cheetah and African Wild Dogs."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the cheetah eat?",
+          "answer": "The cheetah is a carnivore that hunts small to medium prey, primarily medium-sized ungulates like gazelles, impala, and springbok. In some regions, such as Namibia, cheetahs also prey on livestock."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the cheetah live?",
+          "answer": "The cheetah occurs mostly in eastern and southern African savannas, like the Kalahari and Serengeti. Its presence in Asia is limited to the central deserts of Iran, though there have been unconfirmed reports in other countries."
+        },
+        {
+          "id": "size",
+          "question": "How big does the cheetah get?",
+          "answer": "The cheetah stands 67–94 cm (2.20–3.08 ft) at the shoulder, with a head-and-body length between 1.1 and 1.5 m. Adults weigh between 21 and 65 kg."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the cheetah?",
+          "answer": "The cheetah is classified as Vulnerable on the IUCN Red List and is listed under Appendix I of CITES and CMS. Its populations are declining and becoming more fragmented due to habitat loss and human-wildlife conflict."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the cheetah live?",
+          "answer": "In the wild, cheetahs have a lifespan of 10–12 years. In captivity, they can live up to 15 years."
+        },
+        {
+          "id": "features",
+          "question": "What makes the cheetah unique?",
+          "answer": "The cheetah is the fastest land animal, capable of running at 93–104 km/h (58–65 mph). It has evolved for speed with powerful hindlimb muscles, long limbs, and a flexible spine."
+        },
+        {
+          "id": "danger",
+          "question": "Is the cheetah dangerous to humans?",
+          "answer": "Cheetahs are not typically considered dangerous to humans and are often shy and elusive. However, like all wild animals, they can be unpredictable if cornered or threatened."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the cheetah reproduce?",
+          "answer": "The cheetah breeds throughout the year, with females giving birth to a litter of up to six to eight cubs after a gestation of nearly three months. Mothers keep their cubs hidden in dense vegetation for the first two months."
+        }
+      ],
+      "featured": true,
+      "type": "mammal",
+      "wikipediaTitle": "Cheetah"
+    },
+    {
+      "id": "Q36557",
+      "name": "African Elephant",
+      "scientific_name": "Loxodonta africana",
+      "common_names": [
+        {
+          "name": "Afrikaneschen Elefant",
+          "language": "lb"
+        },
+        {
+          "name": "非洲象",
+          "language": "zh"
+        },
+        {
+          "name": "Ndlovu",
+          "language": "tum"
+        },
+        {
+          "name": "Африка пилдери",
+          "language": "ky"
+        },
+        {
+          "name": "słoń afrykański",
+          "language": "pl"
+        },
+        {
+          "name": "Loxodonta africana",
+          "language": "eu"
+        },
+        {
+          "name": "Саваннадин фил",
+          "language": "lez"
+        },
+        {
+          "name": "Саванавы афрыканскі слон",
+          "language": "be"
+        },
+        {
+          "name": "פיל סוואנה אפריקני",
+          "language": "he"
+        },
+        {
+          "name": "éléphant de savane d'Afrique",
+          "language": "fr"
+        }
+      ],
+      "summary": "species of mammal; largest land animal",
+      "description": "species of mammal; largest land animal",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/94/178_Male_African_bush_elephant_in_Etosha_National_Park_Photo_by_Giles_Laurent.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/2e/African_bush_elephant,_Loxodonta_africana_at_Punda_Maria,_Kruger_National_Park,_South_Africa._Includes_lots_of_baby_elephant._(20591203310).jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg"
+      ],
+      "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/African_Elephant_distribution_map_without_borders.svg",
+      "time_period": {
+        "text": "~7.0 million years ago",
+        "width": "55%",
+        "start": "7.0M years ago",
+        "end": "Present",
+        "millions_years": 7.0,
+        "confidence": 1,
+        "raw_match": "7–5 million years ago"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/African_Elephant",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q36557",
+      "eol_url": "https://eol.org/pages/55636404",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Proboscidea",
+        "family": "Elephantidae",
+        "genus": "Loxodonta",
+        "species": "Loxodonta africana"
+      },
+      "animal_type": "elephant",
+      "young_name": "calf",
+      "group_name": "herd",
+      "physical": {
+        "weight": "2,700–6,350 kg",
+        "length": "5.5–7.5 m",
+        "height": "2.5–4.0 m",
+        "top_speed": "40 km/h",
+        "lifespan": "60–70 years"
+      },
+      "ecology": {
+        "diet": "Herbivore",
+        "habitat": "Savannas, forests, and deserts of sub-Saharan Africa",
+        "locations": "Botswana, Burkina Faso, Ghana, Kenya, Namibia, Niger, Rwanda, South Africa, Tanzania, United Republic of, Uganda, Zambia, Zimbabwe",
+        "group_behavior": "Solitary",
+        "conservation_status": "Critically Endangered",
+        "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+        "distinctive_features": [
+          "Large ears (dispel heat)",
+          "Muscular trunk",
+          "Both sexes have tusks"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "22 months",
+        "average_litter_size": "1",
+        "name_of_young": "calf"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "",
+        "slogan": "",
+        "group": "herd",
+        "number_of_species": "two",
+        "estimated_population_size": "",
+        "most_distinctive_feature": "lozenge/loxodont (<>) shape characteristic to all members of the genus Loxodonta"
+      },
+      "distribution": {
+        "countries": [
+          "Botswana",
+          "Burkina Faso",
+          "Ghana",
+          "Kenya",
+          "Namibia",
+          "Niger",
+          "Rwanda",
+          "South Africa",
+          "Tanzania, United Republic of",
+          "Uganda",
+          "Zambia",
+          "Zimbabwe"
+        ],
+        "coordinates": {
+          "min_lat": -33.562833,
+          "max_lat": 9.281961,
+          "min_lon": -1.90394,
+          "max_lon": 38.084716,
+          "count": 50
+        },
+        "occurrence_count": 22723
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:36:30.648399",
+      "article": {
+        "overview": "African elephants are members of the genus Loxodonta, comprising two living species: the larger African bush elephant and the smaller African forest elephant. Both are highly social herbivores with grey skin, but they differ in size, tusk color, ear shape, and skull structure.",
+        "description": "African elephants have grey folded skin up to 2.5 cm thick, covered with sparse, bristled dark-brown to black hair. Their trunk features two finger-like processes at the tip, unlike Asian elephants, which have only one. Both sexes grow tusks from deciduous tushes, which are replaced around one year of age; tusks are composed of dentin with distinctive diamond-shaped structures. The African bush elephant is the largest terrestrial animal, with mature bulls standing up to 4 m tall and weighing up to 6,350 kg, while the African forest elephant is considerably smaller with a straight back.",
+        "habitat": "African elephants are distributed across Sub-Saharan Africa, inhabiting diverse environments including Sahelian scrubland, arid regions, tropical rainforests, and mopane and miombo woodlands. The African forest elephant is found exclusively in Central and West Africa. Their range spans from several hundred to several thousand square kilometers, with herds following migratory routes to connect protected areas and access critical resources like vegetation and water.",
+        "behavior": "African elephants are generalist herbivores, consuming a wide variety of leaves, grasses, bark, and fruits, with woody vegetation dominating in dry seasons. They use their tusks to pluck leaves and tear branches, causing significant foliage damage. Living in family units led by a matriarch, they communicate with vocalizations beyond human hearing and exhibit complex social dynamics, including musth in males—a period of heightened testosterone and aggression. Their large size and digestive system allow them to process fibrous plant parts, and they play a crucial role in seed dispersal across vast areas.",
+        "conservation": "African elephants face threats from poaching and habitat fragmentation, though conservation efforts have led to population recoveries in some regions. In 1989, they were listed on CITES Appendix I, banning international trade, which reduced retail ivory sales by over 95% in a decade. Recent strategies focus on maintaining ecological connectivity between fragmented habitats, reducing human-elephant conflict, and involving local communities in conservation planning to ensure long-term survival."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the african elephant eat?",
+          "answer": "African elephants are generalist herbivores, consuming a wide variety of leaves, grasses, bark, and fruits. In dry seasons, they rely more on woody vegetation, using their tusks to pluck leaves and tear branches."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the african elephant live?",
+          "answer": "African elephants inhabit Sub-Saharan Africa, ranging from Sahelian scrubland to tropical rainforests. The African bush elephant is widespread, while the forest elephant is found only in Central and West Africa."
+        },
+        {
+          "id": "size",
+          "question": "How big does the african elephant get?",
+          "answer": "The African bush elephant is the largest terrestrial animal, with bulls standing up to 4 m tall and weighing up to 6,350 kg. The African forest elephant is smaller, with males averaging 2.5 m tall and weighing around 2,700 kg."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the african elephant?",
+          "answer": "African elephants are protected under CITES Appendix I, which banned international ivory trade in 1989. While populations have recovered in some areas, they remain threatened by poaching and habitat fragmentation."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the african elephant live?",
+          "answer": "African elephants have a lifespan of 60–70 years in the wild. Their long lives are supported by strong social structures and access to resources, though threats like poaching can reduce this."
+        },
+        {
+          "id": "features",
+          "question": "What makes the african elephant unique?",
+          "answer": "African elephants have two finger-like processes on their trunk, unlike Asian elephants, and their molar teeth wear into a distinctive lozenge shape. They also use their trunks as snorkels when swimming underwater."
+        },
+        {
+          "id": "danger",
+          "question": "Is the african elephant dangerous to humans?",
+          "answer": "African elephants can be dangerous, especially males in musth or when protecting their young. However, they generally avoid humans, and conflicts often arise due to habitat encroachment or provocation."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the african elephant reproduce?",
+          "answer": "African elephants have a 22-month gestation period, and calves are cared for by the mother and other females in a practice called allomothering. Males begin breeding in their thirties, with musth playing a key role in mating success."
+        }
+      ],
+      "featured": true,
+      "type": "mammal",
+      "wikipediaTitle": "African Elephant"
+    },
+    {
+      "id": "Q18498",
+      "name": "Gray Wolf",
+      "scientific_name": "Canis lupus",
+      "common_names": [
+        {
+          "name": "Wolf",
+          "language": "de"
+        },
+        {
+          "name": "Абгаду",
+          "language": "ab"
+        },
+        {
+          "name": "wolf",
+          "language": "af"
+        },
+        {
+          "name": "Canis lupus",
+          "language": "an"
+        },
+        {
+          "name": "Ƿulf",
+          "language": "ang"
+        },
+        {
+          "name": "ذئب رمادي",
+          "language": "ar"
+        },
+        {
+          "name": "Canis lupus",
+          "language": "ast"
+        },
+        {
+          "name": "БацӀ",
+          "language": "av"
+        },
+        {
+          "name": "adi canavar",
+          "language": "az"
+        },
+        {
+          "name": "Бүре",
+          "language": "ba"
+        }
+      ],
+      "summary": "species of mammal",
+      "description": "species of mammal",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/48/Canis_lupus_distribution_(IUCN).png"
+      ],
+      "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Canis_lupus_distribution_(IUCN).png",
+      "time_period": {
+        "text": "~1.4 million years ago",
+        "width": "40%",
+        "start": "1.4M years ago",
+        "end": "Present",
+        "millions_years": 1.4,
+        "confidence": 2,
+        "raw_match": "appeared around 1.4 million years ago"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Gray_Wolf",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q18498",
+      "eol_url": "https://eol.org/pages/1268606",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Mammalia",
+        "order": "Carnivora",
+        "family": "Canidae",
+        "genus": "Canis",
+        "species": "Canis lupus"
+      },
+      "animal_type": "canine",
+      "young_name": "pup",
+      "group_name": "pack",
+      "physical": {
+        "weight": "20–80 kg",
+        "length": "1.0–1.6 m",
+        "height": "0.6–0.9 m",
+        "top_speed": "60 km/h",
+        "lifespan": "6–8 years"
+      },
+      "ecology": {
+        "diet": "Carnivore",
+        "habitat": "Forests, tundra, grasslands, and mountains",
+        "locations": "Australia, Belgium, Canada, China, Costa Rica, Denmark, Egypt, Germany, Greece, India, Indonesia, Israel, Italy, Jamaica, Malaysia, Mexico, Norway, Philippines, Russian Federation, Sweden, Thailand, Türkiye, United States of America",
+        "group_behavior": "Solitary",
+        "conservation_status": "Endangered",
+        "biggest_threat": "Habitat loss, Human-wildlife conflict",
+        "distinctive_features": [
+          "Pack hunters",
+          "Howling communication",
+          "Variable gray coat"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "60–63 days",
+        "average_litter_size": "4–6 pups",
+        "name_of_young": "pup"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "hunts for large prey",
+        "slogan": "",
+        "group": "pack",
+        "number_of_species": "two",
+        "estimated_population_size": "33",
+        "most_distinctive_feature": "very dense and fluffy winter fur, with a short undercoat"
+      },
+      "distribution": {
+        "countries": [
+          "Australia",
+          "Belgium",
+          "Canada",
+          "China",
+          "Costa Rica",
+          "Denmark",
+          "Egypt",
+          "Germany",
+          "Greece",
+          "India",
+          "Indonesia",
+          "Israel",
+          "Italy",
+          "Jamaica",
+          "Malaysia",
+          "Mexico",
+          "Norway",
+          "Philippines",
+          "Russian Federation",
+          "Sweden",
+          "Thailand",
+          "Türkiye",
+          "United States of America"
+        ],
+        "coordinates": {
+          "min_lat": -28.294889,
+          "max_lat": 60.495512,
+          "min_lon": -116.559478,
+          "max_lon": 151.355139,
+          "count": 50
+        },
+        "occurrence_count": 199412
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:36:40.564111",
+      "article": {
+        "overview": "The gray wolf, also known as the grey wolf, is a canine native to Eurasia and North America and is the largest extant member of the family Canidae. With over thirty subspecies recognized, including the dog and dingo, the gray wolf is distinguished by its size, social behavior, and adaptability across diverse habitats.",
+        "description": "The gray wolf is the largest wild canid, with a large, heavy head, wide forehead, strong jaws, and a long, blunt muzzle. Its ears are relatively small and triangular, and its fur is typically mottled white, brown, grey, and black, though arctic subspecies may be nearly all white. Adult wolves measure 1.0–1.6 meters in length and weigh between 20–80 kilograms, with males generally larger than females. Their dense winter fur provides excellent insulation, allowing them to withstand temperatures as low as -40°C.",
+        "habitat": "Wolves occur across Eurasia and North America, though their range has been reduced to about one-third of its historic extent due to human persecution. Today, they primarily inhabit wilderness and remote areas, including forests, grasslands, Arctic tundra, deserts, and mountainous regions up to 3,000 meters in elevation. Habitat use depends on prey abundance, snow conditions, and human presence.",
+        "behavior": "Gray wolves are highly social animals, living in packs centered around a mated pair and their offspring. They are carnivorous, primarily hunting large ungulates but also consuming smaller prey, plant material, and carrion when necessary. Wolves are nocturnal predators, often hunting in coordinated packs to isolate and bring down large game, though they may also hunt individually or in pairs. Their diet varies by region, including berries, fruits, and even fish in some areas.",
+        "conservation": "The gray wolf is classified as Least Concern by the IUCN due to its widespread range and stable population, though it faces threats from habitat fragmentation, human-wildlife conflict, and persecution. Since the 1970s, populations have rebounded in parts of Europe and North America due to legal protections and changing land use. However, some regional populations, such as those in Pakistan, remain endangered or threatened."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the gray wolf eat?",
+          "answer": "The gray wolf is primarily carnivorous, hunting large ungulates like deer, elk, and moose, but also consumes smaller prey such as rodents, hares, and waterfowl. They supplement their diet with plant material like berries, fruits, and grass, and may eat carrion or garbage in areas with high human activity."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the gray wolf live?",
+          "answer": "Gray wolves are native to Eurasia and North America, though their range has been reduced to wilderness and remote areas. They inhabit forests, grasslands, tundra, deserts, and mountainous regions, avoiding densely populated areas where possible."
+        },
+        {
+          "id": "size",
+          "question": "How big does the gray wolf get?",
+          "answer": "Adult gray wolves measure 1.0–1.6 meters in length and weigh between 20–80 kilograms, with males typically larger than females. Exceptionally large individuals have been recorded in Alaska and Canada, with some males reaching up to 90 kilograms."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the gray wolf?",
+          "answer": "The gray wolf is classified as Least Concern by the IUCN due to its stable population and widespread range, though it faces threats from habitat loss and human persecution. Populations have rebounded in parts of Europe and North America since the 1970s."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the gray wolf live?",
+          "answer": "In the wild, gray wolves typically live 6–8 years, though some may survive up to 13 years in favorable conditions. Their lifespan is often limited by factors like disease, starvation, and human-related causes."
+        },
+        {
+          "id": "features",
+          "question": "What makes the gray wolf unique?",
+          "answer": "The gray wolf is the largest wild canid, distinguished by its powerful build, dense fur, and social pack structure. They are highly adaptable hunters capable of taking down large prey and are closely related to domestic dogs, coyotes, and golden jackals."
+        },
+        {
+          "id": "danger",
+          "question": "Is the gray wolf dangerous to humans?",
+          "answer": "While gray wolves generally avoid humans, they may pose a threat in rare cases, particularly if provoked or habituated to human presence. Attacks are uncommon, and wolves typically fear humans, though caution is advised in areas where they are known to roam."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the gray wolf reproduce?",
+          "answer": "Gray wolves are monogamous, with mated pairs typically remaining together for life. Females give birth to 4–14 pups after a gestation period of 62–75 days, usually in spring. Pups are born blind and deaf, relying on their parents for food and protection until they mature at around two years old."
+        }
+      ],
+      "featured": true,
+      "type": "mammal",
+      "wikipediaTitle": "Gray Wolf"
+    },
+    {
+      "id": "Q127216",
+      "name": "Bald Eagle",
+      "scientific_name": "Haliaeetus leucocephalus",
+      "common_names": [
+        {
+          "name": "白头海雕",
+          "language": "zh-hans"
+        },
+        {
+          "name": "白頭海鵰",
+          "language": "zh-hant"
+        },
+        {
+          "name": "白頭海鵰",
+          "language": "zh-hk"
+        },
+        {
+          "name": "白头海雕",
+          "language": "zh-cn"
+        },
+        {
+          "name": "白头海雕",
+          "language": "zh-sg"
+        },
+        {
+          "name": "白頭海鵰",
+          "language": "zh-tw"
+        },
+        {
+          "name": "itsas arrano buruzuri",
+          "language": "eu"
+        },
+        {
+          "name": "bielik amerykański",
+          "language": "pl"
+        },
+        {
+          "name": "Bjeloglavi orao",
+          "language": "bs"
+        },
+        {
+          "name": "Haliaeetus leucocephalus",
+          "language": "es"
+        }
+      ],
+      "summary": "species of bird of prey found in North America",
+      "description": "species of bird of prey found in North America",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/8/88/Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6b/Juvenile_Bald_Eagle,_Conowingo_Dam,_Susquehanna_River,_MD_2016-01-03.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png"
+      ],
+      "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/57/Distribution_H._leucocephalus.png",
+      "time_period": {
+        "text": "Evolved ~150 million years ago",
+        "width": "75%",
+        "start": "150M years ago",
+        "end": "Present"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bald_Eagle",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q127216",
+      "eol_url": "https://eol.org/pages/1228132",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Aves",
+        "order": "Accipitriformes",
+        "family": "Accipitridae",
+        "genus": "Haliaeetus",
+        "species": "Haliaeetus leucocephalus"
+      },
+      "animal_type": "bird",
+      "young_name": "chick",
+      "group_name": "flock",
+      "physical": {
+        "weight": "3.0–6.3 kg",
+        "length": "70–102 cm",
+        "height": "0.7–1.1 m",
+        "top_speed": "56 km/h (level flight)",
+        "lifespan": "20–30 years"
+      },
+      "ecology": {
+        "diet": "Carnivore",
+        "habitat": "Forests near large bodies of water",
+        "locations": "Canada, United States of America",
+        "group_behavior": "Solitary",
+        "conservation_status": "Endangered",
+        "biggest_threat": "Human-wildlife conflict",
+        "distinctive_features": [
+          "White head and tail",
+          "Yellow beak",
+          "Large wingspan (1.8–2.3 m)"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "35 days",
+        "average_litter_size": "1–3",
+        "name_of_young": "chick"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "fish",
+        "slogan": "",
+        "group": "flock",
+        "number_of_species": "two",
+        "estimated_population_size": "1,312",
+        "most_distinctive_feature": "in plumage with a more solid warm brown color than an immature bald eagle, with a reddish-golden pat"
+      },
+      "distribution": {
+        "countries": [
+          "Canada",
+          "United States of America"
+        ],
+        "coordinates": {
+          "min_lat": 25.43792,
+          "max_lat": 51.283605,
+          "min_lon": -123.267463,
+          "max_lon": -72.481989,
+          "count": 50
+        },
+        "occurrence_count": 7776665
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:36:47.835994",
+      "article": {
+        "overview": "The bald eagle is a majestic bird of prey found throughout North America, known for its distinctive white head and tail and its association with large bodies of open water. As a sea eagle, it forms a species pair with the white-tailed eagle and is a symbol of strength and freedom across the continent.",
+        "description": "Adult bald eagles have striking evenly dark brown plumage with a contrasting white head and tail, and a moderately long, slightly wedge-shaped tail. Sexual dimorphism is evident, with females being 25% larger than males; for example, Alaskan females can weigh over 7 kg and have a wingspan exceeding 2.4 meters. The species has a distinctive weak, staccato call similar to a gull's, with young birds having harsher, shriller vocalizations. Their physical adaptations include spicules on their toes for gripping fish, and they are capable of flying with prey equal to their own weight.",
+        "habitat": "The bald eagle inhabits most of Canada, Alaska, the contiguous United States, and northern Mexico, typically near large bodies of open water with abundant fish and old-growth trees for nesting. They prefer wetland habitats such as seacoasts, rivers, and large lakes, with studies showing a preference for bodies of water over 1 kilometer in circumference. While generally sensitive to human disturbance during nesting, they occasionally adapt to urban environments, such as nesting in estuaries within major cities like Portland and Philadelphia.",
+        "behavior": "Bald eagles are opportunistic carnivores with a diverse diet, primarily consisting of fish (56%), but also birds (28%), mammals (14%), and other prey. They hunt by swooping down to snatch fish with their talons and can swim if dragged into the water by overly heavy catches. Highly social during winter, they congregate at spots with plentiful perches and prey, and are known to scavenge carcasses up to the size of whales, though they avoid carrion in frequently disturbed areas. Their foraging behavior includes stealing food from campsites and garbage dumps, particularly in Alaska.",
+        "conservation": "The bald eagle's population faced significant threats in the past, including habitat loss and pesticide contamination, but concerted conservation efforts have led to a remarkable recovery. They are now a protected species, and their numbers have rebounded across their range, though they remain sensitive to human disturbance during nesting. The species' adaptability to changing environments, including nesting near human-made reservoirs, has contributed to its resurgence."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the bald eagle eat?",
+          "answer": "The bald eagle is an opportunistic carnivore whose diet consists primarily of fish (56%), but also includes birds (28%), mammals (14%), and other prey. They are not selective about the origin of carrion, scavenging everything from whales to garbage, though they avoid carcass in areas with frequent human disturbance."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the bald eagle live?",
+          "answer": "The bald eagle is found throughout most of North America, including Canada, Alaska, the contiguous United States, and northern Mexico. They prefer habitats near large bodies of open water, such as seacoasts, rivers, and lakes, with old-growth trees for nesting."
+        },
+        {
+          "id": "size",
+          "question": "How big does the bald eagle get?",
+          "answer": "Bald eagles are of intermediate size, with adults averaging 70–102 cm in length and weighing 3.0–6.3 kg. Females are 25% larger than males, with Alaskan females sometimes exceeding 7 kg and having a wingspan of over 2.4 meters."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the bald eagle?",
+          "answer": "The bald eagle was once endangered due to habitat loss and pesticide contamination, but conservation efforts have led to a significant recovery. They are now a protected species with stable or increasing populations across their range."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the bald eagle live?",
+          "answer": "In the wild, bald eagles typically live 20–30 years, though some have been known to live longer in captivity. Their lifespan is influenced by factors such as habitat quality, food availability, and human-related threats."
+        },
+        {
+          "id": "features",
+          "question": "What makes the bald eagle unique?",
+          "answer": "The bald eagle is distinguished by its iconic white head and tail, which develop at sexual maturity. They have specialized spicules on their toes for gripping fish and are capable of flying with prey equal to their own weight, showcasing their incredible strength."
+        },
+        {
+          "id": "danger",
+          "question": "Is the bald eagle dangerous to humans?",
+          "answer": "Bald eagles are not typically dangerous to humans, as they are generally wary of people and avoid confrontation. However, they may become aggressive if their nest or young is threatened, and their powerful talons can cause injury if provoked."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the bald eagle reproduce?",
+          "answer": "Bald eagles are sexually mature at 4–5 years old and mate for life, though they may find new mates if their partner dies. They build the largest nests of any bird, often reusing them for years, and lay 1–3 eggs, which are incubated by both parents before hatching."
+        }
+      ],
+      "featured": true,
+      "type": "bird",
+      "wikipediaTitle": "Bald Eagle"
+    },
+    {
+      "id": "Q161829",
+      "name": "Emperor Penguin",
+      "scientific_name": "Aptenodytes forsteri",
+      "common_names": [
+        {
+          "name": "Keeserpinguin",
+          "language": "lb"
+        },
+        {
+          "name": "皇帝企鹅",
+          "language": "zh-hans"
+        },
+        {
+          "name": "皇帝企鵝",
+          "language": "zh-hant"
+        },
+        {
+          "name": "皇帝企鵝",
+          "language": "zh-hk"
+        },
+        {
+          "name": "帝企鹅",
+          "language": "zh-cn"
+        },
+        {
+          "name": "皇帝企鹅",
+          "language": "zh-sg"
+        },
+        {
+          "name": "帝企鵝",
+          "language": "zh-tw"
+        },
+        {
+          "name": "pingwin cesarski",
+          "language": "pl"
+        },
+        {
+          "name": "Aptenodytes forsteri",
+          "language": "eu"
+        },
+        {
+          "name": "Aptenodytes forsteri",
+          "language": "es"
+        }
+      ],
+      "summary": "large flightless seabird endemic to Antarctica",
+      "description": "large flightless seabird endemic to Antarctica",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/4c/Penguin_diving_statistics.svg"
+      ],
+      "distribution_image": "",
+      "time_period": {
+        "text": "~40.0 million years ago",
+        "width": "70%",
+        "start": "40M years ago",
+        "end": "Present",
+        "millions_years": 40.0,
+        "confidence": 2,
+        "raw_match": "40 million years ago"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Emperor_Penguin",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q161829",
+      "eol_url": "https://eol.org/pages/45512074",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Aves",
+        "order": "Sphenisciformes",
+        "family": "Spheniscidae",
+        "genus": "Aptenodytes",
+        "species": "Aptenodytes forsteri"
+      },
+      "animal_type": "bird",
+      "young_name": "chick",
+      "group_name": "flock",
+      "physical": {
+        "weight": "22–45 kg",
+        "length": "1.1–1.3 m",
+        "height": "1.1–1.3 m",
+        "top_speed": "8 km/h (swimming)",
+        "lifespan": "15–20 years"
+      },
+      "ecology": {
+        "diet": "Piscivore",
+        "habitat": "Antarctic sea ice",
+        "locations": "Antarctica",
+        "group_behavior": "Solitary",
+        "conservation_status": "Endangered",
+        "biggest_threat": "Habitat loss, Human-wildlife conflict",
+        "distinctive_features": [
+          "Tallest penguin species",
+          "Yellow ear patches",
+          "Can dive 500 m deep"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "64 days",
+        "average_litter_size": "1",
+        "name_of_young": "chick"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "fish",
+        "slogan": "",
+        "group": "flock",
+        "number_of_species": "",
+        "estimated_population_size": "300",
+        "most_distinctive_feature": "life cycle in such a harsh environment has been described in print and visual media"
+      },
+      "distribution": {
+        "countries": [
+          "Antarctica"
+        ],
+        "coordinates": {
+          "min_lat": -77.786996,
+          "max_lat": -67.0071,
+          "min_lon": -178.772833,
+          "max_lon": 169.40249,
+          "count": 50
+        },
+        "occurrence_count": 131643
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:36:56.771039",
+      "article": {
+        "overview": "The emperor penguin is the tallest and heaviest of all living penguin species, found exclusively in Antarctica. With its striking black and white plumage, bright yellow ear patches, and remarkable resilience to extreme cold, this iconic bird is a master of survival in one of Earth's harshest environments.",
+        "description": "Adult emperor penguins measure 1.1–1.3 meters in length and weigh 22–45 kg, with males typically larger than females. Their streamlined bodies and stiff, flat flippers are adapted for swimming, while their black head and back sharply contrast with the white belly and pale-yellow breast. Dense feathers provide 80–90% of their insulation, supplemented by a thick layer of sub-dermal fat, and their tongues feature rear-facing barbs to trap prey. Chicks weigh around 0.45 kg at hatching and fledge when they reach about 50% of adult weight.",
+        "habitat": "The emperor penguin has a circumpolar distribution in Antarctica, almost exclusively breeding on stable pack ice between 66° and 77° south latitudes. They rely on sea ice for breeding, with colonies often forming near the coast or up to 18 km offshore. As of 2022, there are 66 known breeding colonies, including one at Snow Hill Island, the northernmost breeding site, and occasional vagrants have been recorded as far north as Western Australia.",
+        "behavior": "Emperor penguins are piscivorous, hunting fish and crustaceans with remarkable speed, reaching up to 8 km/h in the water. They use a complex set of calls for individual recognition between mates, parents, and offspring, while chicks emit frequency-modulated whistles to beg for food. During the harsh Antarctic winter, males incubate eggs for over two months without eating, losing up to 12 kg in the process. Their social structure includes forming crèches for chicks, though studies show that helicopter disturbances can increase chick apprehension.",
+        "conservation": "In April 2026, the emperor penguin was declared endangered by the IUCN due to rapid climate change causing sea ice loss, which has already reduced the population by 10% since 2009. Threats include declining food availability from industrial fisheries and climate change, habitat destruction, and human disturbance at breeding colonies, particularly from tourism. Population declines of 50% in the Terre Adélie region have been observed, and with a 45% probability, the population could decline by over 50% by 2073."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the emperor penguin eat?",
+          "answer": "Emperor penguins are piscivorous, primarily feeding on fish and crustaceans. Their tongues are equipped with rear-facing barbs to prevent prey from escaping when caught."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the emperor penguin live?",
+          "answer": "The emperor penguin lives exclusively in Antarctica, breeding on stable pack ice between 66° and 77° south latitudes. Colonies are found near the coast or up to 18 km offshore, with 66 known breeding sites as of 2022."
+        },
+        {
+          "id": "size",
+          "question": "How big does the emperor penguin get?",
+          "answer": "Emperor penguins are the largest living penguin species, reaching 1.1–1.3 meters in length and weighing 22–45 kg, with males typically larger than females."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the emperor penguin?",
+          "answer": "The emperor penguin is classified as endangered by the IUCN due to sea ice loss from climate change, which has already reduced the population by 10% since 2009. It is also under consideration for inclusion under the US Endangered Species Act."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the emperor penguin live?",
+          "answer": "Emperor penguins have an average life expectancy of 19.9 years, with 1% of individuals potentially reaching 50 years. However, only 19% of chicks survive their first year."
+        },
+        {
+          "id": "features",
+          "question": "What makes the emperor penguin unique?",
+          "answer": "The emperor penguin is unique for its extreme resilience to Antarctic cold, with dense feathers and a thick fat layer providing insulation. Males incubate eggs for over two months without eating, losing significant weight in the process."
+        },
+        {
+          "id": "danger",
+          "question": "Is the emperor penguin dangerous to humans?",
+          "answer": "Emperor penguins are not dangerous to humans, as they are non-aggressive and primarily focused on survival in their harsh environment. However, they may defend themselves if provoked."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the emperor penguin reproduce?",
+          "answer": "Emperor penguins breed during the Antarctic winter, with males incubating a single egg for over two months while females forage. Chicks weigh around 0.45 kg at hatching and fledge when they reach about 50% of adult weight."
+        }
+      ],
+      "featured": true,
+      "type": "bird",
+      "wikipediaTitle": "Emperor Penguin"
+    },
+    {
+      "id": "Q129026",
+      "name": "Great White Shark",
+      "scientific_name": "Carcharodon carcharias",
+      "common_names": [
+        {
+          "name": "大白鲨",
+          "language": "zh-hans"
+        },
+        {
+          "name": "大白鯊",
+          "language": "zh-hant"
+        },
+        {
+          "name": "大白鯊",
+          "language": "zh-hk"
+        },
+        {
+          "name": "大白鲨",
+          "language": "zh-cn"
+        },
+        {
+          "name": "大白鲨",
+          "language": "zh-sg"
+        },
+        {
+          "name": "食人鯊",
+          "language": "zh-tw"
+        },
+        {
+          "name": "Hiu putih",
+          "language": "jv"
+        },
+        {
+          "name": "Marrazo zuri",
+          "language": "eu"
+        },
+        {
+          "name": "żarłacz biały",
+          "language": "pl"
+        },
+        {
+          "name": "Velika bijela ajkula",
+          "language": "bs"
+        }
+      ],
+      "summary": "species of large lamniform shark",
+      "description": "species of large lamniform shark",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Great_white_shark.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/4/4b/Great_white_shark.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/85/202410_Great_white_shark.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg"
+      ],
+      "distribution_image": "",
+      "time_period": {
+        "text": "~43.0 million years ago",
+        "width": "70%",
+        "start": "43M years ago",
+        "end": "Present",
+        "millions_years": 43.0,
+        "confidence": 2,
+        "raw_match": "43 million years ago"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Great_White_Shark",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q129026",
+      "eol_url": "https://eol.org/pages/46559751",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Chondrichthyes",
+        "order": "Lamniformes",
+        "family": "Lamnidae",
+        "genus": "Carcharodon",
+        "species": "Carcharodon carcharias"
+      },
+      "animal_type": "fish",
+      "young_name": "fry",
+      "group_name": "school",
+      "physical": {
+        "weight": "680–1,100 kg",
+        "length": "3.4–5.0 m",
+        "height": "",
+        "top_speed": "56 km/h (burst)",
+        "lifespan": "70 years"
+      },
+      "ecology": {
+        "diet": "Carnivore",
+        "habitat": "Coastal and offshore temperate waters",
+        "locations": "Australia, Canada, China, Greece, Indonesia, Italy, Montenegro, Netherlands, New Zealand, South Africa, United States of America",
+        "group_behavior": "Solitary",
+        "conservation_status": "Critically Endangered",
+        "biggest_threat": "Human-wildlife conflict",
+        "distinctive_features": [
+          "Serrated triangular teeth",
+          "Counter-shaded gray/white body",
+          "Electroreception"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "11 months",
+        "average_litter_size": "2–14",
+        "name_of_young": "fry"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "fish",
+        "slogan": "",
+        "group": "school",
+        "number_of_species": "five",
+        "estimated_population_size": "300",
+        "most_distinctive_feature": "forms of body language are known, most of which consist of two sharks swimming with or around each o"
+      },
+      "distribution": {
+        "countries": [
+          "Australia",
+          "Canada",
+          "China",
+          "Greece",
+          "Indonesia",
+          "Italy",
+          "Montenegro",
+          "Netherlands",
+          "New Zealand",
+          "South Africa",
+          "United States of America"
+        ],
+        "coordinates": {
+          "min_lat": -50.500713,
+          "max_lat": 44.52273,
+          "min_lon": -122.500884,
+          "max_lon": 176.113362,
+          "count": 50
+        },
+        "occurrence_count": 18141
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:37:12.648718",
+      "article": {
+        "overview": "The great white shark, also known as the white shark or white pointer, is a large and robustly built shark species closely related to mako sharks, the porbeagle, and the salmon shark. It is one of the largest living shark and fish species, though still smaller than the whale shark and basking shark. This apex predator is known for its impressive size, powerful build, and distinctive coloration.",
+        "description": "The great white shark features a grayish upperside and a white underside, with a robust build that makes it an imposing figure in the ocean. It has about 300 triangular, serrated teeth that are continuously replaced throughout its life, ensuring it always has a sharp set for hunting. Its massive, fatty liver can reach over a quarter of its body weight, providing buoyancy and storing energy for long periods. Additionally, the species is partially warm-blooded, an adaptation that allows it to remain active in colder waters where other sharks might struggle.",
+        "habitat": "The great white shark inhabits coastal and offshore waters in temperate and subtropical oceans around the world. It is often found near seal colonies and other areas with abundant prey, though its range extends from coastal shallows to deeper offshore environments. This adaptable species can be found in both open ocean and continental shelf regions, demonstrating a versatility in habitat use.",
+        "behavior": "As a carnivore, the great white shark primarily preys on marine mammals, fish, and seabirds, using its speed and strength to hunt effectively. It is capable of reaching burst speeds of up to 56 km/h, making it one of the fastest sharks in the ocean. While often solitary, great whites may occasionally gather in areas with abundant food, though they are not known for complex social interactions. Their partially warm-blooded nature allows them to maintain high activity levels even in colder waters, enabling them to hunt year-round in many regions.",
+        "conservation": "The great white shark is classified as vulnerable due to overfishing, bycatch, and habitat loss, which have significantly reduced its population in many areas. Its slow reproductive rate and long lifespan make it particularly vulnerable to these threats, as populations take longer to recover from declines. Conservation efforts, such as fishing regulations and marine protected areas, are in place to help protect this iconic species, but continued monitoring and action are needed to ensure its survival."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the great white shark eat?",
+          "answer": "The great white shark is a carnivore, primarily preying on marine mammals like seals, as well as fish and seabirds. Its diet consists mainly of high-fat prey, which provides the energy needed to sustain its large size and active lifestyle."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the great white shark live?",
+          "answer": "The great white shark inhabits coastal and offshore waters in temperate and subtropical oceans worldwide. It is often found near seal colonies and other areas with abundant prey, ranging from shallow coastal waters to deeper offshore environments."
+        },
+        {
+          "id": "size",
+          "question": "How big does the great white shark get?",
+          "answer": "Great white sharks can reach lengths of 3.4 to 5.0 meters and weigh between 680 to 1,100 kilograms, making them one of the largest predatory fish in the ocean. Females are generally larger than males, with some exceptional individuals exceeding these measurements."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the great white shark?",
+          "answer": "The great white shark is classified as vulnerable due to overfishing, bycatch, and habitat loss. Its slow reproductive rate and long lifespan make it particularly susceptible to population declines, requiring ongoing conservation efforts to protect it."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the great white shark live?",
+          "answer": "Great white sharks have a lifespan of up to 70 years, with females typically living longer than males. Their slow growth and late maturity contribute to their vulnerability over time."
+        },
+        {
+          "id": "features",
+          "question": "What makes the great white shark unique?",
+          "answer": "The great white shark is distinguished by its partially warm-blooded nature, which allows it to remain active in colder waters. It also has about 300 continuously replaced triangular, serrated teeth and a massive fatty liver that provides buoyancy and energy storage."
+        },
+        {
+          "id": "danger",
+          "question": "Is the great white shark dangerous to humans?",
+          "answer": "While the great white shark is responsible for a small number of unprovoked attacks on humans, it does not typically prey on people. Most incidents are believed to be cases of mistaken identity, where the shark is investigating a potential prey item."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the great white shark reproduce?",
+          "answer": "Great white sharks reproduce through internal fertilization, with females giving birth to live young after a gestation period. The pups are born fully developed and independent, though they remain vulnerable to predation in their early life stages."
+        }
+      ],
+      "featured": true,
+      "type": "fish",
+      "wikipediaTitle": "Great White Shark"
+    },
+    {
+      "id": "Q188879",
+      "name": "Atlantic Salmon",
+      "scientific_name": "Salmo salar",
+      "common_names": [
+        {
+          "name": "大西洋鲑",
+          "language": "zh-hans"
+        },
+        {
+          "name": "大西洋鮭",
+          "language": "zh-hant"
+        },
+        {
+          "name": "大西洋鮭",
+          "language": "zh-hk"
+        },
+        {
+          "name": "大西洋鲑",
+          "language": "zh-cn"
+        },
+        {
+          "name": "大西洋鲑",
+          "language": "zh-sg"
+        },
+        {
+          "name": "大西洋鮭",
+          "language": "zh-tw"
+        },
+        {
+          "name": "Lachs",
+          "language": "gsw"
+        },
+        {
+          "name": "Atlantic salmon",
+          "language": "pam"
+        },
+        {
+          "name": "Izokin",
+          "language": "eu"
+        },
+        {
+          "name": "łosoś szlachetny",
+          "language": "pl"
+        }
+      ],
+      "summary": "species of fish",
+      "description": "species of fish",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0f/Atlantic_salmon_fish.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/1d/202409_Atlantic_Salmon.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg"
+      ],
+      "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Distribution_of_Atlantic_salmon.svg",
+      "time_period": {
+        "text": "Evolved ~500 million years ago",
+        "width": "95%",
+        "start": "500M years ago",
+        "end": "Present"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Salmon",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q188879",
+      "eol_url": "https://eol.org/pages/46563143",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Actinopterygii",
+        "order": "Salmoniformes",
+        "family": "Salmonidae",
+        "genus": "Salmo",
+        "species": "Salmo salar"
+      },
+      "animal_type": "fish",
+      "young_name": "fry",
+      "group_name": "school",
+      "physical": {
+        "weight": "2.3–6.8 kg",
+        "length": "50–76 cm",
+        "height": "",
+        "top_speed": "27 km/h",
+        "lifespan": "3–8 years"
+      },
+      "ecology": {
+        "diet": "Piscivore",
+        "habitat": "North Atlantic Ocean and rivers",
+        "locations": "Canada, France, Netherlands, United States of America",
+        "group_behavior": "Solitary",
+        "conservation_status": "Endangered",
+        "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+        "distinctive_features": [
+          "Anadromous lifecycle",
+          "Silvery scales",
+          "Return to natal rivers to spawn"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "2–3 months",
+        "average_litter_size": "5,000–20,000 eggs",
+        "name_of_young": "fry"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "fish",
+        "slogan": "",
+        "group": "school",
+        "number_of_species": "",
+        "estimated_population_size": "",
+        "most_distinctive_feature": "es of Atlantic salmon vary between two and eight years"
+      },
+      "distribution": {
+        "countries": [
+          "Canada",
+          "France",
+          "Netherlands",
+          "United States of America"
+        ],
+        "coordinates": {
+          "min_lat": 42.385017,
+          "max_lat": 50.004707,
+          "min_lon": -76.877625,
+          "max_lon": 1.520426,
+          "count": 50
+        },
+        "occurrence_count": 1453690
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:37:20.365054",
+      "article": {
+        "overview": "The Atlantic salmon (Salmo salar) is a large, anadromous fish species native to the northern Atlantic Ocean and its tributaries. Renowned for its impressive size and complex life cycle, it is a vital species both ecologically and for sport fisheries. This iconic migratory fish faces significant conservation challenges due to habitat loss and other anthropogenic pressures.",
+        "description": "Atlantic salmon are the largest species within the genus Salmo, capable of reaching lengths of up to 1 meter (3.3 ft) and weights exceeding 36 kg (79 lbs). They possess a sleek, fusiform body shape and are characterized by their silvery-blue sheen as adults, marked by distinct black spots above the lateral line. During the breeding season, males develop a kype—a pronounced hook on the lower jaw—and take on a greenish or reddish hue. Their well-developed teeth and all fins, except the adipose fin, bordered in black, are key identifying features.",
+        "habitat": "The natural breeding grounds of Atlantic salmon are rivers and streams in Europe and the northeastern coast of North America. These fish are anadromous, meaning they hatch in freshwater, migrate to the ocean to feed and mature, and then return to their native rivers to spawn. Their oceanic range extends across the North Atlantic, and due to climate change, they have been observed colonizing new northern territories like Svalbard. They require clean, well-oxygenated freshwater with gravel beds for successful reproduction.",
+        "behavior": "Atlantic salmon exhibit a complex life cycle driven by migration. After hatching in freshwater streams, they undergo several stages of development before smolting and migrating to the ocean. At sea, they undertake extensive migrations, traveling thousands of kilometers to feeding grounds in the North Atlantic where they grow rapidly. Upon reaching sexual maturity, adults embark on a homeward journey, navigating back to the exact river where they were born to spawn. This incredible feat of navigation is a defining behavior of the species.",
+        "conservation": "Many Atlantic salmon populations are in decline due to a combination of factors, including habitat degradation, dams blocking migration routes, pollution, and overfishing. Climate change poses an additional threat by altering water temperatures and flow patterns in their rivers and marine habitats. Conservation efforts focus on restoring river habitats, regulating fisheries, and removing barriers to migration to help protect this ecologically and culturally important species."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "what does the atlantic salmon eat?",
+          "answer": "Atlantic salmon are primarily piscivorous, meaning their diet consists mainly of fish. While in the ocean, they prey on smaller fish like sand lance and capelin. In their freshwater juvenile stage, they feed on aquatic invertebrates such as insects and crustaceans."
+        },
+        {
+          "id": "habitat",
+          "question": "where does the atlantic salmon live?",
+          "answer": "Atlantic salmon are found in the northern Atlantic Ocean and the rivers that flow into it. Their native range includes rivers in Europe from Spain to Russia and in North America from Connecticut to Labrador. They require both freshwater rivers for spawning and the ocean for feeding."
+        },
+        {
+          "id": "size",
+          "question": "how big do atlantic salmon get?",
+          "answer": "Atlantic salmon are large fish, typically growing 50–76 cm (20–30 in) long and weighing 2.3–6.8 kg (5–15 lbs). However, specimens can be much larger, with the longest on record measuring 1.5 m (4.9 ft) and the heaviest weighing over 36 kg (79 lbs)."
+        },
+        {
+          "id": "conservation",
+          "question": "is the atlantic salmon endangered?",
+          "answer": "Many Atlantic salmon populations are in decline and face threats from habitat loss, pollution, dams, and overfishing. While the species as a whole is not classified as endangered, many specific populations are considered at risk or threatened, requiring active conservation measures."
+        },
+        {
+          "id": "lifespan",
+          "question": "how long does an atlantic salmon live?",
+          "answer": "The typical lifespan of an Atlantic salmon is 3 to 8 years. This duration can vary depending on factors like how many years they spend at sea feeding before returning to spawn. Repeat spawners, which survive to spawn more than once, can live longer."
+        },
+        {
+          "id": "features",
+          "question": "what are the identifying features of an atlantic salmon?",
+          "answer": "Adult Atlantic salmon are identified by their silvery-blue color, black spots concentrated above the lateral line, and a fusiform, torpedo-shaped body. During the breeding season, males develop a hooked lower jaw known as a kype and may turn greenish or reddish."
+        },
+        {
+          "id": "danger",
+          "question": "are atlantic salmon dangerous to humans?",
+          "answer": "Atlantic salmon are not considered dangerous to humans. They are a prized sport fish and food source, but they do not pose a threat. Like most fish, they can be defensive if handled, but they do not attack people."
+        },
+        {
+          "id": "reproduction",
+          "question": "how do atlantic salmon reproduce?",
+          "answer": "Atlantic salmon are anadromous and semelparous, meaning they migrate to freshwater rivers to spawn and typically die after doing so. The female digs a redd (a nest in the gravel) where she deposits her eggs, which are then fertilized by a male. The young hatch and remain in freshwater for one to several years before migrating to the sea."
+        }
+      ],
+      "featured": true,
+      "type": "fish",
+      "wikipediaTitle": "Atlantic Salmon"
+    },
+    {
+      "id": "Q199458",
+      "name": "Green Sea Turtle",
+      "scientific_name": "Chelonia mydas",
+      "common_names": [
+        {
+          "name": "Le̍k hái-ku",
+          "language": "nan"
+        },
+        {
+          "name": "绿蠵龟",
+          "language": "zh-hans"
+        },
+        {
+          "name": "綠蠵龜",
+          "language": "zh-hant"
+        },
+        {
+          "name": "綠蠵龜",
+          "language": "zh-hk"
+        },
+        {
+          "name": "绿蠵龟",
+          "language": "zh-cn"
+        },
+        {
+          "name": "绿蠵龟",
+          "language": "zh-sg"
+        },
+        {
+          "name": "綠蠵龜",
+          "language": "zh-tw"
+        },
+        {
+          "name": "Жашыл ташбака",
+          "language": "ky"
+        },
+        {
+          "name": "Bulus Ijem",
+          "language": "jv"
+        },
+        {
+          "name": "Chelonia mydas",
+          "language": "eu"
+        }
+      ],
+      "summary": "species of sea turtle",
+      "description": "species of sea turtle",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/bb/Hawaii_turtle_2.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/4/4e/202304_Green_turtle.svg"
+      ],
+      "distribution_image": "",
+      "time_period": {
+        "text": "Evolved ~300 million years ago",
+        "width": "90%",
+        "start": "300M years ago",
+        "end": "Present"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Sea_Turtle",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q199458",
+      "eol_url": "https://eol.org/pages/46559469",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Reptilia",
+        "order": "Testudines",
+        "family": "Cheloniidae",
+        "genus": "Chelonia",
+        "species": "Chelonia mydas"
+      },
+      "animal_type": "reptile",
+      "young_name": "hatchling",
+      "group_name": "group",
+      "physical": {
+        "weight": "68–190 kg",
+        "length": "1.2–1.5 m",
+        "height": "",
+        "top_speed": "24 km/h (swimming)",
+        "lifespan": "70–80 years"
+      },
+      "ecology": {
+        "diet": "Herbivore",
+        "habitat": "Tropical and subtropical coastal waters and seagrass beds",
+        "locations": "Australia, Bahamas, Barbados, Bonaire, Sint Eustatius and Saba, Brazil, Canada, Chinese Taipei, Cook Islands, Costa Rica, Ecuador, Egypt, Guadeloupe, Honduras, Indonesia, Martinique, Mexico, New Caledonia, New Zealand, Norfolk Island, Northern Mariana Islands, Oman, Philippines, Puerto Rico, United States of America, Virgin Islands (U.S.)",
+        "group_behavior": "Solitary",
+        "conservation_status": "Critically Endangered",
+        "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+        "distinctive_features": [
+          "Green-colored fat",
+          "Heart-shaped carapace",
+          "Long migrations to nesting beaches"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "60 days",
+        "average_litter_size": "100–200 eggs",
+        "name_of_young": "hatchling"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "fish",
+        "slogan": "",
+        "group": "group",
+        "number_of_species": "",
+        "estimated_population_size": "",
+        "most_distinctive_feature": "s distinguish the green turtle from the other members of its family"
+      },
+      "distribution": {
+        "countries": [
+          "Australia",
+          "Bahamas",
+          "Barbados",
+          "Bonaire, Sint Eustatius and Saba",
+          "Brazil",
+          "Canada",
+          "Chinese Taipei",
+          "Cook Islands",
+          "Costa Rica",
+          "Ecuador",
+          "Egypt",
+          "Guadeloupe",
+          "Honduras",
+          "Indonesia",
+          "Martinique",
+          "Mexico",
+          "New Caledonia",
+          "New Zealand",
+          "Norfolk Island",
+          "Northern Mariana Islands",
+          "Oman",
+          "Philippines",
+          "Puerto Rico",
+          "United States of America",
+          "Virgin Islands (U.S.)"
+        ],
+        "coordinates": {
+          "min_lat": -31.034203,
+          "max_lat": 49.095935,
+          "min_lon": -159.706384,
+          "max_lon": 166.510188,
+          "count": 50
+        },
+        "occurrence_count": 252685
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:37:30.645788",
+      "article": {
+        "overview": "The green sea turtle, also known as the black sea turtle or Pacific green turtle, is a large sea turtle found in tropical and subtropical oceans worldwide. It is the only species in the genus Chelonia, named for the green fat beneath its carapace, a result of its seagrass diet, not its olive to black shell color.",
+        "description": "The green sea turtle has a dorsoventrally flattened body, a beaked head, and paddle-like limbs adapted for swimming. Adults grow to an average length of 1.2–1.5 meters and weigh 68–190 kg, with exceptional specimens reaching over 400 kg. Distinguishing features include a short, unhooked beak, a neck that cannot retract into the shell, and a carapace with five central scutes flanked by four pairs of lateral scutes. Their limbs are dark with yellow markings, and mature adults have a single claw on their front flippers.",
+        "habitat": "Green sea turtles inhabit tropical and subtropical oceans, with distinct Atlantic and Pacific populations. They use three key habitats: nesting beaches, shallow coastal waters with seagrass beds for feeding, and pelagic waters during their juvenile stage. Their range extends from Texas to Massachusetts along the U.S. Atlantic coast and from southern California to Alaska in the Pacific, with major populations in Hawaii and Florida.",
+        "behavior": "Green sea turtles are migratory, traveling between feeding and nesting grounds. Their diet shifts from carnivorous as juveniles to herbivorous as adults, consuming seagrass and algae with their serrated jaws. They are solitary foragers but may gather in large numbers at feeding sites. The species is known for its role in maintaining seagrass bed health and has a symbiotic relationship with reef fish like the yellow tang, which clean their shells.",
+        "conservation": "The global population of green sea turtles was reclassified to 'least concern' by the IUCN in 2025, though some subpopulations remain vulnerable. Major threats include intentional hunting and egg harvesting, as well as unintentional dangers like boat strikes, bycatch in fishing nets, pollution, and habitat destruction. Light pollution disorients hatchlings, and chemical pollution can cause tumors and gut blockages from ingested tar balls."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the green sea turtle eat?",
+          "answer": "Juvenile green sea turtles are carnivorous, eating fish, jellyfish, and small invertebrates. As they mature, they become herbivorous, primarily consuming seagrass and algae, which gives their body fat a green color."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the green sea turtle live?",
+          "answer": "Green sea turtles live in tropical and subtropical oceans worldwide, with distinct Atlantic and Pacific populations. They are found in coastal waters, seagrass beds, and pelagic zones, nesting on beaches in over 80 countries."
+        },
+        {
+          "id": "size",
+          "question": "How big does the green sea turtle get?",
+          "answer": "Adult green sea turtles grow to an average length of 1.2–1.5 meters and weigh 68–190 kg. Exceptional specimens have been recorded weighing over 400 kg with a carapace length of 1.5 meters."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the green sea turtle?",
+          "answer": "The global population is classified as 'least concern' by the IUCN, but some subpopulations remain endangered. Threats include hunting, bycatch, pollution, and habitat destruction, particularly of nesting beaches."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the green sea turtle live?",
+          "answer": "Green sea turtles have a lifespan of 70–80 years in the wild. Their longevity is attributed to their slow growth rate and protected adult stage."
+        },
+        {
+          "id": "features",
+          "question": "What makes the green sea turtle unique?",
+          "answer": "Green sea turtles are the fastest sea turtles, capable of swimming up to 40 mph. Their sex is determined by nest temperature, with warmer conditions producing females, and they have a symbiotic relationship with reef fish that clean their shells."
+        },
+        {
+          "id": "danger",
+          "question": "Is the green sea turtle dangerous to humans?",
+          "answer": "Green sea turtles are not aggressive toward humans and pose little threat. However, they may defend themselves if harassed, and their powerful flippers can cause injury."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the green sea turtle reproduce?",
+          "answer": "Females mate in the water and return to their natal beaches to nest, laying 85–200 eggs per clutch. Hatchlings emerge after 50–70 days and instinctively head to the sea, facing high predation risks."
+        }
+      ],
+      "featured": true,
+      "type": "reptile",
+      "wikipediaTitle": "Green Sea Turtle"
+    },
+    {
+      "id": "Q48186",
+      "name": "King Cobra",
+      "scientific_name": "Ophiophagus hannah",
+      "common_names": [
+        {
+          "name": "眼镜王蛇",
+          "language": "zh"
+        },
+        {
+          "name": "Ula anang",
+          "language": "jv"
+        },
+        {
+          "name": "kobra królewska",
+          "language": "pl"
+        },
+        {
+          "name": "Ophiophagus hannah",
+          "language": "es"
+        },
+        {
+          "name": "கருநாகம்",
+          "language": "ta"
+        },
+        {
+          "name": "Kownukronsneki",
+          "language": "srn"
+        },
+        {
+          "name": "Ular Tedung Selar",
+          "language": "ms"
+        },
+        {
+          "name": "királykobra",
+          "language": "hu"
+        },
+        {
+          "name": "শঙ্খচূড়",
+          "language": "bn"
+        },
+        {
+          "name": "ملك الكوبرا",
+          "language": "ar"
+        }
+      ],
+      "summary": "species of reptile",
+      "description": "species of reptile",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/0/05/Ophiophagus_hannah_381373252.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png"
+      ],
+      "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Distribution_O._hannah.png",
+      "time_period": {
+        "text": "Evolved ~300 million years ago",
+        "width": "90%",
+        "start": "300M years ago",
+        "end": "Present"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/King_Cobra",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q48186",
+      "eol_url": "https://eol.org/pages/1055746",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Reptilia",
+        "order": "Squamata",
+        "family": "Elapidae",
+        "genus": "Ophiophagus",
+        "species": "Ophiophagus hannah"
+      },
+      "animal_type": "reptile",
+      "young_name": "hatchling",
+      "group_name": "group",
+      "physical": {
+        "weight": "6–12 kg",
+        "length": "3.0–4.0 m",
+        "height": "",
+        "top_speed": "5 km/h",
+        "lifespan": "20 years"
+      },
+      "ecology": {
+        "diet": "Carnivore",
+        "habitat": "Forests, bamboo thickets, and mangroves",
+        "locations": "Bangladesh, Bhutan, Cambodia, China, Hong Kong, India, Nepal, Singapore, Thailand, Viet Nam",
+        "group_behavior": "Solitary",
+        "conservation_status": "Unknown",
+        "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+        "distinctive_features": [
+          "Longest venomous snake",
+          "Can raise one-third of body",
+          "Builds nest for eggs"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "60–90 days",
+        "average_litter_size": "20–40 eggs",
+        "name_of_young": "hatchling"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "hunts during the day, but has also been seen at night, albeit rarely",
+        "slogan": "",
+        "group": "group",
+        "number_of_species": "two",
+        "estimated_population_size": "",
+        "most_distinctive_feature": ""
+      },
+      "distribution": {
+        "countries": [
+          "Bangladesh",
+          "Bhutan",
+          "Cambodia",
+          "China",
+          "Hong Kong",
+          "India",
+          "Nepal",
+          "Singapore",
+          "Thailand",
+          "Viet Nam"
+        ],
+        "coordinates": {
+          "min_lat": 8.647457,
+          "max_lat": 27.84147,
+          "min_lon": 84.612784,
+          "max_lon": 116.32829,
+          "count": 50
+        },
+        "occurrence_count": 857
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:37:36.601481",
+      "article": {
+        "overview": "The king cobra (Ophiophagus hannah) is the world's longest venomous snake, reaching lengths of up to 5.85 meters, and is widely distributed across tropical Asia. Despite its common name, it is not a true cobra but a distinct species known for its impressive size and potent venom.",
+        "description": "The king cobra has olive green skin with distinctive black and white bands on its trunk that converge towards its head. Its head is covered by 15 drab-colored shields with black edges, and it features large, golden eyes with round pupils. The snake is sexually dimorphic, with males being larger and paler than females, especially during the breeding season. Its most recognizable feature is its oval-shaped hood, which is covered in olive green smooth scales and marked with two black spots.",
+        "habitat": "The king cobra inhabits a wide range of tropical and subtropical forests across South and Southeast Asia, from the Terai in India and southern Nepal to the Philippines and Indonesia. It is typically found at elevations ranging from lowlands to mountainous regions, often near water sources. While it has a broad distribution, it is not commonly seen due to its elusive nature and preference for dense forest habitats.",
+        "behavior": "King cobras are highly venomous and primarily diurnal, hunting during the day for prey such as other snakes, including venomous species. They are known for their distinctive hood display, which they use to intimidate threats. Despite their fearsome reputation, they are generally shy and will avoid confrontation if possible. When threatened, they can rear up to one-third of their body length and deliver a potent bite.",
+        "conservation": "The king cobra is listed as Vulnerable on the IUCN Red List due to habitat loss and fragmentation across its range. Deforestation and human encroachment are major threats to its population, as they reduce the availability of prey and suitable nesting sites. Conservation efforts focus on protecting its natural habitat and raising awareness about its ecological importance."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "what does the king cobra eat?",
+          "answer": "The king cobra is a carnivore and primarily feeds on other snakes, including venomous species like rat snakes and even smaller king cobras. Its diet occasionally includes lizards, eggs, and small mammals."
+        },
+        {
+          "id": "habitat",
+          "question": "where does the king cobra live?",
+          "answer": "It inhabits tropical and subtropical forests across South and Southeast Asia, including India, Southeast China, Indonesia, and the Philippines, typically near water sources in dense forest habitats."
+        },
+        {
+          "id": "size",
+          "question": "how big is a king cobra?",
+          "answer": "King cobras are the world's longest venomous snakes, averaging 3.18 to 4 meters in length, with a record length of 5.85 meters. Males are larger than females, with weights ranging from 6 to 12 kilograms."
+        },
+        {
+          "id": "conservation",
+          "question": "is the king cobra endangered?",
+          "answer": "The king cobra is listed as Vulnerable due to habitat loss and fragmentation. Deforestation and human encroachment threaten its population, making conservation efforts critical for its survival."
+        },
+        {
+          "id": "lifespan",
+          "question": "how long does a king cobra live?",
+          "answer": "In the wild, king cobras have an average lifespan of 20 years. Their longevity can vary depending on habitat conditions and availability of prey."
+        },
+        {
+          "id": "features",
+          "question": "what makes the king cobra unique?",
+          "answer": "It is the longest venomous snake, with a distinctive olive green body, black and white bands, and an oval-shaped hood. Unlike true cobras, it belongs to the genus Ophiophagus, meaning 'snake-eater'."
+        },
+        {
+          "id": "danger",
+          "question": "is the king cobra dangerous to humans?",
+          "answer": "Yes, the king cobra is highly venomous and its bite can be fatal to humans if untreated. However, it is generally shy and will avoid confrontation unless threatened or provoked."
+        },
+        {
+          "id": "reproduction",
+          "question": "how do king cobras reproduce?",
+          "answer": "Female king cobras lay 20–40 eggs in a nest, which they guard aggressively until they hatch. The young are born independent and fully venomous, measuring around 50 centimeters in length."
+        }
+      ],
+      "featured": true,
+      "type": "reptile",
+      "wikipediaTitle": "King Cobra"
+    },
+    {
+      "id": "Q159404",
+      "name": "American Bullfrog",
+      "scientific_name": "Lithobates catesbeianus",
+      "common_names": [
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "ceb"
+        },
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "sv"
+        },
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "war"
+        },
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "de"
+        },
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "it"
+        },
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "es"
+        },
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "fr"
+        },
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "bg"
+        },
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "ru"
+        },
+        {
+          "name": "Lithobates catesbeianus",
+          "language": "nl"
+        }
+      ],
+      "summary": "species of amphibian",
+      "description": "species of amphibian",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/e/e4/American_Bullfrog_on_a_Lily_Pad_(7915817936).jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b9/202312_American_bullfrog.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png"
+      ],
+      "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Lithobates_catesbeianus_distribution.png",
+      "time_period": {
+        "text": "Evolved ~370 million years ago",
+        "width": "92%",
+        "start": "370M years ago",
+        "end": "Present"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/American_Bullfrog",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q159404",
+      "eol_url": "https://eol.org/pages/330963",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Chordata",
+        "class": "Amphibia",
+        "order": "Anura",
+        "family": "Ranidae",
+        "genus": "Lithobates",
+        "species": "Lithobates catesbeianus"
+      },
+      "animal_type": "amphibian",
+      "young_name": "tadpole",
+      "group_name": "group",
+      "physical": {
+        "weight": "0.5–0.75 kg",
+        "length": "9–15 cm",
+        "height": "",
+        "top_speed": "5 km/h",
+        "lifespan": "7–9 years"
+      },
+      "ecology": {
+        "diet": "Carnivore",
+        "habitat": "Freshwater ponds, lakes, marshes, and slow streams",
+        "locations": "Argentina, Belgium, Colombia, Dominican Republic, Japan, Mexico, United States of America",
+        "group_behavior": "Solitary",
+        "conservation_status": "Vulnerable",
+        "biggest_threat": "Human-wildlife conflict",
+        "distinctive_features": [
+          "Deep resonant call",
+          "Large eardrums",
+          "Cannibalistic tendencies"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "4 days",
+        "average_litter_size": "12,000–20,000 eggs",
+        "name_of_young": "tadpole"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "fish",
+        "slogan": "",
+        "group": "group",
+        "number_of_species": "",
+        "estimated_population_size": "",
+        "most_distinctive_feature": "among North American ranids in the inclusion of a large percentage of aquatic animals, such as fish,"
+      },
+      "distribution": {
+        "countries": [
+          "Argentina",
+          "Belgium",
+          "Colombia",
+          "Dominican Republic",
+          "Japan",
+          "Mexico",
+          "United States of America"
+        ],
+        "coordinates": {
+          "min_lat": 19.660895,
+          "max_lat": 51.14126,
+          "min_lon": -157.91153,
+          "max_lon": 4.99305,
+          "count": 50
+        },
+        "occurrence_count": 147883
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:37:42.678209",
+      "article": {
+        "overview": "The American bullfrog is a large true frog native to eastern North America, named for the male's distinctive bellowing call during breeding season. This adaptable amphibian thrives in both natural and manmade water bodies, where it serves as a generalist carnivore and prey for various predators.",
+        "description": "The bullfrog's dorsal surface features an olive-green background, often with mottling or banding of grayish brown, while its ventral surface is off-white with yellow or gray blotches. A striking contrast exists between the green upper lip and pale lower lip. Males are smaller than females and have yellow throats, with tympana larger than their eyes, whereas females' tympana are about the same size as their eyes. The species exhibits sexual dimorphism, with males typically measuring 9–15 cm in length and weighing 0.5–0.75 kg, while females are larger.",
+        "habitat": "The American bullfrog primarily inhabits large permanent water bodies such as swamps, ponds, and lakes across eastern North America. It also readily adapts to manmade habitats, including pools, koi ponds, canals, ditches, reservoirs, and culverts. This versatility allows the bullfrog to thrive in a wide range of aquatic environments, from natural wetlands to human-altered landscapes.",
+        "behavior": "As generalist carnivores, bullfrogs consume a diverse diet, including insects, small mammals, birds, and other amphibians. They are ambush predators, using their powerful hind legs to leap at prey with remarkable speed, reaching up to 5 km/h in short bursts. Bullfrogs are primarily solitary but may gather during breeding season when males vocalize to attract females. They are most active at night and during warm, humid weather.",
+        "conservation": "The American bullfrog is currently listed as Least Concern by the IUCN due to its wide distribution and stable populations in its native range. However, it faces threats from habitat loss, pollution, and disease, which can impact local populations. Invasive populations outside its native range pose additional ecological concerns, often outcompeting native species."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the american bullfrog eat?",
+          "answer": "The american bullfrog is a generalist carnivore, consuming a wide variety of prey including insects, small mammals, birds, and other amphibians. Its diet is highly adaptable, allowing it to thrive in diverse environments by hunting both aquatic and terrestrial prey."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the american bullfrog live?",
+          "answer": "The american bullfrog inhabits large permanent water bodies like swamps, ponds, and lakes, as well as manmade habitats such as pools, canals, and reservoirs. It is native to eastern North America but has also established populations in other regions due to its adaptability."
+        },
+        {
+          "id": "size",
+          "question": "How big does the american bullfrog get?",
+          "answer": "Male american bullfrogs typically measure 9–15 cm in length and weigh 0.5–0.75 kg, while females are larger and heavier. Their size makes them one of the largest frog species in North America."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the american bullfrog?",
+          "answer": "The american bullfrog is listed as Least Concern by the IUCN due to its broad distribution and stable populations in its native range. However, it faces localized threats from habitat loss, pollution, and invasive species in some areas."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the american bullfrog live?",
+          "answer": "In the wild, american bullfrogs typically live 7–9 years, though some individuals may survive longer in captivity. Their lifespan is influenced by factors such as predation, habitat quality, and environmental conditions."
+        },
+        {
+          "id": "features",
+          "question": "What makes the american bullfrog unique?",
+          "answer": "The american bullfrog is known for its deep, bellowing call, which resembles a bull's roar and gives the species its name. Males also have distinctive yellow throats and tympana larger than their eyes, setting them apart from females."
+        },
+        {
+          "id": "danger",
+          "question": "Is the american bullfrog dangerous to humans?",
+          "answer": "The american bullfrog is not dangerous to humans, as it does not possess venom or pose a direct threat. However, like all wild animals, it may bite if handled roughly, and its large size can be intimidating to some people."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the american bullfrog reproduce?",
+          "answer": "During breeding season, males produce loud calls to attract females, who lay masses of eggs in shallow water. Tadpoles hatch and undergo metamorphosis over several months before becoming adult frogs. No parental care is provided to the eggs or tadpoles."
+        }
+      ],
+      "featured": true,
+      "type": "amphibian",
+      "wikipediaTitle": "American Bullfrog"
+    },
+    {
+      "id": "Q212398",
+      "name": "Monarch Butterfly",
+      "scientific_name": "Danaus plexippus",
+      "common_names": [
+        {
+          "name": "黑脉金斑蝶",
+          "language": "zh-hans"
+        },
+        {
+          "name": "帝王斑蝶",
+          "language": "zh-hant"
+        },
+        {
+          "name": "帝王斑蝶",
+          "language": "zh-hk"
+        },
+        {
+          "name": "黑脉金斑蝶",
+          "language": "zh-cn"
+        },
+        {
+          "name": "君主斑蝶",
+          "language": "zh-sg"
+        },
+        {
+          "name": "帝王斑蝶",
+          "language": "zh-tw"
+        },
+        {
+          "name": "Danaus plexippus",
+          "language": "pl"
+        },
+        {
+          "name": "Quetzalpāpalōtl",
+          "language": "nah"
+        },
+        {
+          "name": "דנאית מלכותית",
+          "language": "he"
+        },
+        {
+          "name": "monarque (papillon)",
+          "language": "fr"
+        }
+      ],
+      "summary": "milkweed butterfly in the family Nymphalidae",
+      "description": "milkweed butterfly in the family Nymphalidae",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/0/0e/Danaus_plexippus_MHNT_femelle.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e4/Danaus_plexippus_MHNT.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/90/Monarch_caterpillar_(23229).jpg"
+      ],
+      "distribution_image": "",
+      "time_period": {
+        "text": "Evolved ~400 million years ago",
+        "width": "93%",
+        "start": "400M years ago",
+        "end": "Present"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Monarch_Butterfly",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q212398",
+      "eol_url": "https://eol.org/pages/4090155",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Insecta",
+        "order": "Lepidoptera",
+        "family": "Nymphalidae",
+        "genus": "Danaus",
+        "species": "Danaus plexippus"
+      },
+      "animal_type": "insect",
+      "young_name": "larva",
+      "group_name": "colony",
+      "physical": {
+        "weight": "0.27–0.75 g",
+        "length": "9–10 cm (wingspan)",
+        "height": "",
+        "top_speed": "9 km/h",
+        "lifespan": "2–6 weeks (summer gen), up to 8 months (migratory)"
+      },
+      "ecology": {
+        "diet": "Nectarivore",
+        "habitat": "Meadows, fields, gardens; overwintering in oyamel fir forests",
+        "locations": "Australia, Colombia, Mexico, New Zealand, United States of America",
+        "group_behavior": "Colony",
+        "conservation_status": "Endangered",
+        "biggest_threat": "Poaching, Habitat loss, Human-wildlife conflict",
+        "distinctive_features": [
+          "Orange and black patterned wings",
+          "Long-distance migration",
+          "Toxic to predators"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "3–8 days",
+        "average_litter_size": "300–500",
+        "name_of_young": "larva"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "Fish",
+        "slogan": "",
+        "group": "colony",
+        "number_of_species": "three",
+        "estimated_population_size": "",
+        "most_distinctive_feature": "for its annual southward late-summer/autumn instinctive migration from the northern and central Unit"
+      },
+      "distribution": {
+        "countries": [
+          "Australia",
+          "Colombia",
+          "Mexico",
+          "New Zealand",
+          "United States of America"
+        ],
+        "coordinates": {
+          "min_lat": -37.866868,
+          "max_lat": 37.519265,
+          "min_lon": -157.855928,
+          "max_lon": 153.064852,
+          "count": 50
+        },
+        "occurrence_count": 750025
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF",
+        "EOL"
+      ],
+      "last_updated": "2026-03-21T21:37:53.157968",
+      "article": {
+        "overview": "The monarch butterfly, a milkweed butterfly in the Nymphalidae family, is among the most familiar and iconic butterflies in North America. Known for its striking black, orange, and white pattern, it is a celebrated pollinator despite not being especially effective at pollinating milkweeds.",
+        "description": "The monarch butterfly is easily recognizable by its vibrant black, orange, and white wings, which feature a wingspan of 8.9–10.2 cm (3.5–4.0 in). Its appearance is similar to the viceroy butterfly, a Müllerian mimic, but the viceroy is markedly smaller and has an extra black stripe across each hindwing. This distinctive coloration serves as a warning to predators about its toxicity, which is derived from the milkweed plants it consumes as a caterpillar.",
+        "habitat": "The monarch's range expands and contracts with the seasons, differing between breeding areas, migration routes, and winter roosts. During breeding, they inhabit agricultural fields, prairies, gardens, and roadsides—anywhere milkweed is available. Their wintering habitat, such as the oyamel fir forests in Mexico, requires access to streams, sunlight for warmth, and appropriate roosting vegetation, and is typically free of predators.",
+        "behavior": "Monarchs are nectarivores, feeding on flower nectar to fuel their activities. As caterpillars, they exclusively feed on milkweed, which makes them toxic to predators. The species exhibits remarkable migratory behavior, with eastern and western populations traveling thousands of miles to specific overwintering sites. During development, both larvae and their milkweed hosts are vulnerable to weather, predators, and disease, with survival rates for eggs and caterpillars often falling below 10%.",
+        "conservation": "The monarch butterfly faces significant threats, including habitat loss due to herbicide use and genetically modified crops, which have reduced milkweed abundance. Its conservation status has been a subject of ongoing review, with the migratory subspecies listed as endangered by the IUCN in 2022 before being downgraded to 'vulnerable' in 2023. While the western population has shown a slight rebound since 2014, both eastern and western populations are projected to face high probabilities of extinction in the foreseeable future without continued conservation efforts."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the monarch butterfly eat?",
+          "answer": "As caterpillars, monarchs exclusively feed on milkweed plants, which makes them toxic to predators. Adult monarchs are nectarivores, feeding on the nectar of various flowers to obtain energy for flight and reproduction."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the monarch butterfly live?",
+          "answer": "The monarch's range varies seasonally, spanning breeding grounds in the United States and Canada, migration routes, and wintering sites in Mexico and California. They can be found in diverse habitats, including fields, gardens, and prairies, as long as milkweed is available for their larvae."
+        },
+        {
+          "id": "size",
+          "question": "How big does the monarch butterfly get?",
+          "answer": "The monarch butterfly has a wingspan of 8.9–10.2 cm (3.5–4.0 in). As caterpillars, they grow through five instars, reaching lengths that vary with age and environmental conditions."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the monarch butterfly?",
+          "answer": "The migratory monarch subspecies was listed as endangered by the IUCN in 2022 but was later downgraded to 'vulnerable' in 2023. The U.S. Fish and Wildlife Service has proposed listing it as threatened, citing high extinction risks for both eastern and western populations."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the monarch butterfly live?",
+          "answer": "The lifespan of a monarch butterfly varies by generation. Summer generations live for 2–6 weeks, while the migratory generation can live up to 8 months to complete their long journey to and from overwintering sites."
+        },
+        {
+          "id": "features",
+          "question": "What makes the monarch butterfly unique?",
+          "answer": "The monarch is known for its spectacular multi-generational migration, traveling thousands of miles to specific overwintering sites. Its distinctive black, orange, and white pattern serves as a warning to predators about its toxicity, acquired from milkweed as a caterpillar."
+        },
+        {
+          "id": "danger",
+          "question": "Is the monarch butterfly dangerous to humans?",
+          "answer": "Monarch butterflies are not dangerous to humans. Their toxicity, derived from milkweed, is harmful to predators but poses no threat to people, making them safe to observe and admire."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the monarch butterfly reproduce?",
+          "answer": "Female monarchs lay eggs singly, most often on the underside of young milkweed leaves. After hatching, caterpillars go through five instars before forming a chrysalis and metamorphosing into adults. The entire life cycle can take as little as 25 days in warm summer conditions."
+        }
+      ],
+      "featured": true,
+      "type": "insect",
+      "wikipediaTitle": "Monarch Butterfly"
+    },
+    {
+      "id": "Q30034",
+      "name": "Honey Bee",
+      "scientific_name": "Apis mellifera",
+      "common_names": [
+        {
+          "name": "西方蜜蜂",
+          "language": "zh"
+        },
+        {
+          "name": "erle arrunt",
+          "language": "eu"
+        },
+        {
+          "name": "pszczoła miodna",
+          "language": "pl"
+        },
+        {
+          "name": "Alghina",
+          "language": "rup"
+        },
+        {
+          "name": "Apis mellifera",
+          "language": "es"
+        },
+        {
+          "name": "Heuningby",
+          "language": "af"
+        },
+        {
+          "name": "Apis mellifera",
+          "language": "oc"
+        },
+        {
+          "name": "Lebah Eropah",
+          "language": "ms"
+        },
+        {
+          "name": "házi méh",
+          "language": "hu"
+        },
+        {
+          "name": "meemesilane",
+          "language": "et"
+        }
+      ],
+      "summary": "species of insect",
+      "description": "species of insect",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/d/d9/Apis_mellifera_Tanzania.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/99/Apis_mellifera_flying.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/80/202203_western_honey_bee.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg"
+      ],
+      "distribution_image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Apis_mellifera_distribution_map.svg",
+      "time_period": {
+        "text": "~34.0 million years ago",
+        "width": "70%",
+        "start": "34M years ago",
+        "end": "Present",
+        "millions_years": 34.0,
+        "confidence": 2,
+        "raw_match": "34 mya"
+      },
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Honey_Bee",
+      "wikidata_url": "https://www.wikidata.org/wiki/Q30034",
+      "eol_url": "",
+      "classification": {
+        "kingdom": "Animalia",
+        "phylum": "Arthropoda",
+        "class": "Insecta",
+        "order": "Hymenoptera",
+        "family": "Apidae",
+        "genus": "Apis",
+        "species": "Apis mellifera"
+      },
+      "animal_type": "insect",
+      "young_name": "larva",
+      "group_name": "colony",
+      "physical": {
+        "weight": "0.1 g (worker)",
+        "length": "1.2–1.5 cm (worker)",
+        "height": "",
+        "top_speed": "24 km/h",
+        "lifespan": "30–60 days (worker), up to 5 years (queen)"
+      },
+      "ecology": {
+        "diet": "Nectarivore",
+        "habitat": "Hives in gardens, meadows, and woodlands",
+        "locations": "Argentina, Australia, Brazil, Canada, Chinese Taipei, Dominican Republic, Ecuador, Egypt, France, Greece, Grenada, Guatemala, Israel, Martinique, Mexico, New Caledonia, New Zealand, Peru, Portugal, Puerto Rico, Saint Vincent and the Grenadines, Spain, United States of America",
+        "group_behavior": "Solitary",
+        "conservation_status": "Vulnerable",
+        "biggest_threat": "Human-wildlife conflict",
+        "distinctive_features": [
+          "Yellow and brown stripes",
+          "Waggle dance communication",
+          "Produce honey"
+        ],
+        "population_trend": ""
+      },
+      "reproduction": {
+        "gestation_period": "21–24 days",
+        "average_litter_size": "1,000–2,000",
+        "name_of_young": "larva"
+      },
+      "additional_info": {
+        "lifestyle": "",
+        "color": "",
+        "skin_type": "",
+        "prey": "",
+        "slogan": "",
+        "group": "colony",
+        "number_of_species": "two",
+        "estimated_population_size": "43",
+        "most_distinctive_feature": ""
+      },
+      "distribution": {
+        "countries": [
+          "Argentina",
+          "Australia",
+          "Brazil",
+          "Canada",
+          "Chinese Taipei",
+          "Dominican Republic",
+          "Ecuador",
+          "Egypt",
+          "France",
+          "Greece",
+          "Grenada",
+          "Guatemala",
+          "Israel",
+          "Martinique",
+          "Mexico",
+          "New Caledonia",
+          "New Zealand",
+          "Peru",
+          "Portugal",
+          "Puerto Rico",
+          "Saint Vincent and the Grenadines",
+          "Spain",
+          "United States of America"
+        ],
+        "coordinates": {
+          "min_lat": -43.577425,
+          "max_lat": 43.567205,
+          "min_lon": -119.716163,
+          "max_lon": 164.956147,
+          "count": 50
+        },
+        "occurrence_count": 1128255
+      },
+      "sources": [
+        "Wikipedia",
+        "iNaturalist",
+        "Wikidata",
+        "GBIF"
+      ],
+      "last_updated": "2026-03-21T21:38:11.632844",
+      "article": {
+        "overview": "The honey bee is a remarkable eusocial insect from the genus *Apis*, renowned for its intricate perennial nests and the production of honey. These flying insects build hexagonal wax cells within cavities, storing surplus food as honey, a resource that attracts many animals, including humans.",
+        "description": "Honey bees are typically small, with workers measuring about 1.2–1.5 cm in length and weighing around 0.1 g. They are characterized by their striped black and yellow or brown coloration, which serves as a warning to predators. Their most distinctive feature is their ability to secrete wax and construct complex, hexagonal combs for nesting and food storage.",
+        "habitat": "Honey bees are found in a wide range of habitats, including forests, meadows, and urban areas, where they can access flowering plants. They are native to Africa, Europe, and Asia but have been introduced to other parts of the world due to their value for pollination and honey production. These bees thrive in cavities, such as tree hollows or man-made hives, where they establish their colonies.",
+        "behavior": "As nectarivores, honey bees primarily feed on nectar and pollen, which they collect from flowers. They exhibit highly organized social behavior, with colonies consisting of a queen, workers, and drones, each with specific roles. Foraging bees travel at speeds of up to 24 km/h to gather resources, and they communicate through intricate dances to indicate food locations. The routine regurgitation of digested carbohydrates allows them to store honey as a food reserve.",
+        "conservation": "Honey bees are not currently considered endangered, but they face significant threats from habitat loss, pesticides, and diseases like Colony Collapse Disorder. Their populations are closely monitored due to their critical role in pollination and agriculture. Conservation efforts focus on reducing pesticide use and preserving natural habitats to support their survival."
+      },
+      "faqs": [
+        {
+          "id": "diet",
+          "question": "What does the honey bee eat?",
+          "answer": "Honey bees are nectarivores, feeding primarily on nectar and pollen collected from flowers. They also consume honey, which is stored as a food source during times when nectar is scarce."
+        },
+        {
+          "id": "habitat",
+          "question": "Where does the honey bee live?",
+          "answer": "Honey bees inhabit a variety of environments, including forests, meadows, and urban areas, and are found on every continent except Antarctica. They build their nests in cavities like tree hollows or man-made hives."
+        },
+        {
+          "id": "size",
+          "question": "How big does the honey bee get?",
+          "answer": "Worker honey bees are typically 1.2–1.5 cm in length and weigh about 0.1 g. Queens are larger, while drones are slightly smaller than workers but more robust in build."
+        },
+        {
+          "id": "conservation",
+          "question": "What is the conservation status of the honey bee?",
+          "answer": "Honey bees are not listed as endangered, but they face threats from pesticides, habitat loss, and diseases. Their populations are stable but monitored due to their ecological and agricultural importance."
+        },
+        {
+          "id": "lifespan",
+          "question": "How long does the honey bee live?",
+          "answer": "Worker honey bees live for 30–60 days, while queens can live up to 5 years. Drones have shorter lifespans, typically dying after mating or being expelled from the hive."
+        },
+        {
+          "id": "features",
+          "question": "What makes the honey bee unique?",
+          "answer": "Honey bees are unique for their eusocial structure, complex communication through dances, and ability to construct hexagonal wax combs. Their production of honey distinguishes them from other bee species."
+        },
+        {
+          "id": "danger",
+          "question": "Is the honey bee dangerous to humans?",
+          "answer": "Honey bees can sting if threatened, and their venom may cause allergic reactions in some individuals. However, they are generally not aggressive unless their hive is disturbed."
+        },
+        {
+          "id": "reproduction",
+          "question": "How does the honey bee reproduce?",
+          "answer": "Honey bees reproduce when drones mate with a queen, who then lays fertilized eggs in the hive. The queen can lay up to 2,000 eggs per day, ensuring colony growth and continuity."
+        }
+      ],
+      "featured": true,
+      "type": "insect",
+      "wikipediaTitle": "Honey Bee"
+    },
+    {
+      "id": "cat:Lion",
+      "name": "Lion",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Lion",
+      "image": ""
+    },
+    {
+      "id": "cat:Leopard",
+      "name": "Leopard",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Leopard",
+      "image": ""
+    },
+    {
+      "id": "cat:Jaguar",
+      "name": "Jaguar",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Jaguar",
+      "image": ""
+    },
+    {
+      "id": "cat:Snow leopard",
+      "name": "Snow leopard",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Snow leopard",
+      "image": ""
+    },
+    {
+      "id": "cat:Asian elephant",
+      "name": "Asian elephant",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Asian elephant",
+      "image": ""
+    },
+    {
+      "id": "cat:Brown bear",
+      "name": "Brown bear",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Brown bear",
+      "image": ""
+    },
+    {
+      "id": "cat:Polar bear",
+      "name": "Polar bear",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Polar bear",
+      "image": ""
+    },
+    {
+      "id": "cat:Giant panda",
+      "name": "Giant panda",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Giant panda",
+      "image": ""
+    },
+    {
+      "id": "cat:Red fox",
+      "name": "Red fox",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Red fox",
+      "image": ""
+    },
+    {
+      "id": "cat:Koala",
+      "name": "Koala",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Koala",
+      "image": ""
+    },
+    {
+      "id": "cat:Red kangaroo",
+      "name": "Red kangaroo",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Red kangaroo",
+      "image": ""
+    },
+    {
+      "id": "cat:Giraffe",
+      "name": "Giraffe",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Giraffe",
+      "image": ""
+    },
+    {
+      "id": "cat:Plains zebra",
+      "name": "Plains zebra",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Plains zebra",
+      "image": ""
+    },
+    {
+      "id": "cat:Hippopotamus",
+      "name": "Hippopotamus",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Hippopotamus",
+      "image": ""
+    },
+    {
+      "id": "cat:White rhinoceros",
+      "name": "White rhinoceros",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "White rhinoceros",
+      "image": ""
+    },
+    {
+      "id": "cat:Western gorilla",
+      "name": "Western gorilla",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Western gorilla",
+      "image": ""
+    },
+    {
+      "id": "cat:Chimpanzee",
+      "name": "Chimpanzee",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Chimpanzee",
+      "image": ""
+    },
+    {
+      "id": "cat:Orangutan",
+      "name": "Orangutan",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Orangutan",
+      "image": ""
+    },
+    {
+      "id": "cat:Horse",
+      "name": "Horse",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Horse",
+      "image": ""
+    },
+    {
+      "id": "cat:Cattle",
+      "name": "Cattle",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Cattle",
+      "image": ""
+    },
+    {
+      "id": "cat:Domestic pig",
+      "name": "Domestic pig",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Domestic pig",
+      "image": ""
+    },
+    {
+      "id": "cat:European rabbit",
+      "name": "Domestic rabbit",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "European rabbit",
+      "image": ""
+    },
+    {
+      "id": "cat:Eastern gray squirrel",
+      "name": "Eastern gray squirrel",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Eastern gray squirrel",
+      "image": ""
+    },
+    {
+      "id": "cat:Blue whale",
+      "name": "Blue whale",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Blue whale",
+      "image": ""
+    },
+    {
+      "id": "cat:Humpback whale",
+      "name": "Humpback whale",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Humpback whale",
+      "image": ""
+    },
+    {
+      "id": "cat:Killer whale",
+      "name": "Killer whale",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Killer whale",
+      "image": ""
+    },
+    {
+      "id": "cat:Sperm whale",
+      "name": "Sperm whale",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Sperm whale",
+      "image": ""
+    },
+    {
+      "id": "cat:Common bottlenose dolphin",
+      "name": "Bottlenose dolphin",
+      "scientific_name": "",
+      "featured": false,
+      "type": "mammal",
+      "wikipediaTitle": "Common bottlenose dolphin",
+      "image": ""
+    },
+    {
+      "id": "cat:Golden eagle",
+      "name": "Golden eagle",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Golden eagle",
+      "image": ""
+    },
+    {
+      "id": "cat:Peregrine falcon",
+      "name": "Peregrine falcon",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Peregrine falcon",
+      "image": ""
+    },
+    {
+      "id": "cat:Red-tailed hawk",
+      "name": "Red-tailed hawk",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Red-tailed hawk",
+      "image": ""
+    },
+    {
+      "id": "cat:Barn owl",
+      "name": "Barn owl",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Barn owl",
+      "image": ""
+    },
+    {
+      "id": "cat:Snowy owl",
+      "name": "Snowy owl",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Snowy owl",
+      "image": ""
+    },
+    {
+      "id": "cat:American flamingo",
+      "name": "American flamingo",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "American flamingo",
+      "image": ""
+    },
+    {
+      "id": "cat:Indian peafowl",
+      "name": "Indian peafowl",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Indian peafowl",
+      "image": ""
+    },
+    {
+      "id": "cat:Common ostrich",
+      "name": "Common ostrich",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Common ostrich",
+      "image": ""
+    },
+    {
+      "id": "cat:Emu",
+      "name": "Emu",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Emu",
+      "image": ""
+    },
+    {
+      "id": "cat:King penguin",
+      "name": "King penguin",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "King penguin",
+      "image": ""
+    },
+    {
+      "id": "cat:Mute swan",
+      "name": "Mute swan",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Mute swan",
+      "image": ""
+    },
+    {
+      "id": "cat:Canada goose",
+      "name": "Canada goose",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Canada goose",
+      "image": ""
+    },
+    {
+      "id": "cat:Mallard",
+      "name": "Mallard",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Mallard",
+      "image": ""
+    },
+    {
+      "id": "cat:Chicken",
+      "name": "Chicken",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Chicken",
+      "image": ""
+    },
+    {
+      "id": "cat:Wild turkey",
+      "name": "Wild turkey",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Wild turkey",
+      "image": ""
+    },
+    {
+      "id": "cat:Rock dove",
+      "name": "Rock dove",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Rock dove",
+      "image": ""
+    },
+    {
+      "id": "cat:American crow",
+      "name": "American crow",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "American crow",
+      "image": ""
+    },
+    {
+      "id": "cat:Common raven",
+      "name": "Common raven",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Common raven",
+      "image": ""
+    },
+    {
+      "id": "cat:Scarlet macaw",
+      "name": "Scarlet macaw",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Scarlet macaw",
+      "image": ""
+    },
+    {
+      "id": "cat:Ruby-throated hummingbird",
+      "name": "Ruby-throated hummingbird",
+      "scientific_name": "",
+      "featured": false,
+      "type": "bird",
+      "wikipediaTitle": "Ruby-throated hummingbird",
+      "image": ""
+    },
+    {
+      "id": "cat:Reticulated python",
+      "name": "Reticulated python",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Reticulated python",
+      "image": ""
+    },
+    {
+      "id": "cat:Western diamondback rattlesnake",
+      "name": "Western diamondback rattlesnake",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Western diamondback rattlesnake",
+      "image": ""
+    },
+    {
+      "id": "cat:Black mamba",
+      "name": "Black mamba",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Black mamba",
+      "image": ""
+    },
+    {
+      "id": "cat:Komodo dragon",
+      "name": "Komodo dragon",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Komodo dragon",
+      "image": ""
+    },
+    {
+      "id": "cat:Marine iguana",
+      "name": "Marine iguana",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Marine iguana",
+      "image": ""
+    },
+    {
+      "id": "cat:Veiled chameleon",
+      "name": "Veiled chameleon",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Veiled chameleon",
+      "image": ""
+    },
+    {
+      "id": "cat:Loggerhead sea turtle",
+      "name": "Loggerhead sea turtle",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Loggerhead sea turtle",
+      "image": ""
+    },
+    {
+      "id": "cat:Leatherback sea turtle",
+      "name": "Leatherback sea turtle",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Leatherback sea turtle",
+      "image": ""
+    },
+    {
+      "id": "cat:Galápagos giant tortoise",
+      "name": "Galapagos giant tortoise",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Galápagos giant tortoise",
+      "image": ""
+    },
+    {
+      "id": "cat:Nile crocodile",
+      "name": "Nile crocodile",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Nile crocodile",
+      "image": ""
+    },
+    {
+      "id": "cat:Saltwater crocodile",
+      "name": "Saltwater crocodile",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "Saltwater crocodile",
+      "image": ""
+    },
+    {
+      "id": "cat:American alligator",
+      "name": "American alligator",
+      "scientific_name": "",
+      "featured": false,
+      "type": "reptile",
+      "wikipediaTitle": "American alligator",
+      "image": ""
+    },
+    {
+      "id": "cat:Great hammerhead",
+      "name": "Hammerhead shark",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Great hammerhead",
+      "image": ""
+    },
+    {
+      "id": "cat:Tiger shark",
+      "name": "Tiger shark",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Tiger shark",
+      "image": ""
+    },
+    {
+      "id": "cat:Whale shark",
+      "name": "Whale shark",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Whale shark",
+      "image": ""
+    },
+    {
+      "id": "cat:Atlantic cod",
+      "name": "Atlantic cod",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Atlantic cod",
+      "image": ""
+    },
+    {
+      "id": "cat:Ocellaris clownfish",
+      "name": "Ocellaris clownfish",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Ocellaris clownfish",
+      "image": ""
+    },
+    {
+      "id": "cat:Anglerfish",
+      "name": "Anglerfish",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Anglerfish",
+      "image": ""
+    },
+    {
+      "id": "cat:Swordfish",
+      "name": "Swordfish",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Swordfish",
+      "image": ""
+    },
+    {
+      "id": "cat:Blue marlin",
+      "name": "Blue marlin",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Blue marlin",
+      "image": ""
+    },
+    {
+      "id": "cat:European eel",
+      "name": "European eel",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "European eel",
+      "image": ""
+    },
+    {
+      "id": "cat:Seahorse",
+      "name": "Great seahorse",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Seahorse",
+      "image": ""
+    },
+    {
+      "id": "cat:Tetraodontidae",
+      "name": "Pufferfish",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Tetraodontidae",
+      "image": ""
+    },
+    {
+      "id": "cat:Red-bellied piranha",
+      "name": "Red-bellied piranha",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Red-bellied piranha",
+      "image": ""
+    },
+    {
+      "id": "cat:Goldfish",
+      "name": "Goldfish",
+      "scientific_name": "",
+      "featured": false,
+      "type": "fish",
+      "wikipediaTitle": "Goldfish",
+      "image": ""
+    },
+    {
+      "id": "cat:Blue poison dart frog",
+      "name": "Blue poison dart frog",
+      "scientific_name": "",
+      "featured": false,
+      "type": "amphibian",
+      "wikipediaTitle": "Blue poison dart frog",
+      "image": ""
+    },
+    {
+      "id": "cat:Golden poison frog",
+      "name": "Golden poison frog",
+      "scientific_name": "",
+      "featured": false,
+      "type": "amphibian",
+      "wikipediaTitle": "Golden poison frog",
+      "image": ""
+    },
+    {
+      "id": "cat:European tree frog",
+      "name": "European tree frog",
+      "scientific_name": "",
+      "featured": false,
+      "type": "amphibian",
+      "wikipediaTitle": "European tree frog",
+      "image": ""
+    },
+    {
+      "id": "cat:Fire salamander",
+      "name": "Fire salamander",
+      "scientific_name": "",
+      "featured": false,
+      "type": "amphibian",
+      "wikipediaTitle": "Fire salamander",
+      "image": ""
+    },
+    {
+      "id": "cat:Eastern newt",
+      "name": "Eastern newt",
+      "scientific_name": "",
+      "featured": false,
+      "type": "amphibian",
+      "wikipediaTitle": "Eastern newt",
+      "image": ""
+    },
+    {
+      "id": "cat:Axolotl",
+      "name": "Axolotl",
+      "scientific_name": "",
+      "featured": false,
+      "type": "amphibian",
+      "wikipediaTitle": "Axolotl",
+      "image": ""
+    },
+    {
+      "id": "cat:Common toad",
+      "name": "Common toad",
+      "scientific_name": "",
+      "featured": false,
+      "type": "amphibian",
+      "wikipediaTitle": "Common toad",
+      "image": ""
+    },
+    {
+      "id": "cat:Western honey bee",
+      "name": "Western honey bee",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Western honey bee",
+      "image": ""
+    },
+    {
+      "id": "cat:Buff-tailed bumblebee",
+      "name": "Buff-tailed bumblebee",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Buff-tailed bumblebee",
+      "image": ""
+    },
+    {
+      "id": "cat:Black carpenter ant",
+      "name": "Western carpenter ant",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Black carpenter ant",
+      "image": ""
+    },
+    {
+      "id": "cat:Termite",
+      "name": "Termite",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Termite",
+      "image": ""
+    },
+    {
+      "id": "cat:Anax imperator",
+      "name": "Common dragonfly",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Anax imperator",
+      "image": ""
+    },
+    {
+      "id": "cat:Migratory locust",
+      "name": "Migratory locust",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Migratory locust",
+      "image": ""
+    },
+    {
+      "id": "cat:House cricket",
+      "name": "House cricket",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "House cricket",
+      "image": ""
+    },
+    {
+      "id": "cat:Coccinella septempunctata",
+      "name": "Seven-spot ladybird",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Coccinella septempunctata",
+      "image": ""
+    },
+    {
+      "id": "cat:Photinus pyralis",
+      "name": "Common firefly",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Photinus pyralis",
+      "image": ""
+    },
+    {
+      "id": "cat:Aedes aegypti",
+      "name": "Yellow fever mosquito",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Aedes aegypti",
+      "image": ""
+    },
+    {
+      "id": "cat:Housefly",
+      "name": "Housefly",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Housefly",
+      "image": ""
+    },
+    {
+      "id": "cat:Japanese rhinoceros beetle",
+      "name": "Japanese rhinoceros beetle",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Japanese rhinoceros beetle",
+      "image": ""
+    },
+    {
+      "id": "cat:Atlas moth",
+      "name": "Atlas moth",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Atlas moth",
+      "image": ""
+    },
+    {
+      "id": "cat:Mantis religiosa",
+      "name": "European mantis",
+      "scientific_name": "",
+      "featured": false,
+      "type": "insect",
+      "wikipediaTitle": "Mantis religiosa",
+      "image": ""
+    }
+  ]
+}
