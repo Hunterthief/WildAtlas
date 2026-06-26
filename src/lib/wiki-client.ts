@@ -230,9 +230,16 @@ export async function searchWikipediaClient(
   }
 }
 
-/** Load the static catalog JSON. */
+/** Load the static catalog JSON.
+ *  Uses a relative path so it works both in dev (/) and on GitHub Pages
+ *  (where the site is served from /WildAtlas/). */
 export async function loadStaticCatalog(): Promise<Animal[]> {
-  const res = await fetch("/animals-data.json");
+  // Determine the base path from the current URL.
+  // In dev: basePath is "" → fetch "/animals-data.json"
+  // On GitHub Pages: the site is at /WildAtlas/ → fetch "/WildAtlas/animals-data.json"
+  // Using a relative path "animals-data.json" works for both since the
+  // index.html is at the root of the site.
+  const res = await fetch("animals-data.json");
   if (!res.ok) throw new Error("Failed to load catalog");
   const data = await res.json();
   return data.animals as Animal[];
