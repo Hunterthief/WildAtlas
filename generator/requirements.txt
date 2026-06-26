@@ -1,6 +1,0 @@
-# generator/requirements.txt
-# WildAtlas Generator Dependencies
-
-# HTTP requests for API calls
-requests>=2.31.0
-beautifulsoup4>=4.12.0
